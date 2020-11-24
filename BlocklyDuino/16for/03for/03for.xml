@@ -1,0 +1,48 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="initializes_setup" id="19" x="80" y="40">
+    <comment pinned="true" h="51" w="161">印出偶數</comment>
+    <statement name="CONTENT">
+      <block type="serial_init" id="20">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="controls_for" id="21" inline="true">
+            <field name="VAR">i</field>
+            <value name="FROM">
+              <block type="math_number" id="22">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <value name="TO">
+              <block type="math_number" id="23">
+                <field name="NUM">10</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="serial_println" id="24" inline="false">
+                <value name="CONTENT">
+                  <block type="math_arithmetic" id="25" inline="true">
+                    <field name="OP">MULTIPLY</field>
+                    <value name="A">
+                      <block type="variables_get" id="26">
+                        <field name="TYPE">Number</field>
+                        <field name="VAR">i</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="27">
+                        <field name="NUM">2</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="28"></block>
+    </next>
+  </block>
+</xml>

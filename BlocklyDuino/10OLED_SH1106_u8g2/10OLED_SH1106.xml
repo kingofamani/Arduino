@@ -1,0 +1,79 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="initializes_setup" id="1" x="80" y="40">
+    <statement name="CONTENT">
+      <block type="oled_display_setting" id="52">
+        <field name="CHIPSET">SH1106</field>
+        <field name="PIN">PIN</field>
+        <field name="RESOLUTION">128x64</field>
+        <next>
+          <block type="oled_display_set_font" id="246">
+            <field name="FONT">u8g2_font_8x13_mf</field>
+            <next>
+              <block type="oled_display_clear" id="102"></block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="2">
+        <statement name="CONTENT">
+          <block type="oled_display_draw_commands" id="143">
+            <statement name="DRAW_CMD">
+              <block type="oled_display_draw_text" id="144" inline="true">
+                <value name="START_X">
+                  <block type="math_number" id="145">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <value name="START_Y">
+                  <block type="math_number" id="146">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <value name="CONTENT">
+                  <block type="text" id="147">
+                    <field name="TEXT">HELLO</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="oled_display_draw_line" id="148" inline="true">
+                    <value name="START_X">
+                      <block type="math_number" id="149">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                    <value name="START_Y">
+                      <block type="math_number" id="150">
+                        <field name="NUM">11</field>
+                      </block>
+                    </value>
+                    <value name="END_X">
+                      <block type="math_number" id="151">
+                        <field name="NUM">30</field>
+                      </block>
+                    </value>
+                    <value name="END_Y">
+                      <block type="math_number" id="152">
+                        <field name="NUM">11</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+            <next>
+              <block type="delay_custom" id="164" inline="false">
+                <value name="DELAY_TIME">
+                  <block type="math_number" id="165">
+                    <field name="NUM">2000</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

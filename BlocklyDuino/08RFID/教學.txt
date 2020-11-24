@@ -1,0 +1,3 @@
+先至「管理程式庫」安裝「MFRC522」
+
+BlocklyDuino3至「傳輸模組/RFID」拉積木

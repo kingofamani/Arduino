@@ -1,0 +1,70 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="initializes_setup" id="3" x="80" y="40">
+    <statement name="CONTENT">
+      <block type="serial_init" id="4">
+        <field name="SPEED">9600</field>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="5">
+        <statement name="CONTENT">
+          <block type="controls_if" id="6" inline="false">
+            <mutation else="1"></mutation>
+            <value name="IF0">
+              <block type="logic_compare" id="7" inline="true">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="inout_digital_read" id="8">
+                    <field name="PIN">3</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="inout_highlow" id="9">
+                    <field name="BOOL">HIGH</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="inout_buildin_led" id="10">
+                <field name="STAT">HIGH</field>
+                <next>
+                  <block type="serial_println" id="21" inline="false">
+                    <value name="CONTENT">
+                      <block type="text" id="22">
+                        <field name="TEXT">開</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="delay_custom" id="11" inline="false">
+                        <value name="DELAY_TIME">
+                          <block type="math_number" id="12">
+                            <field name="NUM">5000</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+            <statement name="ELSE">
+              <block type="inout_buildin_led" id="13">
+                <field name="STAT">LOW</field>
+                <next>
+                  <block type="serial_println" id="23" inline="false">
+                    <value name="CONTENT">
+                      <block type="text" id="24">
+                        <field name="TEXT">關</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

@@ -1,0 +1,33 @@
+
+
+
+左：數位(D11)
+中：GND
+右：5V
+
+1、工具/取得程式庫，搜尋「IRremote」，選擇「IRremote by shirriff」安裝
+2、至下方網址拖曳出IR Remote積木，然後按「Save XML」
+https://blockly.fusestudio.net/?lang=en#
+3、用BlocklyDuino開啟後，加入Serial及If就可以了
+
+
+IR PROTOCOLS  SEND     DECODE
+============= ======== ========
+RC5:          Enabled  Enabled
+RC6:          Enabled  Enabled
+NEC_STANDARD: Enabled  Disabled
+NEC:          Enabled  Enabled
+SONY:         Enabled  Enabled
+PANASONIC:    Enabled  Enabled
+JVC:          Enabled  Enabled
+SAMSUNG:      Enabled  Enabled
+WHYNTER:      Enabled  Enabled
+AIWA_RC_T501: Enabled  Enabled
+LG:           Enabled  Enabled
+SANYO:        Disabled Enabled
+MITSUBISHI:   Disabled Enabled
+DISH:         Enabled  Disabled
+SHARP:        Enabled  Enabled
+SHARP_ALT:    Enabled  Enabled
+DENON:        Enabled  Enabled
+BOSEWAVE:     Enabled  Enabled

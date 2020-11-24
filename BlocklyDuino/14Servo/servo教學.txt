@@ -1,0 +1,16 @@
+科技寶SYS-214050舵機/伺服馬達(黑色)
+黑	GND	
+紅	12V
+白	D3(PWM)
+
+Arduino套件SG90伺服馬達(藍色)
+褐	GND	
+紅	5V
+橘	D3(PWM)
+
+
+
+//避免抖動
+myservo.detach();//停止
+myservo.attach(3);//(重新)啟動
+

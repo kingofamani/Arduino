@@ -1,0 +1,146 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="procedures_defnoreturn" id="34" collapsed="true" x="613" y="63">
+    <mutation></mutation>
+    <field name="NAME">LCM1602_0</field>
+    <statement name="STACK">
+      <block type="customcode_head" id="3" inline="true">
+        <value name="text">
+          <block type="text" id="4">
+            <field name="TEXT">#include &lt;Wire.h&gt; </field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_head" id="5" inline="true">
+            <value name="text">
+              <block type="text" id="6">
+                <field name="TEXT">#include &lt;LiquidCrystal_I2C.h&gt;</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_head" id="7" inline="true">
+                <value name="text">
+                  <block type="text" id="8">
+                    <field name="TEXT">LiquidCrystal_I2C lcd(0x27,16,2);</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="37" collapsed="true" x="613" y="88">
+    <mutation></mutation>
+    <field name="NAME">LCM1602_1</field>
+    <statement name="STACK">
+      <block type="customcode_comment" id="10" inline="true">
+        <value name="text">
+          <block type="text" id="11">
+            <field name="TEXT">螢幕不能顯示中文</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_code" id="12" inline="true">
+            <value name="text">
+              <block type="text" id="13">
+                <field name="TEXT">lcd.init(); </field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_code" id="14" inline="true">
+                <value name="text">
+                  <block type="text" id="15">
+                    <field name="TEXT">lcd.backlight();</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="initializes_setup" id="9" x="88" y="138">
+    <statement name="CONTENT">
+      <block type="procedures_callnoreturn" id="45">
+        <mutation name="LCM1602_1"></mutation>
+        <next>
+          <block type="customcode_comment" id="16" inline="true">
+            <value name="text">
+              <block type="text" id="17">
+                <field name="TEXT">(往右,往下)16格*2行，從編號0開始算</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_code" id="18" inline="true">
+                <value name="text">
+                  <block type="text" id="19">
+                    <field name="TEXT">lcd.setCursor(2,0);</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_code" id="20" inline="true">
+                    <value name="text">
+                      <block type="text" id="21">
+                        <field name="TEXT">lcd.print("Hello, world!");</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_code" id="22" inline="true">
+                        <value name="text">
+                          <block type="text" id="23">
+                            <field name="TEXT">lcd.setCursor(0,1);</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="customcode_code" id="24" inline="true">
+                            <value name="text">
+                              <block type="text" id="25">
+                                <field name="TEXT">lcd.print("Ywrobot Arduino!");</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="delay_custom" id="26" inline="false">
+                                <value name="DELAY_TIME">
+                                  <block type="math_number" id="27">
+                                    <field name="NUM">5000</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="customcode_code" id="28" inline="true">
+                                    <value name="text">
+                                      <block type="text" id="29">
+                                        <field name="TEXT">lcd.clear();</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="customcode_code" id="30" inline="true">
+                                        <value name="text">
+                                          <block type="text" id="31">
+                                            <field name="TEXT">lcd.print("DEIN School...");</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="32"></block>
+    </next>
+  </block>
+</xml>

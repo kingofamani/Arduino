@@ -1,0 +1,13 @@
+安裝 U8glib
+
+VIN	5V
+GND	GND
+SCL	A5
+SDA	A4
+
+//正式寫專案時,要將amb及obj預設值刪除
+
+//正式寫專案時,將環境溫度及體溫傳入amb,obj：
+amb=mlx.readAmbientTempC();
+obj=mlx.readObjectTempC();
+

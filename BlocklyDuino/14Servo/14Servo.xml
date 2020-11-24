@@ -1,0 +1,17 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="initializes_setup" id="1" x="80" y="40">
+    <statement name="CONTENT">
+      <block type="servo_write" id="9" inline="true">
+        <field name="PIN">3</field>
+        <value name="ANGLE">
+          <block type="math_number" id="10">
+            <field name="NUM">45</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="2"></block>
+    </next>
+  </block>
+</xml>

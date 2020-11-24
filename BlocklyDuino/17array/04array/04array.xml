@@ -1,0 +1,83 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="initializes_setup" id="1" x="38" y="38">
+    <statement name="CONTENT">
+      <block type="serial_init" id="10">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="variables_set" id="27" inline="true">
+            <field name="TYPE">Array</field>
+            <field name="VAR">names</field>
+            <value name="VALUE">
+              <block type="array_create_with" id="19" inline="false">
+                <mutation items="5"></mutation>
+                <value name="ADD0">
+                  <block type="text" id="41">
+                    <field name="TEXT">加菲貓</field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="text" id="42">
+                    <field name="TEXT">蝙蝠俠</field>
+                  </block>
+                </value>
+                <value name="ADD2">
+                  <block type="text" id="45">
+                    <field name="TEXT">米奇老鼠</field>
+                  </block>
+                </value>
+                <value name="ADD3">
+                  <block type="text" id="44">
+                    <field name="TEXT">史努比</field>
+                  </block>
+                </value>
+                <value name="ADD4">
+                  <block type="text" id="43">
+                    <field name="TEXT">忍者龜</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="controls_for" id="58" inline="true">
+                <field name="VAR">i</field>
+                <value name="FROM">
+                  <block type="math_number" id="59">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <value name="TO">
+                  <block type="math_number" id="60">
+                    <field name="NUM">4</field>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="serial_println" id="81" inline="false">
+                    <value name="CONTENT">
+                      <block type="array_getIndex" id="72" inline="true">
+                        <value name="ITEM">
+                          <block type="variables_get" id="92">
+                            <field name="TYPE">Array</field>
+                            <field name="VAR">names</field>
+                          </block>
+                        </value>
+                        <value name="AT">
+                          <block type="variables_get" id="87">
+                            <field name="TYPE">Number</field>
+                            <field name="VAR">i</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="2"></block>
+    </next>
+  </block>
+</xml>

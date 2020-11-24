@@ -1,0 +1,143 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="initializes_setup" id="1" x="80" y="40">
+    <statement name="CONTENT">
+      <block type="serial_init" id="22">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="variables_set" id="28" inline="true">
+            <field name="TYPE">Array</field>
+            <field name="VAR">score</field>
+            <value name="VALUE">
+              <block type="array_create_with" id="32" inline="false">
+                <mutation items="5"></mutation>
+                <value name="ADD0">
+                  <block type="math_number" id="45">
+                    <field name="NUM">79</field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="math_number" id="46">
+                    <field name="NUM">95</field>
+                  </block>
+                </value>
+                <value name="ADD2">
+                  <block type="math_number" id="47">
+                    <field name="NUM">100</field>
+                  </block>
+                </value>
+                <value name="ADD3">
+                  <block type="math_number" id="55">
+                    <field name="NUM">99</field>
+                  </block>
+                </value>
+                <value name="ADD4">
+                  <block type="math_number" id="56">
+                    <field name="NUM">50</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="serial_println" id="91" inline="false">
+                <value name="CONTENT">
+                  <block type="array_getIndex" id="106" inline="true">
+                    <value name="ITEM">
+                      <block type="variables_get" id="121">
+                        <field name="TYPE">Array</field>
+                        <field name="VAR">score</field>
+                      </block>
+                    </value>
+                    <value name="AT">
+                      <block type="math_number" id="139">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="serial_println" id="140" inline="false">
+                    <value name="CONTENT">
+                      <block type="array_getIndex" id="141" inline="true">
+                        <value name="ITEM">
+                          <block type="variables_get" id="142">
+                            <field name="TYPE">Array</field>
+                            <field name="VAR">score</field>
+                          </block>
+                        </value>
+                        <value name="AT">
+                          <block type="math_number" id="143">
+                            <field name="NUM">2</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_println" id="144" inline="false">
+                        <value name="CONTENT">
+                          <block type="array_getIndex" id="145" inline="true">
+                            <value name="ITEM">
+                              <block type="variables_get" id="146">
+                                <field name="TYPE">Array</field>
+                                <field name="VAR">score</field>
+                              </block>
+                            </value>
+                            <value name="AT">
+                              <block type="math_number" id="147">
+                                <field name="NUM">3</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="serial_println" id="148" inline="false">
+                            <value name="CONTENT">
+                              <block type="array_getIndex" id="149" inline="true">
+                                <value name="ITEM">
+                                  <block type="variables_get" id="150">
+                                    <field name="TYPE">Array</field>
+                                    <field name="VAR">score</field>
+                                  </block>
+                                </value>
+                                <value name="AT">
+                                  <block type="math_number" id="151">
+                                    <field name="NUM">4</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="serial_println" id="152" inline="false">
+                                <value name="CONTENT">
+                                  <block type="array_getIndex" id="153" inline="true">
+                                    <value name="ITEM">
+                                      <block type="variables_get" id="154">
+                                        <field name="TYPE">Array</field>
+                                        <field name="VAR">score</field>
+                                      </block>
+                                    </value>
+                                    <value name="AT">
+                                      <block type="math_number" id="155">
+                                        <field name="NUM">5</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="2"></block>
+    </next>
+  </block>
+</xml>

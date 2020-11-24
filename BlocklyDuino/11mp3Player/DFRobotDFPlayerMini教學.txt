@@ -1,0 +1,13 @@
+安裝DFRobotDFPlayerMini
+
+TEMI MCB V2：
+腳位10改成7、11改成8，否則會與RFID衝突。
+
+Arduino UNO：
+直接用10,11即可，不會衝突。
+
+/*
+   讀取SD:01資料夾第num個mp3
+   ★命名規則：資料夾01~99、檔名001xxx.mp3~255xxx.mp3，其中xxx可為中文
+*/
+myDFPlayer.playFolder(2, myNumber);
