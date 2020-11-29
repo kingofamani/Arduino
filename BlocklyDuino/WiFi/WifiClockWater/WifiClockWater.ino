@@ -49,7 +49,7 @@ void setup() {
   server.onNotFound(handleNotFound);
 
   server.on("/on", turnOn);
-  server.on("/off", turnOff);
+  server.on("/off", turnOff);  
   server.on("/timing", timing);
   server.on("/settime", settime);
 
@@ -142,6 +142,7 @@ void stopWater() {
 
   CountDownSecs = 0;
 }
+
 
 void timing() {
   String msg = "<h1 style='color:red;'>設定澆花時間</h1>";

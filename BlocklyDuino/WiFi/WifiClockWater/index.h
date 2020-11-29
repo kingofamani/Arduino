@@ -28,9 +28,26 @@ String INDEX_PAGE = R"=====(
             background-repeat: no-repeat;
             background-attachment: fixed;  
             background-size: cover;'>
-    <div class='d-flex justify-content-center'>
-        <p style='margin:10px;color:#495057;'><i class="fas fa-map-marker-alt"></i> 客廳盆栽</p>
-    </div>
+
+    <ul class='nav justify-content-center'>
+        <!--1/3 首頁 start-->
+        <li class='nav-item'>
+            <a class='nav-link active' href='#'><i class='fas fa-chevron-circle-left' style='color:white;'></i></a>
+        </li>
+        <!--1/3 首頁 end-->
+
+        <!--2/3 目前裝置頁面 start-->
+        <li class='nav-item' style='margin-left:60px;margin-right: 60px;'>
+            <a class='nav-link disabled' href='#' style='color:white;' id='lblDeviceName'>客廳盆栽</a>
+        </li>
+        <!--2/3 目前裝置頁面 end-->
+
+        <!--3/3 設定頁面 start-->
+        <li class='nav-item'>
+            <a class='nav-link' href='/set'><i class='fas fa-ellipsis-h' style='color:white;'></i></a>
+        </li>
+        <!--3/3 設定頁面 end-->
+    </ul>
 
     <div class='d-flex justify-content-center'>
         <img src='https://drive.google.com/uc?id=15RmH0TdpxEy5XGtAeZdZ2CFPAqGW8a9u' id='imgWatering'>
@@ -83,7 +100,7 @@ String INDEX_PAGE = R"=====(
                 <span aria-hidden='true'>&times;</span>
             </button>
         </div>
-        <div class='toast-body' id="toastStart">
+        <div class='toast-body' id='toastStart'>
             開始澆花！
         </div>
     </div>
@@ -104,8 +121,11 @@ String INDEX_PAGE = R"=====(
 
 
     <script>
+        //裝置物件
+        var device_id = 'XDs8tTmwwyxUZDRIktW8';
+        var device_name = '';
+
         (function () {
-            
             //澆花圖片動畫
             var picIndex = 0;
             var picCount = 0;
@@ -130,7 +150,7 @@ String INDEX_PAGE = R"=====(
             }
 
             //延時秒數下拉清單
-            var countDownSecs=10;//預設澆花秒數
+            var countDownSecs = 10;//預設澆花秒數
             jQuery(function ($) {
                 $(document).on('click', 'button[id^=\'btnSec_\']', function (e) {
                     //秒數群組button的id名稱必須是btnSec_
@@ -153,7 +173,7 @@ String INDEX_PAGE = R"=====(
                 }
                 //httpRequest.timeout = 20000;
                 httpRequest.onreadystatechange = alertStart;
-                httpRequest.open('GET', '/on?s='+countDownSecs);
+                httpRequest.open('GET', '/on?s=' + countDownSecs);
                 httpRequest.send();
             }
 
@@ -174,9 +194,9 @@ String INDEX_PAGE = R"=====(
                     if (httpRequest.status === 200) {
                         //alert(httpRequest.responseText);
                         $('#toaStart').toast('show');
-                        $('#toastStart').text('開始澆花 '+countDownSecs+'秒！');
+                        $('#toastStart').text('開始澆花 ' + countDownSecs + '秒！');
                         startPicSlider();
-                        setTimeout(stopWater,countDownSecs*1000);
+                        setTimeout(stopWater, countDownSecs * 1000);
                         console.log(httpRequest.responseText);
                     } else {
                         alert('START There was a problem with the request.');
@@ -201,13 +221,50 @@ String INDEX_PAGE = R"=====(
 
             function stopWater() {
                 clearPicSlider();
-                $('#toaStop').toast('show'); 
+                $('#toaStop').toast('show');
             }
 
 
 
         })();
     </script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src='https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js'></script>
+    <script src='https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js'></script>
+
+    <script>
+        var firebaseConfig = {
+            apiKey: '',
+            authDomain: 'tp101-263911.firebaseapp.com',
+            databaseURL: 'https://tp101-263911.firebaseio.com',
+            projectId: 'tp101-263911',
+            storageBucket: 'tp101-263911.appspot.com',
+            messagingSenderId: '460831034065',
+            appId: '1:460831034065:web:52ea0bc43ab89db6e553f0',
+            measurementId: 'G-EV0K2XR7WM'
+        };
+        firebase.initializeApp(firebaseConfig);
+
+        var db = firebase.firestore();
+        
+        var docRef = db.collection('devices').doc(device_id);
+        docRef.get().then(function (doc) {
+            if (doc.exists) {
+                var device = doc.data();
+                //之後要改成class接收db object
+                device_name=device.name;
+                $('#lblDeviceName').text(device_name);
+            } else {
+                console.log('No such document!');
+            }
+        }).catch(function (error) {
+            console.log('Error getting document:', error);
+        });
+
+
+    </script>
+
 </body>
 
 </html>
