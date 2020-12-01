@@ -39,17 +39,20 @@ void setup() {
   //啟用WiFi
   WiFi.mode(WIFI_STA);
   WiFi.begin(WIFI_SSID, WIFI_PWD);
-  WiFi.config(STATIC_IP,GATEWAY,SUBNET);
+  WiFi.config(STATIC_IP, GATEWAY, SUBNET);
   while ( WiFi.status() != WL_CONNECTED ) {
     delay ( 500 );
     Serial.print ( "." );
   }
   Serial.println(WiFi.localIP());
+
+
+
   server.on("/", handleRoot);
   server.onNotFound(handleNotFound);
 
   server.on("/on", turnOn);
-  server.on("/off", turnOff);  
+  server.on("/off", turnOff);
   server.on("/timing", timing);
   server.on("/settime", settime);
 
@@ -86,18 +89,31 @@ void loop() {
 }//loop
 
 void handleNotFound() {
-  String message = "找不到網頁\n\n";
-  message += "URI: ";
-  message += server.uri();
-  message += "\nMethod: ";
-  message += (server.method() == HTTP_GET) ? "GET" : "POST";
-  message += "\nArguments: ";
-  message += server.args();
-  message += "\n";
-  for (uint8_t i = 0; i < server.args(); i++) {
-    message += " " + server.argName(i) + ": " + server.arg(i) + "\n";
-  }
-  server.send(404, "text/plain", message);
+//  if (server.method() == HTTP_OPTIONS)
+//  {
+//    server.sendHeader("Access-Control-Allow-Origin", "*");
+//    server.sendHeader("Access-Control-Max-Age", "10000");
+//    server.sendHeader("Access-Control-Allow-Methods", "PUT,POST,GET,OPTIONS");
+//    server.sendHeader("Access-Control-Allow-Headers", "*");
+//    server.send(204);
+//  }
+//  else
+//  {
+//    server.send(404, "text/plain", "error");
+//  }
+
+    String message = "找不到網頁\n\n";
+    message += "URI: ";
+    message += server.uri();
+    message += "\nMethod: ";
+    message += (server.method() == HTTP_GET) ? "GET" : "POST";
+    message += "\nArguments: ";
+    message += server.args();
+    message += "\n";
+    for (uint8_t i = 0; i < server.args(); i++) {
+      message += " " + server.argName(i) + ": " + server.arg(i) + "\n";
+    }
+    server.send(404, "text/plain", message);
 }
 
 void handleRoot() {
@@ -113,6 +129,7 @@ void turnOn() {
   }
   isBootCountDown = true;
 
+  server.sendHeader("Access-Control-Allow-Origin", "*");
   server.send(200, "text/plain", String(CountDownSecs) + "秒後，開始澆水");
   digitalWrite(D2, HIGH);
 
@@ -121,6 +138,7 @@ void turnOn() {
 
 
 void turnOff() {
+  server.sendHeader("Access-Control-Allow-Origin", "*");
   server.send(200, "text/plain", "Turn Off 水");
   Serial.println("強制關水");
   digitalWrite(D2, LOW);
