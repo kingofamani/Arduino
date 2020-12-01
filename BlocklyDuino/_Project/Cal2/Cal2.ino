@@ -3,22 +3,22 @@
  *
  * https://github.com/MediaTek-Labs/BlocklyDuino-for-LinkIt
  *
- * Date: Mon, 30 Nov 2020 06:02:54 GMT
+ * Date: Tue, 01 Dec 2020 00:52:03 GMT
  */
 
 #include <Keypad.h>
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
-String num;
+char N[] = "1234567890";
 
 boolean prime;
-
-int N[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
 
 char key;
 
 unsigned long number;
+
+String num;
 
 boolean isNum;
 
@@ -97,29 +97,26 @@ void setup()
 {
   Serial.begin(9600);
 
+  //num宣告在Setup()，若放在頭檔區會被初始在loop()變成""
+  num = "";
   LCM1602_1();
 }
 
 
 void loop()
 {
-  /*
-  ★★將要\\\'取代成\'
-*/
-num = "";
-
-key = (keypad.getKey());
+  key = (keypad.getKey());
   if (key) {
     lcd.clear();
     isNum = false;
     for (i = 0; i <= 9; i++) {
-      if ((N[i]) == (String(key).toInt())) {
+      if ((N[i]) == key) {
         isNum = true;
 
       }
     }
     if (isNum) {
-      num =  num + key;
+      num = String() + num + key;
       len = 16 - (num.length());
       lcd.setCursor(len, 0);
       lcd.print(num);
