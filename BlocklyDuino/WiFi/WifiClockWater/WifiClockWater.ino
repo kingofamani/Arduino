@@ -6,8 +6,7 @@
 #include <WiFiUdp.h>
 #include <SimpleTimer.h>
 
-#include "index.h"//自訂html頁面(用""，不能用<>)
-#include "secrets.h"
+#include "secrets.h"//自訂頁面(用""，不能用<>)
 
 
 
@@ -89,19 +88,6 @@ void loop() {
 }//loop
 
 void handleNotFound() {
-//  if (server.method() == HTTP_OPTIONS)
-//  {
-//    server.sendHeader("Access-Control-Allow-Origin", "*");
-//    server.sendHeader("Access-Control-Max-Age", "10000");
-//    server.sendHeader("Access-Control-Allow-Methods", "PUT,POST,GET,OPTIONS");
-//    server.sendHeader("Access-Control-Allow-Headers", "*");
-//    server.send(204);
-//  }
-//  else
-//  {
-//    server.send(404, "text/plain", "error");
-//  }
-
     String message = "找不到網頁\n\n";
     message += "URI: ";
     message += server.uri();
@@ -117,7 +103,8 @@ void handleNotFound() {
 }
 
 void handleRoot() {
-  server.send(200, "text/html", INDEX_PAGE);//INDEX_PAGE是index.h的String變數
+  server.send(200, "text/html", "home");
+//  server.send(200, "text/html", INDEX_PAGE);//INDEX_PAGE是index.h的String變數
 }
 
 void turnOn() {
@@ -129,7 +116,7 @@ void turnOn() {
   }
   isBootCountDown = true;
 
-  server.sendHeader("Access-Control-Allow-Origin", "*");
+  server.sendHeader("Access-Control-Allow-Origin", "*");//★要放在send之前
   server.send(200, "text/plain", String(CountDownSecs) + "秒後，開始澆水");
   digitalWrite(D2, HIGH);
 
