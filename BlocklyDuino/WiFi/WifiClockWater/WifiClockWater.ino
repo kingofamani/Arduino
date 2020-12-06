@@ -117,7 +117,7 @@ void turnOn() {
   isBootCountDown = true;
 
   server.sendHeader("Access-Control-Allow-Origin", "*");//★要放在send之前
-  server.send(200, "text/plain", String(CountDownSecs) + "秒後，開始澆水");
+  server.send(200, "text/plain",  "開始澆水 "+ String(CountDownSecs)+"秒");
   digitalWrite(D2, HIGH);
 
 }
