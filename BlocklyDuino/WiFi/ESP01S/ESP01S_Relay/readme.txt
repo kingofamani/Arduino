@@ -1,0 +1,4 @@
+●將ESP-01S放至TTL轉usb，將arduino程式上傳
+●開啟Serial看lan ip後，拔除USB，將ESP-01S放入Relay
+●Relay連接5V usb行動電源
+●開啟網頁，輸入ip即可控制
