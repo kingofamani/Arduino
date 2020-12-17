@@ -1,5 +1,8 @@
 NodeMCU
 http://arduino.esp8266.com/stable/package_esp8266com_index.json
+
+NodeMCU 外部供電須於 Vin 灌入 (5~10 V)
+Vin也可以當5V OUT
  
 ★腳位要看GPIO，例如GPIO5，就要寫pinMode(5,OUTPUT);
  
