@@ -15,12 +15,12 @@
 
 #include "camera_pins.h"
 
-const char* ssid = "HTCAMANI";
-const char* password = "12345678";
+//const char* ssid = "HTCAMANI";
+//const char* password = "12345678";
 //const char* ssid = "AMANI-4G-Home";
 //const char* password = "c41585c41585";
-//const char* ssid = "deyin-305ap";
-//const char* password = "22924152";
+const char* ssid = "tyes-itc";
+const char* password = "22924152";
 
 void startCameraServer();
 
