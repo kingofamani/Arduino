@@ -1,0 +1,1 @@
+!!!NEW/with ext. Antenna)!!! ESP32-CAM Housing (e.g. IP CAM) -- ESP32-CAM Gehäuse (z.B. IP-CAM) by SolarGermany on Thingiverse: https://www.thingiverse.com/thing:3949787
