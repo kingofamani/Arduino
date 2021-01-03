@@ -1,0 +1,322 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="procedures_defnoreturn" id="245" collapsed="true" x="763" y="-12">
+    <mutation></mutation>
+    <field name="NAME">mask1</field>
+    <statement name="STACK">
+      <block type="customcode_comment" id="818" inline="true">
+        <value name="text">
+          <block type="text" id="819">
+            <field name="TEXT">沒口罩 腳位(配合RPi GPIO 26)</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id="706" inline="true">
+            <field name="TYPE">Number</field>
+            <field name="VAR">PIN_NO_MASK</field>
+            <value name="VALUE">
+              <block type="math_number" id="717">
+                <field name="NUM">3</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_comment" id="820" inline="true">
+                <value name="text">
+                  <block type="text" id="825">
+                    <field name="TEXT">有口罩 腳位(配合RPi GPIO 19)</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set" id="733" inline="true">
+                    <field name="TYPE">Number</field>
+                    <field name="VAR">PIN_MASK</field>
+                    <value name="VALUE">
+                      <block type="math_number" id="734">
+                        <field name="NUM">4</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_comment" id="822" inline="true">
+                        <value name="text">
+                          <block type="text" id="826">
+                            <field name="TEXT">空 腳位(配合RPi GPIO 13)</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="variables_set" id="745" inline="true">
+                            <field name="TYPE">Number</field>
+                            <field name="VAR">PIN_NOTHING</field>
+                            <value name="VALUE">
+                              <block type="math_number" id="746">
+                                <field name="NUM">5</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="customcode_comment" id="823" inline="true">
+                                <value name="text">
+                                  <block type="text" id="827">
+                                    <field name="TEXT">LED 腳位</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="variables_set" id="762" inline="true">
+                                    <field name="TYPE">Number</field>
+                                    <field name="VAR">PIN_LED</field>
+                                    <value name="VALUE">
+                                      <block type="math_number" id="763">
+                                        <field name="NUM">8</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="variables_set" id="218" inline="true">
+                                        <field name="TYPE">Number</field>
+                                        <field name="VAR">count</field>
+                                        <value name="VALUE">
+                                          <block type="math_number" id="232">
+                                            <field name="NUM">0</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="customcode_comment" id="824" inline="true">
+                                            <value name="text">
+                                              <block type="text" id="828">
+                                                <field name="TEXT">是否戴口罩</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="variables_set" id="237" inline="true">
+                                                <field name="TYPE">Boolean</field>
+                                                <field name="VAR">isMasked</field>
+                                                <value name="VALUE">
+                                                  <block type="logic_boolean" id="243">
+                                                    <field name="BOOL">FALSE</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="679" collapsed="true" x="763" y="38">
+    <mutation></mutation>
+    <field name="NAME">m</field>
+    <statement name="STACK">
+      <block type="customcode_head" id="651" inline="true">
+        <value name="text">
+          <block type="text" id="652">
+            <field name="TEXT">bool mask(){</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_head" id="653" inline="true">
+            <value name="text">
+              <block type="text" id="654">
+                <field name="TEXT">  if(digitalRead(PIN_MASK) &amp;&amp; !digitalRead(PIN_NO_MASK) &amp;&amp; !digitalRead(PIN_NOTHING)){</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_head" id="665" inline="true">
+                <value name="text">
+                  <block type="text" id="666">
+                    <field name="TEXT">count ++; </field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_head" id="667" inline="true">
+                    <value name="text">
+                      <block type="text" id="668">
+                        <field name="TEXT">}else{</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_head" id="657" inline="true">
+                        <value name="text">
+                          <block type="text" id="658">
+                            <field name="TEXT">count =0;   </field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="customcode_head" id="659" inline="true">
+                            <value name="text">
+                              <block type="text" id="660">
+                                <field name="TEXT">}</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="customcode_head" id="661" inline="true">
+                                <value name="text">
+                                  <block type="text" id="662">
+                                    <field name="TEXT">delay(600);</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="customcode_head" id="663" inline="true">
+                                    <value name="text">
+                                      <block type="text" id="664">
+                                        <field name="TEXT">if(count &gt;=3){</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="customcode_head" id="669" inline="true">
+                                        <value name="text">
+                                          <block type="text" id="670">
+                                            <field name="TEXT">return true;</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="customcode_head" id="655" inline="true">
+                                            <value name="text">
+                                              <block type="text" id="656">
+                                                <field name="TEXT"> }else{</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="customcode_head" id="671" inline="true">
+                                                <value name="text">
+                                                  <block type="text" id="672">
+                                                    <field name="TEXT">return false;</field>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="customcode_head" id="673" inline="true">
+                                                    <value name="text">
+                                                      <block type="text" id="674">
+                                                        <field name="TEXT">}</field>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="customcode_head" id="675" inline="true">
+                                                        <value name="text">
+                                                          <block type="text" id="676">
+                                                            <field name="TEXT">}</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="initializes_setup" id="1" x="63" y="163">
+    <statement name="CONTENT">
+      <block type="serial_init" id="25">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="procedures_callnoreturn" id="770">
+            <mutation name="mask1"></mutation>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="2">
+        <statement name="CONTENT">
+          <block type="customcode_code" id="296" inline="true">
+            <value name="text">
+              <block type="text" id="297">
+                <field name="TEXT">isMasked = mask();</field>
+              </block>
+            </value>
+            <next>
+              <block type="controls_if" id="685" inline="false">
+                <mutation else="1"></mutation>
+                <value name="IF0">
+                  <block type="variables_get" id="699">
+                    <field name="TYPE">Boolean</field>
+                    <field name="VAR">isMasked</field>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="inout_custom_digital_write" id="854" inline="true">
+                    <value name="PIN">
+                      <block type="variables_get" id="871">
+                        <field name="TYPE">Number</field>
+                        <field name="VAR">PIN_LED</field>
+                      </block>
+                    </value>
+                    <value name="STAT">
+                      <block type="inout_highlow" id="856">
+                        <field name="BOOL">HIGH</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_println" id="879" inline="false">
+                        <value name="CONTENT">
+                          <block type="text" id="880">
+                            <field name="TEXT">已戴口罩 請通行</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <statement name="ELSE">
+                  <block type="inout_custom_digital_write" id="881" inline="true">
+                    <value name="PIN">
+                      <block type="variables_get" id="882">
+                        <field name="TYPE">Number</field>
+                        <field name="VAR">PIN_LED</field>
+                      </block>
+                    </value>
+                    <value name="STAT">
+                      <block type="inout_highlow" id="883">
+                        <field name="BOOL">LOW</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_println" id="884" inline="false">
+                        <value name="CONTENT">
+                          <block type="text" id="885">
+                            <field name="TEXT">XX禁止通行(請戴口罩)XX</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>
