@@ -15,8 +15,8 @@
 
 #include "camera_pins.h"
 
-const char* ssid = "HTCAMANI";
-const char* password = "12345678";
+const char* ssid = "AMANI-4G-Home";
+const char* password = "c41585c41585";
 
 void startCameraServer();
 
@@ -24,7 +24,9 @@ void setup() {
   Serial.begin(115200);
   Serial.setDebugOutput(true);
   Serial.println();
-  pinMode(2,OUTPUT);
+  //RGB 3色LED燈
+  pinMode(2,OUTPUT);//綠燈
+  pinMode(4,OUTPUT);//紅燈
 
   camera_config_t config;
   config.ledc_channel = LEDC_CHANNEL_0;
