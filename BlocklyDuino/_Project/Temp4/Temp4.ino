@@ -3,7 +3,7 @@
  *
  * https://github.com/MediaTek-Labs/BlocklyDuino-for-LinkIt
  *
- * Date: Thu, 21 Jan 2021 04:45:16 GMT
+ * Date: Wed, 17 Mar 2021 07:16:39 GMT
  */
 
 #include <SimpleTimer.h>
@@ -50,7 +50,7 @@ float WARNING_TEMPERATURE;
 
 //學生卡號與溫度
 const int NUMS = 6;
-String cards[NUMS] = { "B936FFC1", "7AEDED6E", "D0241E10", "91A64FE1", "",""};
+String cards[NUMS] = { "B936FFC1", "7AEDED6E", "D0241E10", "1ABCB76E", "6A62A76E",""};
 float temps[NUMS] = { 0.00, 0.00, 0.00, 0.00, 0.00, 0.00};
 //MP3宣告
 SoftwareSerial mySoftwareSerial(7, 8);
@@ -98,7 +98,7 @@ void var1() {
   //體溫
   obj = 0;
   //高溫警示
-  WARNING_TEMPERATURE = 0;
+  WARNING_TEMPERATURE = 37.5;
 }
 
 void mp3init() {
@@ -315,7 +315,7 @@ void loop()
   if (isScanCardId == true && obj > 34) {
     delay(2000);
     obj = mlx.readObjectTempC();//2秒後取得體溫,若還是>34度才取值
-    if (obj > 34) {
+    if (obj > 32) {
       timer.enable(playTempTimeId);//播體溫測量結果mp3
       isScanTemp = true;
       setTemp();//儲存同學體溫

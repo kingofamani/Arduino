@@ -3,7 +3,7 @@
  *
  * https://github.com/MediaTek-Labs/BlocklyDuino-for-LinkIt
  *
- * Date: Wed, 20 Jan 2021 05:46:47 GMT
+ * Date: Wed, 17 Mar 2021 06:44:58 GMT
  */
 
 #include <Wire.h>
@@ -71,12 +71,14 @@ void setup()
   name = "";
   LCM1602_1();
   hello();
-  pinMode(2, INPUT_PULLUP);
-  pinMode(4, INPUT_PULLUP);
+  //pinMode(2, INPUT_PULLUP);
+  //pinMode(4, INPUT_PULLUP);
   SPI.begin();
   rfid.PCD_Init();
 
   pinMode(8, OUTPUT);
+  pinMode(2, INPUT);
+  pinMode(4, INPUT);
 }
 
 
@@ -139,7 +141,7 @@ void loop()
     lcd.print("Face AI");
     lcd.setCursor(0,1);
     lcd.print("BOSS come home");
-    delay(3000);
+    delay(15000);
     hello();
 
   }
