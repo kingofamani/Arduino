@@ -3,7 +3,7 @@
  *
  * https://github.com/MediaTek-Labs/BlocklyDuino-for-LinkIt
  *
- * Date: Thu, 25 Mar 2021 01:46:01 GMT
+ * Date: Thu, 25 Mar 2021 10:17:48 GMT
  */
 
 #include <Stepper.h>
@@ -73,7 +73,7 @@ void a2() {
 }
 
 void motor() {
-  for (j = 0; j <= 15; j++) {
+  for (j = 0; j <= 7; j++) {
     myStepper.step(256);
   }
 }
@@ -95,8 +95,8 @@ void loop()
   button = digitalRead(9);
   if (button == 1) {
     //單色向上跑馬燈
-    theaterChase(pixels.Color(160,32,240), 50);
-    delay(1000);
+    theaterChase(pixels.Color(160,32,240), 350);
+    delay(2000);
     motor();
 
   } else {
