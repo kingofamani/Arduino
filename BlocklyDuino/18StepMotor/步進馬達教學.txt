@@ -15,3 +15,13 @@ Stepper myStepper(steps, 8, 10, 9, 11);
 Stepper myStepper(steps, 3, 5, 4, 7);
 
 馬達型號： 28BYJ-48
+
+★轉速調整，扭力會比較強
+	5V馬達：
+		int steps=2048;
+		myStepper.setSpeed(12);
+	12V馬達：
+		int steps=1024;
+		myStepper.setSpeed(15);
+	
+
