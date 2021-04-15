@@ -3,7 +3,7 @@
 #include <avr/power.h>
 #endif
 
-#define PIN        6// LED燈數位腳位
+#define PIN        13// LED燈數位腳位
 
 #define NUMPIXELS 24 // LED燈泡數
 
