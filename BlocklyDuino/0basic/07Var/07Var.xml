@@ -1,0 +1,90 @@
+<xml version="F1" board="Arduino Uno" xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="#V;4zHmqvQMo.V;?raLf">P</variable>
+    <variable id=")U0KwSet@m$OdfOtM0?;">Q</variable>
+  </variables>
+  <block type="initializes_setup" id="b*|GwTQ=Tu{C1g#s1|A/" x="170" y="130">
+    <statement name="CONTENT">
+      <block type="serial_init" id="B?rK1jWZ3P*e5YWno24:">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="variables_set" id="sHTuhM*)R{DY):.nJ#k.">
+            <field name="POSITION">global</field>
+            <field name="TYPE">int</field>
+            <field name="VAR" id="#V;4zHmqvQMo.V;?raLf">P</field>
+            <value name="VALUE">
+              <shadow type="math_number" id="0!kJg|Z(16=B4^O88Yl7">
+                <field name="NUM">80</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="variables_set" id="{YF^r/65B2_MbvK,o_C7">
+                <field name="POSITION">global</field>
+                <field name="TYPE">int</field>
+                <field name="VAR" id=")U0KwSet@m$OdfOtM0?;">Q</field>
+                <value name="VALUE">
+                  <shadow type="math_number" id="]CyTh:yBufU?eqBivT#K">
+                    <field name="NUM">100</field>
+                  </shadow>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="TZq?q5i/*J7!RNJi1;DO">
+        <statement name="CONTENT">
+          <block type="customcode_comment" id="S8{Q#MKU6M_8`cj{G_Rb">
+            <value name="text">
+              <block type="text" id="VMwzJ{)4[EhX:H}SxsXf">
+                <field name="TEXT">設定P=Q和Q=P的差異</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set3" id="=3h]zW7W=Alf61+)4W+3">
+                <field name="VAR" id="#V;4zHmqvQMo.V;?raLf">P</field>
+                <value name="DELTA">
+                  <shadow type="math_number" id="~wax|C3u?{SN+:Fs]:5+">
+                    <field name="NUM">0</field>
+                  </shadow>
+                  <block type="variables_get" id="D#l};ysg83BCt^F1?_(6">
+                    <field name="VAR" id=")U0KwSet@m$OdfOtM0?;">Q</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="serial_println" id="}%m$oU|V2B{,1N%,sC2K">
+                    <value name="CONTENT">
+                      <block type="variables_get" id="tZI^n1jP7+{kB^7DkmcB">
+                        <field name="VAR" id="#V;4zHmqvQMo.V;?raLf">P</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_println" id="l3pK#udz~kb(8_k5*tOs">
+                        <value name="CONTENT">
+                          <block type="variables_get" id="oTG|Ydg[bLhPLP`V6aP:">
+                            <field name="VAR" id=")U0KwSet@m$OdfOtM0?;">Q</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="delay_custom" id="z*h,=)!T#_q-%q7xLBq%">
+                            <value name="DELAY_TIME">
+                              <block type="math_number" id="$pxliV]zW0lbtzv4auX(">
+                                <field name="NUM">1000</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>
