@@ -3,32 +3,25 @@
  *
  * https://github.com/MediaTek-Labs/BlocklyDuino-for-LinkIt
  *
- * Date: Wed, 09 Dec 2020 00:34:49 GMT
+ * Date: Mon, 11 Oct 2021 07:04:11 GMT
  */
+/*  部份程式由吉哥積木產生  */
+/*  https://sites.google.com/jes.mlc.edu.tw/ljj/linkit7697  */
 
 
+String num = "15";
 
-String num;
+int number = (num.toInt());
 
-int number;
-
-String factor;
-
-int i;
+String factor = "";
 
 void setup()
 {
   Serial.begin(9600);
 
-  num = "2000";
-  number = (num.toInt());
-  factor = "";
-  for (i = 1;
-      (1 <= number) ? i <= number : i >= number;
-      i += (1 <= number) ? 1 : -1) {
+  for (int i = 1; i <= number; i++) {
     if (number % i == 0) {
-      factor = String() + factor + i + ",";
-
+      factor = String(factor)+String(i)+String(",");
     }
   }
   Serial.println(factor);

@@ -1,17 +1,18 @@
-<xml xmlns="http://www.w3.org/1999/xhtml">
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="W(x.y;w{xvjw}y7j{SFS">i</variable>
+    <variable id="lm2;F^BlE-ceT1kYC#;q">space</variable>
+    <variable id="c:EQ:r~zrFHeNL7i11q8">k</variable>
+    <variable id="bvIIQ)h`hxZK6$/XqwUF">num</variable>
+    <variable id="iy=_DPaS^mB{/F`6jUza">j</variable>
+  </variables>
   <block type="initializes_setup" id="3" x="88" y="-62">
-    <comment pinned="true" h="190" w="451">            ★
-         ★★★
-      ★★★★★
-   ★★★★★★★
-★★★★★★★★★
-    </comment>
     <statement name="CONTENT">
       <block type="serial_init" id="4">
         <field name="SPEED">9600</field>
         <next>
-          <block type="controls_for" id="5" inline="true">
-            <field name="VAR">i</field>
+          <block type="controls_for" id="5">
+            <field name="VAR" id="W(x.y;w{xvjw}y7j{SFS">i</field>
             <value name="FROM">
               <block type="math_number" id="6">
                 <field name="NUM">1</field>
@@ -23,18 +24,19 @@
               </block>
             </value>
             <statement name="DO">
-              <block type="customcode_comment" id="8" inline="true">
+              <block type="customcode_comment" id="8">
                 <value name="text">
                   <block type="text" id="9">
                     <field name="TEXT">印出空格</field>
                   </block>
                 </value>
                 <next>
-                  <block type="variables_set" id="10" inline="true">
-                    <field name="TYPE">Number</field>
-                    <field name="VAR">space</field>
+                  <block type="variables_set" id="10">
+                    <field name="POSITION">local</field>
+                    <field name="TYPE">int</field>
+                    <field name="VAR" id="lm2;F^BlE-ceT1kYC#;q">space</field>
                     <value name="VALUE">
-                      <block type="math_arithmetic" id="11" inline="true">
+                      <block type="math_arithmetic" id="11">
                         <field name="OP">MINUS</field>
                         <value name="A">
                           <block type="math_number" id="12">
@@ -43,8 +45,7 @@
                         </value>
                         <value name="B">
                           <block type="variables_get" id="13">
-                            <field name="TYPE">Number</field>
-                            <field name="VAR">i</field>
+                            <field name="VAR" id="W(x.y;w{xvjw}y7j{SFS">i</field>
                           </block>
                         </value>
                       </block>
@@ -52,12 +53,11 @@
                     <next>
                       <block type="controls_if" id="14" inline="false">
                         <value name="IF0">
-                          <block type="logic_compare" id="15" inline="true">
+                          <block type="logic_compare" id="15">
                             <field name="OP">NEQ</field>
                             <value name="A">
                               <block type="variables_get" id="16">
-                                <field name="TYPE">Number</field>
-                                <field name="VAR">space</field>
+                                <field name="VAR" id="lm2;F^BlE-ceT1kYC#;q">space</field>
                               </block>
                             </value>
                             <value name="B">
@@ -68,8 +68,8 @@
                           </block>
                         </value>
                         <statement name="DO0">
-                          <block type="controls_for" id="18" inline="true">
-                            <field name="VAR">k</field>
+                          <block type="controls_for" id="18">
+                            <field name="VAR" id="c:EQ:r~zrFHeNL7i11q8">k</field>
                             <value name="FROM">
                               <block type="math_number" id="19">
                                 <field name="NUM">1</field>
@@ -77,8 +77,7 @@
                             </value>
                             <value name="TO">
                               <block type="variables_get" id="20">
-                                <field name="TYPE">Number</field>
-                                <field name="VAR">space</field>
+                                <field name="VAR" id="lm2;F^BlE-ceT1kYC#;q">space</field>
                               </block>
                             </value>
                             <statement name="DO">
@@ -94,23 +93,23 @@
                           </block>
                         </statement>
                         <next>
-                          <block type="customcode_comment" id="23" inline="true">
+                          <block type="customcode_comment" id="23">
                             <value name="text">
                               <block type="text" id="24">
                                 <field name="TEXT">印出星星</field>
                               </block>
                             </value>
                             <next>
-                              <block type="variables_set" id="25" inline="true">
-                                <field name="TYPE">Number</field>
-                                <field name="VAR">num</field>
+                              <block type="variables_set" id="25">
+                                <field name="POSITION">local</field>
+                                <field name="TYPE">int</field>
+                                <field name="VAR" id="bvIIQ)h`hxZK6$/XqwUF">num</field>
                                 <value name="VALUE">
-                                  <block type="math_arithmetic" id="26" inline="true">
+                                  <block type="math_arithmetic" id="26">
                                     <field name="OP">MULTIPLY</field>
                                     <value name="A">
                                       <block type="variables_get" id="27">
-                                        <field name="TYPE">Number</field>
-                                        <field name="VAR">i</field>
+                                        <field name="VAR" id="W(x.y;w{xvjw}y7j{SFS">i</field>
                                       </block>
                                     </value>
                                     <value name="B">
@@ -121,16 +120,17 @@
                                   </block>
                                 </value>
                                 <next>
-                                  <block type="variables_set" id="29" inline="true">
-                                    <field name="TYPE">Number</field>
-                                    <field name="VAR">num</field>
-                                    <value name="VALUE">
-                                      <block type="math_arithmetic" id="30" inline="true">
+                                  <block type="variables_set3" id="_X;k8MnH@r.iZGr?Hri$">
+                                    <field name="VAR" id="bvIIQ)h`hxZK6$/XqwUF">num</field>
+                                    <value name="DELTA">
+                                      <shadow type="math_number" id="WNna,q3^T!oq-U6Olab|">
+                                        <field name="NUM">0</field>
+                                      </shadow>
+                                      <block type="math_arithmetic" id="30">
                                         <field name="OP">MINUS</field>
                                         <value name="A">
                                           <block type="variables_get" id="31">
-                                            <field name="TYPE">Number</field>
-                                            <field name="VAR">num</field>
+                                            <field name="VAR" id="bvIIQ)h`hxZK6$/XqwUF">num</field>
                                           </block>
                                         </value>
                                         <value name="B">
@@ -141,8 +141,8 @@
                                       </block>
                                     </value>
                                     <next>
-                                      <block type="controls_for" id="33" inline="true">
-                                        <field name="VAR">j</field>
+                                      <block type="controls_for" id="33">
+                                        <field name="VAR" id="iy=_DPaS^mB{/F`6jUza">j</field>
                                         <value name="FROM">
                                           <block type="math_number" id="34">
                                             <field name="NUM">1</field>
@@ -150,8 +150,7 @@
                                         </value>
                                         <value name="TO">
                                           <block type="variables_get" id="35">
-                                            <field name="TYPE">Number</field>
-                                            <field name="VAR">num</field>
+                                            <field name="VAR" id="bvIIQ)h`hxZK6$/XqwUF">num</field>
                                           </block>
                                         </value>
                                         <statement name="DO">

@@ -3,12 +3,13 @@
  *
  * https://github.com/MediaTek-Labs/BlocklyDuino-for-LinkIt
  *
- * Date: Mon, 26 Oct 2020 03:36:29 GMT
+ * Date: Mon, 11 Oct 2021 07:23:44 GMT
  */
+/*  部份程式由吉哥積木產生  */
+/*  https://sites.google.com/jes.mlc.edu.tw/ljj/linkit7697  */
 
 
-
-int score[] = {79, 95, 100, 99, 50};
+int score[] = {88, 95, 100, 99, 50};
 
 void setup()
 {

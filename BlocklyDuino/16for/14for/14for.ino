@@ -3,43 +3,29 @@
  *
  * https://github.com/MediaTek-Labs/BlocklyDuino-for-LinkIt
  *
- * Date: Mon, 26 Oct 2020 03:31:09 GMT
+ * Date: Mon, 11 Oct 2021 06:58:56 GMT
  */
+/*  部份程式由吉哥積木產生  */
+/*  https://sites.google.com/jes.mlc.edu.tw/ljj/linkit7697  */
 
-
-
-int i;
-
-int space;
-
-int  k;
-
-int num;
-
-int  j;
 
 void setup()
 {
   Serial.begin(9600);
 
-  for (i = 1; i <= 5; i++) {
+  for (int i = 1; i <= 5; i++) {
     //印出空格
-    space = 5 - i;
+    int space = 5 - i;
     if (space != 0) {
-      for (k = 1;
-          (1 <= space) ? k <= space : k >= space;
-          k += (1 <= space) ? 1 : -1) {
+      for (int k = 1; k <= space; k++) {
         // 全型空格
         Serial.print("　");
       }
-
     }
     //印出星星
-    num = i * 2;
+    int num = i * 2;
     num = num - 1;
-    for (j = 1;
-        (1 <= num) ? j <= num : j >= num;
-        j += (1 <= num) ? 1 : -1) {
+    for (int j = 1; j <= num; j++) {
       Serial.print("★");
     }
     Serial.println("");
@@ -49,10 +35,5 @@ void setup()
 
 void loop()
 {
-  //             ★
-//          ★★★
-//       ★★★★★
-//    ★★★★★★★
-// ★★★★★★★★★
 
 }
