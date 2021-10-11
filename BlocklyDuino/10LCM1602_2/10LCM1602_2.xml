@@ -1,0 +1,94 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="initializes_setup" id="CiFF~.FF7y?iDrO=lFqh" x="250" y="310">
+    <statement name="CONTENT">
+      <block type="lcd_i2c_setting" id="V2x1@tFs/6*X?RX8ZiKv">
+        <field name="LCD_DIM">1602</field>
+        <field name="PIN">PIN</field>
+        <field name="I2C_ADDRESS">0x27</field>
+        <next>
+          <block type="lcd_i2c_light" id="RvB=MvY-|K9,};0N_SN.">
+            <field name="BACKLIGHT_STATE">ON</field>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="e@j.`^Y7`N!c~,9=MMTI">
+        <statement name="CONTENT">
+          <block type="lcd_i2c_set_cursor" id="2us%u-c|MiDSF]QL7Y,i">
+            <comment pinned="true" h="75" w="285">0行就是第1行；0列就是第1列。
+直行橫列。
+            </comment>
+            <value name="COL">
+              <block type="math_number" id="LeQzARXT^;t;8f=5t=vF">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <value name="ROW">
+              <block type="math_number" id="F~+axc)[mdsT!_fzZDIA">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <next>
+              <block type="lcd_i2c_put" id="5RE^d6=-Cgvcd|R:REr$">
+                <value name="VALUE">
+                  <block type="text" id="tJjZvO44Bxl:UFV.hx#v">
+                    <field name="TEXT">HELLO</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="delay_custom" id="W1ayXc-7:NIWhpUbs!bK">
+                    <value name="DELAY_TIME">
+                      <block type="math_number" id="w_Ut%R*J#RxEq)rg-^Vd">
+                        <field name="NUM">1000</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="lcd_i2c_clear" id="P,1B=GB`5dBUI*4@EbrU">
+                        <next>
+                          <block type="lcd_i2c_set_cursor" id="3RjVp-I.NGr+OhOqhLZX">
+                            <value name="COL">
+                              <block type="math_number" id="EHUU|8r/[D*JJ./PGN-L">
+                                <field name="NUM">0</field>
+                              </block>
+                            </value>
+                            <value name="ROW">
+                              <block type="math_number" id="_Qu`,?X~o}a3$vyAlw|A">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="lcd_i2c_put" id="wWBJ$n2)pR8y^`{6_z$+">
+                                <value name="VALUE">
+                                  <block type="text" id="yVw(/]f_L+JVMPl-yi1u">
+                                    <field name="TEXT">DEIN</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="delay_custom" id="DQ.OHl}d*n0=BXvLxk2h">
+                                    <value name="DELAY_TIME">
+                                      <block type="math_number" id="j[DgBR;K{D8J.-zju%N=">
+                                        <field name="NUM">1000</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="lcd_i2c_clear" id="*A~K-rizT_uB+0Ww(_Uz"></block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

@@ -3,22 +3,28 @@
  *
  * https://github.com/MediaTek-Labs/BlocklyDuino-for-LinkIt
  *
- * Date: Mon, 11 Oct 2021 05:27:29 GMT
+ * Date: Mon, 11 Oct 2021 05:33:23 GMT
  */
 /*  部份程式由吉哥積木產生  */
 /*  https://sites.google.com/jes.mlc.edu.tw/ljj/linkit7697  */
 #include <Servo.h>
 
-Servo __myservo3;
+int A = 3;
+
+Servo __myservoA;
 
 void setup()
 {
-  __myservo3.attach(3);
-  __myservo3.write(0);
+  __myservoA.attach(A);
+  __myservoA.write(0);
+  delay(1000);
 }
 
 
 void loop()
 {
-
+  __myservoA.write(45);
+  delay(1000);
+  __myservoA.write(90);
+  delay(1000);
 }

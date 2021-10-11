@@ -11,3 +11,6 @@ SDA	A4
 amb=mlx.readAmbientTempC();
 obj=mlx.readObjectTempC();
 
+============================
+不要用U8g2，會和MXL90614衝突
+

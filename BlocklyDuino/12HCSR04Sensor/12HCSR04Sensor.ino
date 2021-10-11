@@ -3,22 +3,25 @@
  *
  * https://github.com/MediaTek-Labs/BlocklyDuino-for-LinkIt
  *
- * Date: Mon, 11 Oct 2021 05:27:29 GMT
+ * Date: Mon, 11 Oct 2021 03:47:41 GMT
  */
 /*  部份程式由吉哥積木產生  */
 /*  https://sites.google.com/jes.mlc.edu.tw/ljj/linkit7697  */
-#include <Servo.h>
+#include <Ultrasonic.h>
 
-Servo __myservo3;
+Ultrasonic ultrasonic_(5, 6);
 
 void setup()
 {
-  __myservo3.attach(3);
-  __myservo3.write(0);
+  Serial.begin(9600);
+
+
 }
 
 
 void loop()
 {
-
+  // 公分
+  Serial.println(ultrasonic_.convert(ultrasonic_.timing(), Ultrasonic::CM));
+  delay(200);
 }

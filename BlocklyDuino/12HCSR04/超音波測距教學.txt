@@ -1,8 +1,0 @@
-安裝Ultrasonic by ErickSimoes的函式庫
-
-VCC		5V
-Trig	5
-Echo	6
-GND		GND
-
-Ultrasonic ultrasonic(5, 6);//(Trig,Echo)不要接11,12，會與RFID衝突
