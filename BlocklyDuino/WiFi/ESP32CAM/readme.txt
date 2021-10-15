@@ -3,6 +3,7 @@ https://dl.espressif.com/dl/package_esp32_index.json
 2、工具/開發板/開發板管理員，安裝esp32
 
 教學：
+https://sites.google.com/site/wenyuwebbit/22-esp32-cam/01-%E8%AA%8D%E8%AD%98esp32-cam
 https://sites.google.com/site/wenyuwebbit/22-esp32-cam/01-ren-shiesp32-cam
 範例/ESP23/camera/CameraWebServer：
 	L.14選用#define CAMERA_MODEL_AI_THINKER	

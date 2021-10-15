@@ -1,5 +1,8 @@
 安裝 U8glib
 
+★沒有積木，老師自己寫的，
+ 以後要用時，用匯入的方式到你自己的專案裡。
+
 VIN	5V
 GND	GND
 SCL	A5
@@ -12,5 +15,5 @@ amb=mlx.readAmbientTempC();
 obj=mlx.readObjectTempC();
 
 ============================
-不要用U8g2，會和MXL90614衝突
+和MXL90614相容
 
