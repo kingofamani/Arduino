@@ -1,0 +1,75 @@
+/*
+ * Generated using BlocklyDuino:
+ *
+ * https://github.com/MediaTek-Labs/BlocklyDuino-for-LinkIt
+ *
+ * Date: Mon, 27 Dec 2021 01:13:24 GMT
+ */
+/*  部份程式由吉哥積木產生  */
+/*  https://sites.google.com/jes.mlc.edu.tw/ljj/linkit7697  */
+#include <WiFi.h>
+#include <WiFiClientSecure.h>
+
+char _lwifi_ssid[] = "AMANI-4G-Home2";
+char _lwifi_pass[] = "c41585c41585";
+const char* asId="AKfycbyR-Yp-uu4nIvnjvnkILaQ5AX8yFxp-UpBO-Sqs0su3ai1N_BvQsz_Q";
+String sheetId="";
+String sheetTag="";
+
+String URLEncode(const char* msg)
+{
+  const char *hex = "0123456789abcdef";
+  String encodedMsg = "";
+  while (*msg!='\0'){
+      if( ('a' <= *msg && *msg <= 'z')
+              || ('A' <= *msg && *msg <= 'Z')
+              || ('0' <= *msg && *msg <= '9') ) {
+          encodedMsg += *msg;
+      } else {
+          encodedMsg += '%';
+          encodedMsg += hex[*msg >> 4];
+          encodedMsg += hex[*msg & 15];
+      }
+      msg++;
+  }
+  return encodedMsg;
+}
+
+void  sendToGoogleSheets(const String& dateInclude,const String& data)
+{
+  static WiFiClientSecure sheetClient;
+  const char* host="script.google.com";
+  if (sheetClient.connect(host, 443)) {
+      const String url = String() +"https://"+host+"/macros/s/"+asId+"/exec?type=insert&dateInclude="+dateInclude+"&sheetId="+sheetId+"&sheetTag="+sheetTag+"&data="+data;
+      sheetClient.println("GET " + url + " HTTP/1.1");
+      sheetClient.println(String()+"Host: "+host);
+      sheetClient.println("Accept: */*");
+      sheetClient.println("Connection: close");
+      sheetClient.println();
+      sheetClient.println();
+      sheetClient.stop();
+  }
+}
+
+void setup()
+{
+  Serial.begin(115200);
+
+  WiFi.disconnect();
+  WiFi.softAPdisconnect(true);
+  WiFi.mode(WIFI_STA);
+  WiFi.begin(_lwifi_ssid, _lwifi_pass);
+  while (WiFi.status() != WL_CONNECTED) { delay(500); }
+  delay(300);
+  sheetId="1EhpZyQILsXqWKgGFPZdoaBGQzfcb2x20n4-tTqJc-uI";
+  sheetTag=URLEncode("count");
+  delay(1000);
+}
+
+
+void loop()
+{
+  sendToGoogleSheets("1",URLEncode((String() + "abc").c_str()));
+  delay(3000);
+  Serial.println("完成");
+}
