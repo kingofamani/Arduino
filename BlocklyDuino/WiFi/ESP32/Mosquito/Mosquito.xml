@@ -41,7 +41,7 @@
                 <field name="VAR" id="W_z(38_I8U$5wp*d)?}E">BUZZER_TIME</field>
                 <value name="VALUE">
                   <shadow type="math_number" id="aoG*LqkkJ)+s4*T_E=uk">
-                    <field name="NUM">1000</field>
+                    <field name="NUM">100</field>
                   </shadow>
                 </value>
               </block>
@@ -96,31 +96,6 @@
                             <field name="NUM">1000</field>
                           </block>
                         </value>
-                        <next>
-                          <block type="procedures_callnoreturn" id=".5J6jMXHM|PTsjsD%T,Z">
-                            <mutation xmlns="http://www.w3.org/1999/xhtml" name="tone32"></mutation>
-                            <value name="VAR">
-                              <block type="lists_create_with" id="puJv~S)s8ZvOOy2vUg]v">
-                                <mutation items="3"></mutation>
-                                <value name="ADD0">
-                                  <block type="variables_get" id="R%?K:OOeDYeXBS{U|?Ed">
-                                    <field name="VAR" id="Y,3qf58k,pxNTp^-A[41">BUZZER_PIN</field>
-                                  </block>
-                                </value>
-                                <value name="ADD1">
-                                  <block type="variables_get" id="f~=n21!fl)aPyKB/efKb">
-                                    <field name="VAR" id="k#Od|,suWW8*MzTju`Kz">BUZZER_FRE</field>
-                                  </block>
-                                </value>
-                                <value name="ADD2">
-                                  <block type="variables_get" id="|{^ewBC8DKeoJGgeQIam">
-                                    <field name="VAR" id="W_z(38_I8U$5wp*d)?}E">BUZZER_TIME</field>
-                                  </block>
-                                </value>
-                              </block>
-                            </value>
-                          </block>
-                        </next>
                       </block>
                     </next>
                   </block>
@@ -134,78 +109,112 @@
     <next>
       <block type="initializes_loop" id="1">
         <statement name="CONTENT">
-          <block type="serial_println" id="^xKize_+A(4RCaB;[)3+">
-            <value name="CONTENT">
-              <block type="inout_custom_analog_read" id="FfLp8c.a+FgW}dc]*ymB">
-                <value name="PIN_ANALOGREAD">
-                  <block type="math_number" id="EbyNQ*/;Q.Z5?xq;P*8$">
-                    <field name="NUM">15</field>
+          <block type="procedures_callnoreturn" id=".5J6jMXHM|PTsjsD%T,Z">
+            <mutation xmlns="http://www.w3.org/1999/xhtml" name="tone32"></mutation>
+            <value name="VAR">
+              <block type="lists_create_with" id="puJv~S)s8ZvOOy2vUg]v">
+                <mutation items="3"></mutation>
+                <value name="ADD0">
+                  <block type="variables_get" id="R%?K:OOeDYeXBS{U|?Ed">
+                    <field name="VAR" id="Y,3qf58k,pxNTp^-A[41">BUZZER_PIN</field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="variables_get" id="f~=n21!fl)aPyKB/efKb">
+                    <field name="VAR" id="k#Od|,suWW8*MzTju`Kz">BUZZER_FRE</field>
+                  </block>
+                </value>
+                <value name="ADD2">
+                  <block type="variables_get" id="|{^ewBC8DKeoJGgeQIam">
+                    <field name="VAR" id="W_z(38_I8U$5wp*d)?}E">BUZZER_TIME</field>
                   </block>
                 </value>
               </block>
             </value>
             <next>
-              <block type="controls_if" id="EP8^#he:X1GCPrccwxm2">
-                <mutation else="1"></mutation>
-                <value name="IF0">
-                  <block type="logic_compare" id="`/B9agk9B5KN2~hMX(F3">
-                    <field name="OP">LT</field>
-                    <value name="A">
-                      <block type="inout_custom_analog_read" id="{)Y_h6D}.tKw+PkLv(a*">
-                        <value name="PIN_ANALOGREAD">
-                          <block type="math_number" id="K8]26E})6:t+DD#mh~Z1">
-                            <field name="NUM">15</field>
-                          </block>
-                        </value>
-                      </block>
-                    </value>
-                    <value name="B">
-                      <block type="math_number" id="8]/WjoSQ1tr-G5]oylQ2">
-                        <field name="NUM">1500</field>
+              <block type="serial_println" id="^xKize_+A(4RCaB;[)3+">
+                <value name="CONTENT">
+                  <block type="inout_custom_analog_read" id="FfLp8c.a+FgW}dc]*ymB">
+                    <value name="PIN_ANALOGREAD">
+                      <block type="math_number" id="EbyNQ*/;Q.Z5?xq;P*8$">
+                        <field name="NUM">39</field>
                       </block>
                     </value>
                   </block>
                 </value>
-                <statement name="DO0">
-                  <block type="sendToGoogle" id="XgL!`V,ZNsnIp6]Ac,59">
-                    <field name="dateInclude">1</field>
-                    <value name="data">
-                      <block type="data_join" id="gL+i|8k`IRr;vn?JXt@B" inline="false">
-                        <mutation items="1"></mutation>
-                        <value name="ADD0">
-                          <block type="text" id=".7ihM29rln3i,[fa7Qps">
-                            <field name="TEXT">有蚊子1隻</field>
+                <next>
+                  <block type="controls_if" id="EP8^#he:X1GCPrccwxm2">
+                    <mutation else="1"></mutation>
+                    <value name="IF0">
+                      <block type="logic_compare" id="`/B9agk9B5KN2~hMX(F3">
+                        <field name="OP">LT</field>
+                        <value name="A">
+                          <block type="inout_custom_analog_read" id="{)Y_h6D}.tKw+PkLv(a*">
+                            <value name="PIN_ANALOGREAD">
+                              <block type="math_number" id="K8]26E})6:t+DD#mh~Z1">
+                                <field name="NUM">39</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="8]/WjoSQ1tr-G5]oylQ2">
+                            <field name="NUM">1500</field>
                           </block>
                         </value>
                       </block>
                     </value>
+                    <statement name="DO0">
+                      <block type="serial_println" id="taWC35yHQp0nhcEw3Qg;">
+                        <value name="CONTENT">
+                          <block type="text" id="uW`8R`kY%cFdgbamtPbx">
+                            <field name="TEXT">電擊到蚊子，上傳google試算表儲存中…</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="sendToGoogle" id="XgL!`V,ZNsnIp6]Ac,59">
+                            <field name="dateInclude">1</field>
+                            <value name="data">
+                              <block type="data_join" id="gL+i|8k`IRr;vn?JXt@B" inline="false">
+                                <mutation items="1"></mutation>
+                                <value name="ADD0">
+                                  <block type="text" id=".7ihM29rln3i,[fa7Qps">
+                                    <field name="TEXT">有蚊子1隻</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="delay_custom" id="D;*DjpS{`|hItSqEDsiQ">
+                                <value name="DELAY_TIME">
+                                  <block type="math_number" id="loC_DDl3}TIR*)aK1Lus">
+                                    <field name="NUM">1000</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                    <statement name="ELSE">
+                      <block type="serial_println" id="a8lG@?rfC,Tco345xBm@">
+                        <value name="CONTENT">
+                          <block type="text" id="csnw_k4ioN-%u7*Gq2N(">
+                            <field name="TEXT">沒有蚊子</field>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
                     <next>
-                      <block type="delay_custom" id="D;*DjpS{`|hItSqEDsiQ">
+                      <block type="delay_custom" id="~GAYXI0g0Z3y0du$?NIG">
                         <value name="DELAY_TIME">
-                          <block type="math_number" id="loC_DDl3}TIR*)aK1Lus">
-                            <field name="NUM">1000</field>
+                          <block type="math_number" id="=ljZ_}6.mm+Ff4[S71uG">
+                            <field name="NUM">10</field>
                           </block>
                         </value>
                       </block>
                     </next>
-                  </block>
-                </statement>
-                <statement name="ELSE">
-                  <block type="serial_println" id="a8lG@?rfC,Tco345xBm@">
-                    <value name="CONTENT">
-                      <block type="text" id="csnw_k4ioN-%u7*Gq2N(">
-                        <field name="TEXT">沒有蚊子</field>
-                      </block>
-                    </value>
-                  </block>
-                </statement>
-                <next>
-                  <block type="delay_custom" id="~GAYXI0g0Z3y0du$?NIG">
-                    <value name="DELAY_TIME">
-                      <block type="math_number" id="=ljZ_}6.mm+Ff4[S71uG">
-                        <field name="NUM">1000</field>
-                      </block>
-                    </value>
                   </block>
                 </next>
               </block>

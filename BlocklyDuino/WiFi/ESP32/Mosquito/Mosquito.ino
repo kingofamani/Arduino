@@ -3,7 +3,7 @@
  *
  * https://github.com/MediaTek-Labs/BlocklyDuino-for-LinkIt
  *
- * Date: Mon, 27 Dec 2021 04:03:39 GMT
+ * Date: Thu, 30 Dec 2021 00:28:33 GMT
  */
 /*  部份程式由吉哥積木產生  */
 /*  https://sites.google.com/jes.mlc.edu.tw/ljj/linkit7697  */
@@ -17,7 +17,7 @@ int BUZZER_CHANNEL = 0;
 
 int BUZZER_FRE = 400;
 
-int BUZZER_TIME = 1000;
+int BUZZER_TIME = 100;
 
 char _lwifi_ssid[] = "AMANI-4G-Home2";
 char _lwifi_pass[] = "c41585c41585";
@@ -78,18 +78,19 @@ void setup()
   sheetId="1EhpZyQILsXqWKgGFPZdoaBGQzfcb2x20n4-tTqJc-uI";
   sheetTag=URLEncode("count");
   delay(1000);
-  tone32(BUZZER_PIN, BUZZER_FRE, BUZZER_TIME);
 }
 
 
 void loop()
 {
-  Serial.println(analogRead(15));
-  if (analogRead(15) < 1500) {
+  tone32(BUZZER_PIN, BUZZER_FRE, BUZZER_TIME);
+  Serial.println(analogRead(39));
+  if (analogRead(39) < 1500) {
+    Serial.println("電擊到蚊子，上傳google試算表儲存中…");
     sendToGoogleSheets("1",URLEncode((String() + "有蚊子1隻").c_str()));
     delay(1000);
   } else {
     Serial.println("沒有蚊子");
   }
-  delay(1000);
+  delay(10);
 }

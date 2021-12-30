@@ -18,6 +18,8 @@ https://dl.espressif.com/dl/package_esp32_index.json
 	標示ADC(橘色)都是。
 	使用時pin還是以GPIO號碼，
 	例如類比讀取右下角第3腳位analogRead(15)
+	
+	與WiFi相容的類比腳位：GPIO 32、34～39
 PWM腳位：
 	需三個步驟：
 	http://www.tshopping.com.tw/thread-262348-1-1.html
