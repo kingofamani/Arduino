@@ -1,0 +1,5 @@
+Q：加入網路時間出現bug：
+/home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/queue.c:1442 (xQueueGenericReceive)- assert failed!
+A：開發板管理員，更新esp32即可。
+
+

@@ -1,0 +1,5 @@
+Arduino IDE
+[檔案] > [範例] > [ESP] > [Time] > SimpleTime
+
+更好的教學：
+https://randomnerdtutorials.com/esp32-date-time-ntp-client-server-arduino/
