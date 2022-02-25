@@ -102,7 +102,7 @@ void loop()
 
 tone32(BUZZER_PIN, BUZZER_FRE, BUZZER_TIME);
   Serial.println(analogRead(39));
-  if (analogRead(39) > 2000) {
+  if (analogRead(39) > 4000) {
     Serial.println("電擊到蚊子，上傳google試算表儲存中…");
     printLocalTime();
     makeIFTTTRequest();
