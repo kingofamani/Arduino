@@ -1,3 +1,6 @@
+XXXX BlocklyDuino的google試算表積木壞了
+請改用Mosquito2以IFTTT連接的方式
+
 BlocklyDuino無法上傳ESP32，連第四個按鈕Arduino IDE也不行。
 只好將程式碼則在另行安裝的Arduino.exe
 

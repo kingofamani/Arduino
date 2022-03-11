@@ -1,3 +1,6 @@
+XXXX BlocklyDuino的google試算表積木壞了
+請改用Mosquito2以IFTTT連接的方式
+
 開發板：DOIT ESP32 DEVKIT V1
 
 Wi-Fi積木：

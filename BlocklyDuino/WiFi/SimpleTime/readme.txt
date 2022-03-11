@@ -1,3 +1,5 @@
+相容ESP32的WIFI函式庫
+
 Arduino IDE
 [檔案] > [範例] > [ESP] > [Time] > SimpleTime
 
