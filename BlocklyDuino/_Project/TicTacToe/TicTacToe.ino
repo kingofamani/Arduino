@@ -3,7 +3,7 @@
  *
  * https://github.com/MediaTek-Labs/BlocklyDuino-for-LinkIt
  *
- * Date: Sat, 12 Mar 2022 14:21:58 GMT
+ * Date: Sun, 13 Mar 2022 01:12:12 GMT
  */
 /*  部份程式由吉哥積木產生  */
 /*  https://sites.google.com/jes.mlc.edu.tw/ljj/linkit7697  */
@@ -21,6 +21,10 @@ void setup()
 {
   Serial.begin(9600);
 
+  //pos下棋的位置
+  //go玩家(圈or叉)
+  //board整個棋盤
+  //wins連線獲勝的8種情況
   Serial.println((String("請玩家")+String(go)+String("開始下棋(輸入1~9)：")));
 }
 
@@ -28,12 +32,13 @@ void setup()
 void loop()
 {
   if (Serial.available() == 1) {
-    //下一棋
+    //1、玩家下一棋
+    //playerBoard目前玩家下棋的所有位置
     int playerBoard[9] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
     pos = Serial.read();
     Serial.println(pos);
     board[String(pos).toInt() - 1] = go;
-    //顯示五子棋所有位置
+    //2、顯示五子棋所有位置
     for (int i = 0; i <= 8; i++) {
       Serial.print((board[i]));
       Serial.print(",");
@@ -41,8 +46,8 @@ void loop()
         Serial.println("");
       }
     }
-    //判斷勝負
-    //先取出目前遊戲者(圈or叉)下棋的位置
+    //3、判斷勝負
+    //3-1先取出目前遊戲者(圈or叉)下棋的位置
     int count = 0;
     for (int i = 0; i <= (sizeof(board)/sizeof(board[0])) - 1; i++) {
       if (board[i] == go) {
@@ -51,8 +56,9 @@ void loop()
       }
     }
     count = 0;
+    //isWin是否連線獲勝
     boolean isWin = false;
-    //再判斷勝方
+    //3-2再判斷勝方
     for (int i = 0; i <= (sizeof(wins)/sizeof(wins[0])) - 1; i++) {
       int lineCount = 0;
       for (int k = 0; k <= (sizeof(playerBoard)/sizeof(playerBoard[0])) - 1; k++) {
@@ -70,7 +76,7 @@ void loop()
     if (isWin) {
       Serial.println((String("恭喜玩家")+String(go)+String("獲勝！")));
     }
-    //圈叉遊戲者互換
+    //4、圈叉遊戲者互換
     if (go == 'o') {
       go = 'x';
     } else {
