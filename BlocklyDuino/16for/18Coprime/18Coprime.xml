@@ -1,0 +1,638 @@
+<xml version="F1" board="Arduino Uno" xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="7)`@7h9o0V63s4,13lIy">found</variable>
+    <variable id="Hw408;d@ZA*stM)#SSCs">nums</variable>
+    <variable id="eNI0w#Wfmh`Z-SzQ+sLy">data</variable>
+    <variable id="/pXY70!+t,t~1n(dp^mS">separator</variable>
+    <variable id="eefFW@h:)FCG).wse7X8">index</variable>
+    <variable id="MSN*?52@:yX[-p|xUJxv">strIndex</variable>
+    <variable id="Q^:bmQ4tB`kYT|S`/T4(">number1</variable>
+    <variable id="`G/BVIH_,+N3by$b81/3">maxIndex</variable>
+    <variable id="0%bzAcVVYK;K}b}.A;^T">number2</variable>
+    <variable id="^k$/jjg61hUs(NloUFSe">i</variable>
+    <variable id="eo0GAh2LN|p:r2XhT}XK">numStr</variable>
+    <variable id="K+ixEpRAPf+nVcRC*z*s">nu</variable>
+  </variables>
+  <block type="initializes_setup" id="(|+HI5W8/dg{TTDFBJ`+" x="270" y="130">
+    <statement name="CONTENT">
+      <block type="serial_init" id="10">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="variables_set" id="13">
+            <field name="POSITION">global</field>
+            <field name="TYPE">String</field>
+            <field name="VAR" id="Hw408;d@ZA*stM)#SSCs">nums</field>
+            <value name="VALUE">
+              <block type="text" id="20">
+                <field name="TEXT"></field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="166">
+                <field name="POSITION">global</field>
+                <field name="TYPE">int</field>
+                <field name="VAR" id="Q^:bmQ4tB`kYT|S`/T4(">number1</field>
+                <value name="VALUE">
+                  <block type="math_number" id="oXd2y{8ze}UBg~dM^!J}">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set" id="175">
+                    <field name="POSITION">global</field>
+                    <field name="TYPE">int</field>
+                    <field name="VAR" id="0%bzAcVVYK;K}b}.A;^T">number2</field>
+                    <value name="VALUE">
+                      <block type="math_number" id="tJ*/kagpp%IT#7AX[^0E">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_println" id="$fc`az8V%@H,,eB{RT.p">
+                        <value name="CONTENT">
+                          <block type="text" id="+l8Pa*-6gMj}{mjdMDIy">
+                            <field name="TEXT">請輸入兩個數字，用逗號隔開(例如12,20)：</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="2">
+        <statement name="CONTENT">
+          <block type="controls_if" id="c!zxp%mxf+P;p-:CUK==">
+            <value name="IF0">
+              <block type="logic_compare" id="k@5HPTTTELR5fGNlp3p/">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="serial_available" id="F;_-AoVdOJGO#x8H1+sz"></block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="$CA4[SkFRkk$YS_@YRRK">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="variables_set3" id="@}OOhJze!9Jm[aZ)|#4R">
+                <field name="VAR" id="Hw408;d@ZA*stM)#SSCs">nums</field>
+                <value name="DELTA">
+                  <shadow type="math_number" id="fqGMBh-B$0,`^8/v^eFa">
+                    <field name="NUM">0</field>
+                  </shadow>
+                  <block type="customcode_code_input" id="rPLDi+S0mMju90B|dRk*">
+                    <value name="text">
+                      <block type="text" id="TV/@DRxQbtp,O.6DLLT,">
+                        <field name="TEXT">Serial.readString()</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set3" id=";?^x^y7:v0.H%}Xp$Ysd">
+                    <field name="VAR" id="Q^:bmQ4tB`kYT|S`/T4(">number1</field>
+                    <value name="DELTA">
+                      <shadow type="math_number" id="#eiZVN-Ui;=mtG198:=7">
+                        <field name="NUM">0</field>
+                      </shadow>
+                      <block type="procedures_callreturn" id="F4$H6uv^5?b:4:lIc`U:">
+                        <mutation xmlns="http://www.w3.org/1999/xhtml" name="splitToNum"></mutation>
+                        <value name="VAR">
+                          <block type="lists_create_with" id="$J;Nr(AHmRd4|PCg[m_Z">
+                            <mutation items="3"></mutation>
+                            <value name="ADD0">
+                              <block type="variables_get" id="u!3C{mplCJ$)CZS`B6=#">
+                                <field name="VAR" id="Hw408;d@ZA*stM)#SSCs">nums</field>
+                              </block>
+                            </value>
+                            <value name="ADD1">
+                              <block type="text_quotationmark" id="!7Dy69(L7|C7Fe6*Fk2,">
+                                <field name="TEXT">,</field>
+                              </block>
+                            </value>
+                            <value name="ADD2">
+                              <block type="math_number" id="Y{eBc+H`Jo3+Ds!)p~Wp">
+                                <field name="NUM">0</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_set3" id=")7+8uzmt=B^FT@6RWQRE">
+                        <field name="VAR" id="0%bzAcVVYK;K}b}.A;^T">number2</field>
+                        <value name="DELTA">
+                          <shadow type="math_number">
+                            <field name="NUM">0</field>
+                          </shadow>
+                          <block type="procedures_callreturn" id="TCB_wdq)Ga1urV}UsHtb">
+                            <mutation xmlns="http://www.w3.org/1999/xhtml" name="splitToNum"></mutation>
+                            <value name="VAR">
+                              <block type="lists_create_with" id="-H=1KzSbh(SXt6kW,+;m">
+                                <mutation items="3"></mutation>
+                                <value name="ADD0">
+                                  <block type="variables_get" id="DfL5[cp($TMODt-VK9n1">
+                                    <field name="VAR" id="Hw408;d@ZA*stM)#SSCs">nums</field>
+                                  </block>
+                                </value>
+                                <value name="ADD1">
+                                  <block type="text_quotationmark" id="^o|2/GZ)-=T)y21`M]Ha">
+                                    <field name="TEXT">,</field>
+                                  </block>
+                                </value>
+                                <value name="ADD2">
+                                  <block type="math_number" id="^DN`X57GAkTW8BPUVBPr">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="serial_println" id="225" inline="false">
+                            <value name="CONTENT">
+                              <block type="variables_get" id="238">
+                                <field name="VAR" id="Q^:bmQ4tB`kYT|S`/T4(">number1</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="serial_println" id="229" inline="false">
+                                <value name="CONTENT">
+                                  <block type="variables_get" id="247">
+                                    <field name="VAR" id="0%bzAcVVYK;K}b}.A;^T">number2</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="serial_println" id="c?(.^+B]ha{/#E-l2RH`">
+                                    <value name="CONTENT">
+                                      <block type="text" id="|rVvE[?p%A7h,XxAa)l;">
+                                        <field name="TEXT">請重新輸入兩個數字：</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+  <block type="initializes_temp" id=":{gh@Za4?tE]P)%KR=(z" x="830" y="110">
+    <statement name="TEMP">
+      <block type="serial_println" id="R1{LN=b$B955D^cqN7:!">
+        <value name="CONTENT">
+          <block type="text_with" id=")_Q.#.GvMe36y]0dayfh">
+            <field name="WHERE">FIRST</field>
+            <value name="FIND">
+              <block type="text" id=")~82xhigmg[PL/+WgEGf">
+                <field name="TEXT"></field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="serial_println" id="(D^C5Iq)|L=^N,w+/Q{g">
+            <value name="CONTENT">
+              <block type="text_indexOf" id="=k{J*y]^`v?JhDJ|~Q-?">
+                <field name="END">FIRST</field>
+                <value name="FIND">
+                  <block type="text" id="BkRCXiQHXZkTgq9xdOF%">
+                    <field name="TEXT"></field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="serial_println" id="/M^WUFcaryURd|1CEp-^"></block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defreturn" id="6(D*|T^3;nax]}im$k5}" collapsed="true" x="1030" y="430">
+    <field name="TYPE">int</field>
+    <field name="NAME">splitToNum</field>
+    <value name="VAR">
+      <shadow type="lists_create_with" id="yQaj55kQ+gxkUs]P9@oi">
+        <mutation items="0"></mutation>
+      </shadow>
+      <block type="lists_create_with" id="yQaj55kQ+gxkUs]P9@oi">
+        <mutation items="3"></mutation>
+        <value name="ADD0">
+          <block type="variables_set2" id="NWAFsyPjYoYy!-EG}#x7">
+            <field name="TYPE">String</field>
+            <field name="VAR" id="eNI0w#Wfmh`Z-SzQ+sLy">data</field>
+          </block>
+        </value>
+        <value name="ADD1">
+          <block type="variables_set2" id="CMbZNbl2}U+L3fJP.ED,">
+            <field name="TYPE">char</field>
+            <field name="VAR" id="/pXY70!+t,t~1n(dp^mS">separator</field>
+          </block>
+        </value>
+        <value name="ADD2">
+          <block type="variables_set2" id="cpbhP-Vc/:hPa+uC=c~.">
+            <field name="TYPE">int</field>
+            <field name="VAR" id="eefFW@h:)FCG).wse7X8">index</field>
+          </block>
+        </value>
+      </block>
+    </value>
+    <statement name="STACK">
+      <block type="variables_set" id="|:7{2tVK1p4p#Q^IRW+s">
+        <field name="POSITION">local</field>
+        <field name="TYPE">int</field>
+        <field name="VAR" id="7)`@7h9o0V63s4,13lIy">found</field>
+        <value name="VALUE">
+          <shadow type="math_number" id="pnqD#9lIa7VU+l4gaC1I">
+            <field name="NUM">0</field>
+          </shadow>
+        </value>
+        <next>
+          <block type="variables_set1" id="7o^W_PPto9N#sA3O/W0w">
+            <field name="POSITION">local</field>
+            <field name="TYPE">int</field>
+            <field name="VAR" id="MSN*?52@:yX[-p|xUJxv">strIndex</field>
+            <value name="LEN">
+              <block type="math_number" id="e,C|XUTbWp#r?Buf@y3y">
+                <field name="NUM">2</field>
+              </block>
+            </value>
+            <value name="VALUE">
+              <shadow type="text" id="j{,~F.K4pJe!-f~ZnxaA">
+                <field name="TEXT"></field>
+              </shadow>
+              <block type="lists_create_with" id=";(yAqYxd.c,}[Gt`HV.-" inline="false">
+                <mutation items="2"></mutation>
+                <value name="ADD0">
+                  <block type="math_number" id=".+;^Au3CaoWNs[~os}1^">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="math_number" id="d4]nw^;zY*?Auh8m}`3m">
+                    <field name="NUM">-1</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="9$`}4A2`.8~T/q*+E7lV">
+                <field name="POSITION">local</field>
+                <field name="TYPE">int</field>
+                <field name="VAR" id="`G/BVIH_,+N3by$b81/3">maxIndex</field>
+                <value name="VALUE">
+                  <shadow type="math_number" id="G~/g}pCbjob^H|C.j#lt">
+                    <field name="NUM">0</field>
+                  </shadow>
+                  <block type="math_arithmetic" id="KSm45h`X0=Enf$y,K)Fl">
+                    <field name="OP">MINUS</field>
+                    <value name="A">
+                      <block type="text_length" id="TN~P[IWGAMibC-*I5={o">
+                        <value name="VALUE">
+                          <block type="variables_get" id="HCE%J37c:q#2^c4Mf!G-">
+                            <field name="VAR" id="eNI0w#Wfmh`Z-SzQ+sLy">data</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="]D4(hU?g}1e2i_xGujh[">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set" id="3avr6VXT3)7}!#Ch8I*i">
+                    <field name="POSITION">local</field>
+                    <field name="TYPE">int</field>
+                    <field name="VAR" id="^k$/jjg61hUs(NloUFSe">i</field>
+                    <value name="VALUE">
+                      <shadow type="math_number" id="6N?%{(BnTf;NcdeB|tHW">
+                        <field name="NUM">0</field>
+                      </shadow>
+                    </value>
+                    <next>
+                      <block type="customcode_code" id="jkr2W7PoqENuGGE.z2k6">
+                        <value name="text">
+                          <block type="text" id="0*=vtXCyI]twXc%%2=~q">
+                            <field name="TEXT">for (i = 0; i &lt;= maxIndex &amp;&amp; found &lt;= index; i++) {</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="controls_if" id="wm?3U_?2!3~{}@N5TksQ">
+                            <value name="IF0">
+                              <block type="logic_operation" id="BM4eVfT+ng;e$RULChr6">
+                                <field name="OP">OR</field>
+                                <value name="A">
+                                  <block type="logic_compare" id="=Lpf5{rfO~N8P0BdA964">
+                                    <field name="OP">EQ</field>
+                                    <value name="A">
+                                      <block type="text_charAt" id="+5{I]IajmJ#G)932=gQT">
+                                        <mutation at="true"></mutation>
+                                        <field name="WHERE">FROM_START</field>
+                                        <value name="VALUE">
+                                          <block type="variables_get" id="nH2F@ILjb+34x*w(%Z9]">
+                                            <field name="VAR" id="eNI0w#Wfmh`Z-SzQ+sLy">data</field>
+                                          </block>
+                                        </value>
+                                        <value name="AT">
+                                          <block type="math_arithmetic" id="K)!=:+u^`h4SOg`?Fi`+">
+                                            <field name="OP">ADD</field>
+                                            <value name="A">
+                                              <block type="variables_get" id="yf@f`/fC+S}yp.mfB_b,">
+                                                <field name="VAR" id="^k$/jjg61hUs(NloUFSe">i</field>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <block type="math_number" id="]as8z`U/xekME$QD`5/-">
+                                                <field name="NUM">1</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="variables_get" id="^H~5N:2OXRD.}6w7}Q=u">
+                                        <field name="VAR" id="/pXY70!+t,t~1n(dp^mS">separator</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="logic_compare" id="bS~3,:Ea3jR1ZgmxS)Ku">
+                                    <field name="OP">EQ</field>
+                                    <value name="A">
+                                      <block type="variables_get" id="0y*F+5a((RB@?`LMIK@g">
+                                        <field name="VAR" id="^k$/jjg61hUs(NloUFSe">i</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="variables_get" id="Fv-96R?=Y$-e)_mh31;o">
+                                        <field name="VAR" id="`G/BVIH_,+N3by$b81/3">maxIndex</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="DO0">
+                              <block type="math_change" id="^acN9EO{W_g|8@|-GT/v">
+                                <value name="VAR">
+                                  <block type="variables_get" id="vv^?PkrXk,^^QxI~T^uu">
+                                    <field name="VAR" id="7)`@7h9o0V63s4,13lIy">found</field>
+                                  </block>
+                                </value>
+                                <value name="DELTA">
+                                  <block type="math_number" id="C?)rCvV$^8;;uotkrd4j">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="lists_setIndex" id="}1O?176nW+BuIV2n0~0,">
+                                    <mutation at="true"></mutation>
+                                    <field name="MODE">SET</field>
+                                    <field name="WHERE">FROM_START</field>
+                                    <value name="LIST">
+                                      <block type="variables_get" id=";F@der3+,V1Z191`6V/P">
+                                        <field name="VAR" id="MSN*?52@:yX[-p|xUJxv">strIndex</field>
+                                      </block>
+                                    </value>
+                                    <value name="AT">
+                                      <block type="math_number" id="^KBxkJId}w[BBPhm(YMA">
+                                        <field name="NUM">0</field>
+                                      </block>
+                                    </value>
+                                    <value name="TO">
+                                      <block type="math_arithmetic" id="$SK[Vt=no$q6E.~kc5l3">
+                                        <field name="OP">ADD</field>
+                                        <value name="A">
+                                          <block type="lists_getIndex" id="|{:qTY[!_`Y(~dR(l}lt">
+                                            <mutation statement="false" at="true"></mutation>
+                                            <field name="MODE">GET</field>
+                                            <field name="WHERE">FROM_START</field>
+                                            <value name="VALUE">
+                                              <block type="variables_get" id="XVdgkY5O%DI!=F!%Q2w[">
+                                                <field name="VAR" id="MSN*?52@:yX[-p|xUJxv">strIndex</field>
+                                              </block>
+                                            </value>
+                                            <value name="AT">
+                                              <block type="math_number" id="|wnASjRg@];:jx(Qs`zs">
+                                                <field name="NUM">1</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_number" id="(GJE~4ET?d{-N((IXkiL">
+                                            <field name="NUM">1</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="controls_if" id="11E]Pxp?19xDa-Y37%{`">
+                                        <mutation else="1"></mutation>
+                                        <value name="IF0">
+                                          <block type="logic_compare" id="rGOF!n)W#-TIO8d9P=Ge">
+                                            <field name="OP">EQ</field>
+                                            <value name="A">
+                                              <block type="variables_get" id="SLJ2F#d9$o;tT/(*f,H1">
+                                                <field name="VAR" id="^k$/jjg61hUs(NloUFSe">i</field>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <block type="variables_get" id="/9N)ZOCl.[l?papj@!bu">
+                                                <field name="VAR" id="`G/BVIH_,+N3by$b81/3">maxIndex</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <statement name="DO0">
+                                          <block type="lists_setIndex" id="7JQLsh3344KyO}3JS!@3">
+                                            <mutation at="true"></mutation>
+                                            <field name="MODE">SET</field>
+                                            <field name="WHERE">FROM_START</field>
+                                            <value name="LIST">
+                                              <block type="variables_get" id="(Ykb1HU7%x1Vyts~qIu3">
+                                                <field name="VAR" id="MSN*?52@:yX[-p|xUJxv">strIndex</field>
+                                              </block>
+                                            </value>
+                                            <value name="AT">
+                                              <block type="math_number" id="R2V:w|{+IlS%Og$CA?g8">
+                                                <field name="NUM">1</field>
+                                              </block>
+                                            </value>
+                                            <value name="TO">
+                                              <block type="math_arithmetic" id="B{8a:WI?3@!#9w%zZP#q">
+                                                <field name="OP">ADD</field>
+                                                <value name="A">
+                                                  <block type="variables_get" id="`[_LQfh3e*AH41B%vEKk">
+                                                    <field name="VAR" id="^k$/jjg61hUs(NloUFSe">i</field>
+                                                  </block>
+                                                </value>
+                                                <value name="B">
+                                                  <block type="math_number" id="-pzax#T3:%v[ZWMUzHf4">
+                                                    <field name="NUM">1</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </statement>
+                                        <statement name="ELSE">
+                                          <block type="lists_setIndex" id="3ZD%3`nGU{]c8j{VH][Y">
+                                            <mutation at="true"></mutation>
+                                            <field name="MODE">SET</field>
+                                            <field name="WHERE">FROM_START</field>
+                                            <value name="LIST">
+                                              <block type="variables_get" id="LnIVuop0aD=Y/}}ia^f{">
+                                                <field name="VAR" id="MSN*?52@:yX[-p|xUJxv">strIndex</field>
+                                              </block>
+                                            </value>
+                                            <value name="AT">
+                                              <block type="math_number" id=":i00?%W|dgzNMViP}$kh">
+                                                <field name="NUM">1</field>
+                                              </block>
+                                            </value>
+                                            <value name="TO">
+                                              <block type="variables_get" id="cuawxQOapZ[|l=H^8l#.">
+                                                <field name="VAR" id="^k$/jjg61hUs(NloUFSe">i</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </statement>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </statement>
+                            <next>
+                              <block type="customcode_code" id="ZEmK.ieZ{UR#yIDL^A-8">
+                                <value name="text">
+                                  <block type="text" id="(Bs58Og=Guf#Xpv/ikvj">
+                                    <field name="TEXT">}</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="variables_set" id="fqsD*/[R[dKwyv|]0oe2">
+                                    <field name="POSITION">local</field>
+                                    <field name="TYPE">String</field>
+                                    <field name="VAR" id="eo0GAh2LN|p:r2XhT}XK">numStr</field>
+                                    <value name="VALUE">
+                                      <shadow type="math_number" id="Ty+4TQP1urE%3txdy{35">
+                                        <field name="NUM">0</field>
+                                      </shadow>
+                                      <block type="customcode_code_input" id="B8D4S[G=GMY#Ot^w-)$}">
+                                        <value name="text">
+                                          <block type="text" id="vfc$KRcZh?R5xa}k8ejy">
+                                            <field name="TEXT">data.substring(strIndex[0], strIndex[1])</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="variables_set" id="L)qO=]Ram1M8]$-AY4/N">
+                                        <field name="POSITION">local</field>
+                                        <field name="TYPE">int</field>
+                                        <field name="VAR" id="K+ixEpRAPf+nVcRC*z*s">nu</field>
+                                        <value name="VALUE">
+                                          <shadow type="math_number" id="$?-r.Hf?6jnD.vvtvArA">
+                                            <field name="NUM">0</field>
+                                          </shadow>
+                                          <block type="cast_type1" id="BX]00]|CB,*UC2K(#SA,">
+                                            <field name="TYPE">toInt()</field>
+                                            <value name="VAR">
+                                              <block type="variables_get" id="dEsf.0_~.#rmo3,(#KoO">
+                                                <field name="VAR" id="eo0GAh2LN|p:r2XhT}XK">numStr</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="controls_if" id="k6I3~_r9!j`:$MK,EK;Y">
+                                            <mutation else="1"></mutation>
+                                            <value name="IF0">
+                                              <block type="logic_compare" id="T5Rq~Vvg?io90^%%!7z;">
+                                                <field name="OP">GT</field>
+                                                <value name="A">
+                                                  <block type="variables_get" id="/(Uxk`Mt$FhW#ZQ!jAY3">
+                                                    <field name="VAR" id="7)`@7h9o0V63s4,13lIy">found</field>
+                                                  </block>
+                                                </value>
+                                                <value name="B">
+                                                  <block type="variables_get" id="`V~7m!-hRmFOXW`)!ZV{">
+                                                    <field name="VAR" id="eefFW@h:)FCG).wse7X8">index</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <statement name="DO0">
+                                              <block type="procedures_return" id="oNyUeGS{G|MpvILE#O#U">
+                                                <value name="RETURN">
+                                                  <shadow type="math_number" id="XxPg20ZHaMZVuRVs~9x5">
+                                                    <field name="NUM">0</field>
+                                                  </shadow>
+                                                  <block type="variables_get" id="6#M9k~?p|i$*#3Q[hErJ">
+                                                    <field name="VAR" id="K+ixEpRAPf+nVcRC*z*s">nu</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </statement>
+                                            <statement name="ELSE">
+                                              <block type="procedures_return" id="x(ImFteo#8he[758`}z$">
+                                                <value name="RETURN">
+                                                  <shadow type="math_number" id="rvQwkOP.BQ:Pdx[!w,IZ">
+                                                    <field name="NUM">0</field>
+                                                  </shadow>
+                                                  <block type="math_number" id="wZlC]f!Ke#s9UsalhEG2">
+                                                    <field name="NUM">0</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </statement>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>
