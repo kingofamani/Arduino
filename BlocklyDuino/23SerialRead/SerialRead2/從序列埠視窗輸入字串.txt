@@ -1,0 +1,1 @@
+從「_Tools\SerialString.xml」匯入
