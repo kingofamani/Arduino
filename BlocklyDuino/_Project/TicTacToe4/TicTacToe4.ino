@@ -3,7 +3,7 @@
  *
  * https://github.com/MediaTek-Labs/BlocklyDuino-for-LinkIt
  *
- * Date: Sun, 13 Mar 2022 04:36:25 GMT
+ * Date: Mon, 14 Mar 2022 02:16:27 GMT
  */
 /*  部份程式由吉哥積木產生  */
 /*  https://sites.google.com/jes.mlc.edu.tw/ljj/linkit7697  */
@@ -20,6 +20,8 @@ int playerBoard[9] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
 String wins[8] = {"123", "456", "789", "147", "258", "369", "159", "357"};
 
 boolean isWin = false;
+
+int lines[9] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 void setPlayerBoard() {
   int count = 0;
@@ -66,6 +68,52 @@ void setPosition() {
   board[String(pos).toInt() - 1] = go;
 }
 
+void changePlayer() {
+  if (go == 'o') {
+    go = 'x';
+  } else {
+    go = 'o';
+  }
+  if (!isWin) {
+    Serial.println("");
+    Serial.println((String("請換玩家")+String(go)+String("下棋(輸入1~9)：")));
+  }
+}
+
+void reStart() {
+  Serial.println("");
+  Serial.println("--------------新的一局----------------");
+  //重置變數
+  pos = '1';
+  go = 'o';
+  isWin = false;
+  for (int i = 0; i <= 8; i++) {
+    board[i] = '-';
+  }
+  for (int i = 0; i <= 8; i++) {
+    playerBoard[i] = 0;
+  }
+  for (int i = 0; i <= 8; i++) {
+    lines[i] = 0;
+  }
+  showSample();
+}
+
+boolean checkIsFullBoard() {
+  boolean isFull = true;
+  for (int i = 0; i <= 8; i++) {
+    if (board[i] == '-') {
+      isFull = false;
+    }
+  }
+  return (isFull);
+}
+
+char autoAI() {
+  //1AI連線
+  //2阻止玩家連線
+}
+
 void checkIsWin() {
   for (int i = 0; i <= (sizeof(wins)/sizeof(wins[0])) - 1; i++) {
     int lineCount = 0;
@@ -93,42 +141,21 @@ void checkIsWin() {
   }
 }
 
-void changePlayer() {
-  if (go == 'o') {
-    go = 'x';
-  } else {
-    go = 'o';
-  }
-  if (!isWin) {
-    Serial.println("");
-    Serial.println((String("請換玩家")+String(go)+String("下棋(輸入1~9)：")));
-  }
-}
-
-void reStart() {
-  Serial.println("");
-  Serial.println("--------------新的一局----------------");
-  //重置變數
-  pos = '1';
-  go = 'o';
-  isWin = false;
-  for (int i = 0; i <= 8; i++) {
-    board[i] = '-';
-  }
-  for (int i = 0; i <= 8; i++) {
-    playerBoard[i] = 0;
-  }
-  showSample();
-}
-
-boolean checkIsFullBoard() {
-  boolean isFull = true;
-  for (int i = 0; i <= 8; i++) {
-    if (board[i] == '-') {
-      isFull = false;
+void countLine() {
+  for (int i = 0; i <= (sizeof(wins)/sizeof(wins[0])) - 1; i++) {
+    int lineCount = 0;
+    for (int j = 1; j <= 3; j++) {
+      if (String((wins[i].charAt((j - 1)))).toInt() == pos) {
+        lineCount = lineCount + 1;
+      }
     }
+    lines[i] = lineCount;
+    lineCount = 0;
   }
-  return (isFull);
+  for (int i = 0; i <= (sizeof(lines)/sizeof(lines[0])) - 1; i++) {
+    Serial.print((String(lines[i])+String(",")));
+  }
+  Serial.println("");
 }
 
 void setup()
@@ -142,6 +169,7 @@ void setup()
   //playerBoard目前玩家下棋的所有位置
   //wins連線獲勝的8種情況
   //isWin是否連線獲勝
+  //電腦判斷各連線累計棋子數(0~2)
   //提醒玩家開始下棋，顯示1~9位置的範例
   showSample();
 }

@@ -1,0 +1,78 @@
+<xml version="F1" board="Arduino Uno" xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="zj{+,oIK@BW(ry!$jmC$">A</variable>
+  </variables>
+  <block type="board_initializes_setup" id="0" x="100" y="50">
+    <field name="BOARD_TYPE">Arduino</field>
+    <statement name="CONTENT">
+      <block type="serial_init" id=")S)O0O~{T^MFQm$Qtq,h">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="customcode_comment" id="YOHcoaI^-*niMRuwTBn(">
+            <value name="text">
+              <block type="text" id="2VXhrW8V~/n;NF%d{([F">
+                <field name="TEXT">★單引號裡一定要有空格or其他字</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="p?rjDVp!@:W)[p}xXS](">
+                <field name="POSITION">global</field>
+                <field name="TYPE">char</field>
+                <field name="VAR" id="zj{+,oIK@BW(ry!$jmC$">A</field>
+                <value name="VALUE">
+                  <shadow type="math_number" id="$+h8Du,Tr5S`ObiO]`Z`">
+                    <field name="NUM">0</field>
+                  </shadow>
+                  <block type="text_quotationmark" id="Eyn(*?!GI]dUrP42mQh(">
+                    <field name="TEXT"> </field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="controls_if" id="oV?O2pwJ_Rm3oDEKZ4,l">
+            <value name="IF0">
+              <block type="logic_compare" id="2qSd;5[[PNQCz3%8%--7">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="serial_available" id="Z)93mY=]P/s2=GNtpyi6"></block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="_IgX^2o{gw67j#H!u#p9">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="variables_set3" id="o+CGxv#UGA6MI#MUOG4F">
+                <field name="VAR" id="zj{+,oIK@BW(ry!$jmC$">A</field>
+                <value name="DELTA">
+                  <shadow type="math_number" id="?+)j2)||^{S:{VgfK4}?">
+                    <field name="NUM">0</field>
+                  </shadow>
+                  <block type="serial_read" id="`*F8zI[I8a_|0!XyDwmf"></block>
+                </value>
+                <next>
+                  <block type="serial_println" id="e;p=zDWv45yl%p|9Z8r_">
+                    <value name="CONTENT">
+                      <block type="variables_get" id="Uu):KB]RAPj;L@M:HqRJ">
+                        <field name="VAR" id="zj{+,oIK@BW(ry!$jmC$">A</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>
