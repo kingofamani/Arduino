@@ -1,10 +1,10 @@
-<xml version="F1" board="Arduino Uno" xmlns="https://developers.google.com/blockly/xml">
+<xml xmlns="https://developers.google.com/blockly/xml">
   <variables>
-    <variable id="gC]tIliY-aK}Ys(Pu[,o">keys</variable>
     <variable id="i5GjW,[C7fbfF7/U(z?g">key</variable>
+    <variable id="gC]tIliY-aK}Ys(Pu[,o">keys</variable>
     <variable id="ac,@qiV1NOM2{PAg[DjN">rowPins</variable>
-    <variable id="Q53}y|ojun*aOj4{ebu(">colPins</variable>
     <variable id="aPm1$HZ0w:llYn;F4hV6">msgs</variable>
+    <variable id="Q53}y|ojun*aOj4{ebu(">colPins</variable>
   </variables>
   <block type="initializes_setup" id="30" x="70" y="-30">
     <statement name="CONTENT">
