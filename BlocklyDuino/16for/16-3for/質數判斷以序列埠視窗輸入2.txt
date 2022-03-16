@@ -1,0 +1,7 @@
+自己手動，將「序列埠讀取」組合成num字串。
+
+為何自己組合？因為可以銜接後面keypad小鍵盤範例。
+
+匯入「_Tools\checkIsNumber」會出錯的解決方法：
+BlocklyDuino開啟checkIsNumber.xml，在checkIsNumber函式按右鍵選「新增到暫存積木」
+

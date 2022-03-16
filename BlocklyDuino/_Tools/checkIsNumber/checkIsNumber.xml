@@ -1,9 +1,9 @@
-<xml version="F1" board="Arduino Uno" xmlns="https://developers.google.com/blockly/xml">
+<xml xmlns="https://developers.google.com/blockly/xml">
   <variables>
     <variable id="=(X,Cph@bAd0KSSQ$^mx">N</variable>
     <variable id="U^RXnSVF/HJyaHt+w)k!">key</variable>
   </variables>
-  <block type="procedures_defreturn" id="fpHAoZzh]`F;5=}B;x`{" collapsed="true" x="190" y="230">
+  <block type="procedures_defreturn" id="fpHAoZzh]`F;5=}B;x`{" x="290" y="270">
     <field name="TYPE">boolean</field>
     <field name="NAME">checkIsNumber</field>
     <value name="VAR">
