@@ -3,7 +3,7 @@
  *
  * https://github.com/MediaTek-Labs/BlocklyDuino-for-LinkIt
  *
- * Date: Wed, 16 Mar 2022 00:24:14 GMT
+ * Date: Thu, 17 Mar 2022 00:09:57 GMT
  */
 /*  部份程式由吉哥積木產生  */
 /*  https://sites.google.com/jes.mlc.edu.tw/ljj/linkit7697  */
@@ -14,6 +14,10 @@ char key = ' ';
 String number1 = "";
 
 String number2 = "";
+
+int factors1[] = {};
+
+int factors2[] = {};
 
 int whichNum = 1;
 
@@ -46,22 +50,26 @@ void loop()
     if (checkIsNumber(key)) {
       if (whichNum == 1) {
         number1 += key;
+        Serial.println(number1);
       } else if (whichNum == 2) {
         number2 += key;
+        Serial.println(number2);
       }
     } else if (key == ',') {
+      Serial.println(",");
       whichNum = 2;
     } else if (key == '=') {
-      int factors1[] = {};
-      int factors2[] = {};
+      int count = 0;
+      Serial.println(number1);
+      Serial.println(number2);
       for (int i = 1; i <= String(number1).toInt(); i++) {
         if (String(number1).toInt() % i == 0) {
-          factors1[factors1[(sizeof(factors1)/sizeof(factors1[0])-1)-0]] = i;
+          factors1[count] = i;
+          Serial.print((String(factors1[count])+String(",")));
+          count = count + 1;
         }
       }
-      for (int i = 0; i <= (sizeof(factors1)/sizeof(factors1[0])) - 1; i++) {
-        Serial.println((factors1[i]));
-      }
+      count = 0;
     }
   }
 }
