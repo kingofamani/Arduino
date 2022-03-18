@@ -12,27 +12,22 @@
 char pos = '1';
 
 char go = 'o';
+char goAI = 'x';
+char who = go;
 
 char board[9] = {'-', '-', '-', '-', '-', '-', '-', '-', '-'};
 
-int playerBoard[9] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
+//每個位置的權重(中央1000,角100,邊10)
+int weights[9]={100, 10, 100, 10, 1000, 10, 100, 10, 100};
 
 String wins[8] = {"123", "456", "789", "147", "258", "369", "159", "357"};
 
 boolean isWin = false;
 
 int lines[9] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
+int linesAI[9] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
 
-void setPlayerBoard() {
-  int count = 0;
-  for (int i = 0; i <= (sizeof(board)/sizeof(board[0])) - 1; i++) {
-    if (board[i] == go) {
-      playerBoard[count] = i + 1;
-      count = count + 1;
-    }
-  }
-  count = 0;
-}
+
 
 boolean checkIsRepeat() {
   boolean isRepeat = false;
@@ -65,18 +60,18 @@ void showBoard() {
 
 void setPosition() {
   Serial.println((String("您下的位置在")+String(pos)));
-  board[String(pos).toInt() - 1] = go;
+  board[String(pos).toInt() - 1] = who;
 }
 
 void changePlayer() {
-  if (go == 'o') {
-    go = 'x';
+  if (who == go) {
+    who = goAI;
   } else {
-    go = 'o';
+    who = go;
   }
   if (!isWin) {
     Serial.println("");
-    Serial.println((String("請換玩家")+String(go)+String("下棋(輸入1~9)：")));
+    Serial.println((String("請換玩家")+String(who)+String("下棋(輸入1~9)：")));
   }
 }
 
@@ -85,16 +80,14 @@ void reStart() {
   Serial.println("--------------新的一局----------------");
   //重置變數
   pos = '1';
-  go = 'o';
+  who = go;
   isWin = false;
   for (int i = 0; i <= 8; i++) {
     board[i] = '-';
-  }
-  for (int i = 0; i <= 8; i++) {
     playerBoard[i] = 0;
-  }
-  for (int i = 0; i <= 8; i++) {
+    playerBoardAI[i] = 0;
     lines[i] = 0;
+    linesAI[i] = 0;
   }
   showSample();
 }
@@ -110,27 +103,42 @@ boolean checkIsFullBoard() {
 }
 
 char autoAI() {
-  //1AI連線
-  //2阻止玩家連線
+  char posAI = '0';
+  /*
+ * 1、AI連線
+ * 2、阻止玩家連線
+ * 3、阻止玩家雙聽牌
+ *  3-1、AI=5,玩家=雙對角時，要下在權重10的邊，四個邊任選其一
+ *  其他、阻止雙聽
+ * 4、AI雙聽牌
+ * 5、AI單聽牌
+ * 6、找最大權重(中央1000,角100,邊10)
+ *  6-1、AI=5,玩家=角時，要下在玩家角的對角
+ *  6-2、AI=5,玩家=邊時，要下在玩家邊的兩角之一
+ *  其他、找最大權重
+ */
+
+ //
+  
 }
 
 void checkIsWin() {
-  for (int i = 0; i <= (sizeof(wins)/sizeof(wins[0])) - 1; i++) {
-    int lineCount = 0;
-    for (int k = 0; k <= (sizeof(playerBoard)/sizeof(playerBoard[0])) - 1; k++) {
-      for (int j = 1; j <= 3; j++) {
-        if (String((wins[i].charAt((j - 1)))).toInt() == playerBoard[k]) {
-          lineCount = lineCount + 1;
-        }
+  if(who==go){
+    for (int i = 0; i <= (sizeof(lines)/sizeof(lines[0])) - 1; i++) {
+      if(lines[i]==3){
+        isWin = true;
       }
     }
-    if (lineCount == 3) {
-      isWin = true;
+  }else if(who==goAI{
+    for (int i = 0; i <= (sizeof(linesAI)/sizeof(linesAI[0])) - 1; i++) {
+      if(linesAI[i]==3){
+        isWin = true;
+      }
     }
-    lineCount = 0;
-  }
+  }  
+  
   if (isWin) {
-    Serial.println((String("恭喜玩家")+String(go)+String("獲勝！")));
+    Serial.println((String("恭喜玩家")+String(who)+String("獲勝！")));
     reStart();
   } else if (checkIsFullBoard()) {
     Serial.println("平手！");
@@ -142,6 +150,7 @@ void checkIsWin() {
 }
 
 void countLine() {
+  int tempLines[9] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
   for (int i = 0; i <= (sizeof(wins)/sizeof(wins[0])) - 1; i++) {
     int lineCount = 0;
     for (int j = 1; j <= 3; j++) {
@@ -149,13 +158,15 @@ void countLine() {
         lineCount = lineCount + 1;
       }
     }
-    lines[i] = lineCount;
+    tempLines[i] = lineCount;
     lineCount = 0;
   }
-  for (int i = 0; i <= (sizeof(lines)/sizeof(lines[0])) - 1; i++) {
-    Serial.print((String(lines[i])+String(",")));
+
+  if(who==go){
+    lines=tempLines;
+  }else if(who==goAI{
+    linesAI=tempLines;
   }
-  Serial.println("");
 }
 
 void setup()
@@ -182,18 +193,14 @@ void loop()
     pos = Serial.read();
     if (checkIsRepeat()) {
       Serial.println((String("錯誤！第")+String(pos)+String("格已經下過了，請重新下棋(輸入1~9)：")));
-    } else {
-      //清空目前玩家下棋的所有位置
-      for (int i = 0; i <= 8; i++) {
-        playerBoard[i] = 0;
-      }
+    } else {      
       //1、玩家下一棋
       setPosition();
+      countLine();
       //2、顯示五子棋所有位置
       showBoard();
       //3、判斷勝負
-      //3-1先取出目前遊戲者(圈or叉)下棋的位置
-      setPlayerBoard();
+      
       //3-2再判斷勝方
       checkIsWin();
     }
