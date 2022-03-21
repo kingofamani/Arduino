@@ -7,27 +7,33 @@
 */
 /*  部份程式由吉哥積木產生  */
 /*  https://sites.google.com/jes.mlc.edu.tw/ljj/linkit7697  */
+//★若是用Arduino IDE序列埠視窗，一定要選取「沒有行結尾」
 
-
+//pos下棋的位置
 int pos = 1;
+//初始玩家(重新一盤時玩家互換用)
+int startPlayer = 0;
+//0玩家、1AI
+int player = startPlayer;
 
-int player = 0;//0玩家、1AI
-
+//玩家名稱
 String playerName[2] = {"您(玩家)", "AI"};
-
-char go[2] = {'o', 'x'}; //玩家o、AIx
-//char who = go;
-
+//玩家o、AIx
+char go[2] = {'o', 'x'};
+//board整個棋盤
 char board[9] = {'-', '-', '-', '-', '-', '-', '-', '-', '-'};
 
 //每個位置的權重(中央1000,角100,邊10)
 int weights[9] = {100, 10, 100, 10, 1000, 10, 100, 10, 100};
-
+//wins連線獲勝的8種情況
 int wins[8][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}, {1, 4, 7}, {2, 5, 8}, {3, 6, 9}, {1, 5, 9}, {3, 5, 7}};
-
+//isWin是否連線獲勝
 boolean isWin = false;
 
+//玩家 勝-負-和 統計
+int scores[3] = {0, 0, 0};
 
+//lines儲存已下棋的各種連線子數
 /*
    第一層[2]玩家1、玩家2(AI)
    第二層[8]8種連線方式
@@ -69,7 +75,7 @@ boolean checkIsRepeat() {
 }
 
 void showSample() {
-  Serial.println((String("請") + playerName[player] + String("開始下棋(輸入1~9)：")));
+  Serial.println((String("請") + playerName[player] + "(" + go[player] + String(")開始下棋(輸入1~9)：")));
   for (int i = 1; i <= 9; i++) {
     Serial.print(i);
     Serial.print(",");
@@ -97,31 +103,28 @@ void setPosition() {
 void changePlayer() {
   player == 0 ? player = 1 : player = 0;
   if (!isWin) {
-    //AI
-    if (player == 1) {
-      Serial.println(playerName[player] + "下棋中…");
-      pos = autoAiPos();
-      delay(1000);
-      setPosition();
-      setLines();
-      //Serial.println(String("電腦") + playerName[player] + String("下的位置在：") + String(pos));
-      delay(500);
-      checkIsWin();
-    }
+
     //玩家
     Serial.println("");
-    Serial.println((String("請換") + playerName[player] + String("下棋(輸入1~9)：")));
+    Serial.println((String("請換") + playerName[player] + "(" + go[player] + String(")下棋(輸入1~9)：")));
     showBoard();
   }
 }
 
 void reStart() {
-  Serial.println("");
-  Serial.println("--------------新的一局----------------");
   //重置變數
   pos = 1;
 
-  player = 0;
+  //換先手
+  if (startPlayer == 0) {
+    player = 1;
+    startPlayer = 1;
+  } else {
+    player = 0;
+    startPlayer = 0;
+  }
+
+  isWin = false;
 
   for (int i = 0; i <= 8; i++) {
     board[i] = '-';
@@ -136,6 +139,11 @@ void reStart() {
       }
     }
   }
+
+  Serial.println("");
+  Serial.println("--------------新的一局----------------");
+  Serial.println("交換，改由" + playerName[player] + "先下棋");
+  delay(1000);
 
   //顯示位置編號
   showSample();
@@ -167,13 +175,28 @@ int autoAiPos() {
      6-3、找最大權重
   */
 
+  //特殊狀況
+  //3-1
+  if (isCase3_1()) {
+    //Serial.println("3-1、");
+    return 2;
+  }
+  if (isCase6_1()) {
+    //Serial.println("6-1、");
+    return case6_1_pos();
+  }
+  if (isCase6_2()) {
+    //Serial.println("6-2、");
+    return case6_2_pos();
+  }
+
   //1、AI連線
   for (int i = 0; i <= 7; i++) {
     int count = lines[1][i][0] + lines[1][i][1] + lines[1][i][2];
     if (count == 2) {
       int lastPos = theLastPos(1, i);
       if (checkIsEmpty(lastPos)) {
-        Serial.println("1、");
+        //Serial.println("1、");
         return lastPos;
       }
     }
@@ -185,7 +208,7 @@ int autoAiPos() {
     if (count == 2) {
       int lastPos = theLastPos(0, i);
       if (checkIsEmpty(lastPos)) {
-        Serial.println("2、");
+        //Serial.println("2、");
         return lastPos;
       }
     }
@@ -195,135 +218,120 @@ int autoAiPos() {
   //   3-1、AI=5,玩家=雙對角時，要下在權重10的邊，四個邊任選其一
   //   3-2、阻止雙聽，且權重大的
   //儲存可以聽牌的棋子位置(有可能重複，如果重複就是雙聽)
-  //3-1
-  if (isCase3_1()) {
-    Serial.println("3-1、");
-    return 2;
-  }
-  //3-2
-  //★★★無法宣告成int playerListenPos[] = {};
-  int playerListenPos[72] = {};
-  int countplayerListenPos = 0;
-  for (int p = 1; p <= 9; p++) {
-    //Serial.println("p="+String(p)+":");
-    for (int i = 0; i <= 7; i++) {
-      int count = lines[0][i][0] + lines[0][i][1] + lines[0][i][2];
-      //Serial.print("count:");
-      //Serial.println(count);
-      if (count == 1 && winsHasPos(i, p) && checkIsEmpty(p)) {
-        //如果下了棋子位置p就可以聽牌，則先將此位置p儲存        
-        playerListenPos[countplayerListenPos] = p;
-        //Serial.println("p="+String(playerListenPos[countplayerListenPos])+":");
-        //Serial.println("whichLine="+String(i+1)+" ok");
-        countplayerListenPos++;
-      }
-    }
-  }
-  
-//   if (countplayerListenPos > 0) {
-//    for(int i=0;i<=(countplayerListenPos-1);i++){
-//      Serial.print(playerListenPos[i]);
-//      Serial.print(",");
-//    }
-//    Serial.println("");
-//   }
 
-  if (countplayerListenPos > 0) {
-    //找有雙聽的位置
-    int playerDoubleListenPos[9]={};
-    int countPlayerDoubleListenPos = 0;
-    int count = 0;
-    for (int p = 1; p <= 9; p++) {
-      for (int i = 0; i <= (countplayerListenPos - 1); i++) {
-        if (playerListenPos[i] == p) {
-          count++;
-        }
-      }
-      if (count >= 2) {
-        playerDoubleListenPos[countPlayerDoubleListenPos]=p;
-        countPlayerDoubleListenPos++;
-      }
-      count = 0;
-    }
-    
-    //找權重最大
-    if(countPlayerDoubleListenPos>0){
-      int maxWeightAndDoubleListenPos = playerDoubleListenPos[0];//先預設第1個
-      for(int i=0;i<=(countPlayerDoubleListenPos-1);i++){
-        if(weights[playerDoubleListenPos[i]-1]>weights[maxWeightAndDoubleListenPos-1]){
-          maxWeightAndDoubleListenPos = playerDoubleListenPos[i];
-        }
-      }
-      Serial.println("3-2、");
-      return maxWeightAndDoubleListenPos;
-    }
-    
+  //3-2
+  int playerDoubleListen = doubleListen(0);
+  if (playerDoubleListen != 0) {
+    //Serial.println("3-2、");
+    return playerDoubleListen;
   }
 
   //4、AI雙聽牌
-  int aiListenPos[72] = {};
-  int countaiListenPos = 0;
-  for (int p = 1; p <= 9; p++) {
-    for (int i = 0; i <= 7; i++) {
-      int count = lines[1][i][0] + lines[1][i][1] + lines[1][i][2];
-      if (count == 1 && winsHasPos(i, p) && checkIsEmpty(p)) {
-        //如果下了棋子位置p就可以聽牌，則先將此位置p儲存
-        aiListenPos[countaiListenPos] = p;
-        countaiListenPos++;
-      }
-    }
-  }
-
-  if (countaiListenPos > 0) {
-    int count = 0;
-    for (int p = 1; p <= 9; p++) {
-      for (int i = 0; i <= (countaiListenPos - 1); i++) {
-        if (aiListenPos[i] == p) {
-          count++;
-        }
-      }
-      if (count >= 2) {
-        Serial.println("4、");
-        return p;
-      }
-      count = 0;
-    }
+  int aiDoubleListen = doubleListen(1);
+  if (aiDoubleListen != 0) {
+    //Serial.println("4、");
+    return aiDoubleListen;
   }
 
   //5、AI單聽牌
-  if ((sizeof(aiListenPos) / sizeof(aiListenPos[0])) > 0) {
-    int count = 0;
-    for (int p = 1; p <= 9; p++) {
-      for (int i = 0; i <= (sizeof(aiListenPos) / sizeof(aiListenPos[0]) - 1); i++) {
-        if (aiListenPos[i] == p) {
-          count++;
-        }
-      }
-      if (count == 1) {
-        Serial.println("5、");
-        return p;
-      }
-      count = 0;
-    }
+  int aiOneListen = oneListen(1);
+  if (aiOneListen != 0) {
+    //Serial.println("5、");
+    return aiOneListen;
   }
 
   //6、找最大權重(中央1000,角100,邊10)
   //   6-1、AI=5,玩家=角時，要下在玩家角的對角
   //   6-2、AI=5,玩家=邊時，要下在玩家邊的兩角之一
   //   6-3、找最大權重
-  if (isCase6_1()) {
-    Serial.println("6-1、");
-    return case6_1_pos();
-  }
-  if (isCase6_2()) {
-    Serial.println("6-2、");
-    return case6_2_pos();
-  }
+
   return maxWeight();
 }
 
+int oneListen(int player) {
+  int oneListenPos = 0;
+  int listenPos[72] = {};
+  int countListenPos = 0;
+  for (int p = 1; p <= 9; p++) {
+    for (int i = 0; i <= 7; i++) {
+      int count = lines[player][i][0] + lines[player][i][1] + lines[player][i][2];
+      if (count == 1 && winsHasPos(i, p) && checkIsEmpty(p)) {
+        //如果下了棋子位置p就可以聽牌，則先將此位置p儲存
+        listenPos[countListenPos] = p;
+        countListenPos++;
+      }
+    }
+  }
+
+  if (countListenPos > 0) {
+    int count = 0;
+    for (int p = 1; p <= 9; p++) {
+      for (int i = 0; i <= (countListenPos - 1); i++) {
+        if (listenPos[i] == p) {
+          count++;
+        }
+      }
+      if (count == 1) {
+
+        oneListenPos = p;
+      }
+      count = 0;
+    }
+  }
+
+  return oneListenPos;
+}
+
+int doubleListen(int player) {
+  int maxWeightAndDoubleListenPos = 0;
+  //★★★無法宣告成int playerListenPos[] = {};
+  int listenPos[72] = {};
+  int countListenPos = 0;
+  for (int p = 1; p <= 9; p++) {
+    for (int i = 0; i <= 7; i++) {
+      int count = lines[player][i][0] + lines[player][i][1] + lines[player][i][2];
+      if (count == 1 && winsHasPos(i, p) && checkIsEmpty(p)) {
+        //如果下了棋子位置p就可以聽牌，則先將此位置p儲存
+        listenPos[countListenPos] = p;
+        countListenPos++;
+      }
+    }
+  }
+
+  if (countListenPos > 0) {
+    //找有雙聽的位置
+    int doubleListenPos[9] = {};
+    int countDoubleListenPos = 0;
+    int count = 0;
+    for (int p = 1; p <= 9; p++) {
+      for (int i = 0; i <= (countListenPos - 1); i++) {
+        if (listenPos[i] == p) {
+          count++;
+        }
+      }
+      if (count >= 2) {
+        doubleListenPos[countDoubleListenPos] = p;
+        countDoubleListenPos++;
+      }
+      count = 0;
+    }
+
+    //找權重最大
+    if (countDoubleListenPos > 0) {
+      maxWeightAndDoubleListenPos = doubleListenPos[0];//先預設第1個
+      for (int i = 0; i <= (countDoubleListenPos - 1); i++) {
+        if (weights[doubleListenPos[i] - 1] > weights[maxWeightAndDoubleListenPos - 1]) {
+          maxWeightAndDoubleListenPos = doubleListenPos[i];
+        }
+      }
+    }
+  }
+
+  return maxWeightAndDoubleListenPos;
+}
+
 int maxWeight() {
-  Serial.println("6-3、");
+  //Serial.println("6-3、");
   int maxWPos = emptyWeight10Pos();
   for (int p = 1; p <= 9; p++) {
     if (checkIsEmpty(p)) {
@@ -568,14 +576,35 @@ void checkIsWin() {
 
   if (isWin) {
     Serial.println((String("恭喜") + playerName[player] + String("獲勝！")));
+    sumScore();
     reStart();
   } else if (checkIsFullBoard()) {
     Serial.println("平手！");
+    sumScore();
     reStart();
   } else {
     //4、圈叉遊戲者互換
     changePlayer();
   }
+}
+
+void sumScore() {
+  if (isWin) {
+    if (player == 0) {
+      //勝
+      scores[0] = scores[0] + 1;
+    } else {
+      //負
+      scores[1] = scores[1] + 1;
+    }
+  } else {
+    //平手
+    //int s = scores[2];
+    //s++;
+    scores[2] = scores[2] + 1;
+  }
+  Serial.println("戰績統計：" + String(scores[0]) + "勝" + String(scores[1]) + "負" + String(scores[2]) + "和");
+  delay(2000);
 }
 
 void setLines() {
@@ -607,21 +636,31 @@ void showLines() {
 void setup()
 {
   Serial.begin(9600);
-  //★若是用Arduino IDE序列埠視窗，一定要選取「沒有行結尾」
-  //pos下棋的位置
-  //go玩家(圈or叉)
-  //board整個棋盤
-  //playerBoard目前玩家下棋的所有位置
-  //wins連線獲勝的8種情況
-  //isWin是否連線獲勝
-  //電腦判斷各連線累計棋子數(0~2)
   //提醒玩家開始下棋，顯示1~9位置的範例
   showSample();
 }
 
+void judge() {
+  //儲存下棋位置
+  setPosition();
+  //設定每種連線棋子數
+  setLines();
+  //顯示五子棋所有位置
+  showBoard();
+  //判斷勝負
+  checkIsWin();
+}
 
 void loop()
 {
+  //AI
+  if (player == 1) {
+    Serial.println(playerName[player] + "下棋中…");
+    delay(1000);
+    pos = autoAiPos();
+    judge();
+  }
+  //玩家
   if (Serial.available() == 1) {
     //將圈叉存在棋盤裡
     //將char轉成整數，也可以寫成pos = Serial.read()- '0';
@@ -635,15 +674,7 @@ void loop()
     if (checkIsRepeat()) {
       Serial.println((String("錯誤！第") + String(pos) + String("格已經下過了，請重新下棋(輸入1~9)：")));
     } else {
-      //1、玩家下一棋
-      setPosition();
-      setLines();
-      //2、顯示五子棋所有位置
-      showBoard();
-      //3、判斷勝負
-
-      //3-2再判斷勝方
-      checkIsWin();
+      judge();
     }
   }
 }
