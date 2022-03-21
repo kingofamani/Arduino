@@ -1,12 +1,4 @@
-/*
-   Generated using BlocklyDuino:
 
-   https://github.com/MediaTek-Labs/BlocklyDuino-for-LinkIt
-
-   Date: Mon, 14 Mar 2022 02:16:27 GMT
-*/
-/*  部份程式由吉哥積木產生  */
-/*  https://sites.google.com/jes.mlc.edu.tw/ljj/linkit7697  */
 //★若是用Arduino IDE序列埠視窗，一定要選取「沒有行結尾」
 
 //pos下棋的位置
@@ -160,22 +152,6 @@ boolean checkIsFullBoard() {
 }
 
 int autoAiPos() {
-
-  /*
-    1、AI連線
-    2、阻止玩家連線
-    3、阻止玩家雙聽牌
-     3-1、AI=5,玩家=雙對角時，要下在權重10的邊，四個邊任選其一
-     3-2、阻止雙聽，且權重大的
-    4、AI雙聽牌
-    5、AI單聽牌
-    6、找最大權重(中央1000,角100,邊10)
-     6-1、AI=5,玩家=角時，要下在玩家角的對角
-     6-2、AI=5,玩家=邊時，要下在玩家邊的兩角之一
-     6-3、找最大權重
-  */
-
-  //特殊狀況
   //3-1
   if (isCase3_1()) {
     //Serial.println("3-1、");
@@ -214,10 +190,6 @@ int autoAiPos() {
     }
   }
 
-  //3、阻止玩家雙聽牌
-  //   3-1、AI=5,玩家=雙對角時，要下在權重10的邊，四個邊任選其一
-  //   3-2、阻止雙聽，且權重大的
-  //儲存可以聽牌的棋子位置(有可能重複，如果重複就是雙聽)
 
   //3-2
   int playerDoubleListen = doubleListen(0);
@@ -226,24 +198,18 @@ int autoAiPos() {
     return playerDoubleListen;
   }
 
-  //4、AI雙聽牌
+  //4、
   int aiDoubleListen = doubleListen(1);
   if (aiDoubleListen != 0) {
     //Serial.println("4、");
     return aiDoubleListen;
   }
 
-  //5、AI單聽牌
+  //5、
   int aiOneListen = oneListen(1);
   if (aiOneListen != 0) {
     //Serial.println("5、");
     return aiOneListen;
-  }
-
-  //6、找最大權重(中央1000,角100,邊10)
-  //   6-1、AI=5,玩家=角時，要下在玩家角的對角
-  //   6-2、AI=5,玩家=邊時，要下在玩家邊的兩角之一
-  //   6-3、找最大權重
 
   return maxWeight();
 }
@@ -256,7 +222,6 @@ int oneListen(int player) {
     for (int i = 0; i <= 7; i++) {
       int count = lines[player][i][0] + lines[player][i][1] + lines[player][i][2];
       if (count == 1 && winsHasPos(i, p) && checkIsEmpty(p)) {
-        //如果下了棋子位置p就可以聽牌，則先將此位置p儲存
         listenPos[countListenPos] = p;
         countListenPos++;
       }
@@ -284,14 +249,12 @@ int oneListen(int player) {
 
 int doubleListen(int player) {
   int maxWeightAndDoubleListenPos = 0;
-  //★★★無法宣告成int playerListenPos[] = {};
   int listenPos[72] = {};
   int countListenPos = 0;
   for (int p = 1; p <= 9; p++) {
     for (int i = 0; i <= 7; i++) {
       int count = lines[player][i][0] + lines[player][i][1] + lines[player][i][2];
       if (count == 1 && winsHasPos(i, p) && checkIsEmpty(p)) {
-        //如果下了棋子位置p就可以聽牌，則先將此位置p儲存
         listenPos[countListenPos] = p;
         countListenPos++;
       }
@@ -299,7 +262,6 @@ int doubleListen(int player) {
   }
 
   if (countListenPos > 0) {
-    //找有雙聽的位置
     int doubleListenPos[9] = {};
     int countDoubleListenPos = 0;
     int count = 0;
@@ -354,7 +316,6 @@ int emptyWeight10Pos() {
   return pos;
 }
 
-//6-2、AI=5,玩家=邊時，要下在玩家邊的兩角之一
 boolean isCase6_2() {
   bool is6_2 = false;
   char board6_2_1[9] = {'-', 'o', '-', '-', 'x', '-', '-', '-', '-'};
@@ -430,7 +391,6 @@ int case6_2_pos() {
   return is6_2;
 }
 
-//6-1、AI=5,玩家=角時，要下在玩家角的對角
 boolean isCase6_1() {
   bool is6_1 = false;
   char board6_1_1[9] = {'o', '-', '-', '-', 'x', '-', '-', '-', '-'};
@@ -511,7 +471,6 @@ int posWeight(int pos) {
   return weights[pos - 1];
 }
 
-//3-1、AI=5,玩家=雙對角時，要下在權重10的邊，四個邊任選其一
 boolean isCase3_1() {
   bool is3_1 = false;
   char board3_1_1[9] = {'o', '-', '-', '-', 'x', '-', '-', '-', 'o'};
@@ -661,7 +620,6 @@ void loop()
   //玩家
   if (Serial.available() == 1) {
     //將圈叉存在棋盤裡
-    //將char轉成整數，也可以寫成pos = Serial.read()- '0';
     pos = Serial.parseInt();
     //是否為1~9
     if (!(pos >= 1 && pos <= 9)) {
