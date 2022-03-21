@@ -151,64 +151,49 @@ boolean checkIsFullBoard() {
   return (isFull);
 }
 
-int autoAiPos() {
-  //3-1
+int autoAiPos() {  
   if (isCase3_1()) {
-    //Serial.println("3-1、");
     return 2;
   }
   if (isCase6_1()) {
-    //Serial.println("6-1、");
     return case6_1_pos();
   }
   if (isCase6_2()) {
-    //Serial.println("6-2、");
     return case6_2_pos();
   }
 
-  //1、AI連線
   for (int i = 0; i <= 7; i++) {
     int count = lines[1][i][0] + lines[1][i][1] + lines[1][i][2];
     if (count == 2) {
       int lastPos = theLastPos(1, i);
       if (checkIsEmpty(lastPos)) {
-        //Serial.println("1、");
         return lastPos;
       }
     }
   }
 
-  //2、阻止玩家連線
   for (int i = 0; i <= 7; i++) {
     int count = lines[0][i][0] + lines[0][i][1] + lines[0][i][2];
     if (count == 2) {
       int lastPos = theLastPos(0, i);
       if (checkIsEmpty(lastPos)) {
-        //Serial.println("2、");
         return lastPos;
       }
     }
   }
 
-
-  //3-2
   int playerDoubleListen = doubleListen(0);
   if (playerDoubleListen != 0) {
-    //Serial.println("3-2、");
     return playerDoubleListen;
   }
 
-  //4、
   int aiDoubleListen = doubleListen(1);
   if (aiDoubleListen != 0) {
-    //Serial.println("4、");
     return aiDoubleListen;
   }
 
-  //5、
   int aiOneListen = oneListen(1);
   if (aiOneListen != 0) {
-    //Serial.println("5、");
     return aiOneListen;
 
   return maxWeight();
@@ -293,7 +278,6 @@ int doubleListen(int player) {
 }
 
 int maxWeight() {
-  //Serial.println("6-3、");
   int maxWPos = emptyWeight10Pos();
   for (int p = 1; p <= 9; p++) {
     if (checkIsEmpty(p)) {
@@ -305,7 +289,6 @@ int maxWeight() {
   return maxWPos;
 }
 
-//位置2權重10且空的當預設
 int emptyWeight10Pos() {
   int pos = 0;
   for (int p = 1; p <= 9; p++) {
