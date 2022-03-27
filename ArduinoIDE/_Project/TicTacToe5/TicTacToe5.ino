@@ -249,9 +249,11 @@ int autoAiPos() {
 }
 
 int oneListen(int player) {
-  int oneListenPos = 0;
+  //int oneListenPos = 0;
   int listenPos[72] = {};
   int countListenPos = 0;
+  int oneListenPos[9]={};//單聽位置
+  int countOneListenPos = 0;
   for (int p = 1; p <= 9; p++) {
     for (int i = 0; i <= 7; i++) {
       int count = lines[player][i][0] + lines[player][i][1] + lines[player][i][2];
@@ -264,7 +266,7 @@ int oneListen(int player) {
   }
 
   if (countListenPos > 0) {
-    int count = 0;
+    int count = 0;//連線數
     for (int p = 1; p <= 9; p++) {
       for (int i = 0; i <= (countListenPos - 1); i++) {
         if (listenPos[i] == p) {
@@ -272,14 +274,20 @@ int oneListen(int player) {
         }
       }
       if (count == 1) {
-
-        oneListenPos = p;
+        oneListenPos[countOneListenPos]=p;
+        countOneListenPos++;
+        //oneListenPos = p;
       }
       count = 0;
     }
   }
 
-  return oneListenPos;
+  if(countOneListenPos==0){
+    return 0;
+  }else{
+    int randIndex = random(0, countOneListenPos);
+    return oneListenPos[countOneListenPos];
+  }
 }
 
 int doubleListen(int player) {

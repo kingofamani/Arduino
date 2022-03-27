@@ -1,4 +1,12 @@
+/*
+   Generated using BlocklyDuino:
 
+   https://github.com/MediaTek-Labs/BlocklyDuino-for-LinkIt
+
+   Date: Mon, 14 Mar 2022 02:16:27 GMT
+*/
+/*  部份程式由吉哥積木產生  */
+/*  https://sites.google.com/jes.mlc.edu.tw/ljj/linkit7697  */
 //★若是用Arduino IDE序列埠視窗，一定要選取「沒有行結尾」
 
 //pos下棋的位置
@@ -151,50 +159,66 @@ boolean checkIsFullBoard() {
   return (isFull);
 }
 
-int autoAiPos() {  
+int autoAiPos() {
+  
+  //
   if (isCase3_1()) {
+    //Serial.println("3-1、");
     return 2;
   }
   if (isCase6_1()) {
+    //Serial.println("6-1、");
     return case6_1_pos();
   }
   if (isCase6_2()) {
+    //Serial.println("6-2、");
     return case6_2_pos();
   }
 
+  //
   for (int i = 0; i <= 7; i++) {
     int count = lines[1][i][0] + lines[1][i][1] + lines[1][i][2];
     if (count == 2) {
       int lastPos = theLastPos(1, i);
       if (checkIsEmpty(lastPos)) {
+        //Serial.println("1、");
         return lastPos;
       }
     }
   }
 
+  //
   for (int i = 0; i <= 7; i++) {
     int count = lines[0][i][0] + lines[0][i][1] + lines[0][i][2];
     if (count == 2) {
       int lastPos = theLastPos(0, i);
       if (checkIsEmpty(lastPos)) {
+        //Serial.println("2、");
         return lastPos;
       }
     }
   }
 
+  //
   int playerDoubleListen = doubleListen(0);
   if (playerDoubleListen != 0) {
+    //Serial.println("3-2、");
     return playerDoubleListen;
   }
 
+  //
   int aiDoubleListen = doubleListen(1);
   if (aiDoubleListen != 0) {
+    //Serial.println("4、");
     return aiDoubleListen;
   }
 
+  //
   int aiOneListen = oneListen(1);
   if (aiOneListen != 0) {
+    //Serial.println("5、");
     return aiOneListen;
+  }
 
   return maxWeight();
 }
@@ -278,6 +302,7 @@ int doubleListen(int player) {
 }
 
 int maxWeight() {
+  //Serial.println("6-3、");
   int maxWPos = emptyWeight10Pos();
   for (int p = 1; p <= 9; p++) {
     if (checkIsEmpty(p)) {
@@ -299,6 +324,7 @@ int emptyWeight10Pos() {
   return pos;
 }
 
+//
 boolean isCase6_2() {
   bool is6_2 = false;
   char board6_2_1[9] = {'-', 'o', '-', '-', 'x', '-', '-', '-', '-'};
@@ -374,6 +400,7 @@ int case6_2_pos() {
   return is6_2;
 }
 
+//
 boolean isCase6_1() {
   bool is6_1 = false;
   char board6_1_1[9] = {'o', '-', '-', '-', 'x', '-', '-', '-', '-'};
@@ -454,6 +481,7 @@ int posWeight(int pos) {
   return weights[pos - 1];
 }
 
+//
 boolean isCase3_1() {
   bool is3_1 = false;
   char board3_1_1[9] = {'o', '-', '-', '-', 'x', '-', '-', '-', 'o'};
@@ -603,6 +631,7 @@ void loop()
   //玩家
   if (Serial.available() == 1) {
     //將圈叉存在棋盤裡
+    //將char轉成整數，也可以寫成pos = Serial.read()- '0';
     pos = Serial.parseInt();
     //是否為1~9
     if (!(pos >= 1 && pos <= 9)) {
