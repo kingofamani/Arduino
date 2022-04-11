@@ -1,7 +1,13 @@
 #include "HUSKYLENS.h"
+#include <Adafruit_NeoPixel.h>
+#ifdef __AVR__
+#include <avr/power.h> // Required for 16 MHz Adafruit Trinket
+#endif
+
+
 
 HUSKYLENS huskylens;
-//HUSKYLENS green line >> SDA; blue line >> SCL
+//HUSKYLENS 綠線 >> SDA(A4); 藍線 >> SCL(A5)
 int ID0 = 0;
 int ID1 = 1;
 int ID2 = 2;
@@ -9,13 +15,61 @@ int ID3 = 3;
 int ID4 = 4;
 int ID5 = 5;
 
-int AnsID = 0;
+int AnsID = 0;//亂數答案
 int ReplyID = 0;//使用者舉牌
+
+
+int LedPins[5] = {2, 3, 4, 5, 6}; //LED腳位
+
+int BtnPin = 7;//按鈕腳位
+int BeepPin = 8;//無源蜂嗚器腳位
+
+int YesLightPin = 9;//答對燈號
+int NoLightPin1 = 10;//答錯燈號
+int NoLightPin2 = 11;//答錯燈號
+
+int BtnResetPin = 12;//重開機按鈕腳位
+
+boolean isWin = false;//是否猜對
+
+#define LED_COUNT 12
+Adafruit_NeoPixel strip(LED_COUNT, YesLightPin, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel stripNo1(LED_COUNT, NoLightPin1, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel stripNo2(LED_COUNT, NoLightPin2, NEO_GRB + NEO_KHZ800);
 
 void printResult(HUSKYLENSResult result);
 
 void setup() {
   Serial.begin(115200);
+
+  //腳位
+  pinMode(BtnPin, INPUT);
+  pinMode(BtnResetPin, INPUT);
+  pinMode(BeepPin, OUTPUT);
+  pinMode(YesLightPin, OUTPUT);
+  pinMode(NoLightPin1, OUTPUT);
+  pinMode(NoLightPin2, OUTPUT);
+  for (int i = 0; i < 5; i++) {
+    pinMode(LedPins[i], OUTPUT);
+  }
+
+  //WS2812
+#if defined(__AVR_ATtiny85__) && (F_CPU == 16000000)
+  clock_prescale_set(clock_div_1);
+#endif
+
+  strip.begin();
+  strip.show();
+  strip.setBrightness(10);
+
+  stripNo1.begin();
+  stripNo1.show();
+  stripNo1.setBrightness(10);
+
+  stripNo2.begin();
+  stripNo2.show();
+  stripNo2.setBrightness(10);
+
   //初始HuskyLens
   Wire.begin();
   while (!huskylens.begin(Wire))
@@ -31,52 +85,210 @@ void setup() {
   //亂數
   randomSeed(analogRead(0));
 
+  Serial.println("請按鈕");
+
 }
 
 void loop() {
-  if (AnsID == 0) {
-    AnsID = random(1, 6);
-    Serial.println(String() + "答案是：" + AnsID);
-  }
 
-  if (huskylens.request())
-  {
-    Serial.println("###################################");
-    //Serial.println(String() + F("訓練總數量 IDs:") + huskylens.countLearnedIDs());
 
-    HUSKYLENSResult result;
-    if (huskylens.countBlocks(ID1) >= 1) {
-      result = huskylens.getBlock(ID1, 0);
-    } else if (huskylens.countBlocks(ID2) >= 1) {
-      result = huskylens.getBlock(ID2, 0);
-    } else if (huskylens.countBlocks(ID3) >= 1) {
-      result = huskylens.getBlock(ID3, 0);
-    } else if (huskylens.countBlocks(ID4) >= 1) {
-      result = huskylens.getBlock(ID4, 0);
-    } else if (huskylens.countBlocks(ID5) >= 1) {
-      result = huskylens.getBlock(ID5, 0);
-    } else {
-      result = huskylens.getBlock(0, 0);
+  if (digitalRead(BtnPin) == 1) {
+    //亂數跑燈
+    runLights();
+    //AI物件識別
+    startRecog();
+    //重新開始
+    if (isWin) {
+      reStart();
     }
-    printResult(result);
+    //delay(2000);
+  }
 
-    if (ReplyID == AnsID) {
-      Serial.println("答對了！");
-      delay(5000);
-      //重新開始
-      Serial.println("################重新開始###################");
-      AnsID = random(1, 6);
-      Serial.println(String() + "答案是：" + AnsID);
-    } else {
-      Serial.println(String() + "錯誤！答案是：" + AnsID + "。請再拿其他卡片試試看：");
+
+
+
+}
+
+void reStart() {
+  Serial.println("################重新開始###################");
+  ReplyID = 0;
+  AnsID = 0;
+  isWin = false;
+
+  yesNoLight(LOW);
+  //yesNoLight(true,LOW);
+  //yesNoLight(false,LOW);
+
+  for (int i = 0; i < 5; i++) {
+    digitalWrite(LedPins[i], LOW);
+  }
+
+  Serial.println(String() + "答案是：" + AnsID);
+}
+
+void yesNoLight(int light) {
+
+  if (light == HIGH) {
+    theaterChaseRainbow(50);
+    //rainbow(10);
+  } else {
+    //燈滅
+    for (int j = 255; j >= 0; j--) {
+      strip.fill(strip.Color(0, 0, 0, strip.gamma8(j)));
+      strip.show();
     }
+  }
 
+  //Serial.println(String() + "YesLightPin:" + light);
+}
+
+//void yesNoLight(boolean ans, int light) {
+////  digitalWrite(YesLightPin, ((ans && light == HIGH) ? 1 : 0));
+////  digitalWrite(NoLightPin1, ((!ans && light == HIGH) ? 1 : 0));
+//
+//  Serial.println(String() + "YesLightPin:" + ((ans && light == HIGH) ? 1 : 0));
+//  //Serial.println(String() + "NoLightPin1:" + ((!ans && light == HIGH) ? 1 : 0));
+//
+//
+//}
+
+void colorWipe(uint32_t color, int wait) {
+  for (int j = 0; j <= 2; j++) {
+    for (int i = 0; i < stripNo1.numPixels(); i++) {
+      stripNo1.setPixelColor(i, color);
+      stripNo1.show();
+      stripNo2.setPixelColor(i, color);
+      stripNo2.show();
+      delay(wait);
+    }
   }
-  else
-  {
-    Serial.println("Fail to request objects from Huskylens!");
+
+  //燈滅
+  for (int j = 255; j >= 0; j--) {
+    stripNo1.fill(stripNo1.Color(0, 0, 0, stripNo1.gamma8(j)));
+    stripNo1.show();
+    stripNo2.fill(stripNo2.Color(0, 0, 0, stripNo2.gamma8(j)));
+    stripNo2.show();
   }
-  delay(1000);
+}
+
+//void colorWipe2(uint32_t color, int wait) {
+//  for (int j = 0; j <= 2; j++) {
+//    for (int i = 0; i < stripNo2.numPixels(); i++) {
+//      stripNo2.setPixelColor(i, color);
+//      stripNo2.show();
+//      delay(wait);
+//    }
+//  }
+//
+//  //燈滅
+//  for (int j = 255; j >= 0; j--) {
+//    stripNo2.fill(stripNo2.Color(0, 0, 0, stripNo2.gamma8(j)));
+//    stripNo2.show();
+//  }
+//}
+
+void rainbow(int wait) {
+  for (long firstPixelHue = 0; firstPixelHue < 5 * 65536; firstPixelHue += 256) {
+    strip.rainbow(firstPixelHue);
+    strip.show();
+    delay(wait);
+  }
+}
+
+void theaterChaseRainbow(int wait) {
+  int firstPixelHue = 0;
+  for (int a = 0; a < 30; a++) {
+    for (int b = 0; b < 3; b++) {
+      strip.clear();
+
+      for (int c = b; c < strip.numPixels(); c += 3) {
+        int      hue   = firstPixelHue + c * 65536L / strip.numPixels();
+        uint32_t color = strip.gamma32(strip.ColorHSV(hue));
+        strip.setPixelColor(c, color);
+      }
+      strip.show();
+      delay(wait);
+      firstPixelHue += 65536 / 90;
+    }
+  }
+}
+
+void runLights() {
+  AnsID = random(1, 6);
+
+  int randLight = 0;
+  for (int i = 0; i < 100; i++) {
+    int randLight = random(1, 6) + 1;
+    digitalWrite(randLight, HIGH);
+    tone(BeepPin, 400, 30);
+    delay(50);
+    digitalWrite(randLight, LOW);
+    noTone(BeepPin);
+  }
+
+  digitalWrite(AnsID + 1, HIGH);
+  Serial.println(String() + "答案是：" + AnsID);
+
+}
+
+void startRecog() {
+  while (!isWin) {
+    delay(500);
+    if (huskylens.request())
+    {
+      Serial.println("###################################");
+      //Serial.println(String() + F("訓練總數量 IDs:") + huskylens.countLearnedIDs());
+
+      HUSKYLENSResult result;
+      if (huskylens.countBlocks(ID1) >= 1) {
+        result = huskylens.getBlock(ID1, 0);
+      } else if (huskylens.countBlocks(ID2) >= 1) {
+        result = huskylens.getBlock(ID2, 0);
+      } else if (huskylens.countBlocks(ID3) >= 1) {
+        result = huskylens.getBlock(ID3, 0);
+      } else if (huskylens.countBlocks(ID4) >= 1) {
+        result = huskylens.getBlock(ID4, 0);
+      } else if (huskylens.countBlocks(ID5) >= 1) {
+        result = huskylens.getBlock(ID5, 0);
+      } else {
+        result = huskylens.getBlock(0, 0);
+      }
+      printResult(result);
+
+      if (ReplyID == AnsID) {
+        Serial.println("答對了！");
+        isWin = true;
+        yesNoLight(HIGH);
+        //yesNoLight(true, HIGH);
+        delay(2000);
+
+      } else {
+        Serial.println(String() + "錯誤！答案是：" + AnsID + "。請再拿其他卡片試試看：");
+        isWin = false;
+        yesNoLight(LOW);
+        //yesNoLight(false, HIGH);
+
+        if (ReplyID >= 1 && ReplyID <= 5) {
+          tone(BeepPin, 400, 500);
+          delay(500);
+          noTone(BeepPin);
+
+          colorWipe(stripNo1.Color(255,   0,   0), 50);
+          //colorWipe2(stripNo2.Color(255,   0,   0), 50);
+        }
+        ReplyID = 0; //避免一直beep
+
+      }
+
+    }
+    else
+    {
+      Serial.println("Fail to request objects from Huskylens!");
+    }
+  }
+
+
 }
 
 void printResult(HUSKYLENSResult result) {
