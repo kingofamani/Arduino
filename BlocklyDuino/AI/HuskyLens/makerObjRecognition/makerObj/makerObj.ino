@@ -25,8 +25,6 @@ int YesLightPin = 9;//答對燈號
 int NoLightPin1 = 10;//答錯燈號
 int NoLightPin2 = 11;//答錯燈號
 
-int BtnResetPin = 12;//重開機按鈕腳位
-
 boolean isWin = false;//是否猜對
 
 #define LED_COUNT 12//WS2812燈泡數
@@ -94,6 +92,7 @@ void setup() {
   clock_prescale_set(clock_div_1);
 #endif
 
+  //初始WS2812燈條
   strip.begin();
   strip.show();
   strip.setBrightness(10);
@@ -120,14 +119,12 @@ void setup() {
 
   //亂數
   randomSeed(analogRead(0));
-
+  
   Serial.println("請按鈕");
 
 }
 
 void loop() {
-
-
   if (digitalRead(BtnPin) == 1) {
     //亂數跑燈
     runLights();
@@ -137,12 +134,7 @@ void loop() {
     if (isWin) {
       reStart();
     }
-    //delay(2000);
-  }
-
-
-
-
+  }  
 }
 
 void reStart() {
@@ -152,21 +144,24 @@ void reStart() {
   isWin = false;
 
   yesNoLight(LOW);
-  //yesNoLight(true,LOW);
-  //yesNoLight(false,LOW);
 
   for (int i = 0; i < 5; i++) {
     digitalWrite(LedPins[i], LOW);
   }
 
-  Serial.println(String() + "答案是：" + AnsID);
+  //Serial.println(String() + "答案是：" + AnsID);
+}
+
+void yesLightGreenOn() {
+  for (int j = 255; j >= 0; j--) {
+      strip.fill(strip.Color(0, 255, 0, strip.gamma8(j)));
+      strip.show();
+    }
 }
 
 void yesNoLight(int light) {
-
   if (light == HIGH) {
     theaterChaseRainbow(50);
-    //rainbow(10);
   } else {
     //燈滅
     for (int j = 255; j >= 0; j--) {
@@ -174,19 +169,7 @@ void yesNoLight(int light) {
       strip.show();
     }
   }
-
-  //Serial.println(String() + "YesLightPin:" + light);
 }
-
-//void yesNoLight(boolean ans, int light) {
-////  digitalWrite(YesLightPin, ((ans && light == HIGH) ? 1 : 0));
-////  digitalWrite(NoLightPin1, ((!ans && light == HIGH) ? 1 : 0));
-//
-//  Serial.println(String() + "YesLightPin:" + ((ans && light == HIGH) ? 1 : 0));
-//  //Serial.println(String() + "NoLightPin1:" + ((!ans && light == HIGH) ? 1 : 0));
-//
-//
-//}
 
 void colorWipe(uint32_t color, int wait) {
   for (int j = 0; j <= 2; j++) {
@@ -205,14 +188,6 @@ void colorWipe(uint32_t color, int wait) {
     stripNo1.show();
     stripNo2.fill(stripNo2.Color(0, 0, 0, stripNo2.gamma8(j)));
     stripNo2.show();
-  }
-}
-
-void rainbow(int wait) {
-  for (long firstPixelHue = 0; firstPixelHue < 5 * 65536; firstPixelHue += 256) {
-    strip.rainbow(firstPixelHue);
-    strip.show();
-    delay(wait);
   }
 }
 
@@ -255,6 +230,8 @@ void runLights() {
 void startRecog() {
   while (!isWin) {
     delay(500);
+
+    //AI識別
     if (huskylens.request())
     {
       Serial.println("###################################");
@@ -276,77 +253,72 @@ void startRecog() {
       }
       printResult(result);
 
+      //判斷答題對錯
       if (ReplyID == AnsID) {
         Serial.println("答對了！");
         isWin = true;
+        //獲勝燈光-綠
+        yesLightGreenOn();
+        //獲勝音樂
         winSing();
-        yesNoLight(HIGH);        
-        //yesNoLight(true, HIGH);
+        //獲勝燈光-彩虹
+        yesNoLight(HIGH);
         delay(2000);
 
       } else {
         Serial.println(String() + "錯誤！答案是：" + AnsID + "。請再拿其他卡片試試看：");
         isWin = false;
         yesNoLight(LOW);
-        
-        //yesNoLight(false, HIGH);
 
         if (ReplyID >= 1 && ReplyID <= 5) {
+          //失敗音效
           tone(BeepPin, 400, 500);
           delay(500);
           noTone(BeepPin);
-
+          //失敗燈光
           colorWipe(stripNo1.Color(255,   0,   0), 50);
-          //colorWipe2(stripNo2.Color(255,   0,   0), 50);
         }
         ReplyID = 0; //避免一直beep
-
       }
-
     }
     else
     {
       Serial.println("Fail to request objects from Huskylens!");
     }
   }
-
-
 }
 
 void printResult(HUSKYLENSResult result) {
-  if (result.command == COMMAND_RETURN_BLOCK) { //result is a block
+  if (result.command == COMMAND_RETURN_BLOCK) {
     Serial.println(String() + F("方框:X中心=") + result.xCenter + F(",Y中心=") + result.yCenter + F(",寬=") + result.width + F(",高=") + result.height + F(",ID=") + result.ID);
     ReplyID = result.ID;
   }
-  //    else if (result.command == COMMAND_RETURN_ARROW){//result is an arrow
-  //        Serial.println(String()+F("Arrow:xOrigin=")+result.xOrigin+F(",yOrigin=")+result.yOrigin+F(",xTarget=")+result.xTarget+F(",yTarget=")+result.yTarget+F(",ID=")+result.ID);
-  //    }
-  else { //result is unknown.
+  else {
     Serial.println("xx未知的物體!");
   }
 }
 
 //Mario
 void winSing() {
-    int size = sizeof(melody) / sizeof(int);
-    for (int thisNote = 0; thisNote < size; thisNote++) {
-      int noteDuration = 1000 / tempo[thisNote];
-      buzz(BeepPin, melody[thisNote], noteDuration);
-      int pauseBetweenNotes = noteDuration * 1.30;
-      delay(pauseBetweenNotes);
-      // stop
-      buzz(BeepPin, 0, noteDuration);
-    }
+  int size = sizeof(melody) / sizeof(int);
+  for (int thisNote = 0; thisNote < size; thisNote++) {
+    int noteDuration = 1000 / tempo[thisNote];
+    buzz(BeepPin, melody[thisNote], noteDuration);
+    int pauseBetweenNotes = noteDuration * 1.30;
+    delay(pauseBetweenNotes);
+    // stop
+    buzz(BeepPin, 0, noteDuration);
+  }
 }
 
 //Mario
 void buzz(int targetPin, long frequency, long length) {
-  long delayValue = 1000000 / frequency / 2; 
-  long numCycles = frequency * length / 1000; 
-  for (long i = 0; i < numCycles; i++) { 
-    digitalWrite(targetPin, HIGH); 
-    delayMicroseconds(delayValue); 
-    digitalWrite(targetPin, LOW); 
+  long delayValue = 1000000 / frequency / 2;
+  long numCycles = frequency * length / 1000;
+  for (long i = 0; i < numCycles; i++) {
+    digitalWrite(targetPin, HIGH);
+    delayMicroseconds(delayValue);
+    digitalWrite(targetPin, LOW);
     delayMicroseconds(delayValue);
   }
 }
