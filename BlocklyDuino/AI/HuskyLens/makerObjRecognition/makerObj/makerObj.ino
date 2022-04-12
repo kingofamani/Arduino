@@ -4,8 +4,6 @@
 #include <avr/power.h> // Required for 16 MHz Adafruit Trinket
 #endif
 
-
-
 HUSKYLENS huskylens;
 //HUSKYLENS 綠線 >> SDA(A4); 藍線 >> SCL(A5)
 int ID0 = 0;
@@ -17,7 +15,6 @@ int ID5 = 5;
 
 int AnsID = 0;//亂數答案
 int ReplyID = 0;//使用者舉牌
-
 
 int LedPins[5] = {2, 3, 4, 5, 6}; //LED腳位
 
@@ -32,10 +29,49 @@ int BtnResetPin = 12;//重開機按鈕腳位
 
 boolean isWin = false;//是否猜對
 
-#define LED_COUNT 12
+#define LED_COUNT 12//WS2812燈泡數
 Adafruit_NeoPixel strip(LED_COUNT, YesLightPin, NEO_GRB + NEO_KHZ800);
 Adafruit_NeoPixel stripNo1(LED_COUNT, NoLightPin1, NEO_GRB + NEO_KHZ800);
 Adafruit_NeoPixel stripNo2(LED_COUNT, NoLightPin2, NEO_GRB + NEO_KHZ800);
+
+//Mario
+int melody[] = {
+  2637, 2637, 0, 2637,
+  0, 2093, 2637, 0,
+  3136, 0, 0,  0,
+  1568, 0, 0, 0,
+
+  2093, 0, 0, 1568,
+  0, 0, 1319, 0,
+  0, 1760, 0, 1976,
+  0, 1865, 1760, 0,
+
+  1568, 2637, 3136,
+  3520, 0, 2794, 3136,
+  0, 2637, 0, 2093,
+  2349, 1976, 0, 0
+
+};
+
+//Mario tempo
+int tempo[] = {
+  12, 12, 12, 12,
+  12, 12, 12, 12,
+  12, 12, 12, 12,
+  12, 12, 12, 12,
+
+  12, 12, 12, 12,
+  12, 12, 12, 12,
+  12, 12, 12, 12,
+  12, 12, 12, 12,
+
+  9, 9, 9,
+  12, 12, 12, 12,
+  12, 12, 12, 12,
+  12, 12, 12, 12
+
+
+};
 
 void printResult(HUSKYLENSResult result);
 
@@ -172,22 +208,6 @@ void colorWipe(uint32_t color, int wait) {
   }
 }
 
-//void colorWipe2(uint32_t color, int wait) {
-//  for (int j = 0; j <= 2; j++) {
-//    for (int i = 0; i < stripNo2.numPixels(); i++) {
-//      stripNo2.setPixelColor(i, color);
-//      stripNo2.show();
-//      delay(wait);
-//    }
-//  }
-//
-//  //燈滅
-//  for (int j = 255; j >= 0; j--) {
-//    stripNo2.fill(stripNo2.Color(0, 0, 0, stripNo2.gamma8(j)));
-//    stripNo2.show();
-//  }
-//}
-
 void rainbow(int wait) {
   for (long firstPixelHue = 0; firstPixelHue < 5 * 65536; firstPixelHue += 256) {
     strip.rainbow(firstPixelHue);
@@ -259,7 +279,8 @@ void startRecog() {
       if (ReplyID == AnsID) {
         Serial.println("答對了！");
         isWin = true;
-        yesNoLight(HIGH);
+        winSing();
+        yesNoLight(HIGH);        
         //yesNoLight(true, HIGH);
         delay(2000);
 
@@ -267,6 +288,7 @@ void startRecog() {
         Serial.println(String() + "錯誤！答案是：" + AnsID + "。請再拿其他卡片試試看：");
         isWin = false;
         yesNoLight(LOW);
+        
         //yesNoLight(false, HIGH);
 
         if (ReplyID >= 1 && ReplyID <= 5) {
@@ -301,5 +323,30 @@ void printResult(HUSKYLENSResult result) {
   //    }
   else { //result is unknown.
     Serial.println("xx未知的物體!");
+  }
+}
+
+//Mario
+void winSing() {
+    int size = sizeof(melody) / sizeof(int);
+    for (int thisNote = 0; thisNote < size; thisNote++) {
+      int noteDuration = 1000 / tempo[thisNote];
+      buzz(BeepPin, melody[thisNote], noteDuration);
+      int pauseBetweenNotes = noteDuration * 1.30;
+      delay(pauseBetweenNotes);
+      // stop
+      buzz(BeepPin, 0, noteDuration);
+    }
+}
+
+//Mario
+void buzz(int targetPin, long frequency, long length) {
+  long delayValue = 1000000 / frequency / 2; 
+  long numCycles = frequency * length / 1000; 
+  for (long i = 0; i < numCycles; i++) { 
+    digitalWrite(targetPin, HIGH); 
+    delayMicroseconds(delayValue); 
+    digitalWrite(targetPin, LOW); 
+    delayMicroseconds(delayValue);
   }
 }
