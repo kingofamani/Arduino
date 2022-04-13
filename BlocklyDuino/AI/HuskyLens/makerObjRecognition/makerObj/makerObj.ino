@@ -18,7 +18,8 @@ int ReplyID = 0;//使用者舉牌
 
 int LedPins[5] = {2, 3, 4, 5, 6}; //LED腳位
 
-int BtnPin = 7;//按鈕腳位
+int BtnStartPin = 7;//開始按鈕腳位
+int LightStartPin = 12;//提醒開始按鈕的LED燈腳位
 int BeepPin = 8;//無源蜂嗚器腳位
 
 int YesLightPin = 9;//答對燈號
@@ -26,6 +27,7 @@ int NoLightPin1 = 10;//答錯燈號
 int NoLightPin2 = 11;//答錯燈號
 
 boolean isWin = false;//是否猜對
+//boolean isStart = false;//是否按開始鈕
 
 #define LED_COUNT 12//WS2812燈泡數
 Adafruit_NeoPixel strip(LED_COUNT, YesLightPin, NEO_GRB + NEO_KHZ800);
@@ -77,8 +79,8 @@ void setup() {
   Serial.begin(115200);
 
   //腳位
-  pinMode(BtnPin, INPUT);
-  pinMode(BtnResetPin, INPUT);
+  pinMode(BtnStartPin, INPUT);
+  pinMode(LightStartPin, OUTPUT);
   pinMode(BeepPin, OUTPUT);
   pinMode(YesLightPin, OUTPUT);
   pinMode(NoLightPin1, OUTPUT);
@@ -119,13 +121,34 @@ void setup() {
 
   //亂數
   randomSeed(analogRead(0));
-  
+
   Serial.println("請按鈕");
+
+  //提醒開始按鈕的LED ON
+  StartLight(HIGH);
 
 }
 
+void StartLight(int light) {
+  if (light == HIGH) {
+    digitalWrite(LightStartPin, HIGH);
+//    while (!isStart) {
+//      digitalWrite(LightStartPin, HIGH);
+//      delay(500);
+//      digitalWrite(LightStartPin, LOW);
+//      delay(500);
+//    }
+  } else {
+    digitalWrite(LightStartPin, LOW);
+  }
+}
+
 void loop() {
-  if (digitalRead(BtnPin) == 1) {
+  //按下開始鈕
+  if (digitalRead(BtnStartPin) == 1) {
+    //isStart = true;
+    //提醒開始按鈕的LED OFF
+    StartLight(LOW);
     //亂數跑燈
     runLights();
     //AI物件識別
@@ -134,16 +157,19 @@ void loop() {
     if (isWin) {
       reStart();
     }
-  }  
+  }
 }
 
 void reStart() {
   Serial.println("################重新開始###################");
+  Serial.println("請按鈕");
   ReplyID = 0;
   AnsID = 0;
   isWin = false;
+  //isStart = false;
 
   yesNoLight(LOW);
+  StartLight(HIGH);
 
   for (int i = 0; i < 5; i++) {
     digitalWrite(LedPins[i], LOW);
@@ -154,9 +180,9 @@ void reStart() {
 
 void yesLightGreenOn() {
   for (int j = 255; j >= 0; j--) {
-      strip.fill(strip.Color(0, 255, 0, strip.gamma8(j)));
-      strip.show();
-    }
+    strip.fill(strip.Color(0, 255, 0, strip.gamma8(j)));
+    strip.show();
+  }
 }
 
 void yesNoLight(int light) {
