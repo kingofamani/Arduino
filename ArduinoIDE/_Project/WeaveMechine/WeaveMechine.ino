@@ -28,6 +28,9 @@ int volLoop = 0;//音量循環
 //下一步
 String NEXT_STEP = "UP";//UP,DOWN
 
+//03穿梭子mp3只播一次
+boolean isCrossPlayed = false;
+
 
 void setup() {
   Serial.begin(115200);
@@ -66,6 +69,8 @@ void loop() {
     digitalWrite(UpLightPin, HIGH);
     digitalWrite(DownLightPin, HIGH);
     digitalWrite(CrossLightPin, HIGH);
+
+    isCrossPlayed = false;
     
     DF1201S.playSpecFile("/04.mp3");//04檢查編織板有沒有放在下面。預備。開始。
     delay(4000);
@@ -86,37 +91,49 @@ void loop() {
   if (isSetUp && !isSetDown) {
     Serial.println("Up扣住");
     
-    digitalWrite(UpLightPin, LOW);
+    digitalWrite(UpLightPin, HIGH);
     digitalWrite(DownLightPin, HIGH);
-    digitalWrite(CrossLightPin, HIGH);
+    digitalWrite(CrossLightPin, LOW);
     
     NEXT_STEP = "DOWN";
 
-    DF1201S.playSpecFile("/03.mp3");//03請將梭子穿過經線
-    delay(2000);    
+    if(!isCrossPlayed){
+      isCrossPlayed = true;
+      DF1201S.playSpecFile("/03.mp3");//03請將梭子穿過經線
+      delay(2000); 
+    }       
 
   } else if (isSetUp && isSetDown) {
     Serial.println("Down扣住");
     
     digitalWrite(UpLightPin, HIGH);
-    digitalWrite(DownLightPin, LOW);
-    digitalWrite(CrossLightPin, HIGH);
-
-    NEXT_STEP = "UP";
-    
-    DF1201S.playSpecFile("/03.mp3");//03請將梭子穿過經線
-    delay(2000);
-
-  } else if (!isSetUp && !isSetDown) {
-    Serial.println("拿起支架中");
-    
-    digitalWrite(UpLightPin, HIGH);
     digitalWrite(DownLightPin, HIGH);
     digitalWrite(CrossLightPin, LOW);
 
+    NEXT_STEP = "UP";
+    
+    if(!isCrossPlayed){
+      isCrossPlayed = true;
+      DF1201S.playSpecFile("/03.mp3");//03請將梭子穿過經線
+      delay(2000); 
+    }  
+
+  } else if (!isSetUp && !isSetDown) {
+    Serial.println("拿起支架中");
+
+    isCrossPlayed = false;
+    
     if(NEXT_STEP == "UP"){
+      digitalWrite(UpLightPin, LOW);
+      digitalWrite(DownLightPin, HIGH);
+      digitalWrite(CrossLightPin, HIGH);
+      
       DF1201S.playSpecFile("/01.mp3");//01請將編織板放在上面
     }else if(NEXT_STEP == "DOWN"){
+      digitalWrite(UpLightPin, HIGH);
+      digitalWrite(DownLightPin, LOW);
+      digitalWrite(CrossLightPin, HIGH);
+      
       DF1201S.playSpecFile("/02.mp3");//02請將編織板放在下面
     }    
     delay(2000);
@@ -139,7 +156,7 @@ void judgeSetUpDown() {
     if (distancDown <= 5) {
       disDownCount++;
     }
-    delay(100);
+    delay(50);
   }
 
   Serial.print("Up: ");
