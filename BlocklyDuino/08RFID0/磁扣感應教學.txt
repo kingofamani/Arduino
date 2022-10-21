@@ -1,3 +1,5 @@
+★若程式無法上傳至UNO，可先拔除RFID所有數位腳位再上傳。
+
 先至「管理程式庫」安裝「MFRC522」by GithubCommunity
 
 BlocklyDuino至「傳輸模組/RFID」拉積木
