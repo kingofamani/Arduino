@@ -3,13 +3,17 @@
  *
  * https://github.com/MediaTek-Labs/BlocklyDuino-for-LinkIt
  *
- * Date: Mon, 31 Oct 2022 06:20:36 GMT
+ * Date: Mon, 31 Oct 2022 07:14:34 GMT
  */
 /*  部份程式由吉哥積木產生  */
 /*  https://sites.google.com/jes.mlc.edu.tw/ljj/linkit7697  */
 #include "HUSKYLENS.h"
 
 HUSKYLENS huskylens;
+int recValue = 100;
+
+int countIDs[6] = {0, 1, 2, 3, 4, 5};
+
 int IDs[6] = {0, 1, 2, 3, 4, 5};
 
 int ReplyID = 0;
@@ -29,13 +33,20 @@ void startRecog() {
   if (huskylens.request())
   {
   HUSKYLENSResult result;
-  int id = 0;
+  //連續辨別成功次數
   for (int i = 0; i < sizeof(IDs) / sizeof(IDs[0]); i++) {
   if (huskylens.countBlocks(IDs[i]) >= 1) {
-  id = IDs[i];
+  countIDs[IDs[i]]++;
   }     }
-  result = huskylens.getBlock(id, 0);
+  //判斷哪個ID達到閾值
+  for (int i = 0; i < sizeof(countIDs) / sizeof(countIDs[0]); i++) {
+  if (countIDs[i] >= recValue) {
+  result = huskylens.getBlock(i, 0);
   printResult(result);
+  //重置
+  for (int j = 0; j < sizeof(countIDs) / sizeof(countIDs[0]); j++) {
+  countIDs[j] = 0;
+  }       }     }
   }   else   {
   Serial.println("失敗!無法從Huskylens請求物件!");
   }
@@ -63,7 +74,8 @@ void setup()
 
 void loop()
 {
-  //訓練的ID
+  //物體識別閾值，連續識別正確次數
+//訓練的ID
 //辨識的ID
 
 startRecog();

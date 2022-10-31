@@ -1,11 +1,7 @@
 <xml xmlns="https://developers.google.com/blockly/xml">
   <variables>
-    <variable id="R!A_,Qr3xE_])AQv.:|~">ID0</variable>
-    <variable id="ji]_9^f~0Pf=qLjAlYyS">ID1</variable>
-    <variable id="|Y7*GYT@~k37O!)BT$L-">ID2</variable>
-    <variable id="DJcS[*3=ZxwlwXOzr5:p">ID3</variable>
-    <variable id="BO:oqAgIJA:CP.Hvl(_=">ID4</variable>
-    <variable id="*?$vLi!ivD6HEUQdo$@u">ID5</variable>
+    <variable id="(0Irolo!]na~g7(t#mb[">IDs</variable>
+    <variable id="RE#Z69x=i.jIkm(}|hR*">id</variable>
     <variable id="*P.=L;wSaK_!-VR`Qa^q">ReplyID</variable>
   </variables>
   <block type="customcode_head" id="8xkSaA^eo6XC9^}EVL!?" x="450" y="-170">
@@ -29,120 +25,80 @@
               </block>
             </value>
             <next>
-              <block type="variables_set" id="F:xH8Uw(_sG=hwre?_Sd">
+              <block type="variables_set1" id="HR+_sC@K{UT[b.%}=baj" collapsed="true">
                 <field name="POSITION">global</field>
                 <field name="TYPE">int</field>
-                <field name="VAR" id="R!A_,Qr3xE_])AQv.:|~">ID0</field>
-                <value name="VALUE">
-                  <shadow type="math_number" id="eM+:5#J:dHq_x}/sF23|">
-                    <field name="NUM">0</field>
-                  </shadow>
-                  <block type="math_number" id="|`^FCsk@2;,pu_g0hKh=">
-                    <field name="NUM">0</field>
+                <field name="VAR" id="(0Irolo!]na~g7(t#mb[">IDs</field>
+                <value name="LEN">
+                  <block type="math_number" id="t].N+Suny#@}mrY_?)6`">
+                    <field name="NUM">6</field>
                   </block>
                 </value>
-                <next>
-                  <block type="variables_set" id="=+?z7Up#D|rwQ{VL8TA~">
-                    <field name="POSITION">global</field>
-                    <field name="TYPE">int</field>
-                    <field name="VAR" id="ji]_9^f~0Pf=qLjAlYyS">ID1</field>
-                    <value name="VALUE">
-                      <shadow type="math_number">
+                <value name="VALUE">
+                  <shadow type="text" id="A7bOJ*hve66)2o^C=OIk">
+                    <field name="TEXT"></field>
+                  </shadow>
+                  <block type="lists_create_with" id="blrx@WH^L?,w!gPdRpSk" inline="false">
+                    <mutation items="6"></mutation>
+                    <value name="ADD0">
+                      <block type="math_number" id="AXtjD5:R.fxuZJnw`d8#">
                         <field name="NUM">0</field>
-                      </shadow>
-                      <block type="math_number" id="7~pw?tm/O^)|la5xQHD2">
+                      </block>
+                    </value>
+                    <value name="ADD1">
+                      <block type="math_number" id="STSC)I,D8kqhj?X+qTa~">
                         <field name="NUM">1</field>
                       </block>
                     </value>
+                    <value name="ADD2">
+                      <block type="math_number" id="IcoXgoTt0#0EK?cmgEgt">
+                        <field name="NUM">2</field>
+                      </block>
+                    </value>
+                    <value name="ADD3">
+                      <block type="math_number" id="w$(XJl_Wh|R^6e}-gx/D">
+                        <field name="NUM">3</field>
+                      </block>
+                    </value>
+                    <value name="ADD4">
+                      <block type="math_number" id="J=|ciJ^up,Do:eRAy!B1">
+                        <field name="NUM">4</field>
+                      </block>
+                    </value>
+                    <value name="ADD5">
+                      <block type="math_number" id="@~v*Nq~b?@Y$OGu#oA/!">
+                        <field name="NUM">5</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_comment" id="6(YbywOO9`(jQJV_8sUp">
+                    <value name="text">
+                      <block type="text" id="Iu?)T52af0?9rkx7ouc5">
+                        <field name="TEXT">辨識的ID</field>
+                      </block>
+                    </value>
                     <next>
-                      <block type="variables_set" id="k6v#iZIV_Xihe7d:G+2n">
+                      <block type="variables_set" id="Kd%xqdP[Gq}ge.5auVbE">
                         <field name="POSITION">global</field>
                         <field name="TYPE">int</field>
-                        <field name="VAR" id="|Y7*GYT@~k37O!)BT$L-">ID2</field>
+                        <field name="VAR" id="*P.=L;wSaK_!-VR`Qa^q">ReplyID</field>
                         <value name="VALUE">
                           <shadow type="math_number">
                             <field name="NUM">0</field>
                           </shadow>
-                          <block type="math_number" id="?)+c]G59g11W6J1Nc;L)">
-                            <field name="NUM">2</field>
+                          <block type="math_number" id="#XFF+W7RPwFT+mOlFntR">
+                            <field name="NUM">0</field>
                           </block>
                         </value>
                         <next>
-                          <block type="variables_set" id="(9FV-Y}JzQjB)ugHL!UV">
-                            <field name="POSITION">global</field>
-                            <field name="TYPE">int</field>
-                            <field name="VAR" id="DJcS[*3=ZxwlwXOzr5:p">ID3</field>
-                            <value name="VALUE">
-                              <shadow type="math_number">
-                                <field name="NUM">0</field>
-                              </shadow>
-                              <block type="math_number" id="~Q;4UB9e^5POSd42;^UO">
-                                <field name="NUM">3</field>
+                          <block type="customcode_head" id=")113rf5yuS|$8L`!(fPQ">
+                            <value name="text">
+                              <block type="text" id="B^L#@3)s3d%[WK;1rf}P">
+                                <field name="TEXT">void printResult(HUSKYLENSResult result);</field>
                               </block>
                             </value>
-                            <next>
-                              <block type="variables_set" id="N@OM9~RqpLz=BSEI;ReB">
-                                <field name="POSITION">global</field>
-                                <field name="TYPE">int</field>
-                                <field name="VAR" id="BO:oqAgIJA:CP.Hvl(_=">ID4</field>
-                                <value name="VALUE">
-                                  <shadow type="math_number">
-                                    <field name="NUM">0</field>
-                                  </shadow>
-                                  <block type="math_number" id="gzU/}yL0x*$+%lPSFkeJ">
-                                    <field name="NUM">4</field>
-                                  </block>
-                                </value>
-                                <next>
-                                  <block type="variables_set" id="f$B)I2^3..Nf7/S^HA^Q">
-                                    <field name="POSITION">global</field>
-                                    <field name="TYPE">int</field>
-                                    <field name="VAR" id="*?$vLi!ivD6HEUQdo$@u">ID5</field>
-                                    <value name="VALUE">
-                                      <shadow type="math_number">
-                                        <field name="NUM">0</field>
-                                      </shadow>
-                                      <block type="math_number" id="PF.l0VVny`D/MxICf-(Z">
-                                        <field name="NUM">5</field>
-                                      </block>
-                                    </value>
-                                    <next>
-                                      <block type="customcode_comment" id="6(YbywOO9`(jQJV_8sUp">
-                                        <value name="text">
-                                          <block type="text" id="Iu?)T52af0?9rkx7ouc5">
-                                            <field name="TEXT">辨識的ID</field>
-                                          </block>
-                                        </value>
-                                        <next>
-                                          <block type="variables_set" id="Kd%xqdP[Gq}ge.5auVbE">
-                                            <field name="POSITION">global</field>
-                                            <field name="TYPE">int</field>
-                                            <field name="VAR" id="*P.=L;wSaK_!-VR`Qa^q">ReplyID</field>
-                                            <value name="VALUE">
-                                              <shadow type="math_number">
-                                                <field name="NUM">0</field>
-                                              </shadow>
-                                              <block type="math_number" id="#XFF+W7RPwFT+mOlFntR">
-                                                <field name="NUM">0</field>
-                                              </block>
-                                            </value>
-                                            <next>
-                                              <block type="customcode_head" id=")113rf5yuS|$8L`!(fPQ">
-                                                <value name="text">
-                                                  <block type="text" id="B^L#@3)s3d%[WK;1rf}P">
-                                                    <field name="TEXT">void printResult(HUSKYLENSResult result);</field>
-                                                  </block>
-                                                </value>
-                                              </block>
-                                            </next>
-                                          </block>
-                                        </next>
-                                      </block>
-                                    </next>
-                                  </block>
-                                </next>
-                              </block>
-                            </next>
                           </block>
                         </next>
                       </block>
@@ -188,7 +144,7 @@
       </block>
     </next>
   </block>
-  <block type="procedures_defnoreturn" id="?uUS,}Xc{Q%k1/#+hpT4" collapsed="true" x="450" y="290">
+  <block type="procedures_defnoreturn" id="?uUS,}Xc{Q%k1/#+hpT4" collapsed="true" x="450" y="90">
     <field name="NAME">initHL</field>
     <value name="VAR">
       <shadow type="lists_create_with" id="zG9f$[Egfo.mTa7XeC!P">
@@ -259,7 +215,7 @@
       </block>
     </statement>
   </block>
-  <block type="procedures_defnoreturn" id="2m,krcZu5Sn,h%8[z*pn" collapsed="true" x="450" y="330">
+  <block type="procedures_defnoreturn" id="2m,krcZu5Sn,h%8[z*pn" collapsed="true" x="450" y="130">
     <field name="NAME">startRecog</field>
     <value name="VAR">
       <shadow type="lists_create_with" id="=0?-z.q)IHl1$C;cZ.k;">
@@ -288,138 +244,81 @@
                   </block>
                 </value>
                 <next>
-                  <block type="customcode_code" id="zsORdas5Qy`[b.(kXWy_">
-                    <value name="text">
-                      <block type="text" id="|j#)b2Fb)E8C=sPBP^$Z">
-                        <field name="TEXT">if (huskylens.countBlocks(ID1) &gt;= 1) {</field>
+                  <block type="variables_set" id="Nv%Ym?Mi^6Hhlm{*tC6}">
+                    <field name="POSITION">local</field>
+                    <field name="TYPE">int</field>
+                    <field name="VAR" id="RE#Z69x=i.jIkm(}|hR*">id</field>
+                    <value name="VALUE">
+                      <shadow type="math_number" id=",f)SU]JW)yIU)uIU(i2U">
+                        <field name="NUM">0</field>
+                      </shadow>
+                      <block type="math_number" id="8Am2K@(J+JToE?9y_~jq">
+                        <field name="NUM">0</field>
                       </block>
                     </value>
                     <next>
-                      <block type="customcode_code" id="B]Xh{g0K/~E#;7=z[TEn">
+                      <block type="customcode_code" id="P)go!3P!R`P?Xm*L;Q:2">
                         <value name="text">
-                          <block type="text" id="K}Q.$bkj7VJS|;0jMzWc">
-                            <field name="TEXT">result = huskylens.getBlock(ID1, 0);</field>
+                          <block type="text" id="AS^QL]H(C2#~ApUBRx?7">
+                            <field name="TEXT">for (int i = 0; i &lt; sizeof(IDs) / sizeof(IDs[0]); i++) {</field>
                           </block>
                         </value>
                         <next>
-                          <block type="customcode_code" id="^O[@i-QQ!S[=f4CFXLIl">
+                          <block type="customcode_code" id="wezxW%#,,^!KdOWIrG44">
                             <value name="text">
-                              <block type="text" id="{J;`MJQ9yJI_sQT7`iWK">
-                                <field name="TEXT">} else if (huskylens.countBlocks(ID2) &gt;= 1) {</field>
+                              <block type="text" id="L%1jX}oh@=x;iyc/X;LJ">
+                                <field name="TEXT">if (huskylens.countBlocks(IDs[i]) &gt;= 1) {</field>
                               </block>
                             </value>
                             <next>
-                              <block type="customcode_code" id=";dwkj-w@zQ8+$]Ys{Ic%">
+                              <block type="customcode_code" id="{`ZkS;)li-GVb!}6YA/w">
                                 <value name="text">
-                                  <block type="text" id="_k%ZbC^elV/0IUg;i1gg">
-                                    <field name="TEXT">result = huskylens.getBlock(ID2, 0);</field>
+                                  <block type="text" id="N0E9MhLj0@TJUGS%%:GB">
+                                    <field name="TEXT">id = IDs[i];</field>
                                   </block>
                                 </value>
                                 <next>
-                                  <block type="customcode_code" id="~urFO~e|7`?Ssh}9jmFU">
+                                  <block type="customcode_code" id="7?Q5XBK3i%c#*)aruU+^">
                                     <value name="text">
-                                      <block type="text" id="r$T8t@#BTqzVWmcL@`E0">
-                                        <field name="TEXT">} else if (huskylens.countBlocks(ID3) &gt;= 1) {</field>
+                                      <block type="text" id="#+FlSOEQb$phCV|Dw1::">
+                                        <field name="TEXT">}     }</field>
                                       </block>
                                     </value>
                                     <next>
-                                      <block type="customcode_code" id="q|x%q0wk7jtmm=y9Kqx/">
+                                      <block type="customcode_code" id="U9)|gaKhc]X/w}ycD]yH">
                                         <value name="text">
-                                          <block type="text" id="FPt^v@v2uiTY.3k=;8z9">
-                                            <field name="TEXT">result = huskylens.getBlock(ID3, 0);</field>
+                                          <block type="text" id="-ZQUOjeb0$#jUBwe0iO}">
+                                            <field name="TEXT">result = huskylens.getBlock(id, 0);</field>
                                           </block>
                                         </value>
                                         <next>
-                                          <block type="customcode_code" id="2~DF0fjTi${^]-=f#|-H">
+                                          <block type="customcode_code" id="X3{/y|rNE71[#yz2o$P/">
                                             <value name="text">
-                                              <block type="text" id="ld}$mk4@nwY(4roD/!$4">
-                                                <field name="TEXT">} else if (huskylens.countBlocks(ID4) &gt;= 1) {</field>
+                                              <block type="text" id="yn9d|[hRw-kQzcs]k=iO">
+                                                <field name="TEXT">printResult(result);</field>
                                               </block>
                                             </value>
                                             <next>
-                                              <block type="customcode_code" id="%@^ct7C-@GZ1pp5C}@7u">
+                                              <block type="customcode_code" id="+r`%FVfy#cBHS)N(6Gi}">
                                                 <value name="text">
-                                                  <block type="text" id=".-(-cMH:Sd=@8TYEHExs">
-                                                    <field name="TEXT">result = huskylens.getBlock(ID4, 0);</field>
+                                                  <block type="text" id="urMYV^,-%12Qw_1+`$c5">
+                                                    <field name="TEXT">}   else   {</field>
                                                   </block>
                                                 </value>
                                                 <next>
-                                                  <block type="customcode_code" id="nXlXzRoAobhZ9H7MWi|=">
+                                                  <block type="customcode_code" id="-SIXIg`%6wS}S+S+rhnX">
                                                     <value name="text">
-                                                      <block type="text" id="/V48,nk)6.=?5E$c!w!G">
-                                                        <field name="TEXT">} else if (huskylens.countBlocks(ID5) &gt;= 1) {</field>
+                                                      <block type="text" id="xJGoI;g)7r7a9$+QX62s">
+                                                        <field name="TEXT">Serial.println("失敗!無法從Huskylens請求物件!");</field>
                                                       </block>
                                                     </value>
                                                     <next>
-                                                      <block type="customcode_code" id="*V%j]`.Jp~k2jbkg/:H_">
+                                                      <block type="customcode_code" id="RZlv^|J0YTSD!?}]m=/*">
                                                         <value name="text">
-                                                          <block type="text" id="eIcIkRk.W75iX]g)2d66">
-                                                            <field name="TEXT">result = huskylens.getBlock(ID5, 0);</field>
+                                                          <block type="text" id="KkSgj(vOBIyvTz`Vi?Eq">
+                                                            <field name="TEXT">}</field>
                                                           </block>
                                                         </value>
-                                                        <next>
-                                                          <block type="customcode_code" id="JuYWS78}xTzY~[^71e(,">
-                                                            <value name="text">
-                                                              <block type="text" id="Ao4TGY`V9@]xB^sdVe0|">
-                                                                <field name="TEXT">} else {</field>
-                                                              </block>
-                                                            </value>
-                                                            <next>
-                                                              <block type="customcode_code" id="/KC0+5_0{[H:P0K1,pr4">
-                                                                <value name="text">
-                                                                  <block type="text" id="BG}Xe1Of@m2FDp?z;75y">
-                                                                    <field name="TEXT">result = huskylens.getBlock(0, 0);</field>
-                                                                  </block>
-                                                                </value>
-                                                                <next>
-                                                                  <block type="customcode_code" id="UVjSZEx6`pOq=O=MYa]c">
-                                                                    <value name="text">
-                                                                      <block type="text" id="6Idt%Kc}88SM0=xjWH|D">
-                                                                        <field name="TEXT">}</field>
-                                                                      </block>
-                                                                    </value>
-                                                                    <next>
-                                                                      <block type="customcode_code" id="X3{/y|rNE71[#yz2o$P/">
-                                                                        <value name="text">
-                                                                          <block type="text" id="yn9d|[hRw-kQzcs]k=iO">
-                                                                            <field name="TEXT">printResult(result);</field>
-                                                                          </block>
-                                                                        </value>
-                                                                        <next>
-                                                                          <block type="customcode_code" id="+r`%FVfy#cBHS)N(6Gi}">
-                                                                            <value name="text">
-                                                                              <block type="text" id="urMYV^,-%12Qw_1+`$c5">
-                                                                                <field name="TEXT">}   else   {</field>
-                                                                              </block>
-                                                                            </value>
-                                                                            <next>
-                                                                              <block type="customcode_code" id="-SIXIg`%6wS}S+S+rhnX">
-                                                                                <value name="text">
-                                                                                  <block type="text" id="xJGoI;g)7r7a9$+QX62s">
-                                                                                    <field name="TEXT">Serial.println("失敗!無法從Huskylens請求物件!");</field>
-                                                                                  </block>
-                                                                                </value>
-                                                                                <next>
-                                                                                  <block type="customcode_code" id="RZlv^|J0YTSD!?}]m=/*">
-                                                                                    <value name="text">
-                                                                                      <block type="text" id="KkSgj(vOBIyvTz`Vi?Eq">
-                                                                                        <field name="TEXT">}</field>
-                                                                                      </block>
-                                                                                    </value>
-                                                                                  </block>
-                                                                                </next>
-                                                                              </block>
-                                                                            </next>
-                                                                          </block>
-                                                                        </next>
-                                                                      </block>
-                                                                    </next>
-                                                                  </block>
-                                                                </next>
-                                                              </block>
-                                                            </next>
-                                                          </block>
-                                                        </next>
                                                       </block>
                                                     </next>
                                                   </block>
@@ -447,7 +346,7 @@
       </block>
     </statement>
   </block>
-  <block type="procedures_defnoreturn" id="7f*L|8nURp;bscJV;tW1" collapsed="true" x="450" y="370">
+  <block type="procedures_defnoreturn" id="7f*L|8nURp;bscJV;tW1" collapsed="true" x="450" y="170">
     <field name="NAME">pR</field>
     <value name="VAR">
       <shadow type="lists_create_with" id="8%i?zL`VtlB,]qUGYG:Y">
