@@ -1,0 +1,135 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="m{$[7gW(i$mhCJT@=vH-">secs</variable>
+    <variable id="ngseVQZ8lOyQ]xHm+8uG">duration</variable>
+  </variables>
+  <block type="board_initializes_setup" id="0" x="100" y="50">
+    <field name="BOARD_TYPE">Arduino</field>
+    <statement name="CONTENT">
+      <block type="serial_init" id="CHnKd-`4N3r9#V24*1uM">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="variables_set" id="/;CP|Sx#;b;mv5K:GX.x">
+            <field name="POSITION">global</field>
+            <field name="TYPE">int</field>
+            <field name="VAR" id="m{$[7gW(i$mhCJT@=vH-">secs</field>
+            <value name="VALUE">
+              <shadow type="math_number" id="B0L=rk#_|O3?,~a#{iOr">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="serial_println" id="-)2ZKXL~OMJ0i!s,N8)/">
+            <value name="CONTENT">
+              <block type="millis" id="Hg9C,u#sOzB=LNr=KTMk"></block>
+            </value>
+            <next>
+              <block type="variables_set3" id="LDe]qtx*Q#|QhBfml6pn">
+                <field name="VAR" id="m{$[7gW(i$mhCJT@=vH-">secs</field>
+                <value name="DELTA">
+                  <shadow type="math_number" id=",zi*u25sf!K2?-AWB^C]">
+                    <field name="NUM">0</field>
+                  </shadow>
+                  <block type="customcode_code_input" id="(6ukS0GgQrqhpk#S$?ol">
+                    <value name="text">
+                      <block type="text" id="wREY?R3`p=w$/ks#%N+A">
+                        <field name="TEXT">round(millis() / 1000)</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="serial_print" id="5RR/M}[Ir6a9?JpCnh!E">
+                    <value name="CONTENT">
+                      <block type="text" id="+-A(R0#dj|Fsu%(8OXwu">
+                        <field name="TEXT">目前時間：</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_println" id="kc_bL,_`7T`BZLUNS,v(">
+                        <value name="CONTENT">
+                          <block type="variables_get" id="sV^@j|MWUP,y![+krrIP">
+                            <field name="VAR" id="m{$[7gW(i$mhCJT@=vH-">secs</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="delay_custom" id="SG6TARz%OcR,4c^A)5+-">
+                            <value name="DELAY_TIME">
+                              <block type="math_number" id="aJF?AxX:p1e)J/7HH?#f">
+                                <field name="NUM">1000</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+  <block type="procedures_defnoreturn" id="q2UBxDf9I@@?zL-`4|O)" x="450" y="410">
+    <field name="NAME">startCountDown</field>
+    <value name="VAR">
+      <shadow type="lists_create_with" id="U#XM$]!dtS1zvc4a.otF">
+        <mutation items="0"></mutation>
+      </shadow>
+    </value>
+  </block>
+  <block type="procedures_defreturn" id="HHcB+XL.aeC$1Ot*}G|Y" x="150" y="510">
+    <field name="TYPE">int</field>
+    <field name="NAME">durationSecs</field>
+    <value name="VAR">
+      <shadow type="lists_create_with" id="?C-5?qaT|M]s!FhtsHQ=">
+        <mutation items="0"></mutation>
+      </shadow>
+      <block type="lists_create_with" id="@R#.QVNOqd8Gh6ZY|L/K">
+        <mutation items="2"></mutation>
+        <value name="ADD1">
+          <block type="variables_set2" id="au[M!iFmQeDnvw|B_D]?">
+            <field name="TYPE">int</field>
+            <field name="VAR" id="m{$[7gW(i$mhCJT@=vH-">secs</field>
+          </block>
+        </value>
+      </block>
+    </value>
+    <statement name="STACK">
+      <block type="customcode_code" id="Q07Vk#:p9y~z@1{u#1_-">
+        <value name="text">
+          <block type="text" id="!WGi({O=4w.E{}V/.K%9">
+            <field name="TEXT">static int startTime= millis();</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id="aZ2w*U}Nx~*#+akSTlx[">
+            <field name="POSITION">local</field>
+            <field name="TYPE">int</field>
+            <field name="VAR" id="ngseVQZ8lOyQ]xHm+8uG">duration</field>
+            <value name="VALUE">
+              <shadow type="math_number" id="`LoZ3l,orX`^Y3fr)K],">
+                <field name="NUM">0</field>
+              </shadow>
+              <block type="customcode_code_input" id="Rer=}jLx_5)t(sS$d1UQ">
+                <value name="text">
+                  <block type="text" id="6,WI[U;86p.`rX0WLZ{m">
+                    <field name="TEXT">round((millis()-startTime)/1000)</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>
