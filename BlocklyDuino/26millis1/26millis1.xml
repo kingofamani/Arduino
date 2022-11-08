@@ -1,0 +1,80 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="m{$[7gW(i$mhCJT@=vH-">secs</variable>
+  </variables>
+  <block type="board_initializes_setup" id="0" x="100" y="50">
+    <field name="BOARD_TYPE">Arduino</field>
+    <statement name="CONTENT">
+      <block type="serial_init" id="CHnKd-`4N3r9#V24*1uM">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="variables_set" id="/;CP|Sx#;b;mv5K:GX.x">
+            <field name="POSITION">global</field>
+            <field name="TYPE">int</field>
+            <field name="VAR" id="m{$[7gW(i$mhCJT@=vH-">secs</field>
+            <value name="VALUE">
+              <shadow type="math_number" id="B0L=rk#_|O3?,~a#{iOr">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="serial_println" id="-)2ZKXL~OMJ0i!s,N8)/">
+            <value name="CONTENT">
+              <block type="millis" id="Hg9C,u#sOzB=LNr=KTMk"></block>
+            </value>
+            <next>
+              <block type="variables_set3" id="LDe]qtx*Q#|QhBfml6pn">
+                <field name="VAR" id="m{$[7gW(i$mhCJT@=vH-">secs</field>
+                <value name="DELTA">
+                  <shadow type="math_number" id=",zi*u25sf!K2?-AWB^C]">
+                    <field name="NUM">0</field>
+                  </shadow>
+                  <block type="customcode_code_input" id="(6ukS0GgQrqhpk#S$?ol">
+                    <value name="text">
+                      <block type="text" id="wREY?R3`p=w$/ks#%N+A">
+                        <field name="TEXT">round(millis() / 1000)</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="serial_print" id="5RR/M}[Ir6a9?JpCnh!E">
+                    <value name="CONTENT">
+                      <block type="text" id="+-A(R0#dj|Fsu%(8OXwu">
+                        <field name="TEXT">目前時間：</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_println" id="kc_bL,_`7T`BZLUNS,v(">
+                        <value name="CONTENT">
+                          <block type="variables_get" id="sV^@j|MWUP,y![+krrIP">
+                            <field name="VAR" id="m{$[7gW(i$mhCJT@=vH-">secs</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="delay_custom" id="SG6TARz%OcR,4c^A)5+-">
+                            <value name="DELAY_TIME">
+                              <block type="math_number" id="aJF?AxX:p1e)J/7HH?#f">
+                                <field name="NUM">1000</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>
