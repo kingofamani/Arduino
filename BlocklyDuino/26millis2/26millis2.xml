@@ -1,9 +1,10 @@
 <xml xmlns="https://developers.google.com/blockly/xml">
   <variables>
-    <variable id="m{$[7gW(i$mhCJT@=vH-">secs</variable>
-    <variable id="G*21g{@y+Ja6VL,FW}^:">durs</variable>
+    <variable id=",Sk!GD,bA)4ed8HuRc|8">startTime</variable>
     <variable id="ii^LTRyh5Hr@)R$6lvd/">item</variable>
+    <variable id="m{$[7gW(i$mhCJT@=vH-">secs</variable>
     <variable id="ngseVQZ8lOyQ]xHm+8uG">duration</variable>
+    <variable id="NAr#OT^o{r40q_v{*DZ2">beforeFlagSec</variable>
   </variables>
   <block type="board_initializes_setup" id="0" x="100" y="50">
     <field name="BOARD_TYPE">Arduino</field>
@@ -11,34 +12,25 @@
       <block type="serial_init" id="CHnKd-`4N3r9#V24*1uM">
         <field name="SPEED">9600</field>
         <next>
-          <block type="variables_set" id="/;CP|Sx#;b;mv5K:GX.x">
+          <block type="variables_set" id="v)K4+Yure~OUSDhuR8j4">
             <field name="POSITION">global</field>
             <field name="TYPE">int</field>
-            <field name="VAR" id="m{$[7gW(i$mhCJT@=vH-">secs</field>
+            <field name="VAR" id=",Sk!GD,bA)4ed8HuRc|8">startTime</field>
             <value name="VALUE">
-              <shadow type="math_number" id="B0L=rk#_|O3?,~a#{iOr">
-                <field name="NUM">20</field>
+              <shadow type="math_number" id="{^5{In0N?3ftI6L?qkk,">
+                <field name="NUM">0</field>
               </shadow>
             </value>
             <next>
-              <block type="variables_set" id="nk$DH9;lnM0hxD;B^)`j">
+              <block type="variables_set" id="b$vj}~qqKMg^1JKaNe1~">
                 <field name="POSITION">global</field>
-                <field name="TYPE">float</field>
-                <field name="VAR" id="G*21g{@y+Ja6VL,FW}^:">durs</field>
+                <field name="TYPE">int</field>
+                <field name="VAR" id="NAr#OT^o{r40q_v{*DZ2">beforeFlagSec</field>
                 <value name="VALUE">
-                  <shadow type="math_number" id="Z(rpqzIpKI^p0Vq4-j|L">
+                  <shadow type="math_number" id=";(0s**t+#HNvt|l|^Jpt">
                     <field name="NUM">0</field>
                   </shadow>
                 </value>
-                <next>
-                  <block type="delay_custom" id="tJh#xQKgo4OUOQ)s{IRW">
-                    <value name="DELAY_TIME">
-                      <block type="math_number" id="zbJ-4_[EwyxPmuJ:Mhuc">
-                        <field name="NUM">2000</field>
-                      </block>
-                    </value>
-                  </block>
-                </next>
               </block>
             </next>
           </block>
@@ -48,47 +40,29 @@
     <next>
       <block type="initializes_loop" id="1">
         <statement name="CONTENT">
-          <block type="variables_set3" id="M?2,MUkDRQ?`7xujy]4%">
-            <field name="VAR" id="G*21g{@y+Ja6VL,FW}^:">durs</field>
-            <value name="DELTA">
-              <shadow type="math_number" id="-97,7:kt8j1My1JF2:GL">
-                <field name="NUM">0</field>
-              </shadow>
-              <block type="procedures_callreturn" id="AAF]{/u+$hsz_@jwKU4h">
-                <mutation xmlns="http://www.w3.org/1999/xhtml" name="durationSecs"></mutation>
-                <value name="VAR">
-                  <block type="lists_create_with" id="Dyzsi_zO?z[fOPW,@Mxw">
-                    <mutation items="2"></mutation>
-                    <value name="ADD0">
-                      <block type="math_number" id="Lew/vpwW$LaTe(#iLnc@">
-                        <field name="NUM">1</field>
-                      </block>
-                    </value>
-                    <value name="ADD1">
-                      <block type="variables_get" id="FLFztue6U^PE)/%hy,{Q">
-                        <field name="VAR" id="m{$[7gW(i$mhCJT@=vH-">secs</field>
-                      </block>
-                    </value>
-                  </block>
-                </value>
+          <block type="delay_custom" id="Q0zVm:?V6$+i#=Zf]{Ap">
+            <value name="DELAY_TIME">
+              <block type="math_number" id="X=bWVd+PM]]n1Xu8U5KU">
+                <field name="NUM">2000</field>
               </block>
             </value>
             <next>
-              <block type="serial_println" id="iVJOJwz8YXg[#L:}H12~">
+              <block type="serial_println" id="+i3s;$iTVV-m1(Ta7=|+">
                 <value name="CONTENT">
-                  <block type="variables_get" id="mCARb+|PQ}RfQ_[6f/lf">
-                    <field name="VAR" id="G*21g{@y+Ja6VL,FW}^:">durs</field>
-                  </block>
-                </value>
-                <next>
-                  <block type="delay_custom" id="fNx2O%GK95x52!,BUr!#">
-                    <value name="DELAY_TIME">
-                      <block type="math_number" id="#t6|059a*~-[Ogo~9Y=,">
-                        <field name="NUM">500</field>
+                  <block type="procedures_callreturn" id="pU.OlCm5*,q]]krCkS?#">
+                    <mutation xmlns="http://www.w3.org/1999/xhtml" name="startCountDown"></mutation>
+                    <value name="VAR">
+                      <block type="lists_create_with" id="P8(B]ds-#sb{y~}S}%V5">
+                        <mutation items="1"></mutation>
+                        <value name="ADD0">
+                          <block type="math_number" id="HEKJMd6h@@yYpwr[QWYm">
+                            <field name="NUM">10</field>
+                          </block>
+                        </value>
                       </block>
                     </value>
                   </block>
-                </next>
+                </value>
               </block>
             </next>
           </block>
@@ -96,24 +70,261 @@
       </block>
     </next>
   </block>
-  <block type="procedures_defnoreturn" id="q2UBxDf9I@@?zL-`4|O)" x="650" y="330">
-    <field name="NAME">startCount</field>
+  <block type="procedures_defreturn" id="P`-wYl/u0$l1o0TNKJCC" x="110" y="330">
+    <field name="TYPE">int</field>
+    <field name="NAME">startCountDown</field>
     <value name="VAR">
-      <shadow type="lists_create_with" id="U#XM$]!dtS1zvc4a.otF">
+      <shadow type="lists_create_with">
         <mutation items="0"></mutation>
       </shadow>
-    </value>
-    <statement name="STACK">
-      <block type="serial_print" id="gb[Lr~/G-@eB?_OycSYJ">
-        <value name="CONTENT">
-          <block type="text" id="$A^b0D#)C|[/-eDv39?L">
-            <field name="TEXT">目前時間：</field>
+      <block type="lists_create_with" id="=978V$d0j7ApbcyWX.3E">
+        <mutation items="1"></mutation>
+        <value name="ADD0">
+          <block type="variables_set2" id="xy7hQ/.F4|8R%a2:{(]4">
+            <field name="TYPE">int</field>
+            <field name="VAR" id="m{$[7gW(i$mhCJT@=vH-">secs</field>
           </block>
         </value>
       </block>
+    </value>
+    <statement name="STACK">
+      <block type="controls_if" id="IYKD=T~C}WzhlJ0{!wrO">
+        <value name="IF0">
+          <block type="logic_compare" id="hl-`ov!uz{j2Hj2{Bu.4">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="variables_get" id="hTi=M{%cK8b8B1hA{Jhz">
+                <field name="VAR" id=",Sk!GD,bA)4ed8HuRc|8">startTime</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="r@v?mKu@v*aj8Linv/^R">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="variables_set3" id="g#]Wh2P[o2,ZEsrIa9^R">
+            <field name="VAR" id=",Sk!GD,bA)4ed8HuRc|8">startTime</field>
+            <value name="DELTA">
+              <shadow type="math_number" id="he#:ABdRTBG?W~J,y5B{">
+                <field name="NUM">0</field>
+              </shadow>
+              <block type="customcode_code_input" id="?gF!1mGfptmneffVkE^z">
+                <value name="text">
+                  <block type="text" id=")bn`6CF+XBVES]zBd}w=">
+                    <field name="TEXT">millis()</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set3" id="j)+KJMe]k6#kOG|/q_|r">
+                <field name="VAR" id="NAr#OT^o{r40q_v{*DZ2">beforeFlagSec</field>
+                <value name="DELTA">
+                  <shadow type="math_number" id="@_RZpgFE!gBN9{1.lY_D">
+                    <field name="NUM">0</field>
+                  </shadow>
+                  <block type="variables_get" id="z_FFyw*$Ln?i1EfdUcr!">
+                    <field name="VAR" id=",Sk!GD,bA)4ed8HuRc|8">startTime</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="controls_if" id=")64.RdL{2E$pKV/aD8WH">
+            <value name="IF0">
+              <block type="logic_compare" id="Td8]X.|+Z[,dxl(SgJ!c">
+                <field name="OP">NEQ</field>
+                <value name="A">
+                  <block type="variables_get" id=",g0EO_0ea=0_O:nqavr^">
+                    <field name="VAR" id=",Sk!GD,bA)4ed8HuRc|8">startTime</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="DhjyU((!V=3~a=p6W^D9">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="controls_if" id="EFt:TWn~e5O.)x~VwVsb">
+                <mutation elseif="1"></mutation>
+                <value name="IF0">
+                  <block type="logic_compare" id="@hVy)D97i%zFM]X|jOw2">
+                    <field name="OP">GT</field>
+                    <value name="A">
+                      <block type="customcode_code_input" id="e2:1yx,!xo-Etgbs[_^B">
+                        <value name="text">
+                          <block type="text" id="HlgapuFL$HHa7gT^]GX}">
+                            <field name="TEXT">millis()</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_arithmetic" id="b{|T!pW/u{!(=a7B9dA7">
+                        <field name="OP">ADD</field>
+                        <value name="A">
+                          <block type="variables_get" id="XQl^orHOgc5qh2cDCO#^">
+                            <field name="VAR" id=",Sk!GD,bA)4ed8HuRc|8">startTime</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_arithmetic" id="VQLs/U3ZoVT[D23HIJ9]">
+                            <field name="OP">MULTIPLY</field>
+                            <value name="A">
+                              <block type="variables_get" id="M.E(Mh$9Ez~vOi%+RJY[">
+                                <field name="VAR" id="m{$[7gW(i$mhCJT@=vH-">secs</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number" id="*BtS}b7^R)T2JBy2_/!T">
+                                <field name="NUM">1000</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="variables_set3" id="zBbmYKUZ?2@?{w2W`p7Q">
+                    <field name="VAR" id=",Sk!GD,bA)4ed8HuRc|8">startTime</field>
+                    <value name="DELTA">
+                      <shadow type="math_number" id="{_5Vvh/pDe]/QU*KAjF7">
+                        <field name="NUM">0</field>
+                      </shadow>
+                    </value>
+                    <next>
+                      <block type="variables_set3" id="!OsL^@?$tkabA$ILL5{Y">
+                        <field name="VAR" id="NAr#OT^o{r40q_v{*DZ2">beforeFlagSec</field>
+                        <value name="DELTA">
+                          <shadow type="math_number" id="I?90t`jLnD$M)HR,w|*6">
+                            <field name="NUM">0</field>
+                          </shadow>
+                        </value>
+                        <next>
+                          <block type="procedures_return" id="mpMl`itAWxS1zxeCJwHY">
+                            <value name="RETURN">
+                              <shadow type="math_number" id="tvvP[q_#tvr.K9@9F5Qn">
+                                <field name="NUM">0</field>
+                              </shadow>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <value name="IF1">
+                  <block type="logic_compare" id="lH0FL*GX[[mWuO!ybH}#">
+                    <field name="OP">GT</field>
+                    <value name="A">
+                      <block type="customcode_code_input" id="6tk^G5@4jQUGF;D.?hF2">
+                        <value name="text">
+                          <block type="text" id="*8V[{qly7v~-O=uu:JkL">
+                            <field name="TEXT">millis()</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_arithmetic" id="WV4w*V2{0a78~0L+k(`5">
+                        <field name="OP">ADD</field>
+                        <value name="A">
+                          <block type="variables_get" id="XtUu8Zg#87y)-2vluSyo">
+                            <field name="VAR" id="NAr#OT^o{r40q_v{*DZ2">beforeFlagSec</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id=",!MP.ci+/u:a/9/J!:Za">
+                            <field name="NUM">1000</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO1">
+                  <block type="variables_set3" id="tB-t)!NKbtGYyIm!WH?Y">
+                    <field name="VAR" id="NAr#OT^o{r40q_v{*DZ2">beforeFlagSec</field>
+                    <value name="DELTA">
+                      <shadow type="math_number" id="gYB.Z*YVvSl?tpY/81#3">
+                        <field name="NUM">0</field>
+                      </shadow>
+                      <block type="customcode_code_input" id="T?2y#*/ZnJV.jFBt)#lJ">
+                        <value name="text">
+                          <block type="text" id="ijgTQUzXGN05{BFh0z^:">
+                            <field name="TEXT">millis()</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="procedures_return" id="vp+bE%HSZ@ble]CTdDrN">
+                        <value name="RETURN">
+                          <shadow type="math_number" id="*3%%T|%Gn(zYi(nt^j!9">
+                            <field name="NUM">0</field>
+                          </shadow>
+                          <block type="customcode_code_input" id="aB@i[7hc*@!}%1cQ!I5Z">
+                            <value name="text">
+                              <block type="text" id="(D!)LVAHIpCj)PvEDTK(">
+                                <field name="TEXT">round((beforeFlagSec-startTime)/1000)</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
     </statement>
   </block>
-  <block type="procedures_defreturn" id="HHcB+XL.aeC$1Ot*}G|Y" x="70" y="410">
+  <block type="initializes_temp" id="nTOoI)-]dGF~*HZ;[#zb" x="970" y="730">
+    <statement name="TEMP">
+      <block type="serial_println" id="6rR6,ef%F,?14LNGVC`T">
+        <value name="CONTENT">
+          <block type="customcode_code_input" id="0Gx8DfqdRMn/P}#UO~_q">
+            <value name="text">
+              <block type="text" id="Sa1PN,rwMh#T:y-.moPu">
+                <field name="TEXT">millis()-startTime</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="custom_declaire" id="Fgc-(XbDlZ1GSu$7gE(%">
+            <value name="CODE">
+              <block type="text" id="!po_Q0~N?^-#e:=BE0[/">
+                <field name="TEXT">int startTime= 0;</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_code" id="V1=!$KY$MG@t$pF^+)ZM">
+                <value name="text">
+                  <block type="text" id="Y2wQ)vHE0wop;h3#7@Ir">
+                    <field name="TEXT">startTime= millis();</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defreturn" id="HHcB+XL.aeC$1Ot*}G|Y" collapsed="true" x="1010" y="970">
     <field name="TYPE">float</field>
     <field name="NAME">durationSecs</field>
     <value name="VAR">
@@ -342,39 +553,6 @@
                     </next>
                   </block>
                 </statement>
-              </block>
-            </next>
-          </block>
-        </next>
-      </block>
-    </statement>
-  </block>
-  <block type="initializes_temp" id="nTOoI)-]dGF~*HZ;[#zb" x="730" y="750">
-    <statement name="TEMP">
-      <block type="serial_println" id="6rR6,ef%F,?14LNGVC`T">
-        <value name="CONTENT">
-          <block type="customcode_code_input" id="0Gx8DfqdRMn/P}#UO~_q">
-            <value name="text">
-              <block type="text" id="Sa1PN,rwMh#T:y-.moPu">
-                <field name="TEXT">millis()-startTime</field>
-              </block>
-            </value>
-          </block>
-        </value>
-        <next>
-          <block type="custom_declaire" id="Fgc-(XbDlZ1GSu$7gE(%">
-            <value name="CODE">
-              <block type="text" id="!po_Q0~N?^-#e:=BE0[/">
-                <field name="TEXT">int startTime= 0;</field>
-              </block>
-            </value>
-            <next>
-              <block type="customcode_code" id="V1=!$KY$MG@t$pF^+)ZM">
-                <value name="text">
-                  <block type="text" id="Y2wQ)vHE0wop;h3#7@Ir">
-                    <field name="TEXT">startTime= millis();</field>
-                  </block>
-                </value>
               </block>
             </next>
           </block>

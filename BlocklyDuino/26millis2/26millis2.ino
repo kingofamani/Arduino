@@ -3,18 +3,31 @@
  *
  * https://github.com/MediaTek-Labs/BlocklyDuino-for-LinkIt
  *
- * Date: Wed, 09 Nov 2022 02:03:51 GMT
+ * Date: Wed, 09 Nov 2022 04:00:44 GMT
  */
 /*  部份程式由吉哥積木產生  */
 /*  https://sites.google.com/jes.mlc.edu.tw/ljj/linkit7697  */
 
 
-int secs = 20;
+int startTime = 0;
 
-float durs = 0;
+int beforeFlagSec = 0;
 
-void startCount() {
-  Serial.print("目前時間：");
+int startCountDown(int secs) {
+  if (startTime == 0) {
+    startTime = millis();
+    beforeFlagSec = startTime;
+  }
+  if (startTime != 0) {
+    if ((millis()) > startTime + (secs * 1000)) {
+      startTime = 0;
+      beforeFlagSec = 0;
+      return (0);
+    } else if ((millis()) > beforeFlagSec + 1000) {
+      beforeFlagSec = millis();
+      return (round((beforeFlagSec-startTime)/1000));
+    }
+  }
 }
 
 float durationSecs(int item, int secs) {
@@ -42,13 +55,12 @@ void setup()
 {
   Serial.begin(9600);
 
-  delay(2000);
+
 }
 
 
 void loop()
 {
-  durs = durationSecs(1, secs);
-  Serial.println(durs);
-  delay(500);
+  delay(2000);
+  Serial.println((startCountDown(10)));
 }
