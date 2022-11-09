@@ -1,0 +1,11 @@
+使用EEPROM，可儲存投籃最高紀錄至UNO板。
+若程式重新燒錄上傳，EEPROM會歸零。
+
+
+如何儲存資料：
+開啟25EEPROM2，右鍵/暫存積木：
+	#include <EEPROM.h>
+	writeToMemory
+	ReadFromMemory
+	clearData
+開啟TrashCan5，從暫存積木拉出。
