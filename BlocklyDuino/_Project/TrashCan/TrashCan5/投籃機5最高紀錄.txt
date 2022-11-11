@@ -8,4 +8,4 @@
 	writeToMemory
 	ReadFromMemory
 	clearData
-開啟TrashCan5，從暫存積木拉出。
+開啟TrashCan4，從暫存積木拉出。

@@ -238,7 +238,7 @@
                                 </value>
                                 <next>
                                   <block type="procedures_callnoreturn" id="H;FVLh7%G)w:Y1n%3lac">
-                                    <mutation xmlns="http://www.w3.org/1999/xhtml" name="writeScore"></mutation>
+                                    <mutation xmlns="http://www.w3.org/1999/xhtml" name="saveScore"></mutation>
                                     <value name="VAR">
                                       <block type="lists_create_with" id=":6.1mr)/;PftEw{W4DQ1">
                                         <mutation items="2"></mutation>
@@ -492,7 +492,7 @@
     </statement>
   </block>
   <block type="procedures_defnoreturn" id="Oopm~;51=P._7u4goE,;" x="810" y="770">
-    <field name="NAME">writeScore</field>
+    <field name="NAME">saveScore</field>
     <value name="VAR">
       <shadow type="lists_create_with">
         <mutation items="0"></mutation>

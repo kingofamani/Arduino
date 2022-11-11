@@ -3,7 +3,7 @@
  *
  * https://github.com/MediaTek-Labs/BlocklyDuino-for-LinkIt
  *
- * Date: Mon, 07 Nov 2022 23:15:51 GMT
+ * Date: Fri, 11 Nov 2022 06:58:11 GMT
  */
 /*  部份程式由吉哥積木產生  */
 /*  https://sites.google.com/jes.mlc.edu.tw/ljj/linkit7697  */
@@ -42,7 +42,7 @@ void clearOneMemory(int addr) {
   Serial.println("清除完成");
 }
 
-void writeScore(int addr, int count) {
+void saveScore(int addr, int count) {
   if (count > (ReadFromMemory(1))) {
     Serial.println((String("恭喜你破紀錄：")+String(count)+String("分")));
     writeToMemory(1, count);
@@ -81,7 +81,7 @@ void loop()
       open();
     } else if (String(results.value, HEX) == "ffb04f") {
       //按3關閉結束投籃
-      writeScore(1, count);
+      saveScore(1, count);
       count = 0;
       close();
     } else if (String(results.value, HEX) == "ff30cf") {
