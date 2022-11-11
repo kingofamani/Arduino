@@ -300,7 +300,7 @@
                             </value>
                             <value name="B">
                               <block type="math_number" id=";L|f/p;qepLD~n=f!fyd">
-                                <field name="NUM">5</field>
+                                <field name="NUM">7</field>
                               </block>
                             </value>
                           </block>
@@ -317,26 +317,26 @@
                                 <field name="NUM">1</field>
                               </block>
                             </value>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="serial_println" id="0:,CrkvDw=$y=W?$YPC2">
+                            <value name="CONTENT">
+                              <block type="variables_get" id="CRo[8!b{m%+rR4y-C87+">
+                                <field name="VAR" id="qpK?A^Lk$~,Ug@Zp.kn%">count</field>
+                              </block>
+                            </value>
                             <next>
-                              <block type="serial_println" id="0:,CrkvDw=$y=W?$YPC2">
-                                <value name="CONTENT">
-                                  <block type="variables_get" id="CRo[8!b{m%+rR4y-C87+">
-                                    <field name="VAR" id="qpK?A^Lk$~,Ug@Zp.kn%">count</field>
+                              <block type="delay_custom" id="Q}A.wx9f52GD?||PzsJf">
+                                <value name="DELAY_TIME">
+                                  <block type="math_number" id="3HF}+BCu24q$yI%n_G{7">
+                                    <field name="NUM">35</field>
                                   </block>
                                 </value>
-                                <next>
-                                  <block type="delay_custom" id="Q}A.wx9f52GD?||PzsJf">
-                                    <value name="DELAY_TIME">
-                                      <block type="math_number" id="3HF}+BCu24q$yI%n_G{7">
-                                        <field name="NUM">100</field>
-                                      </block>
-                                    </value>
-                                  </block>
-                                </next>
                               </block>
                             </next>
                           </block>
-                        </statement>
+                        </next>
                       </block>
                     </next>
                   </block>

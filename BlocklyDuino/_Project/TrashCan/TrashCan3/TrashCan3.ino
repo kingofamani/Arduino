@@ -3,7 +3,7 @@
  *
  * https://github.com/MediaTek-Labs/BlocklyDuino-for-LinkIt
  *
- * Date: Mon, 07 Nov 2022 05:21:48 GMT
+ * Date: Fri, 11 Nov 2022 06:25:12 GMT
  */
 /*  部份程式由吉哥積木產生  */
 /*  https://sites.google.com/jes.mlc.edu.tw/ljj/linkit7697  */
@@ -74,9 +74,9 @@ void loop()
 
     irrecv.resume();
   }
-  if (ultrasonic_8_9.convert(ultrasonic_8_9.timing(), Ultrasonic::CM) <= 5) {
+  if (ultrasonic_8_9.convert(ultrasonic_8_9.timing(), Ultrasonic::CM) <= 7) {
     count = count + 1;
-    Serial.println(count);
-    delay(100);
   }
+  Serial.println(count);
+  delay(35);
 }
