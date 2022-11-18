@@ -1,0 +1,287 @@
+<xml version="F1" board="Arduino Uno" xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="KX2C*VWeO3P48iXErPE{">s</variable>
+    <variable id="$u/^/-1*0#MGbx%oeB2X">countDownSec</variable>
+    <variable id="L),mz=pFyXgfX`OK!;8p">inteval</variable>
+    <variable id="S{*8^Be#(;Fj#L]/.SBE">beforeFlagSec</variable>
+    <variable id="Tf{]0I#RQVSYR.#ZVW9N">rest</variable>
+    <variable id="zv9_Ig.,T5+dBqpX4DQ_">startTime</variable>
+  </variables>
+  <block type="procedures_defreturn" id="L}0@Epa-Bk:*vmvMmv0?" x="470" y="10">
+    <field name="TYPE">int</field>
+    <field name="NAME">timer</field>
+    <value name="VAR">
+      <shadow type="lists_create_with" id="qmoP.]uXM(jMITvM7@1E">
+        <mutation items="0"></mutation>
+      </shadow>
+      <block type="lists_create_with" id="qmoP.]uXM(jMITvM7@1E">
+        <mutation items="1"></mutation>
+        <value name="ADD0">
+          <block type="variables_set2" id="{D`r9#f7Idanz65mFR8C">
+            <field name="TYPE">int</field>
+            <field name="VAR" id="$u/^/-1*0#MGbx%oeB2X">countDownSec</field>
+          </block>
+        </value>
+      </block>
+    </value>
+    <statement name="STACK">
+      <block type="customcode_variable" id="SY=ajL$b]*kPIR/Rp$*b">
+        <value name="variable">
+          <block type="text" id="#e[~E@tm@j!l5u:l(8^|">
+            <field name="TEXT">static unsigned long startTime</field>
+          </block>
+        </value>
+        <value name="text">
+          <block type="text" id="[=nouLVrmm0QMF.l@v,A">
+            <field name="TEXT">millis()</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_variable" id="oGK2wW~:+4hsaoQk!i.E">
+            <value name="variable">
+              <block type="text" id="nvW7}O}j)rgb7yhBksBD">
+                <field name="TEXT">static unsigned long beforeFlagSec</field>
+              </block>
+            </value>
+            <value name="text">
+              <block type="text" id=")L{?lnIRqwT-m`)Hu5eV">
+                <field name="TEXT">millis()</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="g`i96i$pRMlXU^{E8Sl:">
+                <field name="POSITION">local</field>
+                <field name="TYPE">int</field>
+                <field name="VAR" id="L),mz=pFyXgfX`OK!;8p">inteval</field>
+                <value name="VALUE">
+                  <shadow type="math_number" id="q?FZkPtGtLDza(YeB62o">
+                    <field name="NUM">1000</field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="controls_if" id="@T|?}vTTGPRgJk)DZ?A3">
+                    <value name="IF0">
+                      <block type="logic_compare" id="(,aACz6,satz:S#~/r/v">
+                        <field name="OP">GT</field>
+                        <value name="A">
+                          <block type="millis" id="_B^VP:@~[nBIGu]bl;Vx"></block>
+                        </value>
+                        <value name="B">
+                          <block type="math_arithmetic" id="*Rs-TW0{HPX)DgK.hUQM">
+                            <field name="OP">ADD</field>
+                            <value name="A">
+                              <block type="variables_get" id="0Fii.{m{sO+G]+@Uyv(0">
+                                <field name="VAR" id="S{*8^Be#(;Fj#L]/.SBE">beforeFlagSec</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="variables_get" id="b|lF0evCJR#Q6e4cWLml">
+                                <field name="VAR" id="L),mz=pFyXgfX`OK!;8p">inteval</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="variables_set3" id="#.jj!9+0IC_gw#1P{KU@">
+                        <field name="VAR" id="S{*8^Be#(;Fj#L]/.SBE">beforeFlagSec</field>
+                        <value name="DELTA">
+                          <shadow type="math_number" id="hn^8yK=l|m8S9KnVN,1h">
+                            <field name="NUM">0</field>
+                          </shadow>
+                          <block type="millis" id="OdF;.!CjM5Ti(2,sB[88"></block>
+                        </value>
+                        <next>
+                          <block type="variables_set" id="B1Ozo)F0=(E08{:v^0:z">
+                            <field name="POSITION">local</field>
+                            <field name="TYPE">int</field>
+                            <field name="VAR" id="Tf{]0I#RQVSYR.#ZVW9N">rest</field>
+                            <value name="VALUE">
+                              <shadow type="math_number" id="S8uhb+$|Uw(l4H]dSsNL">
+                                <field name="NUM">1000</field>
+                              </shadow>
+                              <block type="math_arithmetic" id="|@oAHX(+#CfS4wR7SB_3">
+                                <field name="OP">MINUS</field>
+                                <value name="A">
+                                  <block type="variables_get" id="yyEzwlGLYMow/z;%ghFj">
+                                    <field name="VAR" id="$u/^/-1*0#MGbx%oeB2X">countDownSec</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_arithmetic" id="h)qO)@p2-+QH^x6uN_Es">
+                                    <field name="OP">DIVIDE</field>
+                                    <value name="A">
+                                      <block type="math_arithmetic" id="nEdkuo@uY+:8~%1.u)/;">
+                                        <field name="OP">ADD</field>
+                                        <value name="A">
+                                          <block type="millis" id="SV?g79#ad?PY_Wutj:K9"></block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="variables_get" id="SO=m7D7jr=[47|3Bx,a:">
+                                            <field name="VAR" id="zv9_Ig.,T5+dBqpX4DQ_">startTime</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number" id="r:t;}L3=s:dQPP@~^pF{">
+                                        <field name="NUM">1000</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="controls_if" id="RI9FX2Y}~Fzk,t}:;WpB">
+                                <value name="IF0">
+                                  <block type="logic_compare" id="%X8OG6=+1S@Qgr|5^a~G">
+                                    <field name="OP">GTE</field>
+                                    <value name="A">
+                                      <block type="variables_get" id="Hh}cJGK;f`%n0@PU0dW4">
+                                        <field name="VAR" id="Tf{]0I#RQVSYR.#ZVW9N">rest</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number" id="Xvv/#z0-RRmaW,{.Wn];">
+                                        <field name="NUM">0</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <statement name="DO0">
+                                  <block type="serial_println" id="M%vG~qZkvpV/dJ/et~Q4">
+                                    <value name="CONTENT">
+                                      <block type="variables_get" id="EJm:Wyy0LP)0(e-Icv~b">
+                                        <field name="VAR" id="Tf{]0I#RQVSYR.#ZVW9N">rest</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="procedures_return" id="jnW0x7[S_1x^h1P(etti">
+                                        <value name="RETURN">
+                                          <shadow type="math_number" id=";biWSIYD?TIK;=e?ax{?">
+                                            <field name="NUM">0</field>
+                                          </shadow>
+                                          <block type="variables_get" id="ge8RjEy+gc7shkq|w4/M">
+                                            <field name="VAR" id="Tf{]0I#RQVSYR.#ZVW9N">rest</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </statement>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="board_initializes_setup" id="0" x="-30" y="50">
+    <field name="BOARD_TYPE">Arduino</field>
+    <statement name="CONTENT">
+      <block type="serial_init" id="A,zAJ8hEdH=_2OU-:Iih">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="variables_set" id=")@,A*!3TKFr2DvNCQgxu">
+            <field name="POSITION">global</field>
+            <field name="TYPE">int</field>
+            <field name="VAR" id="KX2C*VWeO3P48iXErPE{">s</field>
+            <value name="VALUE">
+              <shadow type="math_number" id="-J9Zl6,S(FcLI[[Qrdhu">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="variables_set3" id="nzFyS|{`}n6raZ.cElhq">
+            <field name="VAR" id="KX2C*VWeO3P48iXErPE{">s</field>
+            <value name="DELTA">
+              <shadow type="math_number" id="h4,40y$E1,8H!l$q%Uxs">
+                <field name="NUM">0</field>
+              </shadow>
+              <block type="procedures_callreturn" id=",Ly/(9s)_v]R--d]qj;g">
+                <mutation xmlns="http://www.w3.org/1999/xhtml" name="timer"></mutation>
+                <value name="VAR">
+                  <block type="lists_create_with" id=")7:CwV~cvM9AF=H{?4*0">
+                    <mutation items="1"></mutation>
+                    <value name="ADD0">
+                      <block type="math_number" id="1aj5p-VZ[2^_U5hXpN(F">
+                        <field name="NUM">10</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="controls_if" id="R?WFz`O/AL/1086+m9rK">
+                <value name="IF0">
+                  <block type="logic_compare" id="Hkbv#tlwMmY@~mv!$H=o">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="variables_get" id="cl!H[dv`6/_nCCRu4=/N">
+                        <field name="VAR" id="KX2C*VWeO3P48iXErPE{">s</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="7LI~WNBS8-34_dr|o%)E">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="serial_println" id="TPv$KWoCDw58/QcD*LQ-">
+                    <value name="CONTENT">
+                      <block type="text" id="Y4m%A!imOe[-PX:db47`">
+                        <field name="TEXT">結束</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_set3" id="W~LRT)3mw2MA(k^/)B^t">
+                        <field name="VAR" id="KX2C*VWeO3P48iXErPE{">s</field>
+                        <value name="DELTA">
+                          <shadow type="math_number">
+                            <field name="NUM">0</field>
+                          </shadow>
+                          <block type="procedures_callreturn" id="|;d{}hNl`Dj}#hWNpy])">
+                            <mutation xmlns="http://www.w3.org/1999/xhtml" name="timer"></mutation>
+                            <value name="VAR">
+                              <block type="lists_create_with" id="Uv|`P_d1JG0[SaHyMCnZ">
+                                <mutation items="1"></mutation>
+                                <value name="ADD0">
+                                  <block type="math_number" id="o^tKyo30]Vq~#b5wi;jo">
+                                    <field name="NUM">0</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>
