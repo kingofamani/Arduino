@@ -3,27 +3,30 @@
  *
  * https://github.com/MediaTek-Labs/BlocklyDuino-for-LinkIt
  *
- * Date: Fri, 18 Nov 2022 00:07:07 GMT
+ * Date: Sat, 19 Nov 2022 02:58:11 GMT
  */
 /*  部份程式由吉哥積木產生  */
 /*  https://sites.google.com/jes.mlc.edu.tw/ljj/linkit7697  */
+#include <SimpleTimer.h>
 
+SimpleTimer timer;
+int secs = 5;
 
-int timer(int countDownSec) {
-  static unsigned long startTime = "millis()";
-  static unsigned long beforeFlagSec = "millis()";
-  int inteval = 1000;
-  if (millis() > beforeFlagSec + inteval) {
-    beforeFlagSec = millis();
-    int rest = countDownSec - ((millis() + startTime) / 1000);
-    if (rest >= 0) {
-      Serial.println(rest);
-      return (rest);
-    }
-  }
+boolean isTimeOut = false;
+
+void countDown(int secs) {
+  timer.setTimer(1000, printSec, secs+1);
 }
 
-int s = 0;
+void printSec() {
+  static int k = 0;
+  k++;
+  Serial.println((String(secs-k+1)+String("秒")));
+  if ((k) == secs + 1) {
+    k = 0;
+    isTimeOut = true;
+  }
+}
 
 void setup()
 {
@@ -35,9 +38,12 @@ void setup()
 
 void loop()
 {
-  s = timer(10);
-  if (s == 0) {
+  timer.run();
+  //開始計時
+  countDown(secs);
+  //結束計時
+  if (isTimeOut) {
     Serial.println("結束");
-    s = timer(0);
+    isTimeOut = false;
   }
 }
