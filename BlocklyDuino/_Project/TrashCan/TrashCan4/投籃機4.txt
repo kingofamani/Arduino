@@ -1,2 +1,0 @@
-if (distance <= 7)裡只能放count++
-若放delay(35)或Serial.println(count)，超音波測距會不準。
