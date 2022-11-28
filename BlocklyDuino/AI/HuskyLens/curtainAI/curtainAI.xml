@@ -2,11 +2,12 @@
   <variables>
     <variable id="q/GEwgBjW-h_N=7^33_O">isStopNow</variable>
     <variable id="?;@9KDw1KGI|0gywKj~X">num</variable>
+    <variable id="8IOeM4xT_P*.tO55RP.y">pic</variable>
     <variable id="O7~[^v*-@AGs`]^(f6B#">c</variable>
     <variable id="tVka}YA::MBkR~rYTpr8">stopID</variable>
-    <variable id="n@FoOF`/j]*H6;}p!c65">i</variable>
-    <variable id="+,TA:g|=T{O6MpkVKEyl">myMsg</variable>
     <variable id="%n5P}I.PoBW?ZR{].Mhg">btMsg</variable>
+    <variable id="+,TA:g|=T{O6MpkVKEyl">myMsg</variable>
+    <variable id="n@FoOF`/j]*H6;}p!c65">i</variable>
     <variable id="l$,#FTs_e8th@e1.|WKH">recValue</variable>
     <variable id="hS[M.n5HmAL~JwmGWfYy">maxTurns</variable>
     <variable id="P7rV7MFsi529B7e@o3-c">posTurns</variable>
@@ -272,7 +273,7 @@
                     <field name="NUM">0</field>
                   </shadow>
                   <block type="math_number" id="M%L+T0}qj0:OlVEA$eg5">
-                    <field name="NUM">16</field>
+                    <field name="NUM">22</field>
                   </block>
                 </value>
                 <next>
@@ -292,7 +293,7 @@
                             <field name="NUM">0</field>
                           </shadow>
                           <block type="math_number" id=",,ly;F5voV(AOeyAMg1z">
-                            <field name="NUM">16</field>
+                            <field name="NUM">22</field>
                           </block>
                         </value>
                         <next>
@@ -373,7 +374,7 @@
       </block>
     </statement>
     <next>
-      <block type="initializes_loop" id="JHBn*nW_JW3ZOSe.d]Qw">
+      <block type="initializes_loop" id="JHBn*nW_JW3ZOSe.d]Qw" collapsed="true">
         <statement name="CONTENT">
           <block type="procedures_callnoreturn" id="_r%b#FeI8bwG[AuaPlbQ">
             <mutation xmlns="http://www.w3.org/1999/xhtml" name="startRecog"></mutation>
@@ -577,7 +578,7 @@
                                 </value>
                                 <next>
                                   <block type="controls_if" id="K}MJ3U^o_GdGovQSz|uH">
-                                    <mutation elseif="1"></mutation>
+                                    <mutation elseif="2"></mutation>
                                     <value name="IF0">
                                       <block type="logic_compare" id="|g;KX~l{S*.Ohn;lD]K0">
                                         <field name="OP">EQ</field>
@@ -635,6 +636,31 @@
                                               </block>
                                             </value>
                                           </block>
+                                        </value>
+                                      </block>
+                                    </statement>
+                                    <value name="IF2">
+                                      <block type="logic_compare" id="oO]1[H~U:{m(bAv`*Z}O">
+                                        <field name="OP">EQ</field>
+                                        <value name="A">
+                                          <block type="variables_get" id="MY3+LwfQU@1Bx-Pb!x*:">
+                                            <field name="VAR" id="%n5P}I.PoBW?ZR{].Mhg">btMsg</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="text" id="umez8v+(YbvA[a;FmCz^">
+                                            <field name="TEXT">s</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <statement name="DO2">
+                                      <block type="procedures_callnoreturn" id="wze]1ZgvOR3r6QAa-CG2">
+                                        <mutation xmlns="http://www.w3.org/1999/xhtml" name="posStatus"></mutation>
+                                        <value name="VAR">
+                                          <shadow type="lists_create_with" id="_G`mf,yV-r!vJLtq7`T.">
+                                            <mutation items="0"></mutation>
+                                          </shadow>
                                         </value>
                                       </block>
                                     </statement>
@@ -1304,16 +1330,26 @@
                   </block>
                 </value>
                 <statement name="DO0">
-                  <block type="variables_set3" id="3gj|v{nJ(9/,|?{/i`c2">
-                    <field name="VAR" id="q/GEwgBjW-h_N=7^33_O">isStopNow</field>
-                    <value name="DELTA">
-                      <shadow type="math_number">
-                        <field name="NUM">0</field>
+                  <block type="procedures_callnoreturn" id="bFecV{MMA%la5BIXW@Hy">
+                    <mutation xmlns="http://www.w3.org/1999/xhtml" name="posStatus"></mutation>
+                    <value name="VAR">
+                      <shadow type="lists_create_with" id="#c}P-NZ4%S4(PH.|!?gf">
+                        <mutation items="0"></mutation>
                       </shadow>
-                      <block type="logic_boolean" id=",%[{qd,HlAE`0[zB@|)8">
-                        <field name="BOOL">TRUE</field>
-                      </block>
                     </value>
+                    <next>
+                      <block type="variables_set3" id="3gj|v{nJ(9/,|?{/i`c2">
+                        <field name="VAR" id="q/GEwgBjW-h_N=7^33_O">isStopNow</field>
+                        <value name="DELTA">
+                          <shadow type="math_number">
+                            <field name="NUM">0</field>
+                          </shadow>
+                          <block type="logic_boolean" id=",%[{qd,HlAE`0[zB@|)8">
+                            <field name="BOOL">TRUE</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
                   </block>
                 </statement>
               </block>
@@ -1349,7 +1385,7 @@
       </block>
     </statement>
   </block>
-  <block type="procedures_defnoreturn" id="#pRN{[F..aw||?)M0d,3" x="590" y="1030">
+  <block type="procedures_defnoreturn" id="#pRN{[F..aw||?)M0d,3" collapsed="true" x="610" y="1030">
     <field name="NAME">go</field>
     <value name="VAR">
       <shadow type="lists_create_with">
@@ -1614,6 +1650,127 @@
                 </next>
               </block>
             </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="`~Ia]uWp!4:~z2f.FaSq" x="210" y="1650">
+    <field name="NAME">posStatus</field>
+    <value name="VAR">
+      <shadow type="lists_create_with" id="_?s}i#S!vAS[txhc}q|O">
+        <mutation items="0"></mutation>
+      </shadow>
+    </value>
+    <statement name="STACK">
+      <block type="variables_set" id="|Q@=Qiu]bmpL:JA[X`Ky">
+        <field name="POSITION">local</field>
+        <field name="TYPE">String</field>
+        <field name="VAR" id="8IOeM4xT_P*.tO55RP.y">pic</field>
+        <value name="VALUE">
+          <shadow type="math_number" id="g2jT8lTaqxZU}MU=yCVU">
+            <field name="NUM">0</field>
+          </shadow>
+          <block type="text" id="yz@[e38/]@jPhg?T1tp_">
+            <field name="TEXT"></field>
+          </block>
+        </value>
+        <next>
+          <block type="controls_for" id="xhb;uXc9,nzt8@Sllq`t">
+            <field name="VAR" id="n@FoOF`/j]*H6;}p!c65">i</field>
+            <value name="FROM">
+              <block type="math_number" id="Ycs|5ll$tsnNnc-X`2/V">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <value name="TO">
+              <block type="math_arithmetic" id="x$4KMaipmq2x.0N7ksbl">
+                <field name="OP">MINUS</field>
+                <value name="A">
+                  <block type="variables_get" id="iDu}7AAy38XHYD?Ey_a{">
+                    <field name="VAR" id="hS[M.n5HmAL~JwmGWfYy">maxTurns</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="v%^T/hL~dx*%ckN7Pugl">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="BY">
+              <block type="math_number" id="|,RI6aIZ=~UBIaFYDZCD">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="text_append" id="J}xp{Zu)2ffyU(~(5hac">
+                <field name="VAR" id="8IOeM4xT_P*.tO55RP.y">pic</field>
+                <value name="TEXT">
+                  <block type="logic_ternary" id="+fFHG+YHo(Q^YP~$?c]5">
+                    <value name="IF">
+                      <block type="logic_compare" id="n,]#CGlekBmf}kR9!DTf">
+                        <field name="OP">LT</field>
+                        <value name="A">
+                          <block type="math_arithmetic" id="sa{|(=)-GOGZE2Dz,FDV">
+                            <field name="OP">ADD</field>
+                            <value name="A">
+                              <block type="variables_get" id="RNYokOZ0n1evS_YctlUw">
+                                <field name="VAR" id="n@FoOF`/j]*H6;}p!c65">i</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="variables_get" id=".23V.MisPsn{qhqCh.gN">
+                                <field name="VAR" id="P7rV7MFsi529B7e@o3-c">posTurns</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="variables_get" id="7+_Ff),[o+m4un!F#/cI">
+                            <field name="VAR" id="hS[M.n5HmAL~JwmGWfYy">maxTurns</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="THEN">
+                      <block type="text" id="xTZzfZD9]]k6HI@22.*Y">
+                        <field name="TEXT">1</field>
+                      </block>
+                    </value>
+                    <value name="ELSE">
+                      <block type="text" id="i]t2j?o4VfNyX8fWoidu">
+                        <field name="TEXT">0</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <next>
+              <block type="serial_println" id="bMY)l/b1XCfF#^2%]ocn">
+                <value name="CONTENT">
+                  <block type="variables_get" id="^lsu68VbhXRIeCC2d{Ef">
+                    <field name="VAR" id="8IOeM4xT_P*.tO55RP.y">pic</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="procedures_callnoreturn" id=",@bd)sc%s|,bwVC}jIJt">
+                    <mutation xmlns="http://www.w3.org/1999/xhtml" name="sendToBtDevice"></mutation>
+                    <value name="VAR">
+                      <block type="lists_create_with" id="(_L+.LD=ZBRXVq|k+Qlm">
+                        <mutation items="1"></mutation>
+                        <value name="ADD0">
+                          <block type="variables_get" id="0,[]_W2RbOnP3+Z]TBvR">
+                            <field name="VAR" id="8IOeM4xT_P*.tO55RP.y">pic</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
           </block>
         </next>
       </block>

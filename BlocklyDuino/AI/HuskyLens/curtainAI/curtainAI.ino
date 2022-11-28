@@ -3,7 +3,7 @@
  *
  * https://github.com/MediaTek-Labs/BlocklyDuino-for-LinkIt
  *
- * Date: Mon, 28 Nov 2022 04:02:42 GMT
+ * Date: Mon, 28 Nov 2022 06:43:45 GMT
  */
 /*  部份程式由吉哥積木產生  */
 /*  https://sites.google.com/jes.mlc.edu.tw/ljj/linkit7697  */
@@ -27,9 +27,9 @@ Stepper myStepper(steps, 8, 10, 9, 11);
 SoftwareSerial BtDevice(4, 5);
 boolean isStopNow = false;
 
-int maxTurns = 16;
+int maxTurns = 22;
 
-int posTurns = 16;
+int posTurns = 22;
 
 IRrecv irrecv(3);
 decode_results results;
@@ -108,6 +108,7 @@ void btStop() {
   if (BtDevice.available()) {
     String btMsg = (BtDevice.readString());
     if (btMsg == "3") {
+      posStatus();
       isStopNow = true;
     }
   }
@@ -143,6 +144,15 @@ void go(float c) {
       break;
     }
   }
+}
+
+void posStatus() {
+  String pic = "";
+  for (int i = 0; i <= maxTurns - 1; i++) {
+    pic += (i + posTurns < maxTurns) ? "1" : "0";
+  }
+  Serial.println(pic);
+  sendToBtDevice(pic);
 }
 
 void setup()
@@ -192,6 +202,8 @@ startRecog();
       go(10);
     } else if (btMsg == "2") {
       go(-10);
+    } else if (btMsg == "s") {
+      posStatus();
     }
   }
 }
