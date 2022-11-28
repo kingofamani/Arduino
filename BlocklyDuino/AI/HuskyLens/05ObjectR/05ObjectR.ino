@@ -3,7 +3,7 @@
  *
  * https://github.com/MediaTek-Labs/BlocklyDuino-for-LinkIt
  *
- * Date: Mon, 31 Oct 2022 07:14:34 GMT
+ * Date: Sun, 27 Nov 2022 23:35:01 GMT
  */
 /*  部份程式由吉哥積木產生  */
 /*  https://sites.google.com/jes.mlc.edu.tw/ljj/linkit7697  */
@@ -12,7 +12,7 @@
 HUSKYLENS huskylens;
 int recValue = 100;
 
-int countIDs[6] = {0, 1, 2, 3, 4, 5};
+int countIDs[6] = {0, 0, 0, 0, 0, 0};
 
 int IDs[6] = {0, 1, 2, 3, 4, 5};
 

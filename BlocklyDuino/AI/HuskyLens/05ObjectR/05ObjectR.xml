@@ -61,27 +61,27 @@
                         </value>
                         <value name="ADD1">
                           <block type="math_number" id="dy8[hwj8,_K9W;E?)1?^">
-                            <field name="NUM">1</field>
+                            <field name="NUM">0</field>
                           </block>
                         </value>
                         <value name="ADD2">
                           <block type="math_number" id="$FZoa}*_FT,SBDG:8.f!">
-                            <field name="NUM">2</field>
+                            <field name="NUM">0</field>
                           </block>
                         </value>
                         <value name="ADD3">
                           <block type="math_number" id="$Q.k*y~w=4$bGy9uxDPD">
-                            <field name="NUM">3</field>
+                            <field name="NUM">0</field>
                           </block>
                         </value>
                         <value name="ADD4">
                           <block type="math_number" id="PW=8(SG)z[zcuC-+q-Bh">
-                            <field name="NUM">4</field>
+                            <field name="NUM">0</field>
                           </block>
                         </value>
                         <value name="ADD5">
                           <block type="math_number" id="]uMn/tc^+~k[$Un}3*-d">
-                            <field name="NUM">5</field>
+                            <field name="NUM">0</field>
                           </block>
                         </value>
                       </block>

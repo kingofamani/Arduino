@@ -3,12 +3,13 @@
  *
  * https://github.com/MediaTek-Labs/BlocklyDuino-for-LinkIt
  *
- * Date: Sun, 27 Nov 2022 11:35:47 GMT
+ * Date: Mon, 28 Nov 2022 04:02:42 GMT
  */
 /*  部份程式由吉哥積木產生  */
 /*  https://sites.google.com/jes.mlc.edu.tw/ljj/linkit7697  */
 #include "HUSKYLENS.h"
 #include <Stepper.h>
+#include <SoftwareSerial.h>
 #include <IRremote.h>
 
 HUSKYLENS huskylens;
@@ -23,6 +24,7 @@ int ReplyID = 0;
 void printResult(HUSKYLENSResult result);
 int steps=2048;
 Stepper myStepper(steps, 8, 10, 9, 11);
+SoftwareSerial BtDevice(4, 5);
 boolean isStopNow = false;
 
 int maxTurns = 16;
@@ -102,10 +104,24 @@ void recogStop(int stopID) {
   }
 }
 
+void btStop() {
+  if (BtDevice.available()) {
+    String btMsg = (BtDevice.readString());
+    if (btMsg == "3") {
+      isStopNow = true;
+    }
+  }
+}
+
+void sendToBtDevice(String myMsg) {
+  BtDevice.println(myMsg);
+}
+
 void go(float c) {
   int num = ((abs(c)) * 8) - 1;
   for (int i = 0; i <= num; i++) {
     //是否中斷
+    btStop();
     turnStop(c);
     irrStop();
     recogStop(3);
@@ -136,6 +152,7 @@ void setup()
   irrecv.enableIRIn();
   //打開最大轉數(1圈8轉)
   //目前位置
+  BtDevice.begin(9600);
   myStepper.setSpeed(12);
   go(-10);
   posTurns = 0;
@@ -167,5 +184,14 @@ startRecog();
     }
 
     irrecv.resume();
+  }
+  if (BtDevice.available()) {
+    String btMsg = (BtDevice.readString());
+    Serial.println(btMsg);
+    if (btMsg == "1") {
+      go(10);
+    } else if (btMsg == "2") {
+      go(-10);
+    }
   }
 }
