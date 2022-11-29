@@ -14,6 +14,7 @@
     <variable id="POm7H:NA)2~5]q:+LU9y">countIDs</variable>
     <variable id="*P.=L;wSaK_!-VR`Qa^q">ReplyID</variable>
     <variable id="(0Irolo!]na~g7(t#mb[">IDs</variable>
+    <variable id="TdvFNoVAe~^R![bWOeS~">isSwitchObjectRecognition</variable>
   </variables>
   <block type="customcode_head" id="}IU:;G*6p%eBv/@t`{bQ" x="-50" y="-370">
     <value name="text">
@@ -179,21 +180,21 @@
                                           </block>
                                         </value>
                                         <next>
-                                          <block type="customcode_head" id="3" collapsed="true">
+                                          <block type="customcode_head" id="3">
                                             <value name="text">
                                               <block type="text" id="4">
                                                 <field name="TEXT">#include &lt;Stepper.h&gt;</field>
                                               </block>
                                             </value>
                                             <next>
-                                              <block type="customcode_head" id="5" collapsed="true">
+                                              <block type="customcode_head" id="5">
                                                 <value name="text">
                                                   <block type="text" id="6">
                                                     <field name="TEXT">int steps=2048;</field>
                                                   </block>
                                                 </value>
                                                 <next>
-                                                  <block type="customcode_head" id="7" collapsed="true">
+                                                  <block type="customcode_head" id="7">
                                                     <value name="text">
                                                       <block type="text" id="8">
                                                         <field name="TEXT">Stepper myStepper(steps, 8, 10, 9, 11);</field>
@@ -242,7 +243,7 @@
       </block>
     </next>
   </block>
-  <block type="initializes_setup" id="yMGuR$A|dzC3~TW(8p?t" x="8" y="263">
+  <block type="initializes_setup" id="yMGuR$A|dzC3~TW(8p?t" x="-70" y="250">
     <statement name="CONTENT">
       <block type="variables_set" id="G=3pvrHd;y863^!cg_v;">
         <field name="POSITION">global</field>
@@ -349,6 +350,53 @@
                                                         <mutation items="0"></mutation>
                                                       </shadow>
                                                     </value>
+                                                    <next>
+                                                      <block type="customcode_comment" id="+hq`+qW^)yJp#n$C?Xln">
+                                                        <value name="text">
+                                                          <block type="text" id="=WKQ1a]dsiE;!*)!/_%j">
+                                                            <field name="TEXT">ai鏡頭切換至物體識別(小偷)</field>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="variables_set" id="3(rN3)|U%z_A4Mc,;*j+">
+                                                            <field name="POSITION">global</field>
+                                                            <field name="TYPE">boolean</field>
+                                                            <field name="VAR" id="TdvFNoVAe~^R![bWOeS~">isSwitchObjectRecognition</field>
+                                                            <value name="VALUE">
+                                                              <shadow type="math_number">
+                                                                <field name="NUM">0</field>
+                                                              </shadow>
+                                                              <block type="logic_boolean" id="UA6,TsnqC7D1#ocQWk9H">
+                                                                <field name="BOOL">FALSE</field>
+                                                              </block>
+                                                            </value>
+                                                            <next>
+                                                              <block type="servo_write_pin" id="%Sljp`DqCUGd{2$7]|xg">
+                                                                <value name="PIN">
+                                                                  <block type="math_number" id="jkLoYd*8h]2@eFO-|%GN">
+                                                                    <field name="NUM">3</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="ANGLE">
+                                                                  <block type="math_number" id="E[vdChfmA1:Xb,y]Wdpj">
+                                                                    <field name="NUM">0</field>
+                                                                  </block>
+                                                                </value>
+                                                                <next>
+                                                                  <block type="delay_custom" id="NeDcpjMCJv@?7nSsK*TW">
+                                                                    <value name="DELAY_TIME">
+                                                                      <block type="math_number" id="XWk0k_@l_6)Gum[21zJp">
+                                                                        <field name="NUM">1000</field>
+                                                                      </block>
+                                                                    </value>
+                                                                  </block>
+                                                                </next>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
                                                   </block>
                                                 </next>
                                               </block>
@@ -402,7 +450,7 @@
                 </value>
                 <statement name="DO0">
                   <block type="controls_if" id="e?b5pf:!#6G/b#%E~Wg:">
-                    <mutation elseif="1"></mutation>
+                    <mutation elseif="2"></mutation>
                     <value name="IF0">
                       <block type="logic_compare" id="aat#!nY$nu*H8P9{ll4j">
                         <field name="OP">EQ</field>
@@ -460,6 +508,31 @@
                               </block>
                             </value>
                           </block>
+                        </value>
+                      </block>
+                    </statement>
+                    <value name="IF2">
+                      <block type="logic_compare" id="7rX+FFw[{RM{illcJ:xB">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="variables_get" id="3zo62sPXu=jx?1O`m(3?">
+                            <field name="VAR" id="*P.=L;wSaK_!-VR`Qa^q">ReplyID</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="#?_@$`XOm4#Sub[*O5Gz">
+                            <field name="NUM">4</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO2">
+                      <block type="procedures_callnoreturn" id="LCo5Gc!DXvUG1c0Z-O7=">
+                        <mutation xmlns="http://www.w3.org/1999/xhtml" name="notifyFindThief"></mutation>
+                        <value name="VAR">
+                          <shadow type="lists_create_with" id="$h6km!U=7VqYGA1syY3*">
+                            <mutation items="0"></mutation>
+                          </shadow>
                         </value>
                       </block>
                     </statement>
@@ -578,7 +651,7 @@
                                 </value>
                                 <next>
                                   <block type="controls_if" id="K}MJ3U^o_GdGovQSz|uH">
-                                    <mutation elseif="2"></mutation>
+                                    <mutation elseif="4"></mutation>
                                     <value name="IF0">
                                       <block type="logic_compare" id="|g;KX~l{S*.Ohn;lD]K0">
                                         <field name="OP">EQ</field>
@@ -662,6 +735,144 @@
                                             <mutation items="0"></mutation>
                                           </shadow>
                                         </value>
+                                      </block>
+                                    </statement>
+                                    <value name="IF3">
+                                      <block type="logic_compare" id="U0j@X/Ah`jfOqzC#hV]l">
+                                        <field name="OP">EQ</field>
+                                        <value name="A">
+                                          <block type="variables_get" id="Vdhy.[7U6yej9VOM*K^j">
+                                            <field name="VAR" id="%n5P}I.PoBW?ZR{].Mhg">btMsg</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="text" id="b=GcRI6RqgfBP]GV.AOJ">
+                                            <field name="TEXT">a</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <statement name="DO3">
+                                      <block type="customcode_comment" id="yp#EvG{`*#S/^sh@7?9/">
+                                        <value name="text">
+                                          <block type="text" id="*^Aa}2i7yXbfT7iWX3W)">
+                                            <field name="TEXT">物體分類(手勢)</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="variables_set3" id="=yV4DJ[qzr|[,#BA?+j$">
+                                            <field name="VAR" id="TdvFNoVAe~^R![bWOeS~">isSwitchObjectRecognition</field>
+                                            <value name="DELTA">
+                                              <shadow type="math_number">
+                                                <field name="NUM">0</field>
+                                              </shadow>
+                                              <block type="logic_boolean" id="]@=}bBdSC,9O-fE!0Og0">
+                                                <field name="BOOL">FALSE</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="customcode_code" id=";:~^m+S4Clurm6*#xP8M">
+                                                <value name="text">
+                                                  <block type="text" id="cv_D-m%SyLeD`Y_:RUq]">
+                                                    <field name="TEXT">huskylens.writeAlgorithm(ALGORITHM_OBJECT_CLASSIFICATION);</field>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="servo_write_pin" id="h7|B6j?13[m.f#ecjJCQ">
+                                                    <value name="PIN">
+                                                      <block type="math_number" id="Fc/3Vd7UQI[(b2:rBz8}">
+                                                        <field name="NUM">3</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="ANGLE">
+                                                      <block type="math_number" id="ml8eQvSX1No.1wIn=Nnw">
+                                                        <field name="NUM">0</field>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="delay_custom" id="W,caD`#lAg_dcM2y{XNo">
+                                                        <value name="DELAY_TIME">
+                                                          <block type="math_number" id="(qz2v0#E#fGmVuUV%}Gq">
+                                                            <field name="NUM">1000</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </statement>
+                                    <value name="IF4">
+                                      <block type="logic_compare" id="`[8|7Ji^aSzM~]nP%jK)">
+                                        <field name="OP">EQ</field>
+                                        <value name="A">
+                                          <block type="variables_get" id="BcFuL,eF!x4]D.?(S[[r">
+                                            <field name="VAR" id="%n5P}I.PoBW?ZR{].Mhg">btMsg</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="text" id="Es^-L;R)Yy*jDtCK7I})">
+                                            <field name="TEXT">b</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <statement name="DO4">
+                                      <block type="customcode_comment" id="s%((w6zh_~6l{+OB)e~w">
+                                        <value name="text">
+                                          <block type="text" id="i2YJ*ik{Z[!13}nkdM(o">
+                                            <field name="TEXT">物體識別(小偷)</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="variables_set3" id="cBp,W^$-w;JC-sKd3yXb">
+                                            <field name="VAR" id="TdvFNoVAe~^R![bWOeS~">isSwitchObjectRecognition</field>
+                                            <value name="DELTA">
+                                              <shadow type="math_number" id=",c{W`9|A(7Pb25rO9RK:">
+                                                <field name="NUM">0</field>
+                                              </shadow>
+                                              <block type="logic_boolean" id="5{P(ZIt/gZB+77Ww56~t">
+                                                <field name="BOOL">TRUE</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="customcode_code" id="H4n3~Qb,ax_+D0g|m*-(">
+                                                <value name="text">
+                                                  <block type="text" id="eNkh|jYw_Ukio/LZv2@q">
+                                                    <field name="TEXT">huskylens.writeAlgorithm(ALGORITHM_OBJECT_RECOGNITION);</field>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="servo_write_pin" id="KuouB#T%Wv0lNT6nvjis">
+                                                    <value name="PIN">
+                                                      <block type="math_number" id="IslWHz)^KYyn4CG2MTAK">
+                                                        <field name="NUM">3</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="ANGLE">
+                                                      <block type="math_number" id="gA0|=[0Qo:?II*ls]kAQ">
+                                                        <field name="NUM">180</field>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="delay_custom" id="fq-k5H3=3~JV,GZaTXpO">
+                                                        <value name="DELAY_TIME">
+                                                          <block type="math_number" id="v?EEwOz!Zx=Ab{J}F8MF">
+                                                            <field name="NUM">1000</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
                                       </block>
                                     </statement>
                                   </block>
@@ -752,7 +963,7 @@
       </block>
     </statement>
   </block>
-  <block type="procedures_defnoreturn" id="/D^8~o-n_|U-~rg@hX+z" collapsed="true" x="750" y="1090">
+  <block type="procedures_defnoreturn" id="/D^8~o-n_|U-~rg@hX+z" collapsed="true" x="770" y="1090">
     <field name="NAME">startRecog</field>
     <value name="VAR">
       <shadow type="lists_create_with" id="cll/UM:`8$/2nw53{|Uo">
@@ -940,7 +1151,7 @@
       </block>
     </statement>
   </block>
-  <block type="procedures_defnoreturn" id="(5lfy8ryZ.jhVy^gE0=_" collapsed="true" x="750" y="1130">
+  <block type="procedures_defnoreturn" id="(5lfy8ryZ.jhVy^gE0=_" collapsed="true" x="770" y="1130">
     <field name="NAME">pR</field>
     <value name="VAR">
       <shadow type="lists_create_with" id="K3kUk`*v*B;$2ReZ$rv8">
@@ -1773,6 +1984,29 @@
             </next>
           </block>
         </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="BxUugy#`FpT!|wz1f1X8" x="790" y="1470">
+    <field name="NAME">notifyFindThief</field>
+    <value name="VAR">
+      <shadow type="lists_create_with" id="Qb_DjxMNfy64?MyZum+T">
+        <mutation items="0"></mutation>
+      </shadow>
+    </value>
+    <statement name="STACK">
+      <block type="procedures_callnoreturn" id="XJgEjX2;4oV8Oz/H?eRz">
+        <mutation xmlns="http://www.w3.org/1999/xhtml" name="sendToBtDevice"></mutation>
+        <value name="VAR">
+          <block type="lists_create_with" id="cu+H+wTMTH3*Sd0S1)09">
+            <mutation items="1"></mutation>
+            <value name="ADD0">
+              <block type="text" id="D./6+PLspB4|Iw(:32%0">
+                <field name="TEXT">FindThiefBeCareful</field>
+              </block>
+            </value>
+          </block>
+        </value>
       </block>
     </statement>
   </block>

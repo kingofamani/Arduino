@@ -3,7 +3,7 @@
  *
  * https://github.com/MediaTek-Labs/BlocklyDuino-for-LinkIt
  *
- * Date: Tue, 29 Nov 2022 05:24:08 GMT
+ * Date: Tue, 29 Nov 2022 13:03:55 GMT
  */
 /*  部份程式由吉哥積木產生  */
 /*  https://sites.google.com/jes.mlc.edu.tw/ljj/linkit7697  */
@@ -11,6 +11,7 @@
 #include <Stepper.h>
 #include <SoftwareSerial.h>
 #include <IRremote.h>
+#include <Servo.h>
 
 HUSKYLENS huskylens;
 int recValue = 100;
@@ -33,6 +34,9 @@ int posTurns = 22;
 
 IRrecv irrecv(3);
 decode_results results;
+boolean isSwitchObjectRecognition = false;
+
+Servo __myservo3;
 void initHL() {
   Wire.begin();
   while (!huskylens.begin(Wire))
@@ -155,11 +159,16 @@ void posStatus() {
   sendToBtDevice(pic);
 }
 
+void notifyFindThief() {
+  sendToBtDevice("FindThiefBeCareful");
+}
+
 void setup()
 {
   Serial.begin(9600);
 
   irrecv.enableIRIn();
+  __myservo3.attach(3);
   //打開最大轉數(1圈8轉)
   //目前位置
   BtDevice.begin(9600);
@@ -167,6 +176,9 @@ void setup()
   go(-10);
   posTurns = 0;
   initHL();
+  //ai鏡頭切換至物體識別(小偷)
+  __myservo3.write(0);
+  delay(1000);
 }
 
 
@@ -182,6 +194,8 @@ startRecog();
       go(10);
     } else if (ReplyID == 2) {
       go(-10);
+    } else if (ReplyID == 4) {
+      notifyFindThief();
     }
     ReplyID = 0;
   }
@@ -204,6 +218,18 @@ startRecog();
       go(-10);
     } else if (btMsg == "s") {
       posStatus();
+    } else if (btMsg == "a") {
+      //物體分類(手勢)
+      isSwitchObjectRecognition = false;
+      huskylens.writeAlgorithm(ALGORITHM_OBJECT_CLASSIFICATION);
+      __myservo3.write(0);
+      delay(1000);
+    } else if (btMsg == "b") {
+      //物體識別(小偷)
+      isSwitchObjectRecognition = true;
+      huskylens.writeAlgorithm(ALGORITHM_OBJECT_RECOGNITION);
+      __myservo3.write(180);
+      delay(1000);
     }
   }
 }
