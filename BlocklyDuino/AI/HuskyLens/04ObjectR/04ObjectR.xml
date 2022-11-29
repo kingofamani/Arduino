@@ -197,7 +197,7 @@
                               <block type="customcode_code" id="=1BP1+jyf9Y=%nq`LTTP">
                                 <value name="text">
                                   <block type="text" id="=C6k),0#Wd:Y2f~WrU9t">
-                                    <field name="TEXT">}   huskylens.writeAlgorithm(ALGORITHM_OBJECT_RECOGNITION);</field>
+                                    <field name="TEXT">}   huskylens.writeAlgorithm(ALGORITHM_OBJECT_CLASSIFICATION);</field>
                                   </block>
                                 </value>
                               </block>

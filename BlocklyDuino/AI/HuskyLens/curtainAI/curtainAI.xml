@@ -374,7 +374,7 @@
       </block>
     </statement>
     <next>
-      <block type="initializes_loop" id="JHBn*nW_JW3ZOSe.d]Qw" collapsed="true">
+      <block type="initializes_loop" id="JHBn*nW_JW3ZOSe.d]Qw">
         <statement name="CONTENT">
           <block type="procedures_callnoreturn" id="_r%b#FeI8bwG[AuaPlbQ">
             <mutation xmlns="http://www.w3.org/1999/xhtml" name="startRecog"></mutation>
@@ -681,7 +681,7 @@
       </block>
     </next>
   </block>
-  <block type="procedures_defnoreturn" id="(G[NZOFKnjA+t%}IR4i/" collapsed="true" x="1210" y="610">
+  <block type="procedures_defnoreturn" id="(G[NZOFKnjA+t%}IR4i/" collapsed="true" x="750" y="1050">
     <field name="NAME">initHL</field>
     <value name="VAR">
       <shadow type="lists_create_with" id="6C;1P,,vU}9Ats8pvnuV">
@@ -734,7 +734,7 @@
                               <block type="customcode_code" id="hW[nEjC3o3laqdf2BK6f">
                                 <value name="text">
                                   <block type="text" id="D~,XsR=hY0guZy^e2;aj">
-                                    <field name="TEXT">}   huskylens.writeAlgorithm(ALGORITHM_OBJECT_RECOGNITION);</field>
+                                    <field name="TEXT">}   huskylens.writeAlgorithm(ALGORITHM_OBJECT_CLASSIFICATION);</field>
                                   </block>
                                 </value>
                               </block>
@@ -752,7 +752,7 @@
       </block>
     </statement>
   </block>
-  <block type="procedures_defnoreturn" id="/D^8~o-n_|U-~rg@hX+z" collapsed="true" x="1210" y="650">
+  <block type="procedures_defnoreturn" id="/D^8~o-n_|U-~rg@hX+z" collapsed="true" x="750" y="1090">
     <field name="NAME">startRecog</field>
     <value name="VAR">
       <shadow type="lists_create_with" id="cll/UM:`8$/2nw53{|Uo">
@@ -940,7 +940,7 @@
       </block>
     </statement>
   </block>
-  <block type="procedures_defnoreturn" id="(5lfy8ryZ.jhVy^gE0=_" collapsed="true" x="1210" y="690">
+  <block type="procedures_defnoreturn" id="(5lfy8ryZ.jhVy^gE0=_" collapsed="true" x="750" y="1130">
     <field name="NAME">pR</field>
     <value name="VAR">
       <shadow type="lists_create_with" id="K3kUk`*v*B;$2ReZ$rv8">
@@ -1002,7 +1002,7 @@
       </block>
     </statement>
   </block>
-  <block type="procedures_defnoreturn" id=")E_yJ4T[o{(1Zz)bw(~1" collapsed="true" x="1230" y="770">
+  <block type="procedures_defnoreturn" id=")E_yJ4T[o{(1Zz)bw(~1" collapsed="true" x="750" y="1170">
     <field name="NAME">turnStop</field>
     <value name="VAR">
       <shadow type="lists_create_with">
@@ -1142,7 +1142,7 @@
       </block>
     </statement>
   </block>
-  <block type="procedures_defnoreturn" id="*7p4eb3nXmFj`e;dVPV2" collapsed="true" x="1210" y="810">
+  <block type="procedures_defnoreturn" id="*7p4eb3nXmFj`e;dVPV2" collapsed="true" x="750" y="1210">
     <field name="NAME">irrStop</field>
     <value name="VAR">
       <shadow type="lists_create_with" id="tqM*0}a6_qvsQ~Z2wx4@">
@@ -1202,7 +1202,7 @@
       </block>
     </statement>
   </block>
-  <block type="procedures_defnoreturn" id="-]A/9Y6RrX=(iMh#Dn?S" collapsed="true" x="1210" y="870">
+  <block type="procedures_defnoreturn" id="-]A/9Y6RrX=(iMh#Dn?S" collapsed="true" x="750" y="1250">
     <field name="NAME">recogStop</field>
     <value name="VAR">
       <shadow type="lists_create_with" id="S#?}t3c5^qBhBI6u$hqg">
@@ -1277,7 +1277,7 @@
       </block>
     </statement>
   </block>
-  <block type="procedures_defnoreturn" id="@jbZxEG6])`vX~U7F/V^" collapsed="true" x="1210" y="910">
+  <block type="procedures_defnoreturn" id="@jbZxEG6])`vX~U7F/V^" collapsed="true" x="750" y="1290">
     <field name="NAME">btStop</field>
     <value name="VAR">
       <shadow type="lists_create_with" id="UJY7Yi^Bh4[_/;S)MD#f">
@@ -1359,7 +1359,7 @@
       </block>
     </statement>
   </block>
-  <block type="procedures_defnoreturn" id="enkMrY7DH6!r$X,SYOVP" collapsed="true" x="590" y="990">
+  <block type="procedures_defnoreturn" id="enkMrY7DH6!r$X,SYOVP" collapsed="true" x="750" y="1330">
     <field name="NAME">sendToBtDevice</field>
     <value name="VAR">
       <shadow type="lists_create_with" inline="1">
@@ -1385,7 +1385,7 @@
       </block>
     </statement>
   </block>
-  <block type="procedures_defnoreturn" id="#pRN{[F..aw||?)M0d,3" collapsed="true" x="610" y="1030">
+  <block type="procedures_defnoreturn" id="#pRN{[F..aw||?)M0d,3" collapsed="true" x="750" y="1370">
     <field name="NAME">go</field>
     <value name="VAR">
       <shadow type="lists_create_with">
@@ -1655,7 +1655,7 @@
       </block>
     </statement>
   </block>
-  <block type="procedures_defnoreturn" id="`~Ia]uWp!4:~z2f.FaSq" x="210" y="1650">
+  <block type="procedures_defnoreturn" id="`~Ia]uWp!4:~z2f.FaSq" collapsed="true" x="770" y="1410">
     <field name="NAME">posStatus</field>
     <value name="VAR">
       <shadow type="lists_create_with" id="_?s}i#S!vAS[txhc}q|O">

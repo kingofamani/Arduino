@@ -3,7 +3,7 @@
  *
  * https://github.com/MediaTek-Labs/BlocklyDuino-for-LinkIt
  *
- * Date: Mon, 28 Nov 2022 06:43:45 GMT
+ * Date: Tue, 29 Nov 2022 05:24:08 GMT
  */
 /*  部份程式由吉哥積木產生  */
 /*  https://sites.google.com/jes.mlc.edu.tw/ljj/linkit7697  */
@@ -40,7 +40,7 @@ void initHL() {
   Serial.println(F("1.Please recheck the Protocol Type in HUSKYLENS (General Settings>>Protocol Type>>I2C)"));
   Serial.println(F("2.Please recheck the connection."));
   delay(100);
-  }   huskylens.writeAlgorithm(ALGORITHM_OBJECT_RECOGNITION);
+  }   huskylens.writeAlgorithm(ALGORITHM_OBJECT_CLASSIFICATION);
 }
 
 void startRecog() {
