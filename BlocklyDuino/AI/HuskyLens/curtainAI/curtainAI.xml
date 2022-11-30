@@ -14,7 +14,7 @@
     <variable id="POm7H:NA)2~5]q:+LU9y">countIDs</variable>
     <variable id="*P.=L;wSaK_!-VR`Qa^q">ReplyID</variable>
     <variable id="(0Irolo!]na~g7(t#mb[">IDs</variable>
-    <variable id="TdvFNoVAe~^R![bWOeS~">isSwitchObjectRecognition</variable>
+    <variable id="TdvFNoVAe~^R![bWOeS~">isObjectRecognitionMode</variable>
   </variables>
   <block type="customcode_head" id="}IU:;G*6p%eBv/@t`{bQ" x="-50" y="-370">
     <value name="text">
@@ -361,7 +361,7 @@
                                                           <block type="variables_set" id="3(rN3)|U%z_A4Mc,;*j+">
                                                             <field name="POSITION">global</field>
                                                             <field name="TYPE">boolean</field>
-                                                            <field name="VAR" id="TdvFNoVAe~^R![bWOeS~">isSwitchObjectRecognition</field>
+                                                            <field name="VAR" id="TdvFNoVAe~^R![bWOeS~">isObjectRecognitionMode</field>
                                                             <value name="VALUE">
                                                               <shadow type="math_number">
                                                                 <field name="NUM">0</field>
@@ -374,7 +374,7 @@
                                                               <block type="servo_write_pin" id="%Sljp`DqCUGd{2$7]|xg">
                                                                 <value name="PIN">
                                                                   <block type="math_number" id="jkLoYd*8h]2@eFO-|%GN">
-                                                                    <field name="NUM">3</field>
+                                                                    <field name="NUM">2</field>
                                                                   </block>
                                                                 </value>
                                                                 <value name="ANGLE">
@@ -761,7 +761,7 @@
                                         </value>
                                         <next>
                                           <block type="variables_set3" id="=yV4DJ[qzr|[,#BA?+j$">
-                                            <field name="VAR" id="TdvFNoVAe~^R![bWOeS~">isSwitchObjectRecognition</field>
+                                            <field name="VAR" id="TdvFNoVAe~^R![bWOeS~">isObjectRecognitionMode</field>
                                             <value name="DELTA">
                                               <shadow type="math_number">
                                                 <field name="NUM">0</field>
@@ -778,24 +778,39 @@
                                                   </block>
                                                 </value>
                                                 <next>
-                                                  <block type="servo_write_pin" id="h7|B6j?13[m.f#ecjJCQ">
-                                                    <value name="PIN">
-                                                      <block type="math_number" id="Fc/3Vd7UQI[(b2:rBz8}">
-                                                        <field name="NUM">3</field>
-                                                      </block>
-                                                    </value>
-                                                    <value name="ANGLE">
-                                                      <block type="math_number" id="ml8eQvSX1No.1wIn=Nnw">
-                                                        <field name="NUM">0</field>
+                                                  <block type="procedures_callnoreturn" id="m0p~OPZDULOjL+#V}bOG">
+                                                    <mutation xmlns="http://www.w3.org/1999/xhtml" name="sendToBtDevice"></mutation>
+                                                    <value name="VAR">
+                                                      <block type="lists_create_with" id="?05!W|xe~9Qi627cY]#p">
+                                                        <mutation items="1"></mutation>
+                                                        <value name="ADD0">
+                                                          <block type="text" id="Rb%F$a#awtWC()O8mq5Z">
+                                                            <field name="TEXT">HandMode</field>
+                                                          </block>
+                                                        </value>
                                                       </block>
                                                     </value>
                                                     <next>
-                                                      <block type="delay_custom" id="W,caD`#lAg_dcM2y{XNo">
-                                                        <value name="DELAY_TIME">
-                                                          <block type="math_number" id="(qz2v0#E#fGmVuUV%}Gq">
-                                                            <field name="NUM">1000</field>
+                                                      <block type="servo_write_pin" id="h7|B6j?13[m.f#ecjJCQ">
+                                                        <value name="PIN">
+                                                          <block type="math_number" id="Fc/3Vd7UQI[(b2:rBz8}">
+                                                            <field name="NUM">2</field>
                                                           </block>
                                                         </value>
+                                                        <value name="ANGLE">
+                                                          <block type="math_number" id="ml8eQvSX1No.1wIn=Nnw">
+                                                            <field name="NUM">0</field>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="delay_custom" id="W,caD`#lAg_dcM2y{XNo">
+                                                            <value name="DELAY_TIME">
+                                                              <block type="math_number" id="(qz2v0#E#fGmVuUV%}Gq">
+                                                                <field name="NUM">1000</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </next>
                                                       </block>
                                                     </next>
                                                   </block>
@@ -830,7 +845,7 @@
                                         </value>
                                         <next>
                                           <block type="variables_set3" id="cBp,W^$-w;JC-sKd3yXb">
-                                            <field name="VAR" id="TdvFNoVAe~^R![bWOeS~">isSwitchObjectRecognition</field>
+                                            <field name="VAR" id="TdvFNoVAe~^R![bWOeS~">isObjectRecognitionMode</field>
                                             <value name="DELTA">
                                               <shadow type="math_number" id=",c{W`9|A(7Pb25rO9RK:">
                                                 <field name="NUM">0</field>
@@ -840,31 +855,46 @@
                                               </block>
                                             </value>
                                             <next>
-                                              <block type="customcode_code" id="H4n3~Qb,ax_+D0g|m*-(">
-                                                <value name="text">
-                                                  <block type="text" id="eNkh|jYw_Ukio/LZv2@q">
-                                                    <field name="TEXT">huskylens.writeAlgorithm(ALGORITHM_OBJECT_RECOGNITION);</field>
+                                              <block type="procedures_callnoreturn" id="z=;F|zM*,RQ;ta6XK(/b">
+                                                <mutation xmlns="http://www.w3.org/1999/xhtml" name="sendToBtDevice"></mutation>
+                                                <value name="VAR">
+                                                  <block type="lists_create_with" id="r2iFd1fxJ$vZ(JA{`n]F">
+                                                    <mutation items="1"></mutation>
+                                                    <value name="ADD0">
+                                                      <block type="text" id="::[(:-8ZlufH7I7l[WjJ">
+                                                        <field name="TEXT">ThiefMode</field>
+                                                      </block>
+                                                    </value>
                                                   </block>
                                                 </value>
                                                 <next>
-                                                  <block type="servo_write_pin" id="KuouB#T%Wv0lNT6nvjis">
-                                                    <value name="PIN">
-                                                      <block type="math_number" id="IslWHz)^KYyn4CG2MTAK">
-                                                        <field name="NUM">3</field>
-                                                      </block>
-                                                    </value>
-                                                    <value name="ANGLE">
-                                                      <block type="math_number" id="gA0|=[0Qo:?II*ls]kAQ">
-                                                        <field name="NUM">180</field>
+                                                  <block type="customcode_code" id="H4n3~Qb,ax_+D0g|m*-(">
+                                                    <value name="text">
+                                                      <block type="text" id="eNkh|jYw_Ukio/LZv2@q">
+                                                        <field name="TEXT">huskylens.writeAlgorithm(ALGORITHM_OBJECT_RECOGNITION);</field>
                                                       </block>
                                                     </value>
                                                     <next>
-                                                      <block type="delay_custom" id="fq-k5H3=3~JV,GZaTXpO">
-                                                        <value name="DELAY_TIME">
-                                                          <block type="math_number" id="v?EEwOz!Zx=Ab{J}F8MF">
-                                                            <field name="NUM">1000</field>
+                                                      <block type="servo_write_pin" id="KuouB#T%Wv0lNT6nvjis">
+                                                        <value name="PIN">
+                                                          <block type="math_number" id="IslWHz)^KYyn4CG2MTAK">
+                                                            <field name="NUM">2</field>
                                                           </block>
                                                         </value>
+                                                        <value name="ANGLE">
+                                                          <block type="math_number" id="gA0|=[0Qo:?II*ls]kAQ">
+                                                            <field name="NUM">180</field>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="delay_custom" id="fq-k5H3=3~JV,GZaTXpO">
+                                                            <value name="DELAY_TIME">
+                                                              <block type="math_number" id="v?EEwOz!Zx=Ab{J}F8MF">
+                                                                <field name="NUM">1000</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </next>
                                                       </block>
                                                     </next>
                                                   </block>
@@ -1987,7 +2017,7 @@
       </block>
     </statement>
   </block>
-  <block type="procedures_defnoreturn" id="BxUugy#`FpT!|wz1f1X8" x="790" y="1470">
+  <block type="procedures_defnoreturn" id="BxUugy#`FpT!|wz1f1X8" collapsed="true" x="790" y="1470">
     <field name="NAME">notifyFindThief</field>
     <value name="VAR">
       <shadow type="lists_create_with" id="Qb_DjxMNfy64?MyZum+T">
