@@ -3,36 +3,51 @@
  *
  * https://github.com/MediaTek-Labs/BlocklyDuino-for-LinkIt
  *
- * Date: Tue, 15 Mar 2022 07:26:54 GMT
+ * Date: Fri, 02 Dec 2022 13:46:34 GMT
  */
 /*  部份程式由吉哥積木產生  */
 /*  https://sites.google.com/jes.mlc.edu.tw/ljj/linkit7697  */
-#include <Keypad.h>
+#include "Adafruit_Keypad.h"
 
-char key;
+char keyPadChar='\0';
+const byte keyRowsCount = 4;
+const byte keyColsCount = 4;
+char keys[keyRowsCount][keyColsCount] = {{'1', '2', '3', 'A'}, {'4', '5', '6', 'B'}, {'7', '8', '9', 'C'}, {'*', '0', '#', 'D'}};
+byte rowPins[keyRowsCount] = {11,10,9,8};
+byte colPins[keyColsCount] = {7,6,5,4};
+Adafruit_Keypad customKeypad = Adafruit_Keypad( makeKeymap(keys), rowPins, colPins, keyRowsCount, keyColsCount);
 
-char keys[4] = {{'1', '2', '3', 'A'}, {'4', '5', '6', 'B'}, {'7', '8', '9', 'C'}, {'*', '0', '#', 'D'}};
+void checkPad(keypadEvent e)
+{
+  if (((char)e.bit.KEY!='\0')&&(e.bit.EVENT == KEY_JUST_PRESSED))
+    checkPadPress();
+  else if (((char)e.bit.KEY!='\0')&&(e.bit.EVENT == KEY_JUST_RELEASED))
+    checkPadRelease();
+}
 
-byte rowPins[4] = {11, 10, 9, 8};
+void checkPadPress()
+{
+  Serial.println(String(keyPadChar));
+}
 
-byte colPins[4] = {7, 6, 5, 4};
-
-Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, 4, 4 );
-void keypad_0() {
+void checkPadRelease()
+{
 }
 
 void setup()
 {
   Serial.begin(9600);
 
-  //將keys[4]改成keys[4][4]
+  customKeypad.begin();
 }
 
 
 void loop()
 {
-  key = keypad.getKey();
-  if (key) {
-    Serial.println(key);
+  customKeypad.tick();
+  if(customKeypad.available()){
+    keypadEvent e = customKeypad.read();
+    keyPadChar=(char)e.bit.KEY;
+    checkPad(e);
   }
 }

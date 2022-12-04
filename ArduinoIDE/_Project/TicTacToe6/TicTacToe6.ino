@@ -1,13 +1,30 @@
-/*
-   Generated using BlocklyDuino:
-
-   https://github.com/MediaTek-Labs/BlocklyDuino-for-LinkIt
-
-   Date: Mon, 14 Mar 2022 02:16:27 GMT
-*/
-/*  部份程式由吉哥積木產生  */
-/*  https://sites.google.com/jes.mlc.edu.tw/ljj/linkit7697  */
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+LiquidCrystal_I2C lcd_i2c(0x27, 16, 2);
 //★若是用Arduino IDE序列埠視窗，一定要選取「沒有行結尾」
+#include "Adafruit_Keypad.h"
+//char keyPadChar = '\0';
+char keys[4][4] = {{'1', '2', '3', 'A'}, {'4', '5', '6', 'B'}, {'7', '8', '9', 'C'}, {'*', '0', '#', 'D'}};
+byte rowPins[4] = {11, 10, 9, 8};
+byte colPins[4] = {7, 6, 5, 4};
+Adafruit_Keypad customKeypad = Adafruit_Keypad( makeKeymap(keys), rowPins, colPins, 4, 4);
+//
+//void checkPad(keypadEvent e)
+//{
+//  if (((char)e.bit.KEY != '\0') && (e.bit.EVENT == KEY_JUST_PRESSED))
+//    checkPadPress();
+//  else if (((char)e.bit.KEY != '\0') && (e.bit.EVENT == KEY_JUST_RELEASED))
+//    checkPadRelease();
+//}
+//
+//void checkPadPress()
+//{
+//  Serial.println(String(keyPadChar));
+//}
+//
+//void checkPadRelease()
+//{
+//}
 
 //pos下棋的位置
 int pos = 1;
@@ -18,6 +35,7 @@ int player = startPlayer;
 
 //玩家名稱
 String playerName[2] = {"您(玩家)", "AI"};
+String playerEnglishName[2] = {"YOU", "AI"};
 //玩家o、AIx
 char go[2] = {'o', 'x'};
 //board整個棋盤
@@ -76,6 +94,9 @@ boolean checkIsRepeat() {
 
 void showSample() {
   Serial.println((String("請") + playerName[player] + "(" + go[player] + String(")開始下棋(輸入1~9)：")));
+  String msgs[2] = {playerEnglishName[player], "Input(1~9):"};
+  DisplayMessage(msgs);
+
   for (int i = 1; i <= 9; i++) {
     Serial.print(i);
     Serial.print(",");
@@ -97,6 +118,10 @@ void showBoard() {
 
 void setPosition() {
   Serial.println((playerName[player] + String("下的位置在") + String(pos)));
+  String msgs[2] = {playerEnglishName[player], "put in " + String(pos)};
+  DisplayMessage(msgs);
+  delay(1000);
+
   board[pos - 1] = go[player];
 }
 
@@ -107,6 +132,10 @@ void changePlayer() {
     //玩家
     Serial.println("");
     Serial.println((String("請換") + playerName[player] + "(" + go[player] + String(")下棋(輸入1~9)：")));
+    String msgs[2] = {playerEnglishName[player], "input(1-9):"};
+    DisplayMessage(msgs);
+    delay(1000);
+
     showBoard();
   }
 }
@@ -143,6 +172,8 @@ void reStart() {
   Serial.println("");
   Serial.println("--------------新的一局----------------");
   Serial.println("交換，改由" + playerName[player] + "先下棋");
+  String msgs[2] = {"---NEW GAME---", "change to " + playerEnglishName[player]};
+  DisplayMessage(msgs);
   delay(1000);
 
   //顯示位置編號
@@ -252,7 +283,7 @@ int oneListen(int player) {
   //int oneListenPos = 0;
   int listenPos[72] = {};
   int countListenPos = 0;
-  int oneListenPos[9]={};//單聽位置
+  int oneListenPos[9] = {}; //單聽位置
   int countOneListenPos = 0;
   for (int p = 1; p <= 9; p++) {
     for (int i = 0; i <= 7; i++) {
@@ -274,7 +305,7 @@ int oneListen(int player) {
         }
       }
       if (count == 1) {
-        oneListenPos[countOneListenPos]=p;
+        oneListenPos[countOneListenPos] = p;
         countOneListenPos++;
         //oneListenPos = p;
       }
@@ -282,9 +313,9 @@ int oneListen(int player) {
     }
   }
 
-  if(countOneListenPos==0){
+  if (countOneListenPos == 0) {
     return 0;
-  }else{
+  } else {
     int randIndex = random(0, countOneListenPos);
     return oneListenPos[countOneListenPos];
   }
@@ -341,8 +372,8 @@ int doubleListen(int player) {
 int maxWeight() {
   Serial.println("6-3、");
   int initWPos = emptyWeight10Pos();
-  int count =0;
-  int weight100And1000[5]={};
+  int count = 0;
+  int weight100And1000[5] = {};
   for (int p = 1; p <= 9; p++) {
     if (checkIsEmpty(p)) {
       if (weights[p - 1] == 100 || weights[p - 1] == 1000) {
@@ -352,14 +383,14 @@ int maxWeight() {
     }
   }
 
-  if(count==0){
+  if (count == 0) {
     return initWPos;
-  }else{
+  } else {
     int randIndex = random(0, count);
     return weight100And1000[randIndex];
   }
-  
-  
+
+
 }
 
 //位置2權重10且空的當預設
@@ -595,10 +626,16 @@ void checkIsWin() {
 
   if (isWin) {
     Serial.println((String("恭喜") + playerName[player] + String("獲勝！")));
+    String msgs[2] = {"Congratulation", "Winner is " + playerEnglishName[player]};
+    DisplayMessage(msgs);
+
     sumScore();
     reStart();
   } else if (checkIsFullBoard()) {
     Serial.println("平手！");
+    String msgs[2] = {"DRAW!", "no one Win..."};
+    DisplayMessage(msgs);
+
     sumScore();
     reStart();
   } else {
@@ -621,6 +658,8 @@ void sumScore() {
     scores[2] = scores[2] + 1;
   }
   Serial.println("戰績統計：" + String(scores[0]) + "勝" + String(scores[1]) + "負" + String(scores[2]) + "和");
+  String msgs[2] = {"Win:" + String(scores[0]) + " Lose:" + String(scores[1]), "Draw:" + String(scores[2])};
+  DisplayMessage(msgs);
   delay(2000);
 }
 
@@ -666,16 +705,41 @@ void setup()
   Serial.begin(9600);
   //亂數種子
   randomSeed(analogRead(0));
+  //LCD顯示
+  lcd_i2c.init();
+  lcd_i2c.backlight();
+  lcd_i2c.clear();
+  //小鍵盤
+  //  keypads.begin();
   //提醒玩家開始下棋，顯示1~9位置的範例
   showSample();
 }
 
+void DisplayMessage(String msgs[2]) {
+  lcd_i2c.clear();
+  for (int i = 0; i < 2; i++) {
+    lcd_i2c.setCursor(0, i);
+    lcd_i2c.print(msgs[i]);
+  }
+}
+
 void loop()
 {
+  //小鍵盤
+  //  keypads.tick();
+  //  if(keypads.available()){
+  //    keypadEvent e = keypads.read();
+  //    key=(char)e.bit.KEY;
+  //    checkPad(e);
+  //  }
+  //
   //AI
   if (player == 1) {
     Serial.println(playerName[player] + "下棋中…");
+    String msgs[2] = {"AI", "thinking..."};
+    DisplayMessage(msgs);
     delay(1000);
+
     pos = autoAiPos();
     judge();
   }
@@ -687,11 +751,18 @@ void loop()
     //是否為1~9
     if (!(pos >= 1 && pos <= 9)) {
       Serial.println("錯誤！輸入的數字超過範圍，請重新下棋(輸入1~9)：");
+      String msgs[2] = {"ERROR out range", "Input Again:"};
+      DisplayMessage(msgs);
+      delay(1000);
+
       return;
     }
     //是否重複
     if (checkIsRepeat()) {
       Serial.println((String("錯誤！第") + String(pos) + String("格已經下過了，請重新下棋(輸入1~9)：")));
+      String msgs[2] = {"ERROR repeat " + String(pos), "Input Again:"};
+      DisplayMessage(msgs);
+      delay(1000);
     } else {
       judge();
     }
