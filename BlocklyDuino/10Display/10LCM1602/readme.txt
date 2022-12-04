@@ -1,5 +1,13 @@
-LiquidCrystal_I2C (by Frank de Brabander)程式庫
-積木：顯示模組/液晶顯示
+BlocklyDuino/arduino IDE 1.8.13
+	要安裝LiquidCrystal_I2C (by Frank de Brabander)程式庫
+	積木：顯示模組/液晶顯示
+	
+arduino 1.8.19
+	要安裝LiquidCrystal_I2C (by Marco Schwartz)程式庫
+	寫法不同：
+	#include <Wire.h> 
+	LiquidCrystal_I2C lcd(0x27,16,2);
+	lcd.init();
 
 GND	GND
 VCC	5V
