@@ -1,0 +1,21 @@
+ESP32-S2
+
+https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+
+工具/開發板/開發板管理員/搜尋esp32後按「更新」
+
+開發板：ESP32S2 DEV Module
+
+數位腳位
+	綠色GPIO=實際圖片的P，例如GPIO5=P5，就是pin=5
+
+類比腳位：
+	紫色ADC
+	
+I2C：
+	SCL	GPIO8
+	SDA	GPIO9
+
+
+
+
