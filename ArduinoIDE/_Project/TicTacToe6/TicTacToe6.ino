@@ -1,30 +1,21 @@
+//★若是用Arduino IDE序列埠視窗，一定要選取「沒有行結尾」
+#include <Adafruit_NeoPixel.h>
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 LiquidCrystal_I2C lcd_i2c(0x27, 16, 2);
-//★若是用Arduino IDE序列埠視窗，一定要選取「沒有行結尾」
 #include "Adafruit_Keypad.h"
-//char keyPadChar = '\0';
+char key = '\0';
 char keys[4][4] = {{'1', '2', '3', 'A'}, {'4', '5', '6', 'B'}, {'7', '8', '9', 'C'}, {'*', '0', '#', 'D'}};
-byte rowPins[4] = {11, 10, 9, 8};
+byte rowPins[4] = {13, 12, 11, 10};
 byte colPins[4] = {7, 6, 5, 4};
 Adafruit_Keypad customKeypad = Adafruit_Keypad( makeKeymap(keys), rowPins, colPins, 4, 4);
-//
-//void checkPad(keypadEvent e)
-//{
-//  if (((char)e.bit.KEY != '\0') && (e.bit.EVENT == KEY_JUST_PRESSED))
-//    checkPadPress();
-//  else if (((char)e.bit.KEY != '\0') && (e.bit.EVENT == KEY_JUST_RELEASED))
-//    checkPadRelease();
-//}
-//
-//void checkPadPress()
-//{
-//  Serial.println(String(keyPadChar));
-//}
-//
-//void checkPadRelease()
-//{
-//}
+
+#define PIXELS_PIN 14
+#define NUM_PIXELS 40
+Adafruit_NeoPixel pixels(NUM_PIXELS, PIXELS_PIN, NEO_GRB + NEO_KHZ800);
+uint32_t LINE_COLOR = pixels.Color(0, 0, 255);
+uint32_t AI_COLOR = pixels.Color(150, 0, 0);
+uint32_t PLAYER_COLOR = pixels.Color(0, 150, 0);
 
 //pos下棋的位置
 int pos = 1;
@@ -35,7 +26,7 @@ int player = startPlayer;
 
 //玩家名稱
 String playerName[2] = {"您(玩家)", "AI"};
-String playerEnglishName[2] = {"YOU", "AI"};
+String playerEnglishName[2] = {"YOU (Green)", "AI (Red)"};
 //玩家o、AIx
 char go[2] = {'o', 'x'};
 //board整個棋盤
@@ -106,6 +97,14 @@ void showSample() {
   }
 }
 
+void showLineOnPixels(){
+  int lines[16]={1,3,8,9,10,11,12,17,19,24,25,26,27,28,33,35};
+  for(int i=0;i<16;i++){
+    pixels.setPixelColor(lines[i], LINE_COLOR);
+    pixels.show();
+  }  
+}
+
 void showBoard() {
   for (int i = 0; i <= 8; i++) {
     Serial.print((board[i]));
@@ -114,6 +113,26 @@ void showBoard() {
       Serial.println("");
     }
   }
+}
+
+void showBoardOnPixels(){
+  int spacePixels[9]={0,2,4,16,18,20,32,34,36};
+  for (int i = 0; i <= 8; i++) {
+    pixels.setPixelColor(spacePixels[i],getColor(board[i]));
+    pixels.show();
+  }
+}
+
+uint32_t getColor(char go){  
+  uint32_t color = 0;
+  if(go=='-'){
+    //color = LINE_COLOR;
+  }else if(go=='o'){
+    color = PLAYER_COLOR;
+  }else if(go=='x'){
+    color = AI_COLOR;
+  }
+  return color;
 }
 
 void setPosition() {
@@ -137,6 +156,7 @@ void changePlayer() {
     delay(1000);
 
     showBoard();
+    showBoardOnPixels();
   }
 }
 
@@ -178,6 +198,7 @@ void reStart() {
 
   //顯示位置編號
   showSample();
+  showLineOnPixels();
 }
 
 boolean checkIsFullBoard() {
@@ -696,6 +717,7 @@ void judge() {
   setLines();
   //顯示五子棋所有位置
   showBoard();
+  showBoardOnPixels();
   //判斷勝負
   checkIsWin();
 }
@@ -710,9 +732,14 @@ void setup()
   lcd_i2c.backlight();
   lcd_i2c.clear();
   //小鍵盤
-  //  keypads.begin();
+  customKeypad.begin();
+  //PIXELS 40 LED燈
+  pixels.begin();
+  pixels.setBrightness(10);
+  pixels.clear();
   //提醒玩家開始下棋，顯示1~9位置的範例
   showSample();
+  showLineOnPixels();
 }
 
 void DisplayMessage(String msgs[2]) {
@@ -725,14 +752,6 @@ void DisplayMessage(String msgs[2]) {
 
 void loop()
 {
-  //小鍵盤
-  //  keypads.tick();
-  //  if(keypads.available()){
-  //    keypadEvent e = keypads.read();
-  //    key=(char)e.bit.KEY;
-  //    checkPad(e);
-  //  }
-  //
   //AI
   if (player == 1) {
     Serial.println(playerName[player] + "下棋中…");
@@ -744,27 +763,47 @@ void loop()
     judge();
   }
   //玩家
-  if (Serial.available() == 1) {
-    //將圈叉存在棋盤裡
-    //將char轉成整數，也可以寫成pos = Serial.read()- '0';
-    pos = Serial.parseInt();
-    //是否為1~9
-    if (!(pos >= 1 && pos <= 9)) {
-      Serial.println("錯誤！輸入的數字超過範圍，請重新下棋(輸入1~9)：");
-      String msgs[2] = {"ERROR out range", "Input Again:"};
-      DisplayMessage(msgs);
-      delay(1000);
-
-      return;
-    }
-    //是否重複
-    if (checkIsRepeat()) {
-      Serial.println((String("錯誤！第") + String(pos) + String("格已經下過了，請重新下棋(輸入1~9)：")));
-      String msgs[2] = {"ERROR repeat " + String(pos), "Input Again:"};
-      DisplayMessage(msgs);
-      delay(1000);
-    } else {
-      judge();
-    }
+  customKeypad.tick();
+  if (customKeypad.available()) {
+    checkPad(customKeypad.read());
   }
+
+}
+
+
+void checkPad(keypadEvent e)
+{
+  key = (char)e.bit.KEY;
+
+  if (((char)e.bit.KEY != '\0') && (e.bit.EVENT == KEY_JUST_PRESSED))
+    checkPadPress();
+  else if (((char)e.bit.KEY != '\0') && (e.bit.EVENT == KEY_JUST_RELEASED))
+    checkPadRelease();
+}
+
+void checkPadPress()
+{
+  pos = key - '0';//char to int
+  //是否為1~9
+  if (!(pos >= 1 && pos <= 9)) {
+    Serial.println("錯誤！輸入的數字超過範圍，請重新下棋(輸入1~9)：");
+    String msgs[2] = {"ERROR out range", "Input Again:"};
+    DisplayMessage(msgs);
+    delay(1000);
+
+    return;
+  }
+  //是否重複
+  if (checkIsRepeat()) {
+    Serial.println((String("錯誤！第") + String(pos) + String("格已經下過了，請重新下棋(輸入1~9)：")));
+    String msgs[2] = {"ERROR repeat " + String(pos), "Input Again:"};
+    DisplayMessage(msgs);
+    delay(1000);
+  } else {
+    judge();
+  }
+}
+
+void checkPadRelease()
+{
 }
