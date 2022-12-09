@@ -1,0 +1,10 @@
+#define U1RXD 18
+#define U1TXD 17
+void setup() {
+  Serial.begin(115200);
+  Serial1.begin(9600, SERIAL_8N1, U1RXD, U1TXD);
+}
+void loop() {
+    Serial.println("Message Received: ");
+    Serial.println(Serial1.readString());
+}

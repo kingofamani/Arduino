@@ -1,0 +1,15 @@
+https://www.programmingboss.com/2021/04/esp32-arduino-serial-communication-with-code.html
+
+
+UNO			ESP32S2
+RX(pin0) ↔	TX(GPIO17)
+TX(pin1) ↔	RX(GPIO18)
+GND		 ↔	GND
+
+※ESP32S2沒有Serial2，只有Serial1
+
+
+Arduino UNO：
+	上傳01UartConnectArduinoUNO
+ESP32 S2：
+	上傳01UartConnectESP32S2

@@ -18,6 +18,15 @@ LED_BUILTIN
 I2C：
 	SCL	GPIO8
 	SDA	GPIO9
+UART：
+	UART0(Serial)：
+		RX	GPIO44
+		TX	GPIO43
+	UART1(Serial1)：
+		RX	GPIO18
+		TX	GPIO17
+	UART2(Serial2)
+		xxxx不支援
 
 
 
