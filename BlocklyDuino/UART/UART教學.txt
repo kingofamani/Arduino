@@ -1,0 +1,2 @@
+Arduino UNO、Nano官方並不建議這樣作，因為在一塊開發板上同時使用 Hardware+Software serial 或者執行多組的Software serial，很容易產生傳輸瓶頸或亂碼。
+因此，建議使用支援四組 hardware serial 的 Arduino Mega 開發板。
