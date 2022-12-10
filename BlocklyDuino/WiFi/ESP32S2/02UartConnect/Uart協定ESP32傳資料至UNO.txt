@@ -10,3 +10,6 @@ Arduino UNO：
 	上傳02UartConnectArduinoUNO
 ESP32 S2：
 	上傳02UartConnectESP32S2
+	
+//用write，不要用print
+//不要傳中文字
