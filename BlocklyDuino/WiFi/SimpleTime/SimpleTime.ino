@@ -13,7 +13,7 @@
 #include "time.h"
 
 const char* ssid     = "AMANI-4G-Home2";
-const char* password = "c41585c41585";
+const char* password = "xxxxxxxxxxxxx";
 
 const char* ntpServer = "asia.pool.ntp.org";
 const long  gmtOffset_sec = 28800;

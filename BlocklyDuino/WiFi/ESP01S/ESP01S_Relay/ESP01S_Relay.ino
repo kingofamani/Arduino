@@ -4,7 +4,7 @@
 
 // 設定無線基地台SSID跟密碼
 const char* ssid     = "AMANI-4G-Home";     //改成您的SSID 
-const char* password = "c41585c41585";   //改成您的密碼
+const char* password = "xxxxxxxxxxxxxx";   //改成您的密碼
 
 // 設定 web server port number 80
 WiFiServer server(80);

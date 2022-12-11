@@ -20,7 +20,7 @@
 #define SUBNET IPAddress(255, 255, 255, 0)
 
 const char* ssid = "AMANI-4G-Home";
-const char* password = "c41585c41585";
+const char* password = "xxxxxxxxxxxx";
 
 void startCameraServer();
 

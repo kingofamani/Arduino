@@ -9,10 +9,10 @@ https://ifttt.com/maker_webhooks ，然後點「Documentation」
 教學：
 https://ithelp.ithome.com.tw/articles/10274039
 IFTTT：
-	Your key is: dKOZ0_tn_Bb48Y-iHN6LHV
-	https://maker.ifttt.com/trigger/esp32google/with/key/dKOZ0_tn_Bb48Y-iHN6LHV
+	Your key is: (放在網路硬碟/home/金鑰/ifttt key.txt)
+	https://maker.ifttt.com/trigger/esp32google/with/key/{{your ifttt key}}
 	測試：
-	https://maker.ifttt.com/use/dKOZ0_tn_Bb48Y-iHN6LHV
+	https://maker.ifttt.com/use/{{your ifttt key}}
 	
 Google硬碟：
 	https://drive.google.com/drive/u/0/folders/1WsYnrd4G0NmvDXClFxk0HNoPM1W_IPgv

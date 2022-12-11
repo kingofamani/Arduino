@@ -1,6 +1,9 @@
 XXXX BlocklyDuino的google試算表積木壞了
 請改用Mosquito2以IFTTT連接的方式
 
+★★★IFTTT key：
+	網路硬碟/home/金鑰/ifttt key.txt
+
 BlocklyDuino無法上傳ESP32，連第四個按鈕Arduino IDE也不行。
 只好將程式碼則在另行安裝的Arduino.exe
 

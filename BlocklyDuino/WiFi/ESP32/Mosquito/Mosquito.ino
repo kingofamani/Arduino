@@ -3,7 +3,7 @@
  *
  * https://github.com/MediaTek-Labs/BlocklyDuino-for-LinkIt
  *
- * Date: Thu, 30 Dec 2021 00:28:33 GMT
+ * Date: Sun, 11 Dec 2022 13:01:27 GMT
  */
 /*  部份程式由吉哥積木產生  */
 /*  https://sites.google.com/jes.mlc.edu.tw/ljj/linkit7697  */
@@ -20,10 +20,15 @@ int BUZZER_FRE = 400;
 int BUZZER_TIME = 100;
 
 char _lwifi_ssid[] = "AMANI-4G-Home2";
-char _lwifi_pass[] = "c41585c41585";
+char _lwifi_pass[] = "xxxxxxxxxxxxxxxxx";
 const char* asId="AKfycbyR-Yp-uu4nIvnjvnkILaQ5AX8yFxp-UpBO-Sqs0su3ai1N_BvQsz_Q";
 String sheetId="";
 String sheetTag="";
+
+void tone32(int BUZZER_PIN, int BUZZER_FRE, int BUZZER_TIME) {
+  tone(BUZZER_PIN, BUZZER_FRE, BUZZER_TIME,BUZZER_CHANNEL);
+  noTone(BUZZER_PIN,BUZZER_CHANNEL);
+}
 
 String URLEncode(const char* msg)
 {
@@ -60,11 +65,6 @@ void  sendToGoogleSheets(const String& dateInclude,const String& data)
   }
 }
 
-void tone32(int BUZZER_PIN, int BUZZER_FRE, int BUZZER_TIME) {
-  tone(BUZZER_PIN, BUZZER_FRE, BUZZER_TIME,BUZZER_CHANNEL);
-  noTone(BUZZER_PIN,BUZZER_CHANNEL);
-}
-
 void setup()
 {
   Serial.begin(115200);
@@ -75,7 +75,7 @@ void setup()
   WiFi.begin(_lwifi_ssid, _lwifi_pass);
   while (WiFi.status() != WL_CONNECTED) { delay(500); }
   delay(300);
-  sheetId="1EhpZyQILsXqWKgGFPZdoaBGQzfcb2x20n4-tTqJc-uI";
+  sheetId="xxxxxxxxxxxxxxxxxxxxxxxxxx";
   sheetTag=URLEncode("count");
   delay(1000);
 }

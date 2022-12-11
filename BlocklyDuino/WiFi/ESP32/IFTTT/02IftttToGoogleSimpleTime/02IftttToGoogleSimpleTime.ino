@@ -14,7 +14,7 @@ const char* ssid     = "AMANI-4G-Home2";
 const char* password = "c41585c41585";
 
 // Replace with your unique IFTTT URL resource
-const char* resource = "/trigger/esp32google/with/key/dKOZ0_tn_Bb48Y-iHN6LHV"; 
+const char* resource = "/trigger/esp32google/with/key/xxxxxxxxxxxxxxxxxxxxx"; 
 // How your resource variable should look like, but with your own API KEY (that API KEY below is just an example):
 //const char* resource = "/trigger/myAHT1011_readdata/with/key/nxxxxxxL2d_XXXXXgTlNSrxMJdmqy5";
 

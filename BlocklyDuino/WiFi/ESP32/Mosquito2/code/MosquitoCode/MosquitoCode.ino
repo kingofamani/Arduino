@@ -16,7 +16,7 @@ char timeDate[21];
 const char* ntpServer = "asia.pool.ntp.org";
 const long  gmtOffset_sec = 28800;
 const int   daylightOffset_sec = 60000;
-const char* resource = "/trigger/esp32google/with/key/dKOZ0_tn_Bb48Y-iHN6LHV";
+const char* resource = "/trigger/esp32google/with/key/xxxxxxxxxxxxxx";
 const char* server = "maker.ifttt.com";
 int BUZZER_PIN = 4;
 
@@ -27,7 +27,7 @@ int BUZZER_FRE = 630;
 int BUZZER_TIME = 1000;
 
 char _lwifi_ssid[] = "AMANI-4G-Home2";
-char _lwifi_pass[] = "c41585c41585";
+char _lwifi_pass[] = "xxxxxxxxxxxxxx";
 void tone32(int BUZZER_PIN, int BUZZER_FRE, int BUZZER_TIME) {
   tone(BUZZER_PIN, BUZZER_FRE, BUZZER_TIME,BUZZER_CHANNEL);
   noTone(BUZZER_PIN,BUZZER_CHANNEL);

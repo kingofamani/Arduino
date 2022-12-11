@@ -1,5 +1,5 @@
 #define WIFI_SSID "AMANI-4G-Home"
-#define WIFI_PWD "c41585c41585"
+#define WIFI_PWD "xxxxxxxxx"
 
 //#define WIFI_SSID "HTCAMANI"
 //#define WIFI_PWD "12345678"

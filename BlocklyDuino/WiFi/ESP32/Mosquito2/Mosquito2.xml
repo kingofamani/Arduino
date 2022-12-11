@@ -64,7 +64,7 @@
                                   <block type="customcode_head" id="x?rHRTdhv#,%-cRqr%lJ">
                                     <value name="text">
                                       <block type="text" id="T7AE1jD;vFgNGM-U)XX@">
-                                        <field name="TEXT">const char* resource = "/trigger/esp32google/with/key/dKOZ0_tn_Bb48Y-iHN6LHV"; </field>
+                                        <field name="TEXT">const char* resource = "/trigger/esp32google/with/key/xxxxxxxxxxxxxxxxxxx"; </field>
                                       </block>
                                     </value>
                                     <next>
@@ -153,7 +153,7 @@
             </value>
             <value name="PASSWORD">
               <block type="text" id="ld^.kh-|po6gr%39Lgp)">
-                <field name="TEXT">c41585c41585</field>
+                <field name="TEXT">xxxxxxxxxxxxxxxxx</field>
               </block>
             </value>
             <next>

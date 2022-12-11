@@ -6,7 +6,7 @@
 #include <WiFiUdp.h>
 
 const char *ssid     = "AMANI-4G-Home";
-const char *password = "c41585c41585";
+const char *password = "xxxxxxxxxxx";
 
 WiFiUDP ntpUDP;
 

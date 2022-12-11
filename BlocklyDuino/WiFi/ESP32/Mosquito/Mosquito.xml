@@ -69,7 +69,7 @@
         </value>
         <value name="PASSWORD">
           <block type="text" id="y7Bt/}h8|eonDXQAkIyI">
-            <field name="TEXT">c41585c41585</field>
+            <field name="TEXT">xxxxxxxxxxxxxxxxx</field>
           </block>
         </value>
         <next>
@@ -79,7 +79,7 @@
               <block type="setupSheets" id="VG*|0]BY$Y0MqJJBJc8C">
                 <value name="sheetId">
                   <block type="text" id="wo$cT`X,t+:hau1G3/EP">
-                    <field name="TEXT">1EhpZyQILsXqWKgGFPZdoaBGQzfcb2x20n4-tTqJc-uI</field>
+                    <field name="TEXT">xxxxxxxxxxxxxxxxxxxxxxxxxx</field>
                   </block>
                 </value>
                 <next>
