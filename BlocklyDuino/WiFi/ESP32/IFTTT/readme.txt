@@ -1,3 +1,11 @@
+IFTTT太久沒用會被關閉，要再按「Connected」
+IFTTT連接google sheet太久沒用也會被關閉，要按「Reconnect」
+https://ifttt.com/google_sheets/settings
+
+★webhooks key怎麼找？
+https://ifttt.com/maker_webhooks ，然後點「Documentation」
+裡面可以看到key，同時也可以直接url get測試
+
 教學：
 https://ithelp.ithome.com.tw/articles/10274039
 IFTTT：
