@@ -1,0 +1,32 @@
+UNO傳送訊息，通知ESP32執行：
+	1、google sheet寫入
+	2、LINE訊息
+	
+★IFTTT key：
+	網路硬碟/home/金鑰/ifttt key.txt
+	
+★★★無法連線WiFi：
+先將ESP32S2連接UNO的p6,p7腳位斷開，再按EN鍵，等到成功連線WiFi後再接回去。
+
+Arduino UNO：
+	上傳curtainAI2.ino (使用BlocklyDuino的Arduino IDE)
+ESP32 S2：
+	上傳ESP32IFTTT.ino (使用額外安裝的Arduino 1.8.19)
+
+google sheet連接測試
+https://docs.google.com/spreadsheets/d/1ez5By0CbcH1EoVrsrj6URjUNJmP4zoZC_iqUC2ejRLc/edit#gid=0
+
+LINE訊息：
+開啟手機LINE Notify可看見訊息
+
+time.h參考：
+ArduinoSample\BlocklyDuino\WiFi\SimpleTime
+
+IFTTT觸發事件名稱：
+	esp32google：寫入google sheet
+	curtain_notify：傳LINE
+
+
+
+
+

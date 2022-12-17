@@ -6,6 +6,10 @@ https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32
 
 開發板：ESP32S2 DEV Module
 
+Reset鍵：
+	WIFI連不上可用
+	EN按鈕
+	
 LED_BUILTIN
 	腳位pin 2
 
