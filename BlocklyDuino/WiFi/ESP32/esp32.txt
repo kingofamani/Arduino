@@ -1,5 +1,7 @@
 ESP32
 https://dl.espressif.com/dl/package_esp32_index.json
+新版：
+https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
 
 開發板：DOIT ESP32 DEVKIT V1
 
@@ -32,6 +34,9 @@ https://zhuanlan.zhihu.com/p/79911193
 		TX	GPIO17
 	UART1(Serial1)
 		xxxx不支援
+		
+★★★Arduino UNO只有1個Serial，若要多個則需Mega板
+
 PWM腳位：
 	需三個步驟：
 	http://www.tshopping.com.tw/thread-262348-1-1.html
