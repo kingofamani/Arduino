@@ -1,3 +1,6 @@
+安裝 Arduino Create Agent
+Arduino IDE安裝 ArduinoIoTCloud 程式庫
+
 https://create.arduino.cc/iot/things
 
 Things

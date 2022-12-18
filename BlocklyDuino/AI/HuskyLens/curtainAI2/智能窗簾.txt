@@ -1,7 +1,5 @@
 curtainAI2：無積木版
 
-手機藍牙連接HC42-1
-
 紅外線：
 	<<開：ff02fd
 	>>關：ffc23d
@@ -16,12 +14,6 @@ EQ(ffe01f)	－	(ffa857)	＋  (ff906f)
 4 (ff10ef)	5	(ff38c7)	6   (ff5aa5)
 7 (ff42bd)	8	(ff4ab5)	9   (ff52ad)
 
-
-
-
-
-
-
 AI鏡頭：
 	物件分類：
 		剪刀1：開
@@ -32,7 +24,7 @@ AI鏡頭：
 		貓5  ：上傳Google Sheet
 		狗6  ：上傳Google Sheet
 	
-藍牙：
+藍牙(裝置名稱：ESP32-2292)：
 	1(打開窗簾)				：開
 	2(關閉窗簾)				：關
 	3(暫停、停止、暫停窗簾)	：暫停
@@ -42,8 +34,8 @@ AI鏡頭：
 	c(寵物模式)				：物體識別(貓狗)模式
 	//where(寵物在哪裡)		：回報房間名稱(google語音)
 
-ESP32 WiFi：
-	UNO傳至ESP32格式：
+ESP32S2 WiFi：
+	UNO傳至ESP32S2格式：
 	●寫入google sheet
 		格式：pet,{room name},{pet ID},{x},{y},
 		例如：pet,客廳,5,120,100,
