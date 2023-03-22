@@ -1,4 +1,16 @@
+ArduBlock下載：
+https://drive.google.com/drive/u/1/folders/1_r9XaRVB8mDdRHlasHNFyKXGDfY7dHxe
+1.請將tools資料夾，放入電腦【文件】內的【Arduino】資料夾內
+2.重新啟動Arduino
+3.點開Arduino介面上方的【工具】即可找到ArduBlock
+
+範例：
+ArduinoSample\ArduinoIDE\Arduino_Leonardo
+ArduinoSample\ArduinoIDE\_Project\SoundSensor
+
 Arduino Leonardo
+★★★D4腳位接GND才能使用keyborad
+
 Uno與Leonardo板子的尺寸大小、排母數目與位置，都一樣，
 但功能有所不同，它可模擬成USB鍵盤與滑鼠
 Flash memory 32KB
