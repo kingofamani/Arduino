@@ -90,7 +90,7 @@ void printResult(HUSKYLENSResult result) {
     //Serial.println(String() + F("方框:X中心=") + result.xCenter + F(",Y中心=") + result.yCenter + F(",寬=") + result.width + F(",高=") + result.height + F(",ID=") + result.ID);
     ReplyID = result.ID;
     //Serial.println(ReplyID);
-    if (ReplyID == 4 && whichMode == 'a') {
+    if (ReplyID == 4 && whichMode == 'c') {
       elderlyInfo = String() + F("elderly,客廳,") + result.ID + F(",") + result.xCenter + F(",") + result.yCenter + F(",");
       Serial.println(elderlyInfo);
     }
@@ -101,9 +101,11 @@ void turnStop(float c) {
   Serial.println((String("position：") + String(posTurns)));
   if (c > 0 && posTurns == maxTurns) {
     isStopNow = true;
+    //posStatus();
   }
   if (c < 0 && posTurns == 0) {
     isStopNow = true;
+    //posStatus();
   }
 }
 
@@ -151,7 +153,7 @@ void go(float c) {
     if (isStopNow) {
       isStopNow = false;
       sendToEsp("stop,");
-      delay(100);
+      delay(500);
       String posStr=String() + F("position,") + posTurns + F(",");
       sendToEsp(posStr);
       break;
@@ -169,7 +171,7 @@ void go(float c) {
 
 void posStatus() {
   String pos = String() + F("position,") + posTurns + F(",");
-  //sendToEsp(pos);
+  sendToEsp(pos);
   Serial.println(pos);
 
 }
@@ -213,11 +215,11 @@ void loop()
       go(10);
     } else if (ReplyID == 2) {
       go(-10);
-    } else if (ReplyID == 4 || whichMode == 'b') {
+    } else if (ReplyID == 4 && whichMode == 'b') {
       Serial.println("notifyFindThief");
       notifyFindThief();      
     }
-    else if (ReplyID == 4 || whichMode == 'c') {
+    else if (ReplyID == 4 && whichMode == 'c') {
       Serial.println(elderlyInfo);
       sendToEsp(elderlyInfo);
       delay(10000);
