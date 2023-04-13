@@ -1,0 +1,7 @@
+安裝TM1637程式庫
+
+
+CLK	D2
+DIO	D3
+VCC	5V
+GND	GND
