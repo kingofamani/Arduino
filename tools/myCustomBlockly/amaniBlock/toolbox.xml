@@ -1,0 +1,54 @@
+<category name="阿曼尼" colour="#5b80a5">
+    <block type="amani_tm1637_show">
+      <field name="leading_zero">true</field>
+      <value name="clk">
+        <block type="math_number">
+          <field name="NUM">2</field>
+        </block>
+      </value>
+      <value name="dio">
+        <block type="math_number">
+          <field name="NUM">3</field>
+        </block>
+      </value>
+      <value name="num">
+        <block type="math_number">
+          <field name="NUM">1234</field>
+        </block>
+      </value>
+    </block>
+    <block type="amani_tm1637_colon">
+      <value name="clk">
+        <block type="math_number">
+          <field name="NUM">2</field>
+        </block>
+      </value>
+      <value name="dio">
+        <block type="math_number">
+          <field name="NUM">3</field>
+        </block>
+      </value>
+      <value name="num1">
+        <block type="math_number">
+          <field name="NUM">12</field>
+        </block>
+      </value>
+      <value name="num2">
+        <block type="math_number">
+          <field name="NUM">30</field>
+        </block>
+      </value>
+    </block>
+    <block type="amani_tm1637_clear">
+      <value name="clk">
+        <block type="math_number">
+          <field name="NUM">2</field>
+        </block>
+      </value>
+      <value name="dio">
+        <block type="math_number">
+          <field name="NUM">3</field>
+        </block>
+      </value>
+    </block>
+  </category>
