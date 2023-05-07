@@ -37,4 +37,21 @@ Blockly.JavaScript['amani_tm1637_clear'] = function(block) {
   return code;
 };
 
+Blockly.JavaScript['amani_st7920lcd_string'] = function(block) {
+  var value_row = Blockly.JavaScript.valueToCode(block, 'row', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_col = Blockly.JavaScript.valueToCode(block, 'col', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_str = Blockly.JavaScript.valueToCode(block, 'str', Blockly.JavaScript.ORDER_ATOMIC);
+  // TODO: Assemble JavaScript into code variable.
+  Blockly.Arduino.definitions_['amani_st7920lcd_string'] = '#include "LCD12864RSPI.h"\n#define AR_SIZE( a ) sizeof( a ) / sizeof( a[0] )\n';
+  Blockly.Arduino.setups_['amani_st7920lcd_string'] = 'LCDA.Initialise();\ndelay(100);\n';
+  var code ='LCDA.DisplayString('+ (value_row-1)+ ', ' +(value_col-1)+ ', ' +value_str+', AR_SIZE('+ value_str+'));\n';
 
+  return code;
+};
+
+Blockly.JavaScript['amani_st7920lcd_clear'] = function(block) {
+  // TODO: Assemble JavaScript into code variable.
+  var code ='LCDA.CLEAR();\n';
+  
+  return code;
+};
