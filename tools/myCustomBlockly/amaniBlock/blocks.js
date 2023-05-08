@@ -101,3 +101,19 @@ Blockly.Blocks['amani_st7920lcd_clear'] = {
  this.setHelpUrl("");
   }
 };
+
+Blockly.Blocks['amani_random'] = {
+  init: function() {
+    this.appendValueInput("min")
+        .setCheck("Number")
+        .appendField("隨機 最小整數");
+    this.appendValueInput("max")
+        .setCheck("Number")
+        .appendField("最大整數");
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(15);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};

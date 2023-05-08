@@ -55,3 +55,15 @@ Blockly.JavaScript['amani_st7920lcd_clear'] = function(block) {
   
   return code;
 };
+
+Blockly.JavaScript['amani_random'] = function(block) {
+  var value_min = Blockly.JavaScript.valueToCode(block, 'min', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_max = Blockly.JavaScript.valueToCode(block, 'max', Blockly.JavaScript.ORDER_ATOMIC);
+  value_max++;
+  // TODO: Assemble JavaScript into code variable.
+  Blockly.Arduino.setups_['amani_random'] = 'randomSeed(analogRead(0));\n';
+  var code ='random('+value_min+',' + value_max +')';
+  
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};

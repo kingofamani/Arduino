@@ -70,4 +70,5 @@ toolbox_custom.push(''
 +'      </value>'
 +'    </block>'
 +'    <block type="amani_st7920lcd_clear"></block>'
++'    <block type="amani_random"></block>'
 +'  </category>');

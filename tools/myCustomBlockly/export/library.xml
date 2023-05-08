@@ -512,4 +512,177 @@
         <field name="HUE">230</field>
       </block>
     </value>
+  </block><block type="factory_base" id="YSmLgp5d=uv$!ixrsp)O" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">AMANI_ST7920LCD_STRING</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id=";R*gwhYzQt0qBA)6#!R?">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="_S^Um${L;_Ji}J]G|zgp">
+            <field name="TEXT">4x16 LCD螢幕 顯示文字</field>
+          </block>
+        </statement>
+        <next>
+          <block type="input_value" id="=?!g}|sK^U9bAcP!*;Rg">
+            <field name="INPUTNAME">row</field>
+            <field name="ALIGN">LEFT</field>
+            <statement name="FIELDS">
+              <block type="field_static" id="9uQZdC8d[ag,1(a*m;tO">
+                <field name="TEXT">列數</field>
+              </block>
+            </statement>
+            <value name="TYPE">
+              <shadow type="type_null" id="Uc095UEns.vK=Q,[t-N/"></shadow>
+              <block type="type_number" id="[vegtQoE$6MNi)mk@c9%"></block>
+            </value>
+            <next>
+              <block type="input_value" id=",xj^!yFDVWb@}{lIp^69">
+                <field name="INPUTNAME">col</field>
+                <field name="ALIGN">LEFT</field>
+                <statement name="FIELDS">
+                  <block type="field_static" id="E+O[fyb-4M6Vy.3*k2qc">
+                    <field name="TEXT">格數</field>
+                  </block>
+                </statement>
+                <value name="TYPE">
+                  <shadow type="type_null" id="fIbB0X3{#3fTBrl_~kV6"></shadow>
+                  <block type="type_number" id="8L9KgmL4gp;4WRbKbUos"></block>
+                </value>
+                <next>
+                  <block type="input_value" id="*BJ}raP|j)y[F8-ZfWFu">
+                    <field name="INPUTNAME">str</field>
+                    <field name="ALIGN">LEFT</field>
+                    <statement name="FIELDS">
+                      <block type="field_static" id="e.-),:5QA}YknKdCULBX">
+                        <field name="TEXT">文字陣列</field>
+                      </block>
+                    </statement>
+                    <value name="TYPE">
+                      <shadow type="type_null" id="|Z7cFFiZ+UDn/4c03kGh"></shadow>
+                      <block type="type_list" id="sG8ep|+e)Gpn5%L{=-W+"></block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="niE6.7{WmIHcW%WLj=aI" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="w*Nf5rxwxIboLq=hAZw;" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="s}tH,:GW(jCY/zKyQc82"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="7FE.BM1:IDD8ul-w@kz|"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="-v+:yhT5J`Wtdk{uCh6]">
+        <mutation colour="#a55ba5"></mutation>
+        <field name="HUE">300</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="YSmLgp5d=uv$!ixrsp)O" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">AMANI_ST7920LCD_CLEAR</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id=";R*gwhYzQt0qBA)6#!R?">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="_S^Um${L;_Ji}J]G|zgp">
+            <field name="TEXT">4x16 LCD螢幕 清除畫面</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="niE6.7{WmIHcW%WLj=aI" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="w*Nf5rxwxIboLq=hAZw;" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="s}tH,:GW(jCY/zKyQc82"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="7FE.BM1:IDD8ul-w@kz|"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="-v+:yhT5J`Wtdk{uCh6]">
+        <mutation colour="#a55ba5"></mutation>
+        <field name="HUE">300</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="ngfgr^#P,A.Oo(G9^N58" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">amani_random</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_value" id="06q!x:eQT|@YE_K{i,x:">
+        <field name="INPUTNAME">min</field>
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="t#zFZf]5X:;wuz=Pj~*v">
+            <field name="TEXT">隨機 最小整數</field>
+          </block>
+        </statement>
+        <value name="TYPE">
+          <shadow type="type_null" id="latCiC6mxxNXKjeP4/U`"></shadow>
+          <block type="type_number" id="yK%z}al9uXKT}eTKRVAq"></block>
+        </value>
+        <next>
+          <block type="input_value" id="C*cle/rL@!gxW.s0si:k">
+            <field name="INPUTNAME">max</field>
+            <field name="ALIGN">LEFT</field>
+            <statement name="FIELDS">
+              <block type="field_static" id="m.i/:@e4EKtS`_${LS0/">
+                <field name="TEXT">最大整數</field>
+              </block>
+            </statement>
+            <value name="TYPE">
+              <shadow type="type_null" id="latCiC6mxxNXKjeP4/U`"></shadow>
+              <block type="type_number" id="]2EHZE(%6/9zs|gPW07H"></block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="#n`?WLy9[|nhogcQ0F]C" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="!so^3;SR9ZjVnRPdil0z" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="Et!c_|xt+G_?{sP.Qp+_"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="qjXjR$1|z9NyF9|bwqHj">
+        <mutation colour="#a56d5b"></mutation>
+        <field name="HUE">15</field>
+      </block>
+    </value>
   </block></xml>
