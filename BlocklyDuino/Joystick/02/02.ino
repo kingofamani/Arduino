@@ -1,50 +1,50 @@
-const int swPin = 12;
-const int VrxPin = A5;
-const int VryPin = A0;
+//const int swPin = 12;
+//const int VrxPin = A5;
+//const int VryPin = A0;
 
-int xDirection = 0;
-int yDirection = 0;
-int switchState = 1;
+//int xDirection = 0;
+//int yDirection = 0;
+//int switchState = 1;
 
 void setup() {
-  // put your setup code here, to run once:
   Serial.begin(9600);
-  pinMode(swPin, INPUT_PULLUP);
+  pinMode(12, INPUT_PULLUP);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  xDirection = analogRead(VryPin);
-  yDirection = analogRead(VrxPin);
+  int xVal = analogRead(A0);// vY腳位
+  int yVal = analogRead(A5);// vX腳位
+  int swVal = digitalRead(12);
 
-  switchState = digitalRead(swPin);
+  Serial.println(joystick_direct(xVal,yVal));
+  Serial.println(is_click_sw(swVal));
+  Serial.println(is_this_direct(xVal,yVal,"Up"));
+  
+}
 
-  Serial.print("Switch:  ");
-  Serial.println(switchState);
+bool is_this_direct(int xVal,int yVal,String direct){
+  return direct == joystick_direct(xVal,yVal);
+}
 
-  Serial.print("X-axis:        ");
-  Serial.println(xDirection);
-
-  Serial.print("Y-axis:        ");
-  Serial.println(yDirection);
-
-  Serial.println("");
-
-  if (!switchState) {
-    Serial.println("Switch pressed");
+String joystick_direct(int xVal,int yVal){
+  String xDirect = "";
+  String yDirect = "";
+  
+  if (xVal < 480) {
+    xDirect="Left";
+  } else if (xVal > 520) {
+    xDirect="Right";
+  }
+  
+  if (yVal < 480) {
+    yDirect ="Down";
+  } else if (yVal > 520) {
+    yDirect ="Up";
   }
 
-  if (xDirection < 480) {
-    Serial.println("Left");
-  } else if (xDirection > 520) {
-    Serial.println("Right");
-  }
+  return xDirect+yDirect;
+}
 
-  if (yDirection < 480) {
-    Serial.println("Down");
-  } else if (yDirection > 520) {
-    Serial.println("Up");
-  }
-
-  delay(500);
+bool is_click_sw(int swVal){
+  return !swVal;
 }
