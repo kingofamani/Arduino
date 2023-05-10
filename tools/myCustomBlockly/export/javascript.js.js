@@ -67,3 +67,20 @@ Blockly.JavaScript['amani_random'] = function(block) {
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
+
+Blockly.JavaScript['amani_stepmoter_go'] = function(block) {
+  var value_in1 = Blockly.JavaScript.valueToCode(block, 'in1', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_in2 = Blockly.JavaScript.valueToCode(block, 'in2', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_in3 = Blockly.JavaScript.valueToCode(block, 'in3', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_in4 = Blockly.JavaScript.valueToCode(block, 'in4', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_c = Blockly.JavaScript.valueToCode(block, 'c', Blockly.JavaScript.ORDER_ATOMIC);
+  // TODO: Assemble JavaScript into code variable.
+  Blockly.Arduino.definitions_['amani_stepmoter_go'] = '#include <Stepper.h>\nint steps=2048;\n';
+Blockly.Arduino.definitions_['amani_stepmoter_go' + value_in1 + value_in2 ] = 'Stepper myStepper' +value_in1+ value_in2+ value_in3 +value_in4+'(steps, ' +value_in1+ ', ' +value_in3 +', '+ value_in2 +', ' +value_in4+ '); ';
+Blockly.Arduino.setups_['amani_stepmoter_go' + value_in1 + value_in2] = 'myStepper'+ value_in1+ value_in2+ value_in3+ value_in4 +'.setSpeed(12);\n ';
+Blockly.Arduino.functions_['amani_stepmoter_go'] = 'void go(float c,Stepper stepper) {\n  int num = ((abs(c)) * 8) - 1;\n  for (int i = 0; i <= num; i++) {\n    if (c >= 0) {\n      stepper.step(256);\n    } else {\n      stepper.step(-256);\n    }\n  }\n  delay(1000);\n}\n';
+var code ='go('+value_c+', myStepper'+ value_in1+ value_in2+ value_in3+ value_in4 +'); \n ';
+
+  
+  return code;
+};

@@ -65,6 +65,44 @@
       </value>
     </block>
     <block type="amani_st7920lcd_clear"></block>
-    <block type="amani_random"></block>
+    <block type="amani_stepmoter_go">
+      <value name="in1">
+        <block type="math_number">
+          <field name="NUM">8</field>
+        </block>
+      </value>
+      <value name="in2">
+        <block type="math_number">
+          <field name="NUM">9</field>
+        </block>
+      </value>
+      <value name="in3">
+        <block type="math_number">
+          <field name="NUM">10</field>
+        </block>
+      </value>
+      <value name="in4">
+        <block type="math_number">
+          <field name="NUM">11</field>
+        </block>
+      </value>
+      <value name="c">
+        <block type="math_number">
+          <field name="NUM">1</field>
+        </block>
+      </value>
+    </block>
+    <block type="amani_random">
+      <value name="min">
+        <block type="math_number">
+          <field name="NUM">1</field>
+        </block>
+      </value>
+      <value name="max">
+        <block type="math_number">
+          <field name="NUM">10</field>
+        </block>
+      </value>
+    </block>
   </category>
 </xml>

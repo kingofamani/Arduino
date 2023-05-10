@@ -117,3 +117,31 @@ Blockly.Blocks['amani_random'] = {
  this.setHelpUrl("");
   }
 };
+
+Blockly.Blocks['amani_stepmoter_go'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("步進馬達 開始轉動");
+    this.appendValueInput("in1")
+        .setCheck("Number")
+        .appendField("IN1腳位");
+    this.appendValueInput("in2")
+        .setCheck("Number")
+        .appendField("IN2腳位");
+    this.appendValueInput("in3")
+        .setCheck("Number")
+        .appendField("IN3腳位");
+    this.appendValueInput("in4")
+        .setCheck("Number")
+        .appendField("IN4腳位");
+    this.appendValueInput("c")
+        .setCheck(null)
+        .appendField("圈數");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(60);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
