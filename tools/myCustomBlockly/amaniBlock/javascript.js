@@ -24,7 +24,7 @@ Blockly.Arduino['amani_tm1637_colon'] = function(block) {
   Blockly.Arduino.setups_['amani_tm1637_show' + value_clk + value_dio] = 'tm_display'+ value_clk+ value_dio+'.setBrightness(7); \n '+'tm_display' +value_clk +value_dio+'.clear(); \n ';
   var code =
 'tm_display'+value_clk+ value_dio+'.showNumberDecEx('+value_num1+', 0x40, true, 2, 0); \n'+
-'tm_display'+value_clk +value_dio+'.showNumberDecEx('+value_num2+',  0, false,  2, 2); \n ';
+'tm_display'+value_clk +value_dio+'.showNumberDecEx('+value_num2+',  0, true,  2, 2); \n ';
   
   return code;
 };
