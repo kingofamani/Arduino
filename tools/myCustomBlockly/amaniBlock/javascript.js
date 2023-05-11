@@ -84,3 +84,33 @@ var code ='go('+value_c+', myStepper'+ value_in1+ value_in2+ value_in3+ value_in
   
   return code;
 };
+
+Blockly.Arduino['amani_joystick_init'] = function(block) {
+  var dropdown_xpin = block.getFieldValue('xPin');
+  var dropdown_ypin = block.getFieldValue('yPin');
+  var value_swpin = Blockly.Arduino.valueToCode(block, 'swPin', Blockly.Arduino.ORDER_ATOMIC);
+  // TODO: Assemble Arduino into code variable.
+  Blockly.Arduino.definitions_['amani_joystick_init'] = 'int joystick_xVal = analogRead(' +dropdown_ypin +');// vY腳位\n'+'int joystick_yVal = analogRead(' +dropdown_xpin +');// vX腳位\n '+'int joystick_swVal = digitalRead('+ value_swpin+ '); \n ';
+  
+  Blockly.Arduino.setups_['amani_joystick_init'] = 'pinMode('+value_swpin+', INPUT_PULLUP);\n ';
+  
+  Blockly.Arduino.functions_['amani_joystick_init'] = 'bool is_this_direct(String direct){\n  return direct == joystick_direct();\n}\nString joystick_direct(){\n  joystick_xVal = analogRead('+dropdown_ypin +');\n  joystick_yVal = analogRead(' +dropdown_xpin +');\n  String xDirect = "";\n  String yDirect = "";  \n  if (joystick_xVal < 480) {\n    xDirect="Left";\n  } else if (joystick_xVal > 520) {\n    xDirect="Right";\n  }  \n  if (joystick_yVal < 480) {\n    yDirect ="Down";\n  } else if (joystick_yVal > 520) {\n    yDirect ="Up";\n  }\n  return xDirect+yDirect;\n}\nbool is_click_sw(){\n  joystick_swVal = digitalRead('+ value_swpin+ ');\n  return !joystick_swVal;\n}\n';
+  
+  var code ='';
+  return code;
+};
+
+Blockly.Arduino['amani_joystick_switch'] = function(block) {
+  // TODO: Assemble Arduino into code variable.
+  var code ='is_click_sw()';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.Arduino.ORDER_NONE];
+};
+
+Blockly.Arduino['amani_joystick_direct'] = function(block) {
+  var dropdown_direct = block.getFieldValue('direct');
+  // TODO: Assemble Arduino into code variable.
+  var code ='is_this_direct("'+dropdown_direct+'") ';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.Arduino.ORDER_NONE];
+};

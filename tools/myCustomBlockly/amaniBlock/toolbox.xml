@@ -103,4 +103,17 @@
         </block>
       </value>
     </block>
+    <block type="amani_joystick_init" deletable="false" movable="false" editable="false">
+      <field name="xPin">A5</field>
+      <field name="yPin">A0</field>
+      <value name="swPin">
+        <block type="math_number">
+          <field name="NUM">12</field>
+        </block>
+      </value>
+    </block>
+    <block type="amani_joystick_switch" deletable="false" movable="false" editable="false"></block>
+    <block type="amani_joystick_direct">
+      <field name="direct">Up</field>
+    </block>
   </category>

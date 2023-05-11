@@ -105,8 +105,8 @@
       </value>
     </block>
     <block type="amani_joystick_init" deletable="false" movable="false" editable="false">
-      <field name="xPin">A0</field>
-      <field name="yPin">A5</field>
+      <field name="xPin">A5</field>
+      <field name="yPin">A0</field>
       <value name="swPin">
         <block type="math_number">
           <field name="NUM">12</field>
