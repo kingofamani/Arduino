@@ -145,3 +145,50 @@ Blockly.Blocks['amani_stepmoter_go'] = {
  this.setHelpUrl("");
   }
 };
+
+Blockly.Blocks['amani_joystick_init'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Joystick搖桿 初始化");
+    this.appendDummyInput()
+        .appendField("vX腳位")
+        .appendField(new Blockly.FieldDropdown([["A0","A0"], ["A1","A1"], ["A2","A2"], ["A3","A3"], ["A4","A4"], ["A5","A5"]]), "xPin");
+    this.appendDummyInput()
+        .appendField("vY腳位")
+        .appendField(new Blockly.FieldDropdown([["A0","A0"], ["A1","A1"], ["A2","A2"], ["A3","A3"], ["A4","A4"], ["A5","A5"]]), "yPin");
+    this.appendValueInput("swPin")
+        .setCheck("Number")
+        .appendField("SW腳位");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(90);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['amani_joystick_switch'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Joystick搖桿 已按下按鈕");
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(90);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['amani_joystick_direct'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Joystick搖桿 方向是")
+        .appendField(new Blockly.FieldDropdown([["↑","Up"], ["↓","Down"], ["←","Left"], ["→","Right"], ["↖","LeftUp"], ["↙","LeftDown"], ["↘","RightDown"], ["↗","RightUp"], ["中間",""]]), "direct");
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(90);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
