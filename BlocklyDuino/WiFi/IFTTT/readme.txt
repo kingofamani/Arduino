@@ -1,3 +1,6 @@
+測試：
+https://maker.ifttt.com/trigger/esp32google/with/key/dKOZ0_tn_Bb48Y-iHN6LHV?value1=2023-03-05&value2=elderly,living room,120,100,
+
 IFTTT太久沒用會被關閉，要再按「Connected」
 IFTTT連接google sheet太久沒用也會被關閉，要按「Reconnect」
 https://ifttt.com/google_sheets/settings
