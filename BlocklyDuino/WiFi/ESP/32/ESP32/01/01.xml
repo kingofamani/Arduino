@@ -1,0 +1,53 @@
+<xml version="F2" board="ESP32 Dev Module" xmlns="https://developers.google.com/blockly/xml">
+  <block type="board_initializes_setup" id="2*{!a/E/1NTuD)P8q]MO" x="150" y="110">
+    <field name="BOARD_TYPE">ESP32</field>
+    <statement name="CONTENT">
+      <block type="serial_init" id="p5CU$^NXO+0@V4~;@DZ6">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="linkit_wifi_wait_until_ready" id="9DZl]KorODAZ1ECnU_!]">
+            <value name="SSID">
+              <block type="text" id="$_MBe`Q|P#:Bw7E.Ghd|">
+                <field name="TEXT">AMANI-4G-Home</field>
+              </block>
+            </value>
+            <value name="PASSWORD">
+              <block type="text" id="JuSu./d!N2}ZyL[=U`F4">
+                <field name="TEXT">c41585c41585</field>
+              </block>
+            </value>
+            <next>
+              <block type="serial_println" id="|!;@KB5(YpNa]lo|nv*g">
+                <value name="CONTENT">
+                  <block type="linkit_wifi_ip_address" id="0[[_([uDjnH1y/0N=yA4"></block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="zGl,u:X[R.%c]t*hXJUf">
+        <statement name="CONTENT">
+          <block type="serial_println" id="B={AW%zCpS)N)+GS^8fE">
+            <value name="CONTENT">
+              <block type="text" id=".ONpG2cv;[N%=(c8{VCz">
+                <field name="TEXT">ok</field>
+              </block>
+            </value>
+            <next>
+              <block type="delay_custom" id="$?{(ObV{P0O+jM#O,CZ+">
+                <value name="DELAY_TIME">
+                  <block type="math_number" id="H|*`jt[f=QNtlH)4#+/=">
+                    <field name="NUM">1000</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

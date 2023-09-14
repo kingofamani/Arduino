@@ -1,17 +1,10 @@
-/*
- * Generated using BlocklyDuino:
- *
- * https://github.com/MediaTek-Labs/BlocklyDuino-for-LinkIt
- *
- * Date: Sun, 11 Dec 2022 12:56:00 GMT
- */
-/*  部份程式由吉哥積木產生  */
-/*  https://sites.google.com/jes.mlc.edu.tw/ljj/linkit7697  */
+//Generated Date: Thu, 14 Sep 2023 01:53:14 GMT
+
 #include <WiFi.h>
 #include <WiFiClientSecure.h>
 
-char _lwifi_ssid[] = "AMANI-4G-Home2";
-char _lwifi_pass[] = "xxxxxxxxxxxxxxxx";
+char _lwifi_ssid[] = "AMANI-4G-Home";
+char _lwifi_pass[] = "xxxxxxxxxxxxxxxxxxx";
 const char* asId="AKfycbyR-Yp-uu4nIvnjvnkILaQ5AX8yFxp-UpBO-Sqs0su3ai1N_BvQsz_Q";
 String sheetId="";
 String sheetTag="";
@@ -38,6 +31,7 @@ String URLEncode(const char* msg)
 void  sendToGoogleSheets(const String& dateInclude,const String& data)
 {
   static WiFiClientSecure sheetClient;
+  sheetClient.setInsecure();
   const char* host="script.google.com";
   if (sheetClient.connect(host, 443)) {
       const String url = String() +"https://"+host+"/macros/s/"+asId+"/exec?type=insert&dateInclude="+dateInclude+"&sheetId="+sheetId+"&sheetTag="+sheetTag+"&data="+data;
@@ -61,11 +55,10 @@ void setup()
   WiFi.begin(_lwifi_ssid, _lwifi_pass);
   while (WiFi.status() != WL_CONNECTED) { delay(500); }
   delay(300);
-  sheetId="xxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  sheetId="xxxxxxxxxxxxxxxxxxxxxxxx";
   sheetTag=URLEncode("count");
   delay(1000);
 }
-
 
 void loop()
 {
