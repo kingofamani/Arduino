@@ -1,11 +1,11 @@
-<xml version="F2" board="ESP32 Dev Module" xmlns="https://developers.google.com/blockly/xml">
+<xml xmlns="https://developers.google.com/blockly/xml">
   <block type="board_initializes_setup" id="0" x="100" y="50">
     <field name="BOARD_TYPE">ESP32</field>
     <statement name="CONTENT">
       <block type="setLineToken" id="Ft~r4AB-VA}yI/Vx*ZFJ">
         <value name="TOKEN">
           <block type="text" id="!)#w5GT=w@Px~I+)f2Wh">
-            <field name="TEXT">LwsLOAq+3nAeK/77hMLPJnqv0WBpOO1/Vj+3F1rjrq0IAgNY+BydhBUm7UXYOEzF8ztpm7wwiCGv015sLALe9bWxqyQx7St58KdfGXYdvZte8wXqoeEUACPicOrGJgSuGuhtmw5KH1wBjHycskhWDAdB04t89/1O/w1cDnyilFU=</field>
+            <field name="TEXT">xxxxxxx</field>
           </block>
         </value>
         <next>
@@ -20,7 +20,7 @@
                 </value>
                 <value name="PASSWORD">
                   <block type="text" id="4S}e#d6|pqAnq`u_~.b*">
-                    <field name="TEXT">c41585c41585</field>
+                    <field name="TEXT">xxxxxx</field>
                   </block>
                 </value>
                 <next>

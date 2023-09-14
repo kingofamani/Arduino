@@ -1,4 +1,4 @@
-//Generated Date: Thu, 14 Sep 2023 02:16:55 GMT
+//Generated Date: Thu, 14 Sep 2023 05:28:34 GMT
 
 #include <WiFi.h>
 #include <WiFiClientSecure.h>
@@ -6,7 +6,7 @@
 String lineToken="";
 
 char _lwifi_ssid[] = "AMANI-4G-Home";
-char _lwifi_pass[] = "c41585c41585";
+char _lwifi_pass[] = "xxxxxx";
 void sendLineMsg(String myMsg) {
   static WiFiClientSecure line_client;
   line_client.setInsecure();
@@ -35,7 +35,7 @@ void setup()
 {
   Serial.begin(9600);
 
-  lineToken="LwsLOAq+3nAeK/77hMLPJnqv0WBpOO1/Vj+3F1rjrq0IAgNY+BydhBUm7UXYOEzF8ztpm7wwiCGv015sLALe9bWxqyQx7St58KdfGXYdvZte8wXqoeEUACPicOrGJgSuGuhtmw5KH1wBjHycskhWDAdB04t89/1O/w1cDnyilFU=";
+  lineToken="xxxxxxx";
   WiFi.disconnect();
   WiFi.softAPdisconnect(true);
   WiFi.mode(WIFI_STA);
