@@ -1,4 +1,4 @@
-//Generated Date: Thu, 14 Sep 2023 01:53:14 GMT
+//Generated Date: Thu, 14 Sep 2023 23:28:18 GMT
 
 #include <WiFi.h>
 #include <WiFiClientSecure.h>
@@ -58,11 +58,11 @@ void setup()
   sheetId="xxxxxxxxxxxxxxxxxxxxxxxx";
   sheetTag=URLEncode("count");
   delay(1000);
+  sendToGoogleSheets("1",URLEncode((String() + "abc").c_str()));
+  Serial.println("完成");
 }
 
 void loop()
 {
-  sendToGoogleSheets("1",URLEncode((String() + "abc").c_str()));
-  delay(3000);
-  Serial.println("完成");
+
 }

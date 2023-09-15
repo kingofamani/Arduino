@@ -1,5 +1,5 @@
 申請token：
-https://developers.line.biz/console/channel/2000752850
+https://ithelp.ithome.com.tw/articles/10271219
 
 access token：
 \\10.197.28.35\home\創客\金鑰\line.txt

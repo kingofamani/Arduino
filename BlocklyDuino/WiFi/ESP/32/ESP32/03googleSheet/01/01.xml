@@ -37,6 +37,30 @@
                             <field name="NUM">1000</field>
                           </block>
                         </value>
+                        <next>
+                          <block type="sendToGoogle" id="XgL!`V,ZNsnIp6]Ac,59">
+                            <field name="dateInclude">1</field>
+                            <value name="data">
+                              <block type="data_join" id="gL+i|8k`IRr;vn?JXt@B" inline="false">
+                                <mutation items="1"></mutation>
+                                <value name="ADD0">
+                                  <block type="text" id=".7ihM29rln3i,[fa7Qps">
+                                    <field name="TEXT">abc</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="serial_println" id="a8lG@?rfC,Tco345xBm@">
+                                <value name="CONTENT">
+                                  <block type="text" id="csnw_k4ioN-%u7*Gq2N(">
+                                    <field name="TEXT">完成</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
                       </block>
                     </next>
                   </block>
@@ -48,41 +72,7 @@
       </block>
     </statement>
     <next>
-      <block type="initializes_loop" id="1">
-        <statement name="CONTENT">
-          <block type="sendToGoogle" id="XgL!`V,ZNsnIp6]Ac,59">
-            <field name="dateInclude">1</field>
-            <value name="data">
-              <block type="data_join" id="gL+i|8k`IRr;vn?JXt@B" inline="false">
-                <mutation items="1"></mutation>
-                <value name="ADD0">
-                  <block type="text" id=".7ihM29rln3i,[fa7Qps">
-                    <field name="TEXT">abc</field>
-                  </block>
-                </value>
-              </block>
-            </value>
-            <next>
-              <block type="delay_custom" id="D;*DjpS{`|hItSqEDsiQ">
-                <value name="DELAY_TIME">
-                  <block type="math_number" id="loC_DDl3}TIR*)aK1Lus">
-                    <field name="NUM">3000</field>
-                  </block>
-                </value>
-                <next>
-                  <block type="serial_println" id="a8lG@?rfC,Tco345xBm@">
-                    <value name="CONTENT">
-                      <block type="text" id="csnw_k4ioN-%u7*Gq2N(">
-                        <field name="TEXT">完成</field>
-                      </block>
-                    </value>
-                  </block>
-                </next>
-              </block>
-            </next>
-          </block>
-        </statement>
-      </block>
+      <block type="initializes_loop" id="1"></block>
     </next>
   </block>
 </xml>

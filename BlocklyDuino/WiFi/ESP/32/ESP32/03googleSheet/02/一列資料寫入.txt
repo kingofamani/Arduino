@@ -1,5 +1,5 @@
-
-開發板：DOIT ESP32 DEVKIT V1
+★★不用IFTTT就可以連google sheet
+開發板：ESP32 Dev Module
 
 Wi-Fi積木：
 	第1個積木

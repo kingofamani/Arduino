@@ -5,7 +5,7 @@
       <block type="setLineToken" id="Ft~r4AB-VA}yI/Vx*ZFJ">
         <value name="TOKEN">
           <block type="text" id="!)#w5GT=w@Px~I+)f2Wh">
-            <field name="TEXT">xxxxxxx</field>
+            <field name="TEXT">xxxxxxxxxxxxxxxxxx</field>
           </block>
         </value>
         <next>
@@ -20,7 +20,7 @@
                 </value>
                 <value name="PASSWORD">
                   <block type="text" id="4S}e#d6|pqAnq`u_~.b*">
-                    <field name="TEXT">xxxxxx</field>
+                    <field name="TEXT">xxxxxxxxxxxxxxxxxx</field>
                   </block>
                 </value>
                 <next>
@@ -32,7 +32,7 @@
                       <block type="sendLineMsg" id="Hn%nL3)X1F);y?g3i%So">
                         <value name="CONTENT">
                           <block type="text" id="LEmdaMU|Nt5dPy|ki;V:">
-                            <field name="TEXT">test</field>
+                            <field name="TEXT">test測試</field>
                           </block>
                         </value>
                         <next>
