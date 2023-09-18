@@ -13,6 +13,13 @@ https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32
 
 LED_BUILTIN
 	腳位pin 2
+	
+GPIO 0,6,7,8,9,10,11：系統用，勿使用(淺灰色標示)
+GPIO 18：重開機
+DHT11不可以用GPIO 5、26
+GPIO 12, 2燒錄時不可接任何裝置，請空接
+WiFi啟動後，2,4,12,13,14,15,25,26,27僅能數位讀取，不可類比
+
 輸入腳位(無法輸出)：
 	GPIO 34,35,36,39
 數位腳位：

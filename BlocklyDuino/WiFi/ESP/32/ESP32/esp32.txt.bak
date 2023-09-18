@@ -54,7 +54,7 @@ ESP32 提供 16 個 PWM 通道。除了只允許輸入的腳位以外（GPIO 34-
 	// setting PWM properties
 	const int freq = 5000;
 	const int ledChannel = 0;
-	const int resolution = 8;
+	const int resolution = 8;//8代表0-255，10代表0-1023
 	 
 	void setup(){
 	  // configure LED PWM functionalitites
