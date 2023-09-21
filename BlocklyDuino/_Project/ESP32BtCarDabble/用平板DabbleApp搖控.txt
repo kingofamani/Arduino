@@ -1,0 +1,18 @@
+xxx目前Dabble很難連上esp32，幾乎失敗
+
+若Arduino要用則匯入Dabble-master.zip
+若BlocklyDuino要用則直接用。
+
+積木：
+光光積木/Dabble
+
+開啟dabble app/Gamepad：
+右上角切換Ditital Mode模式：
+	測試上下左右三角叉方圓
+Joystick Mode或Accelerometer Mode模式： 
+	測試搖桿X,Y：
+	上：Y 4.0(程式值設定Y>= 3)
+	下：Y-5.0(程式值設定Y<=-3)
+	左：X-4.0(程式值設定X<=-3)
+	右：X 4.0(程式值設定X>= 3)
+	停：叉鈕
