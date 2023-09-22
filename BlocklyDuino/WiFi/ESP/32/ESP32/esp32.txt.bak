@@ -9,6 +9,7 @@ https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32
 
 腳位參考：
 https://www.circuspi.com/index.php/2023/08/30/esp32-gpio-1/
+https://randomnerdtutorials.com/esp32-pinout-reference-gpios/
 	_ESP32-Pinout.jpg圖片
 	https://randomnerdtutorials.com/esp32-pinout-reference-gpios/
 
@@ -34,9 +35,12 @@ WiFi啟動後，2,4,12,13,14,15,25,26,27僅能數位讀取，不可類比
 	與WiFi相容的類比腳位：GPIO 32、34～39
 	
 I2C：
-	SDA (default is GPIO 21)
-	SCL (default is GPIO 22)
-	but you can configure your code to use any other pins
+	SDA (預設 GPIO 21)
+	SCL (預設 GPIO 22)
+	自訂：
+	#include <Wire.h>
+	Wire.begin(I2C_SDA, I2C_SCL);
+	參考ArduinoMaster\BlocklyDuino\I2C\Esp32changeDefalutI2cPin
 
 UART：
 https://zhuanlan.zhihu.com/p/79911193
