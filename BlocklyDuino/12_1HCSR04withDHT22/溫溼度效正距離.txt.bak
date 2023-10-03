@@ -1,0 +1,4 @@
+https://howtomechatronics.com/tutorials/arduino/ultrasonic-sensor-hc-sr04/#google_vignette
+
+
+音速Velocity = 331.4 + 0.6 x Temperature + 0.0124 x Relative_Humidity
