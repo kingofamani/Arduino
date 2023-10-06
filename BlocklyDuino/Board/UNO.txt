@@ -8,4 +8,6 @@ http://www.taichi-maker.com/homepage/arduino-projects-index/arduino-power-supply
 	5V   ：5V
 	DC2.1：9V~12V
 
+吃外部電源的裝置，要接在 VIN 針腳（如果外部接9V,VIN就等於9v）
+
 
