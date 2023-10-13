@@ -1,9 +1,20 @@
 
+L298N 模組的基本參數
+驅動電壓 ：
+	5V ~ 35V
+	但因為會降壓2V，所以如果要提供arduino或馬達5V，
+	則12V孔至少要接5+2=7V
+
+驅動電流：2A
+最大功率：25W
+
+
 四顆馬達可以只使用一個L298N，
 方法就是將車子左邊2顆馬達的正極與正極、負極與負極扭在一起，
 然後接在L298N的OUT1和OUT2；同理右邊2顆馬達。
 
 供電：
 https://bach.ccu.edu.tw/Site/nu14075/Blog/dir_Br2ysq/article_orvQpQ.html?group_login=-1
-★電池、L298N和Arduino三者的GND一定要接在一起
-5v pin可做為IN和OUT
+12V：電源輸入
+★GND：電池、L298N和Arduino三者的GND一定要接在一起
+5v out：可做為IN和OUT
