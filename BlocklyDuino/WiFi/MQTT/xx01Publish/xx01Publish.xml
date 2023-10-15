@@ -13,7 +13,7 @@
             </value>
             <value name="PASSWORD">
               <block type="text" id="Ex};8c!z*{5jyQz1uT1}">
-                <field name="TEXT">c41585c41585</field>
+                <field name="TEXT">xxxxxxxxxxxxxx</field>
               </block>
             </value>
             <next>
@@ -44,7 +44,7 @@
                         </value>
                         <value name="ID">
                           <block type="text" id=")52[OA=xg6{p$_M#?vsh">
-                            <field name="TEXT">8a05a03895e647a1b352aa8823be3a68.s2.eu.hivemq.cloud</field>
+                            <field name="TEXT">xxxxxxxxxxxxxx.s2.eu.hivemq.cloud</field>
                           </block>
                         </value>
                         <value name="USERNAME">
@@ -54,7 +54,7 @@
                         </value>
                         <value name="PASSWORD">
                           <block type="text" id="uoaZZ:DNz5`@~VpaQO27">
-                            <field name="TEXT">9.Vvi@RMp2gqR5m</field>
+                            <field name="TEXT">xxxxxxxxxxxxxx</field>
                           </block>
                         </value>
                         <next>

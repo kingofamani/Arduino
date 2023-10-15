@@ -1,15 +1,15 @@
-//Generated Date: Sun, 15 Oct 2023 08:45:18 GMT
+//Generated Date: Sun, 15 Oct 2023 09:48:23 GMT
 
 #include <WiFi.h>
 #include <PubSubClient.h>
 #define MQTT_SERVER_IP "broker.hivemq.com"
 #define MQTT_SERVER_PORT 8883
-#define MQTT_ID "8a05a03895e647a1b352aa8823be3a68.s2.eu.hivemq.cloud"
+#define MQTT_ID "xxxxxxxxxxxxxx.s2.eu.hivemq.cloud"
 #define MQTT_USERNAME "kingofamani"
-#define MQTT_PASSWORD "9.Vvi@RMp2gqR5m"
+#define MQTT_PASSWORD "xxxxxxxxxxxxxx"
 
 char _lwifi_ssid[] = "AMANI-4G-Home";
-char _lwifi_pass[] = "c41585c41585";
+char _lwifi_pass[] = "xxxxxxxxxxxxxx";
 String receivedTopic="";
 String receivedMsg="";
 bool waitForE=true;
