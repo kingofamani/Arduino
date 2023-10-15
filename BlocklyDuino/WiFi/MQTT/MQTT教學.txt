@@ -1,0 +1,33 @@
+--------註冊----------
+一、platform/HiveMQ Cloud/sign up free，用google登入
+
+二、在Create credentials to securely connect your clients輸入username,password
+然後按「ADD」
+	username：
+		kingofamani
+	password：
+		網路硬碟/創客/金鑰/hivemqMQTT.txt
+	id：
+		網路硬碟/創客/金鑰/hivemqMQTT.txt
+	連接埠：
+		8883
+
+三、安裝pubsubclient by Nick O'Leary程式庫
+	
+--------測試網頁----------
+https://console.hivemq.cloud/
+點右上角「WEB CLIENT」
+輸入帳密按「CONNECT CLIENT」
+新增2個主題(Topic)：
+	car/map
+	car/goods
+
+--------測試APP----------
+IoT MQTT Panel
+
+
+
+
+
+
+

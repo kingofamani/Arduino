@@ -1,0 +1,162 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="board_initializes_setup" id="0" x="100" y="50">
+    <field name="BOARD_TYPE">Arduino</field>
+    <statement name="CONTENT">
+      <block type="serial_init" id="+o8n.t$|7(-{xT6?UFK?">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="linkit_wifi_wait_until_ready" id="]20PD_XIK^(C8bA[fc(f">
+            <value name="SSID">
+              <block type="text" id="NABL`+N3PUn{kR3^-IL;">
+                <field name="TEXT">xxxx</field>
+              </block>
+            </value>
+            <value name="PASSWORD">
+              <block type="text" id="iaChbS_/u/e`Nj,6Qs.!">
+                <field name="TEXT">xxxxxxx</field>
+              </block>
+            </value>
+            <next>
+              <block type="connect_mqtt" id="V|@g-mM~]MTX:=F^.9Fl">
+                <value name="BROKER">
+                  <block type="text" id="*L/:PNcoY.Z=$;!0KX]q">
+                    <field name="TEXT">broker.hivemq.com</field>
+                  </block>
+                </value>
+                <value name="PORT">
+                  <block type="math_number" id="c/;%[o1uzn$.J6vuCj_+">
+                    <field name="NUM">1883</field>
+                  </block>
+                </value>
+                <value name="ID">
+                  <block type="text" id=":rvVTi;EXLN,^_)e4jz_">
+                    <field name="TEXT"></field>
+                  </block>
+                </value>
+                <value name="USERNAME">
+                  <block type="text" id="+yyI1akHb=w/Dz2)@vh~">
+                    <field name="TEXT"></field>
+                  </block>
+                </value>
+                <value name="PASSWORD">
+                  <block type="text" id="L}ff|~52o?8:$1@:=c[+">
+                    <field name="TEXT"></field>
+                  </block>
+                </value>
+                <next>
+                  <block type="subscribe_mqtt" id="JerhSfSSrSLiX%;mPvX]">
+                    <value name="TOPIC">
+                      <block type="text" id="L~*E5[q8h(cSYCI!f5Ua">
+                        <field name="TEXT">car/go</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="subscribe_mqtt" id="}W1IL6=}1SwF_p+1{XE*">
+                        <value name="TOPIC">
+                          <block type="text" id="D^2hGffA83/E[YwP@G5p">
+                            <field name="TEXT">carlowpower</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1"></block>
+    </next>
+  </block>
+  <block type="mqtt_event" id="3JW!R=,oB86:tr^1ee.U" x="490" y="30">
+    <statement name="MSG_TOPIC_EQAL">
+      <block type="controls_if" id="]bAeAdflsRiM(Hd=%d2*">
+        <value name="IF0">
+          <block type="logic_compare" id="gLoKNEFC7Ylt50S,t04=">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="mqtt_received_topic" id=",BwR-U%-iEJm-`WV$0bj"></block>
+            </value>
+            <value name="B">
+              <block type="text" id="Jh?,:dnT}8wU+6=)m]V)">
+                <field name="TEXT">car/go</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="controls_if" id="}{_Y1VIs}G2-8Suw8DOe">
+            <value name="IF0">
+              <block type="logic_compare" id=",LC3I]u=~lZoHr{}VOC?">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="mqtt_received_msg" id="@T_{t^o#2hIM#lL9]~jN"></block>
+                </value>
+                <value name="B">
+                  <block type="text" id="[UaS+Oy5DRO`g}(5`.u%">
+                    <field name="TEXT">f</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="serial_println" id="a]u2#=dW4dzop-G}so+~">
+                <value name="CONTENT">
+                  <block type="text" id="sFVmxfB}g6_JJN~RmTHA">
+                    <field name="TEXT">前進</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+          </block>
+        </statement>
+        <next>
+          <block type="controls_if" id="05LJxGLWJ?CL*{(:44:D">
+            <value name="IF0">
+              <block type="logic_compare" id="40)e@o4O~LpUr?#ZHn=K">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="mqtt_received_topic" id="#CgB4J@c+bvxTY$#+u8r"></block>
+                </value>
+                <value name="B">
+                  <block type="text" id="RT*X:E[_JvnUal1_fLbc">
+                    <field name="TEXT">carlowpower</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="controls_if" id="w2NZu;7~^R#OWc,:.!/k">
+                <value name="IF0">
+                  <block type="logic_compare" id="*fZbMD56]66gu#PjNAaA">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="mqtt_received_msg" id="~~uXt*FuPHZanw@[%f]Q"></block>
+                    </value>
+                    <value name="B">
+                      <block type="text" id="u,gXg-hs^aZ=G1Y@(0_#">
+                        <field name="TEXT">1</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="serial_println" id="U!H5x;$OZ/])~tDODs)S">
+                    <value name="CONTENT">
+                      <block type="text" id="I$lq0%oVM$1+Wn#D=12A">
+                        <field name="TEXT">該充電了</field>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>
