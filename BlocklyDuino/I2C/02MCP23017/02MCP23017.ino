@@ -23,7 +23,7 @@ void setup() {
 }
 
 void loop() {
-  int currentA;
+  int currentA;+
   currentA = mcp.readPort(MCP23017Port::A);
   currentA += pow(2, 8);          //2^8，在8位進位最前最加第9位，避免第8個感測值0時變成7位數。
   Serial.println(currentA, BIN);  //BIN列印成2進位
