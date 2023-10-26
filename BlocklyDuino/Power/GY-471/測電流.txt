@@ -1,0 +1,33 @@
+https://www.youtube.com/watch?v=aFxPFoBZR1k
+https://www.electroniclinic.com/max471-current-sensor-with-arduino-and-16x2-lcd-max471-arduino/
+02.ino
+MAX471 電流感測器模組 GY-471 3A量程 精密電流檢測 放大器模組
+測電流範圍：0~3A
+電壓5V時範圍：DC3至25V
+電壓3.3V時範圍：DC3至16.5V
+
+傳感器
+依圖片由左至右：
+RS-,RS+
+RS-	連接負載或充電器
+RS+	負載正電源（3至36V）
+
+接口：
+依圖片由左至右：
+	RS-,GND,SIGN,OUT,GND,RS+
+
+	RS-		替代負載/充電器連接。
+	GND		備用GND（連接到負載0V / GND電源）
+	SIGN	電流方向一個開路集電極邏輯輸出
+			（低電平=電流從RS +流向RS-）。
+	OUT		電流傳感器輸出（1V / Amp，最大3V ）
+	GND		連接至負載0V / GND電源
+	RS+		替代負載正電源（3至36V）
+
+
+
+
+
+
+
+
