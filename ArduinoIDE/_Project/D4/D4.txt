@@ -1,0 +1,9 @@
+積木：
+ICSHOP/HuskyLens
+
+使用I2C連接：
+Arduino
+A4、A5腳位
+
+偵測D4血量
+

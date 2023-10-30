@@ -2,6 +2,12 @@
 ICSHOP/HuskyLens
 
 使用I2C連接：
+接法（I2C模式）：
+T	A4	SDA
+R	A5	SCL
+-	GND	GND
++	5V	VCC
+
 Arduino
 A4、A5腳位
 
