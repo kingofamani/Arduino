@@ -1,4 +1,4 @@
-//Generated Date: Mon, 30 Oct 2023 09:00:42 GMT
+//Generated Date: Mon, 30 Oct 2023 23:58:24 GMT
 
 #include "HUSKYLENS.h"
 
@@ -33,23 +33,11 @@ void playBuzzer(int pin, String frequency, String delaytime) {
 void beep(int id) {
   //1:25%、2:50%、3:75%、4:滿血
   if (id == 1) {
-    playBuzzer(3, "988", "1000");
+    playBuzzer(3, "988", "100");
   } else if (id == 2) {
-    playBuzzer(3, "587", "1000");
+    playBuzzer(3, "587", "100");
   } else if (id == 3) {
-    playBuzzer(3, "261", "1000");
-  }
-}
-
-void led(char color, boolean power) {
-  if (color == 'R') {
-    digitalWrite(4, power);
-    digitalWrite(5, false);
-    digitalWrite(6, false);
-  } else if (color == 'G') {
-    digitalWrite(4, false);
-    digitalWrite(5, power);
-    digitalWrite(6, false);
+    playBuzzer(3, "261", "100");
   }
 }
 
@@ -66,9 +54,6 @@ void setup()
   }
 
   huskylens.writeAlgorithm(ALGORITHM_OBJECT_CLASSIFICATION);
-  pinMode(4, OUTPUT);
-  pinMode(5, OUTPUT);
-  pinMode(6, OUTPUT);
 }
 
 void loop()
@@ -109,12 +94,9 @@ void loop()
   }
   if (detection_now) {
     if (readData[4] > 0) {
-      led('R', true);
       beep(readData[4]);
-      led('R', false);
     } else {
     }
   }
-  led('G', true);
-  delay(100);
+  delay(10);
 }

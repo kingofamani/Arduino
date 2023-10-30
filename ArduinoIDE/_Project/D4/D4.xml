@@ -1,8 +1,6 @@
 <xml xmlns="https://developers.google.com/blockly/xml">
   <variables>
     <variable id="D`tc}%AILeB,6LB[se;.">id</variable>
-    <variable id="{5aDg[1XCRfD8=JS7Qh$">color</variable>
-    <variable id="laWA*@2x`x:ubx@=6$,V">power</variable>
   </variables>
   <block type="board_initializes_setup" id="0" x="-130" y="10">
     <field name="BOARD_TYPE">Arduino</field>
@@ -48,89 +46,29 @@
                       </block>
                     </value>
                     <statement name="DO0">
-                      <block type="procedures_callnoreturn" id="jDAQ2N%^AZa02#5CmKZ_">
-                        <mutation xmlns="http://www.w3.org/1999/xhtml" name="led"></mutation>
+                      <block type="procedures_callnoreturn" id="gT`),~9v#[xZ~PpeD)k8">
+                        <mutation xmlns="http://www.w3.org/1999/xhtml" name="beep"></mutation>
                         <value name="VAR">
-                          <block type="lists_create_with" id="SS:PcEIejb7_Ig6IV@^8">
-                            <mutation items="2"></mutation>
+                          <block type="lists_create_with" id="c?jdly4jTUTk%P;j1~PB">
+                            <mutation items="1"></mutation>
                             <value name="ADD0">
-                              <block type="text_quotationmark" id="|V?;h(Bq`5sPgGUr/wb1">
-                                <field name="TEXT">R</field>
-                              </block>
-                            </value>
-                            <value name="ADD1">
-                              <block type="logic_boolean" id="R?Z(S}+5I)54px^D;C|1">
-                                <field name="BOOL">TRUE</field>
+                              <block type="huskylens_get_data_block" id="9TBT/_gCdJ=~,b$*Yv+%">
+                                <field name="BLOCK_DATA">ID</field>
                               </block>
                             </value>
                           </block>
                         </value>
-                        <next>
-                          <block type="procedures_callnoreturn" id="gT`),~9v#[xZ~PpeD)k8">
-                            <mutation xmlns="http://www.w3.org/1999/xhtml" name="beep"></mutation>
-                            <value name="VAR">
-                              <block type="lists_create_with" id="c?jdly4jTUTk%P;j1~PB">
-                                <mutation items="1"></mutation>
-                                <value name="ADD0">
-                                  <block type="huskylens_get_data_block" id="9TBT/_gCdJ=~,b$*Yv+%">
-                                    <field name="BLOCK_DATA">ID</field>
-                                  </block>
-                                </value>
-                              </block>
-                            </value>
-                            <next>
-                              <block type="procedures_callnoreturn" id="Tg|=b!zDE14V5_1cg7qY">
-                                <mutation xmlns="http://www.w3.org/1999/xhtml" name="led"></mutation>
-                                <value name="VAR">
-                                  <block type="lists_create_with" id="IPo|Rn|b2Xnw($8I:yhb">
-                                    <mutation items="2"></mutation>
-                                    <value name="ADD0">
-                                      <block type="text_quotationmark" id="FWH1d8$0}Kx/+prwo:D/">
-                                        <field name="TEXT">R</field>
-                                      </block>
-                                    </value>
-                                    <value name="ADD1">
-                                      <block type="logic_boolean" id="^Y)={~a0ylK8mlg#tc3l">
-                                        <field name="BOOL">FALSE</field>
-                                      </block>
-                                    </value>
-                                  </block>
-                                </value>
-                              </block>
-                            </next>
-                          </block>
-                        </next>
                       </block>
                     </statement>
                   </block>
                 </statement>
                 <next>
-                  <block type="procedures_callnoreturn" id="hM}[m6Bw7$5z-#:N/IB}">
-                    <mutation xmlns="http://www.w3.org/1999/xhtml" name="led"></mutation>
-                    <value name="VAR">
-                      <block type="lists_create_with" id="La%*6HaEZA_7iU[u(IS%">
-                        <mutation items="2"></mutation>
-                        <value name="ADD0">
-                          <block type="text_quotationmark" id="M+@mzEoS[FgFaO[lDL~g">
-                            <field name="TEXT">G</field>
-                          </block>
-                        </value>
-                        <value name="ADD1">
-                          <block type="logic_boolean" id="%=8Brg`K$yvm}Xm:ov8a">
-                            <field name="BOOL">TRUE</field>
-                          </block>
-                        </value>
+                  <block type="delay_custom" id="]*lNs*+ZOo.^U{m)7-/o">
+                    <value name="DELAY_TIME">
+                      <block type="math_number" id="MW{jw4eL,}w`qJTq7TBQ">
+                        <field name="NUM">10</field>
                       </block>
                     </value>
-                    <next>
-                      <block type="delay_custom" id="]*lNs*+ZOo.^U{m)7-/o">
-                        <value name="DELAY_TIME">
-                          <block type="math_number" id="MW{jw4eL,}w`qJTq7TBQ">
-                            <field name="NUM">100</field>
-                          </block>
-                        </value>
-                      </block>
-                    </next>
                   </block>
                 </next>
               </block>
@@ -196,7 +134,7 @@
                 </value>
                 <value name="delaytime">
                   <block type="math_number" id="Tg0Ww~*%IWL/znT4iU3H">
-                    <field name="NUM">1000</field>
+                    <field name="NUM">100</field>
                   </block>
                 </value>
               </block>
@@ -231,7 +169,7 @@
                 </value>
                 <value name="delaytime">
                   <block type="math_number" id="`o,_h:l[Nwon;JZ]iUF-">
-                    <field name="NUM">1000</field>
+                    <field name="NUM">100</field>
                   </block>
                 </value>
               </block>
@@ -266,155 +204,13 @@
                 </value>
                 <value name="delaytime">
                   <block type="math_number" id="Mx^9)?556g3Ia`,(s%9O">
-                    <field name="NUM">1000</field>
+                    <field name="NUM">100</field>
                   </block>
                 </value>
               </block>
             </statement>
           </block>
         </next>
-      </block>
-    </statement>
-  </block>
-  <block type="procedures_defnoreturn" id="*ze4}809$;Z.?XO5A_ly" x="510" y="490">
-    <field name="NAME">led</field>
-    <value name="VAR">
-      <shadow type="lists_create_with" id="CA5US++qO9U!{W{gd1w*" inline="true">
-        <mutation items="0"></mutation>
-      </shadow>
-      <block type="lists_create_with" id="CA5US++qO9U!{W{gd1w*" inline="true">
-        <mutation items="2"></mutation>
-        <value name="ADD0">
-          <block type="variables_set2" id="!Jv3fF3q/XiW!PKJqIx8">
-            <field name="TYPE">char</field>
-            <field name="VAR" id="{5aDg[1XCRfD8=JS7Qh$">color</field>
-          </block>
-        </value>
-        <value name="ADD1">
-          <block type="variables_set2" id="M{2aLt}qe62@9DbUY/c)">
-            <field name="TYPE">boolean</field>
-            <field name="VAR" id="laWA*@2x`x:ubx@=6$,V">power</field>
-          </block>
-        </value>
-      </block>
-    </value>
-    <statement name="STACK">
-      <block type="controls_if" id="a=*FH.U~==PHK,Jy/$:)">
-        <mutation elseif="1"></mutation>
-        <value name="IF0">
-          <block type="logic_compare" id="wE^Y^I]cCu_hgNt=f*Va">
-            <field name="OP">EQ</field>
-            <value name="A">
-              <block type="variables_get" id="``+w8U)7Vw7Gq-:~YlzC">
-                <field name="VAR" id="{5aDg[1XCRfD8=JS7Qh$">color</field>
-              </block>
-            </value>
-            <value name="B">
-              <block type="text_quotationmark" id=":MBnJShCiv4_#[?)UZ$}">
-                <field name="TEXT">R</field>
-              </block>
-            </value>
-          </block>
-        </value>
-        <statement name="DO0">
-          <block type="inout_custom_digital_write" id="v/q)+q.Iw~z4}+?QFgFJ">
-            <value name="PIN">
-              <block type="math_number" id="_r!Uzw`zwSJ:d69,kk13">
-                <field name="NUM">4</field>
-              </block>
-            </value>
-            <value name="STAT">
-              <block type="variables_get" id="@ma,}%)EmGO9vYKxTTn1">
-                <field name="VAR" id="laWA*@2x`x:ubx@=6$,V">power</field>
-              </block>
-            </value>
-            <next>
-              <block type="inout_custom_digital_write" id="tbhn@Zx^3jJF[?z[Dd?[">
-                <value name="PIN">
-                  <block type="math_number" id="-[a)`]I^$WZ^guxyTtmc">
-                    <field name="NUM">5</field>
-                  </block>
-                </value>
-                <value name="STAT">
-                  <block type="logic_boolean" id="u5g}$_d^wMCE;#wlVi.r">
-                    <field name="BOOL">FALSE</field>
-                  </block>
-                </value>
-                <next>
-                  <block type="inout_custom_digital_write" id="]nT)=,RAPaPb;mQxN!n9">
-                    <value name="PIN">
-                      <block type="math_number" id=")+$f:=/denR}h*5Zc9`7">
-                        <field name="NUM">6</field>
-                      </block>
-                    </value>
-                    <value name="STAT">
-                      <block type="logic_boolean" id="N/tfq^|WcHXTB+zV7.tb">
-                        <field name="BOOL">FALSE</field>
-                      </block>
-                    </value>
-                  </block>
-                </next>
-              </block>
-            </next>
-          </block>
-        </statement>
-        <value name="IF1">
-          <block type="logic_compare" id="f!+T9uSr9Lj^Q}%HS[yV">
-            <field name="OP">EQ</field>
-            <value name="A">
-              <block type="variables_get" id="47kzs/FpvXu4;d1`},o4">
-                <field name="VAR" id="{5aDg[1XCRfD8=JS7Qh$">color</field>
-              </block>
-            </value>
-            <value name="B">
-              <block type="text_quotationmark" id="[-qsHz!%rkNu0${3k(DQ">
-                <field name="TEXT">G</field>
-              </block>
-            </value>
-          </block>
-        </value>
-        <statement name="DO1">
-          <block type="inout_custom_digital_write" id="#Lbj]i%9xZ_87?xAC_.*">
-            <value name="PIN">
-              <block type="math_number" id="q54@TzQJjJD@mBDzy18{">
-                <field name="NUM">4</field>
-              </block>
-            </value>
-            <value name="STAT">
-              <block type="logic_boolean" id="8+DqnHhQ9T|4qN!++Lee">
-                <field name="BOOL">FALSE</field>
-              </block>
-            </value>
-            <next>
-              <block type="inout_custom_digital_write" id="-gPC#`v|GrXXbF{@}uF.">
-                <value name="PIN">
-                  <block type="math_number" id="N@5xVYhn$NUhL?/YmAQh">
-                    <field name="NUM">5</field>
-                  </block>
-                </value>
-                <value name="STAT">
-                  <block type="variables_get" id="%1l*T#TQ}~?dC/(6zcBK">
-                    <field name="VAR" id="laWA*@2x`x:ubx@=6$,V">power</field>
-                  </block>
-                </value>
-                <next>
-                  <block type="inout_custom_digital_write" id="@)!;ST}lz!FQd6z}I$WU">
-                    <value name="PIN">
-                      <block type="math_number" id="sE:BkE5t)C$|fU,IYKCX">
-                        <field name="NUM">6</field>
-                      </block>
-                    </value>
-                    <value name="STAT">
-                      <block type="logic_boolean" id="vMUdNH0,S}@u4^,2eg}6">
-                        <field name="BOOL">FALSE</field>
-                      </block>
-                    </value>
-                  </block>
-                </next>
-              </block>
-            </next>
-          </block>
-        </statement>
       </block>
     </statement>
   </block>
