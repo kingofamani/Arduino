@@ -3,7 +3,7 @@
 #define L298N_IN2 27
 #define L298N_IN3 26
 #define L298N_IN4 25
-#define L298N_IN5 15
+#define L298N_IN5 23
 #define L298N_IN6 4
 #define L298N_IN7 16
 #define L298N_IN8 17
@@ -20,10 +20,10 @@ const int EN3_CHL = 2;
 const int EN4_CHL = 3;
 
 //轉速(80~255)
-const int FSpeed = 150;
-const int BSpeed = 150;
-const int RSpeed = 150;
-const int LSpeed = 150;
+const int FSpeed = 120;
+const int BSpeed = 120;
+const int RSpeed = 120;
+const int LSpeed = 120;
 
 //轉動時間(毫秒)
 const int FTimer = 1000;
@@ -154,13 +154,13 @@ void setup() {
   digitalWrite(L298N_EN4, LOW);
 
   //PWM設定
-  ledcSetup(ENA_CHL, 1000, 8);//channel,frequence,resolution(8表示0~255)
+  ledcSetup(EN1_CHL, 1000, 8);//channel,frequence,resolution(8表示0~255)
   ledcAttachPin(L298N_EN1, EN1_CHL);
-  ledcSetup(ENB_CHL, 1000, 8);
+  ledcSetup(EN2_CHL, 1000, 8);
   ledcAttachPin(L298N_EN2, EN2_CHL);
-  ledcSetup(ENB_CHL, 1000, 8);
+  ledcSetup(EN3_CHL, 1000, 8);
   ledcAttachPin(L298N_EN3, EN3_CHL);
-  ledcSetup(ENB_CHL, 1000, 8);
+  ledcSetup(EN4_CHL, 1000, 8);
   ledcAttachPin(L298N_EN4, EN4_CHL);
 
   stopCar();
