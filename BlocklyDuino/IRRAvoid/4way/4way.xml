@@ -1,0 +1,84 @@
+<xml version="F2" board="Arduino Uno" xmlns="https://developers.google.com/blockly/xml">
+  <block type="board_initializes_setup" id="0" x="100" y="50">
+    <field name="BOARD_TYPE">Arduino</field>
+    <statement name="CONTENT">
+      <block type="serial_init" id="nlJ5Tqg#bx]72WnwXsM|">
+        <field name="SPEED">9600</field>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="serial_println" id="IUF6820MQ2xcJ[,y:-o;">
+            <value name="CONTENT">
+              <block type="inout_custom_digital_read" id="dlr`44e_JGW8K1||=xCC">
+                <value name="PIN_READ">
+                  <block type="math_number" id=")yXqAB]niSvTu5vUX1S7">
+                    <field name="NUM">4</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="serial_println" id="f!t1Qao%2*I5;$N,o6Ap">
+                <value name="CONTENT">
+                  <block type="inout_custom_digital_read" id="s9S=4wIU0sTbczMdo?Ig">
+                    <value name="PIN_READ">
+                      <block type="math_number" id="b?srj2TVxo#4XnxiRM,K">
+                        <field name="NUM">5</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="serial_println" id="XY.4W|A@h+khiHU^VF7.">
+                    <value name="CONTENT">
+                      <block type="inout_custom_digital_read" id="|0Hs/u,bpT~%$Q3y3T.1">
+                        <value name="PIN_READ">
+                          <block type="math_number" id="(eF+O_NY^;El4!YLboC-">
+                            <field name="NUM">6</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_println" id="FkZAu5:FgVSQ-K/a8*td">
+                        <value name="CONTENT">
+                          <block type="inout_custom_digital_read" id="oG=8ez|0vfi+L{{^3HdC">
+                            <value name="PIN_READ">
+                              <block type="math_number" id="0|M*{%9E+Np#AyhWT2-[">
+                                <field name="NUM">7</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="serial_println" id="Bs[G`7!hT+}s$Bz!zD9L">
+                            <value name="CONTENT">
+                              <block type="text" id="V{.,#B$-=)t,l:*?p7)W">
+                                <field name="TEXT">-------</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="delay_custom" id="Gi?ek03$}KVDn}2ed;w`">
+                                <value name="DELAY_TIME">
+                                  <block type="math_number" id="$0/#nU0#8P9BU?4s7_n:">
+                                    <field name="NUM">100</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>
