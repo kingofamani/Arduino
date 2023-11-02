@@ -1,13 +1,3 @@
-程式碼注意事項：
-https://reurl.cc/1GpQZD
-loop()：
-	不要使用delay(1000)
-	改用millis()代替
-setup()：
-	不要使用while(!Serial){}
-	改用delay(1500)代替
-
-
 安裝 Arduino Create Agent
 Arduino IDE安裝 ArduinoIoTCloud 程式庫
 
@@ -45,4 +35,3 @@ cloud首頁
 	https://cloud.arduino.cc/home/
 	google play按裝APP在手機
 	以手機切換swtich ON與OFF
-	
