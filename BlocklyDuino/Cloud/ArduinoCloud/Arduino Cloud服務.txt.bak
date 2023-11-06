@@ -1,3 +1,13 @@
+程式碼注意事項：
+https://reurl.cc/1GpQZD
+loop()：
+	不要使用delay(1000)
+	改用millis()代替
+setup()：
+	不要使用while(!Serial){}
+	改用delay(1500)代替
+
+
 安裝 Arduino Create Agent
 Arduino IDE安裝 ArduinoIoTCloud 程式庫
 
@@ -7,7 +17,7 @@ Things
 	按「Create」，名稱「ESP32S2Test」
 	Cloud Variables：新增bool myLed變數
 	Associated Device：
-		按「Set up a 3rd Party device」選ESP32S2後，記下：
+		按「Set up a 3rd Party device」選ESP32S2(ESP32請選ESP32 Dev Module)後，記下：
 		Device ID
 		a0c94a14-399e-40b4-944a-4b15685b4ddf
 		Secret Key
@@ -35,3 +45,4 @@ cloud首頁
 	https://cloud.arduino.cc/home/
 	google play按裝APP在手機
 	以手機切換swtich ON與OFF
+	

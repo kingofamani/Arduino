@@ -17,10 +17,10 @@ Things
 	按「Create」，名稱「ESP32S2Test」
 	Cloud Variables：新增bool myLed變數
 	Associated Device：
-		按「Set up a 3rd Party device」選ESP32S2後，記下：
+		按「Set up a 3rd Party device」選ESP32S2(ESP32請選ESP32 Dev Module)後，記下：
 		Device ID
 		a0c94a14-399e-40b4-944a-4b15685b4ddf
-		Secret Key
+		★★★Secret Key
 		PGZNCPSXTHLRBQUEBERC
 Dashboards
 	新增Dashboards，名稱「My First Dashboard」
