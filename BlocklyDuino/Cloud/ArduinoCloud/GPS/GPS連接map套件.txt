@@ -5,10 +5,8 @@ Cloud Variables：
 	基本變數型別沒有，要搜尋才有。
 
 CarMari
-Device ID
-cd0770aa-7972-49fe-8b5d-dc771b140756
 Secret Key
-GZCREKZIHBT14MWDUFAJ
+\\10.197.28.35\home\創客\金鑰\Arduino Cloud key.txt
 
 Arduino Cloud Editor
 ino專案名稱：CarMapEsp32_nov06a
