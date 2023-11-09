@@ -1,0 +1,14 @@
+ESP32無法使用SoftwareSerial，要安裝 EspSoftwareSerial by Dirk kaar
+
+★ESP32要用Serial2
+
+傳送端		接收端
+ESP32Send	ESP32Get
+RX(pin2) ↔	TX(GPIO17)
+TX(pin3) ↔	RX(GPIO18)
+
+
+Arduino UNO：
+	上傳01UartConnectArduinoUNO
+ESP32 S2：
+	上傳01UartConnectESP32S2
