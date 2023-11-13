@@ -15,134 +15,41 @@
 */
 
 #include "thingProperties.h"
-#include <PubSubClient.h>
-#include <WiFiClientSecure.h>
 
-//---- HiveMQ MQTT start-------
-bool mqttFlag = false;
-//HiveMQ Cluster URL
-const char* mqtt_server = "8a05a03895e647a1b352aa8823be3a68.s2.eu.hivemq.cloud";
-const char* mqtt_username = "kingofamani";
-const char* mqtt_password = "9.Vvi@RMp2gqR5m";
-const int mqtt_port = 8883;
+//UART
+#define U1RXD 16
+#define U1TXD 17
 
-const char* TOPIC_CAR_MAP = "imiRobot/car/map";
+double  Lats[4][6]={
+  {22.6364582999265,	22.6364582999265,	22.6364582999265,	22.6364582999265,	22.6364582999265,	22.6364582999265},
+  {22.6349390408069,	22.6349390408069,	22.6349390408069,	22.6349390408069,	22.6349390408069,	22.6349390408069},
+  {22.6334197816872,	22.6334197816872,	22.6334197816872,	22.6334197816872,	22.6334197816872,	22.6334197816872},
+  {22.6319005225676,	22.6319005225676,	22.6319005225676,	22.6319005225676,	22.6319005225676,	22.6319005225676}
+};
 
-//接收到的X,Y座標(格式0103)
+double  Longs[4][6]={
+  {120.30257035839 , 120.304121598992, 120.305672839593 , 120.307224080195 , 120.308775320796 , 120.310326561398},
+  {120.30257035839 , 120.304121598992, 120.305672839593 , 120.307224080195 , 120.308775320796 , 120.310326561398},
+  {120.30257035839 , 120.304121598992, 120.305672839593 , 120.307224080195 , 120.308775320796 , 120.310326561398},
+  {120.30257035839 , 120.304121598992, 120.305672839593 , 120.307224080195 , 120.308775320796 , 120.310326561398}
+};
+
 int carX = 0;
 int carY = 0;
 
-WiFiClientSecure espClient;
-PubSubClient client(espClient);
-
-// HiveMQ Cloud Let's Encrypt CA certificate
-static const char* root_ca PROGMEM = R"EOF(
------BEGIN CERTIFICATE-----
-MIIFazCCA1OgAwIBAgIRAIIQz7DSQONZRGPgu2OCiwAwDQYJKoZIhvcNAQELBQAw
-TzELMAkGA1UEBhMCVVMxKTAnBgNVBAoTIEludGVybmV0IFNlY3VyaXR5IFJlc2Vh
-cmNoIEdyb3VwMRUwEwYDVQQDEwxJU1JHIFJvb3QgWDEwHhcNMTUwNjA0MTEwNDM4
-WhcNMzUwNjA0MTEwNDM4WjBPMQswCQYDVQQGEwJVUzEpMCcGA1UEChMgSW50ZXJu
-ZXQgU2VjdXJpdHkgUmVzZWFyY2ggR3JvdXAxFTATBgNVBAMTDElTUkcgUm9vdCBY
-MTCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAK3oJHP0FDfzm54rVygc
-h77ct984kIxuPOZXoHj3dcKi/vVqbvYATyjb3miGbESTtrFj/RQSa78f0uoxmyF+
-0TM8ukj13Xnfs7j/EvEhmkvBioZxaUpmZmyPfjxwv60pIgbz5MDmgK7iS4+3mX6U
-A5/TR5d8mUgjU+g4rk8Kb4Mu0UlXjIB0ttov0DiNewNwIRt18jA8+o+u3dpjq+sW
-T8KOEUt+zwvo/7V3LvSye0rgTBIlDHCNAymg4VMk7BPZ7hm/ELNKjD+Jo2FR3qyH
-B5T0Y3HsLuJvW5iB4YlcNHlsdu87kGJ55tukmi8mxdAQ4Q7e2RCOFvu396j3x+UC
-B5iPNgiV5+I3lg02dZ77DnKxHZu8A/lJBdiB3QW0KtZB6awBdpUKD9jf1b0SHzUv
-KBds0pjBqAlkd25HN7rOrFleaJ1/ctaJxQZBKT5ZPt0m9STJEadao0xAH0ahmbWn
-OlFuhjuefXKnEgV4We0+UXgVCwOPjdAvBbI+e0ocS3MFEvzG6uBQE3xDk3SzynTn
-jh8BCNAw1FtxNrQHusEwMFxIt4I7mKZ9YIqioymCzLq9gwQbooMDQaHWBfEbwrbw
-qHyGO0aoSCqI3Haadr8faqU9GY/rOPNk3sgrDQoo//fb4hVC1CLQJ13hef4Y53CI
-rU7m2Ys6xt0nUW7/vGT1M0NPAgMBAAGjQjBAMA4GA1UdDwEB/wQEAwIBBjAPBgNV
-HRMBAf8EBTADAQH/MB0GA1UdDgQWBBR5tFnme7bl5AFzgAiIyBpY9umbbjANBgkq
-hkiG9w0BAQsFAAOCAgEAVR9YqbyyqFDQDLHYGmkgJykIrGF1XIpu+ILlaS/V9lZL
-ubhzEFnTIZd+50xx+7LSYK05qAvqFyFWhfFQDlnrzuBZ6brJFe+GnY+EgPbk6ZGQ
-3BebYhtF8GaV0nxvwuo77x/Py9auJ/GpsMiu/X1+mvoiBOv/2X/qkSsisRcOj/KK
-NFtY2PwByVS5uCbMiogziUwthDyC3+6WVwW6LLv3xLfHTjuCvjHIInNzktHCgKQ5
-ORAzI4JMPJ+GslWYHb4phowim57iaztXOoJwTdwJx4nLCgdNbOhdjsnvzqvHu7Ur
-TkXWStAmzOVyyghqpZXjFaH3pO3JLF+l+/+sKAIuvtd7u+Nxe5AW0wdeRlN8NwdC
-jNPElpzVmbUq4JUagEiuTDkHzsxHpFKVK7q4+63SM1N95R1NbdWhscdCb+ZAJzVc
-oyi3B43njTOQ5yOf+1CceWxG1bQVs5ZufpsMljq4Ui0/1lvh+wjChP4kqKOJ2qxq
-4RgqsahDYVvTH9w7jXbyLeiNdd8XM2w9U/t7y0Ff/9yi0GE44Za4rF2LN9d11TPA
-mRGunUHBcnWEvgJBQl9nJEiU0Zsnvgc/ubhPgXRR4Xq37Z0j4r7g1SgEEzwxA57d
-emyPxgcYxn/eR44/KJ4EBs+lVDR3veyJm+kXQ99b21/+jh5Xos1AnX5iItreGCc=
------END CERTIFICATE-----
-)EOF";
-
-//---- HiveMQ MQTT end-------
-
-//GPS座標
-double Lats[24] = {
-  25.0754420614568, 25.0754420614568, 25.0754420614568, 25.0754420614568, 25.0754420614568, 25.0754420614568,
-  25.0748303763013, 25.0748303763013, 25.0748303763013, 25.0748303763013, 25.0748303763013, 25.0748303763013,
-  25.0742186911458, 25.0742186911458, 25.0742186911458, 25.0742186911458, 25.0742186911458, 25.0742186911458,
-  25.0736070059903, 25.0736070059903, 25.0736070059903, 25.0736070059903, 25.0736070059903, 25.0736070059903
-};
-
-double Longs[24] = {
-  121.545006388793, 121.545737549839, 121.546468710885, 121.547199871932, 121.547931032978, 121.548662194024,
-  121.545006388793, 121.545737549839, 121.546468710885, 121.547199871932, 121.547931032978, 121.548662194024,
-  121.545006388793, 121.545737549839, 121.546468710885, 121.547199871932, 121.547931032978, 121.548662194024,
-  121.545006388793, 121.545737549839, 121.546468710885, 121.547199871932, 121.547931032978, 121.548662194024
-};
-
-
-//MQTT訂閱的主題回覆
-void callback(char* topic, byte* payload, unsigned int length) {
-  // mqttGetMsg = "";
-  // Serial.print("接收訊息 [");
-  // Serial.print(topic);
-  // Serial.print("] ");
-  // for (int i = 0; i < length; i++) {
-  //   mqttGetMsg += (char)payload[i];
-  // }
-  // mqttGetMsg.trim();
-  //Serial.println(mqttGetMsg);
-
-  //X,Y座標
-  carX = String((char)payload[1]).toInt();
-  carY = String((char)payload[3]).toInt();
-  Serial.println(carX);
-  Serial.println(carY);
-  starSimtGPS(carX, carY);
-}
-
-void starSimtGPS(int x, int y) {
-  coordinates = { Lats[x], Longs[y] };
-
-  Serial.println(Lats[x]);
-  Serial.println(Longs[y]);
-}
-
-//MQTT重新連線
-void reconnect() {
-  while (!client.connected()) {
-    Serial.print("Attempting MQTT connection… ");
-    String clientId = "ESP32Client";
-    if (client.connect(clientId.c_str(), mqtt_username, mqtt_password)) {
-      Serial.println("connected!");
-    } else {
-      Serial.print("failed, rc = ");
-      Serial.print(client.state());
-      Serial.println(" try again in 5 seconds");
-      delay(5000);
-    }
-  }
-}
-
 void setup() {
   // Initialize serial and wait for port to open:
-  Serial.begin(9600);
+  Serial.begin(115200);
+  Serial2.begin(9600, SERIAL_8N1, U1RXD, U1TXD);
   // This delay gives the chance to wait for a Serial Monitor without blocking if none is found
-  delay(1500);
+  delay(1500); 
 
   // Defined in thingProperties.h
   initProperties();
 
   // Connect to Arduino IoT Cloud
   ArduinoCloud.begin(ArduinoIoTPreferredConnection);
-
+  
   /*
      The following function allows you to obtain more information
      related to the state of network and IoT Cloud connection and errors
@@ -152,33 +59,30 @@ void setup() {
  */
   setDebugMessageLevel(2);
   ArduinoCloud.printDebugInfo();
-
-  //初始MQTT
-  espClient.setCACert(root_ca);
-  client.setServer(mqtt_server, mqtt_port);
-  client.setCallback(callback);
 }
 
 void loop() {
   ArduinoCloud.update();
-
-  //MQTT loop
-  if (mqttFlag) {
-    client.loop();
-  }
-
-  if (!client.connected()) {
-    reconnect();
-  } else {
-    if (!mqttFlag) {
-      Serial.println("go");
-      //訂閱
-      client.subscribe(TOPIC_CAR_MAP);
-      Serial.println(String(TOPIC_CAR_MAP) + "已訂閱成功！請開啟https://console.hivemq.cloud/，並用Publish Message來測試！");
-
-      mqttFlag = true;
-    }
-  }
+  
+  String str = Serial2.readString();
+  if(str !=""){
+    carX = (int)(str.charAt(0) - '0');
+    carY = (int)(str.charAt(1) - '0');
+  
+    Serial.println(carX);
+    Serial.println(carY);
+  
+    coordinates = {Lats[carX][carY], Longs[carX][carY]};
+  }  
+  
+}//end loop
 
 
-}  //end loop
+
+
+
+
+
+
+
+
