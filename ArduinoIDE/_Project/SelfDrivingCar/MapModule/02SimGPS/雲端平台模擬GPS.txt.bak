@@ -1,0 +1,14 @@
+Arduino Cloud無法跨域，無法寫入HiveMQ MQTT，
+所以要分兩塊ESP32板子：
+
+ESP32 MQTT：
+	負責接收car/gps MQTT，然後再傳送給ESP32 GPS
+	UART：Esp32Send.ino
+	「BlocklyDuino\WiFi\ESP\32\ESP32\UartESP32」
+	
+	
+ESP32 GPS：
+	透過UART，接收小車座標，然後傳送至Arduino Cloud雲端平台
+	UART：Esp32Get.ino
+	Cloud：
+	「BlocklyDuino\Cloud\ArduinoCloud\GPS」
