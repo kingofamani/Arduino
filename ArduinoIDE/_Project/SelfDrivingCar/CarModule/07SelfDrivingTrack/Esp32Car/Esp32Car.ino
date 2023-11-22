@@ -37,8 +37,8 @@ char* CAR_MOVE[4] = {"F,", "R,F,", "R,R,F,", "L,F,"};
 #define L298N_IN4 25
 #define L298N_IN5 23
 #define L298N_IN6 4
-#define L298N_IN7 16
-#define L298N_IN8 17
+#define L298N_IN7 15//原16
+#define L298N_IN8 32//原17
 
 #define L298N_EN1 13//PWM
 #define L298N_EN2 33//PWM
