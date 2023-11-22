@@ -1,4 +1,6 @@
 #include <Arduino.h>
+//序列埠115200
+
 //★★★車頭初始向上
 char CAR_INIT_DIRECT = 'U';
 
@@ -22,6 +24,10 @@ int pathCarDegree[numRows * numCols];
 char* pathCarMove[numRows * numCols];
 char* CAR_MOVE[4] = {"F,", "R,F,", "R,R,F,", "L,F,"};
 //char* CAR_MOVE[4] = {"F", "RF", "RRF", "LF"};
+
+//UART通訊(UNO傳來循跡感測器結果)
+#define U1RXD 16
+#define U1TXD 17
 
 //===========小車Start===========
 //L298N腳位
@@ -396,7 +402,9 @@ void reverseStringArray(String arr[], int length) {
 }
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
+  //UART
+  Serial2.begin(9600, SERIAL_8N1, U1RXD, U1TXD);
   
   //=====小車初始化START=====
   pinMode(L298N_IN1, OUTPUT);
@@ -520,5 +528,6 @@ void printAStarResult() {
 }
 
 void loop() {
-  // 程序主循環
+  //UART接收UNO傳送來的循跡感測器結果
+  Serial.println(Serial2.readString());
 }
