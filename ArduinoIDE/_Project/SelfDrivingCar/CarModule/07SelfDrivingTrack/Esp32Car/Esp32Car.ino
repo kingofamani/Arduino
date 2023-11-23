@@ -25,9 +25,18 @@ char* pathCarMove[numRows * numCols];
 char* CAR_MOVE[4] = {"F,", "R,F,", "R,R,F,", "L,F,"};
 //char* CAR_MOVE[4] = {"F", "RF", "RRF", "LF"};
 
-//UART通訊(UNO傳來循跡感測器結果)
+//====UART通訊(UNO傳來循跡感測器結果) start====
 #define U1RXD 16
 #define U1TXD 17
+
+//4way循跡感測器陣列
+int trackSensor[4];
+#define TRACK_LEFT 0
+#define TRACK_FRONT 1
+#define TRACK_BACK 2
+#define TRACK_RIGHT 3
+//====UART end====
+
 
 //===========小車Start===========
 //L298N腳位
@@ -64,6 +73,12 @@ const int RTimer = 1000;
 const int LTimer = 1000;
 const int STimer = 3000;
 
+void trackForward(){
+
+  //forward();
+  //delay(FTimer);
+}
+      
 void forward() {
   digitalWrite(L298N_IN1, HIGH);
   digitalWrite(L298N_IN2, LOW);
@@ -180,8 +195,9 @@ void goCar(){
   for (int i = 0 ; i < tokenLen ; i++)
   {
     if(pathCarMotor[i]=="F"){
-      forward();
-      delay(FTimer);
+      trackForward();
+      //forward();
+      //delay(FTimer);
       stopCar();
       delay(FTimer);
       Serial.print("前,");
@@ -472,7 +488,7 @@ void setup() {
     //印出結果
     printAStarResult();
   //開始移動實際車子
-  goCar();
+  //goCar();
   } else {
     Serial.println("未找到路徑.");
   }
@@ -528,6 +544,16 @@ void printAStarResult() {
 }
 
 void loop() {
-  //UART接收UNO傳送來的循跡感測器結果
-  Serial.println(Serial2.readString());
+  //UART接收UNO傳送來的循跡感測器結果(左前後右ex:1011)
+  if (Serial2.available()) {
+    String str = Serial2.readString();
+    for(int i=0;i<4;i++){
+      trackSensor[i] = (int)(str.charAt(i) - '0');
+    }
+    Serial.print(trackSensor[TRACK_LEFT]);
+    Serial.print(trackSensor[TRACK_FRONT]);
+    Serial.print(trackSensor[TRACK_BACK]);
+    Serial.println(trackSensor[TRACK_RIGHT]);
+    Serial.println("===");
+  }
 }

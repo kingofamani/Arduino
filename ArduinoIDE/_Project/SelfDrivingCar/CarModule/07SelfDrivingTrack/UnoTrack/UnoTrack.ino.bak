@@ -19,11 +19,11 @@ void setup() {
   pinMode(TRACKRIGHT_PIN, INPUT);
 }
 void loop() {
-  //左前後右
+  //左,前,後,右
   String msg = 
-    String(digitalRead(4)) +
-    String(digitalRead(5)) +
-    String(digitalRead(6)) +
+    String(digitalRead(4)) + "," +
+    String(digitalRead(5)) + "," +
+    String(digitalRead(6)) + "," +
     String(digitalRead(7));
   Serial.println(msg);
   delay(1500);

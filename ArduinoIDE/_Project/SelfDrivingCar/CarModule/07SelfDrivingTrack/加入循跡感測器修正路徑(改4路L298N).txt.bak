@@ -12,8 +12,6 @@ UNO			ESP32
 RX(pin0) ↔	TX(GPIO17)
 TX(pin1) ↔	RX(GPIO16)
 GND		 ↔	GND
-★★★UNO程式要更新上傳時，要將pin0拔除才能上傳成功！
-
 
 
 
