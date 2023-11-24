@@ -1,3 +1,6 @@
+測電流電壓 詳細教學：
+https://www.gushiciku.cn/dl/0zvxR/zh-tw
+
 太陽能充放電板 14500鋰電池(3.7V)
 	沒電：3.16V
 	充滿：4.14V
