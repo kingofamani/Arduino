@@ -35,6 +35,8 @@ int trackSensor[4];
 #define TRACK_FRONT 1
 #define TRACK_BACK 2
 #define TRACK_RIGHT 3
+
+bool isFrontArrive false;
 //====UART end====
 
 
@@ -74,9 +76,14 @@ const int LTimer = 1000;
 const int STimer = 3000;
 
 void trackForward(){
-
-  //forward();
-  //delay(FTimer);
+  //先往前300ms,越過前方白線
+  forward();
+  delay(300);
+  stopCar();
+  //開始前進,直循跡感測踫到前方白線
+  while(!isFrontArrive){
+    
+  }
 }
       
 void forward() {

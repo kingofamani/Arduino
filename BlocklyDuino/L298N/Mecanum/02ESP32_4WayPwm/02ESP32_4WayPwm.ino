@@ -5,8 +5,8 @@
 #define L298N_IN4 25
 #define L298N_IN5 23
 #define L298N_IN6 4
-#define L298N_IN7 16
-#define L298N_IN8 17
+#define L298N_IN7 15
+#define L298N_IN8 32
 
 #define L298N_EN1 13//PWM
 #define L298N_EN2 33//PWM
@@ -31,6 +31,44 @@ const int BTimer = 1000;
 const int RTimer = 1000;
 const int LTimer = 1000;
 const int STimer = 3000;
+
+//對角線前進右
+void diagonalRight(){
+  digitalWrite(L298N_IN1, HIGH);
+  digitalWrite(L298N_IN2, LOW);
+  ledcWrite(EN1_CHL, FSpeed);
+
+  digitalWrite(L298N_IN3, LOW);
+  digitalWrite(L298N_IN4, LOW);
+  ledcWrite(EN2_CHL, FSpeed);
+
+  digitalWrite(L298N_IN5, LOW);
+  digitalWrite(L298N_IN6, LOW);
+  ledcWrite(EN3_CHL, FSpeed);
+
+  digitalWrite(L298N_IN7, HIGH);
+  digitalWrite(L298N_IN8, LOW);
+  ledcWrite(EN4_CHL, FSpeed);
+}
+
+//對角線前進左
+void diagonalLeft(){
+  digitalWrite(L298N_IN1, LOW);
+  digitalWrite(L298N_IN2, LOW);
+  ledcWrite(EN1_CHL, FSpeed);
+
+  digitalWrite(L298N_IN3, HIGH);
+  digitalWrite(L298N_IN4, LOW);
+  ledcWrite(EN2_CHL, FSpeed);
+
+  digitalWrite(L298N_IN5, HIGH);
+  digitalWrite(L298N_IN6, LOW);
+  ledcWrite(EN3_CHL, FSpeed);
+
+  digitalWrite(L298N_IN7, LOW);
+  digitalWrite(L298N_IN8, LOW);
+  ledcWrite(EN4_CHL, FSpeed);
+}
 
 void forward() {
   digitalWrite(L298N_IN1, HIGH);
@@ -168,6 +206,16 @@ void setup() {
 }
 
 void loop() {
+  diagonalRight();
+  delay(FTimer);
+  stopCar();
+  delay(FTimer);
+
+  diagonalLeft();
+  delay(FTimer);
+  stopCar();
+  delay(FTimer);
+
   forward();
   delay(FTimer);
   stopCar();
