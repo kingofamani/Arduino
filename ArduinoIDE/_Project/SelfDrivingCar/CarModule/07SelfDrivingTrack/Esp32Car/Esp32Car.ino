@@ -36,7 +36,14 @@ int trackSensor[4];
 #define TRACK_BACK 2
 #define TRACK_RIGHT 3
 
-bool isFrontArrive false;
+//是否走完一格
+bool isFrontArrive = false;
+//觸發到白線回傳0或1
+#define TRIGGLED 1
+
+//loop只執行一次
+bool loopHasRun = false;
+
 //====UART end====
 
 
@@ -76,14 +83,70 @@ const int LTimer = 1000;
 const int STimer = 3000;
 
 void trackForward(){
+  //接收循跡值
+  trackFromUNO();
+  //每隔ms觸發一次循跡
+  int trackTimer = 20;
   //先往前300ms,越過前方白線
   forward();
   delay(300);
   stopCar();
   //開始前進,直循跡感測踫到前方白線
   while(!isFrontArrive){
-    
+    if(trackSensor[TRACK_LEFT]==TRIGGLED && trackSensor[TRACK_RIGHT]!=TRIGGLED){
+      diagonalLeft();
+      delay(trackTimer);
+      stopCar();
+    }else if(trackSensor[TRACK_LEFT]!=TRIGGLED && trackSensor[TRACK_RIGHT]==TRIGGLED){
+      diagonalRight();
+      delay(trackTimer);
+      stopCar();
+    }else{
+      forward();
+      delay(trackTimer);
+      stopCar();
+    }
+
+    if(trackSensor[TRACK_FRONT]==TRIGGLED){
+      isFrontArrive = true;
+    }
   }
+}
+
+void diagonalRight(){
+  digitalWrite(L298N_IN1, HIGH);
+  digitalWrite(L298N_IN2, LOW);
+  ledcWrite(EN1_CHL, FSpeed);
+
+  digitalWrite(L298N_IN3, LOW);
+  digitalWrite(L298N_IN4, LOW);
+  ledcWrite(EN2_CHL, FSpeed);
+
+  digitalWrite(L298N_IN5, LOW);
+  digitalWrite(L298N_IN6, LOW);
+  ledcWrite(EN3_CHL, FSpeed);
+
+  digitalWrite(L298N_IN7, HIGH);
+  digitalWrite(L298N_IN8, LOW);
+  ledcWrite(EN4_CHL, FSpeed);
+}
+
+void diagonalLeft(){
+  digitalWrite(L298N_IN1, LOW);
+  digitalWrite(L298N_IN2, LOW);
+  ledcWrite(EN1_CHL, FSpeed);
+
+  digitalWrite(L298N_IN3, HIGH);
+  digitalWrite(L298N_IN4, LOW);
+  ledcWrite(EN2_CHL, FSpeed);
+
+  digitalWrite(L298N_IN5, HIGH);
+  digitalWrite(L298N_IN6, LOW);
+  ledcWrite(EN3_CHL, FSpeed);
+
+  digitalWrite(L298N_IN7, LOW);
+  digitalWrite(L298N_IN8, LOW);
+  ledcWrite(EN4_CHL, FSpeed);
 }
       
 void forward() {
@@ -203,10 +266,11 @@ void goCar(){
   {
     if(pathCarMotor[i]=="F"){
       trackForward();
+      isFrontArrive = false;
       //forward();
       //delay(FTimer);
-      stopCar();
-      delay(FTimer);
+      //stopCar();
+      //delay(FTimer);
       Serial.print("前,");
     }else if(pathCarMotor[i]=="R"){
       turnRight();
@@ -470,35 +534,7 @@ void setup() {
   delay(2000);
   //=====小車初始化END=====
 
-  // 地圖表示，0表示障礙物，1表示可通行
-  int grid[numRows][numCols] = {
-    {1, 1, 1, 1, 1, 1, 1, 1},
-    {0, 0, 0, 0, 0, 0, 0, 1},
-    {1, 1, 1, 1, 1, 1, 1, 1},
-    {1, 0, 0, 0, 0, 0, 0, 0},
-    {1, 1, 1, 1, 1, 1, 1, 1}
-  };
-
-  int startRow = 0;
-  int startCol = 0;
-  int endRow = 4;// 更新endRow和endCol到所需的終點位置
-  int endCol = 7;
-
-  if (aStar(grid, startRow, startCol, endRow, endCol)) {
-    Serial.println("找到路徑!");
-    //座標起點
-    pathXY[pathCount] = "(" + String(startRow) + "," + String(startCol) + ")";
-    //車頭初始方向
-    pathMapDirect[pathCount] = CAR_INIT_DIRECT;
-    //座標轉換成車子移動指令
-    convertXyToCarMove();
-    //印出結果
-    printAStarResult();
-  //開始移動實際車子
-  //goCar();
-  } else {
-    Serial.println("未找到路徑.");
-  }
+  
 
 }
 
@@ -550,17 +586,55 @@ void printAStarResult() {
 
 }
 
-void loop() {
-  //UART接收UNO傳送來的循跡感測器結果(左前後右ex:1011)
+//UART接收UNO傳送來的循跡感測器結果(左前後右ex:1011)
+void trackFromUNO(){
   if (Serial2.available()) {
     String str = Serial2.readString();
     for(int i=0;i<4;i++){
       trackSensor[i] = (int)(str.charAt(i) - '0');
     }
-    Serial.print(trackSensor[TRACK_LEFT]);
-    Serial.print(trackSensor[TRACK_FRONT]);
-    Serial.print(trackSensor[TRACK_BACK]);
-    Serial.println(trackSensor[TRACK_RIGHT]);
-    Serial.println("===");
+    //Serial.print(trackSensor[TRACK_LEFT]);
+    //Serial.print(trackSensor[TRACK_FRONT]);
+    //Serial.print(trackSensor[TRACK_BACK]);
+    //Serial.println(trackSensor[TRACK_RIGHT]);
+    //Serial.println("===");
   }
+}
+
+void loop() {  
+  if(loopHasRun){
+    return;
+  }
+
+  // 地圖表示，0表示障礙物，1表示可通行
+  int grid[numRows][numCols] = {
+    {1, 1, 1, 1, 1, 1, 1, 1},
+    {0, 0, 0, 0, 0, 0, 0, 1},
+    {1, 1, 1, 1, 1, 1, 1, 1},
+    {1, 0, 0, 0, 0, 0, 0, 0},
+    {1, 1, 1, 1, 1, 1, 1, 1}
+  };
+
+  int startRow = 0;
+  int startCol = 0;
+  int endRow = 4;// 更新endRow和endCol到所需的終點位置
+  int endCol = 7;
+
+  if (aStar(grid, startRow, startCol, endRow, endCol)) {
+    Serial.println("找到路徑!");
+    //座標起點
+    pathXY[pathCount] = "(" + String(startRow) + "," + String(startCol) + ")";
+    //車頭初始方向
+    pathMapDirect[pathCount] = CAR_INIT_DIRECT;
+    //座標轉換成車子移動指令
+    convertXyToCarMove();
+    //印出結果
+    printAStarResult();
+    //開始移動實際車子
+    goCar();
+  } else {
+    Serial.println("未找到路徑.");
+  }
+
+  loopHasRun = true;
 }
