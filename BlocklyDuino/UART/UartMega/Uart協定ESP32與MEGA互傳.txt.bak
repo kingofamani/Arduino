@@ -1,0 +1,6 @@
+★ESP32無法使用SoftwareSerial，要安裝 EspSoftwareSerial by Dirk kaar
+
+Mega	ESP32
+D18 	GPIO16
+D19 	GPIO17
+
