@@ -26,5 +26,5 @@ void loop() {
     String(digitalRead(6)) +
     String(digitalRead(7));
   Serial.println(msg);
-  //delay(1500);
+  delay(200);
 }

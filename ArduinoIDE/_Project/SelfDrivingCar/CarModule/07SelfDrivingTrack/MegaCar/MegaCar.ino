@@ -1,5 +1,6 @@
 #include <Arduino.h>
-//序列埠115200
+#include <SoftwareSerial.h>
+//序列埠9600
 
 //★★★車頭初始向上
 char CAR_INIT_DIRECT = 'U';
@@ -25,9 +26,15 @@ char* pathCarMove[numRows * numCols];
 char* CAR_MOVE[4] = { "F,", "R,F,", "R,R,F,", "L,F," };
 //char* CAR_MOVE[4] = {"F", "RF", "RRF", "LF"};
 
-//====UART通訊(UNO傳來循跡感測器結果) start====
-#define U1RXD 16
-#define U1TXD 17
+//====UART通訊(接收ESP32傳來的MQTT訊息) start====
+SoftwareSerial ESP32Serial(19,18);
+//====UART end====
+
+//======循跡感測器 Start======
+#define TRACK_LEFT_PIN  30//4 左邊 id1 
+#define TRACK_FRONT_PIN 31//5 前面 id2 
+#define TRACK_BACK_PIN  32//6 後面 id4 
+#define TRACK_RIGHT_PIN  33//7 右邊 id4 
 
 //4way循跡感測器陣列
 int trackSensor[4];
@@ -44,30 +51,23 @@ bool isFrontArrive = false;
 //loop只執行一次
 bool loopHasRun = false;
 
-//====UART end====
-
+//======循跡感測器 End======
 
 //===========小車Start===========
 //L298N腳位
-#define L298N_IN1 14
-#define L298N_IN2 27
-#define L298N_IN3 26
-#define L298N_IN4 25
-#define L298N_IN5 23
-#define L298N_IN6 4
-#define L298N_IN7 15  //原16
-#define L298N_IN8 32  //原17
-
-#define L298N_EN1 13  //PWM
-#define L298N_EN2 33  //PWM
-#define L298N_EN3 5   //PWM
-#define L298N_EN4 19  //PWM
-
-//ESP32設定PWM Channel
-const int EN1_CHL = 0;
-const int EN2_CHL = 1;
-const int EN3_CHL = 2;
-const int EN4_CHL = 3;
+#define L298N_IN1 22//14
+#define L298N_IN2 23//27
+#define L298N_IN3 24//26
+#define L298N_IN4 25//25
+#define L298N_IN5 26//23
+#define L298N_IN6 27//4
+#define L298N_IN7 28//15
+#define L298N_IN8 29//32
+				  
+#define L298N_EN1 2//13 PWM
+#define L298N_EN2 3//33 PWM
+#define L298N_EN3 4//5  PWM
+#define L298N_EN4 5//19 PWM
 
 //轉速(80~255)
 const int FSpeed = 120;
@@ -83,36 +83,40 @@ const int LTimer = 1000;
 const int STimer = 3000;
 
 void trackForward() {
-  Serial.print("trackForward,");
-  //每隔ms觸發一次循跡
+  //Serial.print("trackForward,");  
 
   //先往前300ms,越過前方白線
   forward();
-  Serial.print("forward,");
+  Serial.print("forward300,");
   delay(300);
   //stopCar();
   //接收循跡值
   //trackFromUNO();
   //開始前進,直循跡感測踫到前方白線
-  int trackTimer = 20;
+  int trackTimer = 10;//每隔ms觸發一次循跡
   while(!isFrontArrive){
-    Serial.print("while,");
+    //Serial.print("while,");
+    //取得循跡感測值
+    getTracks();
     //開始判斷偏左、偏右、跑完一格
     if(trackSensor[TRACK_LEFT]==TRIGGLED && trackSensor[TRACK_RIGHT]!=TRIGGLED){
+      Serial.print("<");
       diagonalLeft();      
       //stopCar();
     }else if(trackSensor[TRACK_LEFT]!=TRIGGLED && trackSensor[TRACK_RIGHT]==TRIGGLED){
+      Serial.print(">");
       diagonalRight();
       //stopCar();
     }else{
       forward();
+      Serial.print("-");
       //stopCar();
     }
     delay(trackTimer);
 
     if(trackSensor[TRACK_FRONT]==TRIGGLED){
       stopCar();
-      delay(STimer);
+      //delay(STimer);
       //結束此格行走
       isFrontArrive = true;
     }
@@ -122,128 +126,128 @@ void trackForward() {
 void diagonalRight() {
   digitalWrite(L298N_IN1, HIGH);
   digitalWrite(L298N_IN2, LOW);
-  ledcWrite(EN1_CHL, FSpeed);
+  analogWrite(L298N_EN1, FSpeed);
 
   digitalWrite(L298N_IN3, LOW);
   digitalWrite(L298N_IN4, LOW);
-  ledcWrite(EN2_CHL, FSpeed);
+  analogWrite(L298N_EN2, FSpeed);
 
   digitalWrite(L298N_IN5, LOW);
   digitalWrite(L298N_IN6, LOW);
-  ledcWrite(EN3_CHL, FSpeed);
+  analogWrite(L298N_EN3, FSpeed);
 
   digitalWrite(L298N_IN7, HIGH);
   digitalWrite(L298N_IN8, LOW);
-  ledcWrite(EN4_CHL, FSpeed);
+  analogWrite(L298N_EN4, FSpeed);
 }
 
 void diagonalLeft() {
   digitalWrite(L298N_IN1, LOW);
   digitalWrite(L298N_IN2, LOW);
-  ledcWrite(EN1_CHL, FSpeed);
+  analogWrite(L298N_EN1, FSpeed);
 
   digitalWrite(L298N_IN3, HIGH);
   digitalWrite(L298N_IN4, LOW);
-  ledcWrite(EN2_CHL, FSpeed);
+  analogWrite(L298N_EN2, FSpeed);
 
   digitalWrite(L298N_IN5, HIGH);
   digitalWrite(L298N_IN6, LOW);
-  ledcWrite(EN3_CHL, FSpeed);
+  analogWrite(L298N_EN3, FSpeed);
 
   digitalWrite(L298N_IN7, LOW);
   digitalWrite(L298N_IN8, LOW);
-  ledcWrite(EN4_CHL, FSpeed);
+  analogWrite(L298N_EN4, FSpeed);
 }
 
 void forward() {
   digitalWrite(L298N_IN1, HIGH);
   digitalWrite(L298N_IN2, LOW);
-  ledcWrite(EN1_CHL, FSpeed);
+  analogWrite(L298N_EN1, FSpeed);
 
   digitalWrite(L298N_IN3, HIGH);
   digitalWrite(L298N_IN4, LOW);
-  ledcWrite(EN2_CHL, FSpeed);
+  analogWrite(L298N_EN2, FSpeed);
 
   digitalWrite(L298N_IN5, HIGH);
   digitalWrite(L298N_IN6, LOW);
-  ledcWrite(EN3_CHL, FSpeed);
+  analogWrite(L298N_EN3, FSpeed);
 
   digitalWrite(L298N_IN7, HIGH);
   digitalWrite(L298N_IN8, LOW);
-  ledcWrite(EN4_CHL, FSpeed);
+  analogWrite(L298N_EN4, FSpeed);
 }
 
 void backward() {
   digitalWrite(L298N_IN1, LOW);
   digitalWrite(L298N_IN2, HIGH);
-  ledcWrite(EN1_CHL, BSpeed);
+  analogWrite(L298N_EN1, BSpeed);
 
   digitalWrite(L298N_IN3, LOW);
   digitalWrite(L298N_IN4, HIGH);
-  ledcWrite(EN2_CHL, BSpeed);
+  analogWrite(L298N_EN2, BSpeed);
 
   digitalWrite(L298N_IN5, LOW);
   digitalWrite(L298N_IN6, HIGH);
-  ledcWrite(EN3_CHL, BSpeed);
+  analogWrite(L298N_EN3, BSpeed);
 
   digitalWrite(L298N_IN7, LOW);
   digitalWrite(L298N_IN8, HIGH);
-  ledcWrite(EN4_CHL, BSpeed);
+  analogWrite(L298N_EN4, BSpeed);
 }
 
 void turnRight() {
   digitalWrite(L298N_IN1, HIGH);
   digitalWrite(L298N_IN2, LOW);
-  ledcWrite(EN1_CHL, RSpeed);
+  analogWrite(L298N_EN1, RSpeed);
 
   digitalWrite(L298N_IN3, HIGH);
   digitalWrite(L298N_IN4, LOW);
-  ledcWrite(EN2_CHL, RSpeed);
+  analogWrite(L298N_EN2, RSpeed);
 
   digitalWrite(L298N_IN5, LOW);
   digitalWrite(L298N_IN6, HIGH);
-  ledcWrite(EN3_CHL, RSpeed);
+  analogWrite(L298N_EN3, RSpeed);
 
   digitalWrite(L298N_IN7, LOW);
   digitalWrite(L298N_IN8, HIGH);
-  ledcWrite(EN4_CHL, RSpeed);
+  analogWrite(L298N_EN4, RSpeed);
 }
 
 void turnLeft() {
   digitalWrite(L298N_IN1, LOW);
   digitalWrite(L298N_IN2, HIGH);
-  ledcWrite(EN1_CHL, LSpeed);
+  analogWrite(L298N_EN1, LSpeed);
 
   digitalWrite(L298N_IN3, LOW);
   digitalWrite(L298N_IN4, HIGH);
-  ledcWrite(EN2_CHL, LSpeed);
+  analogWrite(L298N_EN2, LSpeed);
 
 
   digitalWrite(L298N_IN5, HIGH);
   digitalWrite(L298N_IN6, LOW);
-  ledcWrite(EN3_CHL, LSpeed);
+  analogWrite(L298N_EN3, LSpeed);
 
   digitalWrite(L298N_IN7, HIGH);
   digitalWrite(L298N_IN8, LOW);
-  ledcWrite(EN4_CHL, LSpeed);
+  analogWrite(L298N_EN4, LSpeed);
 }
 
 void stopCar() {
   digitalWrite(L298N_IN1, LOW);
   digitalWrite(L298N_IN2, LOW);
-  ledcWrite(EN1_CHL, FSpeed);
+  analogWrite(L298N_EN1, FSpeed);
 
   digitalWrite(L298N_IN3, LOW);
   digitalWrite(L298N_IN4, LOW);
-  ledcWrite(EN2_CHL, FSpeed);
+  analogWrite(L298N_EN2, FSpeed);
 
   digitalWrite(L298N_IN5, LOW);
   digitalWrite(L298N_IN6, LOW);
-  ledcWrite(EN3_CHL, FSpeed);
+  analogWrite(L298N_EN3, FSpeed);
 
   digitalWrite(L298N_IN7, LOW);
   digitalWrite(L298N_IN8, LOW);
-  ledcWrite(EN4_CHL, FSpeed);
+  analogWrite(L298N_EN4, FSpeed);
 }
 
 void goCar() {
@@ -271,28 +275,42 @@ void goCar() {
     if (pathCarMotor[i] == "F") {
       trackForward();
       isFrontArrive = false;
-      //forward();
-      //delay(FTimer);
-      //stopCar();
-      //delay(FTimer);
-      Serial.print("前,");
+  
+      // forward();
+      // delay(FTimer);
+      // stopCar();
+      // delay(FTimer);
+      Serial.println("前,");
     } else if (pathCarMotor[i] == "R") {
       turnRight();
       delay(RTimer);
       stopCar();
       delay(RTimer);
-      Serial.print("右轉,");
+      Serial.println("右轉,");
     } else if (pathCarMotor[i] == "L") {
       turnLeft();
       delay(LTimer);
       stopCar();
       delay(LTimer);
-      Serial.print("左轉,");
+      Serial.println("左轉,");
     }
   }
 }
 
 //===========小車End===========
+
+//取得循跡感測器值
+void getTracks(){
+  //格式：左前後右(ex:0101)
+  trackSensor[TRACK_LEFT] = digitalRead(TRACK_LEFT_PIN);
+  trackSensor[TRACK_FRONT] = digitalRead(TRACK_FRONT_PIN);
+  trackSensor[TRACK_BACK] = digitalRead(TRACK_BACK_PIN);
+  trackSensor[TRACK_RIGHT] = digitalRead(TRACK_RIGHT_PIN);
+
+  // for (int i = 0; i < 4; i++) {
+  //   Serial.print(trackSensor[i]);
+  // }
+}
 
 // 表示地圖上的節點的類別
 class Node {
@@ -493,11 +511,12 @@ void reverseStringArray(String arr[], int length) {
 }
 
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(9600);
   //UART
-  Serial2.begin(9600, SERIAL_8N1, U1RXD, U1TXD);
+  ESP32Serial.begin(9600);
+  //Serial2.begin(9600, SERIAL_8N1, U1RXD, U1TXD);
 
-  //=====小車初始化START=====
+  //小車初始化
   pinMode(L298N_IN1, OUTPUT);
   pinMode(L298N_IN2, OUTPUT);
   pinMode(L298N_IN3, OUTPUT);
@@ -524,19 +543,15 @@ void setup() {
   digitalWrite(L298N_EN3, LOW);
   digitalWrite(L298N_EN4, LOW);
 
-  //PWM設定
-  ledcSetup(EN1_CHL, 1000, 8);  //channel,frequence,resolution(8表示0~255)
-  ledcAttachPin(L298N_EN1, EN1_CHL);
-  ledcSetup(EN2_CHL, 1000, 8);
-  ledcAttachPin(L298N_EN2, EN2_CHL);
-  ledcSetup(EN3_CHL, 1000, 8);
-  ledcAttachPin(L298N_EN3, EN3_CHL);
-  ledcSetup(EN4_CHL, 1000, 8);
-  ledcAttachPin(L298N_EN4, EN4_CHL);
+  //循跡感測器初始化
+  pinMode(TRACK_LEFT_PIN, INPUT);
+  pinMode(TRACK_FRONT_PIN, INPUT);
+  pinMode(TRACK_BACK_PIN, INPUT);
+  pinMode(TRACK_RIGHT_PIN, INPUT);
 
   stopCar();
   delay(2000);
-  //=====小車初始化END=====
+  
 }
 
 void convertXyToCarMove() {
@@ -586,14 +601,10 @@ void printAStarResult() {
 }
 
 //UART接收UNO傳送來的循跡感測器結果(左前後右ex:1011)
-void trackFromUNO() {
-  //Serial.print("trackFromUNO,");
-  String str = Serial2.readString();
-  Serial.print(str);
-  for (int i = 0; i < 4; i++) {
-    trackSensor[i] = (int)(str.charAt(i) - '0');
-  }
-}
+// void trackFromUNO() {
+//   //Serial.print("trackFromUNO,");
+  
+// }
 
 //UART接收UNO傳送來的循跡感測器結果(左前後右ex:1011)
 // void trackFromUNO(){
@@ -615,6 +626,19 @@ void trackFromUNO() {
 // }
 
 void loop() {
+  //傳送訊息：Mega→ESP32
+  if(Serial.available()){
+    String str=Serial.readString();
+    ESP32Serial.print(str);
+  }
+  //接收訊息：ESP32→Mega
+  while(ESP32Serial.available()){
+    String val=ESP32Serial.readString();
+    Serial.println(val);    
+  }
+
+
+
   if (loopHasRun) {
     return;
   }
