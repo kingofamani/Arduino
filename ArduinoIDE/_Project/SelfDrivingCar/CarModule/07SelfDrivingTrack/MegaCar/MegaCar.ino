@@ -27,14 +27,14 @@ char* CAR_MOVE[4] = { "F,", "R,F,", "R,R,F,", "L,F," };
 //char* CAR_MOVE[4] = {"F", "RF", "RRF", "LF"};
 
 //====UART通訊(接收ESP32傳來的MQTT訊息) start====
-SoftwareSerial ESP32Serial(19,18);
+SoftwareSerial ESP32Serial(19, 18);
 //====UART end====
 
 //======循跡感測器 Start======
-#define TRACK_LEFT_PIN  30//4 左邊 id1 
-#define TRACK_FRONT_PIN 31//5 前面 id2 
-#define TRACK_BACK_PIN  32//6 後面 id4 
-#define TRACK_RIGHT_PIN  33//7 右邊 id4 
+#define TRACK_LEFT_PIN 30   //4 左邊 id1
+#define TRACK_FRONT_PIN 31  //5 前面 id2
+#define TRACK_BACK_PIN 32   //6 後面 id4
+#define TRACK_RIGHT_PIN 33  //7 右邊 id4
 
 //4way循跡感測器陣列
 int trackSensor[4];
@@ -55,72 +55,79 @@ bool loopHasRun = false;
 
 //===========小車Start===========
 //L298N腳位
-#define L298N_IN1 22//14
-#define L298N_IN2 23//27
-#define L298N_IN3 24//26
-#define L298N_IN4 25//25
-#define L298N_IN5 26//23
-#define L298N_IN6 27//4
-#define L298N_IN7 28//15
-#define L298N_IN8 29//32
-				  
-#define L298N_EN1 2//13 PWM
-#define L298N_EN2 3//33 PWM
-#define L298N_EN3 4//5  PWM
-#define L298N_EN4 5//19 PWM
+#define L298N_IN1 22  //14
+#define L298N_IN2 23  //27
+#define L298N_IN3 24  //26
+#define L298N_IN4 25  //25
+#define L298N_IN5 26  //23
+#define L298N_IN6 27  //4
+#define L298N_IN7 28  //15
+#define L298N_IN8 29  //32
 
-//轉速(80~255)
+#define L298N_EN1 2  //13 PWM
+#define L298N_EN2 3  //33 PWM
+#define L298N_EN3 4  //5  PWM
+#define L298N_EN4 5  //19 PWM
+
+//轉速(120~255)
 const int FSpeed = 120;
 const int BSpeed = 120;
 const int RSpeed = 120;
 const int LSpeed = 120;
 
 //轉動時間(毫秒)
-const int FTimer = 1000;
+const int FTimer = 2000;
 const int BTimer = 1000;
 const int RTimer = 1000;
 const int LTimer = 1000;
 const int STimer = 3000;
 
 void trackForward() {
-  //Serial.print("trackForward,");  
+  //Serial.print("trackForward,");
 
   //先往前300ms,越過前方白線
-  forward();
-  Serial.print("forward300,");
+  //Serial.print("forward300,");
+  forward();  
   delay(300);
   //stopCar();
   //接收循跡值
   //trackFromUNO();
   //開始前進,直循跡感測踫到前方白線
-  int trackTimer = 10;//每隔ms觸發一次循跡
-  while(!isFrontArrive){
+  //int trackTimer = 10;  //每隔ms觸發一次循跡
+  while (!isFrontArrive) {
     //Serial.print("while,");
     //取得循跡感測值
     getTracks();
-    //開始判斷偏左、偏右、跑完一格
-    if(trackSensor[TRACK_LEFT]==TRIGGLED && trackSensor[TRACK_RIGHT]!=TRIGGLED){
-      Serial.print("<");
-      diagonalLeft();      
-      //stopCar();
-    }else if(trackSensor[TRACK_LEFT]!=TRIGGLED && trackSensor[TRACK_RIGHT]==TRIGGLED){
-      Serial.print(">");
-      diagonalRight();
-      //stopCar();
-    }else{
-      forward();
-      Serial.print("-");
-      //stopCar();
-    }
-    delay(trackTimer);
 
-    if(trackSensor[TRACK_FRONT]==TRIGGLED){
+    //是否完成1格
+    if (trackSensor[TRACK_FRONT] == TRIGGLED) {
+      backward();
+      delay(50);
       stopCar();
       //delay(STimer);
       //結束此格行走
       isFrontArrive = true;
+      break;
     }
-  }//end while
+    
+    //開始判斷偏左、偏右、跑完一格
+    if (trackSensor[TRACK_LEFT] == TRIGGLED && trackSensor[TRACK_RIGHT] != TRIGGLED) {
+      //Serial.print(">");
+      diagonalRight();
+      //stopCar();
+    } else if (trackSensor[TRACK_LEFT] != TRIGGLED && trackSensor[TRACK_RIGHT] == TRIGGLED) {
+      //Serial.print("<");
+      diagonalLeft();
+      //stopCar();
+    } else {
+      forward();
+      //Serial.print("-");
+      //stopCar();
+    }
+    //delay(trackTimer);
+
+    
+  }  //end while
 }
 
 void diagonalRight() {
@@ -275,7 +282,7 @@ void goCar() {
     if (pathCarMotor[i] == "F") {
       trackForward();
       isFrontArrive = false;
-  
+      delay(FTimer);
       // forward();
       // delay(FTimer);
       // stopCar();
@@ -300,7 +307,7 @@ void goCar() {
 //===========小車End===========
 
 //取得循跡感測器值
-void getTracks(){
+void getTracks() {
   //格式：左前後右(ex:0101)
   trackSensor[TRACK_LEFT] = digitalRead(TRACK_LEFT_PIN);
   trackSensor[TRACK_FRONT] = digitalRead(TRACK_FRONT_PIN);
@@ -551,7 +558,6 @@ void setup() {
 
   stopCar();
   delay(2000);
-  
 }
 
 void convertXyToCarMove() {
@@ -603,7 +609,7 @@ void printAStarResult() {
 //UART接收UNO傳送來的循跡感測器結果(左前後右ex:1011)
 // void trackFromUNO() {
 //   //Serial.print("trackFromUNO,");
-  
+
 // }
 
 //UART接收UNO傳送來的循跡感測器結果(左前後右ex:1011)
@@ -627,14 +633,14 @@ void printAStarResult() {
 
 void loop() {
   //傳送訊息：Mega→ESP32
-  if(Serial.available()){
-    String str=Serial.readString();
+  if (Serial.available()) {
+    String str = Serial.readString();
     ESP32Serial.print(str);
   }
   //接收訊息：ESP32→Mega
-  while(ESP32Serial.available()){
-    String val=ESP32Serial.readString();
-    Serial.println(val);    
+  while (ESP32Serial.available()) {
+    String val = ESP32Serial.readString();
+    Serial.println(val);
   }
 
 
