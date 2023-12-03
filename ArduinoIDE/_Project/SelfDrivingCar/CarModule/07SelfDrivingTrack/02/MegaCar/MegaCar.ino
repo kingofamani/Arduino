@@ -1,6 +1,6 @@
 #include <Arduino.h>
 #include <SoftwareSerial.h>
-//序列埠9600
+#include <Servo.h>
 
 //★★★車頭初始向上
 char CAR_INIT_DIRECT = 'U';
@@ -52,6 +52,16 @@ bool isFrontArrive = false;
 bool loopHasRun = false;
 
 //======循跡感測器 End======
+
+//伺服馬達
+#define SERVO_CAR_BOX_PIN 30
+#define SERVO_AI_CAM_PIN 31
+
+Servo servoCarBox;
+Servo servoAiCam;
+
+//與Esp32通訊
+const char* OPEN_CAR_BOX "openCarBox";
 
 //===========小車Start===========
 //L298N腳位
@@ -523,6 +533,14 @@ void setup() {
   ESP32Serial.begin(9600);
   //Serial2.begin(9600, SERIAL_8N1, U1RXD, U1TXD);
 
+  //伺服馬達初始
+  servoCarBox.attach(SERVO_CAR_BOX_PIN);
+  servoCarBox.write(0);
+  delay(1000);
+  servoAiCam.attach(SERVO_AI_CAM_PIN);
+  servoAiCam.write(0);
+  delay(1000);
+
   //小車初始化
   pinMode(L298N_IN1, OUTPUT);
   pinMode(L298N_IN2, OUTPUT);
@@ -639,8 +657,12 @@ void loop() {
   }
   //接收訊息：ESP32→Mega
   while (ESP32Serial.available()) {
-    String val = ESP32Serial.readString();
-    Serial.println(val);
+    String str = ESP32Serial.readString();
+    Serial.println(str);
+    if(str == OPEN_CAR_BOX){
+      servoCarBox.write(90);
+      delay(1000);
+    }
   }
 
 

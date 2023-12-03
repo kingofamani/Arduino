@@ -1,0 +1,15 @@
+改用Mega板
+
+Mega		ESP32
+RX(pin19) ↔	TX(GPIO17)
+TX(pin18) ↔	RX(GPIO16)
+
+★★★UNO程式要更新上傳時，要將pin0拔除才能上傳成功！
+
+
+
+
+
+
+
+
