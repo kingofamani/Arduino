@@ -29,6 +29,7 @@ AccelStepper stepper2(1, ystepPin, ydirPin); //建立步进电机对象2
 
 //====UART通訊(接收ESP32傳來的MQTT訊息) start====
 SoftwareSerial ESP32Serial(19, 18);
+const char* GOODS_LOAD = "goodsLoad";
 
 void setup() {	
   Serial.begin(9600);
@@ -65,7 +66,12 @@ void loop() {
 	//Serial.println(str);   
 	int x = (int)(str.charAt(0) - '0');
 	int y = (int)(str.charAt(1) - '0');
-    
+    //開始移動CNC
+	
+	//推動貨物
+	
+	//完成撿貨
+	ESP32Serial.print(GOODS_LOAD);
 	
   }  
   
