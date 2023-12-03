@@ -28,6 +28,9 @@ char* CAR_MOVE[4] = { "F,", "R,F,", "R,R,F,", "L,F," };
 
 //====UART通訊(接收ESP32傳來的MQTT訊息) start====
 SoftwareSerial ESP32Serial(19, 18);
+
+//與Esp32通訊
+const char* OPEN_CAR_BOX = "openCarBox";
 //====UART end====
 
 //======循跡感測器 Start======
@@ -60,8 +63,7 @@ bool loopHasRun = false;
 Servo servoCarBox;
 Servo servoAiCam;
 
-//與Esp32通訊
-const char* OPEN_CAR_BOX "openCarBox";
+
 
 //===========小車Start===========
 //L298N腳位

@@ -2,12 +2,10 @@
 #include <WiFi.h>
 #include <PubSubClient.h>
 #include <WiFiClientSecure.h>
-#include <SoftwareSerial.h>
 
 //與Mega通訊
-const char* OPEN_CAR_BOX "openCarBox";
-
-
+const char* OPEN_CAR_BOX = "openCarBox";
+   
 //UART通訊
 SoftwareSerial MegaSerial(16,17);
 
@@ -102,7 +100,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
     
   }
 
-  MegaSerial.write(msgXY);
+  //MegaSerial.write(msgXY);
 }
 
 void reconnect() {
