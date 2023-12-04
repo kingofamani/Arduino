@@ -49,7 +49,10 @@ SoftwareSerial ESP32Serial(19, 18);
 //與Esp32通訊
 const char* MAP_SET = "mapSet";
 const char* GOODS_LOAD = "goodsLoad";
-//const char* CAR_STANDBY = "carStandby";
+const char* LINE_NOTIFY = "lineNotify";
+
+//收貨人
+String recipient[6];
 //====UART end====
 
 //======循跡感測器 Start======
@@ -355,7 +358,6 @@ void goCar() {
       Serial.println("左轉,");
     }
   }
-  
 }
 
 //===========實體小車和馬達 End===========
@@ -852,7 +854,7 @@ void loop() {
         tokenLen++;
       }
 
-      String recipient[6];  //第0個goodsLoad不用放入
+      //第0個goodsLoad不用放入
       int count = 0;
       for (int i = 1; i < 7; i++) {
         recipient[count++] = tmpArray[i];
@@ -882,7 +884,8 @@ void loop() {
         //抵達目的地,AI鏡頭朝向,準備人臉識別收貨人
         servoAiCam.write(ANGLE_AI_CAM_UP);
         delay(1000);
-
+        //完成送貨，發送LINE通知收貨人(格式:LINE_NOTIFY,姓名,商品)
+        ESP32Serial.print(LINE_NOTIFY + "," + recipient[0] + recipient[1]);
 
         //紀錄最後車頭方向,當成下次導航車頭起始方向
         CAR_INIT_DIRECT = pathMapDirect[pathCount];

@@ -6,7 +6,7 @@
 //與Mega通訊
 const char* MAP_SET = "mapSet";
 const char* GOODS_LOAD = "goodsLoad";
-//const char* CAR_STANDBY = "carStandby";
+const char* LINE_NOTIFY = "lineNotify";
    
 //UART通訊
 SoftwareSerial MegaSerial(16,17);
@@ -14,6 +14,9 @@ SoftwareSerial MegaSerial(16,17);
 //WiFi設定
 const char* ssid = "tyes-itc";
 const char* password = "xxxxxxxx";
+
+//LINE權杖
+String lineToken="xxxxxxxxxxxxxxxxxx";
 
 //---- HiveMQ設定 Start -----
 const char* mqtt_server = "xxxxxxxx.s2.eu.hivemq.cloud";
@@ -123,6 +126,32 @@ void reconnect() {
 }
 //---- HiveMQ設定 End -----
 
+//---- LINE函數 Start -----
+void sendLineMsg(String myMsg) {
+  static WiFiClientSecure line_client;
+  line_client.setInsecure();
+  myMsg.replace("%","%25");
+  myMsg.replace("&","%26");
+  myMsg.replace("§","&");
+  myMsg.replace("\\n","\n");
+  if (line_client.connect("notify-api.line.me", 443)) {
+    line_client.println("POST /api/notify HTTP/1.1");
+    line_client.println("Connection: close");
+    line_client.println("Host: notify-api.line.me");
+    line_client.println("Authorization: Bearer " + lineToken);
+    line_client.println("Content-Type: application/x-www-form-urlencoded");
+    line_client.println("Content-Length: " + String(myMsg.length()));
+    line_client.println();
+    line_client.println(myMsg);
+    line_client.println();
+    line_client.stop();
+  }
+  else {
+    Serial.println("Line Notify failed");
+  }
+}
+//---- LINE函數 End -----
+
 void setup() {
   delay(500);
   Serial.begin(9600);
@@ -171,10 +200,22 @@ void UartGetFromMega(){
   while(MegaSerial.available()){
     String str=MegaSerial.readString();
     Serial.println(str);    
-	//if (str.indexOf(CAR_STANDBY) != -1){
-		
-	//}
-  }
+	//完成送貨，傳LINE通知收貨人
+	if (str.indexOf(LINE_NOTIFY) != -1){
+	  //收貨人資料字串轉陣列
+	  String tmpArray[3];
+	  char* token = strtok((char*)str.c_str(), ",");
+	  int tokenLen = 0;
+	  while (token != NULL && tokenLen < 3) {
+		tmpArray[tokenLen] = token;
+		token = strtok(NULL, ",");
+		tokenLen++;
+	  }
+	  //發送LINE
+	  sendLineMsg(tmpArray[1] + "您好：您的商品：「" + tmpArray[2] + "」已送達，請至門口進行人臉識別簽收。");
+	}
+	
+  }//while
 }
 
 void setup_wifi() {
