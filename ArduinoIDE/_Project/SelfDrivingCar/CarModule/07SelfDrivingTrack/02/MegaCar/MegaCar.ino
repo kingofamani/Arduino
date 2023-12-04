@@ -355,8 +355,7 @@ void goCar() {
       Serial.println("左轉,");
     }
   }
-
-  //4.
+  
 }
 
 //===========實體小車和馬達 End===========
@@ -684,10 +683,10 @@ void setup() {
 
   //伺服馬達初始
   servoCarBox.attach(SERVO_CAR_BOX_PIN);
-  servoCarBox.write(0);
+  servoCarBox.write(ANGLE_CAR_BOX_CLOSE);
   delay(1000);
   servoAiCam.attach(SERVO_AI_CAM_PIN);
-  servoAiCam.write(0);
+  servoAiCam.write(ANGLE_AI_CAM_FRONT);
   delay(1000);
 
   //HuskyLens鏡頭初始化
@@ -880,6 +879,11 @@ void loop() {
         printAStarResult();
         //開始移動實際車子
         goCar();
+        //抵達目的地,AI鏡頭朝向,準備人臉識別收貨人
+        servoAiCam.write(ANGLE_AI_CAM_UP);
+        delay(1000);
+
+
         //紀錄最後車頭方向,當成下次導航車頭起始方向
         CAR_INIT_DIRECT = pathMapDirect[pathCount];
       } else {
