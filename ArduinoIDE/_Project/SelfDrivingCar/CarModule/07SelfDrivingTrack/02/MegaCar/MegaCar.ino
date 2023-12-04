@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include <SoftwareSerial.h>
 #include <Servo.h>
+#include "HUSKYLENS.h"
 
 //★★★車頭初始向下
 char CAR_INIT_DIRECT = 'D';
@@ -87,7 +88,22 @@ bool isFrontArrive = false;
 Servo servoCarBox;
 Servo servoAiCam;
 
-//===========小車Start===========
+//HsukyLens AI鏡頭
+HUSKYLENS huskylens;
+int readData[5] = {};
+byte dataType = 0;
+byte idCount = 0;
+bool detection_now = 0;
+
+int aiId = 0;
+int aiX = 0;  //中心點X座標
+int aiY = 0;  //中心點Y座標
+int aiWidth = 0;
+int aiHeight = 0;
+const int PERSON_ID = 1;  //人(透過AI鏡頭訓練)
+const int CAR_ID = 2;     //車子(透過AI鏡頭訓練)
+
+//===========實體小車和馬達 Start===========
 //L298N腳位
 #define L298N_IN1 22  //14
 #define L298N_IN2 23  //27
@@ -314,6 +330,9 @@ void goCar() {
   //3.開始移動車子
   for (int i = 0; i < tokenLen; i++) {
     if (pathCarMotor[i] == "F") {
+      //AI識別行人,車子
+      AiDetect();
+      //循跡感測
       trackForward();
       isFrontArrive = false;
       delay(FTimer);
@@ -338,10 +357,9 @@ void goCar() {
   }
 
   //4.
-
 }
 
-//===========小車End===========
+//===========實體小車和馬達 End===========
 
 //取得循跡感測器值
 void getTracks() {
@@ -355,6 +373,82 @@ void getTracks() {
   //   Serial.print(trackSensor[i]);
   // }
 }
+
+//===========HsukyLens AI鏡頭Start===========
+void AiDetect() {
+  //直到沒有偵側到人or車才離開迴圈
+  do {
+    startDetectObject();
+    if (aiId == PERSON_ID) {
+      Serial.println("人");
+    } else if (aiId == CAR_ID) {
+      Serial.println("車");
+    }
+    delay(500);
+  } while (aiId == PERSON_ID || aiId == CAR_ID);
+}
+
+void startDetectObject() {
+  if (!huskylens.request()) {
+    Serial.println(F("Fail to request data from HUSKYLENS, recheck the connection!"));
+  } else {
+    if (huskylens.available()) {
+      detection_now = true;
+      HUSKYLENSResult result = huskylens.read();
+      idCount = huskylens.countLearned();
+      if (result.command == COMMAND_RETURN_BLOCK) {
+        dataType = 0;
+        readData[0] = result.xCenter;
+        readData[1] = result.yCenter;
+        readData[2] = result.width;
+        readData[3] = result.height;
+        readData[4] = result.ID;
+      } else if (result.command == COMMAND_RETURN_ARROW) {
+        dataType = 1;
+        readData[0] = result.xOrigin;
+        readData[1] = result.yOrigin;
+        readData[2] = result.xTarget;
+        readData[3] = result.yTarget;
+        readData[4] = result.ID;
+      } else {
+        for (byte i = 0; i < 5; i++) {
+          readData[i] = 0;
+        }
+      }
+    } else {
+      detection_now = false;
+    }
+  }
+  if (detection_now) {
+    aiId = readData[4];
+    aiX = readData[0];
+    aiY = readData[1];
+    aiWidth = readData[2];
+    aiHeight = readData[3];
+
+    //id=0表示有辨識到物體，但該物體沒有被學習
+    if (aiId > 0) {
+      Serial.print(aiId);
+      Serial.print(',');
+      Serial.print(aiX);
+      Serial.print(',');
+      Serial.print(aiY);
+      Serial.print(',');
+      Serial.print(aiWidth);
+      Serial.print(',');
+      Serial.println(aiHeight);
+    }
+  } else {
+    aiId = 0;
+    aiX = 0;
+    aiY = 0;
+    aiWidth = 0;
+    aiHeight = 0;
+    //Serial.println("null");
+  }
+}
+
+//===========HsukyLens AI鏡頭End===========
 
 // 表示地圖上的節點的類別
 class Node {
@@ -375,7 +469,7 @@ public:
   }
 };
 
-// A*算法
+// A*演算法
 bool aStar(int grid[numRows][numCols], int startRow, int startCol, int endRow, int endCol) {
   Node* openList[numRows * numCols];
   Node* closedList[numRows * numCols];
@@ -562,10 +656,10 @@ void setStartEndPoint(String start, String end) {
   if (startPoint == GOODS_POINT) {
     startRow = 0;
     startCol = 0;
-  }else if (startPoint == CHARGE_POINT) {
+  } else if (startPoint == CHARGE_POINT) {
     startRow = 0;
     startCol = 5;
-  }else if (startPoint == Recipient_POINT) {
+  } else if (startPoint == Recipient_POINT) {
     startRow = 3;
     startCol = 5;
   }
@@ -573,14 +667,13 @@ void setStartEndPoint(String start, String end) {
   if (endPoint == GOODS_POINT) {
     endRow = 0;
     endCol = 0;
-  }else if (endPoint == CHARGE_POINT) {
+  } else if (endPoint == CHARGE_POINT) {
     endRow = 0;
     endCol = 5;
-  }else if (endPoint == Recipient_POINT) {
+  } else if (endPoint == Recipient_POINT) {
     endRow = 3;
     endCol = 5;
   }
-
 }
 
 void setup() {
@@ -596,6 +689,16 @@ void setup() {
   servoAiCam.attach(SERVO_AI_CAM_PIN);
   servoAiCam.write(0);
   delay(1000);
+
+  //HuskyLens鏡頭初始化
+  Wire.begin();
+  while (!huskylens.begin(Wire)) {
+    Serial.println(F("Begin failed!"));
+    Serial.println(F("1.Please recheck the \"Protocol Type\" in HUSKYLENS (General Settings>>Protocol Type>>I2C)"));
+    Serial.println(F("2.Please recheck the connection."));
+    delay(100);
+  }
+  huskylens.writeAlgorithm(ALGORITHM_OBJECT_RECOGNITION);
 
   //小車初始化
   pinMode(L298N_IN1, OUTPUT);
