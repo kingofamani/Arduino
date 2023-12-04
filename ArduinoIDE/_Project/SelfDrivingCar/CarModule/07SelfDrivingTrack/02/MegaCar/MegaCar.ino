@@ -11,10 +11,17 @@ const int numCols = 6;
 
 //地圖陣列，0表示障礙物，1表示可通行
 int grid[numRows][numCols];
+//位置
+const char* CURRENT_POINT = "currentPoint";
+const char* GOODS_POINT = "goodsStation";
+const char* CHARGE_POINT = "chargeStation";
+const char* Recipient_POINT = "recipientHome";
 //起點位置
+String startPoint = GOODS_POINT;
 int startRow = 0;
 int startCol = 0;
 //終點位置
+String endPoint = Recipient_POINT;
 int endRow = 3;
 int endCol = 5;
 
@@ -63,7 +70,7 @@ bool isFrontArrive = false;
 #define TRIGGLED 1
 
 //loop只執行一次
-bool loopHasRun = false;
+//bool loopHasRun = false;
 
 //======循跡感測器 End======
 
@@ -71,10 +78,14 @@ bool loopHasRun = false;
 #define SERVO_CAR_BOX_PIN 30
 #define SERVO_AI_CAM_PIN 31
 
+//伺服馬旋轉角度
+#define ANGLE_CAR_BOX_OPEN 90  //開啟貨斗
+#define ANGLE_CAR_BOX_CLOSE 0  //關閉貨斗
+#define ANGLE_AI_CAM_FRONT 90  //鏡頭向前
+#define ANGLE_AI_CAM_UP 45     //鏡頭朝上
+
 Servo servoCarBox;
 Servo servoAiCam;
-
-
 
 //===========小車Start===========
 //L298N腳位
@@ -325,6 +336,9 @@ void goCar() {
       Serial.println("左轉,");
     }
   }
+
+  //4.
+
 }
 
 //===========小車End===========
@@ -540,6 +554,35 @@ void reverseStringArray(String arr[], int length) {
   }
 }
 
+//設起訖點
+void setStartEndPoint(String start, String end) {
+  startPoint = start;
+  endPoint = end;
+
+  if (startPoint == GOODS_POINT) {
+    startRow = 0;
+    startCol = 0;
+  }else if (startPoint == CHARGE_POINT) {
+    startRow = 0;
+    startCol = 5;
+  }else if (startPoint == Recipient_POINT) {
+    startRow = 3;
+    startCol = 5;
+  }
+
+  if (endPoint == GOODS_POINT) {
+    endRow = 0;
+    endCol = 0;
+  }else if (endPoint == CHARGE_POINT) {
+    endRow = 0;
+    endCol = 5;
+  }else if (endPoint == Recipient_POINT) {
+    endRow = 3;
+    endCol = 5;
+  }
+
+}
+
 void setup() {
   Serial.begin(9600);
   //UART
@@ -675,8 +718,8 @@ void loop() {
     Serial.println(str);
 
     if (str.indexOf(MAP_SET) != -1) {
-      //開始貨斗
-      servoCarBox.write(90);
+      //開啟貨斗
+      servoCarBox.write(ANGLE_CAR_BOX_OPEN);
       delay(1000);
 
       //儲存地圖陣列(格式:MAP_SET,4x6地圖陣列)
@@ -695,7 +738,6 @@ void loop() {
           grid[i][j] = tmpArray[count++].toInt();
         }
       }
-
     }
     elseif(str.indexOf(GOODS_LOAD) != -1) {
       //儲存收件人陣列(格式:goodsLoad,姓名,商品,倉庫X,倉庫Y,收件人X,收件人Y)
@@ -715,18 +757,38 @@ void loop() {
       }
 
       //關閉貨斗
-      servoCarBox.write(0);
+      servoCarBox.write(ANGLE_CAR_BOX_CLOSE);
       delay(1000);
 
       //A*路徑歸劃
+      setStartEndPoint(GOODS_POINT, Recipient_POINT);                     //設起訖點
+      bool isFindPath = aStar(grid, startRow, startCol, endRow, endCol);  //A*演算
+
+      //開始導航
+      if (isFindPath) {
+        Serial.println("找到路徑!");
+        //座標起點
+        pathXY[pathCount] = "(" + String(startRow) + "," + String(startCol) + ")";
+        //車頭初始方向
+        pathMapDirect[pathCount] = CAR_INIT_DIRECT;
+        //座標轉換成車子移動指令
+        convertXyToCarMove();
+        //印出結果
+        printAStarResult();
+        //開始移動實際車子
+        goCar();
+        //紀錄最後車頭方向,當成下次導航車頭起始方向
+        CAR_INIT_DIRECT = pathMapDirect[pathCount];
+      } else {
+        Serial.println("未找到路徑.");
+      }
     }
   }
 
 
-
-  if (loopHasRun) {
-    return;
-  }
+  // if (loopHasRun) {
+  //   return;
+  // }
 
   // // 地圖表示，0表示障礙物，1表示可通行
   // int grid[numRows][numCols] = {
@@ -742,21 +804,7 @@ void loop() {
   // int endRow = 3;  //終點位置
   // int endCol = 5;
 
-  if (aStar(grid, startRow, startCol, endRow, endCol)) {
-    Serial.println("找到路徑!");
-    //座標起點
-    pathXY[pathCount] = "(" + String(startRow) + "," + String(startCol) + ")";
-    //車頭初始方向
-    pathMapDirect[pathCount] = CAR_INIT_DIRECT;
-    //座標轉換成車子移動指令
-    convertXyToCarMove();
-    //印出結果
-    printAStarResult();
-    //開始移動實際車子
-    goCar();
-  } else {
-    Serial.println("未找到路徑.");
-  }
 
-  loopHasRun = true;
+
+  //loopHasRun = true;
 }

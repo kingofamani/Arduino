@@ -6,7 +6,7 @@
 //與Mega通訊
 const char* MAP_SET = "mapSet";
 const char* GOODS_LOAD = "goodsLoad";
-const char* CAR_STANDBY = "carStandby";
+//const char* CAR_STANDBY = "carStandby";
    
 //UART通訊
 SoftwareSerial MegaSerial(16,17);

@@ -96,6 +96,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
   }else if (String(topic) == TOPIC_GOODS_LOAD) {
     //開始送貨(格式:GOODS_LOAD,姓名,商品,倉庫X,倉庫Y,收件人X,收件人Y)
 	UartSentToMega(GOODS_LOAD + "," +mqttGetMsg);
+	
   }else if (String(topic) == TOPIC_CAR_GPS) {
     
   }
