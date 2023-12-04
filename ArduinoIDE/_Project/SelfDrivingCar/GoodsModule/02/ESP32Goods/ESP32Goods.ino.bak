@@ -99,7 +99,12 @@ void callback(char* topic, byte* payload, unsigned int length) {
 	readGoogleSheet();
 	
 	//CNC自動撿貨
-	pickGoods(recipient[4],recipient[5]);  
+	pickGoods(recipient[4],recipient[5]);
+    
+    //發送MQTT：TOPIC_GOODS_LOAD
+    //mqttSendMsg = "1";
+    //client.publish(TOPIC_GOODS_LOAD, mqttSendMsg);
+    
   }
 
 }

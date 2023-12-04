@@ -31,6 +31,7 @@ SoftwareSerial ESP32Serial(19, 18);
 
 //與Esp32通訊
 const char* OPEN_CAR_BOX = "openCarBox";
+const char* GOODS_LOAD = "goodsLoad";
 //====UART end====
 
 //======循跡感測器 Start======
@@ -661,9 +662,28 @@ void loop() {
   while (ESP32Serial.available()) {
     String str = ESP32Serial.readString();
     Serial.println(str);
-    if(str == OPEN_CAR_BOX){
+    
+    if(str.indexOf(OPEN_CAR_BOX) != -1){
       servoCarBox.write(90);
       delay(1000);
+    }elseif(str.indexOf(GOODS_LOAD) != -1){
+      //字串轉成陣列(格式:goodsLoad,姓名,商品,倉庫X,倉庫Y,收件人X,收件人Y)
+      String recipient[7];
+      char* token = strtok((char*)str.c_str(), ",");
+      int tokenLen = 0;
+      while (token != NULL && tokenLen < 7) {
+        recipient[tokenLen] = token;
+        token = strtok(NULL, ",");
+        tokenLen++;
+      }
+
+      //關閉貨斗
+      servoCarBox.write(0);
+      delay(1000);
+
+      //A*路徑歸劃
+      
+
     }
   }
 
