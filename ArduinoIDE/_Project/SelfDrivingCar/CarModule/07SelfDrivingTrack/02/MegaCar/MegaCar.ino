@@ -2,12 +2,21 @@
 #include <SoftwareSerial.h>
 #include <Servo.h>
 
-//★★★車頭初始向上
-char CAR_INIT_DIRECT = 'U';
+//★★★車頭初始向下
+char CAR_INIT_DIRECT = 'D';
 
 // 定義地圖大小
-const int numRows = 5;
-const int numCols = 8;
+const int numRows = 4;
+const int numCols = 6;
+
+//地圖陣列，0表示障礙物，1表示可通行
+int grid[numRows][numCols];
+//起點位置
+int startRow = 0;
+int startCol = 0;
+//終點位置
+int endRow = 3;
+int endCol = 5;
 
 //儲存座標結果
 String pathXY[numRows * numCols];
@@ -30,8 +39,9 @@ char* CAR_MOVE[4] = { "F,", "R,F,", "R,R,F,", "L,F," };
 SoftwareSerial ESP32Serial(19, 18);
 
 //與Esp32通訊
-const char* OPEN_CAR_BOX = "openCarBox";
+const char* MAP_SET = "mapSet";
 const char* GOODS_LOAD = "goodsLoad";
+//const char* CAR_STANDBY = "carStandby";
 //====UART end====
 
 //======循跡感測器 Start======
@@ -100,7 +110,7 @@ void trackForward() {
 
   //先往前300ms,越過前方白線
   //Serial.print("forward300,");
-  forward();  
+  forward();
   delay(300);
   //stopCar();
   //接收循跡值
@@ -122,7 +132,7 @@ void trackForward() {
       isFrontArrive = true;
       break;
     }
-    
+
     //開始判斷偏左、偏右、跑完一格
     if (trackSensor[TRACK_LEFT] == TRIGGLED && trackSensor[TRACK_RIGHT] != TRIGGLED) {
       //Serial.print(">");
@@ -139,7 +149,7 @@ void trackForward() {
     }
     //delay(trackTimer);
 
-    
+
   }  //end while
 }
 
@@ -654,27 +664,54 @@ void printAStarResult() {
 
 void loop() {
   //傳送訊息：Mega→ESP32
-  if (Serial.available()) {
-    String str = Serial.readString();
-    ESP32Serial.print(str);
-  }
+  // if (Serial.available()) {
+  //   String str = Serial.readString();
+  //   ESP32Serial.print(str);
+  // }
+
   //接收訊息：ESP32→Mega
   while (ESP32Serial.available()) {
     String str = ESP32Serial.readString();
     Serial.println(str);
-    
-    if(str.indexOf(OPEN_CAR_BOX) != -1){
+
+    if (str.indexOf(MAP_SET) != -1) {
+      //開始貨斗
       servoCarBox.write(90);
       delay(1000);
-    }elseif(str.indexOf(GOODS_LOAD) != -1){
-      //字串轉成陣列(格式:goodsLoad,姓名,商品,倉庫X,倉庫Y,收件人X,收件人Y)
-      String recipient[7];
+
+      //儲存地圖陣列(格式:MAP_SET,4x6地圖陣列)
+      String tmpArray[25];
+      char* token = strtok((char*)str.c_str(), ",");
+      int tokenLen = 0;
+      while (token != NULL && tokenLen < 25) {
+        tmpArray[tokenLen] = token;
+        token = strtok(NULL, ",");
+        tokenLen++;
+      }
+
+      int count = 1;  //第0個MAP_SET不用放入
+      for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 6; j++) {
+          grid[i][j] = tmpArray[count++].toInt();
+        }
+      }
+
+    }
+    elseif(str.indexOf(GOODS_LOAD) != -1) {
+      //儲存收件人陣列(格式:goodsLoad,姓名,商品,倉庫X,倉庫Y,收件人X,收件人Y)
+      String tmpArray[7];
       char* token = strtok((char*)str.c_str(), ",");
       int tokenLen = 0;
       while (token != NULL && tokenLen < 7) {
-        recipient[tokenLen] = token;
+        tmpArray[tokenLen] = token;
         token = strtok(NULL, ",");
         tokenLen++;
+      }
+
+      String recipient[6];  //第0個goodsLoad不用放入
+      int count = 0;
+      for (int i = 1; i < 7; i++) {
+        recipient[count++] = tmpArray[i];
       }
 
       //關閉貨斗
@@ -682,8 +719,6 @@ void loop() {
       delay(1000);
 
       //A*路徑歸劃
-      
-
     }
   }
 
@@ -693,19 +728,19 @@ void loop() {
     return;
   }
 
-  // 地圖表示，0表示障礙物，1表示可通行
-  int grid[numRows][numCols] = {
-    { 1, 1, 1, 1, 1, 1, 1, 1 },
-    { 0, 0, 0, 0, 0, 0, 0, 1 },
-    { 1, 1, 1, 1, 1, 1, 1, 1 },
-    { 1, 0, 0, 0, 0, 0, 0, 0 },
-    { 1, 1, 1, 1, 1, 1, 1, 1 }
-  };
+  // // 地圖表示，0表示障礙物，1表示可通行
+  // int grid[numRows][numCols] = {
+  //   { 1, 1, 1, 1, 1, 1, 1, 1 },
+  //   { 0, 0, 0, 0, 0, 0, 0, 1 },
+  //   { 1, 1, 1, 1, 1, 1, 1, 1 },
+  //   { 1, 0, 0, 0, 0, 0, 0, 0 },
+  //   { 1, 1, 1, 1, 1, 1, 1, 1 }
+  // };
 
-  int startRow = 0;
-  int startCol = 0;
-  int endRow = 4;  // 更新endRow和endCol到所需的終點位置
-  int endCol = 7;
+  // int startRow = 0;//起點位置
+  // int startCol = 0;
+  // int endRow = 3;  //終點位置
+  // int endCol = 5;
 
   if (aStar(grid, startRow, startCol, endRow, endCol)) {
     Serial.println("找到路徑!");

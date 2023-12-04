@@ -4,8 +4,9 @@
 #include <WiFiClientSecure.h>
 
 //與Mega通訊
-const char* OPEN_CAR_BOX = "openCarBox";
+const char* MAP_SET = "mapSet";
 const char* GOODS_LOAD = "goodsLoad";
+//const char* CAR_STANDBY = "carStandby";
    
 //UART通訊
 SoftwareSerial MegaSerial(16,17);
@@ -82,8 +83,9 @@ void callback(char* topic, byte* payload, unsigned int length) {
   
   //接收多個Topic主題的消息Msg
   if (String(topic) == TOPIC_MAP_SET) {
-    //開啟貨斗
-    UartSentToMega("OPEN_CAR_BOX");
+    //儲存地圖陣列(格式:MAP_SET,4x6地圖陣列)
+    UartSentToMega(MAP_SET+","+mqttGetMsg);
+	delay(1000);
     
     //發送MQTT：TOPIC_CAR_STANDBY
     mqttSendMsg = "1";
@@ -92,7 +94,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
   }else if (String(topic) == TOPIC_CAR_STANDBY) {
     
   }else if (String(topic) == TOPIC_GOODS_LOAD) {
-    //開始送貨(格式:goodsLoad,姓名,商品,倉庫X,倉庫Y,收件人X,收件人Y)
+    //開始送貨(格式:GOODS_LOAD,姓名,商品,倉庫X,倉庫Y,收件人X,收件人Y)
 	UartSentToMega(GOODS_LOAD + "," +mqttGetMsg);
   }else if (String(topic) == TOPIC_CAR_GPS) {
     
@@ -166,8 +168,11 @@ void UartSentToMega(String msg){
 //接收訊息：Mega→ESP32
 void UartGetFromMega(){
   while(MegaSerial.available()){
-    String val=MegaSerial.readString();
-    Serial.println(val);    
+    String str=MegaSerial.readString();
+    Serial.println(str);    
+	//if (str.indexOf(CAR_STANDBY) != -1){
+		
+	//}
   }
 }
 
