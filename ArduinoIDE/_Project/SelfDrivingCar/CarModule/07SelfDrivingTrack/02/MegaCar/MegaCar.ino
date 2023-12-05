@@ -51,6 +51,7 @@ const char* MAP_SET = "mapSet";
 const char* GOODS_LOAD = "goodsLoad";
 const char* LINE_NOTIFY = "lineNotify";
 
+
 //收貨人
 String recipient[6];
 //====UART end====
@@ -79,8 +80,8 @@ bool isFrontArrive = false;
 //======循跡感測器 End======
 
 //伺服馬達
-#define SERVO_CAR_BOX_PIN 30
-#define SERVO_AI_CAM_PIN 31
+#define SERVO_CAR_BOX_PIN 34
+#define SERVO_AI_CAM_PIN 35
 
 //伺服馬旋轉角度
 #define ANGLE_CAR_BOX_OPEN 90  //開啟貨斗
@@ -103,8 +104,13 @@ int aiX = 0;  //中心點X座標
 int aiY = 0;  //中心點Y座標
 int aiWidth = 0;
 int aiHeight = 0;
-const int PERSON_ID = 1;  //人(透過AI鏡頭訓練)
-const int CAR_ID = 2;     //車子(透過AI鏡頭訓練)
+const int PERSON_ID = 1;                             //物體識別模式:人(透過AI鏡頭訓練)
+const int CAR_ID = 2;                                //物體識別模式:車子(透過AI鏡頭訓練)
+const int FACE_ID1 = 1;                              //人臉識別模式:車子(透過AI鏡頭訓練)
+char* CurrentAlgo = "ALGORITHM_OBJECT_RECOGNITION";  //目前的演算法
+
+//簽收鈕
+#define BUTTON_SIGN_PIN 36
 
 //===========實體小車和馬達 Start===========
 //L298N腳位
@@ -379,15 +385,25 @@ void getTracks() {
 void AiDetect() {
   //直到沒有偵側到人or車才離開迴圈
   do {
+    bool isDetectPerson = false;
+    bool isDetectCar = false;
+    //開始AI識別物體
     startDetectObject();
-    if (aiId == PERSON_ID) {
-      Serial.println("人");
-    } else if (aiId == CAR_ID) {
-      Serial.println("車");
+
+    //在範圍內偵測到人,車才算
+    if ((aiX >= 100 && aiX <= 220) && (aiY >= 60 && aiY <= 180)) {
+      if (aiId == PERSON_ID) {
+        isDetectPerson = true;
+        Serial.println("人");
+      } else if (aiId == CAR_ID) {
+        isDetectCar = true;
+        Serial.println("車");
+      }
     }
     delay(500);
-  } while (aiId == PERSON_ID || aiId == CAR_ID);
+  } while (isDetectPerson || isDetectCar);
 }
+
 
 void startDetectObject() {
   if (!huskylens.request()) {
@@ -430,14 +446,14 @@ void startDetectObject() {
     //id=0表示有辨識到物體，但該物體沒有被學習
     if (aiId > 0) {
       Serial.print(aiId);
-      Serial.print(',');
-      Serial.print(aiX);
-      Serial.print(',');
-      Serial.print(aiY);
-      Serial.print(',');
-      Serial.print(aiWidth);
-      Serial.print(',');
-      Serial.println(aiHeight);
+      // Serial.print(',');
+      // Serial.print(aiX);
+      // Serial.print(',');
+      // Serial.print(aiY);
+      // Serial.print(',');
+      // Serial.print(aiWidth);
+      // Serial.print(',');
+      // Serial.println(aiHeight);
     }
   } else {
     aiId = 0;
@@ -677,11 +693,24 @@ void setStartEndPoint(String start, String end) {
   }
 }
 
+void standByAiCam() {
+  //A鏡頭上
+  servoAiCam.write(ANGLE_AI_CAM_UP);
+  delay(1000);
+  //Hsukylens人臉識別模式
+  huskylens.writeAlgorithm(ALGORITHM_FACE_RECOGNITION);
+  CurrentAlgo = "ALGORITHM_FACE_RECOGNITION";
+}
+
+
 void setup() {
   Serial.begin(9600);
   //UART
   ESP32Serial.begin(9600);
   //Serial2.begin(9600, SERIAL_8N1, U1RXD, U1TXD);
+
+  //按鈕I/O
+  pinMode(BUTTON_SIGN_PIN, INPUT);
 
   //伺服馬達初始
   servoCarBox.attach(SERVO_CAR_BOX_PIN);
@@ -699,7 +728,8 @@ void setup() {
     Serial.println(F("2.Please recheck the connection."));
     delay(100);
   }
-  huskylens.writeAlgorithm(ALGORITHM_OBJECT_RECOGNITION);
+  huskylens.writeAlgorithm(ALGORITHM_OBJECT_RECOGNITION);  //物體辨識模式
+  CurrentAlgo = "ALGORITHM_OBJECT_RECOGNITION";
 
   //小車初始化
   pinMode(L298N_IN1, OUTPUT);
@@ -882,11 +912,9 @@ void loop() {
         //開始移動實際車子
         goCar();
         //抵達目的地,AI鏡頭朝向,準備人臉識別收貨人
-        servoAiCam.write(ANGLE_AI_CAM_UP);
-        delay(1000);
+        standByAiCam();
         //完成送貨，發送LINE通知收貨人(格式:LINE_NOTIFY,姓名,商品)
         ESP32Serial.print(LINE_NOTIFY + "," + recipient[0] + recipient[1]);
-
         //紀錄最後車頭方向,當成下次導航車頭起始方向
         CAR_INIT_DIRECT = pathMapDirect[pathCount];
       } else {
@@ -895,6 +923,32 @@ void loop() {
     }
   }
 
+  //等待AI人臉識別
+  if (CurrentAlgo == "ALGORITHM_FACE_RECOGNITION") {
+    //開始AI人臉識別
+    startDetectObject();
+
+    if (aiId == FACE_ID1) {
+      Serial.println("收貨人1");
+      //開鎖
+      servoCarBox.write(ANGLE_CAR_BOX_OPEN);
+      delay(1000);
+      //復位
+      servoAiCam.write(ANGLE_AI_CAM_FRONT);
+      delay(1000);
+      CurrentAlgo = "ALGORITHM_OBJECT_RECOGNITION";
+    }
+    //delay(500);
+  }
+
+  //按下簽收鈕
+  if(digitalRead(BUTTON_SIGN_PIN)==1){
+    //自動關閉貨斗
+    servoCarBox.write(ANGLE_CAR_BOX_CLOSE);
+    delay(1000);
+    //導航回物流站
+    
+  }
 
   // if (loopHasRun) {
   //   return;
