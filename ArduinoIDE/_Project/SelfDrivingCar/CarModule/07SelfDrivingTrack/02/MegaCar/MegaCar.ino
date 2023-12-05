@@ -942,12 +942,39 @@ void loop() {
   }
 
   //按下簽收鈕
-  if(digitalRead(BUTTON_SIGN_PIN)==1){
+  if (digitalRead(BUTTON_SIGN_PIN) == 1) {
     //自動關閉貨斗
     servoCarBox.write(ANGLE_CAR_BOX_CLOSE);
     delay(1000);
-    //導航回物流站
     
+    //關閉貨斗
+    servoCarBox.write(ANGLE_CAR_BOX_CLOSE);
+    delay(1000);
+
+    //導航回物流站
+    //A*路徑歸劃
+    setStartEndPoint(Recipient_POINT, GOODS_POINT);                     //設起訖點
+    bool isFindPath = aStar(grid, startRow, startCol, endRow, endCol);  //A*演算
+
+    //開始導航
+    if (isFindPath) {
+      Serial.println("找到路徑!");
+      //座標起點
+      pathXY[pathCount] = "(" + String(startRow) + "," + String(startCol) + ")";
+      //車頭初始方向
+      pathMapDirect[pathCount] = CAR_INIT_DIRECT;
+      //座標轉換成車子移動指令
+      convertXyToCarMove();
+      //印出結果
+      printAStarResult();
+      //開始移動實際車子
+      goCar();
+      //紀錄最後車頭方向,當成下次導航車頭起始方向
+      //xxx之後要將車頭自動轉向下，否則貨斗開啟方向會卡住
+      CAR_INIT_DIRECT = pathMapDirect[pathCount];
+    } else {
+      Serial.println("未找到路徑.");
+    }
   }
 
   // if (loopHasRun) {
