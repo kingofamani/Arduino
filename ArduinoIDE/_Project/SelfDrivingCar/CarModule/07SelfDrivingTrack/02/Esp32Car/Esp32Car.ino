@@ -7,6 +7,7 @@
 const char* MAP_SET = "mapSet";
 const char* GOODS_LOAD = "goodsLoad";
 const char* LINE_NOTIFY = "lineNotify";
+const char* CAR_GPS = "carGps";
    
 //UART通訊
 SoftwareSerial MegaSerial(16,17);
@@ -213,6 +214,21 @@ void UartGetFromMega(){
 	  }
 	  //發送LINE
 	  sendLineMsg(tmpArray[1] + "您好：您的商品：「" + tmpArray[2] + "」已送達，請至門口進行人臉識別簽收。");
+	  
+	//雲端平台模擬GPS(格式:xy)
+	}else if (str.indexOf(CAR_GPS) != -1){
+		//座標字串轉陣列
+		String arryGps[3];
+	  char* token = strtok((char*)str.c_str(), ",");
+	  int tokenLen = 0;
+	  while (token != NULL && tokenLen < 3) {
+		arryGps[tokenLen] = token;
+		token = strtok(NULL, ",");
+		tokenLen++;
+	  }
+	  //發送MQTT：TOPIC_CAR_GPS(格式:xy)
+		mqttSendMsg = arryGps[1]+arryGps[2];
+		client.publish(TOPIC_CAR_GPS, mqttSendMsg);	  
 	}
 	
   }//while

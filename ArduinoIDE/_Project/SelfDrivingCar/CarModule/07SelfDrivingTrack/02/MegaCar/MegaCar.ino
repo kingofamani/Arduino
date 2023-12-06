@@ -50,7 +50,7 @@ SoftwareSerial ESP32Serial(19, 18);
 const char* MAP_SET = "mapSet";
 const char* GOODS_LOAD = "goodsLoad";
 const char* LINE_NOTIFY = "lineNotify";
-
+const char* CAR_GPS = "carGps";
 
 //收貨人
 String recipient[6];
@@ -337,6 +337,7 @@ void goCar() {
   }
 
   //3.開始移動車子
+  int countPathXY = 1;
   for (int i = 0; i < tokenLen; i++) {
     if (pathCarMotor[i] == "F") {
       //AI識別行人,車子
@@ -345,6 +346,9 @@ void goCar() {
       trackForward();
       isFrontArrive = false;
       delay(FTimer);
+      //雲端平台模擬GPS
+      ESP32Serial.print(CAR_GPS + "," + pathXY[countPathXY++]);
+
       // forward();
       // delay(FTimer);
       // stopCar();
@@ -524,7 +528,8 @@ bool aStar(int grid[numRows][numCols], int startRow, int startCol, int endRow, i
       Node* current = currentNode;
       while (current->parent != nullptr) {
         //Serial.print("[" + String(current->row) + "," + String(current->col) + "] ");
-        pathXY[pathCount] = "(" + String(current->row) + "," + String(current->col) + ")";
+        //pathXY[pathCount] = "(" + String(current->row) + "," + String(current->col) + ")";
+        pathXY[pathCount] = String(current->row) + "," + String(current->col);
 
         int deltaX = current->col - current->parent->col;
         int deltaY = current->row - current->parent->row;
@@ -788,7 +793,7 @@ void printAStarResult() {
   //印出地圖座標
   for (int i = 0; i < pathCount + 1; i++) {
     Serial.print(pathXY[i]);
-    Serial.print(',');
+    Serial.print("→");
   }
   Serial.println("");
 
@@ -902,14 +907,15 @@ void loop() {
       if (isFindPath) {
         Serial.println("找到路徑!");
         //座標起點
-        pathXY[pathCount] = "(" + String(startRow) + "," + String(startCol) + ")";
+        //pathXY[pathCount] = "(" + String(startRow) + "," + String(startCol) + ")";
+        pathXY[pathCount] = String(startRow) + "," + String(startCol);
         //車頭初始方向
         pathMapDirect[pathCount] = CAR_INIT_DIRECT;
         //座標轉換成車子移動指令
         convertXyToCarMove();
         //印出結果
         printAStarResult();
-        //開始移動實際車子
+        //開始移動實際車子(含雲端平台GPS模擬)
         goCar();
         //抵達目的地,AI鏡頭朝向,準備人臉識別收貨人
         standByAiCam();
@@ -960,14 +966,14 @@ void loop() {
     if (isFindPath) {
       Serial.println("找到路徑!");
       //座標起點
-      pathXY[pathCount] = "(" + String(startRow) + "," + String(startCol) + ")";
+      pathXY[pathCount] = String(startRow) + "," + String(startCol);
       //車頭初始方向
       pathMapDirect[pathCount] = CAR_INIT_DIRECT;
       //座標轉換成車子移動指令
       convertXyToCarMove();
       //印出結果
       printAStarResult();
-      //開始移動實際車子
+      //開始移動實際車子(含雲端平台GPS模擬)
       goCar();
       //紀錄最後車頭方向,當成下次導航車頭起始方向
       //xxx之後要將車頭自動轉向下，否則貨斗開啟方向會卡住
