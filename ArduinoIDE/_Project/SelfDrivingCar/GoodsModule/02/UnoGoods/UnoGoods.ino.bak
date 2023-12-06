@@ -22,8 +22,6 @@ const int xstepPin = 2;    // x步进控制引脚
 const int ydirPin = 6;     // y方向控制引脚
 const int ystepPin = 3;    // y步进控制引脚
 
-const int servoPin = 11;   //伺服馬達腳位(接在Z+是pin11)
-
 const int moveSteps = 500;    //测试电机运行使用的运行步数
 
 AccelStepper stepper1(1, xstepPin, xdirPin); //建立步进电机对象1
@@ -39,7 +37,7 @@ void setup() {
   ESP32Serial.begin(9600);
 
   //伺服馬達
-  servoPick.attach(servoPin);
+  servoPick.attach(11);//接在Z+是pin11
   servoPick.write(0);
 
   pinMode(xstepPin, OUTPUT);    // Arduino控制A4988x步进引脚为输出模式

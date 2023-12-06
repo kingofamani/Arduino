@@ -952,10 +952,6 @@ void loop() {
     //自動關閉貨斗
     servoCarBox.write(ANGLE_CAR_BOX_CLOSE);
     delay(1000);
-    
-    //關閉貨斗
-    servoCarBox.write(ANGLE_CAR_BOX_CLOSE);
-    delay(1000);
 
     //導航回物流站
     //A*路徑歸劃
