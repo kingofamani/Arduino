@@ -13,10 +13,12 @@ const int numCols = 6;
 //地圖陣列，0表示障礙物，1表示可通行
 int grid[numRows][numCols];
 //位置
-const char* CURRENT_POINT = "currentPoint";
 const char* GOODS_POINT = "goodsStation";
 const char* CHARGE_POINT = "chargeStation";
 const char* Recipient_POINT = "recipientHome";
+
+//目前位置
+String currentPoint = GOODS_POINT;
 //起點位置
 String startPoint = GOODS_POINT;
 int startRow = 0;
@@ -921,8 +923,10 @@ void loop() {
         standByAiCam();
         //完成送貨，發送LINE通知收貨人(格式:LINE_NOTIFY,姓名,商品)
         ESP32Serial.print(LINE_NOTIFY + "," + recipient[0] + recipient[1]);
-        //紀錄最後車頭方向,當成下次導航車頭起始方向
-        CAR_INIT_DIRECT = pathMapDirect[pathCount];
+        //紀錄        
+        CAR_INIT_DIRECT = pathMapDirect[pathCount];//最後車頭方向,當成下次導航車頭起始方向
+        currentPoint = Recipient_POINT;//目前車子位置
+
       } else {
         Serial.println("未找到路徑.");
       }
@@ -971,9 +975,10 @@ void loop() {
       printAStarResult();
       //開始移動實際車子(含雲端平台GPS模擬)
       goCar();
-      //紀錄最後車頭方向,當成下次導航車頭起始方向
-      //xxx之後要將車頭自動轉向下，否則貨斗開啟方向會卡住
-      CAR_INIT_DIRECT = pathMapDirect[pathCount];
+      //紀錄(xxx之後要將車頭自動轉向下，否則貨斗開啟方向會卡住)
+      CAR_INIT_DIRECT = pathMapDirect[pathCount];//最後車頭方向,當成下次導航車頭起始方向
+      currentPoint = GOODS_POINT;//目前車子位置
+
     } else {
       Serial.println("未找到路徑.");
     }
