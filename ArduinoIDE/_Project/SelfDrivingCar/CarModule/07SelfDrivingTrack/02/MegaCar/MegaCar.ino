@@ -2,6 +2,8 @@
 #include <SoftwareSerial.h>
 #include <Servo.h>
 #include "HUSKYLENS.h"
+#include <Wire.h>
+#include <Adafruit_INA219.h>
 
 //★★★車頭初始向下
 char CAR_INIT_DIRECT = 'D';
@@ -113,6 +115,14 @@ char* CurrentAlgo = "ALGORITHM_OBJECT_RECOGNITION";  //目前的演算法
 
 //簽收鈕
 #define BUTTON_SIGN_PIN 36
+
+//測電壓電流
+Adafruit_INA219 ina219;
+float busvoltage = 0;  //電池電壓
+float shuntvoltage = 0;
+float loadvoltage = 0;  //負載電壓
+float current_mA = 0;   //負載電流
+float power_mW = 0;     //負載功率
 
 //===========實體小車和馬達 Start===========
 //L298N腳位
@@ -738,6 +748,12 @@ void setup() {
   huskylens.writeAlgorithm(ALGORITHM_OBJECT_RECOGNITION);  //物體辨識模式
   CurrentAlgo = "ALGORITHM_OBJECT_RECOGNITION";
 
+  //測電壓電流初始
+  if (!ina219.begin()) {
+    Serial.println("Failed to find INA219 chip");
+    while (1) { delay(10); }
+  }
+
   //小車初始化
   pinMode(L298N_IN1, OUTPUT);
   pinMode(L298N_IN2, OUTPUT);
@@ -923,9 +939,9 @@ void loop() {
         standByAiCam();
         //完成送貨，發送LINE通知收貨人(格式:LINE_NOTIFY,姓名,商品)
         ESP32Serial.print(LINE_NOTIFY + "," + recipient[0] + recipient[1]);
-        //紀錄        
-        CAR_INIT_DIRECT = pathMapDirect[pathCount];//最後車頭方向,當成下次導航車頭起始方向
-        currentPoint = Recipient_POINT;//目前車子位置
+        //紀錄
+        CAR_INIT_DIRECT = pathMapDirect[pathCount];  //最後車頭方向,當成下次導航車頭起始方向
+        currentPoint = Recipient_POINT;              //目前車子位置
 
       } else {
         Serial.println("未找到路徑.");
@@ -976,33 +992,124 @@ void loop() {
       //開始移動實際車子(含雲端平台GPS模擬)
       goCar();
       //紀錄(xxx之後要將車頭自動轉向下，否則貨斗開啟方向會卡住)
-      CAR_INIT_DIRECT = pathMapDirect[pathCount];//最後車頭方向,當成下次導航車頭起始方向
-      currentPoint = GOODS_POINT;//目前車子位置
+      CAR_INIT_DIRECT = pathMapDirect[pathCount];  //最後車頭方向,當成下次導航車頭起始方向
+      currentPoint = GOODS_POINT;                  //目前車子位置
 
     } else {
       Serial.println("未找到路徑.");
     }
   }
 
-  // if (loopHasRun) {
-  //   return;
-  // }
+  //判斷是否電量低於20%
+  checkIsLowPower(0.2);
+}
 
-  // // 地圖表示，0表示障礙物，1表示可通行
-  // int grid[numRows][numCols] = {
-  //   { 1, 1, 1, 1, 1, 1, 1, 1 },
-  //   { 0, 0, 0, 0, 0, 0, 0, 1 },
-  //   { 1, 1, 1, 1, 1, 1, 1, 1 },
-  //   { 1, 0, 0, 0, 0, 0, 0, 0 },
-  //   { 1, 1, 1, 1, 1, 1, 1, 1 }
-  // };
+void checkIsLowPower(float lowPercent) {
+  //在物流站才判斷
+  if (currentPoint != GOODS_POINT) {
+    return;
+  }
 
-  // int startRow = 0;//起點位置
-  // int startCol = 0;
-  // int endRow = 3;  //終點位置
-  // int endCol = 5;
+  //電池當前電壓百分比(小數)
+  float percent = getBusPowerPercent();
 
+  if (percent <= lowPercent) {
+    startCharge();
+  }
+}
 
+float getBusPowerPercent() {
+  const float minVolt = 6.3;  //以7.4v鋰電池為準
+  const float maxVolt = 8.2;  //以7.4v鋰電池為準
+  //測電壓電流
+  shuntvoltage = ina219.getShuntVoltage_mV();
+  busvoltage = ina219.getBusVoltage_V();
+  current_mA = ina219.getCurrent_mA();
+  power_mW = ina219.getPower_mW();
+  loadvoltage = busvoltage + (shuntvoltage / 1000);
+  
+  return ((busvoltage - minVolt) / (maxVolt - minVolt));
+}
 
-  //loopHasRun = true;
+void startCharge() {
+  //導航至充電站
+  setStartEndPoint(currentPoint, CHARGE_POINT);
+  bool isFindPath = aStar(grid, startRow, startCol, endRow, endCol);
+  if (isFindPath) {
+    Serial.println("找到路徑!");
+    //座標起點
+    pathXY[pathCount] = String(startRow) + "," + String(startCol);
+    //車頭初始方向
+    pathMapDirect[pathCount] = CAR_INIT_DIRECT;
+    //座標轉換成車子移動指令
+    convertXyToCarMove();
+    //印出結果
+    printAStarResult();
+    //開始移動實際車子(含雲端平台GPS模擬)
+    goCar();
+    //紀錄
+    CAR_INIT_DIRECT = pathMapDirect[pathCount];  //最後車頭方向,當成下次導航車頭起始方向
+    currentPoint = CHARGE_POINT;                 //目前車子位置
+  } else {
+    Serial.println("未找到路徑.");
+  }
+
+  //進充電站前，車頭要朝左L
+  int degree = mapDirectToCarDegree(CAR_INIT_DIRECT, 'L');
+  char* CAR_MOVE_NO_FRONT[4] = { "", "R", "RR", "L" };
+  int index = degree / 90;
+  if (CAR_MOVE_NO_FRONT[index] == "R") {
+    turnRight();
+    delay(RTimer);
+    stopCar();
+    delay(RTimer);
+    Serial.println("右轉,");
+  } else if (CAR_MOVE_NO_FRONT[index] == "RR") {
+    for (int i = 0; i < 2; i++) {
+      turnRight();
+      delay(RTimer);
+      stopCar();
+      delay(RTimer);
+      Serial.println("右轉,");
+    }
+  } else if (CAR_MOVE_NO_FRONT[index] == "L") {
+    turnLeft();
+    delay(LTimer);
+    stopCar();
+    delay(LTimer);
+    Serial.println("左轉,");
+  }
+
+  //接著倒車進入充電站
+  backward();
+  delay(2000);  //xx秒數要測試
+  stopCar();
+
+  //充電中……
+  while(percent<=1){//100%
+    float percent = getBusPowerPercent();
+    delay(10000);
+  }
+
+  //完成充電，導航回物流站
+  setStartEndPoint(currentPoint, GOODS_POINT);
+  bool isFindPath = aStar(grid, startRow, startCol, endRow, endCol);
+  if (isFindPath) {
+    Serial.println("找到路徑!");
+    //座標起點
+    pathXY[pathCount] = String(startRow) + "," + String(startCol);
+    //車頭初始方向
+    pathMapDirect[pathCount] = CAR_INIT_DIRECT;
+    //座標轉換成車子移動指令
+    convertXyToCarMove();
+    //印出結果
+    printAStarResult();
+    //開始移動實際車子(含雲端平台GPS模擬)
+    goCar();
+    //紀錄
+    CAR_INIT_DIRECT = pathMapDirect[pathCount];  //最後車頭方向,當成下次導航車頭起始方向
+    currentPoint = GOODS_POINT;                 //目前車子位置
+  } else {
+    Serial.println("未找到路徑.");
+  }
 }
