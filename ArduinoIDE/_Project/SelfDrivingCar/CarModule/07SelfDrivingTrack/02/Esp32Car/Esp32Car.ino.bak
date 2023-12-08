@@ -228,8 +228,7 @@ void UartGetFromMega(){
 	  }
 	  //發送MQTT：TOPIC_CAR_GPS(格式:xy)
 		mqttSendMsg = arryGps[1]+arryGps[2];
-		client.publish(TOPIC_CAR_GPS, mqttSendMsg);
-	  
+		client.publish(TOPIC_CAR_GPS, mqttSendMsg);	  
 	}
 	
   }//while

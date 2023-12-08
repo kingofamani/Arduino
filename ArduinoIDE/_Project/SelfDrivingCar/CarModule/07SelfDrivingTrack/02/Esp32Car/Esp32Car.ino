@@ -180,11 +180,7 @@ void loop() {
   client.loop();
 
   //接收訊息：Mega→ESP32
-  UartGetFromMega();
-  
-
-  
-  
+  UartGetFromMega();    
 }
 
 //傳送訊息：ESP32→Mega
