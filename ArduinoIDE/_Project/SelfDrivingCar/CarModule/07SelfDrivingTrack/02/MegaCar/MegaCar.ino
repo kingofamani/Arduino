@@ -675,8 +675,8 @@ void setStartEndPoint(String start, String end) {
     startRow = 0;
     startCol = 0;
   } else if (startPoint == CHARGE_POINT) {
-    startRow = 0;
-    startCol = 5;
+    startRow = 3;
+    startCol = 0;
   } else if (startPoint == Recipient_POINT) {
     startRow = 3;
     startCol = 5;
@@ -686,8 +686,8 @@ void setStartEndPoint(String start, String end) {
     endRow = 0;
     endCol = 0;
   } else if (endPoint == CHARGE_POINT) {
-    endRow = 0;
-    endCol = 5;
+    endRow = 3;
+    endCol = 0;
   } else if (endPoint == Recipient_POINT) {
     endRow = 3;
     endCol = 5;

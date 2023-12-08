@@ -957,7 +957,8 @@ void loop() {
 
   //判斷是否電量低於20%
   checkIsLowPower(0.2);
-}
+  
+}//end loop
 
 void checkIsLowPower(float lowPercent) {
   //在物流站才判斷
