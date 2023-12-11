@@ -249,7 +249,8 @@ void UartGetFromArduino(){
     Serial.println(val);   
 	if(val==GOODS_LOAD){
 		//發送MQTT：TOPIC_GOODS_LOAD
-		mqttSendMsg = strRecipient;		
+    const char* msg = strRecipient.c_str();
+		mqttSendMsg = const_cast<char*>(msg);		
 		client.publish(TOPIC_GOODS_LOAD, mqttSendMsg);
 	}
   }

@@ -10,6 +10,7 @@
 */
 #include <AccelStepper.h>  //本示例程序使用AccelStepper库
 #include <Servo.h>
+#include <SoftwareSerial.h>
 
 //伺服馬達
 Servo servoPick;
