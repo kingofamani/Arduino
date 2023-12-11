@@ -8,21 +8,21 @@ const char* MAP_SET = "mapSet";
 const char* GOODS_LOAD = "goodsLoad";
 const char* LINE_NOTIFY = "lineNotify";
 const char* CAR_GPS = "carGps";
-   
+
 //UART通訊
-SoftwareSerial MegaSerial(16,17);
+SoftwareSerial MegaSerial(16, 17);
 
 //WiFi設定
-const char* ssid = "tyes-itc";
+const char* ssid = "xxxxx";
 const char* password = "xxxxxxxx";
 
 //LINE權杖
-String lineToken="xxxxxxxxxxxxxxxxxx";
+String lineToken = "xxxxxxxxxxxxxxxxxx";
 
 //---- HiveMQ設定 Start -----
 const char* mqtt_server = "xxxxxxxx.s2.eu.hivemq.cloud";
-const char* mqtt_username = "kingofamani";                                        
-const char* mqtt_password = "xxxxxxxx";                                    
+const char* mqtt_username = "kingofamani";
+const char* mqtt_password = "xxxxxxxx";
 const int mqtt_port = 8883;
 
 //Topic主題
@@ -81,31 +81,29 @@ void callback(char* topic, byte* payload, unsigned int length) {
   for (int i = 0; i < length; i++) {
     mqttGetMsg += (char)payload[i];
   }
-  mqttGetMsg.trim();  
+  mqttGetMsg.trim();
   Serial.println(String(topic));
   Serial.println(mqttGetMsg);
-  
+
   //接收多個Topic主題的消息Msg
   if (String(topic) == TOPIC_MAP_SET) {
     //儲存地圖陣列(格式:MAP_SET,4x6地圖陣列)
-    UartSentToMega(MAP_SET+","+mqttGetMsg);
-	delay(1000);
-    
+    UartSentToMega(String(MAP_SET) + "," + mqttGetMsg);
+    delay(1000);
+
     //發送MQTT：TOPIC_CAR_STANDBY
     mqttSendMsg = "1";
     client.publish(TOPIC_CAR_STANDBY, mqttSendMsg);
-    
-  }else if (String(topic) == TOPIC_CAR_STANDBY) {
-    
-  }else if (String(topic) == TOPIC_GOODS_LOAD) {
+
+  } else if (String(topic) == TOPIC_CAR_STANDBY) {
+
+  } else if (String(topic) == TOPIC_GOODS_LOAD) {
     //開始送貨(格式:GOODS_LOAD,姓名,商品,倉庫X,倉庫Y,收件人X,收件人Y)
-	UartSentToMega(GOODS_LOAD + "," +mqttGetMsg);
-	
-  }else if (String(topic) == TOPIC_CAR_GPS) {
-    
-  }
-  else if (String(topic) == TOPIC_CAR_LOWPOWER) {
-    
+    UartSentToMega(String(GOODS_LOAD) + "," + mqttGetMsg);
+
+  } else if (String(topic) == TOPIC_CAR_GPS) {
+
+  } else if (String(topic) == TOPIC_CAR_LOWPOWER) {
   }
 
   //MegaSerial.write(msgXY);
@@ -116,7 +114,7 @@ void reconnect() {
     Serial.print("Attempting MQTT connection… ");
     String clientId = "ESP32Client";
     if (client.connect(clientId.c_str(), mqtt_username, mqtt_password)) {
-      Serial.println("connected!");      
+      Serial.println("connected!");
     } else {
       Serial.print("failed, rc = ");
       Serial.print(client.state());
@@ -131,10 +129,10 @@ void reconnect() {
 void sendLineMsg(String myMsg) {
   static WiFiClientSecure line_client;
   line_client.setInsecure();
-  myMsg.replace("%","%25");
-  myMsg.replace("&","%26");
-  myMsg.replace("§","&");
-  myMsg.replace("\\n","\n");
+  myMsg.replace("%", "%25");
+  myMsg.replace("&", "%26");
+  myMsg.replace("§", "&");
+  myMsg.replace("\\n", "\n");
   if (line_client.connect("notify-api.line.me", 443)) {
     line_client.println("POST /api/notify HTTP/1.1");
     line_client.println("Connection: close");
@@ -146,8 +144,7 @@ void sendLineMsg(String myMsg) {
     line_client.println(myMsg);
     line_client.println();
     line_client.stop();
-  }
-  else {
+  } else {
     Serial.println("Line Notify failed");
   }
 }
@@ -180,54 +177,60 @@ void loop() {
   client.loop();
 
   //接收訊息：Mega→ESP32
-  UartGetFromMega();    
+  UartGetFromMega();
 }
 
 //傳送訊息：ESP32→Mega
-void UartSentToMega(String msg){
+void UartSentToMega(String msg) {
   MegaSerial.print(msg);
-//  if(Serial.available()){
-//    String msg=Serial.readString();
-//    MegaSerial.print(msg);
-//  }
+  //  if(Serial.available()){
+  //    String msg=Serial.readString();
+  //    MegaSerial.print(msg);
+  //  }
 }
 
 //接收訊息：Mega→ESP32
-void UartGetFromMega(){
-  while(MegaSerial.available()){
-    String str=MegaSerial.readString();
-    Serial.println(str);    
-	//完成送貨，傳LINE通知收貨人
-	if (str.indexOf(LINE_NOTIFY) != -1){
-	  //收貨人資料字串轉陣列
-	  String tmpArray[3];
-	  char* token = strtok((char*)str.c_str(), ",");
-	  int tokenLen = 0;
-	  while (token != NULL && tokenLen < 3) {
-		tmpArray[tokenLen] = token;
-		token = strtok(NULL, ",");
-		tokenLen++;
-	  }
-	  //發送LINE
-	  sendLineMsg(tmpArray[1] + "您好：您的商品：「" + tmpArray[2] + "」已送達，請至門口進行人臉識別簽收。");
-	  
-	//雲端平台模擬GPS(格式:xy)
-	}else if (str.indexOf(CAR_GPS) != -1){
-		//座標字串轉陣列
-		String arryGps[3];
-	  char* token = strtok((char*)str.c_str(), ",");
-	  int tokenLen = 0;
-	  while (token != NULL && tokenLen < 3) {
-		arryGps[tokenLen] = token;
-		token = strtok(NULL, ",");
-		tokenLen++;
-	  }
-	  //發送MQTT：TOPIC_CAR_GPS(格式:xy)
-		mqttSendMsg = arryGps[1]+arryGps[2];
-		client.publish(TOPIC_CAR_GPS, mqttSendMsg);	  
-	}
-	
-  }//while
+void UartGetFromMega() {
+  while (MegaSerial.available()) {
+    String str = MegaSerial.readString();
+    Serial.println(str);
+    //完成送貨，傳LINE通知收貨人
+    if (str.indexOf(LINE_NOTIFY) != -1) {
+      //收貨人資料字串轉陣列
+      String tmpArray[3];
+      char* token = strtok((char*)str.c_str(), ",");
+      int tokenLen = 0;
+      while (token != NULL && tokenLen < 3) {
+        tmpArray[tokenLen] = token;
+        token = strtok(NULL, ",");
+        tokenLen++;
+      }
+      //發送LINE
+      sendLineMsg(tmpArray[1] + "您好：您的商品：「" + tmpArray[2] + "」已送達，請至門口進行人臉識別簽收。");
+
+      //雲端平台模擬GPS(格式:xy)
+    } else if (str.indexOf(CAR_GPS) != -1) {
+      //座標字串轉陣列
+      String arryGps[3];
+      char* token = strtok((char*)str.c_str(), ",");
+      int tokenLen = 0;
+      while (token != NULL && tokenLen < 3) {
+        arryGps[tokenLen] = token;
+        token = strtok(NULL, ",");
+        tokenLen++;
+      }
+      //發送MQTT：TOPIC_CAR_GPS(格式:xy)
+      //    使用String結合x和y的內容
+      String xy = arryGps[1] + arryGps[2];
+      //    將String轉換為const char*
+      const char* msg = (xy).c_str();
+      //    const char*轉char*
+      mqttSendMsg = const_cast<char*>(msg);
+
+      client.publish(TOPIC_CAR_GPS, mqttSendMsg);
+    }
+
+  }  //while
 }
 
 void setup_wifi() {
