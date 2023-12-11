@@ -117,7 +117,7 @@ char* CurrentAlgo = "ALGORITHM_OBJECT_RECOGNITION";  //目前的演算法
 
 //測電壓電流
 Adafruit_INA219 ina219;
-float busvoltage = 0;   //電池電壓
+float busvoltage = 0;  //電池電壓
 float shuntvoltage = 0;
 float loadvoltage = 0;  //負載電壓
 float current_mA = 0;   //負載電流
@@ -349,7 +349,7 @@ void goCar() {
       isFrontArrive = false;
       delay(FTimer);
       //雲端平台模擬GPS
-      ESP32Serial.print(CAR_GPS + "," + pathXY[countPathXY++]);
+      ESP32Serial.print(String(CAR_GPS) + "," + pathXY[countPathXY++]);
 
       Serial.println("前,");
     } else if (pathCarMotor[i] == "R") {
@@ -385,10 +385,10 @@ void getTracks() {
 
 //===========HsukyLens AI鏡頭Start===========
 void AiDetect() {
+  bool isDetectPerson = false;
+  bool isDetectCar = false;
   //直到沒有偵側到人or車才離開迴圈
   do {
-    bool isDetectPerson = false;
-    bool isDetectCar = false;
     //開始AI識別物體
     startDetectObject();
 
@@ -694,14 +694,14 @@ void setStartEndPoint(String start, String end) {
   }
 }
 
-bool starAStarPlan(char* target){
-	setStartEndPoint(currentPoint, target);//設起訖點
-	bool isFindPath = aStar(grid, startRow, startCol, endRow, endCol);//A*演算
-	return isFindPath;
+bool starAStarPlan(char* target) {
+  setStartEndPoint(currentPoint, target);                             //設起訖點
+  bool isFindPath = aStar(grid, startRow, startCol, endRow, endCol);  //A*演算
+  return isFindPath;
 }
 
-void starNav(bool isFindPath,char* target){
-	if (isFindPath) {
+void starNav(bool isFindPath, char* target) {
+  if (isFindPath) {
     Serial.println("找到路徑!");
     //座標起點
     pathXY[pathCount] = String(startRow) + "," + String(startCol);
@@ -715,7 +715,7 @@ void starNav(bool isFindPath,char* target){
     goCar();
     //紀錄
     CAR_INIT_DIRECT = pathMapDirect[pathCount];  //最後車頭方向,當成下次導航車頭起始方向
-    currentPoint = target;//目前車子位置
+    currentPoint = target;                       //目前車子位置
   } else {
     Serial.println("未找到路徑.");
   }
@@ -725,7 +725,7 @@ void standByAiCam() {
   //A鏡頭上
   servoAiCam.write(ANGLE_AI_CAM_UP);
   delay(1000);
-  
+
   //Hsukylens人臉識別模式
   huskylens.writeAlgorithm(ALGORITHM_FACE_RECOGNITION);
   CurrentAlgo = "ALGORITHM_FACE_RECOGNITION";
@@ -882,8 +882,7 @@ void loop() {
           grid[i][j] = tmpArray[count++].toInt();
         }
       }
-    }
-    elseif(str.indexOf(GOODS_LOAD) != -1) {
+    } else if (str.indexOf(GOODS_LOAD) != -1) {
       //儲存收件人陣列(格式:goodsLoad,姓名,商品,倉庫X,倉庫Y,收件人X,收件人Y)
       String tmpArray[7];
       char* token = strtok((char*)str.c_str(), ",");
@@ -903,23 +902,22 @@ void loop() {
       //關閉貨斗
       servoCarBox.write(ANGLE_CAR_BOX_CLOSE);
       delay(1000);
-	  
-	  //A*路徑歸劃 
-	  bool isFindPath = starAStarPlan(Recipient_POINT);
-	  
-	  //開始導航
-	  starNav(isFindPath,Recipient_POINT);
-	  
-	  //抵達目的地,AI鏡頭朝向,準備人臉識別收貨人
-	  if (isFindPath){
-		standByAiCam();
-	  }
-	  
-	  //完成送貨，發送LINE通知收貨人(格式:LINE_NOTIFY,姓名,商品)
-	  if (isFindPath){
-		ESP32Serial.print(LINE_NOTIFY + "," + recipient[0] + recipient[1]);
-	  }	  
-      
+
+      //A*路徑歸劃
+      bool isFindPath = starAStarPlan(Recipient_POINT);
+
+      //開始導航
+      starNav(isFindPath, Recipient_POINT);
+
+      //抵達目的地,AI鏡頭朝向,準備人臉識別收貨人
+      if (isFindPath) {
+        standByAiCam();
+      }
+
+      //完成送貨，發送LINE通知收貨人(格式:LINE_NOTIFY,姓名,商品)
+      if (isFindPath) {
+        ESP32Serial.print(String(LINE_NOTIFY) + "," + recipient[0] + recipient[1]);
+      }
     }
   }
 
@@ -947,18 +945,18 @@ void loop() {
     servoCarBox.write(ANGLE_CAR_BOX_CLOSE);
     delay(1000);
 
-    //A*路徑歸劃 
-	bool isFindPath = starAStarPlan(GOODS_POINT);
-	//開始導航回物流站
-	starNav(isFindPath,GOODS_POINT);
-	//抵達物流站，車子原地轉向(車頭要朝下D，否則貨斗開啟方向會卡住)
-	carHeadTurn('D');         
+    //A*路徑歸劃
+    bool isFindPath = starAStarPlan(GOODS_POINT);
+    //開始導航回物流站
+    starNav(isFindPath, GOODS_POINT);
+    //抵達物流站，車子原地轉向(車頭要朝下D，否則貨斗開啟方向會卡住)
+    carHeadTurn('D');
   }
 
   //判斷是否電量低於20%
   checkIsLowPower(0.2);
-  
-}//end loop
+
+}  //end loop
 
 void checkIsLowPower(float lowPercent) {
   //在物流站才判斷
@@ -983,17 +981,17 @@ float getBusPowerPercent() {
   current_mA = ina219.getCurrent_mA();
   power_mW = ina219.getPower_mW();
   loadvoltage = busvoltage + (shuntvoltage / 1000);
-  
+
   return ((busvoltage - minVolt) / (maxVolt - minVolt));
 }
 
 void startCharge() {
   //導航至充電站
   bool isFindPath = starAStarPlan(CHARGE_POINT);
-  starNav(isFindPath,CHARGE_POINT);    
+  starNav(isFindPath, CHARGE_POINT);
 
   //進充電站前，車子原地轉向，車頭要朝左L
-  carHeadTurn('L');  
+  carHeadTurn('L');
 
   //接著倒車進入充電站
   backward();
@@ -1001,24 +999,24 @@ void startCharge() {
   stopCar();
 
   //充電中……
-  while(percent<=1){//100%
-    float percent = getBusPowerPercent();
+  float percent = 0.0;
+  while (percent <= 1) {  //100%
+    percent = getBusPowerPercent();
     delay(10000);
   }
-  
+
   //充電完成，車子往前開出充電站
   forward();
   delay(2000);  //xx秒數要測試
   stopCar();
 
   //完成充電，導航回物流站
-  bool isFindPath = starAStarPlan(GOODS_POINT);
-  starNav(isFindPath,GOODS_POINT);  
-  
+  isFindPath = starAStarPlan(GOODS_POINT);
+  starNav(isFindPath, GOODS_POINT);
 }
 
 
-void carHeadTurn(char targetDirect){
+void carHeadTurn(char targetDirect) {
   //車頭轉向
   int degree = mapDirectToCarDegree(CAR_INIT_DIRECT, targetDirect);
   char* CAR_MOVE_NO_FRONT[4] = { "", "R", "RR", "L" };
@@ -1044,10 +1042,7 @@ void carHeadTurn(char targetDirect){
     delay(LTimer);
     Serial.println("左轉,");
   }
-  
+
   //紀錄車頭方向
   CAR_INIT_DIRECT = targetDirect;
-  
 }
-
-
