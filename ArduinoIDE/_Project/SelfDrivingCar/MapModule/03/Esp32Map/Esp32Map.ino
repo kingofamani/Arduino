@@ -4,7 +4,12 @@
 
 #define BUTTON_PIN 3
 
-int grid[4][6];
+int grid[4][6] = {
+    { 1, 0, 1, 1, 1, 1 },
+    { 1, 0, 1, 0, 0, 1 },
+    { 1, 0, 1, 0, 0, 1 },
+    { 1, 1, 1, 0, 0, 1 }
+  };
 String strGrid="";
 
 //WiFi設定
@@ -114,12 +119,7 @@ void setup() {
 
   //取得佈置地圖陣列(Seeds)
   // 地圖表示，0表示障礙物，1表示可通行
-  grid[4][6] = {
-    { 1, 0, 1, 1, 1, 1 },
-    { 1, 0, 1, 0, 0, 1 },
-    { 1, 0, 1, 0, 0, 1 },
-    { 1, 1, 1, 0, 0, 1 }
-  };
+  
   strGrid = "";
   for (int i = 0; i < 4; i++) {
     for (int j = 0; j < 6; j++) {
@@ -136,7 +136,8 @@ void loop() {
   //按下佈置地圖完成鈕
   if(digitalRead(BUTTON_PIN)==1){
     //發送MQTT：TOPIC_MAP_SET
-    mqttSendMsg = strGrid;
+    const char* msg = strGrid.c_str();
+    mqttSendMsg = const_cast<char*>(msg);
     client.publish(TOPIC_MAP_SET, mqttSendMsg);
   }
 
