@@ -32,7 +32,7 @@ char msgXY[3];
 WiFiClientSecure espClient;
 PubSubClient client(espClient);
 
-// HiveMQ Cloud Let's Encrypt CA certificate
+// HiveMQ Cloud
 static const char* root_ca PROGMEM = R"EOF(
 -----BEGIN CERTIFICATE-----
 MIIFazCCA1OgAwIBAgIRAIIQz7DSQONZRGPgu2OCiwAwDQYJKoZIhvcNAQELBQAw

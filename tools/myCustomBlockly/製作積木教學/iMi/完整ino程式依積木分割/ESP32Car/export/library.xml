@@ -1,8 +1,8 @@
 <xml xmlns="https://developers.google.com/blockly/xml"><block type="factory_base" id=",/HB({(MwLb%Jkj[+Y~v" deletable="false" movable="false" x="10" y="10">
-    <mutation connections="NONE"></mutation>
+    <mutation connections="BOTH"></mutation>
     <field name="NAME">imi_esp32car_init</field>
     <field name="INLINE">AUTO</field>
-    <field name="CONNECTIONS">NONE</field>
+    <field name="CONNECTIONS">BOTH</field>
     <statement name="INPUTS">
       <block type="input_dummy" id="i/ctDZcfF8a.@A]vF7m%">
         <field name="ALIGN">LEFT</field>
@@ -78,6 +78,12 @@
       <block type="text" id="%)M}|/z;f%ImLh8[!z-X" deletable="false" movable="false">
         <field name="TEXT"></field>
       </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="fe~;Ep~qol35?2yP:ut:"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="|86W{b@anbF27$Z{qWHs"></shadow>
     </value>
     <value name="COLOUR">
       <block type="colour_hue" id="rF7Y8`eqY3`*6e~,o*g`">
