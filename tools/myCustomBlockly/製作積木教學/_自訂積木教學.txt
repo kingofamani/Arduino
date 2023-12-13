@@ -2,8 +2,19 @@
 
 ●至Blockly Developer Tools網站：
 	Block Factory標籤頁p10：編輯積木後按「Download Block Library」匯出library.xml備份用。
+	
 	Block Exporter標籤頁p11：勾選自己做的積木，按Export匯丑出blocks.js和javascript.js。
+		==========修改javascript.js==========
+		將 javascript.javascriptGenerator.forBlock[' xxx '] = function(block, generator) {
+		取代成 Blockly.Arduino[' xxx '] = function(block) {
+		==========修改javascript.js==========
+		
 	Workspace Factory標籤頁p12：自製工具箱，將自訂積木拉進來後★可以再編輯，例如加入數字積木，匯出toolbox.xml。
+		==========修改toolbox.xml==========
+		1、刪除第1行<xml xmlns=...>和最後一行</xml>
+		2、★★★若積木無法拖曳，刪除toolbox.xml的deletable="false" movable="false" editable="false"
+		==========toolbox.xml==========
+	
 
 ●自訂積木規劃.docx：
 	將C++程式碼轉成：中介碼及積木圖示。
