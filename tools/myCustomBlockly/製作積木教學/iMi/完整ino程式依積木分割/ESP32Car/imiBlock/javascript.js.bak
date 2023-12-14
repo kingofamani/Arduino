@@ -21,7 +21,8 @@ Blockly.Arduino['02imi_esp32car_init_uart'] = function(block) {
   var value_tx = Blockly.Arduino.valueToCode(block, 'tx', Blockly.Arduino.ORDER_ATOMIC);
   // TODO: Assemble javascript into code variable.
   var code ='//UART通訊'+'\n '+'SoftwareSerial MegaSerial('+value_rx+',' +value_tx+');'+'\n ';
-  return code;
+
+  return [code, Blockly.Arduino.ORDER_NONE];
 };
 
 Blockly.Arduino['03imi_esp32car_init_wifi'] = function(block) {
@@ -29,14 +30,16 @@ Blockly.Arduino['03imi_esp32car_init_wifi'] = function(block) {
   var value_wifi_pwd = Blockly.Arduino.valueToCode(block, 'wifi_pwd', Blockly.Arduino.ORDER_ATOMIC);
   // TODO: Assemble javascript into code variable.
   var code ='//WiFi設定'+'\n '+'const char* ssid =' +value_ssid+';'+'\n '+'const char* password =' +value_wifi_pwd+';'+'\n ';
-  return code;
+
+  return [code, Blockly.Arduino.ORDER_NONE];
 };
 
 Blockly.Arduino['04imi_esp32car_init_line'] = function(block) {
   var value_line_token = Blockly.Arduino.valueToCode(block, 'line_token', Blockly.Arduino.ORDER_ATOMIC);
   // TODO: Assemble javascript into code variable.
   var code ='//LINE權杖'+'\n '+'String lineToken =' +value_line_token+';'+'\n ';
-  return code;
+
+  return [code, Blockly.Arduino.ORDER_NONE];
 };
 
 Blockly.Arduino['05imi_esp32car_init_mqtt'] = function(block) {
@@ -45,8 +48,9 @@ Blockly.Arduino['05imi_esp32car_init_mqtt'] = function(block) {
   var value_mqtt_port = Blockly.Arduino.valueToCode(block, 'mqtt_port', Blockly.Arduino.ORDER_ATOMIC);
   var value_mqtt_server = Blockly.Arduino.valueToCode(block, 'mqtt_server', Blockly.Arduino.ORDER_ATOMIC);
   // TODO: Assemble javascript into code variable.
-   var code ='//---- HiveMQ設定 Start -----'+'\n '+'const char* mqtt_server = ' +value_mqtt_server +';'+'\n '+'const char* mqtt_username =' +value_mqtt_user+';'+'\n '+'const char* mqtt_password =' +value_mqtt_pwd+';'+'\n '+'const int mqtt_port =' +value_mqtt_port+';'+'\n ';
-  return code;
+  var code ='//---- HiveMQ設定 Start -----'+'\n '+'const char* mqtt_server = ' +value_mqtt_server +';'+'\n '+'const char* mqtt_username =' +value_mqtt_user+';'+'\n '+'const char* mqtt_password =' +value_mqtt_pwd+';'+'\n '+'const int mqtt_port =' +value_mqtt_port+';'+'\n ';
+
+  return [code, Blockly.Arduino.ORDER_NONE];
 };
 
 Blockly.Arduino['06imi_esp32car_loop'] = function(block) {

@@ -15,8 +15,14 @@
 		Blockly.javascript.ORDER_NONE
 		Blockly.Arduino.ORDER_NONE
 		
-		generator.
-		Blockly.Arduino.
+		javascript.Order.ATOMIC
+		Blockly.Arduino.ORDER_ATOMIC
+		
+		generator.valueToCode
+		Blockly.Arduino.valueToCode
+		
+		generator.statementToCode
+		Blockly.Arduino.statementToCode
 		
 		
 		==========修改javascript.js==========

@@ -1,20 +1,20 @@
-Blockly.Blocks['imi_esp32car_init'] = {
+Blockly.Blocks['01imi_esp32car_init'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("iMi小車模組ESP32初始化");
-    this.appendValueInput("uart")
+    this.appendStatementInput("uart")
         .setCheck(null)
         .setAlign(Blockly.ALIGN_RIGHT)
         .appendField("UART通訊");
-    this.appendValueInput("wifi")
+    this.appendStatementInput("wifi")
         .setCheck(null)
         .setAlign(Blockly.ALIGN_RIGHT)
         .appendField("WiFi設定");
-    this.appendValueInput("line")
+    this.appendStatementInput("line")
         .setCheck(null)
         .setAlign(Blockly.ALIGN_RIGHT)
         .appendField("LINE設定");
-    this.appendValueInput("mqtt")
+    this.appendStatementInput("mqtt")
         .setCheck(null)
         .setAlign(Blockly.ALIGN_RIGHT)
         .appendField("MQTT設定");
@@ -26,7 +26,7 @@ Blockly.Blocks['imi_esp32car_init'] = {
   }
 };
 
-Blockly.Blocks['imi_esp32car_init_uart'] = {
+Blockly.Blocks['02imi_esp32car_init_uart'] = {
   init: function() {
     this.appendValueInput("rx")
         .setCheck(null)
@@ -35,43 +35,46 @@ Blockly.Blocks['imi_esp32car_init_uart'] = {
         .setCheck(null)
         .appendField("TX:");
     this.setInputsInline(true);
-    this.setOutput(true, null);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
     this.setColour(230);
  this.setTooltip("");
  this.setHelpUrl("");
   }
 };
 
-Blockly.Blocks['imi_esp32car_init_wifi'] = {
+Blockly.Blocks['03imi_esp32car_init_wifi'] = {
   init: function() {
     this.appendValueInput("ssid")
         .setCheck(null)
-        .appendField("ssid");
+        .appendField("ssid:");
     this.appendValueInput("wifi_pwd")
         .setCheck(null)
-        .appendField("密碼");
+        .appendField("密碼:");
     this.setInputsInline(true);
-    this.setOutput(true, null);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
     this.setColour(230);
  this.setTooltip("");
  this.setHelpUrl("");
   }
 };
 
-Blockly.Blocks['imi_esp32car_init_line'] = {
+Blockly.Blocks['04imi_esp32car_init_line'] = {
   init: function() {
     this.appendValueInput("line_token")
         .setCheck(null)
         .appendField("權杖");
     this.setInputsInline(true);
-    this.setOutput(true, null);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
     this.setColour(230);
  this.setTooltip("");
  this.setHelpUrl("");
   }
 };
 
-Blockly.Blocks['imi_esp32car_init_mqtt'] = {
+Blockly.Blocks['05imi_esp32car_init_mqtt'] = {
   init: function() {
     this.appendValueInput("mqtt_user")
         .setCheck(null)
@@ -81,19 +84,20 @@ Blockly.Blocks['imi_esp32car_init_mqtt'] = {
         .appendField("密碼");
     this.appendValueInput("mqtt_port")
         .setCheck(null)
-        .appendField("Port");
+        .appendField("port");
     this.appendValueInput("mqtt_server")
         .setCheck(null)
         .appendField("服務器");
     this.setInputsInline(true);
-    this.setOutput(true, null);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
     this.setColour(230);
  this.setTooltip("");
  this.setHelpUrl("");
   }
 };
 
-Blockly.Blocks['imi_esp32car_loop'] = {
+Blockly.Blocks['06imi_esp32car_loop'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("iMi小車模組ESP32 重複區");
@@ -105,19 +109,23 @@ Blockly.Blocks['imi_esp32car_loop'] = {
   }
 };
 
-Blockly.Blocks['imi_esp32car_getarduino_func'] = {
+Blockly.Blocks['07imi_esp32car_getarduino_func'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("接收Arduino訊息函數");
     this.appendStatementInput("msg")
         .setCheck(null);
+	this.setInputsInline(true);
     this.setColour(230);
  this.setTooltip("");
  this.setHelpUrl("");
   }
 };
 
-Blockly.Blocks['imi_esp32car_submqtt'] = {
+
+
+
+Blockly.Blocks['08imi_esp32car_submqtt'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("[訂閱]MQTT主題")
@@ -130,7 +138,7 @@ Blockly.Blocks['imi_esp32car_submqtt'] = {
   }
 };
 
-Blockly.Blocks['imi_esp32car_mqttcallback_func'] = {
+Blockly.Blocks['09imi_esp32car_mqttcallback_func'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("MQTT回覆函數");
@@ -142,7 +150,7 @@ Blockly.Blocks['imi_esp32car_mqttcallback_func'] = {
   }
 };
 
-Blockly.Blocks['imi_esp32car_ismqtttopic'] = {
+Blockly.Blocks['10imi_esp32car_ismqtttopic'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("MQTT主題是")
@@ -154,7 +162,7 @@ Blockly.Blocks['imi_esp32car_ismqtttopic'] = {
   }
 };
 
-Blockly.Blocks['imi_esp32car_sendarduino_mapset'] = {
+Blockly.Blocks['11imi_esp32car_sendarduino_mapset'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("[傳送]至Arduino 類型：MAP_SET");
@@ -166,7 +174,7 @@ Blockly.Blocks['imi_esp32car_sendarduino_mapset'] = {
   }
 };
 
-Blockly.Blocks['imi_esp32car_pubmqtt_carstandby'] = {
+Blockly.Blocks['12imi_esp32car_pubmqtt_carstandby'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("[發佈]MQTT主題：CAR_STANDBY");
@@ -178,7 +186,7 @@ Blockly.Blocks['imi_esp32car_pubmqtt_carstandby'] = {
   }
 };
 
-Blockly.Blocks['imi_esp32car_sendarduino_goodsload'] = {
+Blockly.Blocks['13imi_esp32car_sendarduino_goodsload'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("[傳送]至Arduino 類型：GOODS_LOAD");
@@ -190,7 +198,7 @@ Blockly.Blocks['imi_esp32car_sendarduino_goodsload'] = {
   }
 };
 
-Blockly.Blocks['imi_esp32car_isarduinomsg'] = {
+Blockly.Blocks['14imi_esp32car_isarduinomsg'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("Arduino傳來類型是")
@@ -202,7 +210,7 @@ Blockly.Blocks['imi_esp32car_isarduinomsg'] = {
   }
 };
 
-Blockly.Blocks['imi_esp32car_getarduino_recipient'] = {
+Blockly.Blocks['15imi_esp32car_getarduino_recipient'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("[接收]Arduion傳來的收貨人資料");
@@ -214,7 +222,7 @@ Blockly.Blocks['imi_esp32car_getarduino_recipient'] = {
   }
 };
 
-Blockly.Blocks['imi_esp32car_line_recipient'] = {
+Blockly.Blocks['16imi_esp32car_line_recipient'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("發送LINE通知收貨人");
@@ -226,7 +234,7 @@ Blockly.Blocks['imi_esp32car_line_recipient'] = {
   }
 };
 
-Blockly.Blocks['imi_esp32car_getarduino_gps'] = {
+Blockly.Blocks['17imi_esp32car_getarduino_gps'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("[接收]Arduino傳來的GPS座標");
@@ -238,7 +246,7 @@ Blockly.Blocks['imi_esp32car_getarduino_gps'] = {
   }
 };
 
-Blockly.Blocks['imi_esp32car_pubmqtt_cargps'] = {
+Blockly.Blocks['18imi_esp32car_pubmqtt_cargps'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("[發佈]MQTT主題：TOPIC_CAR_GPS");

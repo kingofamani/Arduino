@@ -21,6 +21,9 @@
 		generator.valueToCode
 		Blockly.Arduino.valueToCode
 		
+		generator.statementToCode
+		Blockly.Arduino.statementToCode
+		
 		
 		==========修改javascript.js==========
 		
