@@ -1,7 +1,0 @@
-amaniBlock資料夾：
-複製到C:\BlocklyduinoF2\package.nw\customBlocks
-
-export資料夾：
-
-1、從 https://blockly-demo.appspot.com/static/demos/blockfactory/index.html?hl=zh-tw  匯出的備份檔案，並且自行再編輯javascript.js程式碼。
-2、貼到 https://fustyles.github.io/webduino/SPduino_tool/index.html?fbclid=IwAR02fjJkcuFubi0ziZ-RMcevFGSXuXJnpQ099p2Ay3j0oHyPW6Hu3nC6N_k# 後，匯出就能產生「amaniBlock資料夾」。

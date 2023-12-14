@@ -27,12 +27,13 @@
 		
 		==========修改javascript.js==========
 		
-	Workspace Factory標籤頁p12：自製工具箱，將自訂積木拉進來後★可以再編輯，例如加入數字積木，匯出toolbox.xml。
+	Workspace Factory標籤頁p12：自製工具箱，將自訂積木拉進來後★可以再編輯，例如加入數字積木，匯出toolbox.xml。	
 		==========修改toolbox.xml==========
 		1、刪除第1行<xml xmlns=...>和最後一行</xml>
 		2、★★★若積木無法拖曳，刪除toolbox.xml的deletable="false" movable="false" editable="false"
 		==========toolbox.xml==========
 	
+	最後將以上4個檔案放入【export】資料夾
 
 ●自訂積木規劃.docx：
 	將C++程式碼轉成：中介碼及積木圖示。
@@ -42,9 +43,8 @@
 
 ●至fustyles.github.io網站：
 	依序將blocks.js、javascript.js、toolbox.xml由左至右貼上，然後按上方按鈕「export your block content」，
-	會轉出8個檔案，將8個檔案放在amaniBlock資料夾。
+	會轉出8個檔案，將8個檔案放在【amaniBlock】資料夾。
 	
 ●至C:\BlocklyduinoF2\package.nw\customBlocks：
 	將amaniBlock資料夾貼上，並開啟customblocks.js修改路徑。
-	
-	
+
