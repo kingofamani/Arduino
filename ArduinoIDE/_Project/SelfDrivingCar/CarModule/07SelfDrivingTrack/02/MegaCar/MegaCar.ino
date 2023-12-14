@@ -752,7 +752,7 @@ void setup() {
   Wire.begin();
   while (!huskylens.begin(Wire)) {
     Serial.println(F("Begin failed!"));
-    Serial.println(F("1.Please recheck the \"Protocol Type\" in HUSKYLENS (General Settings>>Protocol Type>>I2C)"));
+    Serial.println(F("1.Please recheck the Protocol Type in HUSKYLENS (General Settings>>Protocol Type>>I2C)"));
     Serial.println(F("2.Please recheck the connection."));
     delay(100);
   }
@@ -1000,7 +1000,7 @@ void startCharge() {
 
   //充電中……
   float percent = 0.0;
-  while (percent <= 1) {  //100%
+  while (percent < 1) {  //100%
     percent = getBusPowerPercent();
     delay(10000);
   }
