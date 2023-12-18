@@ -60,10 +60,10 @@ String recipient[6];
 //====UART end====
 
 //======循跡感測器 Start======
-#define TRACK_LEFT_PIN 30   //4 左邊 id1
-#define TRACK_FRONT_PIN 31  //5 前面 id2
-#define TRACK_BACK_PIN 32   //6 後面 id4
-#define TRACK_RIGHT_PIN 33  //7 右邊 id4
+#define TRACK_LEFT_PIN 30   //左邊 id1
+#define TRACK_FRONT_PIN 31  //前面 id2
+#define TRACK_BACK_PIN 32   //後面 id3
+#define TRACK_RIGHT_PIN 33  //右邊 id4
 
 //4way循跡感測器陣列
 int trackSensor[4];
@@ -125,19 +125,19 @@ float power_mW = 0;     //負載功率
 
 //===========實體小車和馬達 Start===========
 //L298N腳位
-#define L298N_IN1 22  //14
-#define L298N_IN2 23  //27
-#define L298N_IN3 24  //26
-#define L298N_IN4 25  //25
-#define L298N_IN5 26  //23
-#define L298N_IN6 27  //4
-#define L298N_IN7 28  //15
-#define L298N_IN8 29  //32
+#define L298N_IN1 22  
+#define L298N_IN2 23  
+#define L298N_IN3 24  
+#define L298N_IN4 25  
+#define L298N_IN5 26  
+#define L298N_IN6 27  
+#define L298N_IN7 28  
+#define L298N_IN8 29  
 
-#define L298N_EN1 2  //13 PWM
-#define L298N_EN2 3  //33 PWM
-#define L298N_EN3 4  //5  PWM
-#define L298N_EN4 5  //19 PWM
+#define L298N_EN1 2  //PWM
+#define L298N_EN2 3  
+#define L298N_EN3 4  
+#define L298N_EN4 5  
 
 //轉速(120~255)
 const int FSpeed = 120;
