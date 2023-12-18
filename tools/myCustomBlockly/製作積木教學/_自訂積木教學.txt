@@ -22,9 +22,7 @@
 		Blockly.Arduino.valueToCode
 		
 		generator.statementToCode
-		Blockly.Arduino.statementToCode
-		
-		
+		Blockly.Arduino.statementToCode				
 		==========修改javascript.js==========
 		
 	Workspace Factory標籤頁p12：自製工具箱，將自訂積木拉進來後★可以再編輯，例如加入數字積木，匯出toolbox.xml。	
