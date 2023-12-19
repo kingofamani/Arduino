@@ -98,7 +98,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
     //google表單查詢收貨人
 	readGoogleSheet();
 	
-	//CNC自動撿貨
+	//傳送訊息至UNO:依商品xy座標 自動撿貨
 	pickGoods(recipient[4],recipient[5]);  
   }
 
