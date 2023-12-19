@@ -20,7 +20,8 @@ const int servoPin = 11;
 // 伺服馬達
 Servo servoPick;
 
-const int moveSteps = 500;    // 測試電機運行使用的運行步數
+const int xMoveSteps = 500;    // 測試電機1運行使用的運行步數
+const int yMoveSteps = 500;    // 測試電機2運行使用的運行步數
 
 AccelStepper stepper1(1, xstepPin, xdirPin); // 建立步進電機物件1
 AccelStepper stepper2(1, ystepPin, ydirPin); // 建立步進電機物件2
@@ -48,6 +49,9 @@ void setup() {
   stepper1.setAcceleration(20.0);  // 設置電機加速度20.0
   stepper2.setMaxSpeed(300.0);     // 設置電機最大速度300
   stepper2.setAcceleration(20.0);  // 設置電機加速度20.0
+  
+  //歸零
+  resetStepper();
 }
 
 void loop() {
@@ -67,31 +71,43 @@ void loop() {
 	servoPick.write(0);
 	delay(2000);
 	
-	// 完成撿貨通知ESP32
-	ESP32Serial.print(GOODS_LOAD);
+	//歸零
+	resetStepper();
 	
-  }  
+	// 完成撿貨通知ESP32
+	ESP32Serial.print(GOODS_LOAD);	
+  }//end while
   
 }// end loop
 
 void findGoods(int x,int y){
-	//...
+	//分成3*3格倉庫的xy步數
+	int xSteps=xMoveSteps/2;
+	int ySteps=yMoveSteps/2;	
+	//電機移動至該貨物格子
+	stepper1.moveTo(xSteps*x);
+	stepper2.moveTo(ySteps*y);
+}
+
+void resetStepper(){
+	stepper1.moveTo(0);
+	stepper2.moveTo(0);
 }
 
 void testStepper(){
 	// 控制步進電機1往復運動
   if ( stepper1.currentPosition() == 0 ) {
-    stepper1.moveTo(moveSteps);
+    stepper1.moveTo(xMoveSteps);
     servoPick.write(0);// 伺服馬達轉0度
-  } else if ( stepper1.currentPosition() == moveSteps  ) {
+  } else if ( stepper1.currentPosition() == xMoveSteps  ) {
     stepper1.moveTo(0);
     servoPick.write(90);// 伺服馬達轉90度
   }
 
   // 控制步進電機2往復運動
   if ( stepper2.currentPosition() == 0 ) {
-    stepper2.moveTo(moveSteps);
-  } else if ( stepper2.currentPosition() == moveSteps  ) {
+    stepper2.moveTo(yMoveSteps);
+  } else if ( stepper2.currentPosition() == yMoveSteps  ) {
     stepper2.moveTo(0);
   }
 
