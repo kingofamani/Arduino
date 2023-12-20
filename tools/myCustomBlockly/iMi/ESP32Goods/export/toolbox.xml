@@ -1,0 +1,96 @@
+  <category name="物流ESP32" colour="#995ba5">
+    <block type="_01imi_espgoods_init">
+      <statement name="wifi">
+        <block type="_02imi_espgoods_wifi">
+          <value name="ssid">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+          <value name="wifipwd">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+        </block>
+      </statement>
+      <statement name="mqtt">
+        <block type="_03imi_espgoods_mqtt">
+          <value name="mqtt_user">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+          <value name="mqtt_pwd">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+          <value name="port">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <value name="mqtt_server">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+        </block>
+      </statement>
+      <statement name="uart">
+        <block type="_04imi_espgoods_uart">
+          <value name="rx">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <value name="tx">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+        </block>
+      </statement>
+      <statement name="sheet">
+        <block type="_05imi_espgoods_sheet">
+          <value name="sheetid">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+          <value name="stag">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+        </block>
+      </statement>
+    </block>
+    <block type="_06imi_espgoods_loop"></block>
+    <block type="_07imi_espgoods_submqtt">
+      <field name="mqtt_topic">TOPIC_MAP_SET</field>
+    </block>
+    <block type="_08imi_espgoods_mqttcallback_func"></block>
+    <block type="_09imi_espgoods_ismqtttopic">
+      <field name="mqtt_topic">TOPIC_MAP_SET</field>
+    </block>
+    <block type="_10imi_espgoods_readsheet">
+      <value name="field">
+        <block type="text">
+          <field name="TEXT"></field>
+        </block>
+      </value>
+      <value name="name">
+        <block type="text">
+          <field name="TEXT"></field>
+        </block>
+      </value>
+    </block>
+    <block type="_11imi_espgoods_sendarduino_pick"></block>
+    <block type="_12imi_espgoods_getarduino_func"></block>
+    <block type="_13imi_espgoods_isarduinomsg">
+      <field name="msg">GOODS_LOAD</field>
+    </block>
+    <block type="_14imi_espgoods_pubmqtt_goods"></block>
+  </category>
