@@ -1,0 +1,94 @@
+<xml version="F2" board="Arduino Uno" xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="q,f3iH{)s`.Oc@I30ab7">i</variable>
+  </variables>
+  <block type="board_initializes_setup" id="0" x="100" y="50">
+    <field name="BOARD_TYPE">ESP32</field>
+    <statement name="CONTENT">
+      <block type="_01imi_espmap_init" id="@Lh#D]~aMDb,$@c^31Id">
+        <statement name="wifi">
+          <block type="_02imi_espmap_wifi" id="2;^?U72OWJmvX+Plw4x8">
+            <value name="ssid">
+              <block type="text" id="3@t:#YP{`4X9^*l~uMH#">
+                <field name="TEXT">xxxx</field>
+              </block>
+            </value>
+            <value name="wifipwd">
+              <block type="text" id="EEoDXtihF;C{/U1?[~vd">
+                <field name="TEXT">xxxxx</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <statement name="mqtt">
+          <block type="_03imi_espmap_mqtt" id="@41G8E4n8Suq+r`yg/:0">
+            <value name="mqtt_user">
+              <block type="text" id="m8I$fvy])LE19N0z+-0r">
+                <field name="TEXT">xxx</field>
+              </block>
+            </value>
+            <value name="mqtt_pwd">
+              <block type="text" id="`lkn-)Pfn=2tR?O;:X3d">
+                <field name="TEXT">xxxxx</field>
+              </block>
+            </value>
+            <value name="mqtt_port">
+              <block type="math_number" id="H3hX]-@9TR}wIV|)veC/">
+                <field name="NUM">8883</field>
+              </block>
+            </value>
+            <value name="mqtt_server">
+              <block type="text" id="ULlo^hwI=_zj+HU)4d[-">
+                <field name="TEXT">xxxxx</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <statement name="button">
+          <block type="_04imi_espmap_button" id="6xdu_%mlr8xCVLpS${f(">
+            <value name="btnpin">
+              <block type="math_number" id="d(ru*wvW3+nQ;QfxqEIe">
+                <field name="NUM">3</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <statement name="map">
+          <block type="variables_set1" id="k;{L43x[^fKtPfSd1aA|">
+            <field name="POSITION">global</field>
+            <field name="TYPE">String</field>
+            <field name="VAR" id="q,f3iH{)s`.Oc@I30ab7">i</field>
+            <value name="LEN">
+              <block type="math_number" id="c|{)KE.sqPqgW3r*4/F{">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <value name="VALUE">
+              <shadow type="text" id="eAJhqD:g$;jL,,zzG7F-">
+                <field name="TEXT"></field>
+              </shadow>
+            </value>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="_06imi_espmap_loop" id="c:|4egyXX8heh%=EX@aJ">
+            <next>
+              <block type="controls_if" id="QslWr!K;9H!._/D(oA@1">
+                <value name="IF0">
+                  <block type="_07imi_espmap_isbutton" id="N`S)UwvlqB(d1xoHCFqj"></block>
+                </value>
+                <statement name="DO0">
+                  <block type="_08imi_espmap_pubmqtt_mapset" id="AK*T(B~YCyy+q_=b;n!2"></block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>
