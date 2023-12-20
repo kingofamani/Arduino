@@ -647,6 +647,23 @@ void startCharge() {
 }
 
 // ===========A*演算法 Start===========
+// 表示地圖上的節點的類別
+class Node {
+public:
+  int row;
+  int col;
+  int f;  // f = g + h，表示節點的總代價
+  int g;  // 從起點到當前節點的實際代價
+  int h;  // 從當前節點到目標節點的估算代價
+  Node* parent;
+  Node(int r, int c)
+    : row(r), col(c), f(0), g(0), h(0), parent(nullptr) {}
+  // 計算當前節點到目標節點的估算代價（這裡使用曼哈頓距離）
+  void calculateH(int targetRow, int targetCol) {
+    h = abs(targetRow - row) + abs(targetCol - col);
+  }
+};
+
 bool aStar(int grid[numRows][numCols], int startRow, int startCol, int endRow, int endCol) {
   Node* openList[numRows * numCols];
   Node* closedList[numRows * numCols];
@@ -743,22 +760,7 @@ bool aStar(int grid[numRows][numCols], int startRow, int startCol, int endRow, i
   // 如果開放列表為空，表示沒有找到路徑
   return false;
 }
-// 表示地圖上的節點的類別
-class Node {
-public:
-  int row;
-  int col;
-  int f;  // f = g + h，表示節點的總代價
-  int g;  // 從起點到當前節點的實際代價
-  int h;  // 從當前節點到目標節點的估算代價
-  Node* parent;
-  Node(int r, int c)
-    : row(r), col(c), f(0), g(0), h(0), parent(nullptr) {}
-  // 計算當前節點到目標節點的估算代價（這裡使用曼哈頓距離）
-  void calculateH(int targetRow, int targetCol) {
-    h = abs(targetRow - row) + abs(targetCol - col);
-  }
-};
+
 // ===========A*演算法 End===========
 
 void trackForward() {
