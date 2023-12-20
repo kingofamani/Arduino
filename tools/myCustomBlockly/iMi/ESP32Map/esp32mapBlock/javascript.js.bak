@@ -71,14 +71,16 @@ Blockly.Arduino['_07imi_espmap_isbutton'] = function(block) {
 
 Blockly.Arduino['_08imi_espmap_pubmqtt_mapset'] = function(block) {
   // TODO: Assemble javascript into code variable.
-  var code ='//發送MQTT：TOPIC_MAP_SET\n'+'    const char* msg = strGrid.c_str();\n'+'    mqttSendMsg = const_cast<char*>(msg);\n'+'    client.publish(TOPIC_MAP_SET, mqttSendMsg);\n';
-
+  var code = '...\n';
   return code;
 };
 
 Blockly.Arduino['_05imi_espmap_maps'] = function(block) {
   var statements_msg = Blockly.Arduino.statementToCode	(block, 'msg');
   // TODO: Assemble javascript into code variable.
-  var code ='int grid[4][6] = {\n ' + statements_msg + '};\n ';
+  var code = 
+  'int grid[4][6] = {\n'+
+  statements_msg+
+  '};\n';
   return code;
 };
