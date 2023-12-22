@@ -1,0 +1,255 @@
+<xml xmlns="https://developers.google.com/blockly/xml"><block type="factory_base" id="WUt7AsD7.Bgxpx549KZ3" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_01imi_gpscloud_init</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id=")-5~m2Cs9!EU(;m7oKL;">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="B[S6SfF(}BR.;u-b9qCq">
+            <field name="TEXT">iMi雲端平台ESP32 GPS板初始化</field>
+          </block>
+        </statement>
+        <next>
+          <block type="input_statement" id="*=[XK;O+vidZgLx;(w;8">
+            <field name="INPUTNAME">uart</field>
+            <field name="ALIGN">RIGHT</field>
+            <statement name="FIELDS">
+              <block type="field_static" id="b69h#*}#9sxMSR1es3/V">
+                <field name="TEXT">UART通訊</field>
+              </block>
+            </statement>
+            <value name="TYPE">
+              <shadow type="type_null" id="X=Kj}ZwFcB0KAXIESHCR"></shadow>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="irhqtN+~!z3ER$?C:YNq" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="0=$g*:]8!1}-rP{X:.?{" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="9T:I.SE$Y1+QYb$jsBG~"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id=";Q:bWx?z_%8ApqT|LMI4"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="eZ!!mVS:ppKu9VUOBoaz">
+        <mutation colour="#a5995b"></mutation>
+        <field name="HUE">50</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="EMO1_Z-!7rv^:?^S-U.T" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_02imi_gpscloud_uart</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_value" id="/qpKE]Tu=H`lx#I9k;UF">
+        <field name="INPUTNAME">rx</field>
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="(l/uLMh$!p+[,x_Ls0eO">
+            <field name="TEXT">RX</field>
+          </block>
+        </statement>
+        <value name="TYPE">
+          <shadow type="type_null" id="czi2*,=V]xi6K0g_uBPp"></shadow>
+        </value>
+        <next>
+          <block type="input_value" id=";hyilar[jR^NXFV3WK6@">
+            <field name="INPUTNAME">tx</field>
+            <field name="ALIGN">LEFT</field>
+            <statement name="FIELDS">
+              <block type="field_static" id="y3MyIvO4v]djFYWOQoDP">
+                <field name="TEXT">TX</field>
+              </block>
+            </statement>
+            <value name="TYPE">
+              <shadow type="type_null" id="v}7$#O%p8iH$GrAzWiO+"></shadow>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="qqY6VE;s1yh4G.Ix?i``" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="/p:1WM`dB]d#Gx?IJ7v3" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="ETmQ2|:qhuF8s@`j`=5l"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="S@uk+LkT;6!w#{QZM|T!"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="tvy-YlXy%p}OsP7*JPSB">
+        <mutation colour="#a5995b"></mutation>
+        <field name="HUE">50</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="Ap{x{PdC:Kt1`#z315:V" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_03imi_gpscloud_setup</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="w;rq^if%X=2rnZ[KmkbE">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="e/~vH|ddTvA;!@V=A)1T">
+            <field name="TEXT">Arduino Cloud雲端平台 setup區設定</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="azEo64YN48Qc(:X3t*5(" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="_aZb`4toj#`7Lay,I]Rp" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="lCmJm7Uu,*{99NtY,0X6"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="@Y-V-y+oqh:Pbeq[!JZT"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="Wh7I4ZAIE/WmuIH=~V~J">
+        <mutation colour="#a5995b"></mutation>
+        <field name="HUE">50</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="Lc[7qPQkPg]4gIwGc|0E" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_04imi_gpscloud_loop</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="4XE[)!0}9?|Dzr?(@3{Z">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="+6l/`0TG}PefK}@#fO9u">
+            <field name="TEXT">Arduino Cloud雲端平台 loop區設定</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="#qlwvOkU!a)wHA[+W;bD" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="HH*#ou28o2G4Z-V%Qs+D" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="fKuUrYKkVKjkz`epFrtE"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="Kv%f3tGv0l(yqpay3g)a"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="9d}styF@SM:gouN`)xAD">
+        <mutation colour="#a5995b"></mutation>
+        <field name="HUE">50</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="Q,:YcMnS^SOb#pbB{Z^X" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_05imi_gpscloud_getesp32xy</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="drJ}$d+W_AhCY$x+{U*^">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="FUN%1DnAf6(e#p7#qfpY">
+            <field name="TEXT">[取得]ESP32 MQTT板訊息:XY座標</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="FxAcPMr/W#EkjkPFmYhC" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="!jP|mn?h_XDda1HH}];0" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="i4v6D33KTx1j!vM^qt+|"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="rNE_jl+44^dbgg@z=54N"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="f]:Z][q[2,o!,-y!Z{py">
+        <mutation colour="#a5995b"></mutation>
+        <field name="HUE">50</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id=".sl#KJOY1?4!:R}{5?Z7" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_06imi_gpscloud_googlemap</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="!Y!lVb(9?,9nFzt+!(hQ">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="]S4wyelov37,Sm[xF[)#">
+            <field name="TEXT">開始模擬Google Map地圖移動</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="gMP9hv[I=#~BHlUjM]T^" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="e^GvAD5?-P~T{1rR$Nns" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="T3w!#Bn2Qv3bta!9h=*8"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="36w!@tS0vux)XwG%m4_y"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="X.uD3%Mf[A;s;WH1I@f4">
+        <mutation colour="#a5995b"></mutation>
+        <field name="HUE">50</field>
+      </block>
+    </value>
+  </block></xml>
