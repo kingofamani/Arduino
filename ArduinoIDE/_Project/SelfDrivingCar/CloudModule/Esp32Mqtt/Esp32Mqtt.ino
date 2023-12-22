@@ -6,13 +6,13 @@
 SoftwareSerial Esp32GpsSerial(2,3);
 
 //---- WiFi settings
-const char* ssid = "tyes-itc";
+const char* ssid = "xxxxxxxx";
 const char* password = "xxxxxxxx";
 
 //---- HiveMQ Cloud Broker settings
 //HiveMQ Cluster URL
-const char* mqtt_server = "xxxxxxxx.s2.eu.hivemq.cloud";
-const char* mqtt_username = "kingofamani";                                        
+const char* mqtt_server = "xxxxxxxx";
+const char* mqtt_username = "xxxxxxxx";                                        
 const char* mqtt_password = "xxxxxxxx";                                    
 const int mqtt_port = 8883;
 
