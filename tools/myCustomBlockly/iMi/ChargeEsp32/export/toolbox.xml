@@ -1,0 +1,35 @@
+  <category name="充電ESP32" colour="#5b80a5">
+    <block type="_01imi_espcharge_init">
+      <statement name="wifi">
+        <block type="_02imi_espcharge_wifi">
+          <value name="ssid">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+          <value name="wifipwd">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+        </block>
+      </statement>
+      <statement name="sheet">
+        <block type="_03imi_espcharge_sheet">
+          <value name="sheetid">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+          <value name="stag">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+        </block>
+      </statement>
+    </block>
+    <block type="_04mi_espcharge_writesheet">
+      <field name="type">sun</field>
+    </block>
+  </category>

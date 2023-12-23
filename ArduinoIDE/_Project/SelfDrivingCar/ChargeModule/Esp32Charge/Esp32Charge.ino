@@ -115,7 +115,7 @@ void carCharging(){
 	  
 	  shuntvoltage = ina219Car.getShuntVoltage_mV();
 	  busvoltage = ina219Car.getBusVoltage_V();//Bus Voltage電池電壓(V)
-	  current_mA = ina219Car.getCurrent_mA(;//Current負載電流(mA)
+	  current_mA = ina219Car.getCurrent_mA();//Current負載電流(mA)
 	  power_mW = ina219Car.getPower_mW();//Power負載功率(mW)
 	  loadvoltage = busvoltage + (shuntvoltage / 1000);//Load Voltage負載電壓(V)
 	  
