@@ -134,8 +134,12 @@ void setup(void)
   setup_wifi();
    
   //測電流電壓初始
-  if (! ina219.begin()) {
-    Serial.println("Failed to find INA219 chip");
+  if (! ina219Bat.begin()) {
+    Serial.println("Failed to find ina219Bat chip");
+    while (1) { delay(10); }
+  }
+  if (! ina219Car.begin()) {
+    Serial.println("Failed to find ina219Car chip");
     while (1) { delay(10); }
   }
 }
