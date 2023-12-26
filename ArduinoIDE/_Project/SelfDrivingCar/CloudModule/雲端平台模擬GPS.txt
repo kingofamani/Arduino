@@ -1,6 +1,10 @@
 練習題(先練習基本程式，再寫專案)：
 UART：
 	「BlocklyDuino\WiFi\ESP\32\ESP32\UartESP32」
+	ESP32MQTT	ESP32GPS
+	D2(RX)		D17(TX)
+	D3(TX)		D16(RX)
+	
 Arduino Cloud：
 	至Arduino Cloud建立專案：參考「BlocklyDuino\Cloud\ArduinoCloud\Arduino Cloud服務.txt」
 	雲端專案：https://create.arduino.cc/editor/kingofamani2 CarMapEsp32_nov06a
