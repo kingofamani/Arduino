@@ -36,12 +36,12 @@
           <block type="_03imi_unogoods_uart" id="~ChcLAif_O6`53E?/eRQ">
             <value name="rx">
               <block type="math_number" id="-UU:z$1~D*9paNTGjqhg">
-                <field name="NUM">19</field>
+                <field name="NUM">7</field>
               </block>
             </value>
             <value name="tx">
               <block type="math_number" id="_i{vD=]Y?z]g=VC0Oy5L">
-                <field name="NUM">18</field>
+                <field name="NUM">4</field>
               </block>
             </value>
           </block>

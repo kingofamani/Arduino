@@ -1,4 +1,4 @@
-//Generated Date: Wed, 20 Dec 2023 04:02:00 GMT
+//Generated Date: Tue, 26 Dec 2023 23:48:12 GMT
 
 #include <AccelStepper.h>
  #include <Servo.h>
@@ -11,7 +11,7 @@
   const int ydirPin = 6;     // y方向控制引腳
   const int ystepPin = 3;    // y步進控制引腳
   // UART通訊
-  SoftwareSerial ESP32Serial(19,18);
+  SoftwareSerial ESP32Serial(7,4);
   // 伺服馬達腳位(接在Z+是pin11)
   const int servoPin = 11;
 //====插入變數End====

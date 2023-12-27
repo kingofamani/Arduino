@@ -11,7 +11,7 @@ const int ydirPin = 6;     // y方向控制引腳
 const int ystepPin = 3;    // y步進控制引腳
 
 // UART通訊
-SoftwareSerial ESP32Serial(19, 18);
+SoftwareSerial ESP32Serial(7, 4);（接在Z.DIR、Z.STEP）
 
 // 伺服馬達腳位（接在Z+是pin11）
 const int servoPin = 11;   
@@ -84,7 +84,7 @@ void findGoods(int x,int y){
 	//分成3*3格倉庫的xy步數
 	int xSteps=xMoveSteps/2;
 	int ySteps=yMoveSteps/2;	
-		
+	//電機移動至該貨物格子
 	stepper1.moveTo(xSteps*x);
 	stepper2.moveTo(ySteps*y);
 }

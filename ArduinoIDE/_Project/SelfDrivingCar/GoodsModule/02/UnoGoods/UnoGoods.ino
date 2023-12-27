@@ -11,7 +11,7 @@ const int ydirPin = 6;     // y方向控制引腳
 const int ystepPin = 3;    // y步進控制引腳
 
 // UART通訊
-SoftwareSerial ESP32Serial(19, 18);
+SoftwareSerial ESP32Serial(7, 4);//(接在Z.DIR、Z.STEP)
 
 // 伺服馬達腳位（接在Z+是pin11）
 const int servoPin = 11;   
