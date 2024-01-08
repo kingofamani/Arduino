@@ -178,24 +178,24 @@
       </block>
     </value>
   </block><block type="factory_base" id="Oy1u7}v+sg,Kw|8bL%EU" deletable="false" movable="false" x="10" y="10">
-    <mutation connections="NONE"></mutation>
+    <mutation connections="LEFT"></mutation>
     <field name="NAME">_06amani_i2ckeypad_funcnum</field>
-    <field name="INLINE">AUTO</field>
-    <field name="CONNECTIONS">NONE</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">LEFT</field>
     <statement name="INPUTS">
       <block type="input_dummy" id="9T;.n-i5U*NYZIeaQb#Q">
         <field name="ALIGN">LEFT</field>
         <statement name="FIELDS">
           <block type="field_static" id="9H4-nLP6=S$#W]E$.5AP">
-            <field name="TEXT">按鍵值轉換成數字 函數</field>
+            <field name="TEXT">按鍵值char轉換成數值int</field>
           </block>
         </statement>
         <next>
-          <block type="input_statement" id="[i_25}Bx,}V9wBDl[oaL">
-            <field name="INPUTNAME">msg</field>
+          <block type="input_value" id="/MSQ=bL7p~GSf!0SV+2o">
+            <field name="INPUTNAME">c</field>
             <field name="ALIGN">LEFT</field>
             <value name="TYPE">
-              <shadow type="type_null" id="x*~H.f^G;rAE2yWtj.,%"></shadow>
+              <shadow type="type_null" id="zctM/`pFpZ}]t/QGWgKw"></shadow>
             </value>
           </block>
         </next>
@@ -210,6 +210,9 @@
       <block type="text" id="zZ_3GXT#VhC=-5Bq8;{I" deletable="false" movable="false">
         <field name="TEXT"></field>
       </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="|]89$k{Cz?wuV/w?Tk3,"></shadow>
     </value>
     <value name="COLOUR">
       <block type="colour_hue" id="|b!pRwhQ?!0#*DM|?)ni">
