@@ -5,9 +5,9 @@
 	
 	Block Exporter標籤頁p11：勾選自己做的積木，按Export匯丑出blocks.js和javascript.js。
 		==========修改javascript.js==========
-		程式碼取代：
-		將javascript.javascriptGenerator.forBlock['
-		取代為Blockly.Arduino['
+		程式碼取代：		
+		javascript.javascriptGenerator.forBlock['
+		Blockly.Arduino['
 		
 		'] = function(block, generator) {		
 		'] = function(block) {

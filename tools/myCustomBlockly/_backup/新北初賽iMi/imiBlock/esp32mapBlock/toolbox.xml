@@ -1,0 +1,192 @@
+  <category name="地圖ESP32" colour="#a5745b">
+    <block type="_05imi_espmap_maps">
+      <statement name="msg">
+        <block type="_05imi_espmap_map">
+          <value name="00">
+            <block type="math_number">
+              <field name="NUM">1</field>
+            </block>
+          </value>
+          <value name="01">
+            <block type="math_number">
+              <field name="NUM">1</field>
+            </block>
+          </value>
+          <value name="02">
+            <block type="math_number">
+              <field name="NUM">1</field>
+            </block>
+          </value>
+          <value name="03">
+            <block type="math_number">
+              <field name="NUM">1</field>
+            </block>
+          </value>
+          <value name="04">
+            <block type="math_number">
+              <field name="NUM">1</field>
+            </block>
+          </value>
+          <value name="05">
+            <block type="math_number">
+              <field name="NUM">1</field>
+            </block>
+          </value>
+          <next>
+            <block type="_05imi_espmap_map">
+              <value name="00">
+                <block type="math_number">
+                  <field name="NUM">1</field>
+                </block>
+              </value>
+              <value name="01">
+                <block type="math_number">
+                  <field name="NUM">1</field>
+                </block>
+              </value>
+              <value name="02">
+                <block type="math_number">
+                  <field name="NUM">1</field>
+                </block>
+              </value>
+              <value name="03">
+                <block type="math_number">
+                  <field name="NUM">1</field>
+                </block>
+              </value>
+              <value name="04">
+                <block type="math_number">
+                  <field name="NUM">1</field>
+                </block>
+              </value>
+              <value name="05">
+                <block type="math_number">
+                  <field name="NUM">1</field>
+                </block>
+              </value>
+              <next>
+                <block type="_05imi_espmap_map">
+                  <value name="00">
+                    <block type="math_number">
+                      <field name="NUM">1</field>
+                    </block>
+                  </value>
+                  <value name="01">
+                    <block type="math_number">
+                      <field name="NUM">1</field>
+                    </block>
+                  </value>
+                  <value name="02">
+                    <block type="math_number">
+                      <field name="NUM">1</field>
+                    </block>
+                  </value>
+                  <value name="03">
+                    <block type="math_number">
+                      <field name="NUM">1</field>
+                    </block>
+                  </value>
+                  <value name="04">
+                    <block type="math_number">
+                      <field name="NUM">1</field>
+                    </block>
+                  </value>
+                  <value name="05">
+                    <block type="math_number">
+                      <field name="NUM">1</field>
+                    </block>
+                  </value>
+                  <next>
+                    <block type="_05imi_espmap_map">
+                      <value name="00">
+                        <block type="math_number">
+                          <field name="NUM">1</field>
+                        </block>
+                      </value>
+                      <value name="01">
+                        <block type="math_number">
+                          <field name="NUM">1</field>
+                        </block>
+                      </value>
+                      <value name="02">
+                        <block type="math_number">
+                          <field name="NUM">1</field>
+                        </block>
+                      </value>
+                      <value name="03">
+                        <block type="math_number">
+                          <field name="NUM">1</field>
+                        </block>
+                      </value>
+                      <value name="04">
+                        <block type="math_number">
+                          <field name="NUM">1</field>
+                        </block>
+                      </value>
+                      <value name="05">
+                        <block type="math_number">
+                          <field name="NUM">1</field>
+                        </block>
+                      </value>
+                    </block>
+                  </next>
+                </block>
+              </next>
+            </block>
+          </next>
+        </block>
+      </statement>
+    </block>
+    <block type="_01imi_espmap_init">
+      <statement name="wifi">
+        <block type="_02imi_espmap_wifi">
+          <value name="ssid">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+          <value name="wifipwd">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+        </block>
+      </statement>
+      <statement name="mqtt">
+        <block type="_03imi_espmap_mqtt">
+          <value name="mqtt_user">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+          <value name="mqtt_pwd">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+          <value name="mqtt_port">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <value name="mqtt_server">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+        </block>
+      </statement>
+      <statement name="button">
+        <block type="_04imi_espmap_button">
+          <value name="btnpin">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+        </block>
+      </statement>
+    </block>
+    <block type="_06imi_espmap_loop"></block>
+    <block type="_07imi_espmap_isbutton"></block>
+    <block type="_08imi_espmap_pubmqtt_mapset"></block>
+  </category>
