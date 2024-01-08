@@ -1,0 +1,10 @@
+<xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
+  <category name="4x4鍵盤(I2C)" colour="#a55b80">
+    <block type="_01amani_i2ckeypad_init" deletable="false" movable="false" editable="false"></block>
+    <block type="_02amani_i2ckeypad_loop" deletable="false" movable="false" editable="false"></block>
+    <block type="_03amani_i2ckeypad_iskey" deletable="false" movable="false" editable="false"></block>
+    <block type="_04amani_i2ckeypad_key" deletable="false" movable="false" editable="false"></block>
+    <block type="_05amani_i2ckeypad_keynull" deletable="false" movable="false" editable="false"></block>
+    <block type="_06amani_i2ckeypad_funcnum"></block>
+  </category>
+</xml>
