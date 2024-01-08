@@ -1,10 +1,10 @@
 #include <Wire.h>
 
-volatile int item;
+volatile int code;
 
 void setup(){
   Wire.begin();
-  item = 0;
+  code = 0;
   Serial.begin(9600);
 }
 /*读取单个键值*/
@@ -14,9 +14,10 @@ void loop(){
   Wire.endTransmission();
   Wire.requestFrom(0x27, 1);
   while (Wire.available()) {
-    item = Wire.read();
-    Serial.println(item,DEC);
+    code = Wire.read();
+    if(code != 16){//沒按按鈕傳回16
+      Serial.println(code,DEC);
+    }    
   }
   delay(100);
-
 }
