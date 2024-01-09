@@ -1,10 +1,19 @@
+積木：
 
+鍵盤	開發板
+SCL		SCL
+SDA		SDA
+VCC		5V
+GND		GND
 
 腳位：
-Board				SDA		SCL
+開發板				SDA		SCL
 ESP32				21		22
 Arduino UNO			A4		A5
 Arduino Mega 2560	20		21
+
+
+
 
 按鍵傳回值：
 1,2,3,A

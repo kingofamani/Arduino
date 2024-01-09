@@ -11,4 +11,5 @@ toolbox_custom.push(''
 +'    <block type="_04amani_i2ckeypad_key"></block>'
 +'    <block type="_05amani_i2ckeypad_keynull"></block>'
 +'    <block type="_06amani_i2ckeypad_funcnum"></block>'
++'	<block type="_07amani_i2ckeypad_isnum"></block>'
 +'  </category>');

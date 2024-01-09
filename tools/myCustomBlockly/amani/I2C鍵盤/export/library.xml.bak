@@ -220,47 +220,4 @@
         <field name="HUE">110</field>
       </block>
     </value>
-  </block><block type="factory_base" id="y8D66z)e8=l=tY}PszA7" deletable="false" movable="false" x="10" y="10">
-    <mutation connections="LEFT"></mutation>
-    <field name="NAME">_07amani_i2ckeypad_isNum</field>
-    <field name="INLINE">INT</field>
-    <field name="CONNECTIONS">LEFT</field>
-    <statement name="INPUTS">
-      <block type="input_dummy" id="}DR!o4?lw(1dWM~qF89l">
-        <field name="ALIGN">LEFT</field>
-        <statement name="FIELDS">
-          <block type="field_static" id="YB.9$,c9`E73L3jF(vl[">
-            <field name="TEXT">按鍵值是數字</field>
-          </block>
-        </statement>
-        <next>
-          <block type="input_value" id="zO=H.)j#0GpgN.[189ya">
-            <field name="INPUTNAME">NAME</field>
-            <field name="ALIGN">LEFT</field>
-            <value name="TYPE">
-              <shadow type="type_null" id="v/4Q4bqtL?fy3is~y$m:"></shadow>
-            </value>
-          </block>
-        </next>
-      </block>
-    </statement>
-    <value name="TOOLTIP">
-      <block type="text" id="[[IZZS0U{6aVWnw!kOIF" deletable="false" movable="false">
-        <field name="TEXT"></field>
-      </block>
-    </value>
-    <value name="HELPURL">
-      <block type="text" id="{U?)oLOoMes-vYl[3mr." deletable="false" movable="false">
-        <field name="TEXT"></field>
-      </block>
-    </value>
-    <value name="OUTPUTTYPE">
-      <shadow type="type_null" id="aZ1/vq38U*uGR{AX:H%;"></shadow>
-    </value>
-    <value name="COLOUR">
-      <block type="colour_hue" id="2nYO[76p2w|vNiG3Ey4a">
-        <mutation colour="#67a55b"></mutation>
-        <field name="HUE">110</field>
-      </block>
-    </value>
   </block></xml>

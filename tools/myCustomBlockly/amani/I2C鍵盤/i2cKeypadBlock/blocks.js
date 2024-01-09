@@ -69,3 +69,17 @@ Blockly.Blocks['_06amani_i2ckeypad_funcnum'] = {
  this.setHelpUrl("");
   }
 };
+
+Blockly.Blocks['_07amani_i2ckeypad_isnum'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("按鍵值是數字");
+    this.appendValueInput("c")
+        .setCheck(null);
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(110);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
