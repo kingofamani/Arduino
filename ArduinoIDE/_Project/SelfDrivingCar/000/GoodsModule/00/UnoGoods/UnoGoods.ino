@@ -28,6 +28,12 @@ const char* GOODS_LOAD = "goodsLoad";
 //是否已初始
 bool isReset = false;
 
+//貨物座標
+int x = -1;
+int y = -1;
+//是否開始撿貨
+bool isStartPick = false;
+
 void setup() {
   Serial.begin(9600);
   // UART
@@ -64,27 +70,47 @@ void loop() {
 
 
   // // 接收訊息：ESP32→Arduino
-     while (ESP32Serial.available()) {
-   //取得貨物在倉庫xy座標
-       String str = ESP32Serial.readString();// 格式xy(例如13)
-     int x = (int)(str.charAt(0) - '0');
-    int y = (int)(str.charAt(1) - '0');
+  while (ESP32Serial.available()) {
+    //取得貨物在倉庫xy座標
+    String str = ESP32Serial.readString();// 格式xy(例如13)
+    x = (int)(str.charAt(0) - '0');
+    y = (int)(str.charAt(1) - '0');
+    Serial.print(x);
+    Serial.print(",");
+    Serial.print(y);
     //CNC開始依座標找尋貨物
-    findGoods(x,y);
+    if (x >= 0 && y >= 0) {//★避免ESP32斷線時出現亂數
+      //開始撿貨
+      isStartPick = true;      
+    }
+
+    //findGoods(x, y);
+
     // 撿貨伺服馬達
-    servoPick.write(180);
-    delay(2000);
+    //servoPick.write(180);
+    //delay(2000);
     // 撿貨伺服馬達
-    servoPick.write(0);
-    delay(2000);
+    //servoPick.write(0);
+    //delay(2000);
     //歸零
-    resetStepper();
-    // 完成撿貨通知ESP32
-    ESP32Serial.print(GOODS_LOAD);
-    }//end while
+    //resetStepper();
+    
+  }//end while
+
+  if (!isStartPick) {
+    stepperX.moveTo(0);
+    stepperY.moveTo(0);
+    stepperX.run();
+    stepperY.run();
+  }
+
+  if (isStartPick && x != 0 && y != 0) {
+    findGoods(x, y);
+  }
 }
 
 void findGoods(int x, int y) {
+  //Serial.println("findGoods");
   //分成3*3格倉庫的xy步數
   int xSteps = xMoveSteps / 2;
   int ySteps = yMoveSteps / 2;
@@ -96,10 +122,16 @@ void findGoods(int x, int y) {
   stepperX.run();
   stepperY.run();
   if (stepperX.currentPosition() == goodsX && stepperY.currentPosition() == goodsY) {
-    // servoPick.write(180);
-    // delay(2000);
-    // servoPick.write(0);
-    // delay(2000);
+    servoPick.write(180);
+    delay(2000);
+    servoPick.write(0);
+    delay(2000);
+
+    //重設成未撿貨狀態
+    isStartPick = false;
+
+    // 完成撿貨通知ESP32
+    ESP32Serial.print(GOODS_LOAD);
 
     // stepperX.moveTo(0);
     // stepperY.moveTo(0);
@@ -108,10 +140,10 @@ void findGoods(int x, int y) {
   }
 }
 void resetStepper() {
-  if (stepperX.currentPosition() == 0) {
-    stepperX.moveTo(280);  //第9格最右邊界
-  }
-  stepperX.run();
+  //  if (stepperX.currentPosition() == 0) {
+  //    stepperX.moveTo(280);  //第9格最右邊界
+  //  }
+  //  stepperX.run();
 
   // if (!isReset) {
   //   stepperX.moveTo(280);

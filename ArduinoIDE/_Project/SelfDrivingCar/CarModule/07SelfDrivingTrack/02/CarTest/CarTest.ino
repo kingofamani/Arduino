@@ -3,11 +3,11 @@
 //序列埠9600
 
 //★★★車頭初始向上
-char CAR_INIT_DIRECT = 'U';
+char CAR_INIT_DIRECT = 'D';
 
 // 定義地圖大小
-const int numRows = 5;
-const int numCols = 8;
+const int numRows = 4;
+const int numCols = 6;
 
 //儲存座標結果
 String pathXY[numRows * numCols];
@@ -651,17 +651,16 @@ void loop() {
 
   // 地圖表示，0表示障礙物，1表示可通行
   int grid[numRows][numCols] = {
-    { 1, 1, 1, 1, 1, 1, 1, 1 },
-    { 0, 0, 0, 0, 0, 0, 0, 1 },
-    { 1, 1, 1, 1, 1, 1, 1, 1 },
-    { 1, 0, 0, 0, 0, 0, 0, 0 },
-    { 1, 1, 1, 1, 1, 1, 1, 1 }
+    { 1, 0, 0, 0, 0, 1 },
+    { 1, 0, 0, 0, 0, 1 },
+    { 1, 0, 0, 0, 0, 1 },
+    { 1, 1, 1, 1, 1, 1 }
   };
 
   int startRow = 0;
   int startCol = 0;
-  int endRow = 4;  // 更新endRow和endCol到所需的終點位置
-  int endCol = 7;
+  int endRow = 3;  // 更新endRow和endCol到所需的終點位置
+  int endCol = 5;
 
   if (aStar(grid, startRow, startCol, endRow, endCol)) {
     Serial.println("找到路徑!");

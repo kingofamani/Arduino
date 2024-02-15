@@ -3,6 +3,9 @@ http://www.taichi-maker.com/homepage/reference-index/motor-reference-index/ardui
 
 外部電源要12V
 
+★CNC擴展板上面的5v或3.3v output腳位電源，是從UNO板來的(而非從12V input而來)，
+也就是若UNO沒插電，這些腳位也沒電。
+
 AccelStepper程式庫：
 安裝 AccelStepper by Patrick Wasp程式庫
 http://www.taichi-maker.com/homepage/reference-index/arduino-library-index/accelstepper-library/

@@ -4,8 +4,8 @@ BlocklyDuino積木不能用
 --------註冊----------
 一、platform/HiveMQ Cloud/sign up free，用google登入
 
-二、在Create credentials to securely connect your clients輸入username,password
-然後按「ADD」
+二、在Access Management輸入username,password
+然後按「CREATE CREDENTIAL」新增
 	username：
 		kingofamani
 	password：

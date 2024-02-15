@@ -3,10 +3,10 @@
 #include <WiFi.h>
 #include <WiFiClientSecure.h>
 
-String lineToken="";
+String lineToken="9Z2jip3H82ntSUTPDCHjLbsDIiBWhBRvtBjkRM31scb";
 
-char _lwifi_ssid[] = "AMANI-4G-Home";
-char _lwifi_pass[] = "xxxxxxxxxxxxxxxxxx";
+char _lwifi_ssid[] = "tyes-itc";
+char _lwifi_pass[] = "22924152";
 void sendLineMsg(String myMsg) {
   static WiFiClientSecure line_client;
   line_client.setInsecure();
@@ -35,7 +35,7 @@ void setup()
 {
   Serial.begin(9600);
 
-  lineToken="xxxxxxxxxxxxxxxxxx";
+  //lineToken="xxxxxxxxxxxxxxxxxx";
   WiFi.disconnect();
   WiFi.softAPdisconnect(true);
   WiFi.mode(WIFI_STA);
