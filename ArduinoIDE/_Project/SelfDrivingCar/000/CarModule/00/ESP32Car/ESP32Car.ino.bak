@@ -105,7 +105,7 @@ void loop() {
 void reconnect() {
   while (!client.connected()) {
     Serial.print("Attempting MQTT connection… ");
-    String clientId = "ESP32ClientCar";
+    String clientId = "ESP32Client";
     if (client.connect(clientId.c_str(), mqtt_username, mqtt_password)) {
       Serial.println("connected!");
     } else {
