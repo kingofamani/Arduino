@@ -8,7 +8,7 @@
 #include <SoftwareSerial.h>
 
 char _lwifi_ssid[] = "tyes-itc";
-char _lwifi_pass[] = "22924152";
+char _lwifi_pass[] = "xxxxxxxxx";
 
 //UART通訊
 SoftwareSerial ArduinoSerial(16,17);
@@ -33,7 +33,7 @@ String strRecipient="";
 //---- HiveMQ設定 Start -----
 const char* mqtt_server = "8a05a03895e647a1b352aa8823be3a68.s2.eu.hivemq.cloud";
 const char* mqtt_username = "kingofamani";                                        
-const char* mqtt_password = "9.Vvi@RMp2gqR5m";                                    
+const char* mqtt_password = "xxxxxxxxx";                                    
 const int mqtt_port = 8883;
 
 //Topic主題
@@ -120,7 +120,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
 void reconnect() {
   while (!client.connected()) {
     Serial.print("Attempting MQTT connection… ");
-    String clientId = "ESP32Client";
+    String clientId = "ESP32ClientGoods";
     if (client.connect(clientId.c_str(), mqtt_username, mqtt_password)) {
       Serial.println("connected!");      
     } else {

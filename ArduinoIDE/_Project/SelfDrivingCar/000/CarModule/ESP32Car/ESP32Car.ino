@@ -62,13 +62,13 @@ emyPxgcYxn/eR44/KJ4EBs+lVDR3veyJm+kXQ99b21/+jh5Xos1AnX5iItreGCc=
 SoftwareSerial MegaSerial(16, 17);
 //WiFi設定
 const char* ssid = "tyes-itc";
-const char* password = "22924152";
+const char* password = "xxxxxxxxx";
 //LINE權杖
 String lineToken = "9Z2jip3H82ntSUTPDCHjLbsDIiBWhBRvtBjkRM31scb";
 //---- HiveMQ設定 Start -----
 const char* mqtt_server = "8a05a03895e647a1b352aa8823be3a68.s2.eu.hivemq.cloud";//"imi-1oj8cr.a02.usw2.aws.hivemq.cloud";
 const char* mqtt_username = "kingofamani";
-const char* mqtt_password = "9.Vvi@RMp2gqR5m";
+const char* mqtt_password = "xxxxxxxxx";
 const int mqtt_port = 8883;
 
 
@@ -213,9 +213,10 @@ void UartGetFromMega() {
         token = strtok(NULL, ",");
         tokenLen++;
       }
-      //發送MQTT：TOPIC_CAR_GPS(格式:0x0y,例如0103)
+      //發送MQTT：TOPIC_CAR_GPS(格式:xy,例如13)
       //    使用String結合x和y的內容
-      String xy = "0" + arryGps[1] + "0" + arryGps[2];
+      //String xy = "0" + arryGps[1] + "0" + arryGps[2];
+	  String xy =arryGps[1] + arryGps[2];
       //    將String轉換為const char*
       const char* msg = (xy).c_str();
       //    const char*轉char*

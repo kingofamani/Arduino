@@ -105,7 +105,7 @@ void loop() {
 void reconnect() {
   while (!client.connected()) {
     Serial.print("Attempting MQTT connection… ");
-    String clientId = "ESP32Client";
+    String clientId = "ESP32ClientCar";
     if (client.connect(clientId.c_str(), mqtt_username, mqtt_password)) {
       Serial.println("connected!");
     } else {
@@ -213,9 +213,10 @@ void UartGetFromMega() {
         token = strtok(NULL, ",");
         tokenLen++;
       }
-      //發送MQTT：TOPIC_CAR_GPS(格式:0x0y,例如0103)
+      //發送MQTT：TOPIC_CAR_GPS(格式:xy,例如13)
       //    使用String結合x和y的內容
-      String xy = "0" + arryGps[1] + "0" + arryGps[2];
+      //String xy = "0" + arryGps[1] + "0" + arryGps[2];
+	  String xy =arryGps[1] + arryGps[2];
       //    將String轉換為const char*
       const char* msg = (xy).c_str();
       //    const char*轉char*

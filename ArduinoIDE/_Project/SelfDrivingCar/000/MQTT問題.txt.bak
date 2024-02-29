@@ -1,3 +1,9 @@
+問題：兩塊ESP32同時連至MQTT會斷線
+原因：client id衝突
+方法：設定不同client id即可
+String clientId = "ESP32ClientCar";
+
+問題：連線MQTT錯誤
 原因：轉成積木方塊時，程式跑掉
 方法：重新貼上以下程式即可
 static const char* root_ca PROGMEM = R"EOF(

@@ -35,12 +35,12 @@ LedControl lc = LedControl(13, 14, 27, 1);
 
 //---- WiFi settings
 const char* ssid = "tyes-itc";
-const char* password = "22924152";
+const char* password = "xxxxxxxxx";
 
 //---- HiveMQ Cloud Broker settings
-const char* mqtt_server = "imi-1oj8cr.a02.usw2.aws.hivemq.cloud";//"8a05a03895e647a1b352aa8823be3a68.s2.eu.hivemq.cloud";  // replace with your HiveMQ Cluster URL
+const char* mqtt_server = "8a05a03895e647a1b352aa8823be3a68.s2.eu.hivemq.cloud";//"imi-1oj8cr.a02.usw2.aws.hivemq.cloud";  // replace with your HiveMQ Cluster URL
 const char* mqtt_username = "kingofamani";                                        // replace with your Username
-const char* mqtt_password = "9.Vvi@RMp2gqR5m";                                    // replace with your Password
+const char* mqtt_password = "xxxxxxxxx";                                    // replace with your Password
 const int mqtt_port = 8883;
 
 //Topic主題
@@ -133,7 +133,7 @@ void reconnect() {
   // Loop until we’re reconnected
   while (!client.connected()) {
     Serial.print("Attempting MQTT connection… ");
-    String clientId = "ESP32Client";
+    String clientId = "ESP32ClientMap";
     // Attempt to connect
     if (client.connect(clientId.c_str(), mqtt_username, mqtt_password)) {
       Serial.println("connected!");
