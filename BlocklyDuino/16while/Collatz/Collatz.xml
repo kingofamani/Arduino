@@ -1,0 +1,155 @@
+<xml version="F2" board="Arduino Uno" xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="{JK`QA#,ynbOL?aH-quc">Num</variable>
+  </variables>
+  <block type="board_initializes_setup" id="0" x="90" y="110">
+    <field name="BOARD_TYPE">Arduino</field>
+    <statement name="CONTENT">
+      <block type="serial_init" id="bd[R=;z$a8^D4H6*|-`$">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="variables_set" id="M)+q36Ql4!ocvz1Z![.m">
+            <field name="POSITION">global</field>
+            <field name="TYPE">unsigned long</field>
+            <field name="VAR" id="{JK`QA#,ynbOL?aH-quc">Num</field>
+            <value name="VALUE">
+              <shadow type="math_number" id="_KZ5H(rk=yP0})RVKELt">
+                <field name="NUM">0</field>
+              </shadow>
+              <block type="math_number" id=".USgR/u0]%1K`9F5:/uw">
+                <field name="NUM">6171</field>
+              </block>
+            </value>
+            <next>
+              <block type="serial_println" id="#im9GUA973jLsE^v;M^c">
+                <value name="CONTENT">
+                  <block type="variables_get" id="q3z`O]P5~24#3[=(3?U=">
+                    <field name="VAR" id="{JK`QA#,ynbOL?aH-quc">Num</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="controls_whileUntil" id="V?O+P.KZqUFgxZ+^SJpk">
+                    <field name="MODE">UNTIL</field>
+                    <value name="BOOL">
+                      <block type="logic_compare" id="?pRNQ/iY!=Q}1AhMy^l,">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="variables_get" id="7LMcw}id+0Hn$(Z)i|yC">
+                            <field name="VAR" id="{JK`QA#,ynbOL?aH-quc">Num</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="`s;:IP]Ta?A4A-s!:(:K">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO">
+                      <block type="controls_if" id="JU/lf6@PYl!LlLSseW1x">
+                        <mutation else="1"></mutation>
+                        <value name="IF0">
+                          <block type="logic_compare" id="(%OGR0P:Ldz^lXbJzFJ4">
+                            <field name="OP">EQ</field>
+                            <value name="A">
+                              <block type="math_arithmetic" id="Ic#u?2TKlsIg@a+tPgO)">
+                                <field name="OP">MODULO</field>
+                                <value name="A">
+                                  <block type="variables_get" id="pX`Yi^+E0r{SxKj0uKUQ">
+                                    <field name="VAR" id="{JK`QA#,ynbOL?aH-quc">Num</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="JJTqC}ug:cU6UBcMt/ZF">
+                                    <field name="NUM">2</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number" id="(guq,p*ujtI)V`IgNqa1">
+                                <field name="NUM">0</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO0">
+                          <block type="variables_set3" id="SS{zQ9Kyv;hIa=EZ|vC^">
+                            <field name="VAR" id="{JK`QA#,ynbOL?aH-quc">Num</field>
+                            <value name="DELTA">
+                              <shadow type="math_number" id="WE:q?U*_K:dVhRysEvx}">
+                                <field name="NUM">0</field>
+                              </shadow>
+                              <block type="math_arithmetic" id="gG`t3[5#[b:+u~ic.okw">
+                                <field name="OP">DIVIDE</field>
+                                <value name="A">
+                                  <block type="variables_get" id=":EI:=kt(e]4VC[@xIIH.">
+                                    <field name="VAR" id="{JK`QA#,ynbOL?aH-quc">Num</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="bi`Rky^Ra]g4EIRRK-F0">
+                                    <field name="NUM">2</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </statement>
+                        <statement name="ELSE">
+                          <block type="variables_set3" id="Mb,v%7NcZiX1KJF$#?s~">
+                            <field name="VAR" id="{JK`QA#,ynbOL?aH-quc">Num</field>
+                            <value name="DELTA">
+                              <shadow type="math_number" id="Mo9}v_DvinQF{QGourV{">
+                                <field name="NUM">0</field>
+                              </shadow>
+                              <block type="math_arithmetic" id="[-tY[Wukrk0x+lupafMa">
+                                <field name="OP">ADD</field>
+                                <value name="A">
+                                  <block type="math_arithmetic" id="n,9%-;!)RU._4[F=qe/i">
+                                    <field name="OP">MULTIPLY</field>
+                                    <value name="A">
+                                      <block type="variables_get" id="ZX,Si)IL.=*F1:yFj93`">
+                                        <field name="VAR" id="{JK`QA#,ynbOL?aH-quc">Num</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number" id="kApL}g(DX;xvjT7.Gna.">
+                                        <field name="NUM">3</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="RA$t-WcRb//ltW?`qthv">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="serial_println" id="dIFLl|j{}.fTEI.ft%7/">
+                            <value name="CONTENT">
+                              <block type="variables_get" id="6/%3af?Efc(+,T}a}sgg">
+                                <field name="VAR" id="{JK`QA#,ynbOL?aH-quc">Num</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1"></block>
+    </next>
+  </block>
+</xml>

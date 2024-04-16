@@ -1,0 +1,319 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="+59S9zlb~1*h^qSr65Kn">i</variable>
+    <variable id="y/M[+m5kPvRo}l6rE[BQ">addr</variable>
+    <variable id="uV|u6DZH^3~~A/WL~*v)">val</variable>
+  </variables>
+  <block type="board_initializes_setup" id="0" x="100" y="50">
+    <field name="BOARD_TYPE">Arduino</field>
+    <statement name="CONTENT">
+      <block type="serial_init" id="JS+`n.x~9Q~K7JiXQ417">
+        <field name="SPEED">9600</field>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="customcode_comment" id="N(#V]`E8oINg^?5oblZF">
+            <value name="text">
+              <block type="text" id="LRm`X-TdQs-P$_U*qFu9">
+                <field name="TEXT">寫入記憶體</field>
+              </block>
+            </value>
+            <next>
+              <block type="procedures_callnoreturn" id="M{wlrQwsiTV@GB8$09GW">
+                <mutation xmlns="http://www.w3.org/1999/xhtml" name="writeToMemory"></mutation>
+                <value name="VAR">
+                  <block type="lists_create_with" id="A2!/~`gPa^VSL.wWqcw:">
+                    <mutation items="2"></mutation>
+                    <value name="ADD0">
+                      <block type="math_number" id="g^UQC[ogZ=Kew_WM[%20">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                    <value name="ADD1">
+                      <block type="math_number" id="0`ONiC0j70FwF^{Ofmr[">
+                        <field name="NUM">255</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="delay_custom" id="8].ADM_#=?LTwHi}fHI5">
+                    <value name="DELAY_TIME">
+                      <block type="math_number" id="SU_XBpd?aC(G(KKt.UU4">
+                        <field name="NUM">2000</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_comment" id="aLrj5O*u0DEK(TmL,5%K">
+                        <value name="text">
+                          <block type="text" id="dJ$I^MXEPx$WP2r_xP/@">
+                            <field name="TEXT">讀取記憶體</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="variables_set" id="si6}}3;A.`97O;)Q7v80">
+                            <field name="POSITION">local</field>
+                            <field name="TYPE">int</field>
+                            <field name="VAR" id="uV|u6DZH^3~~A/WL~*v)">val</field>
+                            <value name="VALUE">
+                              <shadow type="math_number" id="r+`uvQ]UOZh~K(uqe2[P">
+                                <field name="NUM">0</field>
+                              </shadow>
+                              <block type="procedures_callreturn" id="pPZoNG=YRE%%9%rg!=Xv">
+                                <mutation xmlns="http://www.w3.org/1999/xhtml" name="ReadFromMemory"></mutation>
+                                <value name="VAR">
+                                  <block type="lists_create_with" id="dQU!S^$o~/LwWbHKoSMs">
+                                    <mutation items="1"></mutation>
+                                    <value name="ADD0">
+                                      <block type="math_number" id="z5q6Z.YaSd[e84GZNBdt">
+                                        <field name="NUM">1</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="serial_println" id="3{rJA^9*3(W]l4yn[U+(">
+                                <value name="CONTENT">
+                                  <block type="variables_get" id="]7GSXOr6gbdi_9o:I(~e">
+                                    <field name="VAR" id="uV|u6DZH^3~~A/WL~*v)">val</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="delay_custom" id="UuPa%0{?bmY,j)r:6[t.">
+                                    <value name="DELAY_TIME">
+                                      <block type="math_number" id="Xq#^UVV|cWycEy?q{EN^">
+                                        <field name="NUM">2000</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="customcode_comment" id="|,CX{!}^AB*@_c|SlM)v">
+                                        <value name="text">
+                                          <block type="text" id="~ty)#J_Eo;T4!_WSCR#h">
+                                            <field name="TEXT">清除記憶體</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="procedures_callnoreturn" id="~y.jWZ%^/Hw0!]qO$4#o">
+                                            <mutation xmlns="http://www.w3.org/1999/xhtml" name="clearOneMemory"></mutation>
+                                            <value name="VAR">
+                                              <block type="lists_create_with" id=".3#~zwgytW[B}xwXoI2Z">
+                                                <mutation items="1"></mutation>
+                                                <value name="ADD0">
+                                                  <block type="math_number" id="n3S3CZEwpv~?Ea6NtO{q">
+                                                    <field name="NUM">1</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="customcode_comment" id="TOJI{HP|b-7UU[^*0)p5">
+                                                <value name="text">
+                                                  <block type="text" id="i)gxkt2=UT3mfM@VH9LC">
+                                                    <field name="TEXT">讀取看是否已清除</field>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="serial_println" id="l}*K4SnUNpCKsO[-?-Od">
+                                                    <value name="CONTENT">
+                                                      <block type="procedures_callreturn" id="|rZM9od$J+_%3PtZ^)#W">
+                                                        <mutation xmlns="http://www.w3.org/1999/xhtml" name="ReadFromMemory"></mutation>
+                                                        <value name="VAR">
+                                                          <block type="lists_create_with" id="4~O^C`c}j1}Ayr.k/2vp">
+                                                            <mutation items="1"></mutation>
+                                                            <value name="ADD0">
+                                                              <block type="math_number" id=".=1hj,l-teGRK=cG~P`[">
+                                                                <field name="NUM">1</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="delay_custom" id="NWzDWOrgXOS!iY{%GwKH">
+                                                        <value name="DELAY_TIME">
+                                                          <block type="math_number" id="38-ue)T,#:wUE15N49D5">
+                                                            <field name="NUM">2000</field>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="serial_println" id="s-F$NKh4XMLeEHbA%g{y">
+                                                            <value name="CONTENT">
+                                                              <block type="text" id="/Sw[N8orNmiS8ol6==H|">
+                                                                <field name="TEXT">=========================</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+  <block type="customcode_head" id="d/EL(~b4Q~t_Tl$[mFT[" x="370" y="70">
+    <value name="text">
+      <block type="text" id="1H;x6p3JE:!w^]H(.]%}">
+        <field name="TEXT">#include &lt;EEPROM.h&gt;</field>
+      </block>
+    </value>
+  </block>
+  <block type="procedures_defnoreturn" id="+:.bJbh0=,7nOWieC^sc" x="750" y="310">
+    <field name="NAME">writeToMemory</field>
+    <value name="VAR">
+      <shadow type="lists_create_with">
+        <mutation items="0"></mutation>
+      </shadow>
+      <block type="lists_create_with" id="+#P7jF@V2v=5]@x068F$">
+        <mutation items="2"></mutation>
+        <value name="ADD0">
+          <block type="variables_set2" id=")93(c8vUe{h?(|GN{`TQ">
+            <field name="TYPE">int</field>
+            <field name="VAR" id="y/M[+m5kPvRo}l6rE[BQ">addr</field>
+          </block>
+        </value>
+        <value name="ADD1">
+          <block type="variables_set2" id="_ow(/k0_!@dUE[bJQUmk">
+            <field name="TYPE">int</field>
+            <field name="VAR" id="uV|u6DZH^3~~A/WL~*v)">val</field>
+          </block>
+        </value>
+      </block>
+    </value>
+    <statement name="STACK">
+      <block type="customcode_code" id="TIPWC1m/9NJE6.LP+}6b">
+        <value name="text">
+          <block type="text" id="xhd`AnFbgST@@[nSJdTG">
+            <field name="TEXT">EEPROM.write(addr, val);</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defreturn" id="!l?;_8[2L|W^iyL9)1%h" x="630" y="450">
+    <field name="TYPE">int</field>
+    <field name="NAME">ReadFromMemory</field>
+    <value name="VAR">
+      <shadow type="lists_create_with">
+        <mutation items="0"></mutation>
+      </shadow>
+      <block type="lists_create_with" id="Mx]X^XGRiq:I_Kit)b|.">
+        <mutation items="1"></mutation>
+        <value name="ADD0">
+          <block type="variables_set2" id="%Ezy^pWPnMDTU]uU~{Ot">
+            <field name="TYPE">int</field>
+            <field name="VAR" id="y/M[+m5kPvRo}l6rE[BQ">addr</field>
+          </block>
+        </value>
+      </block>
+    </value>
+    <statement name="STACK">
+      <block type="procedures_return" id="V2]jg,^H^Vy74-u[XH5o">
+        <value name="RETURN">
+          <shadow type="math_number" id="z.W^;d5qA4G$R[K7Znbv">
+            <field name="NUM">0</field>
+          </shadow>
+          <block type="customcode_code_input" id="ujB/Nbz^_]gqwG1U4#z*">
+            <value name="text">
+              <block type="text" id="wcGx+2MD![MqQa*OtFV?">
+                <field name="TEXT">EEPROM.read(addr)</field>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="#,`W4Q1qv+eoU0:N=vLa" x="730" y="590">
+    <field name="NAME">clearOneMemory</field>
+    <value name="VAR">
+      <shadow type="lists_create_with">
+        <mutation items="0"></mutation>
+      </shadow>
+      <block type="lists_create_with" id="D|?l59nIqF=(c^caBd,d">
+        <mutation items="1"></mutation>
+        <value name="ADD0">
+          <block type="variables_set2" id="KBE3ejPsqx/YrM*CTRxk">
+            <field name="TYPE">int</field>
+            <field name="VAR" id="y/M[+m5kPvRo}l6rE[BQ">addr</field>
+          </block>
+        </value>
+      </block>
+    </value>
+    <statement name="STACK">
+      <block type="customcode_code" id="qA6yIVnR|qWk58`.1%7:">
+        <value name="text">
+          <block type="text" id="6+fye:s)4YP(xFWc2kou">
+            <field name="TEXT">EEPROM.write(addr, 0);</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="Km-3B4e`WtcyW.$z9Tmc" x="730" y="710">
+    <field name="NAME">clearAllMemory</field>
+    <value name="VAR">
+      <shadow type="lists_create_with" id="}G#QvhwezN}vw%(xy}2B">
+        <mutation items="0"></mutation>
+      </shadow>
+    </value>
+    <statement name="STACK">
+      <block type="controls_for" id="J_k?0VjDjPk}}l?fgA^W">
+        <field name="VAR" id="+59S9zlb~1*h^qSr65Kn">i</field>
+        <value name="FROM">
+          <block type="math_number" id=".wu(OIsij,ZQ]f8)%n5V">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <value name="TO">
+          <block type="customcode_code_input" id="B|5L]+go=8BRF]9M!6?w">
+            <value name="text">
+              <block type="text" id=",bSy`{P91|K;.b?yGmcM">
+                <field name="TEXT">EEPROM.length()</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <value name="BY">
+          <block type="math_number" id="3|+|{(;Zid{ITVPo}U?i">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <statement name="DO">
+          <block type="customcode_code" id="$`fy~3+gCwuVq!|$Y6P;">
+            <value name="text">
+              <block type="text" id="#XVb7;R+-9RatOX]G(tD">
+                <field name="TEXT">EEPROM.write(i, 0);</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>

@@ -1,0 +1,48 @@
+程式碼注意事項：
+https://reurl.cc/1GpQZD
+loop()：
+	不要使用delay(1000)
+	改用millis()代替
+setup()：
+	不要使用while(!Serial){}
+	改用delay(1500)代替
+
+
+安裝 Arduino Create Agent
+Arduino IDE安裝 ArduinoIoTCloud 程式庫
+
+https://create.arduino.cc/iot/things
+
+Things
+	按「Create」，名稱「ESP32S2Test」
+	Cloud Variables：新增bool myLed變數
+	Associated Device：
+		按「Set up a 3rd Party device」選ESP32S2(ESP32請選ESP32 Dev Module)後，記下：
+		Device ID
+		a0c94a14-399e-40b4-944a-4b15685b4ddf
+		★★★Secret Key
+		PGZNCPSXTHLRBQUEBERC
+Dashboards
+	新增Dashboards，名稱「My First Dashboard」
+	按左上pen icon編輯鈕，按「ADD/THINGS」選「ESP32S2Test」
+	按「ADD/WIDGETS」選「Switch」，Linked Variable選「myLed」
+Things
+	ESP32S2開發板在pin2接LED燈，接著USB連上電腦
+	選「Sketch」標籤頁
+		確認Port
+		setup()新增：
+			pinMode(2, OUTPUT);
+		onMyLedChange()新增：
+			Serial.print("從Cloud傳來myLed值：");
+			Serial.println(myLed);
+			digitalWrite(2, myLed);
+		按「→」
+Dashboards
+	按左上角eye icon的檢視鈕
+	切換swtich ON與OFF，此時ESP32S2的LED燈就可以控制開關
+	
+cloud首頁
+	https://cloud.arduino.cc/home/
+	google play按裝APP在手機
+	以手機切換swtich ON與OFF
+	

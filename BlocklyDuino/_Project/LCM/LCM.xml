@@ -1,0 +1,404 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="initializes_setup" id="3" x="63" y="38">
+    <statement name="CONTENT">
+      <block type="serial_init" id="4">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="variables_set" id="5" inline="true">
+            <field name="TYPE">String</field>
+            <field name="VAR">num</field>
+            <value name="VALUE">
+              <block type="text" id="6">
+                <field name="TEXT">15*20</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="7" inline="true">
+                <field name="TYPE">Number</field>
+                <field name="VAR">number1</field>
+                <next>
+                  <block type="variables_set" id="8" inline="true">
+                    <field name="TYPE">Number</field>
+                    <field name="VAR">number2</field>
+                    <next>
+                      <block type="customcode_code" id="9" inline="true">
+                        <value name="text">
+                          <block type="text" id="10">
+                            <field name="TEXT">number1 = splitToNum(num, '*', 0);</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="customcode_code" id="11" inline="true">
+                            <value name="text">
+                              <block type="text" id="12">
+                                <field name="TEXT">number2 = splitToNum(num, '*', 1);</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="variables_set" id="13" inline="true">
+                                <field name="TYPE">Number</field>
+                                <field name="VAR">maxFactor</field>
+                                <value name="VALUE">
+                                  <block type="math_number" id="14">
+                                    <field name="NUM">0</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="variables_set" id="15" inline="true">
+                                    <field name="TYPE">Number</field>
+                                    <field name="VAR">big</field>
+                                    <value name="VALUE">
+                                      <block type="math_number" id="16">
+                                        <field name="NUM">0</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="controls_if" id="17" inline="false">
+                                        <mutation else="1"></mutation>
+                                        <value name="IF0">
+                                          <block type="logic_compare" id="18" inline="true">
+                                            <field name="OP">GT</field>
+                                            <value name="A">
+                                              <block type="variables_get" id="19">
+                                                <field name="TYPE">Number</field>
+                                                <field name="VAR">number1</field>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <block type="variables_get" id="20">
+                                                <field name="TYPE">Number</field>
+                                                <field name="VAR">number2</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <statement name="DO0">
+                                          <block type="variables_set" id="21" inline="true">
+                                            <field name="TYPE">Number</field>
+                                            <field name="VAR">big</field>
+                                            <value name="VALUE">
+                                              <block type="variables_get" id="22">
+                                                <field name="TYPE">Number</field>
+                                                <field name="VAR">number1</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </statement>
+                                        <statement name="ELSE">
+                                          <block type="variables_set" id="23" inline="true">
+                                            <field name="TYPE">Number</field>
+                                            <field name="VAR">big</field>
+                                            <value name="VALUE">
+                                              <block type="variables_get" id="24">
+                                                <field name="TYPE">Number</field>
+                                                <field name="VAR">number2</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </statement>
+                                        <next>
+                                          <block type="controls_for" id="25" inline="true">
+                                            <field name="VAR">i</field>
+                                            <value name="FROM">
+                                              <block type="math_number" id="26">
+                                                <field name="NUM">1</field>
+                                              </block>
+                                            </value>
+                                            <value name="TO">
+                                              <block type="variables_get" id="27">
+                                                <field name="TYPE">Number</field>
+                                                <field name="VAR">big</field>
+                                              </block>
+                                            </value>
+                                            <statement name="DO">
+                                              <block type="controls_if" id="28" inline="false">
+                                                <value name="IF0">
+                                                  <block type="logic_operation" id="29" inline="true">
+                                                    <field name="OP">AND</field>
+                                                    <value name="A">
+                                                      <block type="logic_compare" id="30" inline="true">
+                                                        <field name="OP">EQ</field>
+                                                        <value name="A">
+                                                          <block type="math_arithmetic" id="31" inline="true">
+                                                            <field name="OP">MODULO</field>
+                                                            <value name="A">
+                                                              <block type="variables_get" id="32">
+                                                                <field name="TYPE">Number</field>
+                                                                <field name="VAR">number1</field>
+                                                              </block>
+                                                            </value>
+                                                            <value name="B">
+                                                              <block type="variables_get" id="33">
+                                                                <field name="TYPE">Number</field>
+                                                                <field name="VAR">i</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                        <value name="B">
+                                                          <block type="math_number" id="34">
+                                                            <field name="NUM">0</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                    <value name="B">
+                                                      <block type="logic_compare" id="35" inline="true">
+                                                        <field name="OP">EQ</field>
+                                                        <value name="A">
+                                                          <block type="math_arithmetic" id="36" inline="true">
+                                                            <field name="OP">MODULO</field>
+                                                            <value name="A">
+                                                              <block type="variables_get" id="37">
+                                                                <field name="TYPE">Number</field>
+                                                                <field name="VAR">number2</field>
+                                                              </block>
+                                                            </value>
+                                                            <value name="B">
+                                                              <block type="variables_get" id="38">
+                                                                <field name="TYPE">Number</field>
+                                                                <field name="VAR">i</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                        <value name="B">
+                                                          <block type="math_number" id="39">
+                                                            <field name="NUM">0</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <statement name="DO0">
+                                                  <block type="variables_set" id="40" inline="true">
+                                                    <field name="TYPE">Number</field>
+                                                    <field name="VAR">maxFactor</field>
+                                                    <value name="VALUE">
+                                                      <block type="variables_get" id="41">
+                                                        <field name="TYPE">Number</field>
+                                                        <field name="VAR">i</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </statement>
+                                              </block>
+                                            </statement>
+                                            <next>
+                                              <block type="variables_set" id="92" inline="true">
+                                                <field name="TYPE">Unsigned_Long</field>
+                                                <field name="VAR">LCM</field>
+                                                <value name="VALUE">
+                                                  <block type="math_arithmetic" id="153" inline="true">
+                                                    <field name="OP">DIVIDE</field>
+                                                    <value name="A">
+                                                      <block type="math_arithmetic" id="108" inline="true">
+                                                        <field name="OP">MULTIPLY</field>
+                                                        <value name="A">
+                                                          <block type="variables_get" id="125">
+                                                            <field name="TYPE">Number</field>
+                                                            <field name="VAR">number1</field>
+                                                          </block>
+                                                        </value>
+                                                        <value name="B">
+                                                          <block type="variables_get" id="142">
+                                                            <field name="TYPE">Number</field>
+                                                            <field name="VAR">number2</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                    <value name="B">
+                                                      <block type="variables_get" id="154">
+                                                        <field name="TYPE">Number</field>
+                                                        <field name="VAR">maxFactor</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="serial_println" id="42" inline="false">
+                                                    <value name="CONTENT">
+                                                      <block type="variables_get" id="171">
+                                                        <field name="TYPE">Unsigned_Long</field>
+                                                        <field name="VAR">LCM</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="44"></block>
+    </next>
+  </block>
+  <block type="procedures_defnoreturn" id="45" collapsed="true" x="713" y="138">
+    <mutation></mutation>
+    <field name="NAME">abc</field>
+    <statement name="STACK">
+      <block type="customcode_head" id="46" inline="true">
+        <value name="text">
+          <block type="text" id="47">
+            <field name="TEXT">int splitToNum(String data, char separator, int index)</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_head" id="48" inline="true">
+            <value name="text">
+              <block type="text" id="49">
+                <field name="TEXT">{</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_head" id="50" inline="true">
+                <value name="text">
+                  <block type="text" id="51">
+                    <field name="TEXT">  int found = 0;</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_head" id="52" inline="true">
+                    <value name="text">
+                      <block type="text" id="53">
+                        <field name="TEXT">  int strIndex[] = { 0, -1 };</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_head" id="54" inline="true">
+                        <value name="text">
+                          <block type="text" id="55">
+                            <field name="TEXT">  int maxIndex = data.length() - 1;</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="customcode_head" id="56" inline="true">
+                            <value name="text">
+                              <block type="text" id="57">
+                                <field name="TEXT">  for (int i = 0; i &lt;= maxIndex &amp;&amp; found &lt;= index; i++) {</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="customcode_head" id="58" inline="true">
+                                <value name="text">
+                                  <block type="text" id="59">
+                                    <field name="TEXT">    if (data.charAt(i) == separator || i == maxIndex) {</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="customcode_head" id="60" inline="true">
+                                    <value name="text">
+                                      <block type="text" id="61">
+                                        <field name="TEXT">      found++;</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="customcode_head" id="62" inline="true">
+                                        <value name="text">
+                                          <block type="text" id="63">
+                                            <field name="TEXT">      strIndex[0] = strIndex[1] + 1;</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="customcode_head" id="64" inline="true">
+                                            <value name="text">
+                                              <block type="text" id="65">
+                                                <field name="TEXT">      strIndex[1] = (i == maxIndex) ? i + 1 : i;</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="customcode_head" id="66" inline="true">
+                                                <value name="text">
+                                                  <block type="text" id="67">
+                                                    <field name="TEXT">    }</field>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="customcode_head" id="68" inline="true">
+                                                    <value name="text">
+                                                      <block type="text" id="69">
+                                                        <field name="TEXT">  }</field>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="customcode_head" id="70" inline="true">
+                                                        <value name="text">
+                                                          <block type="text" id="71">
+                                                            <field name="TEXT">  String numStr = data.substring(strIndex[0], strIndex[1]);</field>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="customcode_head" id="72" inline="true">
+                                                            <value name="text">
+                                                              <block type="text" id="73">
+                                                                <field name="TEXT">  int num = numStr.toInt();</field>
+                                                              </block>
+                                                            </value>
+                                                            <next>
+                                                              <block type="customcode_head" id="74" inline="true">
+                                                                <value name="text">
+                                                                  <block type="text" id="75">
+                                                                    <field name="TEXT">  return found &gt; index ? num : 0;</field>
+                                                                  </block>
+                                                                </value>
+                                                                <next>
+                                                                  <block type="customcode_head" id="76" inline="true">
+                                                                    <value name="text">
+                                                                      <block type="text" id="77">
+                                                                        <field name="TEXT">}</field>
+                                                                      </block>
+                                                                    </value>
+                                                                  </block>
+                                                                </next>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

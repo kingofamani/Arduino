@@ -1,0 +1,9 @@
+供電：
+
+ESP32：
+https://www.yiboard.com/thread-1551-1-1.html
+
+	USB  ：5V
+	Vin  ：7V~12V
+
+

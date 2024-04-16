@@ -1,0 +1,95 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="customcode_head" id="282" inline="true" x="138" y="13">
+    <value name="text">
+      <block type="text" id="283">
+        <field name="TEXT">/*安裝Ultrasonic by ErickSimoes的函式庫*/</field>
+      </block>
+    </value>
+    <next>
+      <block type="customcode_head" id="284" inline="true">
+        <value name="text">
+          <block type="text" id="285">
+            <field name="TEXT">#include &lt;Ultrasonic.h&gt;</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_head" id="286" inline="true">
+            <value name="text">
+              <block type="text" id="287">
+                <field name="TEXT">Ultrasonic ultrasonic(5, 6);//(Trig,Echo)</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="initializes_setup" id="288" x="138" y="138">
+    <statement name="CONTENT">
+      <block type="serial_init" id="289">
+        <field name="SPEED">9600</field>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="290">
+        <statement name="CONTENT">
+          <block type="variables_set" id="291" inline="true">
+            <field name="TYPE">Number</field>
+            <field name="VAR">distance</field>
+            <value name="VALUE">
+              <block type="customcode_instruction4" id="292" inline="true">
+                <value name="instruction">
+                  <block type="text" id="293">
+                    <field name="TEXT">ultrasonic</field>
+                  </block>
+                </value>
+                <value name="text1">
+                  <block type="text" id="294">
+                    <field name="TEXT">read()</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="serial_print" id="295" inline="false">
+                <value name="CONTENT">
+                  <block type="text" id="296">
+                    <field name="TEXT">距離：</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="serial_print" id="297" inline="false">
+                    <value name="CONTENT">
+                      <block type="variables_get" id="298">
+                        <field name="TYPE">Number</field>
+                        <field name="VAR">distance</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_println" id="299" inline="false">
+                        <value name="CONTENT">
+                          <block type="text" id="300">
+                            <field name="TEXT"> cm</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="delay_custom" id="301" inline="false">
+                            <value name="DELAY_TIME">
+                              <block type="math_number" id="302">
+                                <field name="NUM">500</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

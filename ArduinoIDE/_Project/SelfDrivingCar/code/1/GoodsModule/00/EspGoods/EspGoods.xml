@@ -1,0 +1,129 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="board_initializes_setup" id="0" x="100" y="50">
+    <field name="BOARD_TYPE">ESP32</field>
+    <statement name="CONTENT">
+      <block type="_01imi_espgoods_init" id="s:qp!sV+:DYH8_E{Y)y6">
+        <statement name="wifi">
+          <block type="_02imi_espgoods_wifi" id=")C=u^SRftHhg-uiq1jwh">
+            <value name="ssid">
+              <block type="text" id="([`L4b@U`3!w!!yQ{l_m">
+                <field name="TEXT">xxxxxxx</field>
+              </block>
+            </value>
+            <value name="wifipwd">
+              <block type="text" id=":b^Uh]_Gvv$x6cO;6]a^">
+                <field name="TEXT">xxxxxxx</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <statement name="mqtt">
+          <block type="_03imi_espgoods_mqtt" id="XZ2TT(@*yqXqCt!_ZHa#">
+            <value name="mqtt_user">
+              <block type="text" id="pT84!bCygR#Qp@AV;)jY">
+                <field name="TEXT">xxxxxxx</field>
+              </block>
+            </value>
+            <value name="mqtt_pwd">
+              <block type="text" id="LuK[D8$0bzt6v:P8xYK{">
+                <field name="TEXT">xxxxxxx</field>
+              </block>
+            </value>
+            <value name="port">
+              <block type="math_number" id="uYu,(q%%x,VVk?-ksQyG">
+                <field name="NUM">8883</field>
+              </block>
+            </value>
+            <value name="mqtt_server">
+              <block type="text" id="ctEt$gf[1!0q,b_k0z,k">
+                <field name="TEXT">xxxxxxx</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <statement name="uart">
+          <block type="_04imi_espgoods_uart" id="E5M}#*P1{NH~F(3;I~uE">
+            <value name="rx">
+              <block type="math_number" id="d_.jKhQwcW1wzx5!vt;v">
+                <field name="NUM">16</field>
+              </block>
+            </value>
+            <value name="tx">
+              <block type="math_number" id="=EMDfky.Cc{KKF+Dlam!">
+                <field name="NUM">17</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <statement name="sheet">
+          <block type="_05imi_espgoods_sheet" id="Zk!B@k$4jGs:S!dZq;e.">
+            <value name="sheetid">
+              <block type="text" id="dB.Y]mmA5CsHGC?1t:Nh">
+                <field name="TEXT">xxxxxxx</field>
+              </block>
+            </value>
+            <value name="stag">
+              <block type="text" id="+:q`RWync}[i{!|JtO9B">
+                <field name="TEXT">xxxxxxx</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <next>
+          <block type="_07imi_espgoods_submqtt" id="4_MF96/hyTH3E})|g+RC">
+            <field name="mqtt_topic">TOPIC_GOODS_LOAD</field>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="_06imi_espgoods_loop" id="_};zje_9iCHu$0*1T#SV"></block>
+        </statement>
+      </block>
+    </next>
+  </block>
+  <block type="_08imi_espgoods_mqttcallback_func" id="8:}z-WyB`uo.[hJC;dQ!" x="110" y="470">
+    <statement name="msg">
+      <block type="controls_if" id="H{B!}chcQjPV7#Y%eP|k">
+        <value name="IF0">
+          <block type="_09imi_espgoods_ismqtttopic" id="S`@n6eba8TXHxU(_?mTe">
+            <field name="mqtt_topic">TOPIC_CAR_STANDBY</field>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="_10imi_espgoods_readsheet" id="}/EyM$r8,2{]Xvro]T3C">
+            <value name="field">
+              <block type="text" id="$d(q~[eno%9NC9G=Y8ht">
+                <field name="TEXT">A</field>
+              </block>
+            </value>
+            <value name="name">
+              <block type="text" id="Yi.d1#C#m}Gg#o[h[2tU">
+                <field name="TEXT">陳大春</field>
+              </block>
+            </value>
+            <next>
+              <block type="_11imi_espgoods_sendarduino_pick" id="zpW|DDNDsRCJj?Jd1uSN"></block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="_12imi_espgoods_getarduino_func" id="K26`Pv%uKUIQOjpPKpW+" x="110" y="650">
+    <statement name="msg">
+      <block type="controls_if" id="fC84$tNn8_IpAVML30Ky">
+        <value name="IF0">
+          <block type="_13imi_espgoods_isarduinomsg" id="64GxG9P9CD~a%Pptd@*(">
+            <field name="msg">GOODS_LOAD</field>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="_14imi_espgoods_pubmqtt_goods" id="nL+[LXU,7=$]TZLuO*0A"></block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>

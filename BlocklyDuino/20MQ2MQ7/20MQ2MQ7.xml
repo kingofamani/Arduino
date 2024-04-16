@@ -1,0 +1,92 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="initializes_setup" id="1" x="80" y="40">
+    <statement name="CONTENT">
+      <block type="serial_init" id="10">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="serial_println" id="81" inline="false">
+            <value name="CONTENT">
+              <block type="text" id="82">
+                <field name="TEXT">暖機20秒，請稍候…</field>
+              </block>
+            </value>
+            <next>
+              <block type="controls_for" id="161" inline="true">
+                <field name="VAR">i</field>
+                <value name="FROM">
+                  <block type="math_number" id="162">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <value name="TO">
+                  <block type="math_number" id="163">
+                    <field name="NUM">20</field>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="delay_custom" id="120" inline="false">
+                    <value name="DELAY_TIME">
+                      <block type="math_number" id="121">
+                        <field name="NUM">1000</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_print" id="129" inline="false">
+                        <value name="CONTENT">
+                          <block type="variables_get" id="169">
+                            <field name="TYPE">Number</field>
+                            <field name="VAR">i</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="serial_print" id="179" inline="false">
+                            <value name="CONTENT">
+                              <block type="text" id="151">
+                                <field name="TEXT">,</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <next>
+                  <block type="serial_println" id="170" inline="false">
+                    <value name="CONTENT">
+                      <block type="text" id="171">
+                        <field name="TEXT">暖機完畢！</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="2">
+        <statement name="CONTENT">
+          <block type="serial_println" id="18" inline="false">
+            <value name="CONTENT">
+              <block type="inout_analog_read" id="53">
+                <field name="PIN">A0</field>
+              </block>
+            </value>
+            <next>
+              <block type="delay_custom" id="31" inline="false">
+                <value name="DELAY_TIME">
+                  <block type="math_number" id="32">
+                    <field name="NUM">1000</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

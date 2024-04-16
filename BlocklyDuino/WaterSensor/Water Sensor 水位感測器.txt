@@ -1,0 +1,3 @@
+S,OUT	A0
+VCC		DC3-5V
+GND		GND

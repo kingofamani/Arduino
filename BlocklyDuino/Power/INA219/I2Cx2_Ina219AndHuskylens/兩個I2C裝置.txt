@@ -1,0 +1,9 @@
+Board				SDA and SCL Pins
+Arduino UNO			A4 and A5
+Arduino Nano		A4 and A5
+Arduino Mega 2560	20 and 21
+Arduino Micro		2 and 3
+Arduino Leonardo	2 and 3
+
+
+將每個裝置的SDA串聯、SCL串聯(用麵包板)就可以了。

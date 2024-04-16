@@ -1,0 +1,132 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="X}hgNsT%b2)eA}!H7%Ae">num</variable>
+    <variable id="F~Dh]s0!4]1XyNXw}IX/">factor</variable>
+    <variable id="-ynR-!YHr?qGa(lT4Dt*">i</variable>
+  </variables>
+  <block type="initializes_setup" id="1" x="113" y="38">
+    <statement name="CONTENT">
+      <block type="serial_init" id="10">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="variables_set" id="13">
+            <field name="POSITION">global</field>
+            <field name="TYPE">String</field>
+            <field name="VAR" id="X}hgNsT%b2)eA}!H7%Ae">num</field>
+            <value name="VALUE">
+              <block type="text" id="33">
+                <field name="TEXT">15</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="130">
+                <field name="POSITION">global</field>
+                <field name="TYPE">String</field>
+                <field name="VAR" id="F~Dh]s0!4]1XyNXw}IX/">factor</field>
+                <value name="VALUE">
+                  <block type="text" id="194">
+                    <field name="TEXT"></field>
+                  </block>
+                </value>
+                <next>
+                  <block type="controls_for" id="41">
+                    <field name="VAR" id="-ynR-!YHr?qGa(lT4Dt*">i</field>
+                    <value name="FROM">
+                      <block type="math_number" id="42">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                    <value name="TO">
+                      <block type="cast_type1" id="GuCY`*QfBXVIn{Ouj48Q">
+                        <field name="TYPE">toInt()</field>
+                        <value name="VAR">
+                          <block type="variables_get" id=")Gd6;ZT#NNua;}|!(Nyp">
+                            <field name="VAR" id="X}hgNsT%b2)eA}!H7%Ae">num</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO">
+                      <block type="controls_if" id="200" inline="false">
+                        <value name="IF0">
+                          <block type="logic_compare" id="206">
+                            <field name="OP">EQ</field>
+                            <value name="A">
+                              <block type="math_arithmetic" id="217">
+                                <field name="OP">MODULO</field>
+                                <value name="A">
+                                  <block type="cast_type1" id="-EeFUlefJK(oTW9%(#U+">
+                                    <field name="TYPE">toInt()</field>
+                                    <value name="VAR">
+                                      <block type="variables_get" id="s6KwL.29#eX,wASZG?((">
+                                        <field name="VAR" id="X}hgNsT%b2)eA}!H7%Ae">num</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="variables_get" id="228">
+                                    <field name="VAR" id="-ynR-!YHr?qGa(lT4Dt*">i</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number" id="250">
+                                <field name="NUM">0</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO0">
+                          <block type="variables_set3" id="%$1ImScIxY}T@!,77toG">
+                            <field name="VAR" id="F~Dh]s0!4]1XyNXw}IX/">factor</field>
+                            <value name="DELTA">
+                              <shadow type="math_number" id="/iqz-^FB@{y@jBX+5|ML">
+                                <field name="NUM">0</field>
+                              </shadow>
+                              <block type="text_join" id="542" inline="false">
+                                <mutation items="3"></mutation>
+                                <value name="ADD0">
+                                  <block type="variables_get" id="558">
+                                    <field name="VAR" id="F~Dh]s0!4]1XyNXw}IX/">factor</field>
+                                  </block>
+                                </value>
+                                <value name="ADD1">
+                                  <block type="variables_get" id="579">
+                                    <field name="VAR" id="-ynR-!YHr?qGa(lT4Dt*">i</field>
+                                  </block>
+                                </value>
+                                <value name="ADD2">
+                                  <block type="text" id="599">
+                                    <field name="TEXT">,</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </statement>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="serial_println" id="607" inline="false">
+                        <value name="CONTENT">
+                          <block type="variables_get" id="629">
+                            <field name="VAR" id="F~Dh]s0!4]1XyNXw}IX/">factor</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="2"></block>
+    </next>
+  </block>
+</xml>

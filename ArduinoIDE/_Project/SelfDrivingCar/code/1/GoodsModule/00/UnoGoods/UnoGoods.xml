@@ -1,0 +1,98 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="board_initializes_setup" id="0" x="100" y="50">
+    <field name="BOARD_TYPE">Arduino</field>
+    <statement name="CONTENT">
+      <block type="_01imi_unogoods_init" id=")$6[.|mBD;}W_ez{8^C%">
+        <statement name="cnc">
+          <block type="_02imi_unogoods_cnc" id="J!vh_`AxGb3pPpX7RO,D">
+            <value name="en">
+              <block type="math_number" id="##9-5dH.xdVlb$5IfPLd">
+                <field name="NUM">8</field>
+              </block>
+            </value>
+            <value name="xdir">
+              <block type="math_number" id="V6gF4N|nN*a?@Y|L!5bP">
+                <field name="NUM">5</field>
+              </block>
+            </value>
+            <value name="xstep">
+              <block type="math_number" id="qt.PK94e==NDJIAlG@lz">
+                <field name="NUM">2</field>
+              </block>
+            </value>
+            <value name="ydir">
+              <block type="math_number" id="`=+HWnA6@o~gq##Hs#sJ">
+                <field name="NUM">6</field>
+              </block>
+            </value>
+            <value name="ystep">
+              <block type="math_number" id="xyv50#/U_GkYR79EL5i:">
+                <field name="NUM">3</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <statement name="uart">
+          <block type="_03imi_unogoods_uart" id="~ChcLAif_O6`53E?/eRQ">
+            <value name="rx">
+              <block type="math_number" id="-UU:z$1~D*9paNTGjqhg">
+                <field name="NUM">7</field>
+              </block>
+            </value>
+            <value name="tx">
+              <block type="math_number" id="_i{vD=]Y?z]g=VC0Oy5L">
+                <field name="NUM">4</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <statement name="servopin">
+          <block type="_04imi_unogoods_servopin" id="i7QqTZsQ*jtyj4Z83*yc">
+            <value name="servo">
+              <block type="math_number" id="lh6FZ4wvDql#C*g#5[?l">
+                <field name="NUM">11</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="_05imi_unogoods_esp32" id="*:o{8vo:zj!G{qr(5~M(">
+            <statement name="msg">
+              <block type="_06imi_unogoods_xy" id="Db]o(J~haeE[?}ny~~V1">
+                <next>
+                  <block type="_07imi_unogoods_findgoods" id="2#?X_DgSwwTwnlv8?1)g">
+                    <next>
+                      <block type="_08imi_unogoods_servo" id="|GFB!(K]e4;X$]8f}8L~">
+                        <field name="servo">servoPick</field>
+                        <field name="angle">180</field>
+                        <next>
+                          <block type="_08imi_unogoods_servo" id="t6W;C!iFGIYto5-Z/Q;D">
+                            <field name="servo">servoPick</field>
+                            <field name="angle">0</field>
+                            <next>
+                              <block type="_09imi_unogoods_reset" id="gln^@ZyY{9vOk}+k6)9-">
+                                <next>
+                                  <block type="_10imi_unogoods_sendesp32" id="2tT08=d#Om},z/.uQt^/">
+                                    <field name="NAME">GOODS_LOAD</field>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

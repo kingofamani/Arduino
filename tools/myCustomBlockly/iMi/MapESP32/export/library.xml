@@ -1,0 +1,503 @@
+<xml xmlns="https://developers.google.com/blockly/xml"><block type="factory_base" id="!E5Z-[op81X{Rqx2HI$y" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_01imi_espmap_init</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="_P(Y$=5NK/lN[,e?Pf}G">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="?/ApGhPqWf9p7cGjyecq">
+            <field name="TEXT">iMi地圖模組ESP32初始化</field>
+          </block>
+        </statement>
+        <next>
+          <block type="input_statement" id="LKpyELa0frt=TCy[EEH*">
+            <field name="INPUTNAME">wifi</field>
+            <field name="ALIGN">LEFT</field>
+            <statement name="FIELDS">
+              <block type="field_static" id="u:@De!?|ms`KOCr]q/*v">
+                <field name="TEXT">WiFi設定</field>
+              </block>
+            </statement>
+            <value name="TYPE">
+              <shadow type="type_null" id="HsZ[{{:7`#?sOksp$[)t"></shadow>
+            </value>
+            <next>
+              <block type="input_statement" id="AxY$1eR*{au,w(aD;OGl">
+                <field name="INPUTNAME">mqtt</field>
+                <field name="ALIGN">LEFT</field>
+                <statement name="FIELDS">
+                  <block type="field_static" id="!,M]|*}Q.erTW+zDV~EG">
+                    <field name="TEXT">MQTT設定</field>
+                  </block>
+                </statement>
+                <value name="TYPE">
+                  <shadow type="type_null" id="Hc|rsq|S(!-JKoix+EW0"></shadow>
+                </value>
+                <next>
+                  <block type="input_statement" id="/-3??rjpsxx9AGt6BN^}">
+                    <field name="INPUTNAME">button</field>
+                    <field name="ALIGN">LEFT</field>
+                    <statement name="FIELDS">
+                      <block type="field_static" id="b$l|jwlbS[50eCoeh!;,">
+                        <field name="TEXT">佈置完成鈕</field>
+                      </block>
+                    </statement>
+                    <value name="TYPE">
+                      <shadow type="type_null" id="JrtEM`/r-Tx:H%f%pS|F"></shadow>
+                    </value>
+                    <next>
+                      <block type="input_statement" id="7e:3]@eQb,qW0#G+ey8U">
+                        <field name="INPUTNAME">map</field>
+                        <field name="ALIGN">LEFT</field>
+                        <statement name="FIELDS">
+                          <block type="field_static" id="U^5p1:(MYdgAoNjaU.Cj">
+                            <field name="TEXT">地圖陣列</field>
+                          </block>
+                        </statement>
+                        <value name="TYPE">
+                          <shadow type="type_null" id="RJk/L=J,F95kkU})UNrP"></shadow>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="2-JAeLUP2L=/FE|i{GEA" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id=";MglG^eKK1=qr9T%1:-z" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="}jC22Y8g#`19MI2ui-O#"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="@%~OCOa3lfL*8h!Gosi6"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="MO|ti$Q}b_Q0GO.]Ey{[">
+        <mutation colour="#67a55b"></mutation>
+        <field name="HUE">110</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="u;v5a1]w,%7#js%.OR@T" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_02imi_espmap_wifi</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_value" id="xqc[OtUL~OhJIFqRrqKS">
+        <field name="INPUTNAME">ssid</field>
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="w3(i9Y*TNW,N,2%_!w%q">
+            <field name="TEXT">ssid</field>
+          </block>
+        </statement>
+        <value name="TYPE">
+          <shadow type="type_null" id="U1%mpy0.LpUr24P;13UK"></shadow>
+        </value>
+        <next>
+          <block type="input_value" id="]~AuAy%!p4Y2B^uvOW8q">
+            <field name="INPUTNAME">wifipwd</field>
+            <field name="ALIGN">LEFT</field>
+            <statement name="FIELDS">
+              <block type="field_static" id="Vn[^5$Iqo3v-2)~c2i}l">
+                <field name="TEXT">密碼</field>
+              </block>
+            </statement>
+            <value name="TYPE">
+              <shadow type="type_null" id="zp1pnJW3f=8tJu11+b*7"></shadow>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="uzb;_~9#v5tn_Xy5sY3s" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="$EG6?R-Eh#hz:{EY(4gT" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="]xw/.U014}44IxgN(GNE"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="j.u(r5s3~WDqSnCC!+uH"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="8Savl!f?k+nf){maFnhY">
+        <mutation colour="#67a55b"></mutation>
+        <field name="HUE">110</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="+)ZuVh=7b#EaoWJp,x-k" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_03imi_espmap_mqtt</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_value" id="rP.6QGcc{A1B`b~e^bso">
+        <field name="INPUTNAME">mqtt_user</field>
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="{:MN%:bsWnGS`(;e!i!E">
+            <field name="TEXT">帳號</field>
+          </block>
+        </statement>
+        <value name="TYPE">
+          <shadow type="type_null" id="a!D`zlYs:Egc3Hwjx^E!"></shadow>
+        </value>
+        <next>
+          <block type="input_value" id="ormwLQ6c{YA1tWv[yS)1">
+            <field name="INPUTNAME">mqtt_pwd</field>
+            <field name="ALIGN">LEFT</field>
+            <statement name="FIELDS">
+              <block type="field_static" id="Ol`4_BD(H,M=9;r@F[d,">
+                <field name="TEXT">密碼</field>
+              </block>
+            </statement>
+            <value name="TYPE">
+              <shadow type="type_null" id="7PkcC,#x-j+6{#.qpMii"></shadow>
+            </value>
+            <next>
+              <block type="input_value" id="CAn~~*F)d=aVFog_.2eT">
+                <field name="INPUTNAME">mqtt_port</field>
+                <field name="ALIGN">LEFT</field>
+                <statement name="FIELDS">
+                  <block type="field_static" id="h$L#RnGaKY@/6wGanOC2">
+                    <field name="TEXT">port</field>
+                  </block>
+                </statement>
+                <value name="TYPE">
+                  <shadow type="type_null" id="VFAr-}8t:EkJhYB}ORWt"></shadow>
+                </value>
+                <next>
+                  <block type="input_value" id="T4y:wYZHZ-2|y-|)FM)^">
+                    <field name="INPUTNAME">mqtt_server</field>
+                    <field name="ALIGN">LEFT</field>
+                    <statement name="FIELDS">
+                      <block type="field_static" id="ts.Nh)/!z}d-w5qD[jP`">
+                        <field name="TEXT">服務器</field>
+                      </block>
+                    </statement>
+                    <value name="TYPE">
+                      <shadow type="type_null" id="2aCJxAYe[V09@c#{jR/T"></shadow>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="M#;c/%^{s-zC1n+2-Nz@" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="R.(`4V0xsElr@hECF]Xo" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="3*|,y`E=/N8D:J;[^HD9"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="R~E.~B@Sj0a+*~*a.T.H"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="1PF`B!P/lXW{S*F@V2t]">
+        <mutation colour="#67a55b"></mutation>
+        <field name="HUE">110</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="IUjJ%2ULY^L95j^Jkpg#" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_04imi_espmap_button</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_value" id="sP}UMB+RS8ML9Mo.-1/J">
+        <field name="INPUTNAME">btnpin</field>
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id=",YfRoZ)+7[u,TMgd8{U3">
+            <field name="TEXT">腳位</field>
+          </block>
+        </statement>
+        <value name="TYPE">
+          <shadow type="type_null" id="sJXr9OGl)=_HXrob`/F}"></shadow>
+        </value>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="4Xx0McoRnM[9*0S^1?Bz" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="Z+Rkrpyte_y[t.~Mp1lM" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id=".iQAW@)?n5F9`c1}(V(U"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="#EcQbm}Wm=%lW}=su.1="></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="1Uj}W2S.{[ZcdaWmPX*D">
+        <mutation colour="#67a55b"></mutation>
+        <field name="HUE">110</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="-p1NHaq:xciR03/$7n?e" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_05imi_espmap_map</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_value" id="](8UWiQ?kiT#][*;YFrf">
+        <field name="INPUTNAME">00</field>
+        <field name="ALIGN">LEFT</field>
+        <value name="TYPE">
+          <shadow type="type_null" id="BSD]p6yqQBC6M[|.PA^N"></shadow>
+        </value>
+        <next>
+          <block type="input_value" id=",$]c4hZfx!}~4)A?b?+C">
+            <field name="INPUTNAME">01</field>
+            <field name="ALIGN">LEFT</field>
+            <value name="TYPE">
+              <shadow type="type_null" id="J.ax2PPuL:J_@TIGwYWg"></shadow>
+            </value>
+            <next>
+              <block type="input_value" id="kG:4W6j6af^ELJU%s%_m">
+                <field name="INPUTNAME">02</field>
+                <field name="ALIGN">LEFT</field>
+                <value name="TYPE">
+                  <shadow type="type_null" id="yo{}}Lu4cj2UeL)[UJe_"></shadow>
+                </value>
+                <next>
+                  <block type="input_value" id="O31%wFYSf.PtHy.EuCg;">
+                    <field name="INPUTNAME">03</field>
+                    <field name="ALIGN">LEFT</field>
+                    <value name="TYPE">
+                      <shadow type="type_null" id="va[V-}`lqK5*{YizC`Lx"></shadow>
+                    </value>
+                    <next>
+                      <block type="input_value" id="PFEe9ez|Ri:k$VOyw:w`">
+                        <field name="INPUTNAME">04</field>
+                        <field name="ALIGN">LEFT</field>
+                        <value name="TYPE">
+                          <shadow type="type_null" id="(jKZ6$llp|h_,S|!npdw"></shadow>
+                        </value>
+                        <next>
+                          <block type="input_value" id="s)0pgTg?Hkg].3{+8v9h">
+                            <field name="INPUTNAME">05</field>
+                            <field name="ALIGN">LEFT</field>
+                            <value name="TYPE">
+                              <shadow type="type_null" id="Qd@^b~DYgl!lc-GX1QRY"></shadow>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="lY+wWZ~Yg:EYhw|?HD;d" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="(vb1@{Lui/9H.}+IcxIk" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="rzuDjlt@QIVq/er~5@wq"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="KA$y}sE|@Of*];D](evJ"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="z(az~g%*LReI0=lz#LZ@">
+        <mutation colour="#67a55b"></mutation>
+        <field name="HUE">110</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="PoD|4QYEDff5/{cDICaC" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_06imi_espmap_loop</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="V_f4,Xj`zI{dW-:Y;6T6">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="n!(5y5xAZb1;iV.m0|J!">
+            <field name="TEXT">iMi地圖模組ESP32 重複區</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="y.fC1.Qc0lQK#rVu@F+4" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="uM^{BD$rd+Y9y~):4uUH" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="TX2CEd{P_YjD{#{+M}Ro"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="Tb/boJo|N{3A%BtaB0T;"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="2RhMF$in,f#A/MRBu|)}">
+        <mutation colour="#67a55b"></mutation>
+        <field name="HUE">110</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="7A/V03IuS-lxLjcEKUzL" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">_07imi_espmap_isbutton</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="n|vbAEWCvb}~]AWQ)ynz">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id=":M!q2q8a}vkyjXDON/`L">
+            <field name="TEXT">按下佈置完成鈕</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="sZ*?i)7ePOXzgVusYn-2" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="ctWAf[)6kcx=%F2n4WWp" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="ouua9t3iRb[KA*6%UTLa"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="nBv*2$cYqas5^95l@65:">
+        <mutation colour="#67a55b"></mutation>
+        <field name="HUE">110</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="k|.s2A?L[c474yx3k3R!" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_08imi_espmap_pubmqtt_mapset</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="|bk^_IiOIZOnx+_r$`r#">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="P0Wq0Gv(y*u,yI=^QP9}">
+            <field name="TEXT">[發佈]MQTT主題：MAP_SET</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="U}22ig7sA-v6IMd}_cVU" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="?6]9eHmy)/eiIq=}Ix$/" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="Bsy*`+u=Ot$dR?se4GY]"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="QyNC-je/~y~}/8y+jH)+"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="kO*r^$r,zGX}VQlQhgR(">
+        <mutation colour="#67a55b"></mutation>
+        <field name="HUE">110</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id=",)Wj]-46cs7[[sz-8yBb" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_05imi_espmap_maps</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_statement" id="f!H%SOa4:*(D5V0g`c*f">
+        <field name="INPUTNAME">msg</field>
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="A$28ijNFopzuNAf29J`s">
+            <field name="TEXT">地圖陣列</field>
+          </block>
+        </statement>
+        <value name="TYPE">
+          <shadow type="type_null" id="KLBQ,Z*6S=};L^ul.HEr"></shadow>
+        </value>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="G(j+z217ND^PZ/Opp5^O" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="E;=m^vWESvBIbZ7h9gEq" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="G+qTB+nKZNy!2A+_:Cq*"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="_u:{1-WVCylLN6K;ALJS"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="W4Dfv2t06~px*:,`Xe)O">
+        <mutation colour="#67a55b"></mutation>
+        <field name="HUE">110</field>
+      </block>
+    </value>
+  </block></xml>

@@ -1,0 +1,160 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="customcode_head" id="33" inline="true" x="88" y="13">
+    <value name="text">
+      <block type="text" id="34">
+        <field name="TEXT">#include &lt;Servo.h&gt;</field>
+      </block>
+    </value>
+    <next>
+      <block type="customcode_head" id="65" inline="true">
+        <value name="text">
+          <block type="text" id="66">
+            <field name="TEXT">Servo myServo;</field>
+          </block>
+        </value>
+      </block>
+    </next>
+  </block>
+  <block type="initializes_setup" id="1" x="88" y="113">
+    <statement name="CONTENT">
+      <block type="customcode_comment" id="227" inline="true">
+        <value name="text">
+          <block type="text" id="228">
+            <field name="TEXT">避免抖動</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_code" id="162" inline="true">
+            <value name="text">
+              <block type="text" id="163">
+                <field name="TEXT">myServo.attach(3);//接在D3</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_code" id="164" inline="true">
+                <value name="text">
+                  <block type="text" id="165">
+                    <field name="TEXT">myServo.write(45);</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="delay_custom" id="185" inline="false">
+                    <value name="DELAY_TIME">
+                      <block type="math_number" id="186">
+                        <field name="NUM">2000</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_code" id="166" inline="true">
+                        <value name="text">
+                          <block type="text" id="167">
+                            <field name="TEXT">myServo.detach();//停止</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="2">
+        <statement name="CONTENT">
+          <block type="customcode_code" id="229" inline="true">
+            <value name="text">
+              <block type="text" id="230">
+                <field name="TEXT">myServo.attach(3);</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_code" id="231" inline="true">
+                <value name="text">
+                  <block type="text" id="232">
+                    <field name="TEXT">myServo.write(170);</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="delay_custom" id="245" inline="false">
+                    <comment pinned="true" h="64" w="152">轉動需要時間</comment>
+                    <value name="DELAY_TIME">
+                      <block type="math_number" id="246">
+                        <field name="NUM">1000</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_code" id="233" inline="true">
+                        <value name="text">
+                          <block type="text" id="234">
+                            <field name="TEXT">myServo.detach();</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="delay_custom" id="235" inline="false">
+                            <value name="DELAY_TIME">
+                              <block type="math_number" id="236">
+                                <field name="NUM">2000</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="customcode_code" id="237" inline="true">
+                                <value name="text">
+                                  <block type="text" id="238">
+                                    <field name="TEXT">myServo.attach(3);</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="customcode_code" id="239" inline="true">
+                                    <value name="text">
+                                      <block type="text" id="240">
+                                        <field name="TEXT">myServo.write(45);</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="delay_custom" id="247" inline="false">
+                                        <value name="DELAY_TIME">
+                                          <block type="math_number" id="248">
+                                            <field name="NUM">1000</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="customcode_code" id="241" inline="true">
+                                            <value name="text">
+                                              <block type="text" id="242">
+                                                <field name="TEXT">myServo.detach();</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="delay_custom" id="243" inline="false">
+                                                <value name="DELAY_TIME">
+                                                  <block type="math_number" id="244">
+                                                    <field name="NUM">2000</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

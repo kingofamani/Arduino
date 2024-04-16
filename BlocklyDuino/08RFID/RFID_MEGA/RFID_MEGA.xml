@@ -1,0 +1,190 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="procedures_defnoreturn" id="3" collapsed="true" x="538" y="138">
+    <mutation></mutation>
+    <field name="NAME">R0</field>
+    <statement name="STACK">
+      <block type="customcode_head" id="4" inline="true">
+        <value name="text">
+          <block type="text" id="5">
+            <field name="TEXT">#include &lt;SPI.h&gt;</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_head" id="6" inline="true">
+            <value name="text">
+              <block type="text" id="7">
+                <field name="TEXT">#include &lt;RFID.h&gt;</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_head" id="8" inline="true">
+                <value name="text">
+                  <block type="text" id="9">
+                    <field name="TEXT">#define SDA_DIO 9</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_head" id="10" inline="true">
+                    <value name="text">
+                      <block type="text" id="11">
+                        <field name="TEXT">#define RESET_DIO 8</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_head" id="12" inline="true">
+                        <value name="text">
+                          <block type="text" id="13">
+                            <field name="TEXT">RFID RC522(SDA_DIO, RESET_DIO);</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="variables_set" id="14" inline="true">
+                            <field name="TYPE">String</field>
+                            <field name="VAR">myId</field>
+                            <value name="VALUE">
+                              <block type="text" id="15">
+                                <field name="TEXT"></field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="initializes_setup" id="16" x="188" y="163">
+    <statement name="CONTENT">
+      <block type="serial_init" id="17">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="customcode_code" id="18" inline="true">
+            <value name="text">
+              <block type="text" id="19">
+                <field name="TEXT">SPI.begin(); </field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_code" id="20" inline="true">
+                <value name="text">
+                  <block type="text" id="21">
+                    <field name="TEXT">RC522.init();</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="22">
+        <statement name="CONTENT">
+          <block type="customcode_code" id="23" inline="true">
+            <value name="text">
+              <block type="text" id="24">
+                <field name="TEXT">if (RC522.isCard())</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_code" id="25" inline="true">
+                <value name="text">
+                  <block type="text" id="26">
+                    <field name="TEXT">{</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set" id="27" inline="true">
+                    <field name="TYPE">String</field>
+                    <field name="VAR">myId</field>
+                    <value name="VALUE">
+                      <block type="text" id="28">
+                        <field name="TEXT"></field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_code" id="29" inline="true">
+                        <value name="text">
+                          <block type="text" id="30">
+                            <field name="TEXT">RC522.readCardSerial();</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="controls_for" id="31" inline="true">
+                            <field name="VAR">i</field>
+                            <value name="FROM">
+                              <block type="math_number" id="32">
+                                <field name="NUM">0</field>
+                              </block>
+                            </value>
+                            <value name="TO">
+                              <block type="math_number" id="33">
+                                <field name="NUM">4</field>
+                              </block>
+                            </value>
+                            <statement name="DO">
+                              <block type="customcode_code" id="34" inline="true">
+                                <value name="text">
+                                  <block type="text" id="35">
+                                    <field name="TEXT">myId += String(RC522.serNum[i]);</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </statement>
+                            <next>
+                              <block type="customcode_code" id="109" inline="true">
+                                <value name="text">
+                                  <block type="text" id="110">
+                                    <field name="TEXT">//從這裡開始改程式：</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="serial_println" id="36" inline="false">
+                                    <value name="CONTENT">
+                                      <block type="variables_get" id="37">
+                                        <field name="TYPE">String</field>
+                                        <field name="VAR">myId</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="customcode_code" id="38" inline="true">
+                                        <value name="text">
+                                          <block type="text" id="39">
+                                            <field name="TEXT">}//end if</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="delay_custom" id="40" inline="false">
+                                            <value name="DELAY_TIME">
+                                              <block type="math_number" id="41">
+                                                <field name="NUM">100</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

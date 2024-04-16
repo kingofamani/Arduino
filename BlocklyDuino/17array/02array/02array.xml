@@ -1,0 +1,160 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="bG{?e#qUkvSOD$ns%o5h">score</variable>
+  </variables>
+  <block type="initializes_setup" id="1" x="80" y="40">
+    <statement name="CONTENT">
+      <block type="serial_init" id="22">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="variables_set1" id="iO:~Pd0(;P4oz8?l-;$9">
+            <field name="POSITION">global</field>
+            <field name="TYPE">int</field>
+            <field name="VAR" id="bG{?e#qUkvSOD$ns%o5h">score</field>
+            <value name="VALUE">
+              <shadow type="text" id="brc.}(EpMFZd(e|=+^f%">
+                <field name="TEXT"></field>
+              </shadow>
+              <block type="array_create_with" id="32" inline="false">
+                <mutation items="5"></mutation>
+                <value name="ADD0">
+                  <block type="math_number" id="45">
+                    <field name="NUM">88</field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="math_number" id="46">
+                    <field name="NUM">95</field>
+                  </block>
+                </value>
+                <value name="ADD2">
+                  <block type="math_number" id="47">
+                    <field name="NUM">100</field>
+                  </block>
+                </value>
+                <value name="ADD3">
+                  <block type="math_number" id="55">
+                    <field name="NUM">99</field>
+                  </block>
+                </value>
+                <value name="ADD4">
+                  <block type="math_number" id="56">
+                    <field name="NUM">50</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="serial_println" id="91" inline="false">
+                <value name="CONTENT">
+                  <block type="lists_getIndex" id="0?nXO,4nfF}?~|WBc.%*">
+                    <mutation statement="false" at="true"></mutation>
+                    <field name="MODE">GET</field>
+                    <field name="WHERE">FROM_START</field>
+                    <value name="VALUE">
+                      <block type="variables_get" id="}eO%r|y=3DAT@w,bhuVS">
+                        <field name="VAR" id="bG{?e#qUkvSOD$ns%o5h">score</field>
+                      </block>
+                    </value>
+                    <value name="AT">
+                      <block type="math_number" id="uPw6=DQMEveGf(=3.ZFI">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="serial_println" id="140" inline="false">
+                    <value name="CONTENT">
+                      <block type="lists_getIndex" id="r5.)/6)2q$6{b,~lvVg?">
+                        <mutation statement="false" at="true"></mutation>
+                        <field name="MODE">GET</field>
+                        <field name="WHERE">FROM_START</field>
+                        <value name="VALUE">
+                          <block type="variables_get" id="Bv656RKyp]WUG|5)OG.a">
+                            <field name="VAR" id="bG{?e#qUkvSOD$ns%o5h">score</field>
+                          </block>
+                        </value>
+                        <value name="AT">
+                          <block type="math_number" id="l?RWj*~2/m42X]J!dMrj">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_println" id="144" inline="false">
+                        <value name="CONTENT">
+                          <block type="lists_getIndex" id="B*zRiOo;?NFL9;CC#tyy">
+                            <mutation statement="false" at="true"></mutation>
+                            <field name="MODE">GET</field>
+                            <field name="WHERE">FROM_START</field>
+                            <value name="VALUE">
+                              <block type="variables_get" id="/H#Q5z3EJo_2)=)sfxbg">
+                                <field name="VAR" id="bG{?e#qUkvSOD$ns%o5h">score</field>
+                              </block>
+                            </value>
+                            <value name="AT">
+                              <block type="math_number" id="M4{h|dk[[~O+dUInr|.Y">
+                                <field name="NUM">2</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="serial_println" id="148" inline="false">
+                            <value name="CONTENT">
+                              <block type="lists_getIndex" id="WSBDuVmiwJs!gfH|U#0Z">
+                                <mutation statement="false" at="true"></mutation>
+                                <field name="MODE">GET</field>
+                                <field name="WHERE">FROM_START</field>
+                                <value name="VALUE">
+                                  <block type="variables_get" id="L;_3+F/r/{g5g*9hTk8c">
+                                    <field name="VAR" id="bG{?e#qUkvSOD$ns%o5h">score</field>
+                                  </block>
+                                </value>
+                                <value name="AT">
+                                  <block type="math_number" id="fxKn:}|n0@;d|T7}Y26C">
+                                    <field name="NUM">3</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="serial_println" id="152" inline="false">
+                                <value name="CONTENT">
+                                  <block type="lists_getIndex" id="e`8T{f;oVn(=A`]1!TKg">
+                                    <mutation statement="false" at="true"></mutation>
+                                    <field name="MODE">GET</field>
+                                    <field name="WHERE">FROM_START</field>
+                                    <value name="VALUE">
+                                      <block type="variables_get" id="15w#Md*qh+3`6ESxAElp">
+                                        <field name="VAR" id="bG{?e#qUkvSOD$ns%o5h">score</field>
+                                      </block>
+                                    </value>
+                                    <value name="AT">
+                                      <block type="math_number" id="~_^pv_ZqBhtQ;vV7DD0O">
+                                        <field name="NUM">4</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="2"></block>
+    </next>
+  </block>
+</xml>

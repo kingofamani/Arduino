@@ -1,0 +1,5 @@
+blocklyDuino無法上傳 只能用ArduinoIDE
+因為要L.62要將每個雙反斜線改成單反斜線
+
+★★★IFTTT key：
+	網路硬碟/home/金鑰/ifttt key.txt

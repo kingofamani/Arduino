@@ -1,0 +1,214 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="board_initializes_setup" id="0" x="100" y="50">
+    <field name="BOARD_TYPE">ESP32</field>
+    <statement name="CONTENT">
+      <block type="_01imi_espmap_init" id="PK|Qf^rl~$:EghIsA3a2">
+        <statement name="wifi">
+          <block type="_02imi_espmap_wifi" id="!26XP0bI{l8x:Ow#[aB2">
+            <value name="ssid">
+              <block type="text" id="yroFd!0%QBq$y]4VB|I:">
+                <field name="TEXT">xxxxxx</field>
+              </block>
+            </value>
+            <value name="wifipwd">
+              <block type="text" id="wsQSC^QTj6Bd_M@+Ph*z">
+                <field name="TEXT">xxxxxx</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <statement name="mqtt">
+          <block type="_03imi_espmap_mqtt" id="H6db$MuDfS.[e}jQ9hoh">
+            <value name="mqtt_user">
+              <block type="text" id="XbIsIp/dSbSPU+./#s:f">
+                <field name="TEXT">xxxxxx</field>
+              </block>
+            </value>
+            <value name="mqtt_pwd">
+              <block type="text" id="NxMI=bz2fD`:mIq{GoUs">
+                <field name="TEXT">xxxxxx</field>
+              </block>
+            </value>
+            <value name="mqtt_port">
+              <block type="math_number" id="htpsAa1kS:)Fx@C~T7Fq">
+                <field name="NUM">8883</field>
+              </block>
+            </value>
+            <value name="mqtt_server">
+              <block type="text" id="Taz-9lg;sX+(dXWRVHsw">
+                <field name="TEXT">xxxxxx</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <statement name="button">
+          <block type="_04imi_espmap_button" id="_!AV44}-cb-~WvogXPJO">
+            <value name="btnpin">
+              <block type="math_number" id=":MxH};W,Z#DJ*eI~Vntc">
+                <field name="NUM">3</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <statement name="map">
+          <block type="_05imi_espmap_maps" id="K;p*[c^hPtS03z6;d}UC">
+            <statement name="msg">
+              <block type="_05imi_espmap_map" id="7qp~@vb9#Z?@L9hvdnTa">
+                <value name="00">
+                  <block type="math_number" id=":Q_kQ+#Q;T_-3Yu)sSa^">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <value name="01">
+                  <block type="math_number" id="|G;6xD(l**A-]cl4!l6S">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <value name="02">
+                  <block type="math_number" id="6jrC5$`5mdMGG%gKmdO1">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <value name="03">
+                  <block type="math_number" id="kFPeRQI2oRsg/sQ)m`4@">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <value name="04">
+                  <block type="math_number" id=".!0wpb;oFqV#p#@ek=De">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <value name="05">
+                  <block type="math_number" id="MjnHmH7bQ82|d+,nz}Ol">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="_05imi_espmap_map" id="Y)vUwqM0V6{N+HI5v.VU">
+                    <value name="00">
+                      <block type="math_number" id="WiWaet-pIS:yvx%~5.ec">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                    <value name="01">
+                      <block type="math_number" id="xY)C=+Fg,XExpw*L^;8W">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                    <value name="02">
+                      <block type="math_number" id="*w1?vhOsz9;TC*{%U%c(">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                    <value name="03">
+                      <block type="math_number" id="[.4$WdZOU2B`y~.8+~NF">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                    <value name="04">
+                      <block type="math_number" id="YDatSj)q^,g)4D?7mF^s">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                    <value name="05">
+                      <block type="math_number" id="gIMNfEOO3@|N}SKYv5lI">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="_05imi_espmap_map" id="~6/gakPQA,l6t6f75/(*">
+                        <value name="00">
+                          <block type="math_number" id="bS_DzXZl%%8RULJU|@Yj">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                        <value name="01">
+                          <block type="math_number" id="6VsGXKT(C``7[aw!5*Tb">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                        <value name="02">
+                          <block type="math_number" id="CE-I{)^Y/=A589W!+7DD">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                        <value name="03">
+                          <block type="math_number" id="@%3CBw37_KY5Ai}Uw8N}">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                        <value name="04">
+                          <block type="math_number" id="2zr3iA4l?bG`2n6KH;L,">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                        <value name="05">
+                          <block type="math_number" id="9.yoWhTtSMq~]6[iL4_y">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="_05imi_espmap_map" id="5/C-cj5NEhPHT2VKy!yE">
+                            <value name="00">
+                              <block type="math_number" id=".;j^8)tlGI|FvfZ;X8=Y">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                            <value name="01">
+                              <block type="math_number" id="X]`@t*?r2,EKt6FUz~5u">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                            <value name="02">
+                              <block type="math_number" id="dl32~tl}J~DBn,YseJLd">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                            <value name="03">
+                              <block type="math_number" id="9EyIKmiamx$eeaK0,k.l">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                            <value name="04">
+                              <block type="math_number" id="},9EX}SoMmMklj5HdgKK">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                            <value name="05">
+                              <block type="math_number" id="6.f}=KRy93U|a[b)Y3yl">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="_06imi_espmap_loop" id="eA]t:^27ga}ePzs17%7v">
+            <next>
+              <block type="controls_if" id="@|%2bKSRyPg4$^InDkKJ">
+                <value name="IF0">
+                  <block type="_07imi_espmap_isbutton" id="KSzTYYrMU}*^x*Na]7)d"></block>
+                </value>
+                <statement name="DO0">
+                  <block type="_08imi_espmap_pubmqtt_mapset" id="!I=scfRb54A`sn.`p_%T"></block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

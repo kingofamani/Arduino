@@ -1,0 +1,74 @@
+<xml version="F1" board="Arduino Uno" xmlns="https://developers.google.com/blockly/xml">
+  <block type="board_initializes_setup" id="0" x="210" y="150">
+    <field name="BOARD_TYPE">Arduino</field>
+    <statement name="CONTENT">
+      <block type="serial_init" id="vxHN~;=vXjI$UYKi4NQ/">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="keyboards_1_init" id="QB@`?i@b@)2f}BxD=ZC{">
+            <value name="PIN_0">
+              <block type="math_number" id="mLu(,,wIS{DEb!_a_SmO">
+                <field name="NUM">11</field>
+              </block>
+            </value>
+            <value name="PIN_1">
+              <block type="math_number" id="N`n4s;6.-dL?Fnf:7Whw">
+                <field name="NUM">10</field>
+              </block>
+            </value>
+            <value name="PIN_2">
+              <block type="math_number" id="ASxF!7kCezAPpDymm}`g">
+                <field name="NUM">9</field>
+              </block>
+            </value>
+            <value name="PIN_3">
+              <block type="math_number" id="Tb|45ieyctx!aT(GSu{k">
+                <field name="NUM">8</field>
+              </block>
+            </value>
+            <value name="PIN_4">
+              <block type="math_number" id="[-5x6XlCN,E~FnAPF2-n">
+                <field name="NUM">7</field>
+              </block>
+            </value>
+            <value name="PIN_5">
+              <block type="math_number" id="llUBmj8,atKuygcwz6xl">
+                <field name="NUM">6</field>
+              </block>
+            </value>
+            <value name="PIN_6">
+              <block type="math_number" id="ZT%wPOTKr!]LJTeA=l`B">
+                <field name="NUM">5</field>
+              </block>
+            </value>
+            <value name="PIN_7">
+              <block type="math_number" id="sT`W{T_d8W}N3mvM;.=E">
+                <field name="NUM">4</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="keyboards_check" id="U{~[KTZ(bX.`ZaC?I$_-">
+            <next>
+              <block type="keyboards_event" id="%zJ3BVv2kzA@6YVi%;Be">
+                <field name="EVENT">1</field>
+                <statement name="KEYBOARD_EVENT">
+                  <block type="serial_println" id="MaQ~pWto,c7E93DWZKBk">
+                    <value name="CONTENT">
+                      <block type="keyboards_value" id="MswK8v#4uBw_?i8Sp+0K"></block>
+                    </value>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

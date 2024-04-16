@@ -1,0 +1,1855 @@
+<xml xmlns="https://developers.google.com/blockly/xml"><block type="factory_base" id="rdd`B/|ti_%qc(nU?E^H" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_01imi_megacar_init</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="2@ub5dEPIVxkhvu?Ds1Y">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="D7;d;@:?ltan!%yYA^%z">
+            <field name="TEXT">iMi小車模組Mega初始化</field>
+          </block>
+        </statement>
+        <next>
+          <block type="input_statement" id="8?Inlr[#WR3$Uf,zWf-3">
+            <field name="INPUTNAME">uart</field>
+            <field name="ALIGN">RIGHT</field>
+            <statement name="FIELDS">
+              <block type="field_static" id="qacdKDk9~eVBIadOt@RD">
+                <field name="TEXT">UART通訊</field>
+              </block>
+            </statement>
+            <value name="TYPE">
+              <shadow type="type_null" id="o^)+dl!_Hch4oHrV1_}N"></shadow>
+            </value>
+            <next>
+              <block type="input_statement" id="B]{P#u=_(CMg@GU*Pzxc">
+                <field name="INPUTNAME">track</field>
+                <field name="ALIGN">RIGHT</field>
+                <statement name="FIELDS">
+                  <block type="field_static" id="!jQ_5n4f=K#ZTEAbWkF}">
+                    <field name="TEXT">循跡感測器</field>
+                  </block>
+                </statement>
+                <value name="TYPE">
+                  <shadow type="type_null" id="Cm95=7{K8D%lrv*+2P%e"></shadow>
+                </value>
+                <next>
+                  <block type="input_statement" id="%r6Td!RV^1j#M48e?2wz">
+                    <field name="INPUTNAME">trig</field>
+                    <field name="ALIGN">RIGHT</field>
+                    <statement name="FIELDS">
+                      <block type="field_static" id="$Sp+NQ)Qyuu4FAy:l7i]">
+                        <field name="TEXT">循跡感測器</field>
+                      </block>
+                    </statement>
+                    <value name="TYPE">
+                      <shadow type="type_null" id="%@0K-B^)FrEs;rgC5dH2"></shadow>
+                    </value>
+                    <next>
+                      <block type="input_statement" id="a,M1@LKm4n_uge}3586x">
+                        <field name="INPUTNAME">carbox</field>
+                        <field name="ALIGN">RIGHT</field>
+                        <statement name="FIELDS">
+                          <block type="field_static" id=".y$(dB8n|N8sXXQ%K+cx">
+                            <field name="TEXT">貨斗伺服馬達</field>
+                          </block>
+                        </statement>
+                        <value name="TYPE">
+                          <shadow type="type_null" id="uRPQ2Sm)%ES3O;FQlLo:"></shadow>
+                        </value>
+                        <next>
+                          <block type="input_statement" id="@bhus#OU].Z=`+$sx:|;">
+                            <field name="INPUTNAME">aicam</field>
+                            <field name="ALIGN">RIGHT</field>
+                            <statement name="FIELDS">
+                              <block type="field_static" id="()HQOeswD_r~8^`);`KZ">
+                                <field name="TEXT">AI鏡頭伺服馬達</field>
+                              </block>
+                            </statement>
+                            <value name="TYPE">
+                              <shadow type="type_null" id="z.z9iTatz/{UwZK=035e"></shadow>
+                            </value>
+                            <next>
+                              <block type="input_statement" id="~=/sT!mE_#Cl_gzl2kA=">
+                                <field name="INPUTNAME">sign</field>
+                                <field name="ALIGN">RIGHT</field>
+                                <statement name="FIELDS">
+                                  <block type="field_static" id="|M^B.B/ZJYyC??kIyP;f">
+                                    <field name="TEXT">簽收鈕</field>
+                                  </block>
+                                </statement>
+                                <value name="TYPE">
+                                  <shadow type="type_null" id="EKK8cz.y;WzNT#1S%)xt"></shadow>
+                                </value>
+                                <next>
+                                  <block type="input_statement" id=".etd.Ni/BV8-O6%m{XX[">
+                                    <field name="INPUTNAME">l298n</field>
+                                    <field name="ALIGN">RIGHT</field>
+                                    <statement name="FIELDS">
+                                      <block type="field_static" id="L!WZrToDl2Tn`]O1IF%j">
+                                        <field name="TEXT">L298N馬達腳位</field>
+                                      </block>
+                                    </statement>
+                                    <value name="TYPE">
+                                      <shadow type="type_null" id="G!$j.a9,GiM2t{oJ~w{/"></shadow>
+                                    </value>
+                                    <next>
+                                      <block type="input_statement" id="L?6{J(R?/6thLl(/M9T^">
+                                        <field name="INPUTNAME">l298n2</field>
+                                        <field name="ALIGN">RIGHT</field>
+                                        <statement name="FIELDS">
+                                          <block type="field_static" id="4RL%kuqPqkXSAGGec`^i">
+                                            <field name="TEXT">L298N PWM腳位</field>
+                                          </block>
+                                        </statement>
+                                        <value name="TYPE">
+                                          <shadow type="type_null" id="_D}}bb~Yu+C-kTo#]CP;"></shadow>
+                                        </value>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="NhygQQcH@qQgIhv%Z5T3">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="*?h5OT?%4EiOXIY=#Yv_">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="LJuRF::1!y|ca6`-1$f/"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="?d1PQW:#mqx{$1S,4.;8"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id=",5B=Y(*nBXbOgPn90QuZ">
+        <mutation colour="#5b8ca5"></mutation>
+        <field name="HUE">200</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="|Sr|`2|=p0CNo(}|]VnK" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_02imi_megacar_init_uart</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_value" id="3Zph}-v.=T48K}KJ;Ram">
+        <field name="INPUTNAME">rx</field>
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="cAQS?z,N-cj_Xh+TV`|4">
+            <field name="TEXT">RX</field>
+          </block>
+        </statement>
+        <value name="TYPE">
+          <shadow type="type_null" id="B;vz.A(8G:A;{**P-9)s"></shadow>
+        </value>
+        <next>
+          <block type="input_value" id="^Tz?rBOpK+D2_):Uz!nB">
+            <field name="INPUTNAME">tx</field>
+            <field name="ALIGN">LEFT</field>
+            <statement name="FIELDS">
+              <block type="field_static" id="+Rs!CK_bV6C_`?E,)E|p">
+                <field name="TEXT">TX</field>
+              </block>
+            </statement>
+            <value name="TYPE">
+              <shadow type="type_null" id="D3UD~=XCFKqL;RT?b3K$"></shadow>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="0TM~;%BK2|#z=y`,szi.">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="9sok{iKvq.XOC%7R;Dq@">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="7OMeqlc~`-]lIkxf7H:]"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="p+7(KsAC.r:W?OPnajDc"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="vSJXbb1_2/Pe6jA^^?Ch">
+        <mutation colour="#5b8ca5"></mutation>
+        <field name="HUE">200</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="8v1Dm]JQ,os9u4G$J%C-" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_03imi_megacar_init_track</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_value" id="Rz+%J;vR`E7dS0*eOQ@M">
+        <field name="INPUTNAME">left</field>
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="Sbq;}XZgf1C/f@k`r.O/">
+            <field name="TEXT">左</field>
+          </block>
+        </statement>
+        <value name="TYPE">
+          <shadow type="type_null" id="glD9greQ)zoEh-B*)Z1~"></shadow>
+        </value>
+        <next>
+          <block type="input_value" id="/#mZ.yz5u*/|;pcp9C0N">
+            <field name="INPUTNAME">front</field>
+            <field name="ALIGN">LEFT</field>
+            <statement name="FIELDS">
+              <block type="field_static" id="0nrMY==]-`}L/jIMxlth">
+                <field name="TEXT">前</field>
+              </block>
+            </statement>
+            <value name="TYPE">
+              <shadow type="type_null" id="DQem#08+oL~)6*!$,LA5"></shadow>
+            </value>
+            <next>
+              <block type="input_value" id="ky?_g/~9,SHu(.yu~c:G">
+                <field name="INPUTNAME">back</field>
+                <field name="ALIGN">LEFT</field>
+                <statement name="FIELDS">
+                  <block type="field_static" id="[Rb0DiX58jh;`pB-mQ6?">
+                    <field name="TEXT">後</field>
+                  </block>
+                </statement>
+                <value name="TYPE">
+                  <shadow type="type_null" id="5~zgKgQ]`H6duB7-+H,|"></shadow>
+                </value>
+                <next>
+                  <block type="input_value" id="+cb;5=,]/j}$m,Jp$aB}">
+                    <field name="INPUTNAME">right</field>
+                    <field name="ALIGN">LEFT</field>
+                    <statement name="FIELDS">
+                      <block type="field_static" id="1+Cs}$FQoGe]u=Vh`y(I">
+                        <field name="TEXT">右</field>
+                      </block>
+                    </statement>
+                    <value name="TYPE">
+                      <shadow type="type_null" id=",G)a+8,WWNmyO:R7rcLy"></shadow>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="KS,eId-yELB;*ZM:(A%B">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id=";`Mfqa?*toYHB9M-S.Sl">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="eMx;srQ08}n.Fu4ZWp1d"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="Eq%0|y6_~{X;XHUBc=;N"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id=".N|-4]XLMK[m_Xi`v%AQ">
+        <mutation colour="#5b8ca5"></mutation>
+        <field name="HUE">200</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="m}/cIS9Yb[(gk]6kN0;F" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_04imi_megacar_init_trig</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_value" id="^iYy#26.qo7K!8g3CBgv">
+        <field name="INPUTNAME">trig</field>
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="6OcSFHdZzE)Bo0MjFnqJ">
+            <field name="TEXT">觸發值</field>
+          </block>
+        </statement>
+        <value name="TYPE">
+          <shadow type="type_null" id=";VTa6I3T@5:rpG|IvZV^"></shadow>
+        </value>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="bv{+-Zq+uZX:DK-bP_e*">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="*qbyY};=%[U{LVabMven">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="A@rF7@Gb,6%}@SiM)O:-"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="-4OWIA%HT/^w7GMKRhyt"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="*[B0(@HcW;pAUMXM4tng">
+        <mutation colour="#5b8ca5"></mutation>
+        <field name="HUE">200</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="lSC3Y^u:E{K$~f7G!#[G" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_05imi_megacar_init_carbox</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_value" id="9/4W,+On]V/F8eYZpU1F">
+        <field name="INPUTNAME">carbox</field>
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id=";kwjGora,zu5+_dZl#ua">
+            <field name="TEXT">腳位</field>
+          </block>
+        </statement>
+        <value name="TYPE">
+          <shadow type="type_null" id="BF;F]{[?bxt5a55VBb[-"></shadow>
+        </value>
+        <next>
+          <block type="input_value" id=")eLJ3BjUl/ire?kr~ZG?">
+            <field name="INPUTNAME">open</field>
+            <field name="ALIGN">LEFT</field>
+            <statement name="FIELDS">
+              <block type="field_static" id="@UD7s;5S}laGX+^xYf2k">
+                <field name="TEXT">打開角度</field>
+              </block>
+            </statement>
+            <value name="TYPE">
+              <shadow type="type_null" id="ffDDsuGSBlUaZR9Mx2!p"></shadow>
+            </value>
+            <next>
+              <block type="input_value" id="J+o-=d%V:w#C29%@,2wp">
+                <field name="INPUTNAME">close</field>
+                <field name="ALIGN">LEFT</field>
+                <statement name="FIELDS">
+                  <block type="field_static" id="]uV{HUj{a0nXRqGDt`%0">
+                    <field name="TEXT">關閉角度</field>
+                  </block>
+                </statement>
+                <value name="TYPE">
+                  <shadow type="type_null" id="jssF%MvzUI{i#e_IDdg9"></shadow>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="CZDYdD7/YxyxZC,0$df+">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="fe.3L|:+[O(BUv`0x;KE">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id=".,zcv=4DJB(T?Y$DoL!c"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="]2D:dDJ?^{y^Qz/@c]-)"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="9?Pz4e=QF.N6sJ6;N3OT">
+        <mutation colour="#5b8ca5"></mutation>
+        <field name="HUE">200</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="]im|#_T^{Vcw*c?YQk*C" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_06imi_megacar_init_aicam</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_value" id="8U2M+$3Y^ka@qXOvyO@|">
+        <field name="INPUTNAME">aicam</field>
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="Pm9w+j`Fj@RCpLXFoPY~">
+            <field name="TEXT">腳位</field>
+          </block>
+        </statement>
+        <value name="TYPE">
+          <shadow type="type_null" id="iUo|Z5N9fLnLo}59!iS;"></shadow>
+        </value>
+        <next>
+          <block type="input_value" id="+`V4Z4ST3?TK%Dl]y,gz">
+            <field name="INPUTNAME">front</field>
+            <field name="ALIGN">LEFT</field>
+            <statement name="FIELDS">
+              <block type="field_static" id="Db|Xp1r4kwUn^U?=tu+6">
+                <field name="TEXT">向前角度</field>
+              </block>
+            </statement>
+            <value name="TYPE">
+              <shadow type="type_null" id="ltq8Fr}A^WSFYeZoRz,%"></shadow>
+            </value>
+            <next>
+              <block type="input_value" id="^;sB-QEBB6)D[A~`|3Q~">
+                <field name="INPUTNAME">up</field>
+                <field name="ALIGN">LEFT</field>
+                <statement name="FIELDS">
+                  <block type="field_static" id="vdtD~}ij6!Gw!B$~kTet">
+                    <field name="TEXT">向上角度</field>
+                  </block>
+                </statement>
+                <value name="TYPE">
+                  <shadow type="type_null" id="o9)p*`F9C42A43Nec*Sy"></shadow>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="|ZEzGb[uBwAhinL/v`!4">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="hZR_i,!!rcVvo4azVG+{">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="ReKfwL,-ho!Bcx];baz("></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="O3Ok^nC5`,cji/cHhdlP"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="t}*ZWb8*Uq?q%_{BGj5C">
+        <mutation colour="#5b8ca5"></mutation>
+        <field name="HUE">200</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="2pM^yhgOphdFDd+y`]/," x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_07imi_megacar_init_sign</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_value" id="jF^3wKOJ3b?hNMNI5@Mt">
+        <field name="INPUTNAME">sign</field>
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="M2ZeC8o0po7of2d0m!#l">
+            <field name="TEXT">腳位</field>
+          </block>
+        </statement>
+        <value name="TYPE">
+          <shadow type="type_null" id="{DR:|uZleef3aO.1NgDO"></shadow>
+        </value>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="op,,?pBg8rbJ}lUtX{;0">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="ieG{JfxG_l?!9sB5#y/4">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="DrDE+EWCYgoB6cyM9m.%"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="bD%bObpg@}gW,I@Qn^v)"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="AW~1=G%FlrniUg8ziRoQ">
+        <mutation colour="#5b8ca5"></mutation>
+        <field name="HUE">200</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="1E53g9(p-pI]HXTBkcKo" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_08imi_megacar_init_l298n</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_value" id="UKlqe}aL?Tq|y]@l3A1V">
+        <field name="INPUTNAME">in1</field>
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="yG#Lz3CmrwXY[?ilU=@L">
+            <field name="TEXT">IN1~IN8</field>
+          </block>
+        </statement>
+        <value name="TYPE">
+          <shadow type="type_null" id="SGIgSl.6(,#o=W-4#4MB"></shadow>
+        </value>
+        <next>
+          <block type="input_value" id="e$4xqu(sb8K;rh|2UC1e">
+            <field name="INPUTNAME">in2</field>
+            <field name="ALIGN">LEFT</field>
+            <statement name="FIELDS">
+              <block type="field_static" id="WAEgh2V#D%EFcayy$8wC">
+                <field name="TEXT"></field>
+              </block>
+            </statement>
+            <value name="TYPE">
+              <shadow type="type_null" id="t)c#Q)Iv.VHl1T2;~ikZ"></shadow>
+            </value>
+            <next>
+              <block type="input_value" id="(SkXk]s#r;Qvqnb(qKlp">
+                <field name="INPUTNAME">in3</field>
+                <field name="ALIGN">LEFT</field>
+                <statement name="FIELDS">
+                  <block type="field_static" id="Mr~7{tF|$w#Q-orUk:%X">
+                    <field name="TEXT"></field>
+                  </block>
+                </statement>
+                <value name="TYPE">
+                  <shadow type="type_null" id="X$$rweW0Zr:1K-GxWMCY"></shadow>
+                </value>
+                <next>
+                  <block type="input_value" id="@T@K[`7HRrkV#wh7I`N4">
+                    <field name="INPUTNAME">in4</field>
+                    <field name="ALIGN">LEFT</field>
+                    <statement name="FIELDS">
+                      <block type="field_static" id="-`S4II((!$OoR|Y$*O|m">
+                        <field name="TEXT"></field>
+                      </block>
+                    </statement>
+                    <value name="TYPE">
+                      <shadow type="type_null" id="jBV4/X@@{f[[a,q#2.1e"></shadow>
+                    </value>
+                    <next>
+                      <block type="input_value" id="3Tm5iFNJiPTvOEAX8%X(">
+                        <field name="INPUTNAME">in5</field>
+                        <field name="ALIGN">LEFT</field>
+                        <statement name="FIELDS">
+                          <block type="field_static" id="}f_IUE2Ju?Oxad)uHOSC">
+                            <field name="TEXT"></field>
+                          </block>
+                        </statement>
+                        <value name="TYPE">
+                          <shadow type="type_null" id="!%h@n?[U}2uImSmiWRn`"></shadow>
+                        </value>
+                        <next>
+                          <block type="input_value" id="*=$A_lurZrI)Fq7Ir:3r">
+                            <field name="INPUTNAME">in6</field>
+                            <field name="ALIGN">LEFT</field>
+                            <statement name="FIELDS">
+                              <block type="field_static" id="u@fAmq!@wheS!n.c+O@h">
+                                <field name="TEXT"></field>
+                              </block>
+                            </statement>
+                            <value name="TYPE">
+                              <shadow type="type_null" id="8,Ds?s%;{4h}xncRQ2c."></shadow>
+                            </value>
+                            <next>
+                              <block type="input_value" id=";WYx=6uxuv,g!*3kLztz">
+                                <field name="INPUTNAME">in7</field>
+                                <field name="ALIGN">LEFT</field>
+                                <statement name="FIELDS">
+                                  <block type="field_static" id="dv~rPPq!%}sgn[R[ory^">
+                                    <field name="TEXT"></field>
+                                  </block>
+                                </statement>
+                                <value name="TYPE">
+                                  <shadow type="type_null" id="[KbWe50$1!vswBb.wO]7"></shadow>
+                                </value>
+                                <next>
+                                  <block type="input_value" id="g[!5|x$}W(h9.qNkCo/;">
+                                    <field name="INPUTNAME">in8</field>
+                                    <field name="ALIGN">LEFT</field>
+                                    <statement name="FIELDS">
+                                      <block type="field_static" id="|68KUX5:J}Ca$+/u$8q9">
+                                        <field name="TEXT"></field>
+                                      </block>
+                                    </statement>
+                                    <value name="TYPE">
+                                      <shadow type="type_null" id="6V=66ENPGQ/mlgXJbn*w"></shadow>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="7K:b78-)y~:v/^e!3Hgs">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="n}bJvrpO+DuIZ`.%mjZ_">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="];,g#fx~N!dMEPWCq[oD"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="f=SHk6.i80iQwR0GizRG"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id=":+Pd;ld)SY-$d*aTRQr*">
+        <mutation colour="#5b8ca5"></mutation>
+        <field name="HUE">200</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id=",%-*kE;;Z9$Fn}%mvl8." x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_09imi_megacar_init_l298n2</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_value" id=")@|:!OG;BBp?6:HO0l9p">
+        <field name="INPUTNAME">en1</field>
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="MFN3u|#lc8uL1zlUjv^9">
+            <field name="TEXT">EN1~EN4</field>
+          </block>
+        </statement>
+        <value name="TYPE">
+          <shadow type="type_null" id="7!^Xd+%M`(q7%sO@nM!t"></shadow>
+        </value>
+        <next>
+          <block type="input_value" id="7%DM+5F(]}1F!e!*1SR~">
+            <field name="INPUTNAME">en2</field>
+            <field name="ALIGN">LEFT</field>
+            <statement name="FIELDS">
+              <block type="field_static" id="auYxxT!fExBSsHs7cz$.">
+                <field name="TEXT"></field>
+              </block>
+            </statement>
+            <value name="TYPE">
+              <shadow type="type_null" id="Q%;H_FSAmsUegVr8o){U"></shadow>
+            </value>
+            <next>
+              <block type="input_value" id="xpOMVe-dm55*wrlHMJ6@">
+                <field name="INPUTNAME">en3</field>
+                <field name="ALIGN">LEFT</field>
+                <statement name="FIELDS">
+                  <block type="field_static" id="N3J|)5Nm0@;|y2h?U_Hh">
+                    <field name="TEXT"></field>
+                  </block>
+                </statement>
+                <value name="TYPE">
+                  <shadow type="type_null" id="cz=(YMnwcd6oiL8*OZLX"></shadow>
+                </value>
+                <next>
+                  <block type="input_value" id="n6R/]EpVjZ5,3WH@sXop">
+                    <field name="INPUTNAME">en4</field>
+                    <field name="ALIGN">LEFT</field>
+                    <statement name="FIELDS">
+                      <block type="field_static" id="t0%_]+vr[*u9dcXRAKHk">
+                        <field name="TEXT"></field>
+                      </block>
+                    </statement>
+                    <value name="TYPE">
+                      <shadow type="type_null" id="@93GF-?^%obz902,txRA"></shadow>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="F._P^y$OFsHh_5SeO[8V">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id=":JAS6,km/pl_]V=4|@Qp">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="Sf/Av-b0VKaZf^PJ/wz}"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="3]*jVOVD_%}uIE!EJj,i"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="TnAq8IBa$Qp{[j!Ff.t/">
+        <mutation colour="#5b8ca5"></mutation>
+        <field name="HUE">200</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id=";9SAOqsvw9Z!M4q}[ATf" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_10imi_megacar_astar</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id=";fm:F!h@!:buctKtJ~I?">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="_jNg/__Rqm]na6~V(x%~">
+            <field name="TEXT">A*演算法初始化</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="V(ZjKtez;Lx.WdD2LT1S">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="U`NlB~+L:cl-LE6l,[nr">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="e![F@6qZAUR;}1T8Uxzy"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="pQN5ozFTm%yK8*MehxLJ"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="yW_pSbyzCKif,%Mm==qF">
+        <mutation colour="#5b8ca5"></mutation>
+        <field name="HUE">200</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="?Bosr:_YML+9_th)ot_{" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_11imi_megacar_esp32</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="D0TE$W9fH?)hnloxwUC!">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="G7*deR,0pjI9wjg#,:dL">
+            <field name="TEXT">當接收ESP32訊息時</field>
+          </block>
+        </statement>
+        <next>
+          <block type="input_statement" id="GR8Iui]$IPM!fFSJIME(">
+            <field name="INPUTNAME">msg</field>
+            <field name="ALIGN">LEFT</field>
+            <value name="TYPE">
+              <shadow type="type_null" id="DW:noJa6i=(rikA5TI1L"></shadow>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="@pwFDJ.e1lX#2FduMtYD">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="O]l`JuQ5y*Z4}XIab|ZO">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="~m:*K{DbTaBQ?4{$pgx9"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="oM6?}#_AYW_GKW=ALoO`"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="9;=^BP+|{WD()Ya{vWU:">
+        <mutation colour="#5b8ca5"></mutation>
+        <field name="HUE">200</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="V(g37xa_wQ6kk{FC(2WX" x="10" y="10">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">_12imi_megacar_isesp32msg</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="tb23GZXtgd1_W`a?%L;x">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="ZX!5@[zg0B)r*VAa;dWG">
+            <field name="TEXT">ESP32訊息包含</field>
+            <next>
+              <block type="field_dropdown" id="06#@kz]zKT6BW]PFbXr2">
+                <mutation options="[&quot;text&quot;,&quot;text&quot;,&quot;text&quot;,&quot;text&quot;]"></mutation>
+                <field name="FIELDNAME">msg</field>
+                <field name="USER0">MAP_SET</field>
+                <field name="CPU0">MAP_SET</field>
+                <field name="USER1">GOODS_LOAD</field>
+                <field name="CPU1">GOODS_LOAD</field>
+                <field name="USER2">LINE_NOTIFY</field>
+                <field name="CPU2">LINE_NOTIFY</field>
+                <field name="USER3">CAR_GPS</field>
+                <field name="CPU3">CAR_GPS</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="@qo#GQjnJ{(rBhC!.F:+">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="9gNtk4vl/?hiX}R`(8k+">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="IUn4_e[@E@J/Y@R]9A;C"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="Ds#Ue5!r(n)E??=ZQVyW">
+        <mutation colour="#5b8ca5"></mutation>
+        <field name="HUE">200</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="SosYQgT*Uz3,477TAfnx" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_13imi_megacar_servo</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="NNW-/DqR}cZVh;~iXut0">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="G@O,RX[Cyi%R6%DI7pJK">
+            <field name="TEXT"></field>
+            <next>
+              <block type="field_dropdown" id="D1sexLMo?,M[NL_GX.eh">
+                <mutation options="[&quot;text&quot;,&quot;text&quot;]"></mutation>
+                <field name="FIELDNAME">servo</field>
+                <field name="USER0">貨斗伺服馬達</field>
+                <field name="CPU0">servoCarBox</field>
+                <field name="USER1">AI鏡頭伺服馬達</field>
+                <field name="CPU1">servoAiCam</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="input_dummy" id="N3lM*rY9+jg28IhH8]hL">
+            <field name="ALIGN">LEFT</field>
+            <statement name="FIELDS">
+              <block type="field_static" id="2SDFa_}yLLXJq+``:t^4">
+                <field name="TEXT">設定為</field>
+              </block>
+            </statement>
+            <next>
+              <block type="input_dummy" id="4n3*9Us*/S6S:oXeU;)_">
+                <field name="ALIGN">LEFT</field>
+                <statement name="FIELDS">
+                  <block type="field_static" id="c)tJM*f]BAIJS26I5M+L">
+                    <field name="TEXT"></field>
+                    <next>
+                      <block type="field_dropdown" id="GD:xfI#WUo0%NSyxmUi7">
+                        <mutation options="[&quot;text&quot;,&quot;text&quot;,&quot;text&quot;,&quot;text&quot;]"></mutation>
+                        <field name="FIELDNAME">angle</field>
+                        <field name="USER0">打開</field>
+                        <field name="CPU0">ANGLE_CAR_BOX_OPEN</field>
+                        <field name="USER1">關閉</field>
+                        <field name="CPU1">ANGLE_CAR_BOX_CLOSE</field>
+                        <field name="USER2">朝前</field>
+                        <field name="CPU2">ANGLE_AI_CAM_FRONT</field>
+                        <field name="USER3">向上</field>
+                        <field name="CPU3">ANGLE_AI_CAM_UP</field>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="ooe8kvO-@9-~Hmn92jRR">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="U`%}0KbtN0k`xfI{;DWM">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="#wC8(AU-D%p1R~+E50P."></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="tjP)lz)^QavUI;EWqo[0"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="El:h^)BaB{y2T-U|fFP=">
+        <mutation colour="#5b8ca5"></mutation>
+        <field name="HUE">200</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="vq6Uvz08eEOR/u-%Nj8w" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_14imi_megacar_savemap</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="rkS+(C0VWFN`exc(w4MN">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="3P#8|IhWEfDavUrlM3GG">
+            <field name="TEXT">儲存地圖陣列</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="ORnFwL=()~A4DQy{c?lT">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="~c;BhjmC}sU(a6{17n62">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="({~rt@Zy2C}VTFPHn$n["></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="xa2*}wNHMNT7S}!G`LCS"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="v%rClfT~lA*CJ:d^4a$r">
+        <mutation colour="#5b8ca5"></mutation>
+        <field name="HUE">200</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="!(:RasE_zDBsZV{@#`i9" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_15imi_megacar_savereci</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="+Q5Cbh*oP}(Nib-@P.Vf">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="*]q.h=/zDK(HN)d3pSdW">
+            <field name="TEXT">儲存收件人陣列</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="rM8Eke+%*u.Cf)PYH+^z">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="R;l^fls%8So$E!}]n~)R">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="RVS.a`QEjIAm0CXHVn9l"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id=";756,k=Kx_|AaL7Lhp8O"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="=VI*S@P7cE1{^B+*$65e">
+        <mutation colour="#5b67a5"></mutation>
+        <field name="HUE">230</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="@5#_lJe-#vQp@5WzF_}2" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_16imi_megacar_startastar</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="1o7GB1h312$B_lhnfwje">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="cDGpW?kwdnV6G@tX`N9Z">
+            <field name="TEXT">開始A*路徑規劃:  終點</field>
+            <next>
+              <block type="field_dropdown" id="iBby.@o+|Gk=D,n%Pv12">
+                <mutation options="[&quot;text&quot;,&quot;text&quot;,&quot;text&quot;]"></mutation>
+                <field name="FIELDNAME">point</field>
+                <field name="USER0">物流站</field>
+                <field name="CPU0">GOODS_POINT</field>
+                <field name="USER1">充電站</field>
+                <field name="CPU1">CHARGE_POINT</field>
+                <field name="USER2">收件人</field>
+                <field name="CPU2">Recipient_POINT</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="yl}/4bRRcTCUtpc?P6`.">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id=";nSIEh_*kr[4s-?OZN75">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="QwEn{|Q1/H+o!;w.j:V~"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="DR3w`,giCP{81++PY2{S"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="FBu4*ifO=QWl4.,-HnCS">
+        <mutation colour="#5b8ca5"></mutation>
+        <field name="HUE">200</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="C?s@W$cQ@ELnAdBOL/cc" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_17imi_megacar_standbyaicam</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="iqPzokm(,GS:=,.2p#NU">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="noV1su{#=C(RccFR3|X;">
+            <field name="TEXT">AI鏡頭朝向,準備人臉識別收貨人</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="W,+Lms:_@VXqVHto[|:r">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="]lJzGO@(ubia!vYN{ZPI">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="LJ#SCdlYFVBqE,;v/AUL"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="[2*g,9haa2I)Z@J0pMi%"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="nphI[.2rdUf6iBU~KfFC">
+        <mutation colour="#5b8ca5"></mutation>
+        <field name="HUE">200</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="W:BJx=O@q9pfdqHd6Bp#" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_18imi_megacar_esp32line</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="]@2dvP!!`3V8BCH|q,{,">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="(kN/DBNkCkfZ@!Yhwpjm">
+            <field name="TEXT">[傳送]通知至ESP32：LINE通知收件人</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="~{-#:gS~`H]o?ppUSt6-">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="Oy#QH1vOt3:BrWs18;r=">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="])2`%sjsI/uLw.:X?j1g"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="NU[{KzoS$!(N35V;I]KY"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="j32c@;uSum:.`)+}Rj-s">
+        <mutation colour="#5b8ca5"></mutation>
+        <field name="HUE">200</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="ZAE:VESM5i*F.Q^0waE`" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_19imi_megacar_startdetectobject</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="JAp$h_0L|uYjg9.9X14I">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="S|q7QBZ5JT1y%3LMYtJ4">
+            <field name="TEXT">等待AI人臉識別</field>
+          </block>
+        </statement>
+        <next>
+          <block type="input_statement" id="`GUOt$Pc-1`V2E+|g~C+">
+            <field name="INPUTNAME">msg</field>
+            <field name="ALIGN">LEFT</field>
+            <value name="TYPE">
+              <shadow type="type_null" id="a*Ao2x!.Lwr#$mzKa5C|"></shadow>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="WPBY8Z/G=n@F4^0(v2!y">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="?Fx}8Q_2j*B{#ylyv!No">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="gMuf{^Tm%:p81l1%X@ET"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="OP]]!%yXx)U`*$^qq*KA"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="fws/T#7wMRf42|=DV`{!">
+        <mutation colour="#5b8ca5"></mutation>
+        <field name="HUE">200</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="iNn,AJop(n8tx.5Ec@GY" x="10" y="10">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">_20imi_megacar_isfaceid</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="uT8@fMjv2kX`Wi-#i`3D">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="p_@Nl#,:H?7IRbpgGYM#">
+            <field name="TEXT">人臉ID=</field>
+            <next>
+              <block type="field_dropdown" id="ru:iu+FgL`LxKnVb0`P}">
+                <mutation options="[&quot;text&quot;]"></mutation>
+                <field name="FIELDNAME">id</field>
+                <field name="USER0">1</field>
+                <field name="CPU0">FACE_ID1</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="6oP8R.bG6REq%Ht{Z;w{">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="[_I0`FT6hlg=+mnZH2w|">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="6Etq}N/[{ZI{UDv6q-VT"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="Sl;}5DMTkjPxE|;k,*({">
+        <mutation colour="#5b8ca5"></mutation>
+        <field name="HUE">200</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="rf6j@K~YQ1N+itxwpx8%" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_21imi_megacar_currentalgo</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="L~:0K9^I3BwFMxWHh3Qb">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="VsWH@T4DX^Z^)4L02o*:">
+            <field name="TEXT">AI識別模式切換為:</field>
+            <next>
+              <block type="field_dropdown" id="Q}|BI5d8E38xlM1o-GGV">
+                <mutation options="[&quot;text&quot;,&quot;text&quot;]"></mutation>
+                <field name="FIELDNAME">algo</field>
+                <field name="USER0">物件識別</field>
+                <field name="CPU0">ALGORITHM_OBJECT_RECOGNITION</field>
+                <field name="USER1">人臉識別</field>
+                <field name="CPU1">ALGORITHM_FACE_RECOGNITION</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="cs4JK9|hpN=fbJv?97C1">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id=";@TW!gL0CkmC5gP-VF?a">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="o#h-YB5~ZyB,oF~rD3:A"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="kqb%~^)~db{2ep]$NFig"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="7yJi61BdKUq_NzB9/G1,">
+        <mutation colour="#5b8ca5"></mutation>
+        <field name="HUE">200</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="5G5z6;0^[J`baZo3b3$%" x="10" y="10">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">_22imi_megacar_issign</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="}us-%af)}@/!])C)GLt{">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="]`dY)@Yj(rfrxaAIrzX|">
+            <field name="TEXT">按下簽收鈕</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="_S-lcUWo*emoKt^6F;L(">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="sz5njdJ!)syiWKS0%XyT">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="`;UuGi9.p.pc?}.D,pEl"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="[`llSbP^a8[?6hLMJ$.T">
+        <mutation colour="#5b8ca5"></mutation>
+        <field name="HUE">200</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="DE!@$!QsK:F493Df:F2H" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_23imi_megacar_carheadturn</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="bqj-nt[}7uo^vm0-NC_N">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="|]u84qP+wo?1s]OUnE_~">
+            <field name="TEXT">車頭旋轉</field>
+            <next>
+              <block type="field_dropdown" id="(DAZUuhx,+^pWL29?:Zr">
+                <mutation options="[&quot;text&quot;,&quot;text&quot;,&quot;text&quot;,&quot;text&quot;]"></mutation>
+                <field name="FIELDNAME">direct</field>
+                <field name="USER0">朝上</field>
+                <field name="CPU0">'U'</field>
+                <field name="USER1">朝右</field>
+                <field name="CPU1">'R'</field>
+                <field name="USER2">朝下</field>
+                <field name="CPU2">'D'</field>
+                <field name="USER3">朝左</field>
+                <field name="CPU3">'L'</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id=",|pX`bIU#h%-q41O=jr5">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="a[A`htWG@t+pRENzTLQ{">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="XP.qB:n?6WaYJ.T+@+{#"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="5H?-7}Uo~=;$vePvK8_a"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="0]-1pnTC-xh}o8*qwb.[">
+        <mutation colour="#5b8ca5"></mutation>
+        <field name="HUE">200</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="08c(w37lPE1#;_A0ke+M" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_24imi_megacar_getpower</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="2([/lH2SIt,[SvFW,9OD">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="r^bEEwQb)#]qGy@wc(AB">
+            <field name="TEXT">取得小車當前電量</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id=")RAy#no9d5rB[5-x!XhX">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="!/MmM^(cr[Ur.xM|Dj2i">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="*klS=!.XJ{R2EW5EY~Tk"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="Aj,%`MYvoUx6^JcZ]Ims"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="$jq$~f`d)l6Vs`1pW_XQ">
+        <mutation colour="#5b8ca5"></mutation>
+        <field name="HUE">200</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id=",u+.pyYKt~b-!]p;o$zk" x="10" y="10">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">_25imi_megacar_islowpower</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="[A%VCCvCFvjP3zlIyvsO">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="sw@R*-c2[}=2SE2y66Op">
+            <field name="TEXT">電量低於</field>
+            <next>
+              <block type="field_dropdown" id="zA1CE}xa3^5dM=A:;^L6">
+                <mutation options="[&quot;text&quot;,&quot;text&quot;,&quot;text&quot;,&quot;text&quot;,&quot;text&quot;]"></mutation>
+                <field name="FIELDNAME">percent</field>
+                <field name="USER0">20%</field>
+                <field name="CPU0">0.2</field>
+                <field name="USER1">15%</field>
+                <field name="CPU1">0.15</field>
+                <field name="USER2">10%</field>
+                <field name="CPU2">0.1</field>
+                <field name="USER3">5%</field>
+                <field name="CPU3">0.05</field>
+                <field name="USER4">0%</field>
+                <field name="CPU4">0</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="w+R4pdo|?j{U3(cnNXz$">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="tlGUU;ZP{Q5Z^*Vo$p,{">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="+7|`pS`in|0IXH;`7B5h"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="hbfkqYg6fA4(6aDeDy}W">
+        <mutation colour="#5b8ca5"></mutation>
+        <field name="HUE">200</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="+{[y8u)AD`dHvM$yi69D" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_26imi_megacar_startcharge</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="lOZGil-DC8}k|4v_+0d^">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="OTIc]?(L,_2wWt47cGm6">
+            <field name="TEXT">導航至[充電站]開始充電</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="+20?+y7Lk}/HEVg{C7AF">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="!tXyHTJSi4C+)Kf06D?P">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="]W-$37i{1F*m$IdK_VO}"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="SBB%yoc#6MROskH{Tev2"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="lsMwA!b~PR$:!PWp|iG~">
+        <mutation colour="#5b8ca5"></mutation>
+        <field name="HUE">200</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id=",u/ZZ:{I4jtFpk3e_VW!" x="10" y="10">
+    <mutation connections="NONE"></mutation>
+    <field name="NAME">_27imi_megacar_track_func</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">NONE</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="uQ@17Poh++o@+%v*`m5j">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="+M^t3bXfSBG|`oS/m/AI">
+            <field name="TEXT">循跡感測函式</field>
+          </block>
+        </statement>
+        <next>
+          <block type="input_statement" id="]{.[=7xGv/9v)alm$?75">
+            <field name="INPUTNAME">msg</field>
+            <field name="ALIGN">LEFT</field>
+            <value name="TYPE">
+              <shadow type="type_null" id="X@[V|W$1EgIQAx4*u4[-"></shadow>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="ZVUa46Vm6,TmscX2Q[/N">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="sJZA_o1H.gcY:SviII!7">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="$=DU?uY=yal]};W,*6nk">
+        <mutation colour="#5b8ca5"></mutation>
+        <field name="HUE">200</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="O0)g8:3X3!314uDW%h.y" x="10" y="10">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">_28imi_megacar_tracksensor</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="o(9CO-tE68aqX8wgp~(L">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_dropdown" id="wUHbxN~PF-C1~($X24T^">
+            <mutation options="[&quot;text&quot;,&quot;text&quot;,&quot;text&quot;,&quot;text&quot;]"></mutation>
+            <field name="FIELDNAME">direct</field>
+            <field name="USER0">左邊</field>
+            <field name="CPU0">TRACK_LEFT</field>
+            <field name="USER1">前方</field>
+            <field name="CPU1">TRACK_FRONT</field>
+            <field name="USER2">後方</field>
+            <field name="CPU2">TRACK_BACK</field>
+            <field name="USER3">右邊</field>
+            <field name="CPU3">TRACK_RIGHT</field>
+          </block>
+        </statement>
+        <next>
+          <block type="input_dummy" id="IsHkmy)Vk%)oopH|Cjq^">
+            <field name="ALIGN">LEFT</field>
+            <statement name="FIELDS">
+              <block type="field_static" id="*l`q??#RY#]JDXrL6*bE">
+                <field name="TEXT">循跡感測被觸發</field>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="L%rMPTH7W84c**h?WR8^">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="fyn~1x]!DVjyyC$wlEpI">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="eJ41*qyCR+O%;[T^OwZj"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="y|zdV7Y{vM|y%O$,T4ep">
+        <mutation colour="#5b8ca5"></mutation>
+        <field name="HUE">200</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="qkFeYZLrIA_RN_RRnKG#" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_29imi_megacar_stopfront</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="4Yhm,@_]`j7aTxp_+s+p">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="3Sv)*K__sJ}*4SFW46?D">
+            <field name="TEXT">車子執行</field>
+            <next>
+              <block type="field_dropdown" id="*qq#-+Lvz#_Jby=+.EYD">
+                <mutation options="[&quot;text&quot;]"></mutation>
+                <field name="FIELDNAME">NAME</field>
+                <field name="USER0">結束此格</field>
+                <field name="CPU0">OPTIONNAME</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="I`G5DcI)+Zthb[D$^eNE">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="`-{G`l]83.RmxAP1|Zi$">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="qZlb{jqO{eA[{oZ;x#;X"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="us+guf5*Zw.Sb`FTsL5D"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="!`V^O[AH8l+cO,1Py}g]">
+        <mutation colour="#5b8ca5"></mutation>
+        <field name="HUE">200</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="/W)P_.syk68H@}B=+7IL" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_30imi_megacar_direct</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="%zuuIYU/}W.o?nurc-a#">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="R|dry_9XWGs2%n-LV46s">
+            <field name="TEXT">車子執行</field>
+            <next>
+              <block type="field_dropdown" id="At,~5G|1L*=!oJQf?T7W">
+                <mutation options="[&quot;text&quot;,&quot;text&quot;,&quot;text&quot;]"></mutation>
+                <field name="FIELDNAME">direct</field>
+                <field name="USER0">對角右進</field>
+                <field name="CPU0">right</field>
+                <field name="USER1">對角左進</field>
+                <field name="CPU1">left</field>
+                <field name="USER2">前進</field>
+                <field name="CPU2">forward</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id=":$$n*@eGBHT^%|FNstdY">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="Unq*2-+RJ18pa*@`^it!">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id=":sB5LGNrbJJk`;1i``cF"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="urLz:E-~IccBdsH-l$xe"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="eP*#dK{.-Ca/LoQ,[2{4">
+        <mutation colour="#5b8ca5"></mutation>
+        <field name="HUE">200</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="]^E{GMJQAu`500Xq+6+!" x="10" y="10">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">_31imi_megacar_isfindpath</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="K2|(ps[qX5#q?cInl@mA">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="V5!!a`l?bfJlTCuwOs)r">
+            <field name="TEXT">A*演算法有找到路徑</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="DC4b_P8Ep%y!E%sJYVDQ">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="63CKjmX6EZ[`P(EG}GNE">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="R_e4KIB.WSt7l,,)[x+p"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="ve6Eoz[HZz6V=pJMj8o?">
+        <mutation colour="#5b8ca5"></mutation>
+        <field name="HUE">200</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="sTLv1^iJnp;.)+gGFh`|" x="10" y="10">
+    <mutation connections="NONE"></mutation>
+    <field name="NAME">_32imi_megacar_gocar_func</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">NONE</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="%xKN^NsXsbsdDkm-}BHY">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="MKj^8ywXxoH1v|wI^]7Q">
+            <field name="TEXT">開始自動駕駛函式</field>
+          </block>
+        </statement>
+        <next>
+          <block type="input_statement" id="Q}t.8o/V=3k(w,#UDo;%">
+            <field name="INPUTNAME">msg</field>
+            <field name="ALIGN">LEFT</field>
+            <value name="TYPE">
+              <shadow type="type_null" id="T*FCr7c}mf,O;t.DX|$1"></shadow>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="it~o{1wzL6Br]7@h{KWJ">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="^NmJPISX:o%j-WWg0KHS">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="p`)0vX*u]kTLkK(Qtb(Z">
+        <mutation colour="#5b8ca5"></mutation>
+        <field name="HUE">200</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="3RjzRHFeP@B3OjCo1QeE" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_33imi_megacar_aidetect</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="Jce{^^~FR`GzR9fVHy]1">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="j1e:=cOV:a8n4=m|OLrE">
+            <field name="TEXT">AI鏡頭開始識別行人、車子避障</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id=")CzD#IH-q7{4(0|485!5">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="=[rfLU/pF[Ftc8a4kRf=">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="(bip9ce~!`u5F_Hi2PIT"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="OJU/dNlzx4Am;+WARE1u"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id=")30CVqNvW8f[n2?pz}rf">
+        <mutation colour="#5b8ca5"></mutation>
+        <field name="HUE">200</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="yr-WAFo8)=a?,u_8*ZW%" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_34imi_megacar_trackforward</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="S,P|VHO{YaXSP:xfpwZb">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="YVX6jZutawD7#_llx#MM">
+            <field name="TEXT">循跡感測器開始偵測</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="{Sf~)h0%M9UQdo)G%Nv.">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="$x`1Bql%XQ!1tZkK3/@Y">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="5:$.ucbN.SY!i/b|)o+E"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="ZcBAjhT=;HyK?Ad;*P=@"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="8RewI`79yCP2q~Q]*djn">
+        <mutation colour="#5b8ca5"></mutation>
+        <field name="HUE">200</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="#3uTtdln^P/xxHV^_6[r" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_35imi_megacar_esp32gps</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="_{`%{dUbK^=bLPW_A`Hs">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="tgEB-,|OFVO)t(sM:;2s">
+            <field name="TEXT">[傳送]通知至ESP32：模擬GPS座標</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="5meZ}4NVV?f0MSi%sOq;">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="^(96kjXp~^K)i*1M)z4Y">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="f+d(OFPnZ3[6M$9xU8^m"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="5kkctL*[Zs9#Spv%Jp*g"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="BCrOk;tY[==5#bO;lfXn">
+        <mutation colour="#5b8ca5"></mutation>
+        <field name="HUE">200</field>
+      </block>
+    </value>
+  </block></xml>

@@ -1,0 +1,159 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="customcode_head" id="218" inline="true" x="38" y="38">
+    <value name="text">
+      <block type="text" id="219">
+        <field name="TEXT">#include "U8glib.h"</field>
+      </block>
+    </value>
+    <next>
+      <block type="customcode_head" id="220" inline="true">
+        <value name="text">
+          <block type="text" id="221">
+            <field name="TEXT">U8GLIB_SH1106_128X64 u8g(U8G_I2C_OPT_NONE); // I2C / TWI ;</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id="222" inline="true">
+            <field name="TYPE">Float</field>
+            <field name="VAR">amb</field>
+            <value name="VALUE">
+              <block type="math_number" id="223">
+                <field name="NUM">23.5</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="224" inline="true">
+                <field name="TYPE">Float</field>
+                <field name="VAR">obj</field>
+                <value name="VALUE">
+                  <block type="math_number" id="225">
+                    <field name="NUM">33.2</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="procedures_defnoreturn" id="226" collapsed="true" x="463" y="138">
+    <mutation></mutation>
+    <field name="NAME">draw</field>
+    <statement name="STACK">
+      <block type="customcode_code" id="227" inline="true">
+        <value name="text">
+          <block type="text" id="228">
+            <field name="TEXT">u8g.setFont(u8g_font_fur25);</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_code" id="229" inline="true">
+            <value name="text">
+              <block type="text" id="230">
+                <field name="TEXT">u8g.setPrintPos(10, 29);</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_code" id="231" inline="true">
+                <value name="text">
+                  <block type="text" id="232">
+                    <field name="TEXT">u8g.print(amb, 1);</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_code" id="233" inline="true">
+                    <value name="text">
+                      <block type="text" id="234">
+                        <field name="TEXT">u8g.drawStr( 80, 29, "*C");</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_code" id="235" inline="true">
+                        <value name="text">
+                          <block type="text" id="236">
+                            <field name="TEXT">u8g.setPrintPos(10, 63);</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="customcode_code" id="237" inline="true">
+                            <value name="text">
+                              <block type="text" id="238">
+                                <field name="TEXT">u8g.print(obj, 1);</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="customcode_code" id="239" inline="true">
+                                <value name="text">
+                                  <block type="text" id="240">
+                                    <field name="TEXT">u8g.drawStr( 80, 63, "*C");</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="initializes_setup" id="241" x="38" y="188">
+    <statement name="CONTENT">
+      <block type="serial_init" id="242">
+        <field name="SPEED">9600</field>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="243">
+        <statement name="CONTENT">
+          <block type="customcode_code" id="244" inline="true">
+            <value name="text">
+              <block type="text" id="245">
+                <field name="TEXT">u8g.firstPage();</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_code" id="246" inline="true">
+                <value name="text">
+                  <block type="text" id="247">
+                    <field name="TEXT">do {</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="procedures_callnoreturn" id="248">
+                    <mutation name="draw"></mutation>
+                    <next>
+                      <block type="customcode_code" id="249" inline="true">
+                        <value name="text">
+                          <block type="text" id="250">
+                            <field name="TEXT">} while ( u8g.nextPage() );</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="delay_custom" id="251" inline="false">
+                            <value name="DELAY_TIME">
+                              <block type="math_number" id="252">
+                                <field name="NUM">100</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

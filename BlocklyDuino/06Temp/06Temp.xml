@@ -1,0 +1,69 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="uuT%AB3MMpo7/,!v5,qm">Temp</variable>
+  </variables>
+  <block type="initializes_setup" id="3" x="80" y="40">
+    <statement name="CONTENT">
+      <block type="serial_init" id="4">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="variables_set" id="NZ%_0*KC0%UP;Z(uHW+m">
+            <field name="POSITION">global</field>
+            <field name="TYPE">float</field>
+            <field name="VAR" id="uuT%AB3MMpo7/,!v5,qm">Temp</field>
+            <value name="VALUE">
+              <shadow type="math_number" id="3hK_A~YH}Wt:q-B=az}U">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="5">
+        <statement name="CONTENT">
+          <block type="variables_set3" id="^7~eVI#yR@Q,QH[k4DZN">
+            <field name="VAR" id="uuT%AB3MMpo7/,!v5,qm">Temp</field>
+            <value name="DELTA">
+              <shadow type="math_number" id="pM;^4-QKX8}M0ta}c6$q">
+                <field name="NUM">0</field>
+              </shadow>
+              <block type="math_arithmetic" id="247">
+                <field name="OP">MULTIPLY</field>
+                <value name="A">
+                  <block type="inout_analog_read" id="15">
+                    <field name="PIN">A0</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="268">
+                    <field name="NUM">0.4882812</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="serial_println" id="276" inline="false">
+                <value name="CONTENT">
+                  <block type="variables_get" id="?3:Ziy=8s4ImvT|{7vuI">
+                    <field name="VAR" id="uuT%AB3MMpo7/,!v5,qm">Temp</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="delay_custom" id="ex*~X;#D5mT^XJ?`2*gT">
+                    <value name="DELAY_TIME">
+                      <block type="math_number" id="F0fJG7}`j^=F%3Ub2=p)">
+                        <field name="NUM">100</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

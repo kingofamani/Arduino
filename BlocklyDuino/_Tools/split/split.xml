@@ -1,0 +1,223 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="initializes_setup" id="51" x="80" y="40">
+    <statement name="CONTENT">
+      <block type="serial_init" id="52">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="variables_set" id="53" inline="true">
+            <field name="TYPE">String</field>
+            <field name="VAR">num</field>
+            <value name="VALUE">
+              <block type="text" id="54">
+                <field name="TEXT">15*20</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="55" inline="true">
+                <field name="TYPE">String</field>
+                <field name="VAR">number1</field>
+                <value name="VALUE">
+                  <block type="text" id="189">
+                    <field name="TEXT"></field>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set" id="56" inline="true">
+                    <field name="TYPE">String</field>
+                    <field name="VAR">number2</field>
+                    <value name="VALUE">
+                      <block type="text" id="196">
+                        <field name="TEXT"></field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_code" id="57" inline="true">
+                        <value name="text">
+                          <block type="text" id="58">
+                            <field name="TEXT">number1 = split(num, '*', 0);</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="customcode_code" id="59" inline="true">
+                            <value name="text">
+                              <block type="text" id="60">
+                                <field name="TEXT">number2 = split(num, '*', 1);</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="serial_println" id="61" inline="false">
+                                <value name="CONTENT">
+                                  <block type="customcode_instruction5_get" id="161" inline="true">
+                                    <field name="type">toInt()</field>
+                                    <value name="instruction">
+                                      <block type="variables_get" id="62">
+                                        <field name="TYPE">String</field>
+                                        <field name="VAR">number1</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="serial_println" id="63" inline="false">
+                                    <value name="CONTENT">
+                                      <block type="customcode_instruction5_get" id="172" inline="true">
+                                        <field name="type">toInt()</field>
+                                        <value name="instruction">
+                                          <block type="variables_get" id="64">
+                                            <field name="TYPE">String</field>
+                                            <field name="VAR">number2</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="65"></block>
+    </next>
+  </block>
+  <block type="procedures_defnoreturn" id="66" collapsed="true" x="613" y="113">
+    <mutation></mutation>
+    <field name="NAME">abc2</field>
+    <statement name="STACK">
+      <block type="customcode_head" id="67" inline="true">
+        <value name="text">
+          <block type="text" id="68">
+            <field name="TEXT">String split(String data, char separator, int index)</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_head" id="69" inline="true">
+            <value name="text">
+              <block type="text" id="70">
+                <field name="TEXT">{</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_head" id="71" inline="true">
+                <value name="text">
+                  <block type="text" id="72">
+                    <field name="TEXT">  int found = 0;</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_head" id="73" inline="true">
+                    <value name="text">
+                      <block type="text" id="74">
+                        <field name="TEXT">  int strIndex[] = { 0, -1 };</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_head" id="75" inline="true">
+                        <value name="text">
+                          <block type="text" id="76">
+                            <field name="TEXT">  int maxIndex = data.length() - 1;</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="customcode_head" id="77" inline="true">
+                            <value name="text">
+                              <block type="text" id="78">
+                                <field name="TEXT">  for (int i = 0; i &lt;= maxIndex &amp;&amp; found &lt;= index; i++) {</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="customcode_head" id="79" inline="true">
+                                <value name="text">
+                                  <block type="text" id="80">
+                                    <field name="TEXT">    if (data.charAt(i) == separator || i == maxIndex) {</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="customcode_head" id="81" inline="true">
+                                    <value name="text">
+                                      <block type="text" id="82">
+                                        <field name="TEXT">      found++;</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="customcode_head" id="83" inline="true">
+                                        <value name="text">
+                                          <block type="text" id="84">
+                                            <field name="TEXT">      strIndex[0] = strIndex[1] + 1;</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="customcode_head" id="85" inline="true">
+                                            <value name="text">
+                                              <block type="text" id="86">
+                                                <field name="TEXT">      strIndex[1] = (i == maxIndex) ? i + 1 : i;</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="customcode_head" id="87" inline="true">
+                                                <value name="text">
+                                                  <block type="text" id="88">
+                                                    <field name="TEXT">    }</field>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="customcode_head" id="89" inline="true">
+                                                    <value name="text">
+                                                      <block type="text" id="90">
+                                                        <field name="TEXT">  }</field>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="customcode_head" id="95" inline="true">
+                                                        <value name="text">
+                                                          <block type="text" id="96">
+                                                            <field name="TEXT">  return found &gt; index ? data.substring(strIndex[0], strIndex[1]) : "";</field>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="customcode_head" id="97" inline="true">
+                                                            <value name="text">
+                                                              <block type="text" id="98">
+                                                                <field name="TEXT">}</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

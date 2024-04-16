@@ -1,0 +1,784 @@
+<category name="iMi迷你貨車" colour="#5ba58c">
+  <category name="小車ESP32" colour="#5ba58c">
+    <block type="01imi_esp32car_init">
+      <statement name="uart">
+        <block type="02imi_esp32car_init_uart">
+          <value name="rx">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <value name="tx">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+        </block>
+      </statement>
+      <statement name="wifi">
+        <block type="03imi_esp32car_init_wifi">
+          <value name="ssid">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+          <value name="wifi_pwd">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+        </block>
+      </statement>
+      <statement name="line">
+        <block type="04imi_esp32car_init_line">
+          <value name="line_token">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+        </block>
+      </statement>
+      <statement name="mqtt">
+        <block type="05imi_esp32car_init_mqtt">
+          <value name="mqtt_user">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+          <value name="mqtt_pwd">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+          <value name="mqtt_port">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <value name="mqtt_server">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+        </block>
+      </statement>
+    </block>
+    <block type="06imi_esp32car_loop"></block>
+    <block type="07imi_esp32car_getarduino_func"></block>
+    <block type="08imi_esp32car_submqtt">
+      <field name="mqtt_topic">TOPIC_MAP_SET</field>
+    </block>
+    <block type="09imi_esp32car_mqttcallback_func"></block>
+    <block type="10imi_esp32car_ismqtttopic">
+      <field name="mqtt_topic">TOPIC_MAP_SET</field>
+    </block>
+    <block type="11imi_esp32car_sendarduino_mapset"></block>
+    <block type="12imi_esp32car_pubmqtt_carstandby"></block>
+    <block type="13imi_esp32car_sendarduino_goodsload"></block>
+    <block type="14imi_esp32car_isarduinomsg">
+      <field name="uart_topic">MAP_SET</field>
+    </block>
+    <block type="15imi_esp32car_getarduino_recipient"></block>
+    <block type="16imi_esp32car_line_recipient"></block>
+    <block type="17imi_esp32car_getarduino_gps"></block>
+    <block type="18imi_esp32car_pubmqtt_cargps"></block>
+  </category>
+  
+  <category name="小車Mega" colour="#5ba55b">
+    <block type="_01imi_megacar_init" >
+      <statement name="uart">
+        <block type="_02imi_megacar_init_uart" >
+          <value name="rx">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <value name="tx">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+        </block>
+      </statement>
+      <statement name="track">
+        <block type="_03imi_megacar_init_track" >
+          <value name="left">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <value name="front">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <value name="back">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <value name="right">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+        </block>
+      </statement>
+      <statement name="trig">
+        <block type="_04imi_megacar_init_trig" >
+          <value name="trig">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+        </block>
+      </statement>
+      <statement name="carbox">
+        <block type="_05imi_megacar_init_carbox" >
+          <value name="carbox">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <value name="open">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <value name="close">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+        </block>
+      </statement>
+      <statement name="aicam">
+        <block type="_06imi_megacar_init_aicam" >
+          <value name="aicam">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <value name="front">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <value name="up">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+        </block>
+      </statement>
+      <statement name="sign">
+        <block type="_07imi_megacar_init_sign" >
+          <value name="sign">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+        </block>
+      </statement>
+      <statement name="l298n">
+        <block type="_08imi_megacar_init_l298n" >
+          <value name="in1">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <value name="in2">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <value name="in3">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <value name="in4">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <value name="in5">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <value name="in6">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <value name="in7">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <value name="in8">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+        </block>
+      </statement>
+      <statement name="l298n2">
+        <block type="_09imi_megacar_init_l298n2" >
+          <value name="en1">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <value name="en2">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <value name="en3">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <value name="en4">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+        </block>
+      </statement>
+    </block>
+    <block type="_10imi_megacar_astar" ></block>
+    <block type="_11imi_megacar_esp32" ></block>
+    <block type="_12imi_megacar_isesp32msg" >
+      <field name="msg">MAP_SET</field>
+    </block>
+    <block type="_13imi_megacar_servo" >
+      <field name="servo">servoCarBox</field>
+      <field name="angle">ANGLE_CAR_BOX_OPEN</field>
+    </block>
+    <block type="_14imi_megacar_savemap" ></block>
+    <block type="_15imi_megacar_savereci" ></block>
+    <block type="_16imi_megacar_startastar" >
+      <field name="point">GOODS_POINT</field>
+    </block>
+    <block type="_17imi_megacar_standbyaicam" ></block>
+    <block type="_18imi_megacar_esp32line" ></block>
+    <block type="_19imi_megacar_startdetectobject" ></block>
+    <block type="_20imi_megacar_isfaceid" >
+      <field name="id">FACE_ID1</field>
+    </block>
+    <block type="_21imi_megacar_currentalgo" >
+      <field name="algo">ALGORITHM_OBJECT_RECOGNITION</field>
+    </block>
+    <block type="_22imi_megacar_issign" ></block>
+    <block type="_23imi_megacar_carheadturn" >
+      <field name="direct">'U'</field>
+    </block>
+    <block type="_24imi_megacar_getpower" ></block>
+    <block type="_25imi_megacar_islowpower" >
+      <field name="percent">0.2</field>
+    </block>
+    <block type="_26imi_megacar_startcharge" ></block>
+    <block type="_27imi_megacar_track_func" ></block>
+    <block type="_28imi_megacar_tracksensor" >
+      <field name="direct">TRACK_LEFT</field>
+    </block>
+    <block type="_29imi_megacar_stopfront" >
+      <field name="NAME">OPTIONNAME</field>
+    </block>
+    <block type="_30imi_megacar_direct" >
+      <field name="direct">right</field>
+    </block>
+    <block type="_31imi_megacar_isfindpath" ></block>
+    <block type="_32imi_megacar_gocar_func" ></block>
+    <block type="_33imi_megacar_aidetect" ></block>
+    <block type="_34imi_megacar_trackforward" ></block>
+    <block type="_35imi_megacar_esp32gps"></block>
+  </category>
+ 
+    <category name="物流ESP32" colour="#995ba5">
+    <block type="_01imi_espgoods_init">
+      <statement name="wifi">
+        <block type="_02imi_espgoods_wifi">
+          <value name="ssid">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+          <value name="wifipwd">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+        </block>
+      </statement>
+      <statement name="mqtt">
+        <block type="_03imi_espgoods_mqtt">
+          <value name="mqtt_user">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+          <value name="mqtt_pwd">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+          <value name="port">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <value name="mqtt_server">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+        </block>
+      </statement>
+      <statement name="uart">
+        <block type="_04imi_espgoods_uart">
+          <value name="rx">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <value name="tx">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+        </block>
+      </statement>
+      <statement name="sheet">
+        <block type="_05imi_espgoods_sheet">
+          <value name="sheetid">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+          <value name="stag">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+        </block>
+      </statement>
+    </block>
+    <block type="_06imi_espgoods_loop"></block>
+    <block type="_07imi_espgoods_submqtt">
+      <field name="mqtt_topic">TOPIC_MAP_SET</field>
+    </block>
+    <block type="_08imi_espgoods_mqttcallback_func"></block>
+    <block type="_09imi_espgoods_ismqtttopic">
+      <field name="mqtt_topic">TOPIC_MAP_SET</field>
+    </block>
+    <block type="_10imi_espgoods_readsheet">
+      <value name="field">
+        <block type="text">
+          <field name="TEXT"></field>
+        </block>
+      </value>
+      <value name="name">
+        <block type="text">
+          <field name="TEXT"></field>
+        </block>
+      </value>
+    </block>
+    <block type="_11imi_espgoods_sendarduino_pick"></block>
+    <block type="_12imi_espgoods_getarduino_func"></block>
+    <block type="_13imi_espgoods_isarduinomsg">
+      <field name="msg">GOODS_LOAD</field>
+    </block>
+    <block type="_14imi_espgoods_pubmqtt_goods"></block>
+  </category>
+ 
+   <category name="物流UNO" colour="#9fa55b">
+    <block type="_01imi_unogoods_init">
+      <statement name="cnc">
+        <block type="_02imi_unogoods_cnc">
+          <value name="en">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <value name="xdir">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <value name="xstep">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <value name="ydir">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <value name="ystep">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+        </block>
+      </statement>
+      <statement name="uart">
+        <block type="_03imi_unogoods_uart">
+          <value name="rx">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <value name="tx">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+        </block>
+      </statement>
+      <statement name="servopin">
+        <block type="_04imi_unogoods_servopin">
+          <value name="servo">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+        </block>
+      </statement>
+    </block>
+    <block type="_05imi_unogoods_esp32"></block>
+    <block type="_06imi_unogoods_xy"></block>
+    <block type="_07imi_unogoods_findgoods"></block>
+    <block type="_08imi_unogoods_servo">
+      <field name="servo">servoPick</field>
+      <field name="angle">180</field>
+    </block>
+    <block type="_09imi_unogoods_reset"></block>
+    <block type="_10imi_unogoods_sendesp32">
+      <field name="NAME">GOODS_LOAD</field>
+    </block>
+  </category>
+ 
+ 
+   <category name="雲端Mqtt" colour="#745ba5">
+    <block type="_01imi_mqttcloud_init">
+      <statement name="uart">
+        <block type="_02imi_mqttcloud_uart">
+          <value name="rx">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <value name="tx">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+        </block>
+      </statement>
+      <statement name="wifi">
+        <block type="_03imi_mqttcloud_wifi">
+          <value name="ssid">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+          <value name="wifipwd">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+        </block>
+      </statement>
+      <statement name="mqtt">
+        <block type="_04imi_mqttcloud_mqtt">
+          <value name="mqtt_user">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+          <value name="mqtt_pwd">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+          <value name="port">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <value name="mqtt_server">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+        </block>
+      </statement>
+    </block>
+    <block type="_05imi_mqttcloud_loop"></block>
+    <block type="_06imi_mqttcloud_submqtt">
+      <field name="NAME">TOPIC_CAR_GPS</field>
+    </block>
+    <block type="_07imi_mqttcloud_mqttcallback_func"></block>
+    <block type="_08imi_mqttcloud_sendarduino_gps"></block>
+  </category>
+ 
+ 
+   <category name="雲端GPS" colour="#5b67a5">
+    <block type="_01imi_gpscloud_init">
+      <statement name="uart">
+        <block type="_02imi_gpscloud_uart">
+          <value name="rx">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <value name="tx">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+        </block>
+      </statement>
+    </block>
+    <block type="_03imi_gpscloud_setup"></block>
+    <block type="_04imi_gpscloud_loop"></block>
+    <block type="_05imi_gpscloud_getesp32xy"></block>
+    <block type="_06imi_gpscloud_googlemap"></block>
+  </category>
+ 
+ 
+   <category name="地圖ESP32" colour="#a5745b">
+    <block type="_05imi_espmap_maps">
+      <statement name="msg">
+        <block type="_05imi_espmap_map">
+          <value name="00">
+            <block type="math_number">
+              <field name="NUM">1</field>
+            </block>
+          </value>
+          <value name="01">
+            <block type="math_number">
+              <field name="NUM">1</field>
+            </block>
+          </value>
+          <value name="02">
+            <block type="math_number">
+              <field name="NUM">1</field>
+            </block>
+          </value>
+          <value name="03">
+            <block type="math_number">
+              <field name="NUM">1</field>
+            </block>
+          </value>
+          <value name="04">
+            <block type="math_number">
+              <field name="NUM">1</field>
+            </block>
+          </value>
+          <value name="05">
+            <block type="math_number">
+              <field name="NUM">1</field>
+            </block>
+          </value>
+          <next>
+            <block type="_05imi_espmap_map">
+              <value name="00">
+                <block type="math_number">
+                  <field name="NUM">1</field>
+                </block>
+              </value>
+              <value name="01">
+                <block type="math_number">
+                  <field name="NUM">1</field>
+                </block>
+              </value>
+              <value name="02">
+                <block type="math_number">
+                  <field name="NUM">1</field>
+                </block>
+              </value>
+              <value name="03">
+                <block type="math_number">
+                  <field name="NUM">1</field>
+                </block>
+              </value>
+              <value name="04">
+                <block type="math_number">
+                  <field name="NUM">1</field>
+                </block>
+              </value>
+              <value name="05">
+                <block type="math_number">
+                  <field name="NUM">1</field>
+                </block>
+              </value>
+              <next>
+                <block type="_05imi_espmap_map">
+                  <value name="00">
+                    <block type="math_number">
+                      <field name="NUM">1</field>
+                    </block>
+                  </value>
+                  <value name="01">
+                    <block type="math_number">
+                      <field name="NUM">1</field>
+                    </block>
+                  </value>
+                  <value name="02">
+                    <block type="math_number">
+                      <field name="NUM">1</field>
+                    </block>
+                  </value>
+                  <value name="03">
+                    <block type="math_number">
+                      <field name="NUM">1</field>
+                    </block>
+                  </value>
+                  <value name="04">
+                    <block type="math_number">
+                      <field name="NUM">1</field>
+                    </block>
+                  </value>
+                  <value name="05">
+                    <block type="math_number">
+                      <field name="NUM">1</field>
+                    </block>
+                  </value>
+                  <next>
+                    <block type="_05imi_espmap_map">
+                      <value name="00">
+                        <block type="math_number">
+                          <field name="NUM">1</field>
+                        </block>
+                      </value>
+                      <value name="01">
+                        <block type="math_number">
+                          <field name="NUM">1</field>
+                        </block>
+                      </value>
+                      <value name="02">
+                        <block type="math_number">
+                          <field name="NUM">1</field>
+                        </block>
+                      </value>
+                      <value name="03">
+                        <block type="math_number">
+                          <field name="NUM">1</field>
+                        </block>
+                      </value>
+                      <value name="04">
+                        <block type="math_number">
+                          <field name="NUM">1</field>
+                        </block>
+                      </value>
+                      <value name="05">
+                        <block type="math_number">
+                          <field name="NUM">1</field>
+                        </block>
+                      </value>
+                    </block>
+                  </next>
+                </block>
+              </next>
+            </block>
+          </next>
+        </block>
+      </statement>
+    </block>
+    <block type="_01imi_espmap_init">
+      <statement name="wifi">
+        <block type="_02imi_espmap_wifi">
+          <value name="ssid">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+          <value name="wifipwd">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+        </block>
+      </statement>
+      <statement name="mqtt">
+        <block type="_03imi_espmap_mqtt">
+          <value name="mqtt_user">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+          <value name="mqtt_pwd">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+          <value name="mqtt_port">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <value name="mqtt_server">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+        </block>
+      </statement>
+      <statement name="button">
+        <block type="_04imi_espmap_button">
+          <value name="btnpin">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+        </block>
+      </statement>
+    </block>
+    <block type="_06imi_espmap_loop"></block>
+    <block type="_07imi_espmap_isbutton"></block>
+    <block type="_08imi_espmap_pubmqtt_mapset"></block>
+  </category>
+ 
+   <category name="充電ESP32" colour="#5b80a5">
+    <block type="_01imi_espcharge_init">
+      <statement name="wifi">
+        <block type="_02imi_espcharge_wifi">
+          <value name="ssid">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+          <value name="wifipwd">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+        </block>
+      </statement>
+      <statement name="sheet">
+        <block type="_03imi_espcharge_sheet">
+          <value name="sheetid">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+          <value name="stag">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+        </block>
+      </statement>
+    </block>
+    <block type="_04mi_espcharge_writesheet">
+      <field name="type">sun</field>
+    </block>
+  </category>
+ 
+ </category>

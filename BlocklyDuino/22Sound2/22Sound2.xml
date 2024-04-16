@@ -1,0 +1,32 @@
+<xml version="F1" board="Arduino Uno" xmlns="https://developers.google.com/blockly/xml">
+  <block type="board_initializes_setup" id="0" x="100" y="50">
+    <field name="BOARD_TYPE">Arduino</field>
+    <statement name="CONTENT">
+      <block type="serial_init" id="vM.?y@KSr,1AS~{LG4{[">
+        <field name="SPEED">9600</field>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="serial_println" id="3WQj-hD_]uDg2726@y^j">
+            <value name="CONTENT">
+              <block type="inout_analog_read" id="%*.L8H65X5YDRRsviU8S">
+                <field name="PIN">A0</field>
+              </block>
+            </value>
+            <next>
+              <block type="delay_custom" id="!N98wB|gCA_ZE4nj#bV7">
+                <value name="DELAY_TIME">
+                  <block type="math_number" id="m}x?cm]+woW}nJ78zsi+">
+                    <field name="NUM">100</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

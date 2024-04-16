@@ -1,0 +1,4 @@
+亂數種子：
+從「_Tools\randomSeed.xml」匯入
+或
+先用BlocklyDuino開啟_Tools\randomSeed.xml，再存入暫存積木

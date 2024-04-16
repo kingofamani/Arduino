@@ -1,0 +1,13 @@
+入門：
+https://bit.ly/3kiWEFG
+http://arduino.esp8266.com/stable/package_esp8266com_index.json
+開發板改選：ESP8266 Boards(2.7.4)/LOLIN(WEMOS) D1 R2 & mini
+
+調效：
+	開啟「工具」選項
+	Upload Speed：921600
+	Erase Support：Only Sketch燒錄會比較快
+
+測試：
+	blink
+	範例/ESP8266WIFI/WiFiScan

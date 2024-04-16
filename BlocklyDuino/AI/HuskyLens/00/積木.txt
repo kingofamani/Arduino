@@ -1,0 +1,18 @@
+積木：
+ICSHOP/HuskyLens
+
+使用I2C連接：
+接法（I2C模式）：
+T	A4	SDA
+R	A5	SCL
+-	GND	GND
++	5V	VCC
+
+Arduino
+A4、A5腳位
+
+ESP32
+21、22腳位
+★★★要更換HUSKYLENS library，因為原廠的無法連esp32：
+https://www.circuspi.com/index.php/2022/01/13/smart-lock-esp32/
+

@@ -1,0 +1,217 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="D`tc}%AILeB,6LB[se;.">id</variable>
+  </variables>
+  <block type="board_initializes_setup" id="0" x="-130" y="10">
+    <field name="BOARD_TYPE">Arduino</field>
+    <statement name="CONTENT">
+      <block type="serial_init" id="n6o^^+pt=iZ1rWl(q7DC">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="huskylens_i2c_init" id="HE(D$Sv:T}|24,dMVY`z">
+            <next>
+              <block type="huskylens_set_mode" id="HmWVP9dAtAkOFC;6ciZT">
+                <field name="MODE_LIST">OC</field>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="huskylens_read_data" id="8^{*VNC(L@F)?U|2Yn8c">
+            <next>
+              <block type="controls_if" id="YeDo)tEp4sX{UyKDVZ?%">
+                <value name="IF0">
+                  <block type="huskylens_read_now" id="9QB;.YrPU)%O7`~lzSpy"></block>
+                </value>
+                <statement name="DO0">
+                  <block type="controls_if" id="5tmsWy-^|BRLd4?V-m_n">
+                    <mutation else="1"></mutation>
+                    <value name="IF0">
+                      <block type="logic_compare" id="2D+cU%Y(G`lW6{luez,T">
+                        <field name="OP">GT</field>
+                        <value name="A">
+                          <block type="huskylens_get_data_block" id="L*p^,AovT!$,bA9!9|_c">
+                            <field name="BLOCK_DATA">ID</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="}JM`X)GL_q~p5I/r_gs~">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="procedures_callnoreturn" id="gT`),~9v#[xZ~PpeD)k8">
+                        <mutation xmlns="http://www.w3.org/1999/xhtml" name="beep"></mutation>
+                        <value name="VAR">
+                          <block type="lists_create_with" id="c?jdly4jTUTk%P;j1~PB">
+                            <mutation items="1"></mutation>
+                            <value name="ADD0">
+                              <block type="huskylens_get_data_block" id="9TBT/_gCdJ=~,b$*Yv+%">
+                                <field name="BLOCK_DATA">ID</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                  </block>
+                </statement>
+                <next>
+                  <block type="delay_custom" id="]*lNs*+ZOo.^U{m)7-/o">
+                    <value name="DELAY_TIME">
+                      <block type="math_number" id="MW{jw4eL,}w`qJTq7TBQ">
+                        <field name="NUM">10</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+  <block type="procedures_defnoreturn" id="i#$27Nt0+z`~y2a5+-]m" x="510" y="50">
+    <field name="NAME">beep</field>
+    <value name="VAR">
+      <shadow type="lists_create_with" id="8Vg/~-_/*F^H#Dr@e(2I" inline="true">
+        <mutation items="0"></mutation>
+      </shadow>
+      <block type="lists_create_with" id="8Vg/~-_/*F^H#Dr@e(2I" inline="true">
+        <mutation items="1"></mutation>
+        <value name="ADD0">
+          <block type="variables_set2" id="yoT0WV{r]vIwZ=TwKCN{">
+            <field name="TYPE">int</field>
+            <field name="VAR" id="D`tc}%AILeB,6LB[se;.">id</field>
+          </block>
+        </value>
+      </block>
+    </value>
+    <statement name="STACK">
+      <block type="customcode_comment" id="X$;o{SN6i`whg[wWjQu_">
+        <value name="text">
+          <block type="text" id="u_]%eej,j3IbNq/}Loy+">
+            <field name="TEXT">1:25%、2:50%、3:75%、4:滿血</field>
+          </block>
+        </value>
+        <next>
+          <block type="controls_if" id="YLWunJjT!S4.o7XeaBW7">
+            <mutation elseif="2"></mutation>
+            <value name="IF0">
+              <block type="logic_compare" id="BVA=`z-IO~5Dv@h08)4k">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="variables_get" id="Fn-~D{XX$}FN;_VpPzDC">
+                    <field name="VAR" id="D`tc}%AILeB,6LB[se;.">id</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="P#4WPiY%Qr@sPxkpN5F7">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="esp32_buzzer1" id="(szKiv005H63@TT?$pzn">
+                <field name="index">0</field>
+                <value name="pin">
+                  <block type="math_number" id="v+TJpNPcQGaA[l9F`+8:">
+                    <field name="NUM">3</field>
+                  </block>
+                </value>
+                <value name="frequency">
+                  <block type="math_number" id="/]WO0`?uq)9=;vc;DK?~">
+                    <field name="NUM">988</field>
+                  </block>
+                </value>
+                <value name="delaytime">
+                  <block type="math_number" id="Tg0Ww~*%IWL/znT4iU3H">
+                    <field name="NUM">100</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <value name="IF1">
+              <block type="logic_compare" id="T0Qw{%QV}o/:}hh}[zJ$">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="variables_get" id="2Wb`cx6WT+8h`VSm;$R{">
+                    <field name="VAR" id="D`tc}%AILeB,6LB[se;.">id</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="v)NZUWO3Y4KFpj*uGgv`">
+                    <field name="NUM">2</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO1">
+              <block type="esp32_buzzer1" id="k$33G)qS}$*CgE+~B)TI">
+                <field name="index">0</field>
+                <value name="pin">
+                  <block type="math_number" id="Jw.Z-.uY6xI-4cW564pR">
+                    <field name="NUM">3</field>
+                  </block>
+                </value>
+                <value name="frequency">
+                  <block type="math_number" id="HJR(1_+*?6:p8Fi+A@aF">
+                    <field name="NUM">587</field>
+                  </block>
+                </value>
+                <value name="delaytime">
+                  <block type="math_number" id="`o,_h:l[Nwon;JZ]iUF-">
+                    <field name="NUM">100</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <value name="IF2">
+              <block type="logic_compare" id="SlQ^?}vzT)8VDq!fmGpC">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="variables_get" id="{iwAIlivRkFG(Gzrj/.S">
+                    <field name="VAR" id="D`tc}%AILeB,6LB[se;.">id</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="Gg7V?9vucqAnAgO}Hd|G">
+                    <field name="NUM">3</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO2">
+              <block type="esp32_buzzer1" id="t:lDxBc[Tiy^Y2N#~56Z">
+                <field name="index">0</field>
+                <value name="pin">
+                  <block type="math_number" id="*5_Ts3X%cb14NU[(|uEC">
+                    <field name="NUM">3</field>
+                  </block>
+                </value>
+                <value name="frequency">
+                  <block type="math_number" id="o6~}JJ)BPcXps%w%zrz6">
+                    <field name="NUM">261</field>
+                  </block>
+                </value>
+                <value name="delaytime">
+                  <block type="math_number" id="Mx^9)?556g3Ia`,(s%9O">
+                    <field name="NUM">100</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

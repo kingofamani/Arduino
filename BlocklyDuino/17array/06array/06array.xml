@@ -1,0 +1,130 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id=":OZ3PcCk@tXt5aC^hu8:">msgs</variable>
+    <variable id="Rl3npg)(,Q@:nENC=?y2">key</variable>
+  </variables>
+  <block type="board_initializes_setup" id="0" x="100" y="50">
+    <field name="BOARD_TYPE">Arduino</field>
+    <statement name="CONTENT">
+      <block type="serial_init" id="j44rP^0_/MzsO+evIEX,">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="variables_set1" id="2-zM/rq(2AHqEg3/f3Ik">
+            <field name="POSITION">global</field>
+            <field name="TYPE">String</field>
+            <field name="VAR" id=":OZ3PcCk@tXt5aC^hu8:">msgs</field>
+            <value name="LEN">
+              <block type="math_number" id="Uv6=a6mjItXfyM;U-Pmq">
+                <field name="NUM">3</field>
+              </block>
+            </value>
+            <value name="VALUE">
+              <shadow type="text" id="l.$}iPo(ljZE$r)FV0+t">
+                <field name="TEXT"></field>
+              </shadow>
+              <block type="lists_create_with" id="sNN|F[Jt0}3T}!7w%sRM" inline="false">
+                <mutation items="3"></mutation>
+                <value name="ADD0">
+                  <block type="text" id="jYL-$8AF%HbJQE!OOQs9">
+                    <field name="TEXT">隊友快來carry我！</field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="text" id="1t+?GSO@VbB;IH4e7%z*">
+                    <field name="TEXT">快贏了~他們太弱了吧！</field>
+                  </block>
+                </value>
+                <value name="ADD2">
+                  <block type="text" id="uJp;eY?^qITMbu?urwk2">
+                    <field name="TEXT">要不要再組隊一次啊？</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="39N||M=[6]^HJ^F0,%uw">
+                <field name="POSITION">global</field>
+                <field name="TYPE">int</field>
+                <field name="VAR" id="Rl3npg)(,Q@:nENC=?y2">key</field>
+                <value name="VALUE">
+                  <shadow type="math_number" id="/)JF)07TDAKT|,Hj~xF^">
+                    <field name="NUM">0</field>
+                  </shadow>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="controls_if" id="R`rges!3nl:~=21N,634">
+            <value name="IF0">
+              <block type="logic_compare" id="#rQ0by%H:kQ}n72rhQ5[">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="serial_available" id="U1!lc!qM:hJHs8m_|!He"></block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="1Z03}cYdKtm/BZDM`i.X">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="variables_set3" id="p1Kn-NyY~#cuCwi)R^YW">
+                <field name="VAR" id="Rl3npg)(,Q@:nENC=?y2">key</field>
+                <value name="DELTA">
+                  <shadow type="math_number" id="p]Jo1)Tqghos=@(XeEi#">
+                    <field name="NUM">0</field>
+                  </shadow>
+                  <block type="customcode_code_input" id="n!@UCQpagRmMecMYXypB">
+                    <value name="text">
+                      <block type="text" id="a9/8jWgXEU/+D`2SVk/f">
+                        <field name="TEXT">Serial.parseInt()</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="serial_println" id="cqlvig3c%R~;;~orPH51">
+                    <value name="CONTENT">
+                      <block type="lists_getIndex" id="QoQgaM{RBK?[1gGCYV(k">
+                        <mutation statement="false" at="true"></mutation>
+                        <field name="MODE">GET</field>
+                        <field name="WHERE">FROM_START</field>
+                        <value name="VALUE">
+                          <block type="variables_get" id="Wx_Hau.W!p@gd[xez`MV">
+                            <field name="VAR" id=":OZ3PcCk@tXt5aC^hu8:">msgs</field>
+                          </block>
+                        </value>
+                        <value name="AT">
+                          <block type="math_arithmetic" id="D-l#`ncEt#i-~8^LKsxI">
+                            <field name="OP">MINUS</field>
+                            <value name="A">
+                              <block type="variables_get" id="f;HlemCyu%oR^nQTD.U%">
+                                <field name="VAR" id="Rl3npg)(,Q@:nENC=?y2">key</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number" id="QVHD@O6K_JRdH^3{`_:^">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

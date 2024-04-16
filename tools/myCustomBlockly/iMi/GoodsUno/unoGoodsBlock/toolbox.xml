@@ -1,0 +1,67 @@
+  <category name="物流UNO" colour="#9fa55b">
+    <block type="_01imi_unogoods_init">
+      <statement name="cnc">
+        <block type="_02imi_unogoods_cnc">
+          <value name="en">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <value name="xdir">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <value name="xstep">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <value name="ydir">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <value name="ystep">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+        </block>
+      </statement>
+      <statement name="uart">
+        <block type="_03imi_unogoods_uart">
+          <value name="rx">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <value name="tx">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+        </block>
+      </statement>
+      <statement name="servopin">
+        <block type="_04imi_unogoods_servopin">
+          <value name="servo">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+        </block>
+      </statement>
+    </block>
+    <block type="_05imi_unogoods_esp32"></block>
+    <block type="_06imi_unogoods_xy"></block>
+    <block type="_07imi_unogoods_findgoods"></block>
+    <block type="_08imi_unogoods_servo">
+      <field name="servo">servoPick</field>
+      <field name="angle">180</field>
+    </block>
+    <block type="_09imi_unogoods_reset"></block>
+    <block type="_10imi_unogoods_sendesp32">
+      <field name="NAME">GOODS_LOAD</field>
+    </block>
+  </category>

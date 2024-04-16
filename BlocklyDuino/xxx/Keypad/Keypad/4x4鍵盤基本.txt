@@ -1,0 +1,10 @@
+★★在Arduino IDE下，要將\'取代成'
+
+基本鍵盤控制
+
+下載keypad 程式庫(內建程式庫沒有)：
+https://github.com/Chris--A/Keypad
+或直接安裝「TeacherSample\BlocklyDuino\Keypad\Keypad\Keypad.zip」
+
+腳位：
+由右至左，分別為4~11

@@ -1,0 +1,8 @@
+https://atceiling.blogspot.com/2017/04/arduinolm393.html
+
+LM393 光電對射式計數器模組
+Arduino
+1 - VCC VCC
+2 - GND GND
+3 - D0 Pin 2
+4 - A0 -

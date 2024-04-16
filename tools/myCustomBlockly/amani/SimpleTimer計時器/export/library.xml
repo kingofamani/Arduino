@@ -1,0 +1,103 @@
+<xml xmlns="https://developers.google.com/blockly/xml"><block type="factory_base" id="Xi3.JQd[4~_1eO7(?Z9{" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_00amani_simpletimer</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="K1o:FSE)!CwA8dkYcLt!">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="rW^.Ug1%D9z*)UJE(/p}">
+            <field name="TEXT">計時器啟動loop()</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="?#4H5m-H,AMAp5AD;dPn" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="G=wno#AEmuMH7keC=SJ(" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="QoP0`Fr)g`p814niuqgo"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="M6oQg/F`uIx)5bOExF99"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="1-S0Y~MGZ0@.U~Hi|VDu">
+        <mutation colour="#5b67a5"></mutation>
+        <field name="HUE">230</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="!7,ODq23CmjzM$=(K.ey" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_01amani_simpletimer_setinteval</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="xE(}Lo-mDz9-IcIe]0|d">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="wLSygffDoX7?97,Sp!AU">
+            <field name="TEXT">每</field>
+          </block>
+        </statement>
+        <next>
+          <block type="input_value" id=".NEJw;qn0jA}sx#U%k~+">
+            <field name="INPUTNAME">ms</field>
+            <field name="ALIGN">LEFT</field>
+            <value name="TYPE">
+              <shadow type="type_null" id="BI[CDdMq2]{V#A5-;A[?"></shadow>
+            </value>
+            <next>
+              <block type="input_dummy" id="lq!w:W*hUo2-JVEF2]ST">
+                <field name="ALIGN">LEFT</field>
+                <statement name="FIELDS">
+                  <block type="field_static" id="Cu5~R91k/@u*p!VN,J1-">
+                    <field name="TEXT">毫秒(ms)執行一次</field>
+                  </block>
+                </statement>
+                <next>
+                  <block type="input_statement" id="jl-)NDzzc8.={|WE_DOW">
+                    <field name="INPUTNAME">msg</field>
+                    <field name="ALIGN">LEFT</field>
+                    <value name="TYPE">
+                      <shadow type="type_null" id="yM1XX[t8/Ao^:@j_.9Ep"></shadow>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="dG[S{:9ueF+xX/h=rgY`" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="0Z-vG~mYW5V)p]c(vm8B" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="D6rh(1@vYfcr3;#uX9N`"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="a|ZapnE4^,uO].o.851`"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="vw`{sRDT03kevR5cS=_,">
+        <mutation colour="#5b67a5"></mutation>
+        <field name="HUE">230</field>
+      </block>
+    </value>
+  </block></xml>

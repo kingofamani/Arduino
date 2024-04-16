@@ -1,0 +1,10 @@
+ESP32S2：無藍牙，優點記憶體大
+ESP32：有藍牙，缺點記憶體小
+HC42藍牙模組：有些app無法連接，例如Dabble
+所以用ESP32S2連接ESP32，來使用2塊開發板的優點
+
+ESP32			ESP32S2
+Seriaal2		Serial1
+RX2(pin16)	↔	TX(GPIO17)
+TX2(pin17)	↔	RX(GPIO18)
+GND	 		↔	GND

@@ -1,0 +1,5 @@
+Arduino UNO動態記憶體太小，要使用ESP32S2
+WS2812 40 LED
+LCM 1602
+keypad
+

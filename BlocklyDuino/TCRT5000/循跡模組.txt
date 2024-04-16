@@ -1,0 +1,3 @@
+GND	GND
+VCC	3.3V-5V
+OUT	A0

@@ -1,0 +1,274 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="Y,3qf58k,pxNTp^-A[41">BUZZER_PIN</variable>
+    <variable id="pV$#xT|ggb#8QbULhTMr">BUZZER_CHANNEL</variable>
+    <variable id="k#Od|,suWW8*MzTju`Kz">BUZZER_FRE</variable>
+    <variable id="W_z(38_I8U$5wp*d)?}E">BUZZER_TIME</variable>
+  </variables>
+  <block type="variables_set" id="wqAYeuUei;C%/]5Lg8Th" x="90" y="110">
+    <field name="POSITION">global</field>
+    <field name="TYPE">int</field>
+    <field name="VAR" id="Y,3qf58k,pxNTp^-A[41">BUZZER_PIN</field>
+    <value name="VALUE">
+      <shadow type="math_number" id="0C#ezxI[t@AaMXRZ$$m8">
+        <field name="NUM">4</field>
+      </shadow>
+    </value>
+    <next>
+      <block type="variables_set" id="`+jJ$n;p2u^iA5?^1G6S">
+        <field name="POSITION">global</field>
+        <field name="TYPE">int</field>
+        <field name="VAR" id="pV$#xT|ggb#8QbULhTMr">BUZZER_CHANNEL</field>
+        <value name="VALUE">
+          <shadow type="math_number" id="=K}/[dMoY}yA8zNoas5_">
+            <field name="NUM">0</field>
+          </shadow>
+        </value>
+        <next>
+          <block type="variables_set" id="c:}7r68|l=HcM]{@JZu8">
+            <field name="POSITION">global</field>
+            <field name="TYPE">int</field>
+            <field name="VAR" id="k#Od|,suWW8*MzTju`Kz">BUZZER_FRE</field>
+            <value name="VALUE">
+              <shadow type="math_number" id="/tyH/^NXsNYk|jUzVj9A">
+                <field name="NUM">400</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="variables_set" id="Vwp[|AyntCzemvRwOZo}">
+                <field name="POSITION">global</field>
+                <field name="TYPE">int</field>
+                <field name="VAR" id="W_z(38_I8U$5wp*d)?}E">BUZZER_TIME</field>
+                <value name="VALUE">
+                  <shadow type="math_number" id="aoG*LqkkJ)+s4*T_E=uk">
+                    <field name="NUM">100</field>
+                  </shadow>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="customcode_head" id="`+/v_iOwYv?UT:6u}E%i" x="810" y="250">
+    <value name="text">
+      <block type="text" id="PpdpMjY:uE@H[z_J;WJ^">
+        <field name="TEXT">#include &lt;Tone32.h&gt;</field>
+      </block>
+    </value>
+  </block>
+  <block type="board_initializes_setup" id="0" x="115" y="306">
+    <field name="BOARD_TYPE">ESP32</field>
+    <statement name="CONTENT">
+      <block type="linkit_wifi_wait_until_ready" id="[!r+J0pZoZ88}D0GxDOn">
+        <value name="SSID">
+          <block type="text" id="{{L]D^%TGJT+`$P]5.bQ">
+            <field name="TEXT">AMANI-4G-Home2</field>
+          </block>
+        </value>
+        <value name="PASSWORD">
+          <block type="text" id="y7Bt/}h8|eonDXQAkIyI">
+            <field name="TEXT">xxxxxxxxxxxxxxxxx</field>
+          </block>
+        </value>
+        <next>
+          <block type="serial_init" id="eA)[k}dFj/5UTOwiX|a=">
+            <field name="SPEED">115200</field>
+            <next>
+              <block type="setupSheets" id="VG*|0]BY$Y0MqJJBJc8C">
+                <value name="sheetId">
+                  <block type="text" id="wo$cT`X,t+:hau1G3/EP">
+                    <field name="TEXT">xxxxxxxxxxxxxxxxxxxxxxxxxx</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="setupForm" id="|[GnJX*mvMz9~~9*)$=x">
+                    <value name="sheetTag">
+                      <block type="text" id=":oG+=NK-=+E=,zXELL2F">
+                        <field name="TEXT">count</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="delay_custom" id="/~wep]=Zj2z;gh-Rn99,">
+                        <value name="DELAY_TIME">
+                          <block type="math_number" id="hG9|WDQ?28cX=J@;^:~q">
+                            <field name="NUM">1000</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="procedures_callnoreturn" id=".5J6jMXHM|PTsjsD%T,Z">
+            <mutation xmlns="http://www.w3.org/1999/xhtml" name="tone32"></mutation>
+            <value name="VAR">
+              <block type="lists_create_with" id="puJv~S)s8ZvOOy2vUg]v">
+                <mutation items="3"></mutation>
+                <value name="ADD0">
+                  <block type="variables_get" id="R%?K:OOeDYeXBS{U|?Ed">
+                    <field name="VAR" id="Y,3qf58k,pxNTp^-A[41">BUZZER_PIN</field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="variables_get" id="f~=n21!fl)aPyKB/efKb">
+                    <field name="VAR" id="k#Od|,suWW8*MzTju`Kz">BUZZER_FRE</field>
+                  </block>
+                </value>
+                <value name="ADD2">
+                  <block type="variables_get" id="|{^ewBC8DKeoJGgeQIam">
+                    <field name="VAR" id="W_z(38_I8U$5wp*d)?}E">BUZZER_TIME</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="serial_println" id="^xKize_+A(4RCaB;[)3+">
+                <value name="CONTENT">
+                  <block type="inout_custom_analog_read" id="FfLp8c.a+FgW}dc]*ymB">
+                    <value name="PIN_ANALOGREAD">
+                      <block type="math_number" id="EbyNQ*/;Q.Z5?xq;P*8$">
+                        <field name="NUM">39</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="controls_if" id="EP8^#he:X1GCPrccwxm2">
+                    <mutation else="1"></mutation>
+                    <value name="IF0">
+                      <block type="logic_compare" id="`/B9agk9B5KN2~hMX(F3">
+                        <field name="OP">LT</field>
+                        <value name="A">
+                          <block type="inout_custom_analog_read" id="{)Y_h6D}.tKw+PkLv(a*">
+                            <value name="PIN_ANALOGREAD">
+                              <block type="math_number" id="K8]26E})6:t+DD#mh~Z1">
+                                <field name="NUM">39</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="8]/WjoSQ1tr-G5]oylQ2">
+                            <field name="NUM">1500</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="serial_println" id="taWC35yHQp0nhcEw3Qg;">
+                        <value name="CONTENT">
+                          <block type="text" id="uW`8R`kY%cFdgbamtPbx">
+                            <field name="TEXT">電擊到蚊子，上傳google試算表儲存中…</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="sendToGoogle" id="XgL!`V,ZNsnIp6]Ac,59">
+                            <field name="dateInclude">1</field>
+                            <value name="data">
+                              <block type="data_join" id="gL+i|8k`IRr;vn?JXt@B" inline="false">
+                                <mutation items="1"></mutation>
+                                <value name="ADD0">
+                                  <block type="text" id=".7ihM29rln3i,[fa7Qps">
+                                    <field name="TEXT">有蚊子1隻</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="delay_custom" id="D;*DjpS{`|hItSqEDsiQ">
+                                <value name="DELAY_TIME">
+                                  <block type="math_number" id="loC_DDl3}TIR*)aK1Lus">
+                                    <field name="NUM">1000</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                    <statement name="ELSE">
+                      <block type="serial_println" id="a8lG@?rfC,Tco345xBm@">
+                        <value name="CONTENT">
+                          <block type="text" id="csnw_k4ioN-%u7*Gq2N(">
+                            <field name="TEXT">沒有蚊子</field>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="delay_custom" id="~GAYXI0g0Z3y0du$?NIG">
+                        <value name="DELAY_TIME">
+                          <block type="math_number" id="=ljZ_}6.mm+Ff4[S71uG">
+                            <field name="NUM">10</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+  <block type="procedures_defnoreturn" id="n%UuN6m-=LQZIJh8RxW." collapsed="true" x="810" y="290">
+    <field name="NAME">tone32</field>
+    <value name="VAR">
+      <shadow type="lists_create_with">
+        <mutation items="0"></mutation>
+      </shadow>
+      <block type="lists_create_with" id="%YX)eVC/9I$C7DZbqc5G">
+        <mutation items="3"></mutation>
+        <value name="ADD0">
+          <block type="variables_set2" id="11zar|L7,vE$~kA{viv5">
+            <field name="TYPE">int</field>
+            <field name="VAR" id="Y,3qf58k,pxNTp^-A[41">BUZZER_PIN</field>
+          </block>
+        </value>
+        <value name="ADD1">
+          <block type="variables_set2" id="DuET7*@OB/fBH8-1TQvi">
+            <field name="TYPE">int</field>
+            <field name="VAR" id="k#Od|,suWW8*MzTju`Kz">BUZZER_FRE</field>
+          </block>
+        </value>
+        <value name="ADD2">
+          <block type="variables_set2" id=":Vx/M)[5fm3SwxoQ[V_+">
+            <field name="TYPE">int</field>
+            <field name="VAR" id="W_z(38_I8U$5wp*d)?}E">BUZZER_TIME</field>
+          </block>
+        </value>
+      </block>
+    </value>
+    <statement name="STACK">
+      <block type="customcode_code" id=".8Grm_L(GZzC]OCmXZ;d">
+        <value name="text">
+          <block type="text" id="@8!FunpG6,BvHA+PI!*+">
+            <field name="TEXT">tone(BUZZER_PIN, BUZZER_FRE, BUZZER_TIME,BUZZER_CHANNEL);</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_code" id="[6KvqI,V@5,_tIM#Nvv,">
+            <value name="text">
+              <block type="text" id="(p1s(XbXkTliU*#^k;pg">
+                <field name="TEXT">noTone(BUZZER_PIN,BUZZER_CHANNEL);</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

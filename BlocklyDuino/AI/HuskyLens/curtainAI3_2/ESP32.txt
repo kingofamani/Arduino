@@ -1,0 +1,37 @@
+UNO傳送訊息，通知ESP32S2執行：
+	1、google sheet寫入
+	2、LINE訊息
+ESP32藍牙下指令→ESP32S2接收→UNO執行：
+	1(打開窗簾)、2(關閉窗簾)、3(暫停)、p(窗簾位置)、
+	a(手勢模式)、b(小偷模式)、c(寵物模式)
+	
+★IFTTT key：
+	網路硬碟/home/金鑰/ifttt key.txt
+	
+★★★無法連線WiFi：
+先將ESP32S2連接UNO的p6,p7腳位斷開，再按EN鍵，等到成功連線WiFi後再接回去。
+
+Arduino UNO(Huskylens)：
+	上傳curtainAI2.ino (使用BlocklyDuinoF1的Arduino IDE 1.8.13)
+ESP32 S2(WiFi)：
+	上傳ESP32S2WiFi.ino (使用額外安裝的Arduino 1.8.19)
+ESP32(Bluetooth)：
+	上傳ESP32BT.ino (使用BlocklyDuinoF2的Arduino IDE 1.8.19)
+
+google sheet連接測試
+https://docs.google.com/spreadsheets/d/1ez5By0CbcH1EoVrsrj6URjUNJmP4zoZC_iqUC2ejRLc/edit#gid=0
+
+LINE訊息：
+開啟手機LINE Notify可看見訊息
+
+time.h參考：
+ArduinoSample\BlocklyDuino\WiFi\SimpleTime
+
+IFTTT觸發事件名稱：
+	esp32google：寫入google sheet
+	curtain_notify：傳LINE
+
+
+
+
+

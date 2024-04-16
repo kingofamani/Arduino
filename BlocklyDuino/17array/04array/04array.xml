@@ -1,0 +1,92 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="f55?nTM~g.K|kL:]A`Z~">names</variable>
+    <variable id="Nlqsv]TCP9d2T5,6z9VB">i</variable>
+  </variables>
+  <block type="initializes_setup" id="1" x="38" y="38">
+    <statement name="CONTENT">
+      <block type="serial_init" id="10">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="variables_set1" id="I~o;(0!*)]TPeHtRmv3)">
+            <field name="POSITION">global</field>
+            <field name="TYPE">String</field>
+            <field name="VAR" id="f55?nTM~g.K|kL:]A`Z~">names</field>
+            <value name="VALUE">
+              <shadow type="text" id="GSa2qh~40XJA5gF@rK,H">
+                <field name="TEXT"></field>
+              </shadow>
+              <block type="array_create_with" id="19" inline="false">
+                <mutation items="5"></mutation>
+                <value name="ADD0">
+                  <block type="text" id="41">
+                    <field name="TEXT">加菲貓</field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="text" id="42">
+                    <field name="TEXT">蝙蝠俠</field>
+                  </block>
+                </value>
+                <value name="ADD2">
+                  <block type="text" id="45">
+                    <field name="TEXT">米奇老鼠</field>
+                  </block>
+                </value>
+                <value name="ADD3">
+                  <block type="text" id="44">
+                    <field name="TEXT">史努比</field>
+                  </block>
+                </value>
+                <value name="ADD4">
+                  <block type="text" id="43">
+                    <field name="TEXT">忍者龜</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="controls_for" id="58">
+                <field name="VAR" id="Nlqsv]TCP9d2T5,6z9VB">i</field>
+                <value name="FROM">
+                  <block type="math_number" id="59">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <value name="TO">
+                  <block type="math_number" id="60">
+                    <field name="NUM">4</field>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="serial_println" id="81" inline="false">
+                    <value name="CONTENT">
+                      <block type="lists_getIndex" id="rltXBS5==.{0MELLU2}L">
+                        <mutation statement="false" at="true"></mutation>
+                        <field name="MODE">GET</field>
+                        <field name="WHERE">FROM_START</field>
+                        <value name="VALUE">
+                          <block type="variables_get" id="W80=DmkseX_jq=$_kM`t">
+                            <field name="VAR" id="f55?nTM~g.K|kL:]A`Z~">names</field>
+                          </block>
+                        </value>
+                        <value name="AT">
+                          <block type="variables_get" id="87">
+                            <field name="VAR" id="Nlqsv]TCP9d2T5,6z9VB">i</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="2"></block>
+    </next>
+  </block>
+</xml>

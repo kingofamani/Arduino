@@ -1,0 +1,773 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="variables_set" id="5" inline="true" x="88" y="-12">
+    <field name="TYPE">Array</field>
+    <field name="VAR">N</field>
+    <value name="VALUE">
+      <block type="text" id="6">
+        <field name="TEXT">1234567890</field>
+      </block>
+    </value>
+  </block>
+  <block type="procedures_defnoreturn" id="7" collapsed="true" x="588" y="-12">
+    <mutation></mutation>
+    <field name="NAME">keypad_0</field>
+    <statement name="STACK">
+      <block type="customcode_head" id="8" inline="true">
+        <value name="text">
+          <block type="text" id="9">
+            <field name="TEXT">#include &lt;Keypad.h&gt;</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_head" id="10" inline="true">
+            <value name="text">
+              <block type="text" id="11">
+                <field name="TEXT">const byte ROWS = 4; // 列數(橫的)</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_head" id="12" inline="true">
+                <value name="text">
+                  <block type="text" id="13">
+                    <field name="TEXT">const byte COLS = 4; // 行數(直的)</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_head" id="14" inline="true">
+                    <value name="text">
+                      <block type="text" id="15">
+                        <field name="TEXT">char keys[ROWS][COLS] = {</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_head" id="16" inline="true">
+                        <value name="text">
+                          <block type="text" id="17">
+                            <field name="TEXT">  {'1','2','3','A'},</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="customcode_head" id="18" inline="true">
+                            <value name="text">
+                              <block type="text" id="19">
+                                <field name="TEXT">  {'4','5','6','B'},</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="customcode_head" id="20" inline="true">
+                                <value name="text">
+                                  <block type="text" id="21">
+                                    <field name="TEXT">  {'7','8','9','C'},</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="customcode_head" id="22" inline="true">
+                                    <value name="text">
+                                      <block type="text" id="23">
+                                        <field name="TEXT">  {'*','0','#','D'}</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="customcode_head" id="24" inline="true">
+                                        <value name="text">
+                                          <block type="text" id="25">
+                                            <field name="TEXT">};</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="customcode_head" id="26" inline="true">
+                                            <value name="text">
+                                              <block type="text" id="27">
+                                                <field name="TEXT">byte rowPins[ROWS] = {11, 10, 9, 8}; //定義列的腳位</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="customcode_head" id="28" inline="true">
+                                                <value name="text">
+                                                  <block type="text" id="29">
+                                                    <field name="TEXT">byte colPins[COLS] = {7, 6, 5, 4}; //定義行的腳位</field>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="customcode_head" id="30" inline="true">
+                                                    <value name="text">
+                                                      <block type="text" id="31">
+                                                        <field name="TEXT">Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="initializes_setup" id="32" x="88" y="38">
+    <statement name="CONTENT">
+      <block type="serial_init" id="33">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="customcode_comment" id="34" inline="true">
+            <value name="text">
+              <block type="text" id="35">
+                <field name="TEXT">num宣告在Setup()，若放在頭檔區會被初始在loop()變成""</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="36" inline="true">
+                <field name="TYPE">String</field>
+                <field name="VAR">num</field>
+                <value name="VALUE">
+                  <block type="text" id="37">
+                    <field name="TEXT"></field>
+                  </block>
+                </value>
+                <next>
+                  <block type="procedures_callnoreturn" id="38">
+                    <mutation name="LCM1602_1"></mutation>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="39">
+        <statement name="CONTENT">
+          <block type="variables_set" id="40" inline="true">
+            <field name="TYPE">Char</field>
+            <field name="VAR">key</field>
+            <value name="VALUE">
+              <block type="customcode_code_input" id="41" inline="true">
+                <value name="text">
+                  <block type="text" id="42">
+                    <field name="TEXT">keypad.getKey()</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="controls_if" id="43" inline="false">
+                <value name="IF0">
+                  <block type="variables_get" id="44">
+                    <field name="TYPE">Char</field>
+                    <field name="VAR">key</field>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="customcode_code" id="45" inline="true">
+                    <value name="text">
+                      <block type="text" id="46">
+                        <field name="TEXT">lcd.clear();</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_set" id="47" inline="true">
+                        <field name="TYPE">Boolean</field>
+                        <field name="VAR">isNum</field>
+                        <value name="VALUE">
+                          <block type="logic_boolean" id="48">
+                            <field name="BOOL">FALSE</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="controls_for" id="49" inline="true">
+                            <field name="VAR">i</field>
+                            <value name="FROM">
+                              <block type="math_number" id="50">
+                                <field name="NUM">0</field>
+                              </block>
+                            </value>
+                            <value name="TO">
+                              <block type="math_number" id="51">
+                                <field name="NUM">9</field>
+                              </block>
+                            </value>
+                            <statement name="DO">
+                              <block type="controls_if" id="52" inline="false">
+                                <value name="IF0">
+                                  <block type="logic_compare" id="53" inline="true">
+                                    <field name="OP">EQ</field>
+                                    <value name="A">
+                                      <block type="array_getIndex" id="54" inline="true">
+                                        <value name="ITEM">
+                                          <block type="variables_get" id="55">
+                                            <field name="TYPE">Array</field>
+                                            <field name="VAR">N</field>
+                                          </block>
+                                        </value>
+                                        <value name="AT">
+                                          <block type="variables_get" id="56">
+                                            <field name="TYPE">Number</field>
+                                            <field name="VAR">i</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="variables_get" id="58">
+                                        <field name="TYPE">Char</field>
+                                        <field name="VAR">key</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <statement name="DO0">
+                                  <block type="variables_set" id="59" inline="true">
+                                    <field name="TYPE">Boolean</field>
+                                    <field name="VAR">isNum</field>
+                                    <value name="VALUE">
+                                      <block type="logic_boolean" id="60">
+                                        <field name="BOOL">TRUE</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </statement>
+                              </block>
+                            </statement>
+                            <next>
+                              <block type="controls_if" id="61" inline="false">
+                                <mutation elseif="2"></mutation>
+                                <value name="IF0">
+                                  <block type="variables_get" id="62">
+                                    <field name="TYPE">Boolean</field>
+                                    <field name="VAR">isNum</field>
+                                  </block>
+                                </value>
+                                <statement name="DO0">
+                                  <block type="variables_set" id="63" inline="true">
+                                    <field name="TYPE">String</field>
+                                    <field name="VAR">num</field>
+                                    <value name="VALUE">
+                                      <block type="text_join" id="64" inline="false">
+                                        <mutation items="2"></mutation>
+                                        <value name="ADD0">
+                                          <block type="variables_get" id="65">
+                                            <field name="TYPE">String</field>
+                                            <field name="VAR">num</field>
+                                          </block>
+                                        </value>
+                                        <value name="ADD1">
+                                          <block type="variables_get" id="66">
+                                            <field name="TYPE">Char</field>
+                                            <field name="VAR">key</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="variables_set" id="67" inline="true">
+                                        <field name="TYPE">Number</field>
+                                        <field name="VAR">len</field>
+                                        <value name="VALUE">
+                                          <block type="math_arithmetic" id="68" inline="true">
+                                            <field name="OP">MINUS</field>
+                                            <value name="A">
+                                              <block type="math_number" id="69">
+                                                <field name="NUM">16</field>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <block type="text_length" id="70" inline="false">
+                                                <value name="VALUE">
+                                                  <block type="variables_get" id="71">
+                                                    <field name="TYPE">String</field>
+                                                    <field name="VAR">num</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="customcode_code" id="72" inline="true">
+                                            <value name="text">
+                                              <block type="text" id="73">
+                                                <field name="TEXT">lcd.setCursor(len, 0);</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="customcode_code" id="74" inline="true">
+                                                <value name="text">
+                                                  <block type="text" id="75">
+                                                    <field name="TEXT">lcd.print(num);</field>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="serial_println" id="76" inline="false">
+                                                    <value name="CONTENT">
+                                                      <block type="variables_get" id="77">
+                                                        <field name="TYPE">Char</field>
+                                                        <field name="VAR">key</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </statement>
+                                <value name="IF1">
+                                  <block type="logic_compare" id="78" inline="true">
+                                    <field name="OP">EQ</field>
+                                    <value name="A">
+                                      <block type="variables_get" id="79">
+                                        <field name="TYPE">Char</field>
+                                        <field name="VAR">key</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="text" id="80">
+                                        <field name="TEXT">#</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <statement name="DO1">
+                                  <block type="serial_println" id="81" inline="false">
+                                    <value name="CONTENT">
+                                      <block type="variables_get" id="82">
+                                        <field name="TYPE">String</field>
+                                        <field name="VAR">num</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="procedures_callnoreturn" id="83">
+                                        <mutation name="showAnswer"></mutation>
+                                        <next>
+                                          <block type="variables_set" id="84" inline="true">
+                                            <field name="TYPE">String</field>
+                                            <field name="VAR">num</field>
+                                            <value name="VALUE">
+                                              <block type="text" id="85">
+                                                <field name="TEXT"></field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </statement>
+                                <value name="IF2">
+                                  <block type="logic_compare" id="86" inline="true">
+                                    <field name="OP">EQ</field>
+                                    <value name="A">
+                                      <block type="variables_get" id="87">
+                                        <field name="TYPE">Char</field>
+                                        <field name="VAR">key</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="text" id="88">
+                                        <field name="TEXT">D</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <statement name="DO2">
+                                  <block type="variables_set" id="89" inline="true">
+                                    <field name="TYPE">String</field>
+                                    <field name="VAR">num</field>
+                                    <value name="VALUE">
+                                      <block type="text" id="90">
+                                        <field name="TEXT"></field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </statement>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+  <block type="procedures_defnoreturn" id="91" collapsed="true" x="588" y="13">
+    <mutation></mutation>
+    <field name="NAME">LCM1602_0</field>
+    <statement name="STACK">
+      <block type="customcode_head" id="92" inline="true">
+        <value name="text">
+          <block type="text" id="93">
+            <field name="TEXT">#include &lt;Wire.h&gt; </field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_head" id="94" inline="true">
+            <value name="text">
+              <block type="text" id="95">
+                <field name="TEXT">#include &lt;LiquidCrystal_I2C.h&gt;</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_head" id="96" inline="true">
+                <value name="text">
+                  <block type="text" id="97">
+                    <field name="TEXT">LiquidCrystal_I2C lcd(0x27,16,2);</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="98" collapsed="true" x="588" y="38">
+    <mutation></mutation>
+    <field name="NAME">LCM1602_1</field>
+    <statement name="STACK">
+      <block type="customcode_comment" id="99" inline="true">
+        <value name="text">
+          <block type="text" id="100">
+            <field name="TEXT">螢幕不能顯示中文</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_code" id="101" inline="true">
+            <value name="text">
+              <block type="text" id="102">
+                <field name="TEXT">lcd.init(); </field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_code" id="103" inline="true">
+                <value name="text">
+                  <block type="text" id="104">
+                    <field name="TEXT">lcd.backlight();</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="105" collapsed="true" x="613" y="1013">
+    <mutation></mutation>
+    <field name="NAME">showAnswer</field>
+    <statement name="STACK">
+      <block type="customcode_code" id="106" inline="true">
+        <value name="text">
+          <block type="text" id="107">
+            <field name="TEXT">lcd.setCursor(0, 1); </field>
+          </block>
+        </value>
+        <next>
+          <block type="controls_if" id="108" inline="false">
+            <mutation else="1"></mutation>
+            <value name="IF0">
+              <block type="logic_compare" id="109" inline="true">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="text_length" id="110" inline="false">
+                    <value name="VALUE">
+                      <block type="variables_get" id="111">
+                        <field name="TYPE">String</field>
+                        <field name="VAR">num</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="112">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="customcode_code" id="113" inline="true">
+                <value name="text">
+                  <block type="text" id="114">
+                    <field name="TEXT">lcd.print("You don't key in");</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <statement name="ELSE">
+              <block type="procedures_callnoreturn" id="115">
+                <mutation name="calPrimeNumber"></mutation>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="116" collapsed="true" x="613" y="1063">
+    <mutation></mutation>
+    <field name="NAME">calPrimeNumber</field>
+    <statement name="STACK">
+      <block type="variables_set" id="117" inline="true">
+        <field name="TYPE">Boolean</field>
+        <field name="VAR">prime</field>
+        <value name="VALUE">
+          <block type="logic_boolean" id="118">
+            <field name="BOOL">TRUE</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id="119" inline="true">
+            <field name="TYPE">Unsigned_Long</field>
+            <field name="VAR">number</field>
+            <value name="VALUE">
+              <block type="customcode_instruction5_get" id="120" inline="true">
+                <field name="type">toInt()</field>
+                <value name="instruction">
+                  <block type="variables_get" id="121">
+                    <field name="TYPE">String</field>
+                    <field name="VAR">num</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="controls_if" id="122" inline="false">
+                <value name="IF0">
+                  <block type="logic_operation" id="123" inline="true">
+                    <field name="OP">OR</field>
+                    <value name="A">
+                      <block type="logic_compare" id="124" inline="true">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="variables_get" id="125">
+                            <field name="TYPE">Unsigned_Long</field>
+                            <field name="VAR">number</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="126">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="logic_operation" id="127" inline="true">
+                        <field name="OP">OR</field>
+                        <value name="A">
+                          <block type="logic_compare" id="128" inline="true">
+                            <field name="OP">EQ</field>
+                            <value name="A">
+                              <block type="variables_get" id="129">
+                                <field name="TYPE">Unsigned_Long</field>
+                                <field name="VAR">number</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number" id="130">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="logic_compare" id="131" inline="true">
+                            <field name="OP">EQ</field>
+                            <value name="A">
+                              <block type="variables_get" id="132">
+                                <field name="TYPE">Unsigned_Long</field>
+                                <field name="VAR">number</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number" id="133">
+                                <field name="NUM">2</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="customcode_code" id="134" inline="true">
+                    <value name="text">
+                      <block type="text" id="135">
+                        <field name="TEXT">lcd.print("It's NOT a prime");</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_code" id="136" inline="true">
+                        <value name="text">
+                          <block type="text" id="137">
+                            <field name="TEXT">return;</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <next>
+                  <block type="customcode_code" id="138" inline="true">
+                    <value name="text">
+                      <block type="text" id="139">
+                        <field name="TEXT">lcd.print("Wait a moment...");</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="controls_for" id="140" inline="true">
+                        <field name="VAR">j</field>
+                        <value name="FROM">
+                          <block type="math_number" id="141">
+                            <field name="NUM">2</field>
+                          </block>
+                        </value>
+                        <value name="TO">
+                          <block type="math_arithmetic" id="142" inline="true">
+                            <field name="OP">MINUS</field>
+                            <value name="A">
+                              <block type="variables_get" id="143">
+                                <field name="TYPE">Unsigned_Long</field>
+                                <field name="VAR">number</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number" id="144">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO">
+                          <block type="controls_if" id="145" inline="false">
+                            <value name="IF0">
+                              <block type="logic_compare" id="146" inline="true">
+                                <field name="OP">EQ</field>
+                                <value name="A">
+                                  <block type="math_arithmetic" id="147" inline="true">
+                                    <field name="OP">MODULO</field>
+                                    <value name="A">
+                                      <block type="variables_get" id="148">
+                                        <field name="TYPE">Unsigned_Long</field>
+                                        <field name="VAR">number</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="variables_get" id="149">
+                                        <field name="TYPE">Number</field>
+                                        <field name="VAR">j</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="150">
+                                    <field name="NUM">0</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="DO0">
+                              <block type="variables_set" id="151" inline="true">
+                                <field name="TYPE">Boolean</field>
+                                <field name="VAR">prime</field>
+                                <value name="VALUE">
+                                  <block type="logic_boolean" id="152">
+                                    <field name="BOOL">FALSE</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="controls_flow_statements" id="153">
+                                    <field name="FLOW">BREAK</field>
+                                  </block>
+                                </next>
+                              </block>
+                            </statement>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="customcode_code" id="154" inline="true">
+                            <value name="text">
+                              <block type="text" id="155">
+                                <field name="TEXT">lcd.clear();</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="customcode_code" id="156" inline="true">
+                                <value name="text">
+                                  <block type="text" id="157">
+                                    <field name="TEXT">lcd.setCursor(0, 1);</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="controls_if" id="158" inline="false">
+                                    <mutation else="1"></mutation>
+                                    <value name="IF0">
+                                      <block type="variables_get" id="159">
+                                        <field name="TYPE">Boolean</field>
+                                        <field name="VAR">prime</field>
+                                      </block>
+                                    </value>
+                                    <statement name="DO0">
+                                      <block type="customcode_code" id="160" inline="true">
+                                        <value name="text">
+                                          <block type="text" id="161">
+                                            <field name="TEXT">lcd.print("It's A prime");</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </statement>
+                                    <statement name="ELSE">
+                                      <block type="customcode_code" id="162" inline="true">
+                                        <value name="text">
+                                          <block type="text" id="163">
+                                            <field name="TEXT">lcd.print("It's NOT a prime");</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </statement>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

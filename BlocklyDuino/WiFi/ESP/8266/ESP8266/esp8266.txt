@@ -1,0 +1,18 @@
+★無藍牙
+
+ESP8266
+http://arduino.esp8266.com/stable/package_esp8266com_index.json
+ 
+ 板子腳位	 ESP8266 腳位	 功能
+ D0	 GPIO16	 IO
+ D1	 GPIO5	 IO, SCL 
+ D2	 GPIO4	 IO, SDA 
+ D3	 GPIO0	 IO, 內建 10K 上拉電阻
+ D4	 GPIO2	 IO, 內建 10K 上拉電阻與 LED
+ D5	 GPIO14	 IO, SCK
+ D6	 GPIO12	 IO, MISO
+ D7	 GPIO13	 IO, MOSI
+ D8	 GPIO15	 IO, SS, 內建 10K 上拉電阻
+ TX	 TXD	 UART 送端
+ RX	 RXD	 UART 收端
+ A0	 ADC	 類比輸入 (0~3.3V)

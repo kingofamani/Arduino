@@ -1,0 +1,36 @@
+<xml version="F2" board="Arduino Mega or Mega 2560" xmlns="https://developers.google.com/blockly/xml">
+  <block type="board_initializes_setup" id="0" x="110" y="150">
+    <field name="BOARD_TYPE">Arduino</field>
+    <statement name="CONTENT">
+      <block type="serial_init" id="X*S!`SZ3,,@letQ2+Qy#">
+        <field name="SPEED">9600</field>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="serial_println" id="hKOk^!lA89#2+%q%-*Id">
+            <value name="CONTENT">
+              <block type="inout_custom_digital_read" id="T%z`dU{3M|Y/F!EE.:c1">
+                <value name="PIN_READ">
+                  <block type="math_number" id="n%q5A5W~MSc(~2/l6};{">
+                    <field name="NUM">2</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="delay_custom" id="`2:}Qv(OTep]z#WGd{s#">
+                <value name="DELAY_TIME">
+                  <block type="math_number" id="=$e?l;Pn,IlvkB0x~!,2">
+                    <field name="NUM">1000</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

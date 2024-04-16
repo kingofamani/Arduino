@@ -1,0 +1,17 @@
+https://forum.arduino.cc/t/displaying-location-on-iot-cloud-map-widget/906503/5
+
+Cloud Variables：
+	新增CloudLocation型別變數，
+	基本變數型別沒有，要搜尋才有。
+
+CarMari
+Secret Key
+\\10.197.28.35\home\創客\金鑰\Arduino Cloud key.txt
+
+Arduino Cloud Editor
+ino專案名稱：CarMapEsp32_nov06a
+https://create.arduino.cc/editor/kingofamani2/73700b53-3be1-48b1-a217-685384c2641b
+
+Dashboard面板：
+面板名稱：112綠色交通與運輸
+https://create.arduino.cc/iot/dashboards/930d46c2-2310-47c5-be7c-cf62d4e3f65f

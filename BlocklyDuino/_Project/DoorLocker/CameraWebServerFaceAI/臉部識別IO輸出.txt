@@ -1,0 +1,3 @@
+ESP32-CAM
+修改app_httpd第190行
+可IO2,4輸出HIGH、LOW，臉部識別

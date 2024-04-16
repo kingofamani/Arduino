@@ -1,0 +1,189 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="customcode_comment" id="103" inline="true" x="88" y="-12">
+    <value name="text">
+      <block type="text" id="104">
+        <field name="TEXT">水位測器腳位</field>
+      </block>
+    </value>
+    <next>
+      <block type="variables_set" id="49" inline="true">
+        <field name="TYPE">Number</field>
+        <field name="VAR">PIN_WATER</field>
+        <value name="VALUE">
+          <block type="math_number" id="60">
+            <field name="NUM">6</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_comment" id="186" inline="true">
+            <value name="text">
+              <block type="text" id="187">
+                <field name="TEXT">水位偵測器高/低電平</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="65" inline="true">
+                <field name="TYPE">Boolean</field>
+                <field name="VAR">WATER_TRIGGER</field>
+                <value name="VALUE">
+                  <block type="inout_highlow" id="97">
+                    <field name="BOOL">HIGH</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="procedures_defnoreturn" id="240" collapsed="true" x="713" y="88">
+    <mutation></mutation>
+    <field name="NAME">o</field>
+    <statement name="STACK">
+      <block type="customcode_comment_block" id="368" inline="true">
+        <value name="text">
+          <block type="text" id="369">
+            <field name="TEXT">判斷是否有水 \n 傳入值：\n    pinWater:水位偵測器腳位 \n    trigger:水位算測器種類(高/低電平)HIGH/LOW \n 傳回值：有水回傳true，沒水回傳false \n</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_head" id="223" inline="true">
+            <value name="text">
+              <block type="text" id="224">
+                <field name="TEXT">bool waterSersor(int pinWater, bool trigger) {</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_head" id="225" inline="true">
+                <value name="text">
+                  <block type="text" id="226">
+                    <field name="TEXT">  int count = 0;</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_head" id="227" inline="true">
+                    <value name="text">
+                      <block type="text" id="228">
+                        <field name="TEXT">  for (int i = 0; i &lt; 20; i++) {</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_head" id="229" inline="true">
+                        <value name="text">
+                          <block type="text" id="230">
+                            <field name="TEXT">    if (digitalRead(pinWater) == trigger) count ++;</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="customcode_head" id="231" inline="true">
+                            <value name="text">
+                              <block type="text" id="232">
+                                <field name="TEXT">    delay(10);</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="customcode_head" id="233" inline="true">
+                                <value name="text">
+                                  <block type="text" id="234">
+                                    <field name="TEXT">  }</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="customcode_head" id="235" inline="true">
+                                    <value name="text">
+                                      <block type="text" id="236">
+                                        <field name="TEXT">  return (count == 20);</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="customcode_head" id="237" inline="true">
+                                        <value name="text">
+                                          <block type="text" id="238">
+                                            <field name="TEXT">}</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="initializes_setup" id="1" x="88" y="163">
+    <statement name="CONTENT">
+      <block type="serial_init" id="10">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="customcode_code" id="286" inline="true">
+            <value name="text">
+              <block type="text" id="287">
+                <field name="TEXT">pinMode(PIN_WATER, INPUT);</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="2">
+        <statement name="CONTENT">
+          <block type="variables_set" id="327" inline="true">
+            <field name="TYPE">Boolean</field>
+            <field name="VAR">hasWater</field>
+            <next>
+              <block type="customcode_code" id="328" inline="true">
+                <value name="text">
+                  <block type="text" id="329">
+                    <field name="TEXT">hasWater = waterSersor(PIN_WATER, WATER_TRIGGER);</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="controls_if" id="335" inline="false">
+                    <mutation else="1"></mutation>
+                    <value name="IF0">
+                      <block type="variables_get" id="353">
+                        <field name="TYPE">Boolean</field>
+                        <field name="VAR">hasWater</field>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="serial_println" id="18" inline="false">
+                        <value name="CONTENT">
+                          <block type="text" id="360">
+                            <field name="TEXT">有水</field>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                    <statement name="ELSE">
+                      <block type="serial_println" id="361" inline="false">
+                        <value name="CONTENT">
+                          <block type="text" id="362">
+                            <field name="TEXT">空…</field>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

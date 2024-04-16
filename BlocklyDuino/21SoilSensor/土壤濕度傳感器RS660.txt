@@ -1,0 +1,10 @@
+要買電容式，上面晶片注意一定要有：
+穩壓晶片：662K
+定時晶片：TLC555
+電阻過孔要在兩電阻中間
+https://youtu.be/IGP38bz-K48?si=j5bYGxdy7aaZDh1Q&t=478
+
+土壤濕度傳感器
+GND		GND
+VCC		3.3V
+AOUT	A0

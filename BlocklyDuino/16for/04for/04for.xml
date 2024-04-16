@@ -1,0 +1,38 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="initializes_setup" id="29" x="80" y="40">
+    <comment pinned="true" h="52" w="199">印出1~100</comment>
+    <statement name="CONTENT">
+      <block type="serial_init" id="30">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="controls_for" id="31" inline="true">
+            <field name="VAR">i</field>
+            <value name="FROM">
+              <block type="math_number" id="32">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <value name="TO">
+              <block type="math_number" id="33">
+                <field name="NUM">100</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="serial_println" id="38" inline="false">
+                <value name="CONTENT">
+                  <block type="variables_get" id="39">
+                    <field name="TYPE">Number</field>
+                    <field name="VAR">i</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="40"></block>
+    </next>
+  </block>
+</xml>

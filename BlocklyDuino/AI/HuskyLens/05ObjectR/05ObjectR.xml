@@ -1,0 +1,570 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="l$,#FTs_e8th@e1.|WKH">recValue</variable>
+    <variable id="POm7H:NA)2~5]q:+LU9y">countIDs</variable>
+    <variable id="(0Irolo!]na~g7(t#mb[">IDs</variable>
+    <variable id="*P.=L;wSaK_!-VR`Qa^q">ReplyID</variable>
+  </variables>
+  <block type="customcode_head" id="8xkSaA^eo6XC9^}EVL!?" x="630" y="-170">
+    <value name="text">
+      <block type="text" id="{}BMN{5z)Q0sXIHXBnhg">
+        <field name="TEXT">#include "HUSKYLENS.h"</field>
+      </block>
+    </value>
+    <next>
+      <block type="customcode_head" id="mC_79RJV3R$AAT0y*Z=?">
+        <value name="text">
+          <block type="text" id="}R]]ooCk,+w]OMgNY6F#">
+            <field name="TEXT">HUSKYLENS huskylens;</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_comment" id="mXXaD76SNV8GMVfCU|.U">
+            <value name="text">
+              <block type="text" id="BXUA!}IjfR7od/=HNt,|">
+                <field name="TEXT">物體識別閾值，連續識別正確次數</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="*qL?N5;wlWznEi+DK(|3">
+                <field name="POSITION">global</field>
+                <field name="TYPE">int</field>
+                <field name="VAR" id="l$,#FTs_e8th@e1.|WKH">recValue</field>
+                <value name="VALUE">
+                  <shadow type="math_number" id="Z;v|6SwUK/5QkIIAWQHD">
+                    <field name="NUM">0</field>
+                  </shadow>
+                  <block type="math_number" id="IB@F%i::Y?+s}edxO:_{">
+                    <field name="NUM">100</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set1" id="`QL3dzw|+G^#VG[jGwCD" collapsed="true">
+                    <field name="POSITION">global</field>
+                    <field name="TYPE">int</field>
+                    <field name="VAR" id="POm7H:NA)2~5]q:+LU9y">countIDs</field>
+                    <value name="LEN">
+                      <block type="math_number" id="eNTW:uV~V|j5aD1|2OqV">
+                        <field name="NUM">6</field>
+                      </block>
+                    </value>
+                    <value name="VALUE">
+                      <shadow type="text">
+                        <field name="TEXT"></field>
+                      </shadow>
+                      <block type="lists_create_with" id="Z$I|a1PTN/8K:4fLPON?" inline="false">
+                        <mutation items="6"></mutation>
+                        <value name="ADD0">
+                          <block type="math_number" id="!Pzg@pr0gqMvJ#+kp?6#">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <value name="ADD1">
+                          <block type="math_number" id="dy8[hwj8,_K9W;E?)1?^">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <value name="ADD2">
+                          <block type="math_number" id="$FZoa}*_FT,SBDG:8.f!">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <value name="ADD3">
+                          <block type="math_number" id="$Q.k*y~w=4$bGy9uxDPD">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <value name="ADD4">
+                          <block type="math_number" id="PW=8(SG)z[zcuC-+q-Bh">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <value name="ADD5">
+                          <block type="math_number" id="]uMn/tc^+~k[$Un}3*-d">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_comment" id=",7yt4R-c_q}y9N%S!AzT">
+                        <value name="text">
+                          <block type="text" id="fZ}N$8_Up_{E|vGS/gMm">
+                            <field name="TEXT">訓練的ID</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="variables_set1" id="HR+_sC@K{UT[b.%}=baj" collapsed="true">
+                            <field name="POSITION">global</field>
+                            <field name="TYPE">int</field>
+                            <field name="VAR" id="(0Irolo!]na~g7(t#mb[">IDs</field>
+                            <value name="LEN">
+                              <block type="math_number" id="t].N+Suny#@}mrY_?)6`">
+                                <field name="NUM">6</field>
+                              </block>
+                            </value>
+                            <value name="VALUE">
+                              <shadow type="text" id="A7bOJ*hve66)2o^C=OIk">
+                                <field name="TEXT"></field>
+                              </shadow>
+                              <block type="lists_create_with" id="blrx@WH^L?,w!gPdRpSk" inline="false">
+                                <mutation items="6"></mutation>
+                                <value name="ADD0">
+                                  <block type="math_number" id="AXtjD5:R.fxuZJnw`d8#">
+                                    <field name="NUM">0</field>
+                                  </block>
+                                </value>
+                                <value name="ADD1">
+                                  <block type="math_number" id="STSC)I,D8kqhj?X+qTa~">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                                <value name="ADD2">
+                                  <block type="math_number" id="IcoXgoTt0#0EK?cmgEgt">
+                                    <field name="NUM">2</field>
+                                  </block>
+                                </value>
+                                <value name="ADD3">
+                                  <block type="math_number" id="w$(XJl_Wh|R^6e}-gx/D">
+                                    <field name="NUM">3</field>
+                                  </block>
+                                </value>
+                                <value name="ADD4">
+                                  <block type="math_number" id="J=|ciJ^up,Do:eRAy!B1">
+                                    <field name="NUM">4</field>
+                                  </block>
+                                </value>
+                                <value name="ADD5">
+                                  <block type="math_number" id="@~v*Nq~b?@Y$OGu#oA/!">
+                                    <field name="NUM">5</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="customcode_comment" id="6(YbywOO9`(jQJV_8sUp">
+                                <value name="text">
+                                  <block type="text" id="Iu?)T52af0?9rkx7ouc5">
+                                    <field name="TEXT">辨識的ID</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="variables_set" id="Kd%xqdP[Gq}ge.5auVbE">
+                                    <field name="POSITION">global</field>
+                                    <field name="TYPE">int</field>
+                                    <field name="VAR" id="*P.=L;wSaK_!-VR`Qa^q">ReplyID</field>
+                                    <value name="VALUE">
+                                      <shadow type="math_number">
+                                        <field name="NUM">0</field>
+                                      </shadow>
+                                      <block type="math_number" id="#XFF+W7RPwFT+mOlFntR">
+                                        <field name="NUM">0</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="customcode_head" id=")113rf5yuS|$8L`!(fPQ">
+                                        <value name="text">
+                                          <block type="text" id="B^L#@3)s3d%[WK;1rf}P">
+                                            <field name="TEXT">void printResult(HUSKYLENSResult result);</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="board_initializes_setup" id="0" x="26" y="22">
+    <field name="BOARD_TYPE">Arduino</field>
+    <statement name="CONTENT">
+      <block type="serial_init" id="=y4^_-O#x2jUbnh)1LGf">
+        <field name="SPEED">115200</field>
+        <next>
+          <block type="procedures_callnoreturn" id="|)x0Y%N^sE#2*JmJ#Md%">
+            <mutation xmlns="http://www.w3.org/1999/xhtml" name="initHL"></mutation>
+            <value name="VAR">
+              <shadow type="lists_create_with" id="1jcR%y;tR{):o?(+7T:/">
+                <mutation items="0"></mutation>
+              </shadow>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="procedures_callnoreturn" id="h2d!}y_M;P(XoC^C4%dx">
+            <mutation xmlns="http://www.w3.org/1999/xhtml" name="startRecog"></mutation>
+            <value name="VAR">
+              <shadow type="lists_create_with" id="I20KBO25V+@guVsCk~N9">
+                <mutation items="0"></mutation>
+              </shadow>
+            </value>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+  <block type="procedures_defnoreturn" id="?uUS,}Xc{Q%k1/#+hpT4" collapsed="true" x="610" y="210">
+    <field name="NAME">initHL</field>
+    <value name="VAR">
+      <shadow type="lists_create_with" id="zG9f$[Egfo.mTa7XeC!P">
+        <mutation items="0"></mutation>
+      </shadow>
+    </value>
+    <statement name="STACK">
+      <block type="customcode_code" id="=lJgG`Wu^*kxpNu.)@P^">
+        <value name="text">
+          <block type="text" id="eBAnsFrwg,#xzradH,u;">
+            <field name="TEXT">Wire.begin();</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_code" id="p*LD}2C[y:g4m*H]Auf4">
+            <value name="text">
+              <block type="text" id="Bh#^ok:`:.V.#{Z4=S{]">
+                <field name="TEXT">while (!huskylens.begin(Wire))</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_code" id="gY::@wr[Cz73x(@u{IET">
+                <value name="text">
+                  <block type="text" id="{f*fdn#{S?2BPV}NXhCI">
+                    <field name="TEXT">{     Serial.println(F("Begin failed!"));</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_code" id="M)EYO#zuo`N^_2!Iz-^F">
+                    <value name="text">
+                      <block type="text" id="edyn6{(mM[CU!h({EUa!">
+                        <field name="TEXT">Serial.println(F("1.Please recheck the Protocol Type in HUSKYLENS (General Settings&gt;&gt;Protocol Type&gt;&gt;I2C)"));</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_code" id="mkd8}!IPIqD5A]ID!_]U">
+                        <value name="text">
+                          <block type="text" id="t1$(+Ee,|/WP,f04b[cR">
+                            <field name="TEXT">Serial.println(F("2.Please recheck the connection."));</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="delay_custom" id="JZ/0*$TLw0|6Le5h)V8J">
+                            <value name="DELAY_TIME">
+                              <block type="math_number" id="@E%NSms2U%{=k:!)Veww">
+                                <field name="NUM">100</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="customcode_code" id="=1BP1+jyf9Y=%nq`LTTP">
+                                <value name="text">
+                                  <block type="text" id="=C6k),0#Wd:Y2f~WrU9t">
+                                    <field name="TEXT">}   huskylens.writeAlgorithm(ALGORITHM_OBJECT_CLASSIFICATION);</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="2m,krcZu5Sn,h%8[z*pn" collapsed="true" x="650" y="250">
+    <field name="NAME">startRecog</field>
+    <value name="VAR">
+      <shadow type="lists_create_with" id="=0?-z.q)IHl1$C;cZ.k;">
+        <mutation items="0"></mutation>
+      </shadow>
+    </value>
+    <statement name="STACK">
+      <block type="customcode_code" id=",8ot_(T6Kpw`{ndbcl;5">
+        <value name="text">
+          <block type="text" id="{sq6J[f{L%OP#m]]S_A/">
+            <field name="TEXT">if (huskylens.request())</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_code" id="KDv8R7ptFelzs-08d)lu">
+            <value name="text">
+              <block type="text" id=";)HJO/U_C{pOo!!R($EW">
+                <field name="TEXT">{</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_code" id="xg2kiOd=dF[Tj(RDwq7`">
+                <value name="text">
+                  <block type="text" id=".u(5EE8@#pO];:xS=VLO">
+                    <field name="TEXT">HUSKYLENSResult result;</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_comment" id="iz:,i%y_L!l8[k4Y$}R1">
+                    <value name="text">
+                      <block type="text" id="/aAThB[}t93|2xV)pq:H">
+                        <field name="TEXT">連續辨別成功次數</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_code" id="w?~H)h7gOR@nvd9jFo^z">
+                        <value name="text">
+                          <block type="text" id="9-xgFSXD`25D$oOAq9]i">
+                            <field name="TEXT">for (int i = 0; i &lt; sizeof(IDs) / sizeof(IDs[0]); i++) {</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="customcode_code" id="aH5HM^qV~H=Q;CjN2:ZW">
+                            <value name="text">
+                              <block type="text" id="mpNR+XE:u`oT/HF=p=R3">
+                                <field name="TEXT">if (huskylens.countBlocks(IDs[i]) &gt;= 1) {</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="customcode_code" id="[FhNRH_12%}*-jz?%E@.">
+                                <value name="text">
+                                  <block type="text" id=":1AV@,?[KT@@5U:t59gg">
+                                    <field name="TEXT">countIDs[IDs[i]]++;</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="customcode_code" id="Ff1(3n9=G0fEB=)u.D8m">
+                                    <value name="text">
+                                      <block type="text" id="G9WT%4~DXN-y{w^yjlKc">
+                                        <field name="TEXT">}     }</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="customcode_comment" id="v]C[=-QmLE.~#;!yN%Ey">
+                                        <value name="text">
+                                          <block type="text" id="wQp(LfVW28NjACiD~|m3">
+                                            <field name="TEXT">判斷哪個ID達到閾值</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="customcode_code" id="N5+oI@8i06l|D:ki2!93">
+                                            <value name="text">
+                                              <block type="text" id="{748MDV8(q5%6/#{5`h.">
+                                                <field name="TEXT">for (int i = 0; i &lt; sizeof(countIDs) / sizeof(countIDs[0]); i++) {</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="customcode_code" id="$y.AZ-n!ibJkuimJu1C-">
+                                                <value name="text">
+                                                  <block type="text" id="NJj#b?7P*{,Jj!^6J#j!">
+                                                    <field name="TEXT">if (countIDs[i] &gt;= recValue) {</field>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="customcode_code" id="|e,v}y$AaM]a[8gxV(1g">
+                                                    <value name="text">
+                                                      <block type="text" id="VKq[EY-pr_;u%Dg$*/(p">
+                                                        <field name="TEXT">result = huskylens.getBlock(i, 0);</field>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="customcode_code" id="y/NPmNc/pf5D`H}HH}Xs">
+                                                        <value name="text">
+                                                          <block type="text" id="u$X3}U-J6`@~Mem9Rvp|">
+                                                            <field name="TEXT">printResult(result);</field>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="customcode_comment" id="Ccnl-~OfIyHbnk4Nk*+,">
+                                                            <value name="text">
+                                                              <block type="text" id="E!O7]o^g9fYrTBrBc`Wz">
+                                                                <field name="TEXT">重置</field>
+                                                              </block>
+                                                            </value>
+                                                            <next>
+                                                              <block type="customcode_code" id="vxWvV9:W#tI+McMU{QJ/">
+                                                                <value name="text">
+                                                                  <block type="text" id="4hRu.{Y%9Vvot~my8zJY">
+                                                                    <field name="TEXT">for (int j = 0; j &lt; sizeof(countIDs) / sizeof(countIDs[0]); j++) {</field>
+                                                                  </block>
+                                                                </value>
+                                                                <next>
+                                                                  <block type="customcode_code" id="q~i:FmB*F*!wtH+U~_5Y">
+                                                                    <value name="text">
+                                                                      <block type="text" id="n1D~pa8NqzfcgY3]6#~#">
+                                                                        <field name="TEXT">countIDs[j] = 0;</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <next>
+                                                                      <block type="customcode_code" id="={,^`Mqe8a+z!-D0/0Qg">
+                                                                        <value name="text">
+                                                                          <block type="text" id="KF3/04,~H5%*+H:u3U@i">
+                                                                            <field name="TEXT">}       }     }</field>
+                                                                          </block>
+                                                                        </value>
+                                                                        <next>
+                                                                          <block type="customcode_code" id="P)go!3P!R`P?Xm*L;Q:2">
+                                                                            <value name="text">
+                                                                              <block type="text" id="AS^QL]H(C2#~ApUBRx?7">
+                                                                                <field name="TEXT">}   else   {</field>
+                                                                              </block>
+                                                                            </value>
+                                                                            <next>
+                                                                              <block type="customcode_code" id="d5w9sq=5MuSk7hlcrbFX">
+                                                                                <value name="text">
+                                                                                  <block type="text" id="6%gHbV$#2Yov#8bItD0^">
+                                                                                    <field name="TEXT">Serial.println("失敗!無法從Huskylens請求物件!");</field>
+                                                                                  </block>
+                                                                                </value>
+                                                                                <next>
+                                                                                  <block type="customcode_code" id="#T2:e7+ULHHEY|l$~Hp)">
+                                                                                    <value name="text">
+                                                                                      <block type="text" id="Sfs}2N~niPq1rKWna:D*">
+                                                                                        <field name="TEXT">}</field>
+                                                                                      </block>
+                                                                                    </value>
+                                                                                  </block>
+                                                                                </next>
+                                                                              </block>
+                                                                            </next>
+                                                                          </block>
+                                                                        </next>
+                                                                      </block>
+                                                                    </next>
+                                                                  </block>
+                                                                </next>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="7f*L|8nURp;bscJV;tW1" collapsed="true" x="630" y="290">
+    <field name="NAME">pR</field>
+    <value name="VAR">
+      <shadow type="lists_create_with" id="8%i?zL`VtlB,]qUGYG:Y">
+        <mutation items="0"></mutation>
+      </shadow>
+    </value>
+    <statement name="STACK">
+      <block type="customcode_head" id="SjwvGAUSEQK[E35Oilig">
+        <value name="text">
+          <block type="text" id="/3;r2d._KA|C;h?x}qUt">
+            <field name="TEXT">void printResult(HUSKYLENSResult result) {</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_head" id="ppbJYRwObi=Y,Yes=FZ@">
+            <value name="text">
+              <block type="text" id="DmyMB5Y/Yf(o%IDTvJ[c">
+                <field name="TEXT">if (result.command == COMMAND_RETURN_BLOCK) {</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_head" id="{(G[pP68P?8Yk18=9^$R">
+                <value name="text">
+                  <block type="text" id="s?YiuY`o25$%H,ObxHhI">
+                    <field name="TEXT">Serial.println(String() + F("方框:X中心=") + result.xCenter + F(",Y中心=") + result.yCenter + F(",寬=") + result.width + F(",高=") + result.height + F(",ID=") + result.ID);</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_head" id="]KNu,b1JS?puGD$I09;n">
+                    <value name="text">
+                      <block type="text" id="TW,j`d`+a-_79Q$s!GOR">
+                        <field name="TEXT">ReplyID = result.ID;</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_head" id="fw`MUa$nP,7hspfn;YE0">
+                        <value name="text">
+                          <block type="text" id="duWfI%Z`(A+$~w?Bb^[D">
+                            <field name="TEXT">}</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="customcode_head" id="Sk/CMrbAfB)H|qY8i:Jk">
+                            <value name="text">
+                              <block type="text" id="P39$fSQEPp:6bJjEL2G[">
+                                <field name="TEXT">else {</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="customcode_head" id="iijfK)7a*a2#/`8.b?Q-">
+                                <value name="text">
+                                  <block type="text" id="k+X5m/PDYCM6*9mMZWoZ">
+                                    <field name="TEXT">Serial.println("未知的物體!");</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="customcode_head" id="|[E;wj!mubfYOhm:[EYw">
+                                    <value name="text">
+                                      <block type="text" id="T5?FsQgtHh/;G|Z.3*4/">
+                                        <field name="TEXT">}</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="customcode_head" id="a(Z91yb69%l+l,J_I1W^">
+                                        <value name="text">
+                                          <block type="text" id="n~GII345=*h:/vk!=HjI">
+                                            <field name="TEXT">}</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

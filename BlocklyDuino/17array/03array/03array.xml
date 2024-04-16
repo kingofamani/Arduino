@@ -1,0 +1,92 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="(vN],W]j{icu16_u/z2z">score</variable>
+    <variable id="hC#I%*Maw0#NrGju#m0?">i</variable>
+  </variables>
+  <block type="initializes_setup" id="1" x="80" y="40">
+    <statement name="CONTENT">
+      <block type="serial_init" id="22">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="variables_set1" id="M!M1ybWJV!QTrUkXt8nx">
+            <field name="POSITION">global</field>
+            <field name="TYPE">int</field>
+            <field name="VAR" id="(vN],W]j{icu16_u/z2z">score</field>
+            <value name="VALUE">
+              <shadow type="text" id="(LTpMBH:C(3A)9H.l4MT">
+                <field name="TEXT"></field>
+              </shadow>
+              <block type="array_create_with" id="32" inline="false">
+                <mutation items="5"></mutation>
+                <value name="ADD0">
+                  <block type="math_number" id="45">
+                    <field name="NUM">80</field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="math_number" id="46">
+                    <field name="NUM">95</field>
+                  </block>
+                </value>
+                <value name="ADD2">
+                  <block type="math_number" id="47">
+                    <field name="NUM">100</field>
+                  </block>
+                </value>
+                <value name="ADD3">
+                  <block type="math_number" id="55">
+                    <field name="NUM">99</field>
+                  </block>
+                </value>
+                <value name="ADD4">
+                  <block type="math_number" id="56">
+                    <field name="NUM">50</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="controls_for" id="73">
+                <field name="VAR" id="hC#I%*Maw0#NrGju#m0?">i</field>
+                <value name="FROM">
+                  <block type="math_number" id="74">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <value name="TO">
+                  <block type="math_number" id="75">
+                    <field name="NUM">4</field>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="serial_println" id="91" inline="false">
+                    <value name="CONTENT">
+                      <block type="lists_getIndex" id="gMO*ItTiT4@1_AG:$!-?">
+                        <mutation statement="false" at="true"></mutation>
+                        <field name="MODE">GET</field>
+                        <field name="WHERE">FROM_START</field>
+                        <value name="VALUE">
+                          <block type="variables_get" id="}In[#kRd`UA:mI}Z-D/.">
+                            <field name="VAR" id="(vN],W]j{icu16_u/z2z">score</field>
+                          </block>
+                        </value>
+                        <value name="AT">
+                          <block type="variables_get" id="128">
+                            <field name="VAR" id="hC#I%*Maw0#NrGju#m0?">i</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="2"></block>
+    </next>
+  </block>
+</xml>

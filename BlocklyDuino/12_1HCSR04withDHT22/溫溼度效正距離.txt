@@ -1,0 +1,18 @@
+https://howtomechatronics.com/tutorials/arduino/ultrasonic-sensor-hc-sr04/#google_vignette
+
+程式庫：
+	NewPing
+	DHT by Rob Tillaart
+
+音速Velocity = 331.4 + 0.6 x Temperature + 0.0124 x Relative_Humidity
+
+HC SR04
+GND		GND
+Echo	D6
+Trig	D5
+VCC		5V
+
+DHT22
++	5V
+out	D8
+-	GND

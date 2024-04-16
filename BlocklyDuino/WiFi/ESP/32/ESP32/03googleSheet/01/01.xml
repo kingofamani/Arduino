@@ -1,0 +1,78 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="board_initializes_setup" id="0" x="70" y="50">
+    <field name="BOARD_TYPE">ESP32</field>
+    <statement name="CONTENT">
+      <block type="linkit_wifi_wait_until_ready" id="[!r+J0pZoZ88}D0GxDOn">
+        <value name="SSID">
+          <block type="text" id="{{L]D^%TGJT+`$P]5.bQ">
+            <field name="TEXT">AMANI-4G-Home</field>
+          </block>
+        </value>
+        <value name="PASSWORD">
+          <block type="text" id="y7Bt/}h8|eonDXQAkIyI">
+            <field name="TEXT">xxxxxxxxxxxxxxxxxxx</field>
+          </block>
+        </value>
+        <next>
+          <block type="serial_init" id="eA)[k}dFj/5UTOwiX|a=">
+            <field name="SPEED">115200</field>
+            <next>
+              <block type="setupSheets" id="VG*|0]BY$Y0MqJJBJc8C">
+                <value name="sheetId">
+                  <block type="text" id="wo$cT`X,t+:hau1G3/EP">
+                    <field name="TEXT">xxxxxxxxxxxxxxxxxxxxxxxx</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="setupForm" id="|[GnJX*mvMz9~~9*)$=x">
+                    <value name="sheetTag">
+                      <block type="text" id=":oG+=NK-=+E=,zXELL2F">
+                        <field name="TEXT">count</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="delay_custom" id="/~wep]=Zj2z;gh-Rn99,">
+                        <value name="DELAY_TIME">
+                          <block type="math_number" id="hG9|WDQ?28cX=J@;^:~q">
+                            <field name="NUM">1000</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="sendToGoogle" id="XgL!`V,ZNsnIp6]Ac,59">
+                            <field name="dateInclude">1</field>
+                            <value name="data">
+                              <block type="data_join" id="gL+i|8k`IRr;vn?JXt@B" inline="false">
+                                <mutation items="1"></mutation>
+                                <value name="ADD0">
+                                  <block type="text" id=".7ihM29rln3i,[fa7Qps">
+                                    <field name="TEXT">abc</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="serial_println" id="a8lG@?rfC,Tco345xBm@">
+                                <value name="CONTENT">
+                                  <block type="text" id="csnw_k4ioN-%u7*Gq2N(">
+                                    <field name="TEXT">完成</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1"></block>
+    </next>
+  </block>
+</xml>

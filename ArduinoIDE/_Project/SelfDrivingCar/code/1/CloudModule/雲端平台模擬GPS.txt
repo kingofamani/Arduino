@@ -1,0 +1,47 @@
+練習題(先練習基本程式，再寫專案)：
+UART：
+	「BlocklyDuino\WiFi\ESP\32\ESP32\UartESP32」
+	ESP32MQTT	ESP32GPS
+	D2(RX)		D17(TX)
+	D3(TX)		D16(RX)
+	
+Arduino Cloud：
+	至Arduino Cloud建立專案：參考「BlocklyDuino\Cloud\ArduinoCloud\Arduino Cloud服務.txt」
+	雲端專案：https://create.arduino.cc/editor/kingofamani2 CarMapEsp32_nov06a
+	雲端專案已下載至「BlocklyDuino\Cloud\ArduinoCloud\GPS\02.ino」
+
+---------------------------------------
+Arduino Cloud無法跨域，無法寫入HiveMQ MQTT，
+所以要分兩塊ESP32板子。
+
+流程：
+	小車(或console.hivemq.cloud)：MQTT car/gps頻道發送x,y座標訊息→
+	ESP32 MQTT板：透過MQTT接收x,y座標→
+	ESP32 GPS板：透過Uart接收x,y座標並轉成虛擬GPS座標→
+	Arduino Cloud DashBoard：顯示虛擬GPS座標。
+	
+---------------------------------------
+
+小車(或console.hivemq.cloud)：
+	https://console.hivemq.cloud/，並用Publish Message來測試
+
+ESP32 MQTT板：
+	Esp32Mqtt.ino
+	負責接收car/gps MQTT，然後再透過UART傳送給ESP32 GPS板	
+	
+ESP32 GPS板：
+	Esp32Gps.ino
+	透過UART，接收ESP32 GPS板傳遞來的小車座標，
+	然後再將座標傳送至Arduino Cloud雲端平台
+
+Arduino Cloud DashBoard：
+	https://create.arduino.cc/iot/dashboards 
+	開啟「【雲端平台】iMi智能運輸小車」面板
+
+---------------------------------------
+
+錯誤代碼：
+Guru Meditation Error: Core 1 panic'ed (LoadStoreError). Exception was unhandled.
+解決：
+	char陣列需要結尾'\0';
+	參考Esp32Mqtt.ino

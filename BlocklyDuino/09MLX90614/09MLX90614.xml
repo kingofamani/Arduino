@@ -1,0 +1,179 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="customcode_head" id="3" inline="true" x="163" y="13">
+    <value name="text">
+      <block type="text" id="4">
+        <field name="TEXT">#include &lt;Wire.h&gt;</field>
+      </block>
+    </value>
+    <next>
+      <block type="customcode_head" id="5" inline="true">
+        <value name="text">
+          <block type="text" id="6">
+            <field name="TEXT">#include &lt;Adafruit_MLX90614.h&gt;</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_head" id="7" inline="true">
+            <value name="text">
+              <block type="text" id="8">
+                <field name="TEXT">Adafruit_MLX90614 mlx;</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="initializes_setup" id="9" x="163" y="138">
+    <statement name="CONTENT">
+      <block type="serial_init" id="10">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="customcode_variable" id="13" inline="true">
+            <value name="variable">
+              <block type="text" id="14">
+                <field name="TEXT">mlx</field>
+              </block>
+            </value>
+            <value name="text">
+              <block type="customcode_instruction1" id="15" inline="true">
+                <value name="instruction">
+                  <block type="text" id="16">
+                    <field name="TEXT">Adafruit_MLX90614</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_code" id="17" inline="true">
+                <value name="text">
+                  <block type="text" id="18">
+                    <field name="TEXT">mlx.begin(); </field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="19">
+        <statement name="CONTENT">
+          <block type="serial_print" id="20" inline="false">
+            <value name="CONTENT">
+              <block type="text" id="21">
+                <field name="TEXT">室溫= </field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="42" inline="true">
+                <field name="TYPE">Float</field>
+                <field name="VAR">amb</field>
+                <value name="VALUE">
+                  <block type="customcode_instruction4" id="23" inline="true">
+                    <value name="instruction">
+                      <block type="text" id="24">
+                        <field name="TEXT">mlx</field>
+                      </block>
+                    </value>
+                    <value name="text1">
+                      <block type="text" id="25">
+                        <field name="TEXT">readAmbientTempC()</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set" id="47" inline="true">
+                    <field name="TYPE">Float</field>
+                    <field name="VAR">obj</field>
+                    <value name="VALUE">
+                      <block type="customcode_instruction4" id="31" inline="true">
+                        <value name="instruction">
+                          <block type="text" id="32">
+                            <field name="TEXT">mlx</field>
+                          </block>
+                        </value>
+                        <value name="text1">
+                          <block type="text" id="33">
+                            <field name="TEXT">readObjectTempC()</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_print" id="22" inline="false">
+                        <value name="CONTENT">
+                          <block type="variables_get" id="55">
+                            <field name="TYPE">Float</field>
+                            <field name="VAR">amb</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="serial_println" id="26" inline="false">
+                            <value name="CONTENT">
+                              <block type="text" id="27">
+                                <field name="TEXT">*C</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="serial_print" id="28" inline="false">
+                                <value name="CONTENT">
+                                  <block type="text" id="29">
+                                    <field name="TEXT">體溫= </field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="serial_print" id="30" inline="false">
+                                    <value name="CONTENT">
+                                      <block type="variables_get" id="62">
+                                        <field name="TYPE">Float</field>
+                                        <field name="VAR">obj</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="serial_println" id="34" inline="false">
+                                        <value name="CONTENT">
+                                          <block type="text" id="35">
+                                            <field name="TEXT">*C</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="serial_println" id="63" inline="false">
+                                            <value name="CONTENT">
+                                              <block type="text" id="64">
+                                                <field name="TEXT"></field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="delay_custom" id="38" inline="false">
+                                                <value name="DELAY_TIME">
+                                                  <block type="math_number" id="39">
+                                                    <field name="NUM">500</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

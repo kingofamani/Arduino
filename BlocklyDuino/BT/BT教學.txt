@@ -1,0 +1,37 @@
+xxxx第2顆HC-42一直處於AT模式，無法解除
+
+ESP32S2：無藍牙，優點記憶體大
+ESP32：有藍牙，缺點記憶體小
+HC42藍牙模組：有些app無法連接，例如Dabble
+
+HC-42藍牙
+	藍色燈號：
+		快閃：等待連接
+		慢閃：AT模式
+		恆亮：已連線
+
+
+手機藍牙連接pin：1234
+手機APP：Arduino BlueControl
+
+HID小助手：
+http://www.hc01.com/downloads/HC-HID_V1.2.rar
+開啟HID
+	左上第2顆按鈕連接
+	選擇模塊：HC-42
+	測試指令：回傳OK
+	藍牙名稱設置
+	設置模塊主機(否則連接手機會出現拒絕配對)
+	但我們用的藍芽模組通常都是從端，因為大部分我們是用手機或其他裝置來當主端連線從端的藍芽模組。
+	
+arduino教學：
+https://blog.csdn.net/weixin_63503875/article/details/121891486
+
+01.ino：
+	手機開啟Arduino BlueControl/Terminal，可雙向傳訊息
+
+
+
+
+
+

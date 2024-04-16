@@ -1,0 +1,55 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="board_initializes_setup" id="0" x="230" y="270">
+    <field name="BOARD_TYPE">ESP32</field>
+    <statement name="CONTENT">
+      <block type="serial_init" id="qNA_l{UrNN7]7[uLS8Cd">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="_01amani_i2ckeypad_init" id="9.u.7K:fD~ojAaTci6x6"></block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="_02amani_i2ckeypad_loop" id="+dXD*SrT=Pp9g}N;n-hN">
+            <next>
+              <block type="controls_if" id="qw$v2U=NeCr#gCBsktJ)">
+                <value name="IF0">
+                  <block type="_03amani_i2ckeypad_iskey" id="sPf83=LR[+3XKCIc=3=/"></block>
+                </value>
+                <statement name="DO0">
+                  <block type="serial_println" id=".1./_lP8S4?FwHByG7xz">
+                    <value name="CONTENT">
+                      <block type="_04amani_i2ckeypad_key" id="|7AJ}v,GUUH(U3QsktSp"></block>
+                    </value>
+                  </block>
+                </statement>
+                <next>
+                  <block type="controls_if" id="`59Q@|hY$o$ad(0!dw^5">
+                    <value name="IF0">
+                      <block type="_07amani_i2ckeypad_isnum" id="d^2)/qHQyv.!AYu(eHK9">
+                        <value name="c">
+                          <block type="_04amani_i2ckeypad_key" id="7WPW)0?`^e|Y]G.sb,9N"></block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="serial_println" id="WtYT.v-r}-NasoL^@(FY">
+                        <value name="CONTENT">
+                          <block type="text" id="pO1ETMLT:XNWWAny5das">
+                            <field name="TEXT">你按了數字</field>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

@@ -1,0 +1,18 @@
+可一直旋轉，不限180度
+
+//順時針
+servo.write(0);
+//逆時針
+servo.write(180);
+//停止
+servo.detach();
+//重啟旋轉
+servo.attach(3)//pin 3
+
+
+
+MG996R伺服馬達(黑色)
+褐	GND	
+紅	5V
+橘	D3(PWM)
+扭力：9.4kg/cm(4.8V), 11kg/cm(6V)

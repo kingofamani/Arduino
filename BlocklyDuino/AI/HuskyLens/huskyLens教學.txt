@@ -1,0 +1,40 @@
+安裝教學：
+https://wiki.dfrobot.com.cn/_SKU_SEN0305_Gravity__HUSKYLENS_%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E6%91%84%E5%83%8F%E5%A4%B4
+
+接法（I2C模式）：
+T	A4	SDA
+R	A5	SCL
+-	GND	GND
++	5V	VCC
+
+本功能可識別這是什麼物體，並追蹤。目前僅支援20種物體，分別為：飛機、自行車、鳥、船、瓶子、巴士、汽車、貓、椅子、牛、餐桌、狗、馬、摩托車、人、盆栽植物、羊、沙發、火車、電視。
+20種物體的英文名稱，分別為：aeroplane, bicycle, bird, boat, bottle, bus, car, cat, chair, cow, diningtable, dog, horse, motorbike, person, pottedplant, sheep, sofa, train, tvmonitor.
+
+十字顏色：
+颜色			状态
+橙→黄，再黄→橙	未学习过，待学习
+黄				正在学习中
+蓝				已学习过，且识别到学习过的东西
+
+RGB指示灯：
+颜色	状态
+蓝色	未学习过，侦测到人脸
+黄色	正在学习中
+绿色	已学习过，且识别到学习过的人脸
+
+座標：
+左上：0,0
+中間：160,120
+右下：320,240
+
+arduino教學：
+http://magiccar.let-do.com/forum.php?mod=viewthread&tid=673#:~:text=9.-,Arduino%E6%95%99%E7%A8%8B,-%E6%9C%AC%E7%AB%A0%E7%AF%80%E4%BD%BF%E7%94%A8
+
+
+
+
+
+
+
+
+

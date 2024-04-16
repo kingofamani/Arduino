@@ -1,0 +1,14 @@
+安裝 U8g2 程式庫
+
+積木：顯示模組/OLED顯示
+
+VIN	5V
+GND	GND
+SCL	A5
+SDA	A4
+
+
+
+★U8g2，會和MXL90614衝突
+如果要用MXL90614，請用另一個範例10OLED_SH1106_u8g
+

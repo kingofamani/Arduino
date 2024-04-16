@@ -1,0 +1,110 @@
+<xml version="F2" board="ESP32 Dev Module" xmlns="https://developers.google.com/blockly/xml">
+  <block type="board_initializes_setup" id="0" x="100" y="50">
+    <field name="BOARD_TYPE">ESP32</field>
+    <statement name="CONTENT">
+      <block type="serial_init" id="N:NVtrXOZp]S!(nYCZ:|">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="linkit_wifi_wait_until_ready" id="A:,}T@$$K]+6r6d|_luP">
+            <value name="SSID">
+              <block type="text" id="i]c{ou](@j}#%JRwb-/x">
+                <field name="TEXT">tyes-itc</field>
+              </block>
+            </value>
+            <value name="PASSWORD">
+              <block type="text" id="LY}NYZh,?)e_$=wT{|%-">
+                <field name="TEXT">xxxxxxxxxxxxxxx</field>
+              </block>
+            </value>
+            <next>
+              <block type="setupSheets" id="qi)R824g?0!E3x(:W,f*">
+                <value name="sheetId">
+                  <block type="text" id="mj5E(g}S-58}}clu$*tD">
+                    <field name="TEXT">xxxxxxxxxxxxxxxxxxx</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="setupForm" id="r6tayLrI0P`72A5/=fm5">
+                    <value name="sheetTag">
+                      <block type="text" id="LI@T[}8lcR2O2=!QlrAa">
+                        <field name="TEXT">count</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="searchSheet" id="e1XT=+V8HBm`@!gSertJ">
+                        <value name="Column">
+                          <block type="text" id="l9KC2Bawf}_vU=JU-DCj">
+                            <field name="TEXT">B</field>
+                          </block>
+                        </value>
+                        <value name="keyWord">
+                          <block type="text" id="G`eQ8;W(Zg`u|sn}*PTs">
+                            <field name="TEXT">王小明</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="serial_println" id="{L2y=!Xr?8+:Qv2ZGtci">
+                            <value name="CONTENT">
+                              <block type="text_join" id="fRcj%_NcgBEf7+`m3+(W">
+                                <mutation items="6"></mutation>
+                                <value name="ADD0">
+                                  <block type="text" id="enZfq:{q(8ns9]]!JmBX">
+                                    <field name="TEXT">時間：</field>
+                                  </block>
+                                </value>
+                                <value name="ADD1">
+                                  <block type="getFieldValue" id="xei,fD?|dGX@=s1U/2K@">
+                                    <value name="field">
+                                      <block type="text" id="p,]zAz8FDuQ)tsj1g4v#">
+                                        <field name="TEXT">A</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="ADD2">
+                                  <block type="text" id="R~z$[{d!=JPZSN#;@n*W">
+                                    <field name="TEXT">。姓名：</field>
+                                  </block>
+                                </value>
+                                <value name="ADD3">
+                                  <block type="getFieldValue" id="dda{QXWicm5!?ix_7VAA">
+                                    <value name="field">
+                                      <block type="text" id="|5}z%eMjW?d^L[^5x#6r">
+                                        <field name="TEXT">B</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="ADD4">
+                                  <block type="text" id=";$W,Il/(MaG7_H{;yF@/">
+                                    <field name="TEXT">。其他：</field>
+                                  </block>
+                                </value>
+                                <value name="ADD5">
+                                  <block type="getFieldValue" id=";un{AA#%mUZFU/lFWaj5">
+                                    <value name="field">
+                                      <block type="text" id="lOjCprQeKg}p=Y@ZHtHS">
+                                        <field name="TEXT">C</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1"></block>
+    </next>
+  </block>
+</xml>
