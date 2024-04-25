@@ -1,0 +1,163 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="gqIz``z5.cd[h%McCV.p">LIGHT_ON</variable>
+  </variables>
+  <block type="board_initializes_setup" id="0" x="90" y="130">
+    <field name="BOARD_TYPE">ESP32</field>
+    <statement name="CONTENT">
+      <block type="serial_init" id="7G^EVOXYXKGpT1-TXNw5">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="variables_set" id="On:(_E`B%Tb.G]N=3vV2">
+            <field name="POSITION">global</field>
+            <field name="TYPE">String</field>
+            <field name="VAR" id="gqIz``z5.cd[h%McCV.p">LIGHT_ON</field>
+            <value name="VALUE">
+              <shadow type="math_number" id="Lbj=|8a~|^f,jsn@BdBr">
+                <field name="NUM">0</field>
+              </shadow>
+              <block type="text" id="QrNUJr@8s.f~T)DW!-qV">
+                <field name="TEXT">light/on</field>
+              </block>
+            </value>
+            <next>
+              <block type="webbit_mooncar_sonar_pin" id="BsfBx?03WAx{!~x(C-EO">
+                <field name="index">0</field>
+                <value name="TRIG">
+                  <block type="math_number" id="YT|Xj%8vFu=#)-p+aJo_">
+                    <field name="NUM">4</field>
+                  </block>
+                </value>
+                <value name="ECHO">
+                  <block type="math_number" id="`)yTRyl$1?|P-%[hPRve">
+                    <field name="NUM">16</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_comment" id="bL53BiQM9n:7vedwr*`K">
+                    <value name="text">
+                      <block type="text" id="Q1*sd!Bk_:UvfAqPs1iC">
+                        <field name="TEXT">要溝通的開發板必須設定同一個頻道</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="ljj_broadcast_init" id="EetWR;kpWOB:EW~SSDV4">
+                        <value name="CHANNEL">
+                          <block type="math_number" id="b.o(i6{F0Cvm=ofZ%[,]">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="serial_print" id="KI/SQo;!v``3XAXz^^1`">
+                            <value name="CONTENT">
+                              <block type="text" id="/HfCJ$??+hc`xVifXW`l">
+                                <field name="TEXT">自己的MAC:</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="serial_println" id="!.ya_[/b#ed#ITkxGhB^">
+                                <value name="CONTENT">
+                                  <block type="ljj_broadcast_self_mac" id="t-!c{oGGO@3NOu_qxm+A"></block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="controls_if" id="}4{7Z{_`=3%78O74LNK@">
+            <value name="IF0">
+              <block type="logic_compare" id="U_uTJXfJM@z|Sj3xXwF@">
+                <field name="OP">LT</field>
+                <value name="A">
+                  <block type="webbit_mooncar_sonar" id="{IdIUpL)H[CQ-~xN4=%8">
+                    <field name="unit">1</field>
+                    <field name="index">0</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="6G.mbP{-r_NgT])Y{0}9">
+                    <field name="NUM">60</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="ljj_broadcast_sendData" id="a|(8e(b1L*);iK81hy0X">
+                <value name="MSG">
+                  <block type="variables_get" id="6R[.HqkLqQkSBU(O~*e5">
+                    <field name="VAR" id="gqIz``z5.cd[h%McCV.p">LIGHT_ON</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="serial_println" id="y.y#])4%7)Yz14oP[PJ_">
+                    <value name="CONTENT">
+                      <block type="webbit_mooncar_sonar" id="t},vw:KY.5=2U,e{U!KX">
+                        <field name="unit">1</field>
+                        <field name="index">0</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+            <next>
+              <block type="delay_custom" id="j=Le3TSZN/mn51!O1D48">
+                <value name="DELAY_TIME">
+                  <block type="math_number" id="Q;ewQ-9,Tu(30ZT/jG!2">
+                    <field name="NUM">100</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+  <block type="ljj_broadcast_on_receive" id="Mg2t4A.h?q4Wv6UF{5bE" x="710" y="390">
+    <statement name="STATEMENT_RECEIVE">
+      <block type="serial_print" id="1sk%9jD2zJ-E_USwr4B~">
+        <value name="CONTENT">
+          <block type="text" id="Ec+Dx/Ju6{*(@icSerIa">
+            <field name="TEXT">從</field>
+          </block>
+        </value>
+        <next>
+          <block type="serial_print" id=")iI[dU6QJ*p[fb67A_97">
+            <value name="CONTENT">
+              <block type="ljj_broadcast_source_mac" id="Oq`_dWGkwr+K2bUQRM;!"></block>
+            </value>
+            <next>
+              <block type="serial_print" id="qD[n@!bysSR~AKx|#VXo">
+                <value name="CONTENT">
+                  <block type="text" id="0Y6fniD?B=7DY,[/#QJ}">
+                    <field name="TEXT">傳來:</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="serial_println" id="NfVW4V}j#A!n!%{vEZ[n">
+                    <value name="CONTENT">
+                      <block type="ljj_broadcast_msg" id="N%_Yfy@tn~s;tWU0W4l+"></block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>
