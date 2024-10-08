@@ -1,0 +1,7 @@
+LINE Notify結束服務公告
+2025年3月31日結束本服務
+
+改用Line Message API
+
+金鑰：
+創客\金鑰\lineMessageAPI.txt

@@ -1,0 +1,19 @@
+  <block type="_01amani_linepushapi_init">
+    <value name="userid">
+      <block type="text">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="token">
+      <block type="text">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+  </block>
+  <block type="_02amani_linepushapi_msg">
+    <value name="msg">
+      <block type="text">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+  </block>
