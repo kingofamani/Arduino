@@ -1,13 +1,22 @@
-教學：
-https://jimirobot.tw/esp32-mosquitto-conf-mqtt-tutorial/
+啟動server(開啟PowerShell)：
+& "C:\Program Files\mosquitto\mosquitto.exe" -c "C:\Program Files\mosquitto\mosquitto.conf" -v
 
+server端教學：
+https://jimirobot.tw/esp32-mosquitto-windows-mqtt-tutorial/
+Mosquitto server下載：
+https://mosquitto.org/download/
+
+client端教學：
+https://jimirobot.tw/esp32-mosquitto-conf-mqtt-tutorial/
 連線測試軟體：MQTT Explorer
 https://mqtt-explorer.com/
+
+PowerShell以管理員身份開啟
 
 esp32範例：MqttClientSample.ino
 mqtt_broker：要查詢架Server的電腦區網IP
 
 如何查詢Server區網IP？
-cmd下輸入ipconfig -all，找到「IP4位址」
+cmd下輸入ipconfig -all，找到「無線區域網路介面卡 Wi-Fi/IP4位址」
 
 
