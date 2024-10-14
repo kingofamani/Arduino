@@ -1,0 +1,31 @@
+<category id="category_custom" name="ESP32 joystick搖桿" colour="270">
+	  <block type="_01amani_esp32joystick_init" >
+    <field name="angle">0</field>
+    <field name="order">1</field>
+    <value name="xpin">
+      <block type="math_number">
+        <field name="NUM">4</field>
+      </block>
+    </value>
+    <value name="ypin">
+      <block type="math_number">
+        <field name="NUM">14</field>
+      </block>
+    </value>
+    <value name="swpin">
+      <block type="math_number">
+        <field name="NUM">13</field>
+      </block>
+    </value>
+  </block>
+  <block type="_02amani_esp32joystick_dir" >
+    <field name="order">1</field>
+  </block>
+  <block type="_03amani_esp32joystick_isdir" >
+    <field name="direct">u</field>
+    <field name="order">1</field>
+  </block>
+  <block type="_04amani_esp32joystick_sw">
+    <field name="order">1</field>
+  </block>
+</category>

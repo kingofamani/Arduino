@@ -1,0 +1,861 @@
+<xml xmlns="https://developers.google.com/blockly/xml"><block type="factory_base" id="!=$Ls|yd1URMr;nVvZ|4" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_01amani_i2ckeypad_init</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="Ra{QJJ^]35Cm3Ual]J.;">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="b^Dc1}]KRr/E-)_]/,Z4">
+            <field name="TEXT">I2C的4x4鍵盤 初始化</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="me0zwy_AD/_%^4BcC)J*" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id=":ZP99Q@r42(RG|2p:),Z" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="R0nayXc=Y#qA/nVFuvkn"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="7m~Z?H*49T~0n)(pOaxk"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="DOjx#`_=(y?SR~oX?t6p">
+        <mutation colour="#67a55b"></mutation>
+        <field name="HUE">110</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="fPQ|qJWab5aOBO)fP6**" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_02amani_i2ckeypad_loop</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="zyBb?vaDv(c+CdKP3I1e">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="Xxy|$4UK+q*p~x=TPv/e">
+            <field name="TEXT">I2C的4x4鍵盤 Loop區</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="B8b_Et?D3hi-st6rIotW" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="a6w;PYSR!vu01`|A/:=%" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="+T(3UX/k3=Ho~.{0=8}v"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="i$P2VhDjV;:}l|n+d+;A"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="9TZ{NZ`v)YH!hbr/IReV">
+        <mutation colour="#67a55b"></mutation>
+        <field name="HUE">110</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="O!(beReKYQkU#t0DY-$9" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">_03amani_i2ckeypad_iskey</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="=gvcKb934~O3#vHaF{o[">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="!@zG{tP!(.dNqLQV$8|@">
+            <field name="TEXT">有按下按鍵</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="Wje}QuhhU+LE-q$Z%n~m" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="+J=;(e,j*HFj2U^5MoD}" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="#l2Ndz(z.g5FYMRy.=Lp"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="}H#aq2gBuI*0~r2u0yeX">
+        <mutation colour="#67a55b"></mutation>
+        <field name="HUE">110</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="z{a6FLbbqj_jHYna9PlS" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">_04amani_i2ckeypad_key</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="c?I]$_.E|vdyp3i{ebxb">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="3tooX-]NEmqz,h1NpjyY">
+            <field name="TEXT">取得按鍵值</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="_ok8`?sIOU+BMSXHyf7|" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="Y`P6f`c`=^GI1!3142YN" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="!nj0=?^c)GLu%[/AJ~`V"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="r5]l]GZ3]#Ki^/+#N*V;">
+        <mutation colour="#67a55b"></mutation>
+        <field name="HUE">110</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="qM0)yuBN6+06u-ku3m{," deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_05amani_i2ckeypad_keynull</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="x!wxO2zM=f.1QVFI}hne">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="WBHbH.)d.W|A:KYW~d^6">
+            <field name="TEXT">按鍵值清空</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="=uw`7)Ln-.BSffOFBDp+" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="ThEt4moSi|7W7[HM7e%e" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="PjpfykwWDlIs+bk?]6.D"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="!OrR+m`fDXU9+pPcB$x="></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="b:!A3eJ_w7a66):#oeZo">
+        <mutation colour="#67a55b"></mutation>
+        <field name="HUE">110</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="Oy1u7}v+sg,Kw|8bL%EU" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">_06amani_i2ckeypad_funcnum</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="9T;.n-i5U*NYZIeaQb#Q">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="9H4-nLP6=S$#W]E$.5AP">
+            <field name="TEXT">按鍵值char轉換成數值int</field>
+          </block>
+        </statement>
+        <next>
+          <block type="input_value" id="/MSQ=bL7p~GSf!0SV+2o">
+            <field name="INPUTNAME">c</field>
+            <field name="ALIGN">LEFT</field>
+            <value name="TYPE">
+              <shadow type="type_null" id="zctM/`pFpZ}]t/QGWgKw"></shadow>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="h$=YJ`6b-Rf;-B=dBMa0" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="zZ_3GXT#VhC=-5Bq8;{I" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="|]89$k{Cz?wuV/w?Tk3,"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="|b!pRwhQ?!0#*DM|?)ni">
+        <mutation colour="#67a55b"></mutation>
+        <field name="HUE">110</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="y8D66z)e8=l=tY}PszA7" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">_07amani_i2ckeypad_isNum</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="}DR!o4?lw(1dWM~qF89l">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="YB.9$,c9`E73L3jF(vl[">
+            <field name="TEXT">按鍵值是數字</field>
+          </block>
+        </statement>
+        <next>
+          <block type="input_value" id="zO=H.)j#0GpgN.[189ya">
+            <field name="INPUTNAME">NAME</field>
+            <field name="ALIGN">LEFT</field>
+            <value name="TYPE">
+              <shadow type="type_null" id="v/4Q4bqtL?fy3is~y$m:"></shadow>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="[[IZZS0U{6aVWnw!kOIF" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="{U?)oLOoMes-vYl[3mr." deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="aZ1/vq38U*uGR{AX:H%;"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="2nYO[76p2w|vNiG3Ey4a">
+        <mutation colour="#67a55b"></mutation>
+        <field name="HUE">110</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="Qt~.mPf/F*H+|XW~D%=y" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="NONE"></mutation>
+    <field name="NAME">01</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">NONE</field>
+    <statement name="INPUTS">
+      <block type="input_value" id="WE#(Y0V?3Rr9h/U^pe[*">
+        <field name="INPUTNAME">switch</field>
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_dropdown" id=";jhV-NPuxA)nS6vs?]|v">
+            <mutation options="[&quot;text&quot;,&quot;text&quot;]"></mutation>
+            <field name="FIELDNAME">switch</field>
+            <field name="USER0">暫停</field>
+            <field name="CPU0">disable</field>
+            <field name="USER1">開始</field>
+            <field name="CPU1">enable</field>
+          </block>
+        </statement>
+        <value name="TYPE">
+          <shadow type="type_null" id="TgZf?%/~aoz.1+_7h+rC"></shadow>
+        </value>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="s[7/tJRR7eGu0/}yL:?T" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="kPp:5|#DHoHt3LVMru!_" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="`%I$.rYVQuDuG$`nmd%n">
+        <mutation colour="#5b67a5"></mutation>
+        <field name="HUE">230</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="Qt~.mPf/F*H+|XW~D%=y" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="NONE"></mutation>
+    <field name="NAME">02</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">NONE</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="E?z3jPoWzRpztW$`PN.t">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id=",Ka+)~}pP?ZB*F!;ybqC">
+            <field name="TEXT">序號</field>
+            <next>
+              <block type="field_dropdown" id="_FsF~@|o!iJnmgRmAJCU">
+                <mutation options="[&quot;text&quot;,&quot;text&quot;,&quot;text&quot;]"></mutation>
+                <field name="FIELDNAME">order</field>
+                <field name="USER0">1</field>
+                <field name="CPU0">1</field>
+                <field name="USER1">2</field>
+                <field name="CPU1">2</field>
+                <field name="USER2">3</field>
+                <field name="CPU2">3</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="input_value" id="WE#(Y0V?3Rr9h/U^pe[*">
+            <field name="INPUTNAME">switch</field>
+            <field name="ALIGN">LEFT</field>
+            <statement name="FIELDS">
+              <block type="field_dropdown" id=";jhV-NPuxA)nS6vs?]|v">
+                <mutation options="[&quot;text&quot;,&quot;text&quot;]"></mutation>
+                <field name="FIELDNAME">switch</field>
+                <field name="USER0">暫停</field>
+                <field name="CPU0">disable</field>
+                <field name="USER1">開始</field>
+                <field name="CPU1">enable</field>
+              </block>
+            </statement>
+            <value name="TYPE">
+              <shadow type="type_null" id="TgZf?%/~aoz.1+_7h+rC"></shadow>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="s[7/tJRR7eGu0/}yL:?T" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="kPp:5|#DHoHt3LVMru!_" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="`%I$.rYVQuDuG$`nmd%n">
+        <mutation colour="#5b67a5"></mutation>
+        <field name="HUE">230</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="Qt~.mPf/F*H+|XW~D%=y" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="NONE"></mutation>
+    <field name="NAME">03</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">NONE</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="E?z3jPoWzRpztW$`PN.t">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id=",Ka+)~}pP?ZB*F!;ybqC">
+            <field name="TEXT">序號</field>
+            <next>
+              <block type="field_dropdown" id="_FsF~@|o!iJnmgRmAJCU">
+                <mutation options="[&quot;text&quot;,&quot;text&quot;,&quot;text&quot;]"></mutation>
+                <field name="FIELDNAME">order</field>
+                <field name="USER0">1</field>
+                <field name="CPU0">1</field>
+                <field name="USER1">2</field>
+                <field name="CPU1">2</field>
+                <field name="USER2">3</field>
+                <field name="CPU2">3</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="input_value" id="WE#(Y0V?3Rr9h/U^pe[*">
+            <field name="INPUTNAME">switch</field>
+            <field name="ALIGN">LEFT</field>
+            <statement name="FIELDS">
+              <block type="field_dropdown" id=";jhV-NPuxA)nS6vs?]|v">
+                <mutation options="[&quot;text&quot;,&quot;text&quot;]"></mutation>
+                <field name="FIELDNAME">switch</field>
+                <field name="USER0">暫停</field>
+                <field name="CPU0">disable</field>
+                <field name="USER1">開始</field>
+                <field name="CPU1">enable</field>
+              </block>
+            </statement>
+            <value name="TYPE">
+              <shadow type="type_null" id="TgZf?%/~aoz.1+_7h+rC"></shadow>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="s[7/tJRR7eGu0/}yL:?T" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="kPp:5|#DHoHt3LVMru!_" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="`%I$.rYVQuDuG$`nmd%n">
+        <mutation colour="#5b67a5"></mutation>
+        <field name="HUE">230</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="`73])#VKrU!YcDjfN7a?" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_01amani_linepushapi_init</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id=";|{}7hvQLj;*@ZxpdWk#">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="~y#9.dmM.!8/-SxvzmQ4">
+            <field name="TEXT">LinePushAPI通知 使用者ID</field>
+          </block>
+        </statement>
+        <next>
+          <block type="input_value" id="ad/$+D_+KWf$P_XF?3Q5">
+            <field name="INPUTNAME">userID</field>
+            <field name="ALIGN">LEFT</field>
+            <value name="TYPE">
+              <shadow type="type_null" id="die{yl}QDv7wjA{IE`8+"></shadow>
+            </value>
+            <next>
+              <block type="input_dummy" id="bxUs-3[fM2}qAk66TS[w">
+                <field name="ALIGN">LEFT</field>
+                <statement name="FIELDS">
+                  <block type="field_static" id="D0U|^0-]G..z`*)Rc@]Q">
+                    <field name="TEXT">權仗</field>
+                  </block>
+                </statement>
+                <next>
+                  <block type="input_value" id="^oZA*s.:?jUSwli;UP~h">
+                    <field name="INPUTNAME">token</field>
+                    <field name="ALIGN">LEFT</field>
+                    <value name="TYPE">
+                      <shadow type="type_null" id="BWf-rDd_GOLMHhozrcXL"></shadow>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="o;`]@Wq=VpZ}]0yUdWxX" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="Z)vr;udc%XYw,%jpin7#" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="68!g`Na^bRtbqea/Qvl;"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="r?m{1;V4Gqk+7B[$rVev"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="a3Uc+$uSXq-=/CxOvEAd">
+        <mutation colour="#5ba56d"></mutation>
+        <field name="HUE">135</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="zRk0AH%#Qi1nnH93s?~A" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_02amani_linepushapi_msg</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="e/Q#QWU{GE+$0lHfdV{C">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="5zsIBCn$G.LqQkXbF^$n">
+            <field name="TEXT">LinePushAPI通知 傳送文字訊息</field>
+          </block>
+        </statement>
+        <next>
+          <block type="input_value" id="+V|+!uHTw:cT:3/Wd%f#">
+            <field name="INPUTNAME">msg</field>
+            <field name="ALIGN">LEFT</field>
+            <value name="TYPE">
+              <shadow type="type_null" id="tn1d7$!l-U(,.P4v6ePE"></shadow>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="rg;L03V!Hw%xp9EC~{~8" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="A7;5[LM6zQgfiiHo%vh:" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="SMN3%)rnK4vq9GNFLq~F"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="D/Frdmu?w*cc_Mtt+9DA"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="nf]`WK*O]|}U9TE`j`pL">
+        <mutation colour="#5ba56d"></mutation>
+        <field name="HUE">135</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="{9;ZS.KlGXnMG/F1Bmv~" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_01amani_esp32joystick_init</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="VO:!mS9QM)s){p.Ff;#:">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="U*f;bO!lk;^7X{x7zhqn">
+            <field name="TEXT">ESP32 Joystick(3.3v)搖桿 初始化X</field>
+          </block>
+        </statement>
+        <next>
+          <block type="input_value" id="(N;Y*=vM7;=.:3Gf(U6#">
+            <field name="INPUTNAME">xpin</field>
+            <field name="ALIGN">LEFT</field>
+            <value name="TYPE">
+              <shadow type="type_null" id="r=qeo23/`Rt_J}NJaS_@"></shadow>
+            </value>
+            <next>
+              <block type="input_dummy" id="GTh.fKpv4yj12M9vuL)q">
+                <field name="ALIGN">LEFT</field>
+                <statement name="FIELDS">
+                  <block type="field_static" id="G;rP2?]nZfs;vrAoEo=q">
+                    <field name="TEXT">,Y</field>
+                  </block>
+                </statement>
+                <next>
+                  <block type="input_value" id="aEvZd!-k-}*o)Sd]MU3!">
+                    <field name="INPUTNAME">ypin</field>
+                    <field name="ALIGN">LEFT</field>
+                    <value name="TYPE">
+                      <shadow type="type_null" id="{u7{f]u:(g5JGsRL@a=?"></shadow>
+                    </value>
+                    <next>
+                      <block type="input_dummy" id="]DWGQ3]o7)8;g-0@nW{W">
+                        <field name="ALIGN">LEFT</field>
+                        <statement name="FIELDS">
+                          <block type="field_static" id="gr(WO,!37U~dB/U)l[iw">
+                            <field name="TEXT">,按鈕</field>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="input_value" id="4V|(0LHid24F7[:(^`2[">
+                            <field name="INPUTNAME">swpin</field>
+                            <field name="ALIGN">LEFT</field>
+                            <value name="TYPE">
+                              <shadow type="type_null" id="H[0)j0PftVGD{m@m)f2T"></shadow>
+                            </value>
+                            <next>
+                              <block type="input_dummy" id="x0fTTA!]KF@iFl(,R0q]">
+                                <field name="ALIGN">LEFT</field>
+                                <statement name="FIELDS">
+                                  <block type="field_static" id="A3dHD@+t1DpZZlGKJ*g|">
+                                    <field name="TEXT">,旋轉</field>
+                                    <next>
+                                      <block type="field_dropdown" id="VT.bx1b!4d%B{QhSqk_R">
+                                        <mutation options="[&quot;text&quot;,&quot;text&quot;,&quot;text&quot;,&quot;text&quot;]"></mutation>
+                                        <field name="FIELDNAME">angle</field>
+                                        <field name="USER0">0°</field>
+                                        <field name="CPU0">0</field>
+                                        <field name="USER1">90°</field>
+                                        <field name="CPU1">90</field>
+                                        <field name="USER2">180°</field>
+                                        <field name="CPU2">180</field>
+                                        <field name="USER3">270°</field>
+                                        <field name="CPU3">270</field>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </statement>
+                                <next>
+                                  <block type="input_dummy" id="a=h%;UiD0G.C*r1Co,WD">
+                                    <field name="ALIGN">LEFT</field>
+                                    <statement name="FIELDS">
+                                      <block type="field_static" id="05v!y/ex0oD)k7!2|.9m">
+                                        <field name="TEXT">,編號</field>
+                                        <next>
+                                          <block type="field_dropdown" id="N6/cNhqfwxC4,|.R7Ju+">
+                                            <mutation options="[&quot;text&quot;,&quot;text&quot;,&quot;text&quot;,&quot;text&quot;]"></mutation>
+                                            <field name="FIELDNAME">order</field>
+                                            <field name="USER0">第1個搖桿</field>
+                                            <field name="CPU0">1</field>
+                                            <field name="USER1">第2個搖桿</field>
+                                            <field name="CPU1">2</field>
+                                            <field name="USER2">第3個搖桿</field>
+                                            <field name="CPU2">3</field>
+                                            <field name="USER3">第4個搖桿</field>
+                                            <field name="CPU3">4</field>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </statement>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="b,h$r_.p-hFIC=NL)+-V" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="S}KJw^2Jdrs[([q!9AOq" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="RKpR~se#)/hhD;hd}p~a"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="3yD+bDmBrqc@Hky6^O$`"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="3~jT1V;Yt[3@+e2qyHM@">
+        <mutation colour="#805ba5"></mutation>
+        <field name="HUE">270</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="3?lmccP#~}u;]HvR7Y:C" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">_02amani_esp32joystick_dir</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id=")UMdoBOl)3k_cGYwMakm">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="o!nRk8/#tK$vZ.HLw+S(">
+            <field name="TEXT">取得搖桿方向</field>
+          </block>
+        </statement>
+        <next>
+          <block type="input_dummy" id="A^fnh@c=gw-NOV2k9xp{">
+            <field name="ALIGN">LEFT</field>
+            <statement name="FIELDS">
+              <block type="field_static" id="L[-5+.Rf|HDiTafpOSQN">
+                <field name="TEXT">,編號</field>
+                <next>
+                  <block type="field_dropdown" id=".gRBa=?h8C)~xr-uFhIN">
+                    <mutation options="[&quot;text&quot;,&quot;text&quot;,&quot;text&quot;,&quot;text&quot;]"></mutation>
+                    <field name="FIELDNAME">order</field>
+                    <field name="USER0">第1個搖桿</field>
+                    <field name="CPU0">1</field>
+                    <field name="USER1">第2個搖桿</field>
+                    <field name="CPU1">2</field>
+                    <field name="USER2">第3個搖桿</field>
+                    <field name="CPU2">3</field>
+                    <field name="USER3">第4個搖桿</field>
+                    <field name="CPU3">4</field>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="bN*fmpvIlLY5Y5]uio@R" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="SBdatzM}NJ~df=+0|J``" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="/2bnzyr_C|JD[aQnnsz_"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="Rrh}o?Y[)qSj~Lz*AY%=">
+        <mutation colour="#805ba5"></mutation>
+        <field name="HUE">270</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="[/5sDkft%Y^9|o5thX:7" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">_03amani_esp32joystick_isdir</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="R6Zx!bi(H3Ds^F3Rz#Sh">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="y/}FQQpl|J()*o49OBBt">
+            <field name="TEXT">如果搖桿 方向是</field>
+            <next>
+              <block type="field_dropdown" id=",TxEvP=GgO(K`gYNb3)-">
+                <mutation options="[&quot;text&quot;,&quot;text&quot;,&quot;text&quot;,&quot;text&quot;,&quot;text&quot;,&quot;text&quot;,&quot;text&quot;,&quot;text&quot;,&quot;text&quot;]"></mutation>
+                <field name="FIELDNAME">direct</field>
+                <field name="USER0">↑</field>
+                <field name="CPU0">u</field>
+                <field name="USER1">↓</field>
+                <field name="CPU1">d</field>
+                <field name="USER2">←</field>
+                <field name="CPU2">l</field>
+                <field name="USER3">→</field>
+                <field name="CPU3">r</field>
+                <field name="USER4">↖</field>
+                <field name="CPU4">ul</field>
+                <field name="USER5">↙</field>
+                <field name="CPU5">dl</field>
+                <field name="USER6">↘</field>
+                <field name="CPU6">dr</field>
+                <field name="USER7">↗</field>
+                <field name="CPU7">ur</field>
+                <field name="USER8">中間</field>
+                <field name="CPU8"></field>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="input_dummy" id="H](QwI((]r(dG3xN$S:H">
+            <field name="ALIGN">LEFT</field>
+            <statement name="FIELDS">
+              <block type="field_static" id="/uA85LhQs~xv_Cs:Mo?R">
+                <field name="TEXT">,編號</field>
+                <next>
+                  <block type="field_dropdown" id="O[no,~MXzb;_Mq!w%tE#">
+                    <mutation options="[&quot;text&quot;,&quot;text&quot;,&quot;text&quot;,&quot;text&quot;]"></mutation>
+                    <field name="FIELDNAME">order</field>
+                    <field name="USER0">第1個搖桿</field>
+                    <field name="CPU0">1</field>
+                    <field name="USER1">第2個搖桿</field>
+                    <field name="CPU1">2</field>
+                    <field name="USER2">第3個搖桿</field>
+                    <field name="CPU2">3</field>
+                    <field name="USER3">第4個搖桿</field>
+                    <field name="CPU3">4</field>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="Zi4L^I6%xa?X}^B7z9~z" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="G%Y0Mtr(CA}k7T^}xO0y" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="?P2XP(7T4nPqfQ=P)#`k"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="wGXhb0B8*a=6Sf9r`z3d">
+        <mutation colour="#805ba5"></mutation>
+        <field name="HUE">270</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="}Za;%tYstV26q301+|]T" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">_04amani_esp32joystick_sw</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="nG(]TDz*l}1%%|kX(~2,">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="[]vi###gnv1DXJ6x[VcT">
+            <field name="TEXT">取得按鈕值,編號</field>
+            <next>
+              <block type="field_dropdown" id="SV55T,Ed!zo8CyzwU]@p">
+                <mutation options="[&quot;text&quot;,&quot;text&quot;,&quot;text&quot;,&quot;text&quot;]"></mutation>
+                <field name="FIELDNAME">order</field>
+                <field name="USER0">第1個搖桿</field>
+                <field name="CPU0">1</field>
+                <field name="USER1">第2個搖桿</field>
+                <field name="CPU1">2</field>
+                <field name="USER2">第3個搖桿</field>
+                <field name="CPU2">3</field>
+                <field name="USER3">第4個搖桿</field>
+                <field name="CPU3">4</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="60vWn[`m[NsJ:wO^WzCz" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="]_aebD%UYgEhCFLV#nm-" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="5UM[S9cIdj)ZdR4q+Y;#"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="g#{Y9_*M1bt}v?FEj?LG">
+        <mutation colour="#805ba5"></mutation>
+        <field name="HUE">270</field>
+      </block>
+    </value>
+  </block></xml>
