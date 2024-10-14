@@ -1,0 +1,81 @@
+<xml version="F2" board="Arduino Uno" xmlns="https://developers.google.com/blockly/xml">
+  <block type="board_initializes_setup" id="0" x="100" y="50">
+    <field name="BOARD_TYPE">Arduino</field>
+    <statement name="CONTENT">
+      <block type="amani_joystick_init" id="ls9Bsw*72U0I5MsccF-e">
+        <field name="xPin">A5</field>
+        <field name="yPin">A0</field>
+        <value name="swPin">
+          <block type="math_number" id="E1PPri:OX26`17apVJu#">
+            <field name="NUM">12</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="serial_println" id="EN0K3P|vd$TVfUV(lzz|">
+            <value name="CONTENT">
+              <block type="amani_joystick_direct" id="kvWU,wySDx4Hh01OZ[|s">
+                <field name="direct">Up</field>
+              </block>
+            </value>
+            <next>
+              <block type="serial_println" id="E#+uutw50GT-hw)~BrIo">
+                <value name="CONTENT">
+                  <block type="amani_joystick_direct" id="XMwl-|3[=PDk5s%3wvzf">
+                    <field name="direct">Down</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="serial_println" id="ef}2e[x1?n*@xJsgav6_">
+                    <value name="CONTENT">
+                      <block type="amani_joystick_direct" id="+f7vOwfkcn,o3W+{]G7G">
+                        <field name="direct">Left</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_println" id="W!H-v(u9CjM$d1OF)Iet">
+                        <value name="CONTENT">
+                          <block type="amani_joystick_direct" id=";K:W]lb~UE7d;e-|B@qe">
+                            <field name="direct">Right</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="serial_println" id="4}=RV2-Vv[;^;?5C*`_C">
+                            <value name="CONTENT">
+                              <block type="amani_joystick_switch" id="?3{B?`OK#d%z,s#^`wrJ"></block>
+                            </value>
+                            <next>
+                              <block type="serial_println" id="~o3s;6j`l%8BRjIcs5my">
+                                <value name="CONTENT">
+                                  <block type="text" id="^4DRzS;E!|sot?v^^35@">
+                                    <field name="TEXT">---------------------------</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="delay_custom" id="VA+AOZN[xy0SAB.0b09?">
+                                    <value name="DELAY_TIME">
+                                      <block type="math_number" id="D?Hy.{k04XWPQeYf]Z5i">
+                                        <field name="NUM">500</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>
