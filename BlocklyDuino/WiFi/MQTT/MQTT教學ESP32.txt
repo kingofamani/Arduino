@@ -1,7 +1,14 @@
 使用ESP32，不能用ESP8266
-BlocklyDuino積木不能用
 
---------註冊----------
+範例：
+00：
+	使用自架的MQTT Server(在學校筆電)
+	使用吉哥積木
+01~04：
+	使用HiveMQ Cloud
+	不使用積木
+
+--------HiveMQ註冊----------
 一、platform/HiveMQ Cloud/sign up free，用google登入
 
 二、在Access Management輸入username,password
@@ -17,7 +24,7 @@ BlocklyDuino積木不能用
 
 三、安裝pubsubclient by Nick O'Leary程式庫
 	
---------測試網頁----------
+--------HiveMQ測試網頁----------
 https://console.hivemq.cloud/
 點右上角「WEB CLIENT」
 輸入帳密按「CONNECT CLIENT」
@@ -25,7 +32,7 @@ https://console.hivemq.cloud/
 	car/map
 	car/goods
 
---------測試APP----------
+--------HiveMQ測試APP----------
 IoT MQTT Panel
 
 
