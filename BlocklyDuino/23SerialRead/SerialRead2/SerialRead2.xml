@@ -1,0 +1,95 @@
+<xml version="F1" board="Arduino Uno" xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="U^RXnSVF/HJyaHt+w)k!">key</variable>
+    <variable id="^cPP|v=N@qFoY+P%USl-">num</variable>
+  </variables>
+  <block type="board_initializes_setup" id="0" x="100" y="50">
+    <field name="BOARD_TYPE">Arduino</field>
+    <statement name="CONTENT">
+      <block type="serial_init" id="uE%6RII}TLoEBLy.ulwg">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="variables_set" id="_zpRKZ:/m#wHM)}dDdIx">
+            <field name="POSITION">global</field>
+            <field name="TYPE">char</field>
+            <field name="VAR" id="U^RXnSVF/HJyaHt+w)k!">key</field>
+            <value name="VALUE">
+              <shadow type="math_number" id="a?%)[9BSepz_q7`z};SD">
+                <field name="NUM">0</field>
+              </shadow>
+              <block type="text_quotationmark" id="jj$nov+nYq:i/7LlYqim">
+                <field name="TEXT"> </field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="3k3BCsVUhkGxhF7(D/60">
+                <field name="POSITION">global</field>
+                <field name="TYPE">String</field>
+                <field name="VAR" id="^cPP|v=N@qFoY+P%USl-">num</field>
+                <value name="VALUE">
+                  <shadow type="math_number" id="7l/.EnFh2DB.u~kI;16+">
+                    <field name="NUM">0</field>
+                  </shadow>
+                  <block type="text" id="W`h/u7)/@ufR@I;_zoZt">
+                    <field name="TEXT"></field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="controls_if" id="bH];BWRNB@s5F1:u4-{.">
+            <value name="IF0">
+              <block type="logic_compare" id="Z+]RY=!ry|p@:O4VQ6J7">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="serial_available" id="Lou`Wpd^!OHjnovq+eIB"></block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="`fo]HckV4s0_d{mVQ3fP">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="variables_set3" id="mlG|K|N3=@gAqW1q#,UH">
+                <field name="VAR" id="U^RXnSVF/HJyaHt+w)k!">key</field>
+                <value name="DELTA">
+                  <shadow type="math_number" id="U{s]9dYYr7i@qJg]/[{c">
+                    <field name="NUM">0</field>
+                  </shadow>
+                  <block type="serial_read" id="uPL%pSQ:GA{]2m0*Sm=9"></block>
+                </value>
+                <next>
+                  <block type="text_append" id="f0+Q3.-L#:*ij4fZB)`n">
+                    <field name="VAR" id="^cPP|v=N@qFoY+P%USl-">num</field>
+                    <value name="TEXT">
+                      <block type="variables_get" id=":6-blP,u-;?7[Il!e0/@">
+                        <field name="VAR" id="U^RXnSVF/HJyaHt+w)k!">key</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_println" id=":8PEx-vs6H2DYt7;s?a|">
+                        <value name="CONTENT">
+                          <block type="variables_get" id="{EWFbS3gq4#U{aO%Ev-`">
+                            <field name="VAR" id="^cPP|v=N@qFoY+P%USl-">num</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

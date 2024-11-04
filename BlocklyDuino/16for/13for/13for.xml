@@ -1,0 +1,117 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="c(X)Hd2v94-rW~eQ__g1">i</variable>
+    <variable id="WlVyAe(oHN{W#j}P~Ykx">num</variable>
+    <variable id="gEi3hEa|w2e5bkSvRR9G">j</variable>
+  </variables>
+  <block type="initializes_setup" id="155" x="88" y="-62">
+    <comment pinned="true" h="175" w="449">★
+★★★
+★★★★★
+★★★★★★★
+★★★★★★★★★
+    
+    </comment>
+    <statement name="CONTENT">
+      <block type="serial_init" id="164">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="controls_for" id="218">
+            <field name="VAR" id="c(X)Hd2v94-rW~eQ__g1">i</field>
+            <value name="FROM">
+              <block type="math_number" id="219">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <value name="TO">
+              <block type="math_number" id="220">
+                <field name="NUM">5</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="variables_set" id="280">
+                <field name="POSITION">local</field>
+                <field name="TYPE">int</field>
+                <field name="VAR" id="WlVyAe(oHN{W#j}P~Ykx">num</field>
+                <value name="VALUE">
+                  <block type="math_arithmetic" id="262">
+                    <field name="OP">MULTIPLY</field>
+                    <value name="A">
+                      <block type="variables_get" id="251">
+                        <field name="VAR" id="c(X)Hd2v94-rW~eQ__g1">i</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="273">
+                        <field name="NUM">2</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set3" id="_XoxYMDp|lVkkRH/6[~Z">
+                    <field name="VAR" id="WlVyAe(oHN{W#j}P~Ykx">num</field>
+                    <value name="DELTA">
+                      <shadow type="math_number" id="Z9p6S^h2dsHK8/xNH|Jo">
+                        <field name="NUM">0</field>
+                      </shadow>
+                      <block type="math_arithmetic" id="300">
+                        <field name="OP">MINUS</field>
+                        <value name="A">
+                          <block type="variables_get" id="301">
+                            <field name="VAR" id="WlVyAe(oHN{W#j}P~Ykx">num</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="302">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="controls_for" id="241">
+                        <field name="VAR" id="gEi3hEa|w2e5bkSvRR9G">j</field>
+                        <value name="FROM">
+                          <block type="math_number" id="242">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                        <value name="TO">
+                          <block type="variables_get" id="312">
+                            <field name="VAR" id="WlVyAe(oHN{W#j}P~Ykx">num</field>
+                          </block>
+                        </value>
+                        <statement name="DO">
+                          <block type="serial_print" id="209" inline="false">
+                            <value name="CONTENT">
+                              <block type="text" id="210">
+                                <field name="TEXT">★</field>
+                              </block>
+                            </value>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="serial_println" id="200" inline="false">
+                            <value name="CONTENT">
+                              <block type="text" id="201">
+                                <field name="TEXT"></field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="156"></block>
+    </next>
+  </block>
+</xml>

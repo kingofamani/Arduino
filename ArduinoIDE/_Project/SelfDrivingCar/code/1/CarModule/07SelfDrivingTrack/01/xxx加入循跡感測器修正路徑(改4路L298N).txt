@@ -1,0 +1,25 @@
+改用Mega板
+
+循跡感測器範例：
+BlocklyDuino\IrrTrack\4way
+
+UART通訊範例：
+UNO：
+BlocklyDuino\WiFi\ESP\32\ESP32S2\01UartConnect\01UartConnectArduinoUNO
+ESP32：
+BlocklyDuino\WiFi\ESP\32\ESP32\UartESP32\Esp32Get
+
+
+UNO			ESP32
+RX(pin0) ↔	TX(GPIO17)
+TX(pin1) ↔	RX(GPIO16)
+GND		 ↔	GND
+★★★UNO程式要更新上傳時，要將pin0拔除才能上傳成功！
+
+
+
+
+
+
+
+

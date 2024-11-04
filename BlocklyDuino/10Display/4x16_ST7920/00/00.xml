@@ -1,0 +1,139 @@
+<xml version="F2" board="Arduino Uno" xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="ex?8fXO)fX.O|^0*E94r">str1</variable>
+    <variable id="h0T^#n@`1-=|nD{6bep;">str2</variable>
+  </variables>
+  <block type="board_initializes_setup" id="0" x="170" y="90">
+    <field name="BOARD_TYPE">Arduino</field>
+    <statement name="CONTENT">
+      <block type="variables_set1" id="4BY;sf{ba3;tVGhua2_4">
+        <field name="POSITION">global</field>
+        <field name="TYPE">unsigned char</field>
+        <field name="VAR" id="ex?8fXO)fX.O|^0*E94r">str1</field>
+        <value name="LEN">
+          <block type="math_number" id="i`pb[vWH)RYZXb+6dHl2">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <value name="VALUE">
+          <shadow type="text" id=";{|]6wHe0d_.Od//Xp(X">
+            <field name="TEXT"></field>
+          </shadow>
+          <block type="customcode_code_input" id="FZiWG[z]wNs`7p.wFWNA">
+            <value name="text">
+              <block type="text" id="XTSl@:pQUZFkbd78Y~Ry">
+                <field name="TEXT">0xB5, 0xC2,0xA1,0xA1, 0xD2, 0xF4</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set1" id="l:2HBwI^JY*qI;Uzh2SU">
+            <field name="POSITION">global</field>
+            <field name="TYPE">unsigned char</field>
+            <field name="VAR" id="h0T^#n@`1-=|nD{6bep;">str2</field>
+            <value name="LEN">
+              <block type="math_number" id="vrtaiJJ(0j2%^14Im7;r">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <value name="VALUE">
+              <shadow type="text" id="8v~`T=_BT+2J|^CGvF;#">
+                <field name="TEXT"></field>
+              </shadow>
+              <block type="text" id="p=o`Xj=WmVZIHH.YWcLh">
+                <field name="TEXT">tyes.ntpc.edu.tw</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="amani_st7920lcd_string" id="q0.Dv5k2lW70y02JP2xF">
+            <value name="row">
+              <block type="math_number" id="inSb8tTt1cF-u`ePHGAy">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <value name="col">
+              <block type="math_number" id="5*{VvJt%u)d^?|Sycagw">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <value name="str">
+              <block type="variables_get" id="{3cI}u?QF=:-oS67pSR$">
+                <field name="VAR" id="ex?8fXO)fX.O|^0*E94r">str1</field>
+              </block>
+            </value>
+            <next>
+              <block type="delay_custom" id="@JYWEF7PfN8a)f^+^-7Q">
+                <value name="DELAY_TIME">
+                  <block type="math_number" id="uml8/0rR{o/wHVnaOtne">
+                    <field name="NUM">1000</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="amani_st7920lcd_clear" id=")1|{%0+wsa+|9Y21p~v-">
+                    <next>
+                      <block type="delay_custom" id=";?_`mIjtHYPhjUkV;`Na">
+                        <value name="DELAY_TIME">
+                          <block type="math_number" id="?Al}VV:4BY#@F:HMGXQ0">
+                            <field name="NUM">1000</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="amani_st7920lcd_string" id="JTnc)h0u%A1+%P3mGn*3">
+                            <value name="row">
+                              <block type="math_number" id="840u6:X-O?r{sI__j*H`">
+                                <field name="NUM">2</field>
+                              </block>
+                            </value>
+                            <value name="col">
+                              <block type="math_number" id="9s=jFZ)X*f]LwlYrp8S3">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                            <value name="str">
+                              <block type="variables_get" id="zFk^]PM2B?^c/IU=}K_t">
+                                <field name="VAR" id="h0T^#n@`1-=|nD{6bep;">str2</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="delay_custom" id="^f!PFI[DuaRgttnFzfS?">
+                                <value name="DELAY_TIME">
+                                  <block type="math_number" id="T4Vkkj.0~xzzKih^J{wI">
+                                    <field name="NUM">1000</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="amani_st7920lcd_clear" id="81Ngl:ShH}rdv+_p#Plr">
+                                    <next>
+                                      <block type="delay_custom" id="rrA~9#*F?g)?kb~BjMb@">
+                                        <value name="DELAY_TIME">
+                                          <block type="math_number" id="(0=k.+SUq/ffAyqiZ|~m">
+                                            <field name="NUM">1000</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

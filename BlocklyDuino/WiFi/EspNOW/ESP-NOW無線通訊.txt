@@ -1,0 +1,28 @@
+不用WiFi，可在ESP間互相傳訊息
+支援晶片：ESP32、ESP32-S、ESP32-C、ESP8266
+
+吉哥積木/物聯網/ESP_NOW廣播
+
+要溝通的開發板必須設定同一個頻道
+
+使用：
+將EspNow1、EspNow2兩個範例分別上傳至兩塊ESP32就可以用了
+
+
+筆記：
+https://docs.espressif.com/projects/esp-idf/zh_CN/latest/esp32c3/api-reference/network/esp_now.html
+溝通距離比BLE長(可500m)
+若要限制通訊距離，可用RSSI強弱來篩選
+可同時寫入WiFi遠端控制程式，及ESP-NOW近端控制程式
+可穿牆穿樓層控制
+支援配網：只要1個裝置連上WiFi網路，就可以將網路ssid、pwd分配給其他設備
+配对设备的最大数量是 20，其中加密设备的数量不超过 17，默认值是 7
+
+SmartConfig：使用移动应用程序将无线网凭据从智能手机或平板电脑端广播给未配网的 Wi-Fi 设备(设备无需直接获知 AP 的 SSID 或密码)。
+
+
+
+
+
+
+

@@ -1,0 +1,257 @@
+<xml version="F1" board="Arduino Uno" xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="ehc.X0:myGQnjzzQ]($k">pot</variable>
+  </variables>
+  <block type="board_initializes_setup" id="0" x="100" y="50">
+    <field name="BOARD_TYPE">Arduino</field>
+    <statement name="CONTENT">
+      <block type="variables_set" id="uU}UNavLX7R,87uEDOs0">
+        <field name="POSITION">global</field>
+        <field name="TYPE">int</field>
+        <field name="VAR" id="ehc.X0:myGQnjzzQ]($k">pot</field>
+        <value name="VALUE">
+          <shadow type="math_number" id="YA.,EYChIqt++{Wn3CM4">
+            <field name="NUM">0</field>
+          </shadow>
+        </value>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="variables_set3" id=")Z.OG19?Vp=Eu1sySO~t">
+            <field name="VAR" id="ehc.X0:myGQnjzzQ]($k">pot</field>
+            <value name="DELTA">
+              <shadow type="math_number" id="b~:Mqh=:.m(BxZdJ}!^h">
+                <field name="NUM">0</field>
+              </shadow>
+              <block type="math_arithmetic" id="=`IS@gackw9G,Jd!LUK3">
+                <field name="OP">DIVIDE</field>
+                <value name="A">
+                  <block type="inout_analog_read" id="h{DJPlUv7(Mtfx5#~DRv">
+                    <field name="PIN">A0</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="+.)l3|mS]W(W*;HZlfU2">
+                    <field name="NUM">4</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="inout_analog_write" id="}uqotVZ$J)we3Qh?.V!E">
+                <field name="PIN">3</field>
+                <value name="NUM">
+                  <block type="math_arithmetic" id=";C9z_jEc6s*%ui=!3K^w">
+                    <field name="OP">MINUS</field>
+                    <value name="A">
+                      <block type="math_number" id="ib]qDc9=tzWeB=mEedO)">
+                        <field name="NUM">255</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_single" id="D.+dC(38E#U=_.0{t{$S">
+                        <field name="OP">ABS</field>
+                        <value name="NUM">
+                          <block type="math_arithmetic" id="b=V!EuJ[E=-`tT4fy8+X">
+                            <field name="OP">MINUS</field>
+                            <value name="A">
+                              <block type="math_number" id=",_2EUhFFJZRtir%T6]I)">
+                                <field name="NUM">0</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="variables_get" id="37v*@B6[CB^+U@$+i~?#">
+                                <field name="VAR" id="ehc.X0:myGQnjzzQ]($k">pot</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="inout_analog_write" id="TvupB5Bm`yba3I5+o.r=">
+                    <field name="PIN">5</field>
+                    <value name="NUM">
+                      <block type="math_arithmetic" id="J^rJFOV$i^iu+P7_/Bo)">
+                        <field name="OP">MINUS</field>
+                        <value name="A">
+                          <block type="math_number" id="lK#RH^lsk+Xa8/3n}h=A">
+                            <field name="NUM">255</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_single" id="2b6{2;vvF6+3k-i^K4yq">
+                            <field name="OP">ABS</field>
+                            <value name="NUM">
+                              <block type="math_arithmetic" id="NO+=wU$XKII:rwYq1reP">
+                                <field name="OP">MINUS</field>
+                                <value name="A">
+                                  <block type="math_number" id="d+0kGR{oxqpC@x_nUr4n">
+                                    <field name="NUM">51</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="variables_get" id="+a*pV9!eE*`fZI:.O$fp">
+                                    <field name="VAR" id="ehc.X0:myGQnjzzQ]($k">pot</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="inout_analog_write" id="bE7d{J(XXIN$H=5#e*{.">
+                        <field name="PIN">6</field>
+                        <value name="NUM">
+                          <block type="math_arithmetic" id="||${eC!j(|S1k?6T8x{7">
+                            <field name="OP">MINUS</field>
+                            <value name="A">
+                              <block type="math_number" id="jpy.9F|Rei+7V%^5NfJL">
+                                <field name="NUM">255</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_single" id="|Aupl9W(.5EG:v}AKT7]">
+                                <field name="OP">ABS</field>
+                                <value name="NUM">
+                                  <block type="math_arithmetic" id="!VfQ_(9P2nwN3VVA=ziS">
+                                    <field name="OP">MINUS</field>
+                                    <value name="A">
+                                      <block type="math_number" id="5/K]OaR5@S#+k/O4@~RO">
+                                        <field name="NUM">102</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="variables_get" id="47iW@1ErNt[)yF4Q$Ql2">
+                                        <field name="VAR" id="ehc.X0:myGQnjzzQ]($k">pot</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="inout_analog_write" id="9PZc=iXTG%VWglQQk@k6">
+                            <field name="PIN">9</field>
+                            <value name="NUM">
+                              <block type="math_arithmetic" id=",YnS5_%=#@DU95ZY%|(,">
+                                <field name="OP">MINUS</field>
+                                <value name="A">
+                                  <block type="math_number" id="wr=/t62mm7P+^r,a5Q)O">
+                                    <field name="NUM">255</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_single" id=";()K7I-fy=sSo`Om]n;X">
+                                    <field name="OP">ABS</field>
+                                    <value name="NUM">
+                                      <block type="math_arithmetic" id="[YaRJct}lTYzyq4?W#Ut">
+                                        <field name="OP">MINUS</field>
+                                        <value name="A">
+                                          <block type="math_number" id="Giem;48I3U{?2^j|j{-$">
+                                            <field name="NUM">153</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="variables_get" id=",2KU8`[c%:!Wi`x:[?Xm">
+                                            <field name="VAR" id="ehc.X0:myGQnjzzQ]($k">pot</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="inout_analog_write" id="(-ohSHH3CCJv/Dgu;PCr">
+                                <field name="PIN">10</field>
+                                <value name="NUM">
+                                  <block type="math_arithmetic" id="0Bq#D(TBTxxim10,l;{J">
+                                    <field name="OP">MINUS</field>
+                                    <value name="A">
+                                      <block type="math_number" id="C0*Y#XGE:uo@e?[IoHXR">
+                                        <field name="NUM">255</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_single" id="DmDh!Sxat*^~-PIJ0+@+">
+                                        <field name="OP">ABS</field>
+                                        <value name="NUM">
+                                          <block type="math_arithmetic" id="gr=c~WLU(k_){b__nzjd">
+                                            <field name="OP">MINUS</field>
+                                            <value name="A">
+                                              <block type="math_number" id="6s/XF{G)$#s;XOBNNxUz">
+                                                <field name="NUM">204</field>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <block type="variables_get" id="{pr$lu8O$9Ko=h+5/rk[">
+                                                <field name="VAR" id="ehc.X0:myGQnjzzQ]($k">pot</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="inout_analog_write" id="i=ReQMR--#~;#21:r`,L">
+                                    <field name="PIN">11</field>
+                                    <value name="NUM">
+                                      <block type="math_arithmetic" id=")Tec|y)Udw.(@2Aoi`fr">
+                                        <field name="OP">MINUS</field>
+                                        <value name="A">
+                                          <block type="math_number" id="RT^uddWWa#kbndHc@M{_">
+                                            <field name="NUM">255</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_single" id="9yu5(i.[0a1v$]QG8U[5">
+                                            <field name="OP">ABS</field>
+                                            <value name="NUM">
+                                              <block type="math_arithmetic" id="B=RlhsTDD^S?ki0{U3[h">
+                                                <field name="OP">MINUS</field>
+                                                <value name="A">
+                                                  <block type="math_number" id="[K.(,/AN/(,K8A=$Q+pt">
+                                                    <field name="NUM">255</field>
+                                                  </block>
+                                                </value>
+                                                <value name="B">
+                                                  <block type="variables_get" id="=v2hsr{+pk0X5c/#4+@@">
+                                                    <field name="VAR" id="ehc.X0:myGQnjzzQ]($k">pot</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

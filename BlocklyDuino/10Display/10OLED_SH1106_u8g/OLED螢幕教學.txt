@@ -1,0 +1,19 @@
+安裝 U8glib
+
+★沒有積木，老師自己寫的，
+ 以後要用時，用匯入的方式到你自己的專案裡。
+
+VIN	5V
+GND	GND
+SCL	A5
+SDA	A4
+
+//正式寫專案時,要將amb及obj預設值刪除
+
+//正式寫專案時,將環境溫度及體溫傳入amb,obj：
+amb=mlx.readAmbientTempC();
+obj=mlx.readObjectTempC();
+
+============================
+和MXL90614相容
+

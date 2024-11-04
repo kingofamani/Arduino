@@ -1,0 +1,19 @@
+112綠色交通與運輸 試算表：
+https://docs.google.com/spreadsheets/d/1f71BEclyLg4eY5kjp_WkziDRxtcsAhCc8r_EkY0yyPo/edit#gid=0
+
+CNC範例參考：
+ArduinoSample\BlocklyDuino\CNC
+
+試算表id：
+	金鑰/google sheet id.txt
+
+UNO				ESP32
+pin7(Z.DIR) ↔	TX(GPIO17)
+pin4(Z.STEP) ↔	RX(GPIO16)
+★★★UNO程式要更新上傳時，要將pin0拔除才能上傳成功！
+
+
+
+
+
+

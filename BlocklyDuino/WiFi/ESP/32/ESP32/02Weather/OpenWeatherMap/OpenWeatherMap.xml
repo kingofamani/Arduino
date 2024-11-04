@@ -1,0 +1,64 @@
+<xml version="F2" board="ESP32 Dev Module" xmlns="https://developers.google.com/blockly/xml">
+  <block type="board_initializes_setup" id="0" x="190" y="230">
+    <field name="BOARD_TYPE">Arduino</field>
+    <statement name="CONTENT">
+      <block type="serial_init" id=",LF)4^g0d`lwjF[[J?+_">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="weather_fetchWeatherInfo" id="bd6jonD`KKI_r`kid^B/">
+            <value name="CITYID">
+              <block type="text" id="z-1kn3ms~}OAml/`@{_{">
+                <field name="TEXT">1670029</field>
+              </block>
+            </value>
+            <value name="KEY">
+              <block type="text" id="%`wBCkfE|Q1kfQJ/|3@$">
+                <field name="TEXT">xxxxxxxxxxx</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="serial_println" id="4Av0IU1xxzJ5d55oJ|DF">
+            <value name="CONTENT">
+              <block type="weather_getValue" id="9XPePjdE0ns6TpFOS3.d">
+                <field name="VALUE_NAME">(doc["main"]["temp_min"].as&lt;float&gt;()-273.15)</field>
+              </block>
+            </value>
+            <next>
+              <block type="serial_println" id="a]m%y6IVo=~68T^$*U`z">
+                <value name="CONTENT">
+                  <block type="weather_getValue" id="$Cw]/6(q`OQgCFWkzhV1">
+                    <field name="VALUE_NAME">(doc["main"]["temp_max"].as&lt;float&gt;()-273.15)</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="serial_println" id="DLWob2A^}U9pJs`z{.UP">
+                    <value name="CONTENT">
+                      <block type="weather_getValue" id=")P2@s^ZE?/Uwz?M]57v#">
+                        <field name="VALUE_NAME">doc["main"]["humidity"].as&lt;long&gt;()</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="delay_custom" id="]~G6epvY/_1CmG4_qLqL">
+                        <value name="DELAY_TIME">
+                          <block type="math_number" id="M(F|WnHGj*W~2i2(F=)-">
+                            <field name="NUM">5000</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

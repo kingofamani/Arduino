@@ -1,0 +1,4 @@
+SLEEVE = 	Ground
+RING2 =    	Typically Microphone or video channel.  Will be same as SLEEVE when used with TRS jack
+RING1 =    	Audio RIGHT channel
+TIP =      	Audio LEFT channel

@@ -1,0 +1,9 @@
+Q：加入網路時間出現bug：
+/home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/queue.c:1442 (xQueueGenericReceive)- assert failed!
+A：開發板管理員，更新esp32即可。
+
+Q：A fatal error occurred: Serial data stream stopped: Possible serial noise or corruption.
+A：按燒錄上傳鈕後，原先的程式還在使用Serial並上傳資料至網路。關閉Arduino IDE重開即可。
+
+
+

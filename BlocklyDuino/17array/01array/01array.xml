@@ -1,0 +1,117 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="initializes_setup" id="173" x="80" y="40">
+    <statement name="CONTENT">
+      <block type="serial_init" id="190">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="variables_set" id="193" inline="true">
+            <field name="TYPE">Number</field>
+            <field name="VAR">score1</field>
+            <value name="VALUE">
+              <block type="math_number" id="204">
+                <field name="NUM">79</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="211" inline="true">
+                <field name="TYPE">Number</field>
+                <field name="VAR">score2</field>
+                <value name="VALUE">
+                  <block type="math_number" id="239">
+                    <field name="NUM">95</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set" id="218" inline="true">
+                    <field name="TYPE">Number</field>
+                    <field name="VAR">score3</field>
+                    <value name="VALUE">
+                      <block type="math_number" id="242">
+                        <field name="NUM">100</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_set" id="227" inline="true">
+                        <field name="TYPE">Number</field>
+                        <field name="VAR">score4</field>
+                        <value name="VALUE">
+                          <block type="math_number" id="241">
+                            <field name="NUM">99</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="variables_set" id="238" inline="true">
+                            <field name="TYPE">Number</field>
+                            <field name="VAR">score5</field>
+                            <value name="VALUE">
+                              <block type="math_number" id="240">
+                                <field name="NUM">50</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="serial_println" id="250" inline="false">
+                                <value name="CONTENT">
+                                  <block type="variables_get" id="265">
+                                    <field name="TYPE">Number</field>
+                                    <field name="VAR">score1</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="serial_println" id="266" inline="false">
+                                    <value name="CONTENT">
+                                      <block type="variables_get" id="267">
+                                        <field name="TYPE">Number</field>
+                                        <field name="VAR">score2</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="serial_println" id="268" inline="false">
+                                        <value name="CONTENT">
+                                          <block type="variables_get" id="269">
+                                            <field name="TYPE">Number</field>
+                                            <field name="VAR">score3</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="serial_println" id="270" inline="false">
+                                            <value name="CONTENT">
+                                              <block type="variables_get" id="271">
+                                                <field name="TYPE">Number</field>
+                                                <field name="VAR">score4</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="serial_println" id="272" inline="false">
+                                                <value name="CONTENT">
+                                                  <block type="variables_get" id="273">
+                                                    <field name="TYPE">Number</field>
+                                                    <field name="VAR">score5</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="174"></block>
+    </next>
+  </block>
+</xml>

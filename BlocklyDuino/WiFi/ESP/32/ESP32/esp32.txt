@@ -1,0 +1,121 @@
+ESP32
+https://dl.espressif.com/dl/package_esp32_index.json
+新版：
+https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+
+開發板：DOIT ESP32 DEVKIT V1
+
+電壓輸出：3.3V(若要5V輸出：可用VIN)
+電壓輸入：VIN接口輸入，可接受7~12V
+
+腳位參考：
+https://www.circuspi.com/index.php/2023/08/30/esp32-gpio-1/
+https://randomnerdtutorials.com/esp32-pinout-reference-gpios/
+	_ESP32-Pinout.jpg圖片
+	https://randomnerdtutorials.com/esp32-pinout-reference-gpios/
+	
+
+★目前統計可用腳位：
+4,5
+13,14,15,16,17,19
+23,25,26,27
+32,33
+21,22留給I2C
+START或RESET時會有短暫輸出HIGH訊號造成短暫錯誤：1,3,5,6~11,14,15
+
+LED_BUILTIN
+	腳位pin 2
+	
+TX0,RX0：1,3
+GPIO 0,6,7,8,9,10,11：系統用，勿使用(淺灰色標示)
+GPIO 18：重開機
+DHT11不可以用GPIO 5、26
+GPIO 12, 2燒錄時不可接任何裝置，請空接
+WiFi啟動後，0,2,4,12,13,14,15,25,26,27僅能數位讀取，不可類比
+
+輸入腳位(無法輸出)：
+	GPIO 34,35,36,39
+數位腳位：
+	GPIO
+類比腳位：
+	類比值：0~4095
+	標示ADC(淺綠色)都是。
+	使用時pin還是以GPIO號碼，
+	例如類比讀取右下角第3腳位analogRead(15)
+	
+	與WiFi相容的類比腳位：GPIO 32～36、39
+	
+I2C：
+https://randomnerdtutorials.com/esp32-i2c-communication-arduino-ide/
+	●預設：
+	SDA (預設 GPIO 21)
+	SCL (預設 GPIO 22)
+	●自訂：
+	(其實I2C可以1對多，不自訂也可以)
+	#include <Wire.h>
+	Wire.begin(I2C_SDA, I2C_SCL);
+	參考ArduinoMaster\BlocklyDuino\I2C\Esp32changeDefalutI2cPin
+	●1對多：
+	串連所有裝置在21、22腳位，然後給不用的adress。
+	參考randomnerdtutorials.com連結。
+	●兩組IC2：
+	參考randomnerdtutorials.com連結。
+
+UART：
+https://zhuanlan.zhihu.com/p/79911193
+	UART0(Serial)：
+		RX	GPIO3
+		TX	GPIO1
+	UART2(Serial2)：
+		RX	GPIO16
+		TX	GPIO17
+	UART1(Serial1)
+		xxxx不支援
+		
+★★★Arduino UNO只有1個Serial，若要多個則需Mega板
+
+PWM腳位：
+ESP32 提供 16 個 PWM 通道。除了只允許輸入的腳位以外（GPIO 34-39），其他均可輸出 PWM 訊號。
+
+	需三個步驟：
+	http://www.tshopping.com.tw/thread-262348-1-1.html
+	腳位：GPIO應該都可以
+	channel：16可用(0~15)
+	頻率： 1Hz 到 40Mhz
+	範例：讓RGB燈亮
+	// the number of the LED pin
+	const int ledPin = 16;  // 16 corresponds to GPIO16
+	const int ledPin2 = 17; // 17 corresponds to GPIO17
+	const int ledPin3 = 5;  // 5 corresponds to GPIO5
+
+	// setting PWM properties
+	const int freq = 5000;
+	const int ledChannel = 0;
+	const int resolution = 8;//8代表0-255，10代表0-1023
+	 
+	void setup(){
+	  // configure LED PWM functionalitites
+	  ledcSetup(ledChannel, freq, resolution);
+	  
+	  // attach the channel to the GPIO to be controlled
+	  ledcAttachPin(ledPin, ledChannel);
+	  ledcAttachPin(ledPin2, ledChannel);
+	  ledcAttachPin(ledPin3, ledChannel);
+	}
+	 
+	void loop(){
+	  // increase the LED brightness
+	  for(int dutyCycle = 0; dutyCycle <= 255; dutyCycle++){   
+		// changing the LED brightness with PWM
+		ledcWrite(ledChannel, dutyCycle);
+		delay(15);
+	  }
+
+	  // decrease the LED brightness
+	  for(int dutyCycle = 255; dutyCycle >= 0; dutyCycle--){
+		// changing the LED brightness with PWM
+		ledcWrite(ledChannel, dutyCycle);   
+		delay(15);
+	  }
+	}
+	

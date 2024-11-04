@@ -1,0 +1,300 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="dXAIPb!DB%5~kg8,N+Ac">msg</variable>
+    <variable id="Jx}[.f$6XkwPzC.qEeNL">requestLen</variable>
+    <variable id="?@X)d59nIi$tD$#Pa96K">responseLen</variable>
+    <variable id="5LjQ__1pdB(w)t=.`[2|">myQuestion</variable>
+    <variable id="}$eqWm+6Un$+Pq1fvYxe">openaiAnswer</variable>
+  </variables>
+  <block type="customcode_head" id="R85fJC@E(E:fc{0*AJ8#" x="130" y="-30">
+    <value name="text">
+      <block type="text" id="F^Z16bri+onN]^p_?L2K">
+        <field name="TEXT">#include &lt;WiFiClientSecure.h&gt;</field>
+      </block>
+    </value>
+    <next>
+      <block type="customcode_head" id="0%YD2tXq1akD{^k(KbpR">
+        <value name="text">
+          <block type="text" id="*L:#!07D!^gvp}|qZ=|X">
+            <field name="TEXT">WiFiClientSecure client;</field>
+          </block>
+        </value>
+      </block>
+    </next>
+  </block>
+  <block type="board_initializes_setup" id="0" x="130" y="70">
+    <field name="BOARD_TYPE">ESP32</field>
+    <statement name="CONTENT">
+      <block type="linkit_wifi_wait_until_ready" id="7w5oUmd9dN_Kj|jV_f,^">
+        <value name="SSID">
+          <block type="text" id="LoD(p[?f(@GmrUT4vIZ)">
+            <field name="TEXT">tyes-itc2</field>
+          </block>
+        </value>
+        <value name="PASSWORD">
+          <block type="text" id=",|QsEs:L!74%cN}o1`TV">
+            <field name="TEXT">xxxxxxxxxxx</field>
+          </block>
+        </value>
+        <next>
+          <block type="openai_chat_initial" id="I;aJ~|1eh7UYRxBc@F4|">
+            <field name="model">gpt-3.5-turbo</field>
+            <value name="apikey">
+              <block type="text" id="*]1(_4gkN?Hd+SilEF*F">
+                <field name="TEXT">xxxxxxxxxxxx</field>
+              </block>
+            </value>
+            <value name="role">
+              <block type="text" id="egj|TSs%9Q/,FpaWi2#$">
+                <field name="TEXT">assistant</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_comment" id="@/~B1lylYA(-GWYD@HqA">
+                <value name="text">
+                  <block type="text" id="]BT~IE!xf{YFcrP(F`4Q">
+                    <field name="TEXT">字數不要超過50個字，儘量不要直接放在「重複執行」區</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="serial_println" id="5]eYi2Ijl(^ml,=r-s/)">
+                    <value name="CONTENT">
+                      <block type="procedures_callreturn" id="Nb~Kt8Oe^w07CgzKye),">
+                        <mutation xmlns="http://www.w3.org/1999/xhtml" name="OpenAI對話(字數限制)"></mutation>
+                        <value name="VAR">
+                          <block type="lists_create_with" id="jMg;qTicCEiUm1H9x0{o">
+                            <mutation items="1"></mutation>
+                            <value name="ADD0">
+                              <block type="text" id="*2}#emUMdZ+;Zv7]%Vsr">
+                                <field name="TEXT">我想要養寵物，給我一個的方便照顧的寵物種類建議</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1"></block>
+    </next>
+  </block>
+  <block type="procedures_defreturn" id="0~$]xNXc4P`X%6|uz,iX" collapsed="true" x="950" y="410">
+    <field name="TYPE">String</field>
+    <field name="NAME">OpenAI對話(字數限制)</field>
+    <value name="VAR">
+      <shadow type="lists_create_with" inline="1">
+        <mutation items="0"></mutation>
+      </shadow>
+      <block type="lists_create_with" id="Qx?-m7VUMZ,%nQ,c]HM!" inline="false">
+        <mutation items="1"></mutation>
+        <value name="ADD0">
+          <block type="variables_set2" id="L:mbbfdA1~W%^(o[|U5J">
+            <field name="TYPE">String</field>
+            <field name="VAR" id="dXAIPb!DB%5~kg8,N+Ac">msg</field>
+          </block>
+        </value>
+      </block>
+    </value>
+    <statement name="STACK">
+      <block type="customcode_comment" id="=rFHUTyxVd/Sz!klDwNt">
+        <value name="text">
+          <block type="text" id="6UQhGh:kz7,+!U4hB_g`">
+            <field name="TEXT">限定請求和回應的字數，避免費用超額</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id="]4]x){cH19`:w|h:zr~q">
+            <field name="POSITION">local</field>
+            <field name="TYPE">int</field>
+            <field name="VAR" id="Jx}[.f$6XkwPzC.qEeNL">requestLen</field>
+            <value name="VALUE">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+              <block type="math_number" id="39/r+laS~w@$1TM_6PYH">
+                <field name="NUM">150</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="fA1Z@IWBU@lPOZ6]v5-_">
+                <field name="POSITION">local</field>
+                <field name="TYPE">int</field>
+                <field name="VAR" id="?@X)d59nIi$tD$#Pa96K">responseLen</field>
+                <value name="VALUE">
+                  <shadow type="math_number">
+                    <field name="NUM">0</field>
+                  </shadow>
+                  <block type="math_number" id="OVuN[c`*Oy0xcL4kqJnj">
+                    <field name="NUM">50</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set" id="!ZzPcOzMt={WGS?p~i54">
+                    <field name="POSITION">local</field>
+                    <field name="TYPE">String</field>
+                    <field name="VAR" id="5LjQ__1pdB(w)t=.`[2|">myQuestion</field>
+                    <value name="VALUE">
+                      <shadow type="math_number" id="*=~WojbS9:y!0xe^+-ey">
+                        <field name="NUM">0</field>
+                      </shadow>
+                      <block type="text" id="`SY?Z=}Uc#AgpRgJe@ZR">
+                        <field name="TEXT"></field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_set" id="V)A*;)eU0cuoT%LNCWlx">
+                        <field name="POSITION">local</field>
+                        <field name="TYPE">String</field>
+                        <field name="VAR" id="}$eqWm+6Un$+Pq1fvYxe">openaiAnswer</field>
+                        <value name="VALUE">
+                          <shadow type="math_number">
+                            <field name="NUM">0</field>
+                          </shadow>
+                          <block type="text" id="tAs+J~7)b5RH:g{|o~RU">
+                            <field name="TEXT"></field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="controls_if" id="{i{=I${#.l[s@|g!ST`U">
+                            <value name="IF0">
+                              <block type="logic_compare" id="6X$RwAI*xk8?{dv?G;R_">
+                                <field name="OP">GTE</field>
+                                <value name="A">
+                                  <block type="text_length" id="xb4JF;hLW9{]pnk`vWy^">
+                                    <value name="VALUE">
+                                      <block type="variables_get" id="I(.F/X)4:VUu%#CO=F_)">
+                                        <field name="VAR" id="dXAIPb!DB%5~kg8,N+Ac">msg</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="variables_get" id="K#1;D@xtUCBlKMt[iK7X">
+                                    <field name="VAR" id="Jx}[.f$6XkwPzC.qEeNL">requestLen</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="DO0">
+                              <block type="variables_set3" id="k!0l@OPC,l(lg_+_JTms">
+                                <field name="VAR" id="dXAIPb!DB%5~kg8,N+Ac">msg</field>
+                                <value name="DELTA">
+                                  <shadow type="math_number">
+                                    <field name="NUM">0</field>
+                                  </shadow>
+                                  <block type="text_getSubstring" id="n*6+?od+Vdl@}cW?JEd~">
+                                    <mutation at1="true" at2="true"></mutation>
+                                    <field name="WHERE1">FROM_START</field>
+                                    <field name="WHERE2">FROM_START</field>
+                                    <value name="STRING">
+                                      <block type="variables_get" id="Gqw6?Xj)WhK0eeP%xD2^">
+                                        <field name="VAR" id="dXAIPb!DB%5~kg8,N+Ac">msg</field>
+                                      </block>
+                                    </value>
+                                    <value name="AT1">
+                                      <block type="math_number" id="c%0}*cyIsLR30zN:Pha2">
+                                        <field name="NUM">0</field>
+                                      </block>
+                                    </value>
+                                    <value name="AT2">
+                                      <block type="variables_get" id="9rtx{OU/O)W)tF+RHeci">
+                                        <field name="VAR" id="Jx}[.f$6XkwPzC.qEeNL">requestLen</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </statement>
+                            <next>
+                              <block type="variables_set3" id="]US2=-{]0p}a.G2B)H1c">
+                                <field name="VAR" id="5LjQ__1pdB(w)t=.`[2|">myQuestion</field>
+                                <value name="DELTA">
+                                  <shadow type="math_number" id="Xxz=pt!sI#HUN8Jie%|m">
+                                    <field name="NUM">0</field>
+                                  </shadow>
+                                  <block type="text_join" id="2Qj_/`QK:E*0HE8q{io7">
+                                    <mutation items="4"></mutation>
+                                    <value name="ADD0">
+                                      <block type="variables_get" id=".0oDy-+njcRZkoMR`SE$">
+                                        <field name="VAR" id="dXAIPb!DB%5~kg8,N+Ac">msg</field>
+                                      </block>
+                                    </value>
+                                    <value name="ADD1">
+                                      <block type="text" id="TM}JGq]{5kU#PcqS{N88">
+                                        <field name="TEXT">，回覆請限定</field>
+                                      </block>
+                                    </value>
+                                    <value name="ADD2">
+                                      <block type="variables_get" id="9)rHOvY8z7*!9,#J5USw">
+                                        <field name="VAR" id="?@X)d59nIi$tD$#Pa96K">responseLen</field>
+                                      </block>
+                                    </value>
+                                    <value name="ADD3">
+                                      <block type="text" id="z^C,2?B^P=Qhzs+R3TAc">
+                                        <field name="TEXT">個字以內</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="variables_set3" id="d8+]|*MwF!~VzMcP4,]3">
+                                    <field name="VAR" id="}$eqWm+6Un$+Pq1fvYxe">openaiAnswer</field>
+                                    <value name="DELTA">
+                                      <shadow type="math_number" id="csJ}wmxz.SeT4(}?DFoh">
+                                        <field name="NUM">0</field>
+                                      </shadow>
+                                      <block type="openai_chat_request" id="MeJXqbi,:CZleF=!}`Ks">
+                                        <value name="content">
+                                          <block type="variables_get" id="tMD)]yvvR1%[kv~S,v]j">
+                                            <field name="VAR" id="5LjQ__1pdB(w)t=.`[2|">myQuestion</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="customcode_comment" id="0p=W5e4HjS-,[+3u=v1?">
+                                        <value name="text">
+                                          <block type="text" id="Zzu?A;L4xl2VTiAjCG9l">
+                                            <field name="TEXT">新的對話不會累積之前的上下文，可控制費用</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="openai_chat_reset" id="4Zj/!%2FjF[?`W%mRP!V">
+                                            <next>
+                                              <block type="procedures_return" id="QcwTaiY,t8NJV?513c5(">
+                                                <value name="RETURN">
+                                                  <block type="variables_get" id="-U%HFVLp6:;xEnhFL,{O">
+                                                    <field name="VAR" id="}$eqWm+6Un$+Pq1fvYxe">openaiAnswer</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

@@ -1,0 +1,484 @@
+<xml version="F1" board="Arduino Uno" xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="y/M[+m5kPvRo}l6rE[BQ">addr</variable>
+    <variable id="+59S9zlb~1*h^qSr65Kn">i</variable>
+    <variable id="uV|u6DZH^3~~A/WL~*v)">val</variable>
+  </variables>
+  <block type="customcode_head" id="d/EL(~b4Q~t_Tl$[mFT[" x="90" y="-50">
+    <value name="text">
+      <block type="text" id="1H;x6p3JE:!w^]H(.]%}">
+        <field name="TEXT">#include &lt;EEPROM.h&gt;</field>
+      </block>
+    </value>
+  </block>
+  <block type="board_initializes_setup" id="0" x="100" y="50">
+    <field name="BOARD_TYPE">Arduino</field>
+    <statement name="CONTENT">
+      <block type="serial_init" id="JS+`n.x~9Q~K7JiXQ417">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="variables_set" id="v)cFw|(lMIM^PWx%)%}A">
+            <field name="POSITION">global</field>
+            <field name="TYPE">int</field>
+            <field name="VAR" id="y/M[+m5kPvRo}l6rE[BQ">addr</field>
+            <value name="VALUE">
+              <shadow type="math_number" id="WsjKgnTh[v1Gm0)mB!0r">
+                <field name="NUM">0</field>
+              </shadow>
+              <block type="math_number" id="MKkb(382i|!_:t8{#Hk;">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="variables_set3" id="aaE/?uN?o~H55Mjk%Bjb">
+            <field name="VAR" id="y/M[+m5kPvRo}l6rE[BQ">addr</field>
+            <value name="DELTA">
+              <shadow type="math_number" id="`XLw`En;bABQo;wzOb9|">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="customcode_comment" id="N(#V]`E8oINg^?5oblZF">
+                <value name="text">
+                  <block type="text" id="LRm`X-TdQs-P$_U*qFu9">
+                    <field name="TEXT">寫入記憶體</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="serial_println" id="mgUsJ(|c`FN!`T+eZy9V">
+                    <value name="CONTENT">
+                      <block type="text" id="Csomdll0v1HMSYIQ_D*U">
+                        <field name="TEXT">寫入中…</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="controls_for" id="dYbRU8sVMebW2K;p)C}1">
+                        <field name="VAR" id="+59S9zlb~1*h^qSr65Kn">i</field>
+                        <value name="FROM">
+                          <block type="math_number" id="hCZlaR0RqsMx5Pib_5$u">
+                            <field name="NUM">5</field>
+                          </block>
+                        </value>
+                        <value name="TO">
+                          <block type="math_number" id="T@n(w)[GIUHLf5i:a462">
+                            <field name="NUM">15</field>
+                          </block>
+                        </value>
+                        <value name="BY">
+                          <block type="math_number" id="-nQY|v/f`fIrZVX#}Up(">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                        <statement name="DO">
+                          <block type="procedures_callnoreturn" id="FdCu(xygZzG@Rq@mZ2fC">
+                            <mutation xmlns="http://www.w3.org/1999/xhtml" name="ifMemoryFull"></mutation>
+                            <value name="VAR">
+                              <shadow type="lists_create_with" id="f-za%0#/9r|XbIlY/*IM">
+                                <mutation items="0"></mutation>
+                              </shadow>
+                            </value>
+                            <next>
+                              <block type="customcode_code" id="MSfcm8{,|B?V}|V!!$|y">
+                                <value name="text">
+                                  <block type="text" id="}cvzq`=/E^Jv70yWZk^a">
+                                    <field name="TEXT">EEPROM.write(addr, i);</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="math_change" id="nua(EhCH]d8`G7AA$RqH">
+                                    <value name="VAR">
+                                      <block type="variables_get" id="v#,aIBsw7BP/F^KX}mx@">
+                                        <field name="VAR" id="y/M[+m5kPvRo}l6rE[BQ">addr</field>
+                                      </block>
+                                    </value>
+                                    <value name="DELTA">
+                                      <block type="math_number" id="r~3Z_Nvipw)FgpoKP_$@">
+                                        <field name="NUM">1</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="delay_custom" id="anCN74^BRunAZN~(j|fp">
+                                        <value name="DELAY_TIME">
+                                          <block type="math_number" id="H3hSNsl3ADS;fZL3-h(N">
+                                            <field name="NUM">100</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="serial_println" id="K^0?p]}{m^}3:wm/j9w4">
+                            <value name="CONTENT">
+                              <block type="text" id="x:05!v=Ao|8S{|{5j`1#">
+                                <field name="TEXT">寫入完成。</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="delay_custom" id="8].ADM_#=?LTwHi}fHI5">
+                                <value name="DELAY_TIME">
+                                  <block type="math_number" id="SU_XBpd?aC(G(KKt.UU4">
+                                    <field name="NUM">2000</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="customcode_comment" id="aLrj5O*u0DEK(TmL,5%K">
+                                    <value name="text">
+                                      <block type="text" id="dJ$I^MXEPx$WP2r_xP/@">
+                                        <field name="TEXT">讀取記憶體</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="serial_println" id="Te#8[Sol0j^I*Qn~E5`3">
+                                        <value name="CONTENT">
+                                          <block type="text" id="EC~BLhdULbI.n$RQ!V=%">
+                                            <field name="TEXT">讀取中…</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="variables_set3" id="x,f4}A`F%EKta|@XDhK)">
+                                            <field name="VAR" id="y/M[+m5kPvRo}l6rE[BQ">addr</field>
+                                            <value name="DELTA">
+                                              <shadow type="math_number" id="GX%CT,^^Vh2aD-DfZ~E_">
+                                                <field name="NUM">0</field>
+                                              </shadow>
+                                            </value>
+                                            <next>
+                                              <block type="controls_for" id="P_!lv[+hSUx[3{ajS6-$">
+                                                <field name="VAR" id="+59S9zlb~1*h^qSr65Kn">i</field>
+                                                <value name="FROM">
+                                                  <block type="math_number" id=":H/Tiv7;mtrBC[()U5y;">
+                                                    <field name="NUM">0</field>
+                                                  </block>
+                                                </value>
+                                                <value name="TO">
+                                                  <block type="math_number" id="Kd7YH|Z*-qKp,9z+o97(">
+                                                    <field name="NUM">10</field>
+                                                  </block>
+                                                </value>
+                                                <value name="BY">
+                                                  <block type="math_number" id="+|j%k4@JrIdb.yn^^vs5">
+                                                    <field name="NUM">1</field>
+                                                  </block>
+                                                </value>
+                                                <statement name="DO">
+                                                  <block type="variables_set" id="W-2`xH}+vo}jl~?OWr^D">
+                                                    <field name="POSITION">local</field>
+                                                    <field name="TYPE">int</field>
+                                                    <field name="VAR" id="uV|u6DZH^3~~A/WL~*v)">val</field>
+                                                    <value name="VALUE">
+                                                      <shadow type="math_number" id="uw=w~fAFm73m2!,vmJ[0">
+                                                        <field name="NUM">0</field>
+                                                      </shadow>
+                                                      <block type="customcode_code_input" id="a3I@vZg*j=cECDc%o8D#">
+                                                        <value name="text">
+                                                          <block type="text" id="[K@Mol[/i807,|*9}h]#">
+                                                            <field name="TEXT">EEPROM.read(addr)</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="serial_println" id="orpB3m/t;e!d#Fn9:lK^">
+                                                        <value name="CONTENT">
+                                                          <block type="variables_get" id="WF#$|kj9wN3+-Jv[!9qb">
+                                                            <field name="VAR" id="uV|u6DZH^3~~A/WL~*v)">val</field>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="math_change" id="Cl6)gSwIu(zUP8=EyfLe">
+                                                            <value name="VAR">
+                                                              <block type="variables_get" id="[)1,!6D@o[E/y|m9+rH:">
+                                                                <field name="VAR" id="y/M[+m5kPvRo}l6rE[BQ">addr</field>
+                                                              </block>
+                                                            </value>
+                                                            <value name="DELTA">
+                                                              <block type="math_number" id="G+XH.e1/~N^W/e`#$B+3">
+                                                                <field name="NUM">1</field>
+                                                              </block>
+                                                            </value>
+                                                            <next>
+                                                              <block type="procedures_callnoreturn" id=".c;CgI7P=xyUEvNZNI]P">
+                                                                <mutation xmlns="http://www.w3.org/1999/xhtml" name="ifMemoryFull"></mutation>
+                                                                <value name="VAR">
+                                                                  <shadow type="lists_create_with" id="@O@]ht?Ugn/+BwJ-9X/i">
+                                                                    <mutation items="0"></mutation>
+                                                                  </shadow>
+                                                                </value>
+                                                                <next>
+                                                                  <block type="delay_custom" id="jR~/sV9qF.?kx`^kq8hM">
+                                                                    <value name="DELAY_TIME">
+                                                                      <block type="math_number" id=".huxvM^):7NZD-82f32K">
+                                                                        <field name="NUM">100</field>
+                                                                      </block>
+                                                                    </value>
+                                                                  </block>
+                                                                </next>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </statement>
+                                                <next>
+                                                  <block type="serial_println" id="2u9KFTtluQf(o1pS|QpM">
+                                                    <value name="CONTENT">
+                                                      <block type="text" id="#w`nik8;qmGpz*0()8Os">
+                                                        <field name="TEXT">讀取完成</field>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="delay_custom" id="UuPa%0{?bmY,j)r:6[t.">
+                                                        <value name="DELAY_TIME">
+                                                          <block type="math_number" id="Xq#^UVV|cWycEy?q{EN^">
+                                                            <field name="NUM">2000</field>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="customcode_comment" id="|,CX{!}^AB*@_c|SlM)v">
+                                                            <value name="text">
+                                                              <block type="text" id="~ty)#J_Eo;T4!_WSCR#h">
+                                                                <field name="TEXT">清除記憶體</field>
+                                                              </block>
+                                                            </value>
+                                                            <next>
+                                                              <block type="serial_println" id="X%.uf@`~vV+~w^)kWY#3">
+                                                                <value name="CONTENT">
+                                                                  <block type="text" id="2|%4QgGuA_-HC/HubNsx">
+                                                                    <field name="TEXT">清除中…</field>
+                                                                  </block>
+                                                                </value>
+                                                                <next>
+                                                                  <block type="controls_for" id="(]VZu]82@7;e~;/VK4jt">
+                                                                    <field name="VAR" id="+59S9zlb~1*h^qSr65Kn">i</field>
+                                                                    <value name="FROM">
+                                                                      <block type="math_number" id=".]x0VarIWAk-5?+J%sVj">
+                                                                        <field name="NUM">0</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <value name="TO">
+                                                                      <block type="customcode_code_input" id="@6Z=#80%[,H,!Z?y;fDZ">
+                                                                        <value name="text">
+                                                                          <block type="text" id="/xC4h42kwd@u[5BqBTG6">
+                                                                            <field name="TEXT">EEPROM.length()</field>
+                                                                          </block>
+                                                                        </value>
+                                                                      </block>
+                                                                    </value>
+                                                                    <value name="BY">
+                                                                      <block type="math_number" id="2x~$t3?gXAk5dlriyKEe">
+                                                                        <field name="NUM">1</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <statement name="DO">
+                                                                      <block type="customcode_code" id="~Z7~w%zY^g7)(NN2T@Ch">
+                                                                        <value name="text">
+                                                                          <block type="text" id="8sOjP6-ww|FlF3Yy0f1j">
+                                                                            <field name="TEXT">EEPROM.write(i, 0);</field>
+                                                                          </block>
+                                                                        </value>
+                                                                      </block>
+                                                                    </statement>
+                                                                    <next>
+                                                                      <block type="serial_println" id="v)Zd`tS8Y[:hH.,)4]69">
+                                                                        <value name="CONTENT">
+                                                                          <block type="text" id="$MeTti`[$GyM0y^-g?vS">
+                                                                            <field name="TEXT">清除完成。</field>
+                                                                          </block>
+                                                                        </value>
+                                                                        <next>
+                                                                          <block type="customcode_comment" id="TOJI{HP|b-7UU[^*0)p5">
+                                                                            <value name="text">
+                                                                              <block type="text" id="i)gxkt2=UT3mfM@VH9LC">
+                                                                                <field name="TEXT">讀取看是否已清除</field>
+                                                                              </block>
+                                                                            </value>
+                                                                            <next>
+                                                                              <block type="variables_set3" id="fy=Z1xgbq#5/4iR#r|Mz">
+                                                                                <field name="VAR" id="y/M[+m5kPvRo}l6rE[BQ">addr</field>
+                                                                                <value name="DELTA">
+                                                                                  <shadow type="math_number" id="((7?kIK[xKJCQ9XQQ)z?">
+                                                                                    <field name="NUM">0</field>
+                                                                                  </shadow>
+                                                                                </value>
+                                                                                <next>
+                                                                                  <block type="controls_for" id=",:44b@y16tvzs*93Q52Z">
+                                                                                    <field name="VAR" id="+59S9zlb~1*h^qSr65Kn">i</field>
+                                                                                    <value name="FROM">
+                                                                                      <block type="math_number" id="}OVw2k#|.UT!vH6-8)44">
+                                                                                        <field name="NUM">0</field>
+                                                                                      </block>
+                                                                                    </value>
+                                                                                    <value name="TO">
+                                                                                      <block type="math_number" id="{jlw=6V]3ef.WD/301j[">
+                                                                                        <field name="NUM">10</field>
+                                                                                      </block>
+                                                                                    </value>
+                                                                                    <value name="BY">
+                                                                                      <block type="math_number" id="XNWHnMUs,P`|=H^l,a^T">
+                                                                                        <field name="NUM">1</field>
+                                                                                      </block>
+                                                                                    </value>
+                                                                                    <statement name="DO">
+                                                                                      <block type="variables_set" id="woC+yjXf|I=|a.7hOb#`">
+                                                                                        <field name="POSITION">local</field>
+                                                                                        <field name="TYPE">int</field>
+                                                                                        <field name="VAR" id="uV|u6DZH^3~~A/WL~*v)">val</field>
+                                                                                        <value name="VALUE">
+                                                                                          <shadow type="math_number">
+                                                                                            <field name="NUM">0</field>
+                                                                                          </shadow>
+                                                                                          <block type="customcode_code_input" id="xw-aMnU#=|-F;~m1/i{r">
+                                                                                            <value name="text">
+                                                                                              <block type="text" id="9~z$%+#$K`?iN3$ybz:8">
+                                                                                                <field name="TEXT">EEPROM.read(addr)</field>
+                                                                                              </block>
+                                                                                            </value>
+                                                                                          </block>
+                                                                                        </value>
+                                                                                        <next>
+                                                                                          <block type="serial_println" id="RM:[|AJa#2lyr}OKx3`5">
+                                                                                            <value name="CONTENT">
+                                                                                              <block type="variables_get" id="sN.fCVK?A%s:a(=.A.%z">
+                                                                                                <field name="VAR" id="uV|u6DZH^3~~A/WL~*v)">val</field>
+                                                                                              </block>
+                                                                                            </value>
+                                                                                            <next>
+                                                                                              <block type="math_change" id="h+~S5-9_80f4$j`INk`j">
+                                                                                                <value name="VAR">
+                                                                                                  <block type="variables_get" id="185HxH,aVYFPL#!4sdb7">
+                                                                                                    <field name="VAR" id="y/M[+m5kPvRo}l6rE[BQ">addr</field>
+                                                                                                  </block>
+                                                                                                </value>
+                                                                                                <value name="DELTA">
+                                                                                                  <block type="math_number" id="#z}$;Tup$tw)wI!!62,v">
+                                                                                                    <field name="NUM">1</field>
+                                                                                                  </block>
+                                                                                                </value>
+                                                                                                <next>
+                                                                                                  <block type="procedures_callnoreturn" id="Q`b5yBX5kd,nLseD3Upf">
+                                                                                                    <mutation xmlns="http://www.w3.org/1999/xhtml" name="ifMemoryFull"></mutation>
+                                                                                                    <value name="VAR">
+                                                                                                      <shadow type="lists_create_with" id="L,:4|p1l8[M}AZ.]I+}b">
+                                                                                                        <mutation items="0"></mutation>
+                                                                                                      </shadow>
+                                                                                                    </value>
+                                                                                                    <next>
+                                                                                                      <block type="delay_custom" id="rab)gvx{=j?*biZOG/{7">
+                                                                                                        <value name="DELAY_TIME">
+                                                                                                          <block type="math_number" id="xR`:FQrc|PdjO+)+N0oq">
+                                                                                                            <field name="NUM">100</field>
+                                                                                                          </block>
+                                                                                                        </value>
+                                                                                                      </block>
+                                                                                                    </next>
+                                                                                                  </block>
+                                                                                                </next>
+                                                                                              </block>
+                                                                                            </next>
+                                                                                          </block>
+                                                                                        </next>
+                                                                                      </block>
+                                                                                    </statement>
+                                                                                    <next>
+                                                                                      <block type="serial_println" id="s-F$NKh4XMLeEHbA%g{y">
+                                                                                        <value name="CONTENT">
+                                                                                          <block type="text" id="/Sw[N8orNmiS8ol6==H|">
+                                                                                            <field name="TEXT">=========================</field>
+                                                                                          </block>
+                                                                                        </value>
+                                                                                      </block>
+                                                                                    </next>
+                                                                                  </block>
+                                                                                </next>
+                                                                              </block>
+                                                                            </next>
+                                                                          </block>
+                                                                        </next>
+                                                                      </block>
+                                                                    </next>
+                                                                  </block>
+                                                                </next>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+  <block type="procedures_defnoreturn" id="2H513~T+q0UviB^Hu/@Y" collapsed="true" x="670" y="170">
+    <field name="NAME">ifMemoryFull</field>
+    <value name="VAR">
+      <shadow type="lists_create_with" id=",$vZR3;3_EmJny[N[w8_">
+        <mutation items="0"></mutation>
+      </shadow>
+    </value>
+    <statement name="STACK">
+      <block type="customcode_code" id="pn!M^Jk.-Dvph}{FmYjJ">
+        <value name="text">
+          <block type="text" id="u|PNCZj9A%o;|,-:b86g">
+            <field name="TEXT">if (addr == EEPROM.length()) {</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set3" id="}!7qAHh!4|;+!D_yPlB!">
+            <field name="VAR" id="y/M[+m5kPvRo}l6rE[BQ">addr</field>
+            <value name="DELTA">
+              <shadow type="math_number" id="s)_=hSH^~|3WQG|Wrmpm">
+                <field name="NUM">0</field>
+              </shadow>
+              <block type="math_number" id="4wj6xIbT@:~Pm0:=m{DD">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_code" id="S^yfFKmr1jw6hq2?DMQ1">
+                <value name="text">
+                  <block type="text" id="jKseSv;SEuX]A_KK;Cmx">
+                    <field name="TEXT">}</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

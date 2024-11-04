@@ -1,0 +1,792 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="initializes_setup" id="3" x="188" y="63">
+    <statement name="CONTENT">
+      <block type="serial_init" id="4">
+        <field name="SPEED">115200</field>
+        <next>
+          <block type="procedures_callnoreturn" id="5">
+            <mutation name="myMLX90614_1"></mutation>
+            <next>
+              <block type="procedures_callnoreturn" id="6">
+                <mutation name="myMP3_1"></mutation>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="7">
+        <statement name="CONTENT">
+          <block type="procedures_callnoreturn" id="8">
+            <mutation name="myRFID"></mutation>
+            <next>
+              <block type="procedures_callnoreturn" id="9">
+                <mutation name="myMLX90614_2"></mutation>
+                <next>
+                  <block type="procedures_callnoreturn" id="10">
+                    <mutation name="myOLED_2"></mutation>
+                    <next>
+                      <block type="procedures_callnoreturn" id="11">
+                        <mutation name="HCSR04_2"></mutation>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+  <block type="procedures_defnoreturn" id="12" collapsed="true" x="588" y="63">
+    <mutation></mutation>
+    <field name="NAME">myRFID</field>
+    <statement name="STACK">
+      <block type="variables_set" id="13" inline="true">
+        <field name="TYPE">String</field>
+        <field name="VAR">myId</field>
+        <value name="VALUE">
+          <block type="mfrc522_read" id="14">
+            <field name="SENSOR">DUMMY</field>
+            <field name="SIGNAL">SPI</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_instruction5" id="15" inline="true">
+            <field name="type">toUpperCase()</field>
+            <value name="instruction">
+              <block type="variables_get" id="16">
+                <field name="TYPE">String</field>
+                <field name="VAR">myId</field>
+              </block>
+            </value>
+            <next>
+              <block type="controls_if" id="17" inline="false">
+                <value name="IF0">
+                  <block type="logic_compare" id="18" inline="true">
+                    <field name="OP">GT</field>
+                    <value name="A">
+                      <block type="text_length" id="19" inline="false">
+                        <value name="VALUE">
+                          <block type="variables_get" id="20">
+                            <field name="TYPE">String</field>
+                            <field name="VAR">myId</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="21">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="serial_println" id="22" inline="false">
+                    <value name="CONTENT">
+                      <block type="variables_get" id="23">
+                        <field name="TYPE">String</field>
+                        <field name="VAR">myId</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="procedures_callnoreturn" id="24">
+                        <mutation name="beep"></mutation>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <next>
+                  <block type="delay_custom" id="25" inline="false">
+                    <value name="DELAY_TIME">
+                      <block type="math_number" id="26">
+                        <field name="NUM">100</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="27" collapsed="true" x="588" y="88">
+    <mutation></mutation>
+    <field name="NAME">myMLX90614_0</field>
+    <statement name="STACK">
+      <block type="customcode_head" id="28" inline="true">
+        <value name="text">
+          <block type="text" id="29">
+            <field name="TEXT">#include &lt;Wire.h&gt;</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_head" id="30" inline="true">
+            <value name="text">
+              <block type="text" id="31">
+                <field name="TEXT">#include &lt;Adafruit_MLX90614.h&gt;</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_head" id="32" inline="true">
+                <value name="text">
+                  <block type="text" id="33">
+                    <field name="TEXT">Adafruit_MLX90614 mlx;</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="34" collapsed="true" x="588" y="113">
+    <mutation></mutation>
+    <field name="NAME">myMLX90614_1</field>
+    <statement name="STACK">
+      <block type="serial_println" id="35" inline="false">
+        <value name="CONTENT">
+          <block type="text" id="36">
+            <field name="TEXT">測試</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_variable" id="37" inline="true">
+            <value name="variable">
+              <block type="text" id="38">
+                <field name="TEXT">mlx</field>
+              </block>
+            </value>
+            <value name="text">
+              <block type="customcode_instruction1" id="39" inline="true">
+                <value name="instruction">
+                  <block type="text" id="40">
+                    <field name="TEXT">Adafruit_MLX90614</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_code" id="41" inline="true">
+                <value name="text">
+                  <block type="text" id="42">
+                    <field name="TEXT">mlx.begin(); </field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="43" collapsed="true" x="588" y="138">
+    <mutation></mutation>
+    <field name="NAME">myMLX90614_2</field>
+    <statement name="STACK">
+      <block type="serial_print" id="44" inline="false">
+        <value name="CONTENT">
+          <block type="text" id="45">
+            <field name="TEXT">室溫= </field>
+          </block>
+        </value>
+        <next>
+          <block type="serial_print" id="46" inline="false">
+            <value name="CONTENT">
+              <block type="customcode_instruction4" id="47" inline="true">
+                <value name="instruction">
+                  <block type="text" id="48">
+                    <field name="TEXT">mlx</field>
+                  </block>
+                </value>
+                <value name="text1">
+                  <block type="text" id="49">
+                    <field name="TEXT">readAmbientTempC()</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="serial_println" id="50" inline="false">
+                <value name="CONTENT">
+                  <block type="text" id="51">
+                    <field name="TEXT">*C</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="serial_print" id="52" inline="false">
+                    <value name="CONTENT">
+                      <block type="text" id="53">
+                        <field name="TEXT">體溫= </field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_print" id="54" inline="false">
+                        <value name="CONTENT">
+                          <block type="customcode_instruction4" id="55" inline="true">
+                            <value name="instruction">
+                              <block type="text" id="56">
+                                <field name="TEXT">mlx</field>
+                              </block>
+                            </value>
+                            <value name="text1">
+                              <block type="text" id="57">
+                                <field name="TEXT">readObjectTempC()</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="serial_println" id="58" inline="false">
+                            <value name="CONTENT">
+                              <block type="text" id="59">
+                                <field name="TEXT">*C</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="serial_println" id="60" inline="false">
+                                <value name="CONTENT">
+                                  <block type="text" id="61">
+                                    <field name="TEXT"></field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="delay_custom" id="62" inline="false">
+                                    <value name="DELAY_TIME">
+                                      <block type="math_number" id="63">
+                                        <field name="NUM">500</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="64" collapsed="true" x="588" y="163">
+    <mutation></mutation>
+    <field name="NAME">myOLED_1</field>
+    <statement name="STACK">
+      <block type="customcode_head" id="65" inline="true">
+        <value name="text">
+          <block type="text" id="66">
+            <field name="TEXT">#include "U8glib.h"</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_head" id="67" inline="true">
+            <value name="text">
+              <block type="text" id="68">
+                <field name="TEXT">U8GLIB_SH1106_128X64 u8g(U8G_I2C_OPT_NONE); // I2C / TWI ;</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_comment" id="69" inline="true">
+                <value name="text">
+                  <block type="text" id="70">
+                    <field name="TEXT">正式寫專案時,要將amb及obj預設值刪除</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set" id="71" inline="true">
+                    <field name="TYPE">Float</field>
+                    <field name="VAR">amb</field>
+                    <next>
+                      <block type="variables_set" id="72" inline="true">
+                        <field name="TYPE">Float</field>
+                        <field name="VAR">obj</field>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="73" collapsed="true" x="588" y="188">
+    <mutation></mutation>
+    <field name="NAME">myOLED_2</field>
+    <statement name="STACK">
+      <block type="customcode_comment" id="74" inline="true">
+        <value name="text">
+          <block type="text" id="75">
+            <field name="TEXT">正式寫專案時,將環境溫度及體溫傳入amb,obj</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_code" id="76" inline="true">
+            <value name="text">
+              <block type="text" id="77">
+                <field name="TEXT">amb=mlx.readAmbientTempC();</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_code" id="78" inline="true">
+                <value name="text">
+                  <block type="text" id="79">
+                    <field name="TEXT">obj=mlx.readObjectTempC();</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_code" id="80" inline="true">
+                    <value name="text">
+                      <block type="text" id="81">
+                        <field name="TEXT">u8g.firstPage();</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_code" id="82" inline="true">
+                        <value name="text">
+                          <block type="text" id="83">
+                            <field name="TEXT">do {</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="procedures_callnoreturn" id="84">
+                            <mutation name="draw"></mutation>
+                            <next>
+                              <block type="customcode_code" id="85" inline="true">
+                                <value name="text">
+                                  <block type="text" id="86">
+                                    <field name="TEXT">} while ( u8g.nextPage() );</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="delay_custom" id="87" inline="false">
+                                    <value name="DELAY_TIME">
+                                      <block type="math_number" id="88">
+                                        <field name="NUM">100</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="89" collapsed="true" x="588" y="213">
+    <mutation></mutation>
+    <field name="NAME">draw</field>
+    <statement name="STACK">
+      <block type="customcode_code" id="90" inline="true">
+        <value name="text">
+          <block type="text" id="91">
+            <field name="TEXT">u8g.setFont(u8g_font_fur25);</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_code" id="92" inline="true">
+            <value name="text">
+              <block type="text" id="93">
+                <field name="TEXT">u8g.setPrintPos(10, 29);</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_code" id="94" inline="true">
+                <value name="text">
+                  <block type="text" id="95">
+                    <field name="TEXT">u8g.print(amb, 1);</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_code" id="96" inline="true">
+                    <value name="text">
+                      <block type="text" id="97">
+                        <field name="TEXT">u8g.drawStr( 80, 29, "*C");</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_code" id="98" inline="true">
+                        <value name="text">
+                          <block type="text" id="99">
+                            <field name="TEXT">u8g.setPrintPos(10, 63);</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="customcode_code" id="100" inline="true">
+                            <value name="text">
+                              <block type="text" id="101">
+                                <field name="TEXT">u8g.print(obj, 1);</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="customcode_code" id="102" inline="true">
+                                <value name="text">
+                                  <block type="text" id="103">
+                                    <field name="TEXT">u8g.drawStr( 80, 63, "*C");</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="104" collapsed="true" x="588" y="238">
+    <mutation></mutation>
+    <field name="NAME">HCSR04_0</field>
+    <statement name="STACK">
+      <block type="customcode_head" id="105" inline="true">
+        <value name="text">
+          <block type="text" id="106">
+            <field name="TEXT">/*安裝Ultrasonic by ErickSimoes的函式庫*/</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_head" id="107" inline="true">
+            <value name="text">
+              <block type="text" id="108">
+                <field name="TEXT">#include &lt;Ultrasonic.h&gt;</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_head" id="109" inline="true">
+                <value name="text">
+                  <block type="text" id="110">
+                    <field name="TEXT">Ultrasonic ultrasonic(5, 6);//(Trig,Echo)</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="111" collapsed="true" x="413" y="263">
+    <mutation></mutation>
+    <field name="NAME">HCSR04_2</field>
+    <statement name="STACK">
+      <block type="variables_set" id="112" inline="true">
+        <field name="TYPE">Number</field>
+        <field name="VAR">distance</field>
+        <value name="VALUE">
+          <block type="customcode_instruction4" id="113" inline="true">
+            <value name="instruction">
+              <block type="text" id="114">
+                <field name="TEXT">ultrasonic</field>
+              </block>
+            </value>
+            <value name="text1">
+              <block type="text" id="115">
+                <field name="TEXT">read()</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="controls_if" id="194" inline="false">
+            <value name="IF0">
+              <block type="logic_compare" id="213" inline="true">
+                <field name="OP">LT</field>
+                <value name="A">
+                  <block type="variables_get" id="214">
+                    <field name="TYPE">Number</field>
+                    <field name="VAR">distance</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="225">
+                    <field name="NUM">50</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="serial_print" id="116" inline="false">
+                <value name="CONTENT">
+                  <block type="text" id="117">
+                    <field name="TEXT">距離：</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="serial_print" id="118" inline="false">
+                    <value name="CONTENT">
+                      <block type="variables_get" id="119">
+                        <field name="TYPE">Number</field>
+                        <field name="VAR">distance</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_println" id="120" inline="false">
+                        <value name="CONTENT">
+                          <block type="text" id="121">
+                            <field name="TEXT"> cm</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="customcode_code" id="266" inline="true">
+                            <value name="text">
+                              <block type="text" id="267">
+                                <field name="TEXT">myDFPlayer.play(1);</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="124" collapsed="true" x="588" y="288">
+    <mutation></mutation>
+    <field name="NAME">beep</field>
+    <statement name="STACK">
+      <block type="controls_repeat" id="125">
+        <field name="TIMES">80</field>
+        <statement name="DO">
+          <block type="inout_custom_digital_write" id="126" inline="true">
+            <value name="PIN">
+              <block type="math_number" id="127">
+                <field name="NUM">4</field>
+              </block>
+            </value>
+            <value name="STAT">
+              <block type="inout_highlow" id="128">
+                <field name="BOOL">LOW</field>
+              </block>
+            </value>
+            <next>
+              <block type="delay_custom" id="129" inline="false">
+                <value name="DELAY_TIME">
+                  <block type="math_number" id="130">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="inout_custom_digital_write" id="131" inline="true">
+                    <value name="PIN">
+                      <block type="math_number" id="132">
+                        <field name="NUM">4</field>
+                      </block>
+                    </value>
+                    <value name="STAT">
+                      <block type="inout_highlow" id="133">
+                        <field name="BOOL">HIGH</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="delay_custom" id="134" inline="false">
+                        <value name="DELAY_TIME">
+                          <block type="math_number" id="135">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="inout_custom_digital_write" id="136" inline="true">
+            <value name="PIN">
+              <block type="math_number" id="137">
+                <field name="NUM">4</field>
+              </block>
+            </value>
+            <value name="STAT">
+              <block type="inout_highlow" id="138">
+                <field name="BOOL">HIGH</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="139" collapsed="true" x="588" y="313">
+    <mutation></mutation>
+    <field name="NAME">myMP3_0</field>
+    <statement name="STACK">
+      <block type="customcode_head" id="140" inline="true">
+        <value name="text">
+          <block type="text" id="141">
+            <field name="TEXT">#include "Arduino.h"</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_head" id="142" inline="true">
+            <value name="text">
+              <block type="text" id="143">
+                <field name="TEXT">#include "SoftwareSerial.h"</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_head" id="144" inline="true">
+                <value name="text">
+                  <block type="text" id="145">
+                    <field name="TEXT">#include "DFRobotDFPlayerMini.h"</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_head" id="146" inline="true">
+                    <value name="text">
+                      <block type="text" id="147">
+                        <field name="TEXT">SoftwareSerial mySoftwareSerial(7, 8);</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_head" id="148" inline="true">
+                        <value name="text">
+                          <block type="text" id="149">
+                            <field name="TEXT">DFRobotDFPlayerMini myDFPlayer;</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="150" collapsed="true" x="588" y="338">
+    <mutation></mutation>
+    <field name="NAME">myMP3_1</field>
+    <statement name="STACK">
+      <block type="customcode_comment_block" id="180" inline="true">
+        <value name="text">
+          <block type="text" id="181">
+            <field name="TEXT">將myDFPlayer.play(1);註解，否則會一直repeat</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_code" id="151" inline="true">
+            <value name="text">
+              <block type="text" id="152">
+                <field name="TEXT">mySoftwareSerial.begin(9600);</field>
+              </block>
+            </value>
+            <next>
+              <block type="controls_if" id="153" inline="false">
+                <value name="IF0">
+                  <block type="logic_negate" id="154" inline="false">
+                    <value name="BOOL">
+                      <block type="customcode_code_input" id="155" inline="true">
+                        <value name="text">
+                          <block type="text" id="156">
+                            <field name="TEXT">myDFPlayer.begin(mySoftwareSerial)</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="controls_while" id="157" inline="false">
+                    <value name="BOOL">
+                      <block type="logic_boolean" id="158">
+                        <field name="BOOL">TRUE</field>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+                <next>
+                  <block type="customcode_code" id="159" inline="true">
+                    <value name="text">
+                      <block type="text" id="160">
+                        <field name="TEXT">myDFPlayer.volume(10);</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_comment" id="173" inline="true">
+                        <value name="text">
+                          <block type="text" id="162">
+                            <field name="TEXT">myDFPlayer.play(1);</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="163" collapsed="true" x="588" y="363">
+    <mutation></mutation>
+    <field name="NAME">myMP3_2</field>
+    <statement name="STACK">
+      <block type="customcode_comment_block" id="187" inline="true">
+        <value name="text">
+          <block type="text" id="188">
+            <field name="TEXT">此區塊不放入loop，待需要時再用，\n可用myDFPlayer.play(n);不要再用myDFPlayer.next();</field>
+          </block>
+        </value>
+        <next>
+          <block type="delay_custom" id="164" inline="false">
+            <value name="DELAY_TIME">
+              <block type="math_number" id="165">
+                <field name="NUM">3000</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_code" id="166" inline="true">
+                <value name="text">
+                  <block type="text" id="167">
+                    <field name="TEXT">myDFPlayer.next();</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

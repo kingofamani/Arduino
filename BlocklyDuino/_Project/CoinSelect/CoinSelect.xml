@@ -1,0 +1,59 @@
+<xml version="F2" board="Arduino Uno" xmlns="https://developers.google.com/blockly/xml">
+  <block type="board_initializes_setup" id="0" x="100" y="50">
+    <field name="BOARD_TYPE">Arduino</field>
+    <statement name="CONTENT">
+      <block type="serial_init" id="*_HQO$YGf@9b4XS^JCmF">
+        <field name="SPEED">9600</field>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="serial_println" id="!lnjOX4%47--+F!5tt%[">
+            <value name="CONTENT">
+              <block type="inout_analog_read" id="tjXM6NCxJ%Mgk(dB|1v?">
+                <field name="PIN">A0</field>
+              </block>
+            </value>
+            <next>
+              <block type="serial_println" id="o~%_.IR%/.[t]_uy`j#_">
+                <value name="CONTENT">
+                  <block type="inout_analog_read" id="sm*^a?6_Nr.Bm7,)uWZc">
+                    <field name="PIN">A1</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="serial_println" id="cwK-Favr3}%6CF:@1yD0">
+                    <value name="CONTENT">
+                      <block type="inout_analog_read" id="O_S}Ag($sO.5kH)-1)qE">
+                        <field name="PIN">A2</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_println" id="K[QZbgPT5G;0wSJa#r;q">
+                        <value name="CONTENT">
+                          <block type="text" id="u7yb_BV/cpS?.CrThU1$">
+                            <field name="TEXT"></field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="delay_custom" id="(Z%^B(jfH=`z.4uLTy`s">
+                            <value name="DELAY_TIME">
+                              <block type="math_number" id="o0}F04vX5L#u7saVrQ2z">
+                                <field name="NUM">100</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

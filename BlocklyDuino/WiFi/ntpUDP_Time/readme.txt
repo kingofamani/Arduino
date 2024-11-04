@@ -1,0 +1,3 @@
+xxxx與ESP32的WIFI函式衝突
+
+安裝NTPClient 程式庫

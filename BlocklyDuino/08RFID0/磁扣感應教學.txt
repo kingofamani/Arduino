@@ -1,0 +1,29 @@
+★若程式無法上傳至UNO，可先拔除RFID所有數位腳位再上傳。
+
+先至「管理程式庫」安裝「MFRC522」by GithubCommunity
+
+BlocklyDuino至「傳輸模組/RFID」拉積木
+
+藍色SDA=紅色NSS
+
+藍色
+SDA		pin10
+SCK		pin13
+MOSI	pin11
+MISO	pin12
+IRQ		不用接
+GND		GND
+RST		pin9
+3.3V	3.3V
+
+紅色
+IRQ		不用接
+NSS		pin10
+SCK		pin13
+MOSI	pin11
+MISO	pin12
+GND		GND
+RST		pin9
+VCC		5V
+
+

@@ -1,0 +1,41 @@
+<xml version="F2" board="Arduino Uno" xmlns="https://developers.google.com/blockly/xml">
+  <block type="board_initializes_setup" id="0" x="100" y="50">
+    <field name="BOARD_TYPE">ESP32</field>
+    <statement name="CONTENT">
+      <block type="_01imi_gpscloud_init" id="@Od^A8z|{Ibs(F1VUguc">
+        <statement name="uart">
+          <block type="_02imi_gpscloud_uart" id="AohIrB;ba[#*Tg-t412)">
+            <value name="rx">
+              <block type="math_number" id="j]AXTT10WB}%,ZQZE:wJ">
+                <field name="NUM">16</field>
+              </block>
+            </value>
+            <value name="tx">
+              <block type="math_number" id="77wAE3Enjx%[9?yZUDtM">
+                <field name="NUM">17</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <next>
+          <block type="_03imi_gpscloud_setup" id="mb1KAAPEXk{TYMJhp8!5"></block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="_04imi_gpscloud_loop" id="}Xz?EO)vcn+j|ugm5+LT">
+            <next>
+              <block type="_05imi_gpscloud_getesp32xy" id="BKz;-jb3si+uz*`esXhw">
+                <next>
+                  <block type="_06imi_gpscloud_googlemap" id="7:jC-n2q8@QdG0J;MFKX"></block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

@@ -1,0 +1,17 @@
+https://thingspeak.mathworks.com/channels/2726035/api_keys
+
+上述API key頁面右下方，有API Requests範例：
+例如 GET https://api.thingspeak.com/channels/2726035/feeds.json?api_key=[your唯讀key]&results=2
+
+
+觸發MQTT：
+https://thingspeak.mathworks.com/devices/mqtt
+
+
+連接google sheet：
+https://docs.google.com/spreadsheets/d/1DWWis2eKT7yPQGRt3AVWaLet4908Te9TSgsqWpFBwLc/edit?gid=0#gid=0
+
+1DWWis2eKT7yPQGRt3AVWaLet4908Te9TSgsqWpFBwLc
+
+GAS網址：
+https://script.google.com/macros/s/AKfycbxjKkz0TPec5Z2bizmUMaUtDqx_aeksl-MI3b0RHrYZtdAjkQfpIHfUck3a4AXcacht/exec

@@ -1,0 +1,329 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="initializes_setup" id="1" x="-462" y="-37">
+    <statement name="CONTENT">
+      <block type="serial_init" id="131">
+        <field name="SPEED">115200</field>
+        <next>
+          <block type="procedures_callnoreturn" id="727">
+            <mutation name="WiFiStart"></mutation>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="2">
+        <statement name="CONTENT">
+          <block type="customcode_code" id="322" inline="true">
+            <value name="text">
+              <block type="text" id="323">
+                <field name="TEXT">server.handleClient();</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_code" id="596" inline="true">
+                <value name="text">
+                  <block type="text" id="597">
+                    <field name="TEXT">MDNS.update();</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+  <block type="customcode_head" id="33" inline="true" x="88" y="-12">
+    <value name="text">
+      <block type="text" id="34">
+        <field name="TEXT">#include &lt;ESP8266WiFi.h&gt;</field>
+      </block>
+    </value>
+    <next>
+      <block type="customcode_head" id="35" inline="true">
+        <value name="text">
+          <block type="text" id="36">
+            <field name="TEXT">#include &lt;WiFiClient.h&gt;</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_head" id="37" inline="true">
+            <value name="text">
+              <block type="text" id="38">
+                <field name="TEXT">#include &lt;ESP8266WebServer.h&gt;</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_head" id="39" inline="true">
+                <value name="text">
+                  <block type="text" id="40">
+                    <field name="TEXT">#include &lt;ESP8266mDNS.h&gt;</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_head" id="41" inline="true">
+                    <value name="text">
+                      <block type="text" id="42">
+                        <field name="TEXT">#ifndef STASSID</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_head" id="43" inline="true">
+                        <value name="text">
+                          <block type="text" id="44">
+                            <field name="TEXT">#define STASSID "HTCAMANI"</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="customcode_head" id="45" inline="true">
+                            <value name="text">
+                              <block type="text" id="46">
+                                <field name="TEXT">#define STAPSK  "12345678"</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="customcode_head" id="47" inline="true">
+                                <value name="text">
+                                  <block type="text" id="48">
+                                    <field name="TEXT">#endif</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="customcode_head" id="49" inline="true">
+                                    <value name="text">
+                                      <block type="text" id="50">
+                                        <field name="TEXT">const char* ssid = STASSID;</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="customcode_head" id="51" inline="true">
+                                        <value name="text">
+                                          <block type="text" id="52">
+                                            <field name="TEXT">const char* password = STAPSK;</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="customcode_head" id="53" inline="true">
+                                            <value name="text">
+                                              <block type="text" id="54">
+                                                <field name="TEXT">ESP8266WebServer server(80);</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="procedures_defnoreturn" id="893" x="-487" y="188">
+    <mutation></mutation>
+    <field name="NAME">【自己打函數名稱】</field>
+    <statement name="STACK">
+      <block type="customcode_code" id="651" inline="true">
+        <value name="text">
+          <block type="text" id="652">
+            <field name="TEXT">server.on("/【自己命名英文網址】", []() {</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_code" id="653" inline="true">
+            <value name="text">
+              <block type="text" id="654">
+                <field name="TEXT">server.send(200, "text/plain", "【網頁顯示的文字】");</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_comment" id="951" inline="true">
+                <value name="text">
+                  <block type="text" id="952">
+                    <field name="TEXT">在此控制馬達、燈泡等…</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_code" id="656" inline="true">
+                    <value name="text">
+                      <block type="text" id="657">
+                        <field name="TEXT">});</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="121" collapsed="true" x="88" y="388">
+    <mutation></mutation>
+    <field name="NAME">handleNotFound</field>
+    <statement name="STACK">
+      <block type="customcode_code" id="122" inline="true">
+        <value name="text">
+          <block type="text" id="123">
+            <field name="TEXT">server.send(404, "text/plain", "找不到網頁");</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="86" collapsed="true" x="88" y="413">
+    <mutation></mutation>
+    <field name="NAME">handleRoot</field>
+    <statement name="STACK">
+      <block type="customcode_code" id="117" inline="true">
+        <value name="text">
+          <block type="text" id="118">
+            <field name="TEXT">server.send(200, "text/plain", "Hello 德音國小!");</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="722" collapsed="true" x="88" y="438">
+    <mutation></mutation>
+    <field name="NAME">WiFiStart</field>
+    <statement name="STACK">
+      <block type="customcode_code" id="162" inline="true">
+        <value name="text">
+          <block type="text" id="163">
+            <field name="TEXT">WiFi.mode(WIFI_STA);</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_code" id="164" inline="true">
+            <value name="text">
+              <block type="text" id="165">
+                <field name="TEXT">WiFi.begin(ssid, password);</field>
+              </block>
+            </value>
+            <next>
+              <block type="serial_println" id="203" inline="false">
+                <value name="CONTENT">
+                  <block type="text" id="204">
+                    <field name="TEXT"></field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_comment" id="266" inline="true">
+                    <value name="text">
+                      <block type="text" id="267">
+                        <field name="TEXT">等待WiFi連線</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_code" id="205" inline="true">
+                        <value name="text">
+                          <block type="text" id="206">
+                            <field name="TEXT">while (WiFi.status() != WL_CONNECTED) {</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="delay_custom" id="218" inline="false">
+                            <value name="DELAY_TIME">
+                              <block type="math_number" id="219">
+                                <field name="NUM">500</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="serial_print" id="227" inline="false">
+                                <value name="CONTENT">
+                                  <block type="text" id="228">
+                                    <field name="TEXT">.</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="customcode_code" id="229" inline="true">
+                                    <value name="text">
+                                      <block type="text" id="230">
+                                        <field name="TEXT">}</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="customcode_comment" id="268" inline="true">
+                                        <value name="text">
+                                          <block type="text" id="269">
+                                            <field name="TEXT">在監控視窗顯示取得的IP</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="customcode_code" id="316" inline="true">
+                                            <value name="text">
+                                              <block type="text" id="317">
+                                                <field name="TEXT">Serial.println(WiFi.localIP());</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="customcode_code" id="318" inline="true">
+                                                <value name="text">
+                                                  <block type="text" id="319">
+                                                    <field name="TEXT">server.on("/", handleRoot);</field>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="customcode_code" id="320" inline="true">
+                                                    <value name="text">
+                                                      <block type="text" id="321">
+                                                        <field name="TEXT">server.onNotFound(handleNotFound);</field>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="customcode_code" id="324" inline="true">
+                                                        <value name="text">
+                                                          <block type="text" id="325">
+                                                            <field name="TEXT">server.begin();</field>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="serial_println" id="333" inline="false">
+                                                            <value name="CONTENT">
+                                                              <block type="text" id="334">
+                                                                <field name="TEXT">Server開啟</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

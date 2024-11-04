@@ -1,0 +1,68 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="board_initializes_setup" id="0" x="100" y="50">
+    <field name="BOARD_TYPE">ESP32</field>
+    <statement name="CONTENT">
+      <block type="setLineToken" id="Ft~r4AB-VA}yI/Vx*ZFJ">
+        <value name="TOKEN">
+          <block type="text" id="!)#w5GT=w@Px~I+)f2Wh">
+            <field name="TEXT">xxxxxxxxxxxxxxxxxx</field>
+          </block>
+        </value>
+        <next>
+          <block type="serial_init" id="X6%3Wt`vm_d/BvLEPpb6">
+            <field name="SPEED">9600</field>
+            <next>
+              <block type="linkit_wifi_wait_until_ready" id="0gsU[4(a}=Sr-}eCiho%">
+                <value name="SSID">
+                  <block type="text" id="#[W4TkPKJ0o,2V*%5KG.">
+                    <field name="TEXT">AMANI-4G-Home</field>
+                  </block>
+                </value>
+                <value name="PASSWORD">
+                  <block type="text" id="4S}e#d6|pqAnq`u_~.b*">
+                    <field name="TEXT">xxxxxxxxxxxxxxxxxx</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="serial_println" id="9%GcW1]]pI`dKtfM+Dhh">
+                    <value name="CONTENT">
+                      <block type="linkit_wifi_ip_address" id="rU|(oIOukhN$7yfuu_I!"></block>
+                    </value>
+                    <next>
+                      <block type="sendLineMsg" id="Hn%nL3)X1F);y?g3i%So">
+                        <value name="CONTENT">
+                          <block type="text" id="LEmdaMU|Nt5dPy|ki;V:">
+                            <field name="TEXT">test測試</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="serial_println" id="1O!zXc*|H;19Mk%#`Kgq">
+                            <value name="CONTENT">
+                              <block type="breakLine" id="5b9UnQIW1fJ*Z@v,yJt2"></block>
+                            </value>
+                            <next>
+                              <block type="serial_println" id="Y@NC#kXfVS:[.0$1%EO{">
+                                <value name="CONTENT">
+                                  <block type="text" id="pO9[ZiA-_*.2}f(.J#vg">
+                                    <field name="TEXT">OK</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1"></block>
+    </next>
+  </block>
+</xml>

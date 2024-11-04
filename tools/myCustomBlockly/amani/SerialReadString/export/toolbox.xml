@@ -1,0 +1,6 @@
+  <block type="_01amani_serial_avail">
+    <field name="serial">Serial</field>
+  </block>
+  <block type="_02amani_serial_readstring">
+    <field name="serial">Serial</field>
+  </block>

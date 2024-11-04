@@ -1,0 +1,2 @@
+Arduino IDE/草稿碼/匯入程式庫/加入.ZIP程式庫，
+選擇SimpleTimer.zip

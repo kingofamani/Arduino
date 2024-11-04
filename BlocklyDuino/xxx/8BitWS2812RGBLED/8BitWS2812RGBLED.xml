@@ -1,0 +1,472 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="customcode_comment" id="289" inline="true" x="88" y="-87">
+    <value name="text">
+      <block type="text" id="290">
+        <field name="TEXT">預設腳位D6</field>
+      </block>
+    </value>
+  </block>
+  <block type="initializes_setup" id="1" x="88" y="-37">
+    <statement name="CONTENT">
+      <block type="procedures_callnoreturn" id="97">
+        <mutation name="WS1"></mutation>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="2">
+        <statement name="CONTENT">
+          <block type="customcode_code" id="89" inline="true">
+            <value name="text">
+              <block type="text" id="90">
+                <field name="TEXT">pixels.clear();</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_comment" id="143" inline="true">
+                <value name="text">
+                  <block type="text" id="144">
+                    <field name="TEXT">單色8顆燈依序亮</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_code" id="98" inline="true">
+                    <value name="text">
+                      <block type="text" id="99">
+                        <field name="TEXT">colorWipe(pixels.Color(160, 32, 240), 50);</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_comment" id="145" inline="true">
+                        <value name="text">
+                          <block type="text" id="146">
+                            <field name="TEXT">單色向上跑馬燈</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="customcode_code" id="104" inline="true">
+                            <value name="text">
+                              <block type="text" id="105">
+                                <field name="TEXT">//theaterChase(pixels.Color(160,32,240), 50);</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="customcode_comment" id="147" inline="true">
+                                <value name="text">
+                                  <block type="text" id="148">
+                                    <field name="TEXT">彩虹向下跑馬燈</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="customcode_code" id="100" inline="true">
+                                    <value name="text">
+                                      <block type="text" id="101">
+                                        <field name="TEXT">//  rainbow(10);</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+  <block type="procedures_defnoreturn" id="50" collapsed="true" x="788" y="-37">
+    <mutation></mutation>
+    <field name="NAME">WS0</field>
+    <statement name="STACK">
+      <block type="customcode_head" id="33" inline="true">
+        <value name="text">
+          <block type="text" id="34">
+            <field name="TEXT">#include &lt;Adafruit_NeoPixel.h&gt;</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_head" id="35" inline="true">
+            <value name="text">
+              <block type="text" id="36">
+                <field name="TEXT">#ifdef __AVR__</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_head" id="37" inline="true">
+                <value name="text">
+                  <block type="text" id="38">
+                    <field name="TEXT">#include &lt;avr/power.h&gt;</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_head" id="39" inline="true">
+                    <value name="text">
+                      <block type="text" id="40">
+                        <field name="TEXT">#endif</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_head" id="45" inline="true">
+                        <value name="text">
+                          <block type="text" id="46">
+                            <field name="TEXT">#define PIN 6 // 腳位</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="customcode_head" id="43" inline="true">
+                            <value name="text">
+                              <block type="text" id="44">
+                                <field name="TEXT">#define DELAYVAL 500</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="customcode_head" id="47" inline="true">
+                                <value name="text">
+                                  <block type="text" id="48">
+                                    <field name="TEXT">#define NUMPIXELS 8 // 燈泡數</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="customcode_head" id="41" inline="true">
+                                    <value name="text">
+                                      <block type="text" id="42">
+                                        <field name="TEXT">Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="93" collapsed="true" x="788" y="-12">
+    <mutation></mutation>
+    <field name="NAME">WS1</field>
+    <statement name="STACK">
+      <block type="customcode_code" id="81" inline="true">
+        <value name="text">
+          <block type="text" id="82">
+            <field name="TEXT">#if defined(__AVR_ATtiny85__) &amp;&amp; (F_CPU == 16000000)</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_code" id="83" inline="true">
+            <value name="text">
+              <block type="text" id="84">
+                <field name="TEXT">clock_prescale_set(clock_div_1);</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_code" id="85" inline="true">
+                <value name="text">
+                  <block type="text" id="86">
+                    <field name="TEXT">#endif</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_code" id="87" inline="true">
+                    <value name="text">
+                      <block type="text" id="88">
+                        <field name="TEXT"> pixels.begin();</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="200" collapsed="true" x="788" y="13">
+    <mutation></mutation>
+    <field name="NAME">a1</field>
+    <statement name="STACK">
+      <block type="customcode_head" id="181" inline="true">
+        <value name="text">
+          <block type="text" id="182">
+            <field name="TEXT">void colorWipe(uint32_t color, int wait) {</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_head" id="183" inline="true">
+            <value name="text">
+              <block type="text" id="184">
+                <field name="TEXT">for (int i = 0; i &lt; pixels.numPixels(); i++) {</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_head" id="185" inline="true">
+                <value name="text">
+                  <block type="text" id="186">
+                    <field name="TEXT">pixels.setPixelColor(i, color);</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_head" id="187" inline="true">
+                    <value name="text">
+                      <block type="text" id="188">
+                        <field name="TEXT">pixels.show();</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_head" id="189" inline="true">
+                        <value name="text">
+                          <block type="text" id="190">
+                            <field name="TEXT">delay(wait);</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="customcode_head" id="191" inline="true">
+                            <value name="text">
+                              <block type="text" id="192">
+                                <field name="TEXT">}</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="customcode_head" id="193" inline="true">
+                                <value name="text">
+                                  <block type="text" id="194">
+                                    <field name="TEXT">}</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="253" collapsed="true" x="788" y="38">
+    <mutation></mutation>
+    <field name="NAME">a3</field>
+    <statement name="STACK">
+      <block type="customcode_head" id="209" inline="true">
+        <value name="text">
+          <block type="text" id="210">
+            <field name="TEXT">void rainbow(int wait) {</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_head" id="230" inline="true">
+            <value name="text">
+              <block type="text" id="231">
+                <field name="TEXT">for (long firstPixelHue = 0; firstPixelHue &lt; 5 * 65536; firstPixelHue += 256) {</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_head" id="232" inline="true">
+                <value name="text">
+                  <block type="text" id="233">
+                    <field name="TEXT">for (int i = 0; i &lt; pixels.numPixels(); i++) {</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_head" id="234" inline="true">
+                    <value name="text">
+                      <block type="text" id="235">
+                        <field name="TEXT">int pixelHue = firstPixelHue + (i * 65536L / pixels.numPixels());</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_head" id="236" inline="true">
+                        <value name="text">
+                          <block type="text" id="237">
+                            <field name="TEXT">pixels.setPixelColor(i, pixels.gamma32(pixels.ColorHSV(pixelHue)));</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="customcode_head" id="240" inline="true">
+                            <value name="text">
+                              <block type="text" id="241">
+                                <field name="TEXT">}</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="customcode_head" id="238" inline="true">
+                                <value name="text">
+                                  <block type="text" id="239">
+                                    <field name="TEXT"> pixels.show();</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="customcode_head" id="242" inline="true">
+                                    <value name="text">
+                                      <block type="text" id="243">
+                                        <field name="TEXT"> delay(wait);</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="customcode_head" id="244" inline="true">
+                                        <value name="text">
+                                          <block type="text" id="245">
+                                            <field name="TEXT"> }</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="customcode_head" id="246" inline="true">
+                                            <value name="text">
+                                              <block type="text" id="247">
+                                                <field name="TEXT"> }</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="229" collapsed="true" x="788" y="63">
+    <mutation></mutation>
+    <field name="NAME">a2</field>
+    <statement name="STACK">
+      <block type="customcode_head" id="195" inline="true">
+        <value name="text">
+          <block type="text" id="196">
+            <field name="TEXT">void theaterChase(uint32_t color, int wait) {</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_head" id="201" inline="true">
+            <value name="text">
+              <block type="text" id="202">
+                <field name="TEXT">for (int a = 0; a &lt; 10; a++) {</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_head" id="203" inline="true">
+                <value name="text">
+                  <block type="text" id="204">
+                    <field name="TEXT">for (int b = 0; b &lt; 3; b++) {</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_head" id="205" inline="true">
+                    <value name="text">
+                      <block type="text" id="206">
+                        <field name="TEXT">pixels.clear();</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_head" id="207" inline="true">
+                        <value name="text">
+                          <block type="text" id="208">
+                            <field name="TEXT">for (int c = b; c &lt; pixels.numPixels(); c += 3) {</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="customcode_head" id="211" inline="true">
+                            <value name="text">
+                              <block type="text" id="212">
+                                <field name="TEXT">pixels.setPixelColor(c, color);</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="customcode_head" id="213" inline="true">
+                                <value name="text">
+                                  <block type="text" id="214">
+                                    <field name="TEXT">}</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="customcode_head" id="215" inline="true">
+                                    <value name="text">
+                                      <block type="text" id="216">
+                                        <field name="TEXT">pixels.show();</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="customcode_head" id="217" inline="true">
+                                        <value name="text">
+                                          <block type="text" id="218">
+                                            <field name="TEXT">delay(wait);</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="customcode_head" id="219" inline="true">
+                                            <value name="text">
+                                              <block type="text" id="220">
+                                                <field name="TEXT">}</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="customcode_head" id="221" inline="true">
+                                                <value name="text">
+                                                  <block type="text" id="222">
+                                                    <field name="TEXT">}</field>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="customcode_head" id="223" inline="true">
+                                                    <value name="text">
+                                                      <block type="text" id="224">
+                                                        <field name="TEXT">}</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

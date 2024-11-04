@@ -1,0 +1,17 @@
+
+\home\創客\金鑰\天氣.txt
+
+
+積木：
+吉哥積木/網路爬蟲/世界天氣
+https://openweathermap.org/api/geocoding-api
+
+key：
+https://home.openweathermap.org/api_keys
+
+city ID：
+https://bulk.openweathermap.org/sample/
+台北
+1668341
+新北(板橋)
+1670029

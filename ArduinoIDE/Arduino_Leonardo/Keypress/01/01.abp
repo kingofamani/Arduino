@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<cb:CODEBLOCKS xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://education.mit.edu/openblocks/ns http://education.mit.edu/openblocks/codeblocks.xsd" xmlns:cb="http://education.mit.edu/openblocks/ns">
+<Pages collapsible-pages="yes" drawer-with-page="yes">
+<Page page-color="20 20 20" page-drawer="Main" page-infullview="yes" page-name="Main" page-width="1920">
+<PageBlocks>
+<Block genus-name="Keyboard_Print" id="166">
+<Location>
+<X>295</X>
+<Y>693</Y>
+</Location>
+<BeforeBlockId>168</BeforeBlockId>
+<Sockets num-sockets="1">
+<BlockConnector con-block-id="167" connector-kind="socket" connector-type="string" init-type="string" label="" position-type="single"/>
+</Sockets>
+</Block>
+<Block genus-name="glue_msg" id="167">
+<Label>Stop Talking...</Label>
+<Location>
+<X>477</X>
+<Y>696</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="166" connector-kind="plug" connector-type="string" init-type="string" label="" position-type="single"/>
+</Plug>
+</Block>
+<Block genus-name="delay" id="168">
+<Location>
+<X>295</X>
+<Y>663</Y>
+</Location>
+<BeforeBlockId>163</BeforeBlockId>
+<AfterBlockId>166</AfterBlockId>
+<Sockets num-sockets="1">
+<BlockConnector con-block-id="169" connector-kind="socket" connector-type="number" init-type="number" label="毫秒" position-type="single"/>
+</Sockets>
+</Block>
+<Block genus-name="number_double" id="169">
+<Label>1000</Label>
+<Location>
+<X>427</X>
+<Y>666</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="168" connector-kind="plug" connector-type="number" init-type="number" label="" position-type="mirror"/>
+</Plug>
+</Block>
+<Block genus-name="delay" id="164">
+<Location>
+<X>295</X>
+<Y>493</Y>
+</Location>
+<BeforeBlockId>159</BeforeBlockId>
+<AfterBlockId>161</AfterBlockId>
+<Sockets num-sockets="1">
+<BlockConnector con-block-id="165" connector-kind="socket" connector-type="number" init-type="number" label="毫秒" position-type="single"/>
+</Sockets>
+</Block>
+<Block genus-name="number_double" id="165">
+<Label>1000</Label>
+<Location>
+<X>427</X>
+<Y>496</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="164" connector-kind="plug" connector-type="number" init-type="number" label="" position-type="mirror"/>
+</Plug>
+</Block>
+<Block genus-name="Keyboard_ReleaseAll" id="163">
+<Location>
+<X>295</X>
+<Y>593</Y>
+</Location>
+<BeforeBlockId>161</BeforeBlockId>
+<AfterBlockId>168</AfterBlockId>
+</Block>
+<Block genus-name="Keyboard_Press" id="161">
+<Location>
+<X>295</X>
+<Y>523</Y>
+</Location>
+<BeforeBlockId>164</BeforeBlockId>
+<AfterBlockId>163</AfterBlockId>
+<Sockets num-sockets="1">
+<BlockConnector con-block-id="162" connector-kind="socket" connector-type="number" init-type="number" label="" position-type="single"/>
+</Sockets>
+</Block>
+<Block genus-name="keyboard_Enter" id="162">
+<Location>
+<X>477</X>
+<Y>526</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="161" connector-kind="plug" connector-type="number" init-type="number" label="" position-type="single"/>
+</Plug>
+</Block>
+<Block genus-name="Keyboard_Print" id="159">
+<Location>
+<X>295</X>
+<Y>393</Y>
+</Location>
+<BeforeBlockId>157</BeforeBlockId>
+<AfterBlockId>164</AfterBlockId>
+<Sockets num-sockets="1">
+<BlockConnector con-block-id="160" connector-kind="socket" connector-type="string" init-type="string" label="" position-type="single"/>
+</Sockets>
+</Block>
+<Block genus-name="glue_msg" id="160">
+<Label>notepad</Label>
+<Location>
+<X>477</X>
+<Y>396</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="159" connector-kind="plug" connector-type="string" init-type="string" label="" position-type="single"/>
+</Plug>
+</Block>
+<Block genus-name="program" id="139">
+<Location>
+<X>102</X>
+<Y>78</Y>
+</Location>
+<Sockets num-sockets="2">
+<BlockConnector connector-kind="socket" connector-type="cmd" init-type="cmd" label="setup" position-type="single"/>
+<BlockConnector con-block-id="148" connector-kind="socket" connector-type="cmd" init-type="cmd" label="loop" position-type="single"/>
+</Sockets>
+</Block>
+<Block genus-name="if" id="148">
+<Location>
+<X>210</X>
+<Y>121</Y>
+</Location>
+<BeforeBlockId>139</BeforeBlockId>
+<Sockets num-sockets="2">
+<BlockConnector con-block-id="149" connector-kind="socket" connector-type="boolean" init-type="boolean" label="邏輯" position-type="single"/>
+<BlockConnector con-block-id="151" connector-kind="socket" connector-type="cmd" init-type="cmd" label="然後執行" position-type="single"/>
+</Sockets>
+</Block>
+<Block genus-name="Keyboard_Press" id="151">
+<Location>
+<X>295</X>
+<Y>153</Y>
+</Location>
+<BeforeBlockId>148</BeforeBlockId>
+<AfterBlockId>153</AfterBlockId>
+<Sockets num-sockets="1">
+<BlockConnector con-block-id="152" connector-kind="socket" connector-type="number" init-type="number" label="" position-type="single"/>
+</Sockets>
+</Block>
+<Block genus-name="Keyboard_Press" id="153">
+<Location>
+<X>295</X>
+<Y>223</Y>
+</Location>
+<BeforeBlockId>151</BeforeBlockId>
+<AfterBlockId>156</AfterBlockId>
+<Sockets num-sockets="1">
+<BlockConnector con-block-id="155" connector-kind="socket" connector-type="number" init-type="number" label="" position-type="single"/>
+</Sockets>
+</Block>
+<Block genus-name="Keyboard_ReleaseAll" id="156">
+<Location>
+<X>295</X>
+<Y>293</Y>
+</Location>
+<BeforeBlockId>153</BeforeBlockId>
+<AfterBlockId>157</AfterBlockId>
+</Block>
+<Block genus-name="delay" id="157">
+<Location>
+<X>295</X>
+<Y>363</Y>
+</Location>
+<BeforeBlockId>156</BeforeBlockId>
+<AfterBlockId>159</AfterBlockId>
+<Sockets num-sockets="1">
+<BlockConnector con-block-id="158" connector-kind="socket" connector-type="number" init-type="number" label="毫秒" position-type="single"/>
+</Sockets>
+</Block>
+<Block genus-name="number_double" id="158">
+<Label>2000</Label>
+<Location>
+<X>427</X>
+<Y>366</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="157" connector-kind="plug" connector-type="number" init-type="number" label="" position-type="mirror"/>
+</Plug>
+</Block>
+<Block genus-name="keyboard_R" id="155">
+<Location>
+<X>477</X>
+<Y>226</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="153" connector-kind="plug" connector-type="number" init-type="number" label="" position-type="single"/>
+</Plug>
+</Block>
+<Block genus-name="keyboard_Windows" id="152">
+<Location>
+<X>477</X>
+<Y>156</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="151" connector-kind="plug" connector-type="number" init-type="number" label="" position-type="single"/>
+</Plug>
+</Block>
+<Block genus-name="pin-read-digital" id="149">
+<Location>
+<X>298</X>
+<Y>124</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="148" connector-kind="plug" connector-type="boolean" init-type="boolean" label="" position-type="single"/>
+</Plug>
+<Sockets num-sockets="1">
+<BlockConnector con-block-id="150" connector-kind="socket" connector-type="number" init-type="number" label="#" position-type="single"/>
+</Sockets>
+</Block>
+<Block genus-name="DuinoEDU_D10" id="150">
+<Location>
+<X>496</X>
+<Y>124</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="149" connector-kind="plug" connector-type="number" init-type="number" label="" position-type="single"/>
+</Plug>
+</Block>
+</PageBlocks>
+</Page>
+</Pages>
+</cb:CODEBLOCKS>

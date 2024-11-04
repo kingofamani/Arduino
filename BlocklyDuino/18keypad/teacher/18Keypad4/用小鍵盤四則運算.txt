@@ -1,0 +1,2 @@
+1、直接複製18Keypad0資料夾，再來修改。
+2、匯入「_Tools\keypad\keypad.xml」取得小鍵盤程式。

@@ -1,0 +1,44 @@
+ArduBlock下載：
+https://drive.google.com/drive/u/1/folders/1_r9XaRVB8mDdRHlasHNFyKXGDfY7dHxe
+1.請將tools資料夾，放入電腦【文件】內的【Arduino】資料夾內
+2.重新啟動Arduino
+3.點開Arduino介面上方的【工具】即可找到ArduBlock
+
+範例：
+ArduinoSample\ArduinoIDE\Arduino_Leonardo
+ArduinoSample\ArduinoIDE\_Project\SoundSensor
+
+Arduino Leonardo
+★★★D4腳位接GND才能使用keyborad
+
+Uno與Leonardo板子的尺寸大小、排母數目與位置，都一樣，
+但功能有所不同，它可模擬成USB鍵盤與滑鼠
+Flash memory 32KB
+EEPROM 1KB
+
+Uno因有一顆獨立晶片負責USB轉TTL Serial，所以當主晶片重置時，該連線並不會斷掉，但Leonardo會，原本若開啟電腦端的序列埠監控視窗，Uno就會重置，但Leonardo不會，以至於在setup()從序列埠傳出的資料，可能不會出現在電腦端，所以通常會加上while (!Serial);等待開啟序列埠。
+
+類比：
+A0~A5、
+D4、D6、D8、D9、D10、D12
+
+PWM：
+3,5,6,9,10,11，多了13
+
+SPI介面：
+不在數位10~13接腳，只位於ICSP端子，
+SS則位於板子左邊與RX LED相連
+
+I2C：
+Uno：SDA（A4、SDA）與SCL（A5、SCL）
+Leonardo：SDA（2、SDA）與SCL（3、SCL）
+
+
+Serial序列介面：
+在程式裡Serial物件代表USB CDC，而★Serial1物件才是RX（0）與TX（1）。Leonardo事實上擁有兩個序列埠，一個模擬而成的虛擬序列埠（不管是在電腦端還是在微控制器端），連接USB連線，另一個則是微控制器本身原本擁有的UART硬體。
+
+
+
+
+
+

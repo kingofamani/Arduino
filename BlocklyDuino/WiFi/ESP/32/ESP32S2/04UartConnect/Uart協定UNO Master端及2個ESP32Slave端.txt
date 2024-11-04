@@ -1,0 +1,25 @@
+★ESP32無法使用SoftwareSerial，要安裝 EspSoftwareSerial by Dirk kaar
+★UNO master一傳多個ESP32 client是沒問題的。
+ 但反過來多個ESP32 client使用SoftwareSerail傳給一個UNO master接收會常常丟失訊息，所以只能一個ESP32 client傳給UNO master
+
+第一個ESP32開發板：
+UNO		ESP32S2
+D3 	↔	GPIO3
+D2 	↔	GPIO2
+5V 	↔	5V
+GND	↔	GND
+
+第二個ESP32開發板：
+UNO		ESP32S2
+D5 	↔	GPIO5
+D4 	↔	GPIO4
+5V 	↔	5V
+GND	↔	GND
+
+Arduino UNO：
+	上傳04UartConnectArduinoUNO
+ESP32 S2：
+	一個要上傳04UartConnectESP32S2_1
+	另一個上傳04UartConnectESP32S2_2
+	
+//要用print，用write比較麻煩

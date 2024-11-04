@@ -1,0 +1,72 @@
+<xml version="F1" board="Arduino Uno" xmlns="https://developers.google.com/blockly/xml">
+  <block type="board_initializes_setup" id="0" x="100" y="50">
+    <field name="BOARD_TYPE">Arduino</field>
+    <statement name="CONTENT">
+      <block type="BitMatrixLed_matrix_pin" id="}hIthXF)V-qU6pqN_gpg">
+        <value name="pin">
+          <block type="math_number" id="CVa]|S6F%I+0,pR+`C5_">
+            <field name="NUM">6</field>
+          </block>
+        </value>
+        <value name="leds">
+          <block type="math_number" id="kV$pUL``6}^,5@Ej:7sF">
+            <field name="NUM">8</field>
+          </block>
+        </value>
+        <next>
+          <block type="BitMatrixLed_matrix_brightness" id="UzoT3ZT71zcs.Mj?K$JX">
+            <value name="brightness">
+              <block type="math_number" id="T.5ONmJ@Qvog~f4FchNn">
+                <field name="NUM">5</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="BitMatrixLed_matrix_color_one_8" id="+wlIZ3Dv9{dMOMh+L);=">
+            <value name="L21">
+              <block type="BitMatrixLed_color_random" id="eq$pmp!-E8R/q.XDJNN)"></block>
+            </value>
+            <value name="L22">
+              <block type="BitMatrixLed_color_random" id="X8ws,t#0B@5b,ZZEZ0w)"></block>
+            </value>
+            <value name="L23">
+              <block type="BitMatrixLed_color_random" id="[1![}u@W86fe.MAu7%SK"></block>
+            </value>
+            <value name="L24">
+              <block type="BitMatrixLed_color_random" id="ov1Qf)k.oOD,!*mmwWOK"></block>
+            </value>
+            <value name="L25">
+              <block type="BitMatrixLed_color_random" id="bJmRA`wx_sroha1fWNI0"></block>
+            </value>
+            <value name="L16">
+              <block type="BitMatrixLed_color_random" id="R6E{aT.^uTNe8p,bgQhA"></block>
+            </value>
+            <value name="L17">
+              <block type="BitMatrixLed_color_random" id="OV4T*JEl7VjAOExB%L-I"></block>
+            </value>
+            <value name="L18">
+              <block type="BitMatrixLed_color_random" id="S]Y.r4goq[Ea`.`D21U)"></block>
+            </value>
+            <next>
+              <block type="delay_custom" id="AjN#^A1SLg~{I@Z4LEg.">
+                <value name="DELAY_TIME">
+                  <block type="math_number" id="joaa:uosGAwpUM]`fvpd">
+                    <field name="NUM">100</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="BitMatrixLed_matrix_clear" id="Inn;gpRZFqr+~1)n`9;d"></block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

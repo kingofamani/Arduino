@@ -1,0 +1,308 @@
+<xml version="F1" board="Arduino Uno" xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="-eb-NrN;I6edk,zrMpP?">ServoPin</variable>
+    <variable id="=5Bw)raPh%FjotSO1XIn">isCW</variable>
+    <variable id="RR+%6EjME/EYlRGa7r95">key</variable>
+  </variables>
+  <block type="board_initializes_setup" id="0" x="100" y="50">
+    <field name="BOARD_TYPE">Arduino</field>
+    <statement name="CONTENT">
+      <block type="serial_init" id="-c5Nb;SA=e6JXc@X#$Zg">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="variables_set" id="7kTs;$.y!?VL6_,#f7$M">
+            <field name="POSITION">global</field>
+            <field name="TYPE">int</field>
+            <field name="VAR" id="-eb-NrN;I6edk,zrMpP?">ServoPin</field>
+            <value name="VALUE">
+              <shadow type="math_number" id="~o7C*nx,fDJbxZe)R=MR">
+                <field name="NUM">0</field>
+              </shadow>
+              <block type="math_number" id="gz^,d)Uq%byX=j_X!1yd">
+                <field name="NUM">3</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="controls_if" id="s(yl9uq+/yXVm1e@%8gm">
+            <value name="IF0">
+              <block type="logic_compare" id="7QzUDvb*Xh)diE7JMwTP">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="serial_available" id="q_gmQe;U}Lj)h{~W3w1z"></block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="PY.`JWV#Mss}_^$bkD[]">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="variables_set" id="ZL%X+79=#0=cc!|E7Xh.">
+                <field name="POSITION">local</field>
+                <field name="TYPE">char</field>
+                <field name="VAR" id="RR+%6EjME/EYlRGa7r95">key</field>
+                <value name="VALUE">
+                  <shadow type="math_number" id="$.-a~)#E(HA9-qd@1KxN">
+                    <field name="NUM">0</field>
+                  </shadow>
+                  <block type="serial_read" id="UlFisiVoMK:,|^D!{a)T"></block>
+                </value>
+                <next>
+                  <block type="controls_if" id="vxSu.6l|AP+6e);W.K0H">
+                    <mutation elseif="2"></mutation>
+                    <value name="IF0">
+                      <block type="logic_compare" id="v@(q)jJ-s1LKX%#~^Ht0">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="variables_get" id="fT:NgJ5R+pe#^e1iXL/2">
+                            <field name="VAR" id="RR+%6EjME/EYlRGa7r95">key</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="text_quotationmark" id="M6r};l@^Qm6YTlWx[aU{">
+                            <field name="TEXT">1</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="customcode_comment" id="euey+xD~Ys?bV#,UIkS$">
+                        <value name="text">
+                          <block type="text" id="*swkP,Ff%7LG55HTjXal">
+                            <field name="TEXT">順時鐘</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="procedures_callnoreturn" id="7g.3w=XHc*k!rWcKWR(m">
+                            <mutation xmlns="http://www.w3.org/1999/xhtml" name="servoGo"></mutation>
+                            <value name="VAR">
+                              <block type="lists_create_with" id="QZY?AtVI1jp}j4#Y[ezk">
+                                <mutation items="1"></mutation>
+                                <value name="ADD0">
+                                  <block type="logic_boolean" id="[`_Mfl!NbV!)L2%Pa}]t">
+                                    <field name="BOOL">TRUE</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                    <value name="IF1">
+                      <block type="logic_compare" id="Xj=RXKA[ir7z8UPG5~=O">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="variables_get" id=";[~]]wC8FHv-}+`z-L,s">
+                            <field name="VAR" id="RR+%6EjME/EYlRGa7r95">key</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="text_quotationmark" id="r72qPjq+HPWoCPjTy$7q">
+                            <field name="TEXT">2</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO1">
+                      <block type="customcode_comment" id="$Sj_[?ejar-:CRBvLDIW">
+                        <value name="text">
+                          <block type="text" id="xbOh.ZTgBh{jlIIebOm[">
+                            <field name="TEXT">逆時鐘</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="procedures_callnoreturn" id="}[0u#,:E73QAgdz.033.">
+                            <mutation xmlns="http://www.w3.org/1999/xhtml" name="servoGo"></mutation>
+                            <value name="VAR">
+                              <block type="lists_create_with" id="^ihH7@;0Ab^adzVdvm@M">
+                                <mutation items="1"></mutation>
+                                <value name="ADD0">
+                                  <block type="logic_boolean" id="XtjKB.?S4YH.{ZY(ulC}">
+                                    <field name="BOOL">FALSE</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                    <value name="IF2">
+                      <block type="logic_compare" id="D4p@|`hEN=AF1_eE]ptF">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="variables_get" id="8r2a5p*gHb{1;)JfbRv(">
+                            <field name="VAR" id="RR+%6EjME/EYlRGa7r95">key</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="text_quotationmark" id="[*%}C+{oe[BWkhacWf#c">
+                            <field name="TEXT">3</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO2">
+                      <block type="procedures_callnoreturn" id="OsTz5v^v4c|S:~WQ$~GH">
+                        <mutation xmlns="http://www.w3.org/1999/xhtml" name="servoStop"></mutation>
+                        <value name="VAR">
+                          <shadow type="lists_create_with" id="3S[JYYrwOB9X1mrnRT);">
+                            <mutation items="0"></mutation>
+                          </shadow>
+                        </value>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+  <block type="procedures_defnoreturn" id="~=G,EO%NiyPvlD)y~C1:" collapsed="true" x="630" y="630">
+    <field name="NAME">servoGo</field>
+    <value name="VAR">
+      <shadow type="lists_create_with" id="Mu0@ga@XLe/RvIdn|Efu">
+        <mutation items="0"></mutation>
+      </shadow>
+      <block type="lists_create_with" id="|(Hh={l:Y^Q6k~hmC;kX">
+        <mutation items="1"></mutation>
+        <value name="ADD0">
+          <block type="variables_set2" id="q=wYtU.VcZx8EGvhTdCU">
+            <field name="TYPE">boolean</field>
+            <field name="VAR" id="=5Bw)raPh%FjotSO1XIn">isCW</field>
+          </block>
+        </value>
+      </block>
+    </value>
+    <statement name="STACK">
+      <block type="controls_if" id="d5H~a-7J;Lr4zK)e|2tz">
+        <mutation else="1"></mutation>
+        <value name="IF0">
+          <block type="logic_compare" id="lf4!jk`m9*gYiF1}1@v[">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="variables_get" id="q.Nx~5{dX9Wi@wrzZE!d">
+                <field name="VAR" id="=5Bw)raPh%FjotSO1XIn">isCW</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="logic_boolean" id="jJ5mF2bTw%EZm9/k}cD^">
+                <field name="BOOL">TRUE</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="servo_write_pin" id="aIrSQNbT!Z$qGPF{64rC">
+            <value name="PIN">
+              <block type="variables_get" id="oN6uKXu)s~Ic3`tz6--c">
+                <field name="VAR" id="-eb-NrN;I6edk,zrMpP?">ServoPin</field>
+              </block>
+            </value>
+            <value name="ANGLE">
+              <block type="math_number" id=")n!94UKX#RnN,-wk83#h">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_code" id="pN:C8A^,J*+}:5BUa[Ik">
+                <value name="text">
+                  <block type="customcode_instruction1" id="NgZCQ`j+~^u#[i)bEzmK">
+                    <value name="instruction">
+                      <block type="text" id="*LZi0*boUgnbE4fA`?lt">
+                        <field name="TEXT">__myservoServoPin.attach</field>
+                      </block>
+                    </value>
+                    <value name="text">
+                      <block type="variables_get" id="r5Vk%D#!umUl^EAb~lSd">
+                        <field name="VAR" id="-eb-NrN;I6edk,zrMpP?">ServoPin</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_code" id="I;Rh`g.=7.)[22/#dc@d">
+                    <value name="text">
+                      <block type="text" id="-)nsx/(~(Mtx]|BztdGQ">
+                        <field name="TEXT">;</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <statement name="ELSE">
+          <block type="servo_write_pin" id="$D`2A~f3:fM~n`Mj~P90">
+            <value name="PIN">
+              <block type="variables_get" id="Tha!OpP|g`8fOK-}8.fX">
+                <field name="VAR" id="-eb-NrN;I6edk,zrMpP?">ServoPin</field>
+              </block>
+            </value>
+            <value name="ANGLE">
+              <block type="math_number" id="inLgi2Ndl7S)pP_ZpsF_">
+                <field name="NUM">180</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_code" id="H;NgD][4wg}M7$UT%W]y">
+                <value name="text">
+                  <block type="customcode_instruction1" id="LyQkE}?k7ZN2JK4/,+-X">
+                    <value name="instruction">
+                      <block type="text" id="zv7noYieYZ{wOCxmv%xQ">
+                        <field name="TEXT">__myservoServoPin.attach</field>
+                      </block>
+                    </value>
+                    <value name="text">
+                      <block type="variables_get" id="p4?t{,D@idBm.,U0]os|">
+                        <field name="VAR" id="-eb-NrN;I6edk,zrMpP?">ServoPin</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_code" id="[RnC:Q$aSziH3WicmVJa">
+                    <value name="text">
+                      <block type="text" id="A2V28yu~`1K`_wbpGbDZ">
+                        <field name="TEXT">;</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="Jsj-167{k|x4F?4gOIx7" collapsed="true" x="630" y="670">
+    <field name="NAME">servoStop</field>
+    <value name="VAR">
+      <shadow type="lists_create_with" id="Wq~(Mo(EH$/IJ(!q-O$7">
+        <mutation items="0"></mutation>
+      </shadow>
+    </value>
+    <statement name="STACK">
+      <block type="customcode_code" id="*]r~44f9DQ%_~W[FI6#U">
+        <value name="text">
+          <block type="text" id="fX+SFnp_;!87:bSQXK~Z">
+            <field name="TEXT">__myservoServoPin.detach();</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+</xml>

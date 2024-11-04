@@ -1,0 +1,39 @@
+ESP32-S2
+
+ESP32無法使用SoftwareSerial，要安裝 EspSoftwareSerial by Dirk kaar
+
+https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+
+工具/開發板/開發板管理員/搜尋esp32後按「更新」
+
+開發板：ESP32S2 DEV Module
+
+Reset鍵：
+	WIFI連不上可用
+	EN按鈕
+	
+LED_BUILTIN
+	腳位pin 2
+
+數位腳位
+	綠色GPIO=實際圖片的P，例如GPIO5=P5，就是pin=5
+
+類比腳位：
+	紫色ADC
+	
+I2C：
+	SCL	GPIO8
+	SDA	GPIO9
+UART：
+	UART0(Serial)：
+		RX	GPIO44
+		TX	GPIO43
+	UART1(Serial1)：
+		RX	GPIO18
+		TX	GPIO17
+	UART2(Serial2)
+		xxxx不支援
+
+
+
+

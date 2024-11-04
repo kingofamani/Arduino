@@ -1,0 +1,309 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="customcode_head" id="33" inline="true" x="113" y="-12">
+    <value name="text">
+      <block type="text" id="34">
+        <field name="TEXT">#include &lt;SimpleTimer.h&gt;</field>
+      </block>
+    </value>
+    <next>
+      <block type="customcode_head" id="140" inline="true">
+        <value name="text">
+          <block type="text" id="322">
+            <field name="TEXT">SimpleTimer timer;</field>
+          </block>
+        </value>
+      </block>
+    </next>
+  </block>
+  <block type="procedures_defnoreturn" id="324" collapsed="true" x="788" y="-12">
+    <mutation></mutation>
+    <field name="NAME">RepeatTask</field>
+    <statement name="STACK">
+      <block type="serial_println" id="334" inline="false">
+        <value name="CONTENT">
+          <block type="text" id="335">
+            <field name="TEXT">每隔n秒執行1次</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="326" collapsed="true" x="788" y="13">
+    <mutation></mutation>
+    <field name="NAME">OnceOnlyTask</field>
+    <statement name="STACK">
+      <block type="serial_println" id="338" inline="false">
+        <value name="CONTENT">
+          <block type="text" id="339">
+            <field name="TEXT">只執行1次，執行完畢</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="336" collapsed="true" x="788" y="38">
+    <mutation></mutation>
+    <field name="NAME">TimesTask</field>
+    <statement name="STACK">
+      <block type="customcode_variable" id="373" inline="true">
+        <value name="variable">
+          <block type="text" id="374">
+            <field name="TEXT">static int k</field>
+          </block>
+        </value>
+        <value name="text">
+          <block type="math_number" id="424">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_code" id="457" inline="true">
+            <value name="text">
+              <block type="text" id="458">
+                <field name="TEXT">k++;</field>
+              </block>
+            </value>
+            <next>
+              <block type="serial_print" id="476" inline="false">
+                <value name="CONTENT">
+                  <block type="text" id="477">
+                    <field name="TEXT">第</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_code" id="474" inline="true">
+                    <value name="text">
+                      <block type="text" id="475">
+                        <field name="TEXT">Serial.print(k);</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_println" id="472" inline="false">
+                        <value name="CONTENT">
+                          <block type="text" id="473">
+                            <field name="TEXT">次</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="initializes_setup" id="1" x="113" y="88">
+    <statement name="CONTENT">
+      <block type="serial_init" id="644">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="customcode_code" id="645" inline="true">
+            <value name="text">
+              <block type="text" id="646">
+                <field name="TEXT">timer.setInterval(15000, RepeatTask);//每隔15秒觸發1次</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_code" id="647" inline="true">
+                <value name="text">
+                  <block type="text" id="648">
+                    <field name="TEXT">timer.setTimeout(10000, OnceOnlyTask);//10秒後觸發1次，只有1次</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_code" id="649" inline="true">
+                    <value name="text">
+                      <block type="text" id="650">
+                        <field name="TEXT">timer.setInterval(1000, DigitalClockDisplay);//時鐘</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_code" id="651" inline="true">
+                        <value name="text">
+                          <block type="text" id="652">
+                            <field name="TEXT">timer.setTimer(300, TimesTask, 10);//每隔0.3秒觸發1次，共有10次</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="2">
+        <statement name="CONTENT">
+          <block type="customcode_code" id="455" inline="true">
+            <value name="text">
+              <block type="text" id="456">
+                <field name="TEXT">timer.run();</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+  <block type="procedures_defnoreturn" id="337" collapsed="true" x="788" y="63">
+    <mutation></mutation>
+    <field name="NAME">DigitalClockDisplay</field>
+    <statement name="STACK">
+      <block type="customcode_code" id="534" inline="true">
+        <value name="text">
+          <block type="text" id="535">
+            <field name="TEXT">int h,m,s;</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_code" id="536" inline="true">
+            <value name="text">
+              <block type="text" id="537">
+                <field name="TEXT">s = millis() / 1000;</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_code" id="538" inline="true">
+                <value name="text">
+                  <block type="text" id="539">
+                    <field name="TEXT">m = s / 60;</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_code" id="540" inline="true">
+                    <value name="text">
+                      <block type="text" id="541">
+                        <field name="TEXT">h = s / 3600;</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_code" id="542" inline="true">
+                        <value name="text">
+                          <block type="text" id="543">
+                            <field name="TEXT">s = s - m * 60;</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="customcode_code" id="544" inline="true">
+                            <value name="text">
+                              <block type="text" id="545">
+                                <field name="TEXT">m = m - h * 60;</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="customcode_code" id="576" inline="true">
+                                <value name="text">
+                                  <block type="text" id="577">
+                                    <field name="TEXT">Serial.print(h);</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="customcode_code" id="578" inline="true">
+                                    <value name="text">
+                                      <block type="text" id="579">
+                                        <field name="TEXT">printDigits(m);</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="customcode_code" id="580" inline="true">
+                                        <value name="text">
+                                          <block type="text" id="581">
+                                            <field name="TEXT">printDigits(s);</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="serial_println" id="582" inline="false">
+                                            <value name="CONTENT">
+                                              <block type="text" id="584">
+                                                <field name="TEXT"></field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="customcode_head" id="683" inline="true" x="813" y="113">
+    <value name="text">
+      <block type="text" id="588">
+        <field name="TEXT">void printDigits(int digits) {</field>
+      </block>
+    </value>
+    <next>
+      <block type="customcode_head" id="696" inline="true">
+        <value name="text">
+          <block type="text" id="697">
+            <field name="TEXT">Serial.print(":");</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_head" id="698" inline="true">
+            <value name="text">
+              <block type="text" id="590">
+                <field name="TEXT">if(digits &lt; 10){</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_head" id="702" inline="true">
+                <value name="text">
+                  <block type="text" id="703">
+                    <field name="TEXT">Serial.print("0");</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_head" id="701" inline="true">
+                    <value name="text">
+                      <block type="text" id="632">
+                        <field name="TEXT">}</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_head" id="700" inline="true">
+                        <value name="text">
+                          <block type="text" id="636">
+                            <field name="TEXT">Serial.print(digits);</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="customcode_head" id="704" inline="true">
+                            <value name="text">
+                              <block type="text" id="705">
+                                <field name="TEXT">}</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

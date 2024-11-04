@@ -1,0 +1,13 @@
+\\10.197.28.35\home\創客\比賽\國教署\2024\程式碼
+
+hiveMQ測試數據：
+imiRobot/car/lowPower
+1
+imiRobot/goods/load
+陳大春,PS5主機,1,1,3,5
+imiRobot/car/gps
+01
+imiRobot/car/standby
+1
+imiRobot/map/set
+1,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1,1,1,1,1,1

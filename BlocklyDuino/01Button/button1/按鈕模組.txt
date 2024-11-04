@@ -1,0 +1,3 @@
+S	D2
+V	5V
+GND	GND

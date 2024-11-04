@@ -1,0 +1,335 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="board_initializes_setup" id="0" x="30" y="70">
+    <field name="BOARD_TYPE">ESP32</field>
+    <statement name="CONTENT">
+      <block type="l9110_init" id="d~Q*stFdfJp8M1Ev!-b;">
+        <value name="M1A">
+          <block type="math_number" id="B%}KcvACb{wk_[!cG84(">
+            <field name="NUM">16</field>
+          </block>
+        </value>
+        <value name="M1B">
+          <block type="math_number" id=":@822zAVuMLXDPW6_CnX">
+            <field name="NUM">17</field>
+          </block>
+        </value>
+        <value name="M2A">
+          <block type="math_number" id="}(H=sl_PvucC][N|?TNp">
+            <field name="NUM">21</field>
+          </block>
+        </value>
+        <value name="M2B">
+          <block type="math_number" id="^WVZ-CZ84GU38*xcY0vH">
+            <field name="NUM">22</field>
+          </block>
+        </value>
+        <next>
+          <block type="esp32_bluetooth_initial" id="xqh1oWP~@Ynq%!u#90Vw">
+            <field name="baudrate">9600</field>
+            <value name="blename">
+              <block type="text" id="si2Y%AGVjNs#L85RZfjM">
+                <field name="TEXT">ESP32test2</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="esp32_bluetooth_readdata" id="$v}}lQ3;WG}O5FmEan=o">
+            <statement name="execute">
+              <block type="serial_print" id="{PTriaFz.2?HVyR5XB;|">
+                <value name="CONTENT">
+                  <block type="esp32_bluetooth_getdata" id="1GC[k(JDi7db%1Z^_wv7"></block>
+                </value>
+                <next>
+                  <block type="controls_if" id="%)Z]/[x[MN(OV%IQ,}pD">
+                    <mutation elseif="3"></mutation>
+                    <value name="IF0">
+                      <block type="logic_compare" id="TWUZM-.:SFvQ.};s{@6A">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="esp32_bluetooth_getdata" id="DB`rDizEwn4CF{!Jghhz"></block>
+                        </value>
+                        <value name="B">
+                          <block type="text" id="s,0B*I[0:N%cN!,NcR_O">
+                            <field name="TEXT">f</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="procedures_callnoreturn" id=".{iC5H6xM((_gl}yY:CL">
+                        <mutation xmlns="http://www.w3.org/1999/xhtml" name="forward"></mutation>
+                        <value name="VAR">
+                          <shadow type="lists_create_with" id="^WtTx]eeutDsKD{.=bs8">
+                            <mutation items="0"></mutation>
+                          </shadow>
+                        </value>
+                        <next>
+                          <block type="procedures_callnoreturn" id="8c%.-E]VNcQYKo#S[9)t">
+                            <mutation xmlns="http://www.w3.org/1999/xhtml" name="stopCar"></mutation>
+                            <value name="VAR">
+                              <shadow type="lists_create_with" id="S.fKGe@g,w7j4lgrE5,(">
+                                <mutation items="0"></mutation>
+                              </shadow>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                    <value name="IF1">
+                      <block type="logic_compare" id="]YvO532Nfv[{KIi]V;w}">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="esp32_bluetooth_getdata" id="Y-Z=JMc/f)?c1.1gpeY="></block>
+                        </value>
+                        <value name="B">
+                          <block type="text" id=";Z$Ak8oQk)1uk,NNvQN9">
+                            <field name="TEXT">b</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO1">
+                      <block type="procedures_callnoreturn" id="XiW~u9i*7~@0P-:9fS$Q">
+                        <mutation xmlns="http://www.w3.org/1999/xhtml" name="backward"></mutation>
+                        <value name="VAR">
+                          <shadow type="lists_create_with" id="r{HTWZO,QA|3ZYmYi_Up">
+                            <mutation items="0"></mutation>
+                          </shadow>
+                        </value>
+                        <next>
+                          <block type="procedures_callnoreturn" id="p.%=uDN^7#B|dM7K5uQ3">
+                            <mutation xmlns="http://www.w3.org/1999/xhtml" name="stopCar"></mutation>
+                            <value name="VAR">
+                              <shadow type="lists_create_with" id="Zee*M0~{]C%iFK*-*K86">
+                                <mutation items="0"></mutation>
+                              </shadow>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                    <value name="IF2">
+                      <block type="logic_compare" id="S|IyJhfZsZ(h:}i/|Gp9">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="esp32_bluetooth_getdata" id="|.Mb5OYC)~!0v{mon?/J"></block>
+                        </value>
+                        <value name="B">
+                          <block type="text" id="Vx+x/Y$wMruOW[o/lo.N">
+                            <field name="TEXT">l</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO2">
+                      <block type="procedures_callnoreturn" id="VFD6Yv|C/1:3aj,%xee{">
+                        <mutation xmlns="http://www.w3.org/1999/xhtml" name="turnLeft"></mutation>
+                        <value name="VAR">
+                          <shadow type="lists_create_with" id="#6nfe2T{z,dh@C`Cc~|%">
+                            <mutation items="0"></mutation>
+                          </shadow>
+                        </value>
+                        <next>
+                          <block type="procedures_callnoreturn" id="g+H}[w|vJyXip#N)7]rw">
+                            <mutation xmlns="http://www.w3.org/1999/xhtml" name="stopCar"></mutation>
+                            <value name="VAR">
+                              <shadow type="lists_create_with" id="dSIEyK|/V=YNvyphL,GV">
+                                <mutation items="0"></mutation>
+                              </shadow>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                    <value name="IF3">
+                      <block type="logic_compare" id="`v4BW8V`7Hx45lf~D/3B">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="esp32_bluetooth_getdata" id="MV1`B|._x3|bA?hvc$(Z"></block>
+                        </value>
+                        <value name="B">
+                          <block type="text" id="ayXHyGk4(UKYW/,-Rt68">
+                            <field name="TEXT">r</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO3">
+                      <block type="procedures_callnoreturn" id="2b0VS1^AZqIv6]RHeS?D">
+                        <mutation xmlns="http://www.w3.org/1999/xhtml" name="turnRight"></mutation>
+                        <value name="VAR">
+                          <shadow type="lists_create_with" id="owKyt6$jiI938B;7mOnd">
+                            <mutation items="0"></mutation>
+                          </shadow>
+                        </value>
+                        <next>
+                          <block type="procedures_callnoreturn" id="a^wkKOSGWwt[PfDzXhqh">
+                            <mutation xmlns="http://www.w3.org/1999/xhtml" name="stopCar"></mutation>
+                            <value name="VAR">
+                              <shadow type="lists_create_with" id="l.2Hk-*kvTb{urz]:ha^">
+                                <mutation items="0"></mutation>
+                              </shadow>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+  <block type="procedures_defnoreturn" id=";1lJ3@kV/*YG*irQVqcd" x="750" y="70">
+    <field name="NAME">forward</field>
+    <value name="VAR">
+      <shadow type="lists_create_with" id=".?I+/JpZ-gsq[sG/7^/C" inline="true">
+        <mutation items="0"></mutation>
+      </shadow>
+    </value>
+    <statement name="STACK">
+      <block type="l9110_run" id="Jr1k@92|Z@?`Rg7LFH|A">
+        <field name="MOTOR">m1</field>
+        <field name="DIR">1</field>
+        <value name="SPEED">
+          <block type="math_number" id="DS0/FjXMff85[p}8[kPB">
+            <field name="NUM">255</field>
+          </block>
+        </value>
+        <next>
+          <block type="l9110_run" id="ReSOi6ys_i=QzGNT89)5">
+            <field name="MOTOR">m2</field>
+            <field name="DIR">1</field>
+            <value name="SPEED">
+              <block type="math_number" id="i%CkeiiafK%5=2u#v$a4">
+                <field name="NUM">255</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="7nN|wd*#)igi^%8k+?Fd" x="750" y="250">
+    <field name="NAME">backward</field>
+    <value name="VAR">
+      <shadow type="lists_create_with" id="DY}wM?BpUmBF$1OfLI#+" inline="true">
+        <mutation items="0"></mutation>
+      </shadow>
+    </value>
+    <statement name="STACK">
+      <block type="l9110_run" id="|?a+ByL?pT1mlw-S!$F!">
+        <field name="MOTOR">m1</field>
+        <field name="DIR">2</field>
+        <value name="SPEED">
+          <block type="math_number" id="X[%aQb$=AV+g[-_9P#,l">
+            <field name="NUM">255</field>
+          </block>
+        </value>
+        <next>
+          <block type="l9110_run" id="eO4E}l5S7mNQVo(k;L8@">
+            <field name="MOTOR">m2</field>
+            <field name="DIR">2</field>
+            <value name="SPEED">
+              <block type="math_number" id="O:`_sFdJk[I6cg-nvu.Q">
+                <field name="NUM">255</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id=";X6ppxk|r[}Ngi53$;G7" x="750" y="430">
+    <field name="NAME">turnRight</field>
+    <value name="VAR">
+      <shadow type="lists_create_with" id="prZw*[)#yH}y-,riTy,[" inline="true">
+        <mutation items="0"></mutation>
+      </shadow>
+    </value>
+    <statement name="STACK">
+      <block type="l9110_run" id="azQ)bpPuDAWPA+vhtnLN">
+        <field name="MOTOR">m1</field>
+        <field name="DIR">1</field>
+        <value name="SPEED">
+          <block type="math_number" id=";qS(/F9RwD9s-.C5#UFY">
+            <field name="NUM">255</field>
+          </block>
+        </value>
+        <next>
+          <block type="l9110_stop" id="|ab|~b=Y`dX68G9nXM}p">
+            <field name="MOTOR">m2</field>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="`%Ebxz?;iwFVyyuD-(q%" x="750" y="610">
+    <field name="NAME">turnLeft</field>
+    <value name="VAR">
+      <shadow type="lists_create_with" id="`qSDuQ^S7.lj1^307pA8" inline="true">
+        <mutation items="0"></mutation>
+      </shadow>
+    </value>
+    <statement name="STACK">
+      <block type="l9110_run" id="wyqAw4}64_f,50#}h.}$">
+        <field name="MOTOR">m2</field>
+        <field name="DIR">1</field>
+        <value name="SPEED">
+          <block type="math_number" id="#D2G20XI/Q)uRc$(@kcx">
+            <field name="NUM">255</field>
+          </block>
+        </value>
+        <next>
+          <block type="l9110_stop" id="9uw.8+_@sEP?!ca#sI7)">
+            <field name="MOTOR">m1</field>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="b`a~7E/oH4lLFRfJ!O*G" x="830" y="810">
+    <field name="NAME">stopCar</field>
+    <value name="VAR">
+      <shadow type="lists_create_with" id="HW;@R]8WH8]q|L4xnI52" inline="true">
+        <mutation items="0"></mutation>
+      </shadow>
+    </value>
+    <statement name="STACK">
+      <block type="customcode_comment" id="nz=!qJOi9$f_Q=.ULP=/">
+        <value name="text">
+          <block type="text" id="5myLvS?vUM)EO$:L0+rq">
+            <field name="TEXT">★若不設定秒數會永遠stopCar。約每100毫秒手機會傳送訊號過來一次，所以設定200較適合。</field>
+          </block>
+        </value>
+        <next>
+          <block type="delay_custom" id="LTkkaOKO89S:[ezun+E}">
+            <value name="DELAY_TIME">
+              <block type="math_number" id="9gLps_bq],v_$VJcYOP5">
+                <field name="NUM">200</field>
+              </block>
+            </value>
+            <next>
+              <block type="l9110_stop" id="SanbW=7sGz{7^y9x8PTs">
+                <field name="MOTOR">m1</field>
+                <next>
+                  <block type="l9110_stop" id="zX4H.LtFyX?39:?Vp}~q">
+                    <field name="MOTOR">m2</field>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

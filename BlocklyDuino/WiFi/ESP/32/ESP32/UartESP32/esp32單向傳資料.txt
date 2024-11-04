@@ -1,0 +1,22 @@
+ESP32無法使用SoftwareSerial，要安裝 EspSoftwareSerial by Dirk kaar
+
+★ESP32要用Serial2
+
+傳送端		接收端
+ESP32Send	ESP32Get
+RX(pin2) ↔	TX(GPIO17)
+TX(pin3) ↔	RX(GPIO16)
+
+上述兩片ESP32板都要單獨供電，
+若ESP32Send供電來自ESP32Get：
+ESP32Send	ESP32Get
+RX(pin2) ↔	TX(GPIO17)
+TX(pin3) ↔	RX(GPIO16)
+5V 	↔	5V
+GND	↔	GND
+
+
+ESP32Send：
+	上傳Esp32Send.ino
+ESP32Get：
+	上傳Esp32Get.ino

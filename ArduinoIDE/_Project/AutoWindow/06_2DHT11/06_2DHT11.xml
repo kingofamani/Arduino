@@ -1,0 +1,86 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="initializes_setup" id="1" x="13" y="63">
+    <statement name="CONTENT">
+      <block type="serial_init" id="23">
+        <field name="SPEED">9600</field>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="2">
+        <statement name="CONTENT">
+          <block type="variables_set" id="14" inline="true">
+            <field name="TYPE">Float</field>
+            <field name="VAR">tem</field>
+            <value name="VALUE">
+              <block type="dht_read" id="15">
+                <field name="SENSOR">DHT11</field>
+                <field name="PIN">8</field>
+                <field name="TYPE">C</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="9" inline="true">
+                <field name="TYPE">Float</field>
+                <field name="VAR">hum</field>
+                <value name="VALUE">
+                  <block type="dht_read" id="6">
+                    <field name="SENSOR">DHT11</field>
+                    <field name="PIN">8</field>
+                    <field name="TYPE">h</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="serial_print" id="86" inline="false">
+                    <value name="CONTENT">
+                      <block type="text" id="87">
+                        <field name="TEXT">溫度：</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_println" id="31" inline="false">
+                        <value name="CONTENT">
+                          <block type="variables_get" id="39">
+                            <field name="TYPE">Float</field>
+                            <field name="VAR">tem</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="serial_print" id="88" inline="false">
+                            <value name="CONTENT">
+                              <block type="text" id="89">
+                                <field name="TEXT">濕度：</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="serial_println" id="56" inline="false">
+                                <value name="CONTENT">
+                                  <block type="variables_get" id="65">
+                                    <field name="TYPE">Float</field>
+                                    <field name="VAR">hum</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="delay_custom" id="77" inline="false">
+                                    <value name="DELAY_TIME">
+                                      <block type="math_number" id="78">
+                                        <field name="NUM">5000</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

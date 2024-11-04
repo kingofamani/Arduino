@@ -1,0 +1,30 @@
+NodeMCU
+http://arduino.esp8266.com/stable/package_esp8266com_index.json
+
+NodeMCU 外部供電須於 Vin 灌入 (5~10 V)
+Vin也可以當5V OUT
+ 
+★腳位要看GPIO，例如GPIO5，就要寫pinMode(5,OUTPUT);
+ 
+Hardware UARTs
+NodeMCU (ESP8266) 提供2個 Hardware UART ports。UART0 可以被指定到 CTS/RTS pins。
+UART0
+ - TX: GPIO1, RX: GPIO3
+UART0_SWAP
+ - TX: GPIO15, RX: GPIO13 (Only on ESP8266)
+UART1
+ - TX: GPIO2, RX: None (Only on ESP8266)
+若需要其他的UART，需要用Software UART來做 
+
+
+I2C
+I2C只需要2 pin, 可接127個device.
+SDA = GPIO4 = D2
+SCL = GPIO5 = D1
+
+
+SPI
+CLK = D5
+MISO = D6
+MOSI = D7
+CS# = D8

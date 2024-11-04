@@ -1,0 +1,9 @@
+安裝：
+工具/管理程式庫
+
+移除：
+	●BlocklyDuino內建Arduino IDE：
+	D:\BlocklyDuinoF1\arduino-1.8.5\portable\sketchbook\libraries
+	
+	●一般Arduino IDE
+	C:\Users(使用者)\user\Documents(文件)\Arduino\libraries

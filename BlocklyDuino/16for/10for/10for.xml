@@ -1,0 +1,120 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="initializes_setup" id="186" x="80" y="40">
+    <comment pinned="true" h="62" w="282">印出九九乘法，所有的算式和答案</comment>
+    <statement name="CONTENT">
+      <block type="serial_init" id="195">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="controls_for" id="234" inline="true">
+            <field name="VAR">i</field>
+            <value name="FROM">
+              <block type="math_number" id="235">
+                <field name="NUM">2</field>
+              </block>
+            </value>
+            <value name="TO">
+              <block type="math_number" id="236">
+                <field name="NUM">9</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="controls_for" id="399" inline="true">
+                <field name="VAR">j</field>
+                <value name="FROM">
+                  <block type="math_number" id="400">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <value name="TO">
+                  <block type="math_number" id="401">
+                    <field name="NUM">9</field>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="serial_print" id="692" inline="false">
+                    <value name="CONTENT">
+                      <block type="variables_get" id="700">
+                        <field name="TYPE">Number</field>
+                        <field name="VAR">i</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_print" id="690" inline="false">
+                        <value name="CONTENT">
+                          <block type="text" id="691">
+                            <field name="TEXT">x</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="serial_print" id="701" inline="false">
+                            <value name="CONTENT">
+                              <block type="variables_get" id="713">
+                                <field name="TYPE">Number</field>
+                                <field name="VAR">j</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="serial_print" id="748" inline="false">
+                                <value name="CONTENT">
+                                  <block type="text" id="749">
+                                    <field name="TEXT">=</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="serial_print" id="721" inline="false">
+                                    <value name="CONTENT">
+                                      <block type="math_arithmetic" id="733" inline="true">
+                                        <field name="OP">MULTIPLY</field>
+                                        <value name="A">
+                                          <block type="variables_get" id="740">
+                                            <field name="TYPE">Number</field>
+                                            <field name="VAR">i</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="variables_get" id="747">
+                                            <field name="TYPE">Number</field>
+                                            <field name="VAR">j</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="serial_print" id="625" inline="false">
+                                        <value name="CONTENT">
+                                          <block type="text" id="626">
+                                            <field name="TEXT">\t</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <next>
+                  <block type="serial_println" id="669" inline="false">
+                    <value name="CONTENT">
+                      <block type="text" id="670">
+                        <field name="TEXT"></field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="187"></block>
+    </next>
+  </block>
+</xml>

@@ -1,0 +1,254 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="|cq=8Dg4iLzQu$O)pgt]">starPos</variable>
+    <variable id="{S*:qsrHQ`eo=B!q}1zM">starNum</variable>
+    <variable id="H/ZS+*aIe:V@$U{z4{Bh">i</variable>
+  </variables>
+  <block type="initializes_setup" id="3" x="113" y="-87">
+    <comment pinned="false" h="190" w="451">            ★
+         ★★★
+      ★★★★★
+   ★★★★★★★
+★★★★★★★★★
+    
+    </comment>
+    <statement name="CONTENT">
+      <block type="variables_set" id="53">
+        <field name="POSITION">global</field>
+        <field name="TYPE">int</field>
+        <field name="VAR" id="|cq=8Dg4iLzQu$O)pgt]">starPos</field>
+        <value name="VALUE">
+          <block type="math_number" id="64">
+            <field name="NUM">5</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id="80">
+            <field name="POSITION">global</field>
+            <field name="TYPE">int</field>
+            <field name="VAR" id="{S*:qsrHQ`eo=B!q}1zM">starNum</field>
+            <value name="VALUE">
+              <block type="math_number" id="91">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <next>
+              <block type="serial_init" id="4">
+                <field name="SPEED">9600</field>
+                <next>
+                  <block type="controls_for" id="5">
+                    <field name="VAR" id="H/ZS+*aIe:V@$U{z4{Bh">i</field>
+                    <value name="FROM">
+                      <block type="math_number" id="6">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                    <value name="TO">
+                      <block type="math_number" id="7">
+                        <field name="NUM">45</field>
+                      </block>
+                    </value>
+                    <statement name="DO">
+                      <block type="controls_if" id="333" inline="false">
+                        <mutation else="1"></mutation>
+                        <value name="IF0">
+                          <block type="logic_operation" id="375">
+                            <field name="OP">AND</field>
+                            <value name="A">
+                              <block type="logic_compare" id="381">
+                                <field name="OP">GTE</field>
+                                <value name="A">
+                                  <block type="variables_get" id="392">
+                                    <field name="VAR" id="H/ZS+*aIe:V@$U{z4{Bh">i</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="variables_get" id="403">
+                                    <field name="VAR" id="|cq=8Dg4iLzQu$O)pgt]">starPos</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="logic_compare" id="404">
+                                <field name="OP">LT</field>
+                                <value name="A">
+                                  <block type="variables_get" id="405">
+                                    <field name="VAR" id="H/ZS+*aIe:V@$U{z4{Bh">i</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_arithmetic" id="417">
+                                    <field name="OP">ADD</field>
+                                    <value name="A">
+                                      <block type="variables_get" id="406">
+                                        <field name="VAR" id="|cq=8Dg4iLzQu$O)pgt]">starPos</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="variables_get" id="428">
+                                        <field name="VAR" id="{S*:qsrHQ`eo=B!q}1zM">starNum</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO0">
+                          <block type="serial_print" id="36" inline="false">
+                            <value name="CONTENT">
+                              <block type="text" id="37">
+                                <field name="TEXT">★</field>
+                              </block>
+                            </value>
+                          </block>
+                        </statement>
+                        <statement name="ELSE">
+                          <block type="serial_print" id="92" inline="false">
+                            <value name="CONTENT">
+                              <block type="text" id="93">
+                                <field name="TEXT">　</field>
+                              </block>
+                            </value>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="controls_if" id="99" inline="false">
+                            <value name="IF0">
+                              <block type="logic_compare" id="122">
+                                <field name="OP">EQ</field>
+                                <value name="A">
+                                  <block type="variables_get" id="116">
+                                    <field name="VAR" id="H/ZS+*aIe:V@$U{z4{Bh">i</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_arithmetic" id="452">
+                                    <field name="OP">MINUS</field>
+                                    <value name="A">
+                                      <block type="math_arithmetic" id="463">
+                                        <field name="OP">ADD</field>
+                                        <value name="A">
+                                          <block type="variables_get" id="165">
+                                            <field name="VAR" id="|cq=8Dg4iLzQu$O)pgt]">starPos</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="variables_get" id="472">
+                                            <field name="VAR" id="{S*:qsrHQ`eo=B!q}1zM">starNum</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number" id="483">
+                                        <field name="NUM">1</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="DO0">
+                              <block type="variables_set3" id="pNkZ2jO{SxEbEgB^W3d.">
+                                <field name="VAR" id="|cq=8Dg4iLzQu$O)pgt]">starPos</field>
+                                <value name="DELTA">
+                                  <shadow type="math_number" id="=A_GnNe{.-7a2wj$nTXa">
+                                    <field name="NUM">0</field>
+                                  </shadow>
+                                  <block type="math_arithmetic" id="236">
+                                    <field name="OP">ADD</field>
+                                    <value name="A">
+                                      <block type="variables_get" id="237">
+                                        <field name="VAR" id="|cq=8Dg4iLzQu$O)pgt]">starPos</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number" id="251">
+                                        <field name="NUM">8</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="variables_set3" id="E^Y;mXN2Ig+;wUclw4v]">
+                                    <field name="VAR" id="{S*:qsrHQ`eo=B!q}1zM">starNum</field>
+                                    <value name="DELTA">
+                                      <shadow type="math_number" id="0/i!fO7.tket=KwVCIe=">
+                                        <field name="NUM">0</field>
+                                      </shadow>
+                                      <block type="math_arithmetic" id="253">
+                                        <field name="OP">ADD</field>
+                                        <value name="A">
+                                          <block type="variables_get" id="254">
+                                            <field name="VAR" id="{S*:qsrHQ`eo=B!q}1zM">starNum</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_number" id="255">
+                                            <field name="NUM">2</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </statement>
+                            <next>
+                              <block type="controls_if" id="261" inline="false">
+                                <value name="IF0">
+                                  <block type="logic_compare" id="267">
+                                    <field name="OP">EQ</field>
+                                    <value name="A">
+                                      <block type="math_arithmetic" id="311">
+                                        <field name="OP">MODULO</field>
+                                        <value name="A">
+                                          <block type="variables_get" id="284">
+                                            <field name="VAR" id="H/ZS+*aIe:V@$U{z4{Bh">i</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_number" id="322">
+                                            <field name="NUM">9</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number" id="323">
+                                        <field name="NUM">0</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <statement name="DO0">
+                                  <block type="serial_println" id="38" inline="false">
+                                    <value name="CONTENT">
+                                      <block type="text" id="39">
+                                        <field name="TEXT"></field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </statement>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="40"></block>
+    </next>
+  </block>
+</xml>

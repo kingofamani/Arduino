@@ -1,0 +1,364 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="2G_Dhw*DvSUJZ$SueA0$">n</variable>
+    <variable id="BAh,28NoFx]2{DC_fIzT">x</variable>
+    <variable id="s|H5hy()PoJRnx40Us$d">y</variable>
+    <variable id="O;(#6oPU8+$Z+gq#hc#^">z</variable>
+  </variables>
+  <block type="board_initializes_setup" id="0" x="100" y="50">
+    <field name="BOARD_TYPE">Arduino</field>
+    <statement name="CONTENT">
+      <block type="customcode_comment" id="[,Bs{c(E7o/z~4p/^C;;">
+        <value name="text">
+          <block type="text" id="rxy,W(=5dyjpjNi9C^i=">
+            <field name="TEXT">河內塔</field>
+          </block>
+        </value>
+        <next>
+          <block type="serial_init" id="@7-J#Qlz?)9w7l)W~!M]">
+            <field name="SPEED">9600</field>
+            <next>
+              <block type="customcode_comment" id="8BH)L[6*?r$}%50E#^@1">
+                <value name="text">
+                  <block type="text" id="U8M$ArOL|/{89/$Gy/:p">
+                    <field name="TEXT">圓盤數量</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set" id=";MOlwi-afd(xCOUU=ud}">
+                    <field name="POSITION">global</field>
+                    <field name="TYPE">int</field>
+                    <field name="VAR" id="2G_Dhw*DvSUJZ$SueA0$">n</field>
+                    <value name="VALUE">
+                      <shadow type="math_number" id=",;?+A{=k!oTUU:BRvqgN">
+                        <field name="NUM">0</field>
+                      </shadow>
+                      <block type="math_number" id="]axFt([Ghk#k7|9$,Q4X">
+                        <field name="NUM">5</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_comment" id="4~5WX83cJv}v6HfXvDgQ">
+                        <value name="text">
+                          <block type="text" id="YLQtNe/n#G.%eHJhjj]N">
+                            <field name="TEXT">左柱(開始)</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="variables_set" id="8He$:;:RF=JQ|Oiq8n84">
+                            <field name="POSITION">global</field>
+                            <field name="TYPE">char</field>
+                            <field name="VAR" id="BAh,28NoFx]2{DC_fIzT">x</field>
+                            <value name="VALUE">
+                              <shadow type="math_number" id="u%N|aOFutX$(r8[c4xpF">
+                                <field name="NUM">0</field>
+                              </shadow>
+                              <block type="text_quotationmark" id="#wUB0*S@MC(5=A!FFQP,">
+                                <field name="TEXT">A</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="customcode_comment" id="(}^RZOj?zQj0}RpRy=K9">
+                                <value name="text">
+                                  <block type="text" id="p:D/TSp/^_H^|{zwU1Bg">
+                                    <field name="TEXT">中柱</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="variables_set" id="$ZT=3?[dLJO9^)Tjl}k9">
+                                    <field name="POSITION">global</field>
+                                    <field name="TYPE">char</field>
+                                    <field name="VAR" id="s|H5hy()PoJRnx40Us$d">y</field>
+                                    <value name="VALUE">
+                                      <shadow type="math_number">
+                                        <field name="NUM">0</field>
+                                      </shadow>
+                                      <block type="text_quotationmark" id="B3P!TsDX6=3{Af^5*=xR">
+                                        <field name="TEXT">B</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="customcode_comment" id="DpNA}M;ZRh!8XgvIe17u">
+                                        <value name="text">
+                                          <block type="text" id="1)$4DwJNdEYy[Hb;bF3A">
+                                            <field name="TEXT">右柱</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="variables_set" id="i]KvAz4{Wt5`lX^I6Rcu">
+                                            <field name="POSITION">global</field>
+                                            <field name="TYPE">char</field>
+                                            <field name="VAR" id="O;(#6oPU8+$Z+gq#hc#^">z</field>
+                                            <value name="VALUE">
+                                              <shadow type="math_number">
+                                                <field name="NUM">0</field>
+                                              </shadow>
+                                              <block type="text_quotationmark" id="-n.yE-}bxUZe}jgQo(v@">
+                                                <field name="TEXT">C</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="procedures_callnoreturn" id="PxII.Y;4zDc#KU9a(RK_">
+                                                <mutation xmlns="http://www.w3.org/1999/xhtml" name="hanoi"></mutation>
+                                                <value name="VAR">
+                                                  <block type="lists_create_with" id=")jQmmV*21%9?](][d[Xu">
+                                                    <mutation items="4"></mutation>
+                                                    <value name="ADD0">
+                                                      <block type="variables_get" id="iK|~@fP=Qaq[?q]FSkyp">
+                                                        <field name="VAR" id="2G_Dhw*DvSUJZ$SueA0$">n</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="ADD1">
+                                                      <block type="variables_get" id="v:LrTRQ*l#L}7O}qc69?">
+                                                        <field name="VAR" id="BAh,28NoFx]2{DC_fIzT">x</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="ADD2">
+                                                      <block type="variables_get" id="3fra-Y@IV4DJC~(VurqK">
+                                                        <field name="VAR" id="s|H5hy()PoJRnx40Us$d">y</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="ADD3">
+                                                      <block type="variables_get" id="W]pvhV%Ji8FFv:n{V-)[">
+                                                        <field name="VAR" id="O;(#6oPU8+$Z+gq#hc#^">z</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1"></block>
+    </next>
+  </block>
+  <block type="procedures_defnoreturn" id="qcVn32z~$d)38_y%Z;j;" x="610" y="130">
+    <field name="NAME">hanoi</field>
+    <value name="VAR">
+      <shadow type="lists_create_with">
+        <mutation items="0"></mutation>
+      </shadow>
+      <block type="lists_create_with" id="xPNCMYB8;%Puq]lULp+Y">
+        <mutation items="4"></mutation>
+        <value name="ADD0">
+          <block type="variables_set2" id="fy|9{a]`5+d`rCEc-p2$">
+            <field name="TYPE">int</field>
+            <field name="VAR" id="2G_Dhw*DvSUJZ$SueA0$">n</field>
+          </block>
+        </value>
+        <value name="ADD1">
+          <block type="variables_set2" id="R.i~#2`1m/wThQ=S~XP{">
+            <field name="TYPE">char</field>
+            <field name="VAR" id="BAh,28NoFx]2{DC_fIzT">x</field>
+          </block>
+        </value>
+        <value name="ADD2">
+          <block type="variables_set2" id="Mus5u{0d`E?ELo_jkKy)">
+            <field name="TYPE">char</field>
+            <field name="VAR" id="s|H5hy()PoJRnx40Us$d">y</field>
+          </block>
+        </value>
+        <value name="ADD3">
+          <block type="variables_set2" id="s+(mAbLr34lQl|f3q#`%">
+            <field name="TYPE">char</field>
+            <field name="VAR" id="O;(#6oPU8+$Z+gq#hc#^">z</field>
+          </block>
+        </value>
+      </block>
+    </value>
+    <statement name="STACK">
+      <block type="controls_if" id="TM4IC4-gbb)NI?hvv0MB">
+        <mutation else="1"></mutation>
+        <value name="IF0">
+          <block type="logic_compare" id="VwOL+3Xf+b|[sQ=h@T[.">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="variables_get" id="9HDXN,|)Z`M6!JiQ5tQV">
+                <field name="VAR" id="2G_Dhw*DvSUJZ$SueA0$">n</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="^4r_N/1W#ZwdkZNCnj$n">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="serial_println" id="dU*M,JtHNJ4gtz2p`E~t">
+            <value name="CONTENT">
+              <block type="text_join" id="{bs3(YX%(ZX$kZRPW#8|">
+                <mutation items="3"></mutation>
+                <value name="ADD0">
+                  <block type="variables_get" id="I[?S@k#jdDi[BA``[/ga">
+                    <field name="VAR" id="BAh,28NoFx]2{DC_fIzT">x</field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="text" id="XI,m_@R5cX![_W0A6;CR">
+                    <field name="TEXT">→</field>
+                  </block>
+                </value>
+                <value name="ADD2">
+                  <block type="variables_get" id="sQCKa1sZw}r+95^%f|Fv">
+                    <field name="VAR" id="O;(#6oPU8+$Z+gq#hc#^">z</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <statement name="ELSE">
+          <block type="customcode_comment" id="uRY#_7r`/YWb^1k;`ziw">
+            <value name="text">
+              <block type="text" id="/^O(`BC[y+x|Ai=F1,1O">
+                <field name="TEXT">//先將較小的盤子移到輔助柱子</field>
+              </block>
+            </value>
+            <next>
+              <block type="procedures_callnoreturn" id="NQb|[A7PVMb~#HR30D)V">
+                <mutation xmlns="http://www.w3.org/1999/xhtml" name="hanoi"></mutation>
+                <value name="VAR">
+                  <block type="lists_create_with" id="ZDQ[Eb9i,vOB,yFeGu/y">
+                    <mutation items="4"></mutation>
+                    <value name="ADD0">
+                      <block type="math_arithmetic" id="9Yzz;zQy5eArot/Yf9i:">
+                        <field name="OP">MINUS</field>
+                        <value name="A">
+                          <block type="variables_get" id="oQP06~vbY=.eu[~jd8X2">
+                            <field name="VAR" id="2G_Dhw*DvSUJZ$SueA0$">n</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="YE@lf*KV:@}`a$^pnS8#">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="ADD1">
+                      <block type="variables_get" id="-6}QZSQ!ZUd2%+DCtkRX">
+                        <field name="VAR" id="BAh,28NoFx]2{DC_fIzT">x</field>
+                      </block>
+                    </value>
+                    <value name="ADD2">
+                      <block type="variables_get" id="f{{$rg)tW+S,=~c.b,%#">
+                        <field name="VAR" id="O;(#6oPU8+$Z+gq#hc#^">z</field>
+                      </block>
+                    </value>
+                    <value name="ADD3">
+                      <block type="variables_get" id="2cfA4N1CbRj%GX)T5c.e">
+                        <field name="VAR" id="s|H5hy()PoJRnx40Us$d">y</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_comment" id="ykM0yvOm$[UC[KmEp9Kp">
+                    <value name="text">
+                      <block type="text" id="X^.p|zc=PLqckivsc4vl">
+                        <field name="TEXT">//移最大的盤子到目的</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_println" id="}6HBj3rXKUeik.?K~:o.">
+                        <value name="CONTENT">
+                          <block type="text_join" id="pHD)g5cr*N91gmp;GaJf">
+                            <mutation items="3"></mutation>
+                            <value name="ADD0">
+                              <block type="variables_get" id="xdD+jVw6WmiXsUYa35(#">
+                                <field name="VAR" id="BAh,28NoFx]2{DC_fIzT">x</field>
+                              </block>
+                            </value>
+                            <value name="ADD1">
+                              <block type="text" id="6y$TdkM;DN^h33WiUX.l">
+                                <field name="TEXT">→</field>
+                              </block>
+                            </value>
+                            <value name="ADD2">
+                              <block type="variables_get" id="k{tN9g[vzj.0b{oTYTzW">
+                                <field name="VAR" id="O;(#6oPU8+$Z+gq#hc#^">z</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="customcode_comment" id="GiV6oSD/P!JV26_c@O6=">
+                            <value name="text">
+                              <block type="text" id="L4gFVvB-CI#x0AGZ%0*P">
+                                <field name="TEXT">//將較小的盤子移到目的</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="procedures_callnoreturn" id="~?%N{Pkh@SlwaE}FPG5V">
+                                <mutation xmlns="http://www.w3.org/1999/xhtml" name="hanoi"></mutation>
+                                <value name="VAR">
+                                  <block type="lists_create_with" id="RYG@vlo=wsHF*F~jZ~X#">
+                                    <mutation items="4"></mutation>
+                                    <value name="ADD0">
+                                      <block type="math_arithmetic" id="^[j.$}Ii]UXYuZ%;?xVT">
+                                        <field name="OP">MINUS</field>
+                                        <value name="A">
+                                          <block type="variables_get" id="JLy;f%PSZeF?:Lk]^?GA">
+                                            <field name="VAR" id="2G_Dhw*DvSUJZ$SueA0$">n</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_number" id="!aD,rc-^|1`fJa1PitK_">
+                                            <field name="NUM">1</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="ADD1">
+                                      <block type="variables_get" id="q)iV4xJ-$PU{AW{[:0Se">
+                                        <field name="VAR" id="s|H5hy()PoJRnx40Us$d">y</field>
+                                      </block>
+                                    </value>
+                                    <value name="ADD2">
+                                      <block type="variables_get" id="98N`Y(p/yykK@lQ}WAcj">
+                                        <field name="VAR" id="BAh,28NoFx]2{DC_fIzT">x</field>
+                                      </block>
+                                    </value>
+                                    <value name="ADD3">
+                                      <block type="variables_get" id="^/.%LCn;3FV#7bqoUMvM">
+                                        <field name="VAR" id="O;(#6oPU8+$Z+gq#hc#^">z</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>

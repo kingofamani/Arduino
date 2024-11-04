@@ -1,0 +1,88 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="initializes_setup" id="1" x="80" y="40">
+    <statement name="CONTENT">
+      <block type="serial_init" id="10">
+        <field name="SPEED">9600</field>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="2">
+        <statement name="CONTENT">
+          <block type="serial_println" id="18" inline="false">
+            <value name="CONTENT">
+              <block type="inout_analog_read" id="28">
+                <field name="PIN">A0</field>
+              </block>
+            </value>
+            <next>
+              <block type="controls_if" id="8H2c8#7/_xL.OVqhb[kI">
+                <mutation else="1"></mutation>
+                <value name="IF0">
+                  <block type="logic_compare" id="+_SXDd0A/CbHC:rVov_4">
+                    <field name="OP">GTE</field>
+                    <value name="A">
+                      <block type="inout_analog_read" id="WfdHIhG_WE{avV2D]Qo#">
+                        <field name="PIN">A0</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="!%LMFdT!oda!Ijq@{`2x">
+                        <field name="NUM">800</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="inout_custom_digital_write" id="`K#P;H:I:v|1I}~|](U5">
+                    <value name="PIN">
+                      <block type="math_number" id="rg[Y.N=;YRJ1|w3Gz{F0">
+                        <field name="NUM">5</field>
+                      </block>
+                    </value>
+                    <value name="STAT">
+                      <block type="inout_highlow" id=";kpJ++.i:PFP!EsAq5C*">
+                        <field name="BOOL">HIGH</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="delay_custom" id="G!/+*8G]1RJ{nvIg6h:E">
+                        <value name="DELAY_TIME">
+                          <block type="math_number" id="SN69={7V,_faZNElw!:u">
+                            <field name="NUM">2000</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <statement name="ELSE">
+                  <block type="inout_custom_digital_write" id="1:asXPoEGH@iNO=.5H=M">
+                    <value name="PIN">
+                      <block type="math_number" id="GdU~/w.0F{=R5*5=lNw9">
+                        <field name="NUM">5</field>
+                      </block>
+                    </value>
+                    <value name="STAT">
+                      <block type="inout_highlow" id="]dV,|cwvgW-vh}.X61lc">
+                        <field name="BOOL">LOW</field>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+                <next>
+                  <block type="delay_custom" id="40" inline="false">
+                    <value name="DELAY_TIME">
+                      <block type="math_number" id="41">
+                        <field name="NUM">100</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

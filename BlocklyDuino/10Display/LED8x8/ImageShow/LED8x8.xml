@@ -1,0 +1,102 @@
+<xml version="F1" board="Arduino Uno" xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="iacAjW?K~)e::(q,KN+(">i</variable>
+  </variables>
+  <block type="customcode_head" id="iv2@OsV+2)-~%Ilr34GV" collapsed="true" x="-290" y="-209">
+    <value name="text">
+      <block type="text" id="3PHWjjI(S5d]4NMP_$du">
+        <field name="TEXT">#include &lt;LedControl.h&gt;</field>
+      </block>
+    </value>
+    <next>
+      <block type="customcode_head" id="q-4.$EuWDAMPZgj#Tj,y" collapsed="true">
+        <value name="text">
+          <block type="text" id="DK{.t!Qf96RpA[nK;!KZ">
+            <field name="TEXT">LedControl display = LedControl(12,11,10,1);</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id="!B,aGa(8$zA_=afRkKWf" collapsed="true">
+            <field name="POSITION">global</field>
+            <field name="TYPE">int</field>
+            <field name="VAR" id="iacAjW?K~)e::(q,KN+(">i</field>
+            <value name="VALUE">
+              <shadow type="math_number" id="e}tEt%{B_#6Fu]o(l^X|">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="customcode_head" id="lnI}p!O7xW)Rrq%z6@Uf" collapsed="true">
+                <value name="text">
+                  <block type="text" id="V-lRt|LJwJ(3a:nWCR[N">
+                    <field name="TEXT">void displayImage(uint64_t image) {   for (int i = 0; i &lt; 8; i++) {     byte row = (image &gt;&gt; i * 8) &amp; 0xFF;     for (int j = 0; j &lt; 8; j++) {       display.setLed(0, i, j, bitRead(row, j));     }   } }</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_comment" id="5s6stSt*Dx0wcs/v-Z4n">
+                    <value name="text">
+                      <block type="text" id="q:(UxEVfxg~1@pm!a{4Y">
+                        <field name="TEXT">★圖形程式取代下面1行：</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_head" id="JS484a?h,Ztmyidp;A0h">
+                        <value name="text">
+                          <block type="text" id="3J%bikO]a5IY;#S%3Aes">
+                            <field name="TEXT">const uint64_t IMAGES[] = {    0x0000000100000000,   0x0000010301000000,   0x0001030703010000,   0x0103070f07030100,   0x02060f1f0f060200,   0x040c1f3f1f0c0400,   0x08183f7f3f180800,   0x08183f7f3f180800,   0x10307fff7f301000,   0x2060fefefe602000,   0x40c0fcfcfcc04000,   0x8080f8f8f8808000,   0x0000f0f0f0000000,   0x0000e0e0e0000000,   0x0000c0c0c0000000,   0x0000808080000000,   0x0000000000000000 }; const int IMAGES_LEN = sizeof(IMAGES)/8;</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="initializes_setup" id="t_m`Xiecdw7f;{#aTr4D" x="-290" y="-9">
+    <statement name="CONTENT">
+      <block type="customcode_code" id="ko()zBet8,FU]KpgONc!" collapsed="true">
+        <value name="text">
+          <block type="text" id="=Z=2TU!%Ct7j0s@qwW?!">
+            <field name="TEXT">display.clearDisplay(0);    // 清除螢幕</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_code" id=")OW@;iC=IA)]AXsw@Nzl" collapsed="true">
+            <value name="text">
+              <block type="text" id="T]3Bx-+wUIw-C~93#a9L">
+                <field name="TEXT">display.shutdown(0, false);  // 關閉省電模式</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_code" id="A`$0$fowKOf7c.jb6d1@" collapsed="true">
+                <value name="text">
+                  <block type="text" id="(Mp%GchRLE;FJi0`WC2w">
+                    <field name="TEXT">display.setIntensity(0, 10); // 設定亮度為 8 (介於0~15之間)</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="yH+4{C90;%-*}2$ei.r_">
+        <statement name="CONTENT">
+          <block type="customcode_code" id=",LVdeax1ihGIR7K()$l{" collapsed="true">
+            <value name="text">
+              <block type="text" id="{Cl!J=C@=)c-=%y-2kbr">
+                <field name="TEXT">displayImage(IMAGES[i]);   if (++i &gt;= IMAGES_LEN ) {     i = 0;   }   delay(100); </field>
+              </block>
+            </value>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

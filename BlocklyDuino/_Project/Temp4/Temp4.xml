@@ -1,0 +1,2148 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="initializes_setup" id="3" x="-112" y="663">
+    <statement name="CONTENT">
+      <block type="customcode_comment" id="4" inline="true">
+        <value name="text">
+          <block type="text" id="5">
+            <field name="TEXT">變數宣告</field>
+          </block>
+        </value>
+        <next>
+          <block type="procedures_callnoreturn" id="6">
+            <mutation name="var1"></mutation>
+            <next>
+              <block type="serial_init" id="7">
+                <field name="SPEED">115200</field>
+                <next>
+                  <block type="customcode_comment" id="8" inline="true">
+                    <value name="text">
+                      <block type="text" id="9">
+                        <field name="TEXT">MP3 初始</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="procedures_callnoreturn" id="10">
+                        <mutation name="mp3init"></mutation>
+                        <next>
+                          <block type="customcode_comment" id="11" inline="true">
+                            <value name="text">
+                              <block type="text" id="12">
+                                <field name="TEXT">RFID 初始</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="customcode_code" id="13" inline="true">
+                                <value name="text">
+                                  <block type="text" id="14">
+                                    <field name="TEXT">SPI.begin();</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="customcode_code" id="15" inline="true">
+                                    <value name="text">
+                                      <block type="text" id="16">
+                                        <field name="TEXT">rfid.PCD_Init();</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="customcode_comment" id="17" inline="true">
+                                        <value name="text">
+                                          <block type="text" id="18">
+                                            <field name="TEXT">紅外線體溫</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="customcode_code" id="19" inline="true">
+                                            <value name="text">
+                                              <block type="text" id="20">
+                                                <field name="TEXT">mlx.begin();</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="customcode_comment" id="21" inline="true">
+                                                <value name="text">
+                                                  <block type="text" id="22">
+                                                    <field name="TEXT">馬達接D3腳位</field>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="procedures_callnoreturn" id="23">
+                                                    <mutation name="motoInit"></mutation>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="24">
+        <statement name="CONTENT">
+          <block type="customcode_comment" id="25" inline="true">
+            <value name="text">
+              <block type="text" id="26">
+                <field name="TEXT">timer啟用</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_code" id="27" inline="true">
+                <value name="text">
+                  <block type="text" id="28">
+                    <field name="TEXT">timer.run();</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_comment" id="29" inline="true">
+                    <value name="text">
+                      <block type="text" id="30">
+                        <field name="TEXT">紅外線測距</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_code" id="31" inline="true">
+                        <value name="text">
+                          <block type="text" id="32">
+                            <field name="TEXT">distance = ultrasonic.read();</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="controls_if" id="33" inline="false" collapsed="true">
+                            <mutation else="1"></mutation>
+                            <value name="IF0">
+                              <block type="logic_operation" id="34" inline="true">
+                                <field name="OP">AND</field>
+                                <value name="A">
+                                  <block type="logic_compare" id="35" inline="true">
+                                    <field name="OP">LT</field>
+                                    <value name="A">
+                                      <block type="variables_get" id="36">
+                                        <field name="TYPE">Number</field>
+                                        <field name="VAR">distance</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number" id="37">
+                                        <field name="NUM">60</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="logic_operation" id="38" inline="true">
+                                    <field name="OP">AND</field>
+                                    <value name="A">
+                                      <block type="logic_compare" id="39" inline="true">
+                                        <field name="OP">EQ</field>
+                                        <value name="A">
+                                          <block type="variables_get" id="40">
+                                            <field name="TYPE">Boolean</field>
+                                            <field name="VAR">isScanCardId</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="logic_boolean" id="41">
+                                            <field name="BOOL">FALSE</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="logic_operation" id="42" inline="true">
+                                        <field name="OP">AND</field>
+                                        <value name="A">
+                                          <block type="logic_compare" id="43" inline="true">
+                                            <field name="OP">EQ</field>
+                                            <value name="A">
+                                              <block type="variables_get" id="44">
+                                                <field name="TYPE">Boolean</field>
+                                                <field name="VAR">isScanTemp</field>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <block type="logic_boolean" id="45">
+                                                <field name="BOOL">FALSE</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="logic_compare" id="46" inline="true">
+                                            <field name="OP">EQ</field>
+                                            <value name="A">
+                                              <block type="variables_get" id="47">
+                                                <field name="TYPE">Boolean</field>
+                                                <field name="VAR">isPlay1Mute</field>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <block type="logic_boolean" id="48">
+                                                <field name="BOOL">FALSE</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="DO0">
+                              <block type="customcode_code" id="49" inline="true">
+                                <value name="text">
+                                  <block type="text" id="50">
+                                    <field name="TEXT">timer.enable(play1TimeId);</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </statement>
+                            <statement name="ELSE">
+                              <block type="customcode_code" id="51" inline="true">
+                                <value name="text">
+                                  <block type="text" id="52">
+                                    <field name="TEXT">timer.disable(play1TimeId);</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </statement>
+                            <next>
+                              <block type="controls_if" id="53" inline="false">
+                                <value name="IF0">
+                                  <block type="logic_compare" id="54" inline="true">
+                                    <field name="OP">EQ</field>
+                                    <value name="A">
+                                      <block type="variables_get" id="55">
+                                        <field name="TYPE">Boolean</field>
+                                        <field name="VAR">isScanCardId</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="logic_boolean" id="56">
+                                        <field name="BOOL">FALSE</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <statement name="DO0">
+                                  <block type="customcode_code" id="57" inline="true">
+                                    <value name="text">
+                                      <block type="text" id="58">
+                                        <field name="TEXT">myCardId = mfrc522_readID();</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="customcode_code" id="59" inline="true">
+                                        <value name="text">
+                                          <block type="text" id="60">
+                                            <field name="TEXT">myCardId.toUpperCase();</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="customcode_code" id="61" inline="true">
+                                            <value name="text">
+                                              <block type="text" id="62">
+                                                <field name="TEXT">myNumber = getStudentNum(myCardId);</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="controls_if" id="63" inline="false">
+                                                <value name="IF0">
+                                                  <block type="logic_compare" id="64" inline="true">
+                                                    <field name="OP">GT</field>
+                                                    <value name="A">
+                                                      <block type="text_length" id="65" inline="false">
+                                                        <value name="VALUE">
+                                                          <block type="variables_get" id="66">
+                                                            <field name="TYPE">String</field>
+                                                            <field name="VAR">myCardId</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                    <value name="B">
+                                                      <block type="math_number" id="67">
+                                                        <field name="NUM">0</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <statement name="DO0">
+                                                  <block type="customcode_comment" id="68" inline="true">
+                                                    <value name="text">
+                                                      <block type="text" id="69">
+                                                        <field name="TEXT">//今天是否已經量過體溫</field>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="controls_if" id="70" inline="false">
+                                                        <mutation else="1"></mutation>
+                                                        <value name="IF0">
+                                                          <block type="customcode_code_input" id="71" inline="true">
+                                                            <value name="text">
+                                                              <block type="text" id="72">
+                                                                <field name="TEXT">hasTodayScannedTemp()</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                        <statement name="DO0">
+                                                          <block type="customcode_code" id="73" inline="true">
+                                                            <value name="text">
+                                                              <block type="text" id="74">
+                                                                <field name="TEXT">timer.enable(playTodayTempTimeId);//播今天已量過體溫mp3</field>
+                                                              </block>
+                                                            </value>
+                                                            <next>
+                                                              <block type="variables_set" id="75" inline="true">
+                                                                <field name="TYPE">Boolean</field>
+                                                                <field name="VAR">isScanCardId</field>
+                                                                <value name="VALUE">
+                                                                  <block type="logic_boolean" id="76">
+                                                                    <field name="BOOL">FALSE</field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </statement>
+                                                        <statement name="ELSE">
+                                                          <block type="controls_if" id="77" inline="false">
+                                                            <mutation else="1"></mutation>
+                                                            <value name="IF0">
+                                                              <block type="customcode_code_input" id="78" inline="true">
+                                                                <value name="text">
+                                                                  <block type="text" id="79">
+                                                                    <field name="TEXT">myCardId == cards[0]</field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </value>
+                                                            <statement name="DO0">
+                                                              <block type="variables_set" id="80" inline="true">
+                                                                <field name="TYPE">Boolean</field>
+                                                                <field name="VAR">isPlay1Mute</field>
+                                                                <value name="VALUE">
+                                                                  <block type="logic_negate" id="81" inline="false">
+                                                                    <value name="BOOL">
+                                                                      <block type="variables_get" id="82">
+                                                                        <field name="TYPE">Boolean</field>
+                                                                        <field name="VAR">isPlay1Mute</field>
+                                                                      </block>
+                                                                    </value>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </statement>
+                                                            <statement name="ELSE">
+                                                              <block type="variables_set" id="83" inline="true">
+                                                                <field name="TYPE">Boolean</field>
+                                                                <field name="VAR">isScanCardId</field>
+                                                                <value name="VALUE">
+                                                                  <block type="logic_boolean" id="84">
+                                                                    <field name="BOOL">TRUE</field>
+                                                                  </block>
+                                                                </value>
+                                                                <next>
+                                                                  <block type="customcode_code" id="85" inline="true">
+                                                                    <value name="text">
+                                                                      <block type="text" id="86">
+                                                                        <field name="TEXT">timer.enable(playStudentTimeId);//播幾號同學mp3</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <next>
+                                                                      <block type="customcode_code" id="87" inline="true">
+                                                                        <value name="text">
+                                                                          <block type="text" id="88">
+                                                                            <field name="TEXT">timer.disable(playTodayTempTimeId);</field>
+                                                                          </block>
+                                                                        </value>
+                                                                      </block>
+                                                                    </next>
+                                                                  </block>
+                                                                </next>
+                                                              </block>
+                                                            </statement>
+                                                          </block>
+                                                        </statement>
+                                                        <next>
+                                                          <block type="customcode_code" id="89" inline="true">
+                                                            <value name="text">
+                                                              <block type="text" id="90">
+                                                                <field name="TEXT">beep();</field>
+                                                              </block>
+                                                            </value>
+                                                            <next>
+                                                              <block type="delay_custom" id="91" inline="false">
+                                                                <value name="DELAY_TIME">
+                                                                  <block type="math_number" id="92">
+                                                                    <field name="NUM">100</field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </statement>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </statement>
+                                <next>
+                                  <block type="customcode_comment" id="93" inline="true">
+                                    <value name="text">
+                                      <block type="text" id="94">
+                                        <field name="TEXT">體溫檢查</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="customcode_code" id="95" inline="true">
+                                        <value name="text">
+                                          <block type="text" id="96">
+                                            <field name="TEXT">amb = mlx.readAmbientTempC();</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="customcode_code" id="97" inline="true">
+                                            <value name="text">
+                                              <block type="text" id="98">
+                                                <field name="TEXT">obj = mlx.readObjectTempC();</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="controls_if" id="99" inline="false" collapsed="true">
+                                                <value name="IF0">
+                                                  <block type="logic_operation" id="100" inline="true">
+                                                    <field name="OP">AND</field>
+                                                    <value name="A">
+                                                      <block type="logic_compare" id="101" inline="true">
+                                                        <field name="OP">EQ</field>
+                                                        <value name="A">
+                                                          <block type="variables_get" id="102">
+                                                            <field name="TYPE">Boolean</field>
+                                                            <field name="VAR">isScanCardId</field>
+                                                          </block>
+                                                        </value>
+                                                        <value name="B">
+                                                          <block type="logic_boolean" id="103">
+                                                            <field name="BOOL">TRUE</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                    <value name="B">
+                                                      <block type="logic_compare" id="104" inline="true">
+                                                        <field name="OP">GT</field>
+                                                        <value name="A">
+                                                          <block type="variables_get" id="105">
+                                                            <field name="TYPE">Float</field>
+                                                            <field name="VAR">obj</field>
+                                                          </block>
+                                                        </value>
+                                                        <value name="B">
+                                                          <block type="math_number" id="106">
+                                                            <field name="NUM">34</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <statement name="DO0">
+                                                  <block type="delay_custom" id="107" inline="false">
+                                                    <value name="DELAY_TIME">
+                                                      <block type="math_number" id="108">
+                                                        <field name="NUM">2000</field>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="customcode_code" id="109" inline="true">
+                                                        <value name="text">
+                                                          <block type="text" id="110">
+                                                            <field name="TEXT">obj = mlx.readObjectTempC();//2秒後取得體溫,若還是&gt;34度才取值</field>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="controls_if" id="111" inline="false">
+                                                            <value name="IF0">
+                                                              <block type="logic_compare" id="112" inline="true">
+                                                                <field name="OP">GT</field>
+                                                                <value name="A">
+                                                                  <block type="variables_get" id="113">
+                                                                    <field name="TYPE">Float</field>
+                                                                    <field name="VAR">obj</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="B">
+                                                                  <block type="math_number" id="114">
+                                                                    <field name="NUM">32</field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </value>
+                                                            <statement name="DO0">
+                                                              <block type="customcode_code" id="115" inline="true">
+                                                                <value name="text">
+                                                                  <block type="text" id="116">
+                                                                    <field name="TEXT">timer.enable(playTempTimeId);//播體溫測量結果mp3</field>
+                                                                  </block>
+                                                                </value>
+                                                                <next>
+                                                                  <block type="variables_set" id="117" inline="true">
+                                                                    <field name="TYPE">Boolean</field>
+                                                                    <field name="VAR">isScanTemp</field>
+                                                                    <value name="VALUE">
+                                                                      <block type="logic_boolean" id="118">
+                                                                        <field name="BOOL">TRUE</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <next>
+                                                                      <block type="customcode_code" id="119" inline="true">
+                                                                        <value name="text">
+                                                                          <block type="text" id="120">
+                                                                            <field name="TEXT">setTemp();//儲存同學體溫</field>
+                                                                          </block>
+                                                                        </value>
+                                                                        <next>
+                                                                          <block type="delay_custom" id="121" inline="false">
+                                                                            <value name="DELAY_TIME">
+                                                                              <block type="math_number" id="122">
+                                                                                <field name="NUM">10</field>
+                                                                              </block>
+                                                                            </value>
+                                                                          </block>
+                                                                        </next>
+                                                                      </block>
+                                                                    </next>
+                                                                  </block>
+                                                                </next>
+                                                              </block>
+                                                            </statement>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </statement>
+                                                <next>
+                                                  <block type="customcode_comment" id="123" inline="true">
+                                                    <value name="text">
+                                                      <block type="text" id="124">
+                                                        <field name="TEXT">LCD螢幕</field>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="customcode_code" id="125" inline="true">
+                                                        <value name="text">
+                                                          <block type="text" id="126">
+                                                            <field name="TEXT">u8g.firstPage();</field>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="customcode_code" id="127" inline="true">
+                                                            <value name="text">
+                                                              <block type="text" id="128">
+                                                                <field name="TEXT">do {</field>
+                                                              </block>
+                                                            </value>
+                                                            <next>
+                                                              <block type="customcode_code" id="129" inline="true">
+                                                                <value name="text">
+                                                                  <block type="text" id="130">
+                                                                    <field name="TEXT">draw();</field>
+                                                                  </block>
+                                                                </value>
+                                                                <next>
+                                                                  <block type="customcode_code" id="131" inline="true">
+                                                                    <value name="text">
+                                                                      <block type="text" id="132">
+                                                                        <field name="TEXT">} while ( u8g.nextPage() );</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <next>
+                                                                      <block type="delay_custom" id="133" inline="false">
+                                                                        <value name="DELAY_TIME">
+                                                                          <block type="math_number" id="134">
+                                                                            <field name="NUM">100</field>
+                                                                          </block>
+                                                                        </value>
+                                                                      </block>
+                                                                    </next>
+                                                                  </block>
+                                                                </next>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+  <block type="procedures_defnoreturn" id="135" collapsed="true" x="413" y="688">
+    <mutation></mutation>
+    <field name="NAME">t0</field>
+    <statement name="STACK">
+      <block type="customcode_head" id="136" inline="true">
+        <value name="text">
+          <block type="text" id="137">
+            <field name="TEXT">#include &lt;SimpleTimer.h&gt;</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_head" id="138" inline="true">
+            <value name="text">
+              <block type="text" id="139">
+                <field name="TEXT">#include "Arduino.h"</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_head" id="140" inline="true">
+                <value name="text">
+                  <block type="text" id="141">
+                    <field name="TEXT">#include "SoftwareSerial.h"</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_head" id="142" inline="true">
+                    <value name="text">
+                      <block type="text" id="143">
+                        <field name="TEXT">#include "DFRobotDFPlayerMini.h"</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_head" id="144" inline="true">
+                        <value name="text">
+                          <block type="text" id="145">
+                            <field name="TEXT">#include &lt;SPI.h&gt;</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="customcode_head" id="146" inline="true">
+                            <value name="text">
+                              <block type="text" id="147">
+                                <field name="TEXT">#include &lt;MFRC522.h&gt;</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="customcode_head" id="148" inline="true">
+                                <value name="text">
+                                  <block type="text" id="149">
+                                    <field name="TEXT">#include &lt;Ultrasonic.h&gt;</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="customcode_head" id="150" inline="true">
+                                    <value name="text">
+                                      <block type="text" id="151">
+                                        <field name="TEXT">#include &lt;ArduinoSort.h&gt;</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="customcode_head" id="152" inline="true">
+                                        <value name="text">
+                                          <block type="text" id="153">
+                                            <field name="TEXT">#include &lt;Adafruit_MLX90614.h&gt;</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="customcode_head" id="154" inline="true">
+                                            <value name="text">
+                                              <block type="text" id="155">
+                                                <field name="TEXT">#include "U8glib.h"</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="customcode_head" id="156" inline="true">
+                                                <value name="text">
+                                                  <block type="text" id="157">
+                                                    <field name="TEXT">#include &lt;Servo.h&gt;</field>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="customcode_head" id="158" inline="true">
+                                                    <value name="text">
+                                                      <block type="text" id="159">
+                                                        <field name="TEXT">//學生卡號與溫度</field>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="customcode_head" id="160" inline="true">
+                                                        <value name="text">
+                                                          <block type="text" id="161">
+                                                            <field name="TEXT">const int NUMS = 6;</field>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="customcode_head" id="162" inline="true">
+                                                            <value name="text">
+                                                              <block type="text" id="163">
+                                                                <field name="TEXT">String cards[NUMS] = { "B936FFC1", "7AEDED6E", "D0241E10", "1ABCB76E", "6A62A76E",""};</field>
+                                                              </block>
+                                                            </value>
+                                                            <next>
+                                                              <block type="customcode_head" id="164" inline="true">
+                                                                <value name="text">
+                                                                  <block type="text" id="165">
+                                                                    <field name="TEXT">float temps[NUMS] = { 0.00, 0.00, 0.00, 0.00, 0.00, 0.00};</field>
+                                                                  </block>
+                                                                </value>
+                                                                <next>
+                                                                  <block type="customcode_head" id="166" inline="true">
+                                                                    <value name="text">
+                                                                      <block type="text" id="167">
+                                                                        <field name="TEXT">//MP3宣告</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <next>
+                                                                      <block type="customcode_head" id="168" inline="true">
+                                                                        <value name="text">
+                                                                          <block type="text" id="169">
+                                                                            <field name="TEXT">SoftwareSerial mySoftwareSerial(7, 8);</field>
+                                                                          </block>
+                                                                        </value>
+                                                                        <next>
+                                                                          <block type="customcode_head" id="170" inline="true">
+                                                                            <value name="text">
+                                                                              <block type="text" id="171">
+                                                                                <field name="TEXT">DFRobotDFPlayerMini myDFPlayer;</field>
+                                                                              </block>
+                                                                            </value>
+                                                                            <next>
+                                                                              <block type="customcode_head" id="172" inline="true">
+                                                                                <value name="text">
+                                                                                  <block type="text" id="173">
+                                                                                    <field name="TEXT">//計時器</field>
+                                                                                  </block>
+                                                                                </value>
+                                                                                <next>
+                                                                                  <block type="customcode_head" id="174" inline="true">
+                                                                                    <value name="text">
+                                                                                      <block type="text" id="175">
+                                                                                        <field name="TEXT">SimpleTimer timer;</field>
+                                                                                      </block>
+                                                                                    </value>
+                                                                                    <next>
+                                                                                      <block type="customcode_head" id="176" inline="true">
+                                                                                        <value name="text">
+                                                                                          <block type="text" id="177">
+                                                                                            <field name="TEXT">Ultrasonic ultrasonic(5, 6);</field>
+                                                                                          </block>
+                                                                                        </value>
+                                                                                        <next>
+                                                                                          <block type="customcode_head" id="178" inline="true">
+                                                                                            <value name="text">
+                                                                                              <block type="text" id="179">
+                                                                                                <field name="TEXT">MFRC522 rfid(/*SS_PIN*/ 10, /*RST_PIN*/ UINT8_MAX);</field>
+                                                                                              </block>
+                                                                                            </value>
+                                                                                            <next>
+                                                                                              <block type="customcode_comment" id="180" inline="true">
+                                                                                                <value name="text">
+                                                                                                  <block type="text" id="181">
+                                                                                                    <field name="TEXT">紅外線體溫計</field>
+                                                                                                  </block>
+                                                                                                </value>
+                                                                                                <next>
+                                                                                                  <block type="customcode_head" id="182" inline="true">
+                                                                                                    <value name="text">
+                                                                                                      <block type="text" id="183">
+                                                                                                        <field name="TEXT">Adafruit_MLX90614 mlx = Adafruit_MLX90614();</field>
+                                                                                                      </block>
+                                                                                                    </value>
+                                                                                                    <next>
+                                                                                                      <block type="customcode_comment" id="184" inline="true">
+                                                                                                        <value name="text">
+                                                                                                          <block type="text" id="185">
+                                                                                                            <field name="TEXT">LCD螢幕</field>
+                                                                                                          </block>
+                                                                                                        </value>
+                                                                                                        <next>
+                                                                                                          <block type="customcode_head" id="186" inline="true">
+                                                                                                            <value name="text">
+                                                                                                              <block type="text" id="187">
+                                                                                                                <field name="TEXT">U8GLIB_SH1106_128X64 u8g(U8G_I2C_OPT_NONE);</field>
+                                                                                                              </block>
+                                                                                                            </value>
+                                                                                                            <next>
+                                                                                                              <block type="customcode_comment" id="188" inline="true">
+                                                                                                                <value name="text">
+                                                                                                                  <block type="text" id="189">
+                                                                                                                    <field name="TEXT">馬達</field>
+                                                                                                                  </block>
+                                                                                                                </value>
+                                                                                                                <next>
+                                                                                                                  <block type="customcode_head" id="190" inline="true">
+                                                                                                                    <value name="text">
+                                                                                                                      <block type="text" id="191">
+                                                                                                                        <field name="TEXT">Servo motor;</field>
+                                                                                                                      </block>
+                                                                                                                    </value>
+                                                                                                                  </block>
+                                                                                                                </next>
+                                                                                                              </block>
+                                                                                                            </next>
+                                                                                                          </block>
+                                                                                                        </next>
+                                                                                                      </block>
+                                                                                                    </next>
+                                                                                                  </block>
+                                                                                                </next>
+                                                                                              </block>
+                                                                                            </next>
+                                                                                          </block>
+                                                                                        </next>
+                                                                                      </block>
+                                                                                    </next>
+                                                                                  </block>
+                                                                                </next>
+                                                                              </block>
+                                                                            </next>
+                                                                          </block>
+                                                                        </next>
+                                                                      </block>
+                                                                    </next>
+                                                                  </block>
+                                                                </next>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="192" collapsed="true" x="413" y="713">
+    <mutation></mutation>
+    <field name="NAME">var1</field>
+    <statement name="STACK">
+      <block type="customcode_comment" id="193" inline="true">
+        <value name="text">
+          <block type="text" id="194">
+            <field name="TEXT">播歡迎光臨,請量體溫的time id</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id="195" inline="true">
+            <field name="TYPE">Number</field>
+            <field name="VAR">play1TimeId</field>
+            <next>
+              <block type="customcode_comment" id="196" inline="true">
+                <value name="text">
+                  <block type="text" id="197">
+                    <field name="TEXT">紅外線測距</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set" id="198" inline="true">
+                    <field name="TYPE">Number</field>
+                    <field name="VAR">distance</field>
+                    <next>
+                      <block type="customcode_comment" id="199" inline="true">
+                        <value name="text">
+                          <block type="text" id="200">
+                            <field name="TEXT">RFID卡號</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="variables_set" id="201" inline="true">
+                            <field name="TYPE">String</field>
+                            <field name="VAR">myCardId</field>
+                            <value name="VALUE">
+                              <block type="text" id="202">
+                                <field name="TEXT"></field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="customcode_comment" id="203" inline="true">
+                                <value name="text">
+                                  <block type="text" id="204">
+                                    <field name="TEXT">學生座號</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="variables_set" id="205" inline="true">
+                                    <field name="TYPE">Number</field>
+                                    <field name="VAR">myNumber</field>
+                                    <next>
+                                      <block type="customcode_comment" id="206" inline="true">
+                                        <value name="text">
+                                          <block type="text" id="207">
+                                            <field name="TEXT">是否掃RFID</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="variables_set" id="208" inline="true">
+                                            <field name="TYPE">Boolean</field>
+                                            <field name="VAR">isScanCardId</field>
+                                            <value name="VALUE">
+                                              <block type="logic_boolean" id="209">
+                                                <field name="BOOL">FALSE</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="customcode_comment" id="210" inline="true">
+                                                <value name="text">
+                                                  <block type="text" id="211">
+                                                    <field name="TEXT">播學生座號姓名&amp;請將額頭靠近體溫計的time id</field>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="variables_set" id="212" inline="true">
+                                                    <field name="TYPE">Number</field>
+                                                    <field name="VAR">playStudentTimeId</field>
+                                                    <next>
+                                                      <block type="customcode_comment" id="213" inline="true">
+                                                        <value name="text">
+                                                          <block type="text" id="214">
+                                                            <field name="TEXT">播學生座號姓名&amp;請將額頭靠近體溫計的time id</field>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="variables_set" id="215" inline="true">
+                                                            <field name="TYPE">Number</field>
+                                                            <field name="VAR">playStudentTimeId</field>
+                                                            <next>
+                                                              <block type="customcode_comment" id="216" inline="true">
+                                                                <value name="text">
+                                                                  <block type="text" id="217">
+                                                                    <field name="TEXT">設定「請將卡片對準刷卡機mp3」靜音切換</field>
+                                                                  </block>
+                                                                </value>
+                                                                <next>
+                                                                  <block type="variables_set" id="218" inline="true">
+                                                                    <field name="TYPE">Boolean</field>
+                                                                    <field name="VAR">isPlay1Mute</field>
+                                                                    <value name="VALUE">
+                                                                      <block type="logic_boolean" id="219">
+                                                                        <field name="BOOL">FALSE</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <next>
+                                                                      <block type="customcode_comment" id="220" inline="true">
+                                                                        <value name="text">
+                                                                          <block type="text" id="221">
+                                                                            <field name="TEXT">是否量體溫(要靠近紅外線體溫計取得溫度才算</field>
+                                                                          </block>
+                                                                        </value>
+                                                                        <next>
+                                                                          <block type="variables_set" id="222" inline="true">
+                                                                            <field name="TYPE">Boolean</field>
+                                                                            <field name="VAR">isScanTemp</field>
+                                                                            <value name="VALUE">
+                                                                              <block type="logic_boolean" id="223">
+                                                                                <field name="BOOL">FALSE</field>
+                                                                              </block>
+                                                                            </value>
+                                                                            <next>
+                                                                              <block type="customcode_comment" id="224" inline="true">
+                                                                                <value name="text">
+                                                                                  <block type="text" id="225">
+                                                                                    <field name="TEXT">播體溫測量結果time id</field>
+                                                                                  </block>
+                                                                                </value>
+                                                                                <next>
+                                                                                  <block type="variables_set" id="226" inline="true">
+                                                                                    <field name="TYPE">Number</field>
+                                                                                    <field name="VAR">playTempTimeId</field>
+                                                                                    <next>
+                                                                                      <block type="customcode_comment" id="227" inline="true">
+                                                                                        <value name="text">
+                                                                                          <block type="text" id="228">
+                                                                                            <field name="TEXT">播放今天已量過體溫</field>
+                                                                                          </block>
+                                                                                        </value>
+                                                                                        <next>
+                                                                                          <block type="variables_set" id="229" inline="true">
+                                                                                            <field name="TYPE">Number</field>
+                                                                                            <field name="VAR">playTodayTempTimeId</field>
+                                                                                            <next>
+                                                                                              <block type="customcode_comment" id="230" inline="true">
+                                                                                                <value name="text">
+                                                                                                  <block type="text" id="231">
+                                                                                                    <field name="TEXT">播換下一位同學time id</field>
+                                                                                                  </block>
+                                                                                                </value>
+                                                                                                <next>
+                                                                                                  <block type="variables_set" id="232" inline="true">
+                                                                                                    <field name="TYPE">Number</field>
+                                                                                                    <field name="VAR">playNextTimeId</field>
+                                                                                                    <next>
+                                                                                                      <block type="customcode_comment" id="233" inline="true">
+                                                                                                        <value name="text">
+                                                                                                          <block type="text" id="234">
+                                                                                                            <field name="TEXT">室溫</field>
+                                                                                                          </block>
+                                                                                                        </value>
+                                                                                                        <next>
+                                                                                                          <block type="variables_set" id="235" inline="true">
+                                                                                                            <field name="TYPE">Float</field>
+                                                                                                            <field name="VAR">amb</field>
+                                                                                                            <next>
+                                                                                                              <block type="customcode_comment" id="236" inline="true">
+                                                                                                                <value name="text">
+                                                                                                                  <block type="text" id="237">
+                                                                                                                    <field name="TEXT">體溫</field>
+                                                                                                                  </block>
+                                                                                                                </value>
+                                                                                                                <next>
+                                                                                                                  <block type="variables_set" id="238" inline="true">
+                                                                                                                    <field name="TYPE">Float</field>
+                                                                                                                    <field name="VAR">obj</field>
+                                                                                                                    <next>
+                                                                                                                      <block type="customcode_comment" id="239" inline="true">
+                                                                                                                        <value name="text">
+                                                                                                                          <block type="text" id="240">
+                                                                                                                            <field name="TEXT">高溫警示</field>
+                                                                                                                          </block>
+                                                                                                                        </value>
+                                                                                                                        <next>
+                                                                                                                          <block type="variables_set" id="241" inline="true">
+                                                                                                                            <field name="TYPE">Float</field>
+                                                                                                                            <field name="VAR">WARNING_TEMPERATURE</field>
+                                                                                                                            <value name="VALUE">
+                                                                                                                              <block type="math_number" id="506">
+                                                                                                                                <field name="NUM">37.5</field>
+                                                                                                                              </block>
+                                                                                                                            </value>
+                                                                                                                          </block>
+                                                                                                                        </next>
+                                                                                                                      </block>
+                                                                                                                    </next>
+                                                                                                                  </block>
+                                                                                                                </next>
+                                                                                                              </block>
+                                                                                                            </next>
+                                                                                                          </block>
+                                                                                                        </next>
+                                                                                                      </block>
+                                                                                                    </next>
+                                                                                                  </block>
+                                                                                                </next>
+                                                                                              </block>
+                                                                                            </next>
+                                                                                          </block>
+                                                                                        </next>
+                                                                                      </block>
+                                                                                    </next>
+                                                                                  </block>
+                                                                                </next>
+                                                                              </block>
+                                                                            </next>
+                                                                          </block>
+                                                                        </next>
+                                                                      </block>
+                                                                    </next>
+                                                                  </block>
+                                                                </next>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="242" collapsed="true" x="413" y="738">
+    <mutation></mutation>
+    <field name="NAME">mp3init</field>
+    <statement name="STACK">
+      <block type="customcode_code" id="243" inline="true">
+        <value name="text">
+          <block type="text" id="244">
+            <field name="TEXT">mySoftwareSerial.begin(9600);</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_code" id="245" inline="true">
+            <value name="text">
+              <block type="text" id="246">
+                <field name="TEXT">if (!(myDFPlayer.begin(mySoftwareSerial))) {</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_code" id="247" inline="true">
+                <value name="text">
+                  <block type="text" id="248">
+                    <field name="TEXT">while (true) { }</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_code" id="249" inline="true">
+                    <value name="text">
+                      <block type="text" id="250">
+                        <field name="TEXT">}</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_code" id="251" inline="true">
+                        <value name="text">
+                          <block type="text" id="252">
+                            <field name="TEXT">myDFPlayer.volume(30);</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="customcode_comment" id="253" inline="true">
+                            <value name="text">
+                              <block type="text" id="254">
+                                <field name="TEXT">歡迎光臨請刷卡mp3 timer</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="customcode_code" id="255" inline="true">
+                                <value name="text">
+                                  <block type="text" id="256">
+                                    <field name="TEXT">play1TimeId = timer.setInterval(3500, RepeatPlay1);</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="customcode_code" id="257" inline="true">
+                                    <value name="text">
+                                      <block type="text" id="258">
+                                        <field name="TEXT">timer.disable(play1TimeId);</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="customcode_comment" id="259" inline="true">
+                                        <value name="text">
+                                          <block type="text" id="260">
+                                            <field name="TEXT">學生姓名座號mp3 timer</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="customcode_code" id="261" inline="true">
+                                            <value name="text">
+                                              <block type="text" id="262">
+                                                <field name="TEXT">playStudentTimeId = timer.setInterval(5500, playStudent);</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="customcode_code" id="263" inline="true">
+                                                <value name="text">
+                                                  <block type="text" id="264">
+                                                    <field name="TEXT">timer.disable(playStudentTimeId);</field>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="customcode_comment" id="265" inline="true">
+                                                    <value name="text">
+                                                      <block type="text" id="266">
+                                                        <field name="TEXT">體溫測量結果 mp3 timer</field>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="customcode_code" id="267" inline="true">
+                                                        <value name="text">
+                                                          <block type="text" id="268">
+                                                            <field name="TEXT">playTempTimeId = timer.setInterval(2000, playTemp);</field>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="customcode_code" id="269" inline="true">
+                                                            <value name="text">
+                                                              <block type="text" id="270">
+                                                                <field name="TEXT">timer.disable(playTempTimeId);</field>
+                                                              </block>
+                                                            </value>
+                                                            <next>
+                                                              <block type="customcode_code" id="271" inline="true">
+                                                                <value name="text">
+                                                                  <block type="text" id="272">
+                                                                    <field name="TEXT">playTodayTempTimeId = timer.setInterval(6000, playTempScanned);</field>
+                                                                  </block>
+                                                                </value>
+                                                                <next>
+                                                                  <block type="customcode_code" id="273" inline="true">
+                                                                    <value name="text">
+                                                                      <block type="text" id="274">
+                                                                        <field name="TEXT">timer.disable(playTodayTempTimeId);</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <next>
+                                                                      <block type="customcode_code" id="275" inline="true">
+                                                                        <value name="text">
+                                                                          <block type="text" id="276">
+                                                                            <field name="TEXT">playNextTimeId = timer.setInterval(2500, playNext);</field>
+                                                                          </block>
+                                                                        </value>
+                                                                        <next>
+                                                                          <block type="customcode_code" id="277" inline="true">
+                                                                            <value name="text">
+                                                                              <block type="text" id="278">
+                                                                                <field name="TEXT">timer.disable(playNextTimeId);</field>
+                                                                              </block>
+                                                                            </value>
+                                                                          </block>
+                                                                        </next>
+                                                                      </block>
+                                                                    </next>
+                                                                  </block>
+                                                                </next>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="279" collapsed="true" x="413" y="763">
+    <mutation></mutation>
+    <field name="NAME">motoInit</field>
+    <statement name="STACK">
+      <block type="customcode_code" id="280" inline="true">
+        <value name="text">
+          <block type="text" id="281">
+            <field name="TEXT">motor.attach(3);</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_code" id="282" inline="true">
+            <value name="text">
+              <block type="text" id="283">
+                <field name="TEXT">motor.write(45);//旗放下</field>
+              </block>
+            </value>
+            <next>
+              <block type="delay_custom" id="284" inline="false">
+                <value name="DELAY_TIME">
+                  <block type="math_number" id="285">
+                    <field name="NUM">1000</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_code" id="286" inline="true">
+                    <value name="text">
+                      <block type="text" id="287">
+                        <field name="TEXT">motor.detach();//停止</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="288" collapsed="true" x="413" y="788">
+    <mutation></mutation>
+    <field name="NAME">RepeatPlay1</field>
+    <statement name="STACK">
+      <block type="customcode_code" id="289" inline="true">
+        <value name="text">
+          <block type="text" id="290">
+            <field name="TEXT">myDFPlayer.playFolder(1, 1);//01請將卡片對準刷卡機</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="291" collapsed="true" x="413" y="813">
+    <mutation></mutation>
+    <field name="NAME">hasTodayScannedTemp0</field>
+    <statement name="STACK">
+      <block type="customcode_head" id="292" inline="true">
+        <value name="text">
+          <block type="text" id="293">
+            <field name="TEXT">bool hasTodayScannedTemp() {</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_head" id="294" inline="true">
+            <value name="text">
+              <block type="text" id="295">
+                <field name="TEXT">return temps[myNumber] &gt; 0;</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_head" id="296" inline="true">
+                <value name="text">
+                  <block type="text" id="297">
+                    <field name="TEXT">}</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="298" collapsed="true" x="413" y="838">
+    <mutation></mutation>
+    <field name="NAME">playTempScanned</field>
+    <statement name="STACK">
+      <block type="customcode_code" id="299" inline="true">
+        <value name="text">
+          <block type="text" id="300">
+            <field name="TEXT">myDFPlayer.playFolder(1, 11);//今天已量過體溫mp3</field>
+          </block>
+        </value>
+        <next>
+          <block type="delay_custom" id="301" inline="false">
+            <value name="DELAY_TIME">
+              <block type="math_number" id="302">
+                <field name="NUM">6000</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_code" id="303" inline="true">
+                <value name="text">
+                  <block type="text" id="304">
+                    <field name="TEXT">timer.disable(playTodayTempTimeId);</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="305" collapsed="true" x="413" y="863">
+    <mutation></mutation>
+    <field name="NAME">playStudent</field>
+    <statement name="STACK">
+      <block type="controls_if" id="306" inline="false">
+        <value name="IF0">
+          <block type="logic_operation" id="307" inline="true">
+            <field name="OP">AND</field>
+            <value name="A">
+              <block type="logic_compare" id="308" inline="true">
+                <field name="OP">GT</field>
+                <value name="A">
+                  <block type="variables_get" id="309">
+                    <field name="TYPE">Number</field>
+                    <field name="VAR">myNumber</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="310">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="B">
+              <block type="logic_negate" id="311" inline="false">
+                <value name="BOOL">
+                  <block type="variables_get" id="312">
+                    <field name="TYPE">Boolean</field>
+                    <field name="VAR">isScanTemp</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="customcode_code" id="313" inline="true">
+            <value name="text">
+              <block type="text" id="314">
+                <field name="TEXT">myDFPlayer.playFolder(2, myNumber);</field>
+              </block>
+            </value>
+            <next>
+              <block type="delay_custom" id="315" inline="false">
+                <value name="DELAY_TIME">
+                  <block type="math_number" id="316">
+                    <field name="NUM">2000</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_code" id="317" inline="true">
+                    <value name="text">
+                      <block type="text" id="318">
+                        <field name="TEXT">myDFPlayer.playFolder(1, 5);//05請將額頭靠近體溫計</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="319" collapsed="true" x="413" y="888">
+    <mutation></mutation>
+    <field name="NAME">playTemp</field>
+    <statement name="STACK">
+      <block type="controls_if" id="320" inline="false">
+        <mutation else="1"></mutation>
+        <value name="IF0">
+          <block type="customcode_code_input" id="321" inline="true">
+            <value name="text">
+              <block type="text" id="322">
+                <field name="TEXT">obj &gt; WARNING_TEMPERATURE</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="customcode_code" id="323" inline="true">
+            <value name="text">
+              <block type="text" id="324">
+                <field name="TEXT">myDFPlayer.playFolder(1, 8);//體溫過高mp3</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_comment" id="325" inline="true">
+                <value name="text">
+                  <block type="text" id="326">
+                    <field name="TEXT">舉旗(溫度太高)</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_code" id="327" inline="true">
+                    <value name="text">
+                      <block type="text" id="328">
+                        <field name="TEXT">motor.attach(3);</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_code" id="329" inline="true">
+                        <value name="text">
+                          <block type="text" id="330">
+                            <field name="TEXT">motor.write(170);</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="delay_custom" id="331" inline="false">
+                            <value name="DELAY_TIME">
+                              <block type="math_number" id="332">
+                                <field name="NUM">675</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="customcode_code" id="333" inline="true">
+                                <value name="text">
+                                  <block type="text" id="334">
+                                    <field name="TEXT">motor.detach();</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <statement name="ELSE">
+          <block type="customcode_code" id="335" inline="true">
+            <value name="text">
+              <block type="text" id="336">
+                <field name="TEXT">myDFPlayer.playFolder(1, 9);//體溫正常mp3</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <next>
+          <block type="customcode_code" id="337" inline="true">
+            <value name="text">
+              <block type="text" id="338">
+                <field name="TEXT">beep();</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_code" id="339" inline="true">
+                <value name="text">
+                  <block type="text" id="340">
+                    <field name="TEXT">timer.disable(playTempTimeId);</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_code" id="341" inline="true">
+                    <value name="text">
+                      <block type="text" id="342">
+                        <field name="TEXT">timer.enable(playNextTimeId);</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="343" collapsed="true" x="413" y="913">
+    <mutation></mutation>
+    <field name="NAME">playNext</field>
+    <statement name="STACK">
+      <block type="customcode_code" id="344" inline="true">
+        <value name="text">
+          <block type="text" id="345">
+            <field name="TEXT">myDFPlayer.playFolder(1, 10);//10請換下一位同學mp3</field>
+          </block>
+        </value>
+        <next>
+          <block type="delay_custom" id="346" inline="false">
+            <value name="DELAY_TIME">
+              <block type="math_number" id="347">
+                <field name="NUM">2500</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_code" id="348" inline="true">
+                <value name="text">
+                  <block type="text" id="349">
+                    <field name="TEXT">timer.disable(playNextTimeId);</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_code" id="350" inline="true">
+                    <value name="text">
+                      <block type="text" id="351">
+                        <field name="TEXT">Init();//初始變數</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="352" collapsed="true" x="413" y="938">
+    <mutation></mutation>
+    <field name="NAME">Init</field>
+    <statement name="STACK">
+      <block type="variables_set" id="353" inline="true">
+        <field name="TYPE">String</field>
+        <field name="VAR">myCardId</field>
+        <value name="VALUE">
+          <block type="text" id="354">
+            <field name="TEXT"></field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id="355" inline="true">
+            <field name="TYPE">Number</field>
+            <field name="VAR">myNumber</field>
+            <value name="VALUE">
+              <block type="math_number" id="356">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="357" inline="true">
+                <field name="TYPE">Boolean</field>
+                <field name="VAR">isScanCardId</field>
+                <value name="VALUE">
+                  <block type="logic_boolean" id="358">
+                    <field name="BOOL">FALSE</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set" id="359" inline="true">
+                    <field name="TYPE">Boolean</field>
+                    <field name="VAR">isScanTemp</field>
+                    <value name="VALUE">
+                      <block type="logic_boolean" id="360">
+                        <field name="BOOL">FALSE</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_set" id="361" inline="true">
+                        <field name="TYPE">Float</field>
+                        <field name="VAR">amb</field>
+                        <value name="VALUE">
+                          <block type="math_number" id="362">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="variables_set" id="363" inline="true">
+                            <field name="TYPE">Float</field>
+                            <field name="VAR">obj</field>
+                            <value name="VALUE">
+                              <block type="math_number" id="364">
+                                <field name="NUM">0</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="customcode_code" id="365" inline="true">
+                                <value name="text">
+                                  <block type="text" id="366">
+                                    <field name="TEXT">timer.disable(play1TimeId);</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="customcode_code" id="367" inline="true">
+                                    <value name="text">
+                                      <block type="text" id="368">
+                                        <field name="TEXT">timer.disable(playStudentTimeId);</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="customcode_code" id="369" inline="true">
+                                        <value name="text">
+                                          <block type="text" id="370">
+                                            <field name="TEXT">timer.disable(playTempTimeId);</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="customcode_code" id="371" inline="true">
+                                            <value name="text">
+                                              <block type="text" id="372">
+                                                <field name="TEXT">timer.disable(playTodayTempTimeId);</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="customcode_code" id="373" inline="true">
+                                                <value name="text">
+                                                  <block type="text" id="374">
+                                                    <field name="TEXT">timer.disable(playNextTimeId);</field>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="customcode_code" id="375" inline="true">
+                                                    <value name="text">
+                                                      <block type="text" id="376">
+                                                        <field name="TEXT">motor.attach(3);</field>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="customcode_code" id="377" inline="true">
+                                                        <value name="text">
+                                                          <block type="text" id="378">
+                                                            <field name="TEXT">motor.write(45);</field>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="delay_custom" id="379" inline="false">
+                                                            <value name="DELAY_TIME">
+                                                              <block type="math_number" id="380">
+                                                                <field name="NUM">675</field>
+                                                              </block>
+                                                            </value>
+                                                            <next>
+                                                              <block type="customcode_code" id="381" inline="true">
+                                                                <value name="text">
+                                                                  <block type="text" id="382">
+                                                                    <field name="TEXT">motor.detach();</field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="383" collapsed="true" x="413" y="963">
+    <mutation></mutation>
+    <field name="NAME">setTemp</field>
+    <statement name="STACK">
+      <block type="customcode_code" id="384" inline="true">
+        <value name="text">
+          <block type="text" id="385">
+            <field name="TEXT">temps[myNumber] = obj;</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="386" collapsed="true" x="413" y="988">
+    <mutation></mutation>
+    <field name="NAME">getStudentNum0</field>
+    <statement name="STACK">
+      <block type="customcode_head" id="387" inline="true">
+        <value name="text">
+          <block type="text" id="388">
+            <field name="TEXT">int getStudentNum(String id) {</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_head" id="389" inline="true">
+            <value name="text">
+              <block type="text" id="390">
+                <field name="TEXT">for (int i = 0; i &lt; NUMS; i++) {</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_head" id="391" inline="true">
+                <value name="text">
+                  <block type="text" id="392">
+                    <field name="TEXT">if (cards[i] == id) {</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_head" id="393" inline="true">
+                    <value name="text">
+                      <block type="text" id="394">
+                        <field name="TEXT">return i;</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_head" id="395" inline="true">
+                        <value name="text">
+                          <block type="text" id="396">
+                            <field name="TEXT">}</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="customcode_head" id="397" inline="true">
+                            <value name="text">
+                              <block type="text" id="398">
+                                <field name="TEXT">}</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="customcode_head" id="399" inline="true">
+                                <value name="text">
+                                  <block type="text" id="400">
+                                    <field name="TEXT">return 0;</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="customcode_head" id="401" inline="true">
+                                    <value name="text">
+                                      <block type="text" id="402">
+                                        <field name="TEXT">}</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="403" collapsed="true" x="413" y="1013">
+    <mutation></mutation>
+    <field name="NAME">mfrc522_readID0</field>
+    <statement name="STACK">
+      <block type="customcode_head" id="404" inline="true">
+        <value name="text">
+          <block type="text" id="405">
+            <field name="TEXT">String mfrc522_readID()</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_head" id="406" inline="true">
+            <value name="text">
+              <block type="text" id="407">
+                <field name="TEXT">{</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_head" id="408" inline="true">
+                <value name="text">
+                  <block type="text" id="409">
+                    <field name="TEXT">String ret;</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_head" id="410" inline="true">
+                    <value name="text">
+                      <block type="text" id="411">
+                        <field name="TEXT">if (rfid.PICC_IsNewCardPresent() &amp;&amp; rfid.PICC_ReadCardSerial())</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_head" id="412" inline="true">
+                        <value name="text">
+                          <block type="text" id="413">
+                            <field name="TEXT">{</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="customcode_head" id="414" inline="true">
+                            <value name="text">
+                              <block type="text" id="415">
+                                <field name="TEXT">MFRC522::PICC_Type piccType = rfid.PICC_GetType(rfid.uid.sak);</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="customcode_head" id="416" inline="true">
+                                <value name="text">
+                                  <block type="text" id="417">
+                                    <field name="TEXT">for (byte i = 0; i &lt; rfid.uid.size; i++) {</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="customcode_head" id="418" inline="true">
+                                    <value name="text">
+                                      <block type="text" id="419">
+                                        <field name="TEXT">ret += (rfid.uid.uidByte[i] &lt; 0x10 ? "0" : "");</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="customcode_head" id="420" inline="true">
+                                        <value name="text">
+                                          <block type="text" id="421">
+                                            <field name="TEXT">ret += String(rfid.uid.uidByte[i], HEX);</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="customcode_head" id="422" inline="true">
+                                            <value name="text">
+                                              <block type="text" id="423">
+                                                <field name="TEXT">}</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="customcode_head" id="424" inline="true">
+                                                <value name="text">
+                                                  <block type="text" id="425">
+                                                    <field name="TEXT">}</field>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="customcode_head" id="426" inline="true">
+                                                    <value name="text">
+                                                      <block type="text" id="427">
+                                                        <field name="TEXT">rfid.PICC_HaltA();</field>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="customcode_head" id="428" inline="true">
+                                                        <value name="text">
+                                                          <block type="text" id="429">
+                                                            <field name="TEXT">rfid.PCD_StopCrypto1();</field>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="customcode_head" id="430" inline="true">
+                                                            <value name="text">
+                                                              <block type="text" id="431">
+                                                                <field name="TEXT">return ret;</field>
+                                                              </block>
+                                                            </value>
+                                                            <next>
+                                                              <block type="customcode_head" id="432" inline="true">
+                                                                <value name="text">
+                                                                  <block type="text" id="433">
+                                                                    <field name="TEXT">}</field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="434" collapsed="true" x="413" y="1038">
+    <mutation></mutation>
+    <field name="NAME">beep</field>
+    <statement name="STACK">
+      <block type="controls_for" id="435" inline="true">
+        <field name="VAR">count</field>
+        <value name="FROM">
+          <block type="math_number" id="436">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <value name="TO">
+          <block type="math_number" id="437">
+            <field name="NUM">80</field>
+          </block>
+        </value>
+        <statement name="DO">
+          <block type="inout_custom_digital_write" id="438" inline="true">
+            <value name="PIN">
+              <block type="math_number" id="439">
+                <field name="NUM">4</field>
+              </block>
+            </value>
+            <value name="STAT">
+              <block type="inout_highlow" id="440">
+                <field name="BOOL">LOW</field>
+              </block>
+            </value>
+            <next>
+              <block type="delay_custom" id="441" inline="false">
+                <value name="DELAY_TIME">
+                  <block type="math_number" id="442">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="inout_custom_digital_write" id="443" inline="true">
+                    <value name="PIN">
+                      <block type="math_number" id="444">
+                        <field name="NUM">4</field>
+                      </block>
+                    </value>
+                    <value name="STAT">
+                      <block type="inout_highlow" id="445">
+                        <field name="BOOL">HIGH</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="delay_custom" id="446" inline="false">
+                        <value name="DELAY_TIME">
+                          <block type="math_number" id="447">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="inout_custom_digital_write" id="448" inline="true">
+            <value name="PIN">
+              <block type="math_number" id="449">
+                <field name="NUM">4</field>
+              </block>
+            </value>
+            <value name="STAT">
+              <block type="inout_highlow" id="450">
+                <field name="BOOL">HIGH</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="451" collapsed="true" x="413" y="1063">
+    <mutation></mutation>
+    <field name="NAME">draw</field>
+    <statement name="STACK">
+      <block type="customcode_code" id="452" inline="true">
+        <value name="text">
+          <block type="text" id="453">
+            <field name="TEXT">u8g.setFont(u8g_font_osb21);</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_code" id="454" inline="true">
+            <value name="text">
+              <block type="text" id="455">
+                <field name="TEXT">u8g.setPrintPos(10, 29);</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_code" id="456" inline="true">
+                <value name="text">
+                  <block type="text" id="457">
+                    <field name="TEXT">u8g.drawStr( 10, 29, "^____^");</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_code" id="458" inline="true">
+                    <value name="text">
+                      <block type="text" id="459">
+                        <field name="TEXT">u8g.setPrintPos(10, 63);</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_code" id="460" inline="true">
+                        <value name="text">
+                          <block type="text" id="461">
+                            <field name="TEXT">u8g.print(obj, 1);</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="customcode_code" id="462" inline="true">
+                            <value name="text">
+                              <block type="text" id="463">
+                                <field name="TEXT">u8g.drawStr( 80, 63, "*C");</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

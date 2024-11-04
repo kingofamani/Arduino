@@ -1,0 +1,151 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="board_initializes_setup" id="0" x="100" y="50">
+    <field name="BOARD_TYPE">ESP32</field>
+    <statement name="CONTENT">
+      <block type="01imi_esp32car_init" id="CM0kK$lk@e%SPAN8F8m7">
+        <statement name="uart">
+          <block type="02imi_esp32car_init_uart" id="pXu80g{bke$nQV%BkOrM">
+            <value name="rx">
+              <block type="math_number" id="_r|wKU9;dBjVm(dRoPB2">
+                <field name="NUM">16</field>
+              </block>
+            </value>
+            <value name="tx">
+              <block type="math_number" id="/},O?_;[QM8%~xoKE5uZ">
+                <field name="NUM">17</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <statement name="wifi">
+          <block type="03imi_esp32car_init_wifi" id="H#squix4s67ah9iqMTI!">
+            <value name="ssid">
+              <block type="text" id="/$LsA4K5$/;H{Bcx?^GV">
+                <field name="TEXT">xxxxxxx</field>
+              </block>
+            </value>
+            <value name="wifi_pwd">
+              <block type="text" id="uYd6/u@.J^CN~rSo#+HU">
+                <field name="TEXT">xxxxxxx</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <statement name="line">
+          <block type="04imi_esp32car_init_line" id="$fV+iwGjsRdufG*Io^?O">
+            <value name="line_token">
+              <block type="text" id="]?q,[^[f8/1%J1XtvlV1">
+                <field name="TEXT">xxxxxxx</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <statement name="mqtt">
+          <block type="05imi_esp32car_init_mqtt" id="Kpqt().NMH)aH,w=6?du">
+            <value name="mqtt_user">
+              <block type="text" id="$)}!G__U26crt!|KKs1/">
+                <field name="TEXT">xxxxxxx</field>
+              </block>
+            </value>
+            <value name="mqtt_pwd">
+              <block type="text" id="6%$[nFjw@%,x8(,CZUIk">
+                <field name="TEXT">xxxxxxx</field>
+              </block>
+            </value>
+            <value name="mqtt_port">
+              <block type="math_number" id="e9|()-!%y+eZ#WuG$hz~">
+                <field name="NUM">8883</field>
+              </block>
+            </value>
+            <value name="mqtt_server">
+              <block type="text" id="$?gNBc13D;+=)UKO{n`n">
+                <field name="TEXT">xxxxxxx</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="06imi_esp32car_loop" id="r!J8:Bt:jMg4Hi5ny*`$">
+            <next>
+              <block type="08imi_esp32car_submqtt" id="ck6(pQdtgGxMI^*m=Oc^">
+                <field name="mqtt_topic">TOPIC_MAP_SET</field>
+                <next>
+                  <block type="08imi_esp32car_submqtt" id="$J%Ttv%:=j+2VdYJ4De=">
+                    <field name="mqtt_topic">TOPIC_GOODS_LOAD</field>
+                    <next>
+                      <block type="08imi_esp32car_submqtt" id="j8cDzUuo=sN^bB6gPcAI">
+                        <field name="mqtt_topic">TOPIC_CAR_LOWPOWER</field>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+  <block type="09imi_esp32car_mqttcallback_func" id="PM]fXqcc5*IgYodPk]n;" x="430" y="290">
+    <statement name="msg">
+      <block type="controls_if" id="uY1#}4HT2.*2*Q,#*vN5">
+        <mutation elseif="1"></mutation>
+        <value name="IF0">
+          <block type="10imi_esp32car_ismqtttopic" id="6;C:)#e7dpf$+~t]2%3}">
+            <field name="mqtt_topic">TOPIC_MAP_SET</field>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="11imi_esp32car_sendarduino_mapset" id="TV`_n;OaMU)Z@!O[zZvX">
+            <next>
+              <block type="12imi_esp32car_pubmqtt_carstandby" id="K]3@K6:oy7$F@7H8Bm71"></block>
+            </next>
+          </block>
+        </statement>
+        <value name="IF1">
+          <block type="10imi_esp32car_ismqtttopic" id="lKjbzE5sD:~craTUXtc9">
+            <field name="mqtt_topic">TOPIC_GOODS_LOAD</field>
+          </block>
+        </value>
+        <statement name="DO1">
+          <block type="13imi_esp32car_sendarduino_goodsload" id=".jfTN|`:gT%3-plHid3~"></block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="07imi_esp32car_getarduino_func" id="QJ]/aDCeTct[xwyC(HR5" x="450" y="510">
+    <statement name="msg">
+      <block type="controls_if" id="~|.x#+Wp%{M~A(!Ua]:M">
+        <mutation elseif="1"></mutation>
+        <value name="IF0">
+          <block type="14imi_esp32car_isarduinomsg" id="IEBQiI4wckQj3M%IVB`,">
+            <field name="uart_topic">LINE_NOTIFY</field>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="15imi_esp32car_getarduino_recipient" id="AidUB(~R,.[aU_!0!3O}">
+            <next>
+              <block type="16imi_esp32car_line_recipient" id="a|$`4KOE/L6J-i@^:g/T"></block>
+            </next>
+          </block>
+        </statement>
+        <value name="IF1">
+          <block type="14imi_esp32car_isarduinomsg" id="$_oGN:*?XKSq#R.Qc]Pp">
+            <field name="uart_topic">CAR_GPS</field>
+          </block>
+        </value>
+        <statement name="DO1">
+          <block type="17imi_esp32car_getarduino_gps" id="S8[Kg55m)]S0WOD)Ljem">
+            <next>
+              <block type="18imi_esp32car_pubmqtt_cargps" id="JB@WwcfSeGRqEoi.-,Gf"></block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>

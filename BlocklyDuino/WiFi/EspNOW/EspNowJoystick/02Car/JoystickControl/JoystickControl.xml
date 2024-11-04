@@ -1,0 +1,169 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id=".3--{!Q-j%H5g)H=m06~">myDir</variable>
+  </variables>
+  <block type="board_initializes_setup" id="0" x="130" y="250">
+    <field name="BOARD_TYPE">ESP32</field>
+    <statement name="CONTENT">
+      <block type="serial_init" id="7G^EVOXYXKGpT1-TXNw5">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="variables_set" id="W;+f^F-fb?QC6bM0y@#t">
+            <field name="POSITION">global</field>
+            <field name="TYPE">String</field>
+            <field name="VAR" id=".3--{!Q-j%H5g)H=m06~">myDir</field>
+            <value name="VALUE">
+              <shadow type="math_number" id="w,_riT.8+j{b$Q$!c_E%">
+                <field name="NUM">0</field>
+              </shadow>
+              <block type="text" id="ng#K#u-*h7QNjI]Tf^$h">
+                <field name="TEXT"></field>
+              </block>
+            </value>
+            <next>
+              <block type="_01amani_esp32joystick_init" id=".*Ue};|(VQZ6d:u|nD[?">
+                <field name="angle">0</field>
+                <field name="order">1</field>
+                <value name="xpin">
+                  <block type="math_number" id="rRgYlbdD(QvAH166Q/v]">
+                    <field name="NUM">32</field>
+                  </block>
+                </value>
+                <value name="ypin">
+                  <block type="math_number" id="YBKn{?{MBdPCAZ2Iz)KB">
+                    <field name="NUM">33</field>
+                  </block>
+                </value>
+                <value name="swpin">
+                  <block type="math_number" id="QPBwDB6Cu9Lo!`VO9?=t">
+                    <field name="NUM">13</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_comment" id="bL53BiQM9n:7vedwr*`K">
+                    <value name="text">
+                      <block type="text" id="Q1*sd!Bk_:UvfAqPs1iC">
+                        <field name="TEXT">要溝通的開發板必須設定同一個頻道</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="ljj_broadcast_init" id="EetWR;kpWOB:EW~SSDV4">
+                        <value name="CHANNEL">
+                          <block type="math_number" id="b.o(i6{F0Cvm=ofZ%[,]">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="serial_print" id="KI/SQo;!v``3XAXz^^1`">
+                            <value name="CONTENT">
+                              <block type="text" id="/HfCJ$??+hc`xVifXW`l">
+                                <field name="TEXT">自己的MAC:</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="serial_println" id="!.ya_[/b#ed#ITkxGhB^">
+                                <value name="CONTENT">
+                                  <block type="ljj_broadcast_self_mac" id="t-!c{oGGO@3NOu_qxm+A"></block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="variables_set3" id="M;YxL;Kus.D:jusCNS$l">
+            <field name="VAR" id=".3--{!Q-j%H5g)H=m06~">myDir</field>
+            <value name="DELTA">
+              <shadow type="math_number" id="}-9zqK%s86kBwZv^;xgP">
+                <field name="NUM">0</field>
+              </shadow>
+              <block type="_02amani_esp32joystick_dir" id="QbzJI.CUuj)K*S,~*g|u">
+                <field name="order">1</field>
+              </block>
+            </value>
+            <next>
+              <block type="controls_if" id="ca5?Y=k-7G?`g`R:h}Yo">
+                <value name="IF0">
+                  <block type="logic_compare" id="+76IRfG(=Y40ekJN+w1l">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="_04amani_esp32joystick_sw" id="H`/lS.J{6sq?!ToML51o">
+                        <field name="order">1</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="YJu!;A[2ZIM$MBXxr]Fz">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="variables_set3" id="O$KT0:T@=n[;3$SWElWu">
+                    <field name="VAR" id=".3--{!Q-j%H5g)H=m06~">myDir</field>
+                    <value name="DELTA">
+                      <shadow type="math_number" id="hJI5e@_l-5D`~A8nj7+n">
+                        <field name="NUM">0</field>
+                      </shadow>
+                      <block type="text" id="S[^d6^kiUa##A{196X6m">
+                        <field name="TEXT">s</field>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+                <next>
+                  <block type="controls_if" id=":~]2p|7bj%|1P;Bs$E(n">
+                    <value name="IF0">
+                      <block type="logic_compare" id="-dCqs|H{Gqurf_?)I:2w">
+                        <field name="OP">NEQ</field>
+                        <value name="A">
+                          <block type="variables_get" id="Hk4a9vQ@tpe];nRWR=sr">
+                            <field name="VAR" id=".3--{!Q-j%H5g)H=m06~">myDir</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="text" id="a/zEDSs)Ly4{/XYt[7-N">
+                            <field name="TEXT"></field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="ljj_broadcast_sendData" id="xeGvX(ffDXT=7AyH8[2U">
+                        <value name="MSG">
+                          <block type="variables_get" id="9!~QO#i$SUXwg;J*c0KX">
+                            <field name="VAR" id=".3--{!Q-j%H5g)H=m06~">myDir</field>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="delay_custom" id="lEks8t2;^.(Iik.]oSzP">
+                        <value name="DELAY_TIME">
+                          <block type="math_number" id="LT{oEKSJ9M45l~UC7@Yt">
+                            <field name="NUM">300</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

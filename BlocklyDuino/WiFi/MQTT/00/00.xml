@@ -1,0 +1,94 @@
+<xml version="F2" board="ESP32 Dev Module" xmlns="https://developers.google.com/blockly/xml">
+  <block type="board_initializes_setup" id="0" x="100" y="50">
+    <field name="BOARD_TYPE">ESP32</field>
+    <statement name="CONTENT">
+      <block type="linkit_wifi_wait_until_ready" id="*7VL_{tg^cpdh=Uhu)*K">
+        <value name="SSID">
+          <block type="text" id="0x}W#MIi$T1g=3b=RgK2">
+            <field name="TEXT">tyes-itc2</field>
+          </block>
+        </value>
+        <value name="PASSWORD">
+          <block type="text" id="jq=4@G}+cDo%6.t|X6AD">
+            <field name="TEXT">xxxxxxxxxx</field>
+          </block>
+        </value>
+        <next>
+          <block type="connect_mqtt" id="LO8Dnfmc/95P|y?b8o_,">
+            <value name="BROKER">
+              <block type="text" id=")uyw5a5ucju[@Mg*By.f">
+                <field name="TEXT">192.168.8.180</field>
+              </block>
+            </value>
+            <value name="PORT">
+              <block type="math_number" id="!bl,[]VtcgAC#x0(9+dE">
+                <field name="NUM">1883</field>
+              </block>
+            </value>
+            <value name="ID">
+              <block type="text" id="lYi3xXZXt;69N+Q4gwd?">
+                <field name="TEXT">test1</field>
+              </block>
+            </value>
+            <value name="USERNAME">
+              <block type="text" id="~bSseFq#pSD-U2mxAn5_">
+                <field name="TEXT">kingofamani</field>
+              </block>
+            </value>
+            <value name="PASSWORD">
+              <block type="text" id="m0{h/?DOdyL+K@tk0p3-">
+                <field name="TEXT">xxxxxxxx</field>
+              </block>
+            </value>
+            <next>
+              <block type="subscribe_mqtt" id=",2u[W`DV`Vq!|^ksfQSW">
+                <value name="TOPIC">
+                  <block type="text" id="dz2_!Vu/8NK*r10Fxs;F">
+                    <field name="TEXT">home/kitchen/light</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="publish_mqtt" id="hgb3AW.p;.8G%w]]l#uB">
+            <field name="RETAIN">FALSE</field>
+            <value name="TOPIC">
+              <block type="text" id="{T!}~XNm[ss4gUyAP$|:">
+                <field name="TEXT">home/kitchen/light</field>
+              </block>
+            </value>
+            <value name="MESSAGE">
+              <block type="text" id="(!a#09b/^8vM[4N.[teO">
+                <field name="TEXT">open</field>
+              </block>
+            </value>
+            <next>
+              <block type="delay_custom" id="652c4S#~j12t0,.N61$9">
+                <value name="DELAY_TIME">
+                  <block type="math_number" id="DdEApDJB#)#zqNYKKh#b">
+                    <field name="NUM">5000</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+  <block type="mqtt_event" id="stl4k-CHYjgxoj,jPh]e" x="90" y="530">
+    <statement name="MSG_TOPIC_EQAL">
+      <block type="serial_println" id="8`,^vputC2w{g7FVZj6u">
+        <value name="CONTENT">
+          <block type="mqtt_received_msg" id="V%i5*(A1N1@N01bP0nWE"></block>
+        </value>
+      </block>
+    </statement>
+  </block>
+</xml>

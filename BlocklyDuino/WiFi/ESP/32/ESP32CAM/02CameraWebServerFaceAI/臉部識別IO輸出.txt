@@ -1,0 +1,24 @@
+可IO2輸出HIGH、LOW，臉部識別
+
+修改app_httpd第190行
+
+
+使用RGB 3色LED燈：
+	GND  GND
+	R    GPIO4
+	G    GPIO2
+	B    不接
+
+上傳後，開啟chrome：
+	Resolution			320*240
+	Face Detection 		on
+	Face Recognition 	on
+	按 Start Stream
+	
+訓練人臉特徵：
+	按Enroll Face，臉部對準鏡頭訓練5張
+	接下來就可以進行臉部辨識，成功綠燈、失敗紅燈
+	
+加速(刪除Serial.println)：
+	app_httpd.cpp L.449~455
+	

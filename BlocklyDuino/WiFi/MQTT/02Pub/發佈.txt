@@ -1,0 +1,3 @@
+可在序列埠監控視窗查看發佈Pub與訂閱Sub
+或
+https://console.hivemq.cloud/clusters/free/xxxxxx/web-client

@@ -1,0 +1,5 @@
+GND	GND
+VCC	5V
+OUT	A0
+
+可以讀出0~1023

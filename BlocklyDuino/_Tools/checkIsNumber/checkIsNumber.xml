@@ -1,0 +1,102 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="=(X,Cph@bAd0KSSQ$^mx">N</variable>
+    <variable id="U^RXnSVF/HJyaHt+w)k!">key</variable>
+  </variables>
+  <block type="procedures_defreturn" id="fpHAoZzh]`F;5=}B;x`{" x="290" y="270">
+    <field name="TYPE">boolean</field>
+    <field name="NAME">checkIsNumber</field>
+    <value name="VAR">
+      <shadow type="lists_create_with">
+        <mutation items="0"></mutation>
+      </shadow>
+      <block type="lists_create_with" id="bY({ojhj?J;FUv~*J6-:">
+        <mutation items="1"></mutation>
+        <value name="ADD0">
+          <block type="variables_set2" id="W2;:}$thm~i/I(}c6~00">
+            <field name="TYPE">char</field>
+            <field name="VAR" id="U^RXnSVF/HJyaHt+w)k!">key</field>
+          </block>
+        </value>
+      </block>
+    </value>
+    <statement name="STACK">
+      <block type="variables_set1" id="wMO%ZFaZNLw;~R5+a*[s">
+        <field name="POSITION">local</field>
+        <field name="TYPE">char</field>
+        <field name="VAR" id="=(X,Cph@bAd0KSSQ$^mx">N</field>
+        <value name="LEN">
+          <block type="math_number" id="kckPiyPCSbT^Kq?0{uZ?">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <value name="VALUE">
+          <shadow type="text" id="RDe-_=%PJ:z{k})?ErIM">
+            <field name="TEXT">1234567890</field>
+          </shadow>
+        </value>
+        <next>
+          <block type="customcode_comment" id="m|UEF*z$AOV4m4v-IWD[">
+            <value name="text">
+              <block type="text" id="]G[JsLZPi}q[R,J9t}U5">
+                <field name="TEXT">一定要大寫NULL</field>
+              </block>
+            </value>
+            <next>
+              <block type="controls_if" id="P~URE2!0VrWL3M!|7bNl">
+                <mutation else="1"></mutation>
+                <value name="IF0">
+                  <block type="logic_compare" id=")f^zl=eqm=I|YYp*5C3y">
+                    <field name="OP">NEQ</field>
+                    <value name="A">
+                      <block type="customcode_code_input" id="Y6({m,*h]py[2kJ``NY6">
+                        <value name="text">
+                          <block type="text" id="#rU9%l%-fgc]nK$LE%Hf">
+                            <field name="TEXT">strchr(N, key)</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="customcode_code_input" id="}mK8uTywD0)!(4z_:L96">
+                        <value name="text">
+                          <block type="text" id="+OTf?m=?sez7f@1M1dV$">
+                            <field name="TEXT">NULL</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="procedures_return" id="mf$!1Wsc}V?r-YYORaAj">
+                    <value name="RETURN">
+                      <shadow type="math_number" id="-U`xMsxE{~L2V1~8_lYw">
+                        <field name="NUM">0</field>
+                      </shadow>
+                      <block type="logic_boolean" id="i_qYsJ-wq6At.D0(|=DW">
+                        <field name="BOOL">TRUE</field>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+                <statement name="ELSE">
+                  <block type="procedures_return" id="Mm{B)vGeJct|W%V-j5+[">
+                    <value name="RETURN">
+                      <shadow type="math_number">
+                        <field name="NUM">0</field>
+                      </shadow>
+                      <block type="logic_boolean" id="~[_z:,X/~HVa=$XO#i5h">
+                        <field name="BOOL">FALSE</field>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

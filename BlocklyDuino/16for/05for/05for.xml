@@ -1,0 +1,88 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="initializes_setup" id="41" x="80" y="40">
+    <comment pinned="true" h="92" w="215">1、印出1~100
+2、每10個數字換行
+    </comment>
+    <statement name="CONTENT">
+      <block type="serial_init" id="42">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="controls_for" id="43" inline="true">
+            <field name="VAR">i</field>
+            <value name="FROM">
+              <block type="math_number" id="44">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <value name="TO">
+              <block type="math_number" id="45">
+                <field name="NUM">100</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="serial_print" id="50" inline="false">
+                <value name="CONTENT">
+                  <block type="variables_get" id="51">
+                    <field name="TYPE">Number</field>
+                    <field name="VAR">i</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="serial_print" id="52" inline="false">
+                    <value name="CONTENT">
+                      <block type="text" id="53">
+                        <field name="TEXT">,</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="controls_if" id="54" inline="false">
+                        <value name="IF0">
+                          <block type="logic_compare" id="55" inline="true">
+                            <field name="OP">EQ</field>
+                            <value name="A">
+                              <block type="math_arithmetic" id="56" inline="true">
+                                <field name="OP">MODULO</field>
+                                <value name="A">
+                                  <block type="variables_get" id="57">
+                                    <field name="TYPE">Number</field>
+                                    <field name="VAR">i</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="58">
+                                    <field name="NUM">10</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number" id="59">
+                                <field name="NUM">0</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO0">
+                          <block type="serial_println" id="60" inline="false">
+                            <value name="CONTENT">
+                              <block type="text" id="61">
+                                <field name="TEXT"></field>
+                              </block>
+                            </value>
+                          </block>
+                        </statement>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="62"></block>
+    </next>
+  </block>
+</xml>

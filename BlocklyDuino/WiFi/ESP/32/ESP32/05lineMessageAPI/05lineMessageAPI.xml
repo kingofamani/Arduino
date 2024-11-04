@@ -1,0 +1,63 @@
+<xml version="F2" board="ESP32 Dev Module" xmlns="https://developers.google.com/blockly/xml">
+  <block type="board_initializes_setup" id="0" x="100" y="50">
+    <field name="BOARD_TYPE">ESP32</field>
+    <statement name="CONTENT">
+      <block type="linkit_wifi_wait_until_ready" id="a=N;d-d$Sq;xrc/=g8El">
+        <value name="SSID">
+          <block type="text" id="snNhKq_F`0Ofk`eZr.lY">
+            <field name="TEXT">xxxxxx</field>
+          </block>
+        </value>
+        <value name="PASSWORD">
+          <block type="text" id="3+Xr/AM@fScF)7bT9`W1">
+            <field name="TEXT">xxxxxx</field>
+          </block>
+        </value>
+        <next>
+          <block type="serial_println" id="RLjE5@Kj5fbgoT0]1i_P">
+            <value name="CONTENT">
+              <block type="text" id=":JT5c$_=f92%}bw0nNYz">
+                <field name="TEXT">ok</field>
+              </block>
+            </value>
+            <next>
+              <block type="_01amani_linepushapi_init" id="nX~Y,^TwHIXa|(jBVlOn">
+                <value name="userid">
+                  <block type="text" id="}Yb^imBz#}CEw!(,Uup(">
+                    <field name="TEXT">xxxxxx</field>
+                  </block>
+                </value>
+                <value name="token">
+                  <block type="text" id="+R7KU:/?mo)[S?ebE4Cy">
+                    <field name="TEXT">xxxxxx</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="_02amani_linepushapi_msg" id="v}9u4r#A7IIAGp}y1}KC">
+                    <value name="msg">
+                      <block type="text" id="UOD_CxwZyMLF=BccT*E$">
+                        <field name="TEXT">Hello World</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_println" id="C?%E?BcDEf1X(X#l~}l|">
+                        <value name="CONTENT">
+                          <block type="text" id="MmDrj*Q@3Rd~!:-F`:S?">
+                            <field name="TEXT">line ok</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1"></block>
+    </next>
+  </block>
+</xml>

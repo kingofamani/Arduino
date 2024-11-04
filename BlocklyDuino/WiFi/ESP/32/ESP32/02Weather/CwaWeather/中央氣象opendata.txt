@@ -1,0 +1,11 @@
+中央氣象開放資料平台
+\home\創客\金鑰\天氣.txt
+
+錯誤bug：
+HTTP Response Code: -1
+	原因：ESP32記憶體不足，要拔掉電源重啟
+	陣列vector<float> MinTs、MaxTs抓取資料太多造成
+	
+	
+deserializeJson() failed: IncompleteInput
+	原因：資料抓取錯誤，重抓就可以了

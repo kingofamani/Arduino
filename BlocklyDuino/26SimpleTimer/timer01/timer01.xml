@@ -1,0 +1,140 @@
+<xml version="F2" board="Arduino Uno" xmlns="https://developers.google.com/blockly/xml">
+  <block type="board_initializes_setup" id="0" x="130" y="210">
+    <field name="BOARD_TYPE">Arduino</field>
+    <statement name="CONTENT">
+      <block type="serial_init" id="4_.tlo.|Wep[J3au[R1y">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="_01amani_simpletimer_setinteval" id="b+U)pyO[LHlMZwAZQ8(c">
+            <field name="order">0</field>
+            <value name="ms">
+              <block type="math_number" id="Vciz@N[y@.X)jQ*+IlPH">
+                <field name="NUM">5000</field>
+              </block>
+            </value>
+            <statement name="msg">
+              <block type="serial_println" id=";brM$]tH|w1k`E,6v.YO">
+                <value name="CONTENT">
+                  <block type="text" id="qkqbn`x6Q4qf@9G!0}}j">
+                    <field name="TEXT">第一種：每5秒執行1次</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <next>
+              <block type="_02amani_simpletimer_setinteval_id" id="}XfqUgTCOAaF%EhFK^~~">
+                <field name="order">1</field>
+                <value name="ms">
+                  <block type="math_number" id="Nfiy_(NTuBK2BVAF8C+R">
+                    <field name="NUM">1000</field>
+                  </block>
+                </value>
+                <statement name="msg">
+                  <block type="serial_println" id="Ce)DV@R|1CCFXURkP$2C">
+                    <value name="CONTENT">
+                      <block type="text" id=",WYSS]VvphhhYdB}jJw)">
+                        <field name="TEXT">第二種：[按下按鈕] 開始計時了...</field>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+                <next>
+                  <block type="_04amani_simpletimer_settimeout" id="~|u,7cOH-K|a#R)g(GWb">
+                    <field name="order">2</field>
+                    <value name="ms">
+                      <block type="math_number" id="Nyd6!{w^tz{LWMvfInz~">
+                        <field name="NUM">10000</field>
+                      </block>
+                    </value>
+                    <statement name="msg">
+                      <block type="serial_println" id="8VZ@17Y#m2jMXyXJa1K]">
+                        <value name="CONTENT">
+                          <block type="text" id="PLz|O.#O2yc{$c;iWniu">
+                            <field name="TEXT">第三種：10秒後執行，只執行1次</field>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="_05amani_simpletimer_settimer" id="KN3SS0M.p2+nE!~mB?@`">
+                        <field name="order">3</field>
+                        <value name="ms">
+                          <block type="math_number" id="|^*YQhF*9fxRk2IWgK4-">
+                            <field name="NUM">300</field>
+                          </block>
+                        </value>
+                        <value name="times">
+                          <block type="math_number" id="4+P-K)z6h#sGHl7F$J*;">
+                            <field name="NUM">5</field>
+                          </block>
+                        </value>
+                        <statement name="msg">
+                          <block type="serial_println" id="9p6*$(RniXxqv:OgGs;/">
+                            <value name="CONTENT">
+                              <block type="text" id="l9.-^hT^sRdx/ZmmPBG^">
+                                <field name="TEXT">第四種：每300毫秒執行1次，總共5次</field>
+                              </block>
+                            </value>
+                          </block>
+                        </statement>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="customcode_comment" id="+^+ibL;:lk?;_t!Kv4j7">
+            <value name="text">
+              <block type="text" id="Q~n83Vc*/,W7RcqJDU[[">
+                <field name="TEXT">當按下按鈕，才開始計時</field>
+              </block>
+            </value>
+            <next>
+              <block type="controls_if" id="aS)Lu[u@P9b!od~umbH]">
+                <mutation else="1"></mutation>
+                <value name="IF0">
+                  <block type="logic_compare" id=")U*3;GacJlSCmfX_ceM2">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="inout_custom_digital_read" id=")b[.%B/l[G5ewWnNd}st">
+                        <value name="PIN_READ">
+                          <block type="math_number" id="?t9|f/FSB+?78r!~n|~-">
+                            <field name="NUM">5</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="logic_boolean" id="s~I/2r:B2D[Kg**wWuIu">
+                        <field name="BOOL">FALSE</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="_03amani_simpletimer_setinteval_enable" id="m:kcv[r)RH)=d9TAS;*_">
+                    <field name="switch">enable</field>
+                    <field name="order">1</field>
+                  </block>
+                </statement>
+                <statement name="ELSE">
+                  <block type="_03amani_simpletimer_setinteval_enable" id="q@ZKX=x{g,CH+dOm:hS)">
+                    <field name="switch">disable</field>
+                    <field name="order">1</field>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

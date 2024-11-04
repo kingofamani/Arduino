@@ -1,0 +1,235 @@
+<xml xmlns="https://developers.google.com/blockly/xml"><block type="factory_base" id="frj.y*ACq30pJ1ab{1.B" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_01imi_espcharge_init</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="$.pzs(fk*HdcBc^=8qI5">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="%(I`D]iV0s-$6G]swV;A">
+            <field name="TEXT">iMi充電模組ESP32初始化</field>
+          </block>
+        </statement>
+        <next>
+          <block type="input_statement" id="nQKO;%((2c=:O|gN3da.">
+            <field name="INPUTNAME">wifi</field>
+            <field name="ALIGN">RIGHT</field>
+            <statement name="FIELDS">
+              <block type="field_static" id="ZYgSMGPD4H{4J+8iRgdd">
+                <field name="TEXT">WiFi設定</field>
+              </block>
+            </statement>
+            <value name="TYPE">
+              <shadow type="type_null" id="``~ouwO(mv*n~p`WNNy^"></shadow>
+            </value>
+            <next>
+              <block type="input_statement" id="l+787O#M+5AhkQz,PYgx">
+                <field name="INPUTNAME">sheet</field>
+                <field name="ALIGN">RIGHT</field>
+                <statement name="FIELDS">
+                  <block type="field_static" id="+pmIdSQ3!_BO#%Bf#ji_">
+                    <field name="TEXT">Google試算表</field>
+                  </block>
+                </statement>
+                <value name="TYPE">
+                  <shadow type="type_null" id="irajY,C49:i/xAQZ|B$i"></shadow>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="wIxVAJ{(#@!_1:/C#X^B" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id=".ry`M6K}?0uPS:[Az~jz" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="5`9/xf90t4]yZ;jy,a/I"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="9tal#kT1!1[NkvXY%Asf"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="Wl)V*`a/:yZ{l+=FR)tp">
+        <mutation colour="#a5745b"></mutation>
+        <field name="HUE">20</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="nYBare):VJ=vVs5+;{,h" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_02imi_espcharge_wifi</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_value" id=";B+f_*I{#)wqM)SHqh1d">
+        <field name="INPUTNAME">ssid</field>
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="0_$sSg;I%fx{$2*CI$^~">
+            <field name="TEXT">ssid</field>
+          </block>
+        </statement>
+        <value name="TYPE">
+          <shadow type="type_null" id="Jd{ESQdQlFB}UOBpo}+c"></shadow>
+        </value>
+        <next>
+          <block type="input_value" id="hQrByF{n);+HXYUpdt-*">
+            <field name="INPUTNAME">wifipwd</field>
+            <field name="ALIGN">LEFT</field>
+            <statement name="FIELDS">
+              <block type="field_static" id="j(cCM],Drc`ObZGUyFzV">
+                <field name="TEXT">密碼</field>
+              </block>
+            </statement>
+            <value name="TYPE">
+              <shadow type="type_null" id="mn16r;dQRQK[bH:G~1e3"></shadow>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="r@=%ZvYGJK_0WlxOW:]]" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="p}!k:7:FamA5[$6]BH%J" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="|-w(zp6HDWWcO;@oxie-"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="+LQpt*ciM?]y)|5`I$l7"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="F$KE{j5n7t#ts-#j@{5u">
+        <mutation colour="#a5745b"></mutation>
+        <field name="HUE">20</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="w)yj]8k2%$HwR7_#OL^l" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_03imi_espcharge_sheet</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_value" id="Y5k/fC$hXhb*0=/MI5yO">
+        <field name="INPUTNAME">sheetid</field>
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="0J_ziW)5zSaYL(Wg(qIu">
+            <field name="TEXT">ID</field>
+          </block>
+        </statement>
+        <value name="TYPE">
+          <shadow type="type_null" id="`HG:lX,TxLTu^C*`L)/]"></shadow>
+        </value>
+        <next>
+          <block type="input_value" id="DqsVj#@H1iC~rg{wT[ei">
+            <field name="INPUTNAME">stag</field>
+            <field name="ALIGN">LEFT</field>
+            <statement name="FIELDS">
+              <block type="field_static" id=":MV*j.ySqR:IQpgwR}@0">
+                <field name="TEXT">工作表名稱</field>
+              </block>
+            </statement>
+            <value name="TYPE">
+              <shadow type="type_null" id="2b/_VMpsBK_*/epZqLgE"></shadow>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="?McfW~PK_+~kV}HI!3O7" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="j3J9a}6H)~uF]9ZALi8U" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="s!BY#+ZqpJDqz_nC,+pn"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="M;$74@VZG,t-iH,(TDr?"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="GcnP4xBR[XMC|c*zN8p2">
+        <mutation colour="#a5745b"></mutation>
+        <field name="HUE">20</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="G$;R!LRK%DkAK3BQ~nId" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_04mi_espcharge_writesheet</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="g~G:]he;+2:*SjB2zEzu">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="?qC-/Efiv/c:{B-@|`;M">
+            <field name="TEXT">寫入Google試算表：</field>
+            <next>
+              <block type="field_dropdown" id="!{l4C$!dbmo#lx6gh|_*">
+                <mutation options="[&quot;text&quot;,&quot;text&quot;,&quot;text&quot;]"></mutation>
+                <field name="FIELDNAME">type</field>
+                <field name="USER0">太陽能板產生能量</field>
+                <field name="CPU0">sun</field>
+                <field name="USER1">小車消耗能量</field>
+                <field name="CPU1">car</field>
+                <field name="USER2">option</field>
+                <field name="CPU2">OPTIONNAME</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="input_dummy" id="]h!meO:OeO41PAq?jwDM">
+            <field name="ALIGN">LEFT</field>
+            <statement name="FIELDS">
+              <block type="field_static" id="DxI|v:0]`*@3e3_VFM[i">
+                <field name="TEXT">的瓦數(mW)</field>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="(a4f^UA=Mq6uKlsh,2I_" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="E{dR6jzs}e,;Mnwjnc+^" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="o!8ye(O$,RA3dZtkKnuP"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="2nrh$`a]KctNKyfB84j1"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="`b5lhfVP~3UZaA8.@S,F">
+        <mutation colour="#a5745b"></mutation>
+        <field name="HUE">20</field>
+      </block>
+    </value>
+  </block></xml>

@@ -1,0 +1,340 @@
+<xml version="F2" board="Arduino Uno" xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="bd({0BK:Tqh:p@l9_Zwu">moveX</variable>
+    <variable id="a/,GcTI!tX%0HqsOjoXZ">x</variable>
+    <variable id=")Z`D=e2O3$EAMT?Ox?Z;">y</variable>
+    <variable id=")ndA1WCutJvwoUlMYsBV">moveY</variable>
+  </variables>
+  <block type="board_initializes_setup" id="0" x="100" y="50">
+    <field name="BOARD_TYPE">Arduino</field>
+    <statement name="CONTENT">
+      <block type="ggPS2Init" id="+XC.TS.@Ml.8KMmHSgsB">
+        <field name="Pressures">TRUE</field>
+        <field name="Rumble">TRUE</field>
+        <value name="Data">
+          <block type="math_number" id="kdfDU;k[2OZ|LUD/W.`~">
+            <field name="NUM">12</field>
+          </block>
+        </value>
+        <value name="Command">
+          <block type="math_number" id="JjQXDu10@E@2CW5JUJD=">
+            <field name="NUM">11</field>
+          </block>
+        </value>
+        <value name="ChipSelect">
+          <block type="math_number" id="=;)n]5yF+./`P##ILNOz">
+            <field name="NUM">10</field>
+          </block>
+        </value>
+        <value name="Clock">
+          <block type="math_number" id="g8UYQiOqSdN={8:T#gQ(">
+            <field name="NUM">13</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="customcode_comment" id="@#nvrSoeEkLxj3O#30YD">
+            <value name="text">
+              <block type="text" id="r+1qb:cuN{S94mZB:?@L">
+                <field name="TEXT">讀取手把狀態 </field>
+              </block>
+            </value>
+            <next>
+              <block type="ggPS2_ReadGamePad" id="OG5FUA,8)atEoe{YGWP#">
+                <field name="Rumble">FALSE</field>
+                <value name="Strength">
+                  <block type="math_number" id=":{^1gPS01uS/QkQYO:}V">
+                    <field name="NUM">40</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_comment" id="8|/:}(n%=ykd=g|$nV51">
+                    <value name="text">
+                      <block type="text" id="{%/Athku}F*t)=4V1?CD">
+                        <field name="TEXT">判斷按鈕：上下左右○×△□</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="controls_if" id="I3RKs8OO:AFu%#FNR22z">
+                        <value name="IF0">
+                          <block type="ggPS2_Button_IsPressed" id="XMvJ.?i:wwUMUO=!C)x8">
+                            <field name="Button">PSB_TRIANGLE</field>
+                          </block>
+                        </value>
+                        <statement name="DO0">
+                          <block type="serial_println" id="v6UjR(|B`0i0?4:Tj@[O">
+                            <value name="CONTENT">
+                              <block type="text" id="D}W}~`h1_0sTyWnc8/`-">
+                                <field name="TEXT">你按了三角形鈕</field>
+                              </block>
+                            </value>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="customcode_comment" id="7u=d8Fc(:a(?O`CjL.Q$">
+                            <value name="text">
+                              <block type="text" id=",IeVHG2{u6$MC:ml99|8">
+                                <field name="TEXT">判斷移動L3搖桿</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="controls_if" id="0?W^$$ZbpKmh`q0BVYR6">
+                                <value name="IF0">
+                                  <block type="procedures_callreturn" id="X_v}t:;2)Y}|69Bo/z+B">
+                                    <mutation xmlns="http://www.w3.org/1999/xhtml" name="isMoveJoystick"></mutation>
+                                    <value name="VAR">
+                                      <block type="lists_create_with" id="!$H.ixGl/oUEvB#W!GaW">
+                                        <mutation items="2"></mutation>
+                                        <value name="ADD0">
+                                          <block type="ggPS2_Analog_State" id="aV~#uccT_d*(k}BXpZd:">
+                                            <field name="Analog">PSS_LX</field>
+                                          </block>
+                                        </value>
+                                        <value name="ADD1">
+                                          <block type="ggPS2_Analog_State" id="s;~DADfE)%5C|/k9ri*m">
+                                            <field name="Analog">PSS_LY</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <statement name="DO0">
+                                  <block type="serial_println" id="s2a7eaWu@8BH+O)`Ibol">
+                                    <value name="CONTENT">
+                                      <block type="text_join" id=":n=}mS#E%`P`aRJi{#16">
+                                        <mutation items="5"></mutation>
+                                        <value name="ADD0">
+                                          <block type="text" id="y3~McqOYWW)w!-*J`%@P">
+                                            <field name="TEXT">左搖桿：</field>
+                                          </block>
+                                        </value>
+                                        <value name="ADD1">
+                                          <block type="ggPS2_Analog_State" id="tf+/W$#SQ+_UkCp$b$b-">
+                                            <field name="Analog">PSS_LX</field>
+                                          </block>
+                                        </value>
+                                        <value name="ADD2">
+                                          <block type="text" id="LJdUNdx7ndYO+a`n|7~S">
+                                            <field name="TEXT">,</field>
+                                          </block>
+                                        </value>
+                                        <value name="ADD3">
+                                          <block type="ggPS2_Analog_State" id="XZ)_f`qQRYCebitmk9u/">
+                                            <field name="Analog">PSS_LY</field>
+                                          </block>
+                                        </value>
+                                        <value name="ADD4">
+                                          <block type="text" id=",ydC4{#d3J2ak|#T+yZP">
+                                            <field name="TEXT">。</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </statement>
+                                <next>
+                                  <block type="serial_println" id="qlL2%hWG%fFi#X?dostl">
+                                    <value name="CONTENT">
+                                      <block type="text" id="df.ecM{6c-YdHqW%|i;f">
+                                        <field name="TEXT">======================</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="delay_custom" id="fU08{OQAT-b@S^02$g3;">
+                                        <value name="DELAY_TIME">
+                                          <block type="math_number" id="Vo:,$OfA|)iolqfX5|`3">
+                                            <field name="NUM">10</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+  <block type="procedures_defreturn" id="p0V*0F*^MYg2BhOs_:FW" x="1010" y="250">
+    <field name="TYPE">boolean</field>
+    <field name="NAME">isMoveJoystick</field>
+    <value name="VAR">
+      <shadow type="lists_create_with" inline="true">
+        <mutation items="0"></mutation>
+      </shadow>
+      <block type="lists_create_with" id="N0uevvy-~Il,({[2i5Ik" inline="true">
+        <mutation items="2"></mutation>
+        <value name="ADD0">
+          <block type="variables_set2" id="_.FxgnaM)=ll*EM{O[`P">
+            <field name="TYPE">int</field>
+            <field name="VAR" id="a/,GcTI!tX%0HqsOjoXZ">x</field>
+          </block>
+        </value>
+        <value name="ADD1">
+          <block type="variables_set2" id="lw^I[}WD5/({8oSabL]Q">
+            <field name="TYPE">int</field>
+            <field name="VAR" id=")Z`D=e2O3$EAMT?Ox?Z;">y</field>
+          </block>
+        </value>
+      </block>
+    </value>
+    <statement name="STACK">
+      <block type="variables_set" id="[vDOW0,hhV[?5C)tVoIk">
+        <field name="POSITION">local</field>
+        <field name="TYPE">boolean</field>
+        <field name="VAR" id="bd({0BK:Tqh:p@l9_Zwu">moveX</field>
+        <value name="VALUE">
+          <shadow type="math_number" id="kmpJjuPurE^Nv%@gT}o{">
+            <field name="NUM">0</field>
+          </shadow>
+          <block type="logic_negate" id="Q|K~]=FOM6HJ^4wC?SA-">
+            <value name="BOOL">
+              <block type="logic_operation" id="Pc:NJ`%n}{P6UQ=Vk3U=">
+                <field name="OP">OR</field>
+                <value name="A">
+                  <block type="logic_compare" id="lg[.)PZqAkje5tef{gQ=">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="variables_get" id="0#{k++eg*hG=eEf{xoPM">
+                        <field name="VAR" id="a/,GcTI!tX%0HqsOjoXZ">x</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="k#^JGThvs?U|H/hz^Hu`">
+                        <field name="NUM">127</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="logic_compare" id="A:RMd{ecJeRX/`$m.f)A">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="variables_get" id="e+*nH1#b=9.@6lw|m@nZ">
+                        <field name="VAR" id="a/,GcTI!tX%0HqsOjoXZ">x</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="!KF?$SL58R,ZS_oEFe5g">
+                        <field name="NUM">128</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id="bZOc{YRZPhi?SLav}Xp|">
+            <field name="POSITION">local</field>
+            <field name="TYPE">boolean</field>
+            <field name="VAR" id=")ndA1WCutJvwoUlMYsBV">moveY</field>
+            <value name="VALUE">
+              <shadow type="math_number" id="I.+WUB*ky:jV?*?uB^SG">
+                <field name="NUM">0</field>
+              </shadow>
+              <block type="logic_negate" id="1.yLHYEERSr,D[OE/l]M">
+                <value name="BOOL">
+                  <block type="logic_operation" id="w|[T6OA^4O/Dt`5xfXiN">
+                    <field name="OP">OR</field>
+                    <value name="A">
+                      <block type="logic_compare" id="]Z1fsuByzO+~@`A,0~+W">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="variables_get" id="*^6kw}91:s4^,`%!+uaD">
+                            <field name="VAR" id=")Z`D=e2O3$EAMT?Ox?Z;">y</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="`YyVo!V,j5R~HnrDGTCw">
+                            <field name="NUM">127</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="logic_compare" id="^lnil2d9r@bOo8V4ER.I">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="variables_get" id="CPKgEv)/|RkVg52*;Fy1">
+                            <field name="VAR" id=")Z`D=e2O3$EAMT?Ox?Z;">y</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id=")v+Kzi/^:174#`dt.j)#">
+                            <field name="NUM">128</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="controls_if" id="HgE!(yp3b%h{I(KT(=PM">
+                <mutation else="1"></mutation>
+                <value name="IF0">
+                  <block type="logic_operation" id="Df.P6=t%fT:8Iow)NVo)">
+                    <field name="OP">AND</field>
+                    <value name="A">
+                      <block type="logic_negate" id="*p,ztR{Pv^lX8:-PGnyC">
+                        <value name="BOOL">
+                          <block type="variables_get" id="qa`FJ2wfo:]kyJ37ZbUR">
+                            <field name="VAR" id="bd({0BK:Tqh:p@l9_Zwu">moveX</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="logic_negate" id="$@@kYMA9(bGvTyhj53Uz">
+                        <value name="BOOL">
+                          <block type="variables_get" id="[xAPf@lUuFHv/eNN$`VB">
+                            <field name="VAR" id=")ndA1WCutJvwoUlMYsBV">moveY</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="procedures_return" id="PbM6^#,7U8Amt`A5Bi,{">
+                    <value name="RETURN">
+                      <block type="logic_boolean" id=")wmClsuPMujj$51Xb[l(">
+                        <field name="BOOL">FALSE</field>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+                <statement name="ELSE">
+                  <block type="procedures_return" id="eQ(/(L/C]KqLBHHh7t9]">
+                    <value name="RETURN">
+                      <block type="logic_boolean" id="y|:p/)474KXHN)%I7/Dk">
+                        <field name="BOOL">TRUE</field>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

@@ -1,0 +1,69 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="board_initializes_setup" id="0" x="190" y="90">
+    <field name="BOARD_TYPE">ESP32</field>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="customcode_comment" id="-fOM*P%g9N^kRZyk+mmT">
+            <value name="text">
+              <block type="text" id="W+ZKhU=;aS[!?-5`xcE/">
+                <field name="TEXT">傳送OUT</field>
+              </block>
+            </value>
+            <next>
+              <block type="_01amani_serial_avail" id="u%OCH7A~zW^._t2L!uHb">
+                <field name="serial">Serial</field>
+                <statement name="msg">
+                  <block type="_03amani_uart_send" id="W]ue=xVRw)%IOnQ[TtS,">
+                    <field name="serial">softSerial</field>
+                    <field name="send">print</field>
+                    <value name="msg">
+                      <shadow type="text" id="EBe$6mUDf-f^^4k2gm*i">
+                        <field name="TEXT"></field>
+                      </shadow>
+                      <block type="_02amani_serial_readstring" id=")NNYMZ~b$WI{u@tGIK4X">
+                        <field name="serial">Serial</field>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+                <next>
+                  <block type="customcode_comment" id="#P6a]Rg)qVvsIgB4~pgb">
+                    <value name="text">
+                      <block type="text" id="FLObB([@or%N$sC$h[$`">
+                        <field name="TEXT">讀取IN</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="_01amani_uart_init" id="[~-9k9}UESDZ-_7wvp6D">
+                        <field name="serial">softSerial</field>
+                        <field name="baudrate">9600</field>
+                        <value name="rx">
+                          <block type="math_number" id="QR1$aKRi(2dqEM#=!yrh">
+                            <field name="NUM">5</field>
+                          </block>
+                        </value>
+                        <value name="tx">
+                          <block type="math_number" id="ZtMXiTz,Bd7,@Xw)0Th;">
+                            <field name="NUM">4</field>
+                          </block>
+                        </value>
+                        <statement name="statement">
+                          <block type="serial_println" id="d8^SIbYa};9h~!th#VtJ">
+                            <value name="CONTENT">
+                              <block type="_02amani_uart_get" id="p{MCj`p[vwSC1f]6Uhm."></block>
+                            </value>
+                          </block>
+                        </statement>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

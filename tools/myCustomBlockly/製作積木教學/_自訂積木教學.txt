@@ -1,0 +1,74 @@
+參考「傅仲儀教師-ESP32自訂積木撰寫.pdf」頁碼
+
+●至Blockly Developer Tools網站：
+	Block Factory標籤頁p10：編輯積木後按「Download Block Library」匯出library.xml備份用。
+	
+	Block Exporter標籤頁p11：勾選自己做的積木，按Export匯丑出blocks.js和javascript.js。
+		==========修改javascript.js==========
+		程式碼取代：		
+		javascript.javascriptGenerator.forBlock['
+		Blockly.Arduino['
+		
+		'] = function(block, generator) {		
+		'] = function(block) {
+		
+		Blockly.javascript.ORDER_NONE
+		Blockly.Arduino.ORDER_NONE
+		
+		javascript.Order.ATOMIC
+		Blockly.Arduino.ORDER_ATOMIC
+		
+		generator.valueToCode
+		Blockly.Arduino.valueToCode
+		
+		generator.statementToCode
+		Blockly.Arduino.statementToCode				
+		==========修改javascript.js==========
+		
+	Workspace Factory標籤頁p12：自製工具箱，將自訂積木拉進來後★可以再編輯，例如加入數字積木，匯出toolbox.xml。	
+		==========修改toolbox.xml==========
+		1、刪除第1行<xml xmlns=...>和最後一行</xml>
+		2、★★★若積木無法拖曳，刪除toolbox.xml的deletable="false" movable="false" editable="false"
+		==========toolbox.xml==========
+	
+	最後將以上4個檔案放入【export】資料夾
+
+●自訂積木規劃.docx：
+	將C++程式碼轉成：中介碼及積木圖示。
+	
+●產生積木程式碼.xlsx：
+	將中介碼貼上，轉成javascript程式碼，並貼於javascript.js
+
+●至fustyles.github.io網站：
+	依序將blocks.js、javascript.js、toolbox.xml由左至右貼上，然後按上方按鈕「export your block content」，
+	會轉出8個檔案，將8個檔案放在【amaniBlock】資料夾。
+	
+●至C:\BlocklyduinoF2\package.nw\customBlocks：
+	將amaniBlock資料夾貼上，並開啟customblocks.js修改路徑。
+
+========合併多個Blocks至同一類別(category)========
+參考ArduinoMaster\tools\myCustomBlockly\_backup\新北初賽iMi
+●將所有Block放在同一資料夾imiBlock
+●imiBlock資料夾下編輯toolbox.xml：合併所有toolbox.xml於此，
+ 並建一個父層類別<category name="iMi迷你貨車" colour="#5ba58c">
+●編輯customblocks.js：將所有Block資料夾路徑放進來，
+ 但子層Block要放在"category_ifttt"才能隱藏
+ 
+========將所有積木程式碼放至github pages========
+首頁：https://kingofamani.github.io/BlocklyExt/
+(參考https://github.com/kingofamani/BlocklyExt/tree/master/extensions)
+★實現遠端同步積木修改
+一、遠端gitHub：
+	●在gitHub新增repo，並建立github pages
+	●在repo根目錄新增：(1)index.html、(2)extensions資料夾存放積木程式
+	●將所有積木資料夾合併至同一類別：
+		●新增zh-hant_category.xml，建立所有類別的<name>及<replace>
+		●toolbox.xml：建立父層(阿曼尼)、子層類別(基本、4x4鍵盤...)，
+		並將category的name改成zh-hant_category.xml的name(英文)
+		●blocks.js：將所有積木的blocks.js程式碼全部貼進來
+		●javascript.js：將所有積木的javascript.js程式碼全部貼進來
+二、本機BlocklyDuinoF2：
+	●開啟BlocklyduinoF2\package.nw\customBlocks\customblocks.js，新增：
+	["https://kingofamani.github.io/BlocklyExt/extensions/","category_servo"],
+	這樣就ok了！
+

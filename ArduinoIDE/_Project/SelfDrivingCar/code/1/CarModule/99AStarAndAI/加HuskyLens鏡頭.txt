@@ -1,0 +1,6 @@
+HsukyLens(ESP32的I2C接腳是21,22)：
+T	21
+R	22
+-	GND
++	5V
+

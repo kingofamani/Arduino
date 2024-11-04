@@ -1,0 +1,3 @@
+從「_Tools\SerialString.xml」匯入
+或
+先用BlocklyDuino開啟_Tools\SerialString.xml，再存入暫存積木

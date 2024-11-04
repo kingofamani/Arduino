@@ -1,0 +1,3 @@
+
+是否為數字：
+匯入「_Tools\checkIsNumber\checkIsNumber.xml」

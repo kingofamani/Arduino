@@ -1,0 +1,2 @@
+參考ArduinoSample\BlocklyDuino\BT\04ESP32
+參考File > Examples > BluetoothSerial > SerialtoSerialBT

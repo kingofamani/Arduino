@@ -1,0 +1,107 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="board_initializes_setup" id="0" x="100" y="50">
+    <field name="BOARD_TYPE">ESP32</field>
+    <statement name="CONTENT">
+      <block type="serial_init" id="n6o^^+pt=iZ1rWl(q7DC">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="huskylens_i2c_init" id="HE(D$Sv:T}|24,dMVY`z">
+            <next>
+              <block type="huskylens_set_mode" id="HmWVP9dAtAkOFC;6ciZT">
+                <field name="MODE_LIST">OR</field>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="huskylens_read_data" id="8^{*VNC(L@F)?U|2Yn8c">
+            <next>
+              <block type="controls_if" id="YeDo)tEp4sX{UyKDVZ?%">
+                <mutation else="1"></mutation>
+                <value name="IF0">
+                  <block type="huskylens_read_now" id="9QB;.YrPU)%O7`~lzSpy"></block>
+                </value>
+                <statement name="DO0">
+                  <block type="serial_println" id="xPWhm!o3fF0-RLvO`f0R">
+                    <value name="CONTENT">
+                      <block type="huskylens_get_data_block" id="L*p^,AovT!$,bA9!9|_c">
+                        <field name="BLOCK_DATA">ID</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_println" id="bY+#k6[Ge?8n~yao$za7">
+                        <value name="CONTENT">
+                          <block type="huskylens_get_data_block" id="42HH]i2[j721.DEV+O)a">
+                            <field name="BLOCK_DATA">XC</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="serial_println" id="6yNCnAY;)5+S9KhCQo+W">
+                            <value name="CONTENT">
+                              <block type="huskylens_get_data_block" id="_C%6XV%1~hG.7KbRNnIe">
+                                <field name="BLOCK_DATA">YC</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="serial_println" id="NUjRqmlTT;;RAHb3J,3a">
+                                <value name="CONTENT">
+                                  <block type="huskylens_get_data_block" id=";3_a(mV8+@}U)5Q:BrF*">
+                                    <field name="BLOCK_DATA">BW</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="serial_println" id="-Gl2GXe]$!T{D2[zR*Pq">
+                                    <value name="CONTENT">
+                                      <block type="huskylens_get_data_block" id="^6a|[q#Q^H(50W/AzMbo">
+                                        <field name="BLOCK_DATA">BH</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="serial_println" id="?~]};ZE5bGc5MY@yABxB">
+                                        <value name="CONTENT">
+                                          <block type="text" id="xVq*I5NsIUpU#,Tfn}53">
+                                            <field name="TEXT"></field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <statement name="ELSE">
+                  <block type="serial_println" id=")fp9.~18zx;Lc0XQd}aD">
+                    <value name="CONTENT">
+                      <block type="text" id="4xw~^mm|5b@ylZ+9[]x5">
+                        <field name="TEXT">沒有物體</field>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+                <next>
+                  <block type="delay_custom" id="]*lNs*+ZOo.^U{m)7-/o">
+                    <value name="DELAY_TIME">
+                      <block type="math_number" id="MW{jw4eL,}w`qJTq7TBQ">
+                        <field name="NUM">200</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

@@ -1,0 +1,54 @@
+<xml version="F1" board="Arduino Uno" xmlns="https://developers.google.com/blockly/xml">
+  <block type="initializes_setup" id="woTSn/J2$7)zZ.]A4IEi" x="190" y="170">
+    <next>
+      <block type="initializes_loop" id="|BO)}[]`C372y)TB1:u2">
+        <statement name="CONTENT">
+          <block type="inout_custom_digital_write" id="2hl;2:OJ9iyXUOnxg%#,">
+            <value name="PIN">
+              <block type="math_number" id="1G#,hJS|l**Qs4i4(wc^">
+                <field name="NUM">4</field>
+              </block>
+            </value>
+            <value name="STAT">
+              <block type="inout_highlow" id="2-aoTCwKbf^?aPtoL3mr">
+                <field name="BOOL">HIGH</field>
+              </block>
+            </value>
+            <next>
+              <block type="delay_custom" id=":TQMhQa.;(xw}:/%`{H8">
+                <value name="DELAY_TIME">
+                  <block type="math_number" id="Wq8OBqEN/*X7/_`vyq=#">
+                    <field name="NUM">1000</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="inout_custom_digital_write" id=".GK;7q,k5F$K-IUkcXLg">
+                    <value name="PIN">
+                      <block type="math_number" id="!UKhh=)gPY/nIQcm*909">
+                        <field name="NUM">4</field>
+                      </block>
+                    </value>
+                    <value name="STAT">
+                      <block type="inout_highlow" id="S]UZEW61P8iD6kpB6+Ot">
+                        <field name="BOOL">LOW</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="delay_custom" id=").l::CFDMx^YSOa-NrXK">
+                        <value name="DELAY_TIME">
+                          <block type="math_number" id="D(f3h+!{I0IL}NF=8e%!">
+                            <field name="NUM">1000</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

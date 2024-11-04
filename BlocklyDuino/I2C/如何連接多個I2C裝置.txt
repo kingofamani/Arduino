@@ -1,0 +1,10 @@
+https://dotblogs.com.tw/JWPL102216/2016/12/10/213049
+
+Board				SDA		SCL
+ESP32				21		22
+Arduino UNO			A4		A5
+Arduino Nano		A4		A5
+Arduino Mega 2560	20		21
+Arduino Micro		2		3
+Arduino Leonardo	2		3
+

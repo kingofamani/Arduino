@@ -1,0 +1,26 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="initializes_setup" id="1" x="80" y="40">
+    <statement name="CONTENT">
+      <block type="serial_init" id="55">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="controls_repeat" id="24">
+            <field name="TIMES">10</field>
+            <statement name="DO">
+              <block type="serial_println" id="72" inline="false">
+                <value name="CONTENT">
+                  <block type="text" id="73">
+                    <field name="TEXT">德音</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="2"></block>
+    </next>
+  </block>
+</xml>

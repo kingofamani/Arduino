@@ -1,0 +1,39 @@
+<xml version="F1" board="Arduino Uno" xmlns="https://developers.google.com/blockly/xml">
+  <block type="board_initializes_setup" id="0" x="100" y="50">
+    <field name="BOARD_TYPE">Arduino</field>
+    <statement name="CONTENT">
+      <block type="oled_display_setting" id="Gq=O(pyUq2Jv3,V6f_2|">
+        <field name="CHIPSET">SH1106</field>
+        <field name="PIN">PIN</field>
+        <field name="RESOLUTION">128x64</field>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="oled_display_draw_commands" id="s~G8EDGCMb-[q!(wKEFW">
+            <statement name="DRAW_CMD">
+              <block type="oled_display_draw_text" id="#a2`S-F=gRROQAL/i-3{">
+                <value name="START_X">
+                  <block type="math_number" id="QXt#{6rf3KPe-BTGn-TK">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <value name="START_Y">
+                  <block type="math_number" id="8yJQA!,E6q9I4)CQtw}O">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <value name="CONTENT">
+                  <block type="text" id="%~/?.erIK9D|Cl-bhi]Q">
+                    <field name="TEXT">HELLO</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

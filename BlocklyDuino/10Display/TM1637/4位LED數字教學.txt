@@ -1,0 +1,108 @@
+安裝 TM1637 程式庫
+匯入 #include <TM1637Display.h>
+
+
+
+CLK	D2
+DIO	D3
+VCC	5V
+GND	GND
+
+========顯示十進位=========
+display.showNumberDec(數字,是否補0,[位數(從左至右依序0~3],[在哪個位置顯示])
+	display.showNumberDec(1,false) //___1
+	display.showNumberDec(1,true)  //0001
+	display.showNumberDec(1,false,1,0) //1___
+	display.showNumberDec(1,false,1,2) //__1_
+	display.showNumberDec(10,false,2,0) //10__
+
+========顯示帶小數點或冒號的十進制數=========
+display.showNumberDecEx(
+		數字,
+		[bitmask小數點/冒號],
+		[是否補0],
+		[位數(從左至右依序0~3],
+		[position在哪個位置顯示]
+	)
+void showNumberDecEx(
+		int num,
+		uint8_t dots = 0,//預設0
+		bool leading_zero = false,//預設不補0
+		uint8_t length = 4,//預設4位數
+		uint8_t pos = 0//預設最左邊顯示
+	);	
+
+	
+	bitmask小數點/冒號：(0b二進位、0x十六進位)
+		0b00000000或0x00			：不顯示
+		0b10000000或0x80			：左邊第1位，例如 1.234
+		0b01000000或0x40或0x80>>1	：左邊第2位，例如 12.34
+		0b00100000或0x20或0x80>>2	：左邊第3位，例如 123.4
+		0b11100000					：全部顯示，例如 1.2.3.4
+	但會和第5個參數「position位置」有關，例如：
+	position = 0 and bitmask = 0b10000000 --> colon/decimal point at first digit on
+	position = 0 and bitmask = 0b01000000 --> colon/decimal point at second digit on
+	position = 0 and bitmask = 0b00100000 --> colon/decimal point at third digit on
+	position = 1 and bitmask = 0b10000000 --> colon/decimal point at second digit on
+	position = 1 and bitmask = 0b01000000 --> colon/decimal point at third digit on
+	position = 2 and bitmask = 0b10000000 --> colon/decimal point at third digit on
+	position = 2 and bitmask = 0b01000000 --> colon/decimal point at fourth digit on
+	
+	例子：(X表示不會更新該格子螢幕，有可能會殘留舊資料)
+	display.showNumberDecEx(136, 0x40);				// 1:36
+	display.showNumberDecEx(136, 0x40, true,  3, 1) //X1:36
+	display.showNumberDecEx(136, 0x40, false, 3, 1) //X1:36
+	display.showNumberDecEx(136, 0x40, true,  3, 0) //13:6X
+	display.showNumberDecEx(136, 0x40, false, 3, 0) //13:6X
+	display.showNumberDecEx(136, 0x40, true,  4, 0) //01:36
+	display.showNumberDecEx(136, 0x40, false, 4, 0) // 1:36
+	顯示時鐘：
+	int hours = 1;
+	int minutes = 36;
+	display.showNumberDecEx(hours, 0x40, false, 2, 0);
+	display.showNumberDecEx(minutes,  0, true,  2, 2);
+	
+	
+
+
+
+========1根1根顯示=========
+display.setSegments()
+	每根代表位置：
+	// 	  A
+	// 	 ---
+	// F | | B
+	//   -G-
+	// E | | C
+	// 	 ---
+	// 	  D
+	
+	(1)可用常數SEG_A至SEG_G代碼，例如：dOnE
+	const uint8_t SEG_DONE[] = {
+		SEG_B | SEG_C | SEG_D | SEG_E | SEG_G,           // d
+		SEG_A | SEG_B | SEG_C | SEG_D | SEG_E | SEG_F,   // O
+		SEG_C | SEG_E | SEG_G,                           // n
+		SEG_A | SEG_D | SEG_E | SEG_F | SEG_G            // E
+		};
+	display.setSegments(SEG_DONE);
+	
+	(2)用16進位碼代表：
+	  -GFEDCBA
+	0b00111111, 0
+	0b00000110, 1
+	0b01011011, 2
+	0b01001111, 3
+	0b01100110, 4
+	0b01101101, 5
+	0b01111101, 6
+	0b00000111, 7
+	0b01111111, 8
+	0b01101111, 9
+	0b01110111, A
+	0b01111100, B
+	0b00111001, C
+	0b01000111, D
+	0b01111001, E
+	0b01110001 	F
+	
+	

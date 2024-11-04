@@ -1,0 +1,6 @@
+偵測音量
+
+GND GND
+NC  不接
+SIG A0類比
+VCC 5V

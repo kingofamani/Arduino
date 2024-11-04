@@ -1,0 +1,113 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="board_initializes_setup" id="0" x="100" y="50">
+    <field name="BOARD_TYPE">ESP32</field>
+    <statement name="CONTENT">
+      <block type="serial_init" id="@E({VYW)l;%$asc:VvXN">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="linkit_wifi_wait_until_ready" id="j_l)Q7gUCeRG!i2=|r4B">
+            <value name="SSID">
+              <block type="text" id="pGbWz.Ce^7St{}+x7WXD">
+                <field name="TEXT">AMANI-4G-Home</field>
+              </block>
+            </value>
+            <value name="PASSWORD">
+              <block type="text" id="/kcvVSPJKd*6GahW[b|u">
+                <field name="TEXT">xxxxxxxxxxxxxxx</field>
+              </block>
+            </value>
+            <next>
+              <block type="serial_println" id="7+hS/DszoKV@^c;NW2Xs">
+                <value name="CONTENT">
+                  <block type="linkit_wifi_ip_address" id="zw{;UR#POe1anT7hRCGN"></block>
+                </value>
+                <next>
+                  <block type="fu_taiwan_weather" id="YQK0j5P~rEYt}0m=Q/oZ">
+                    <field name="locationname">新北市</field>
+                    <value name="Authorization">
+                      <block type="text" id="?Bj2:_U=4P#Mb6`,e$N?">
+                        <field name="TEXT">xxxxxxxxxxxxxxxxxx</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="serial_println" id="[?S(VP698ARQF*S)zbjx">
+            <value name="CONTENT">
+              <block type="fu_taiwan_weather_get" id="Vr+nw.hy5^olujT,d6{x">
+                <field name="period">0</field>
+                <field name="data">0</field>
+              </block>
+            </value>
+            <next>
+              <block type="serial_println" id="QF5,TO|Qx:/uS!QsOH`u">
+                <value name="CONTENT">
+                  <block type="fu_taiwan_weather_get" id="fsq1(UF6[.;7^t}CX93C">
+                    <field name="period">0</field>
+                    <field name="data">3</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="serial_println" id="jfo2m8xqobu1|bRJSZdf">
+                    <value name="CONTENT">
+                      <block type="fu_taiwan_weather_get" id="h?xuIX+v(B1=O+_SL6y~">
+                        <field name="period">0</field>
+                        <field name="data">4</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_println" id="J#zU]F@@[+Nx5y%g=fZy">
+                        <value name="CONTENT">
+                          <block type="fu_taiwan_weather_get" id="yJrEuM9N?T$jXmQ+ztl5">
+                            <field name="period">0</field>
+                            <field name="data">5</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="serial_println" id="yG)-pUKV!YtxKvC5?`5K">
+                            <value name="CONTENT">
+                              <block type="fu_taiwan_weather_get" id="`^N3y,:8kmf^hfI%5=$M">
+                                <field name="period">0</field>
+                                <field name="data">7</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="serial_println" id="DgokGW#GB$GaUZwJNV~h">
+                                <value name="CONTENT">
+                                  <block type="text" id="=}N(=|TyWuj}Yy=CXN;8">
+                                    <field name="TEXT"></field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="delay_custom" id="@Cz.zawrZSq-}DBI4Qpq">
+                                    <value name="DELAY_TIME">
+                                      <block type="math_number" id="`!@WEOCw-vQ@|R^b[7fs">
+                                        <field name="NUM">5000</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

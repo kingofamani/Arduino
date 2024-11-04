@@ -1,0 +1,23 @@
+<xml version="F1" board="Arduino Uno" xmlns="https://developers.google.com/blockly/xml">
+  <block type="initializes_setup" id="K[je~h?MeS{=qYPddUK_" x="130" y="150">
+    <statement name="CONTENT">
+      <block type="serial_init" id="~BgK,Tw[:jgktSOTE+gg">
+        <field name="SPEED">9600</field>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="wXl/tR%3JhYk;9x,5@js">
+        <statement name="CONTENT">
+          <block type="serial_println" id="},}~P|AD[qdc)TSN$CMM">
+            <value name="CONTENT">
+              <block type="mfrc522_read" id="u_@lya7O/dBP.Mnkf!9R">
+                <field name="SENSOR">DUMMY</field>
+                <field name="SIGNAL">SPI</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

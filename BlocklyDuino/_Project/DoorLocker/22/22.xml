@@ -1,0 +1,670 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="procedures_defnoreturn" id="3" collapsed="true" x="-237" y="-62">
+    <mutation></mutation>
+    <field name="NAME">LCM1602_0</field>
+    <statement name="STACK">
+      <block type="customcode_head" id="4" inline="true">
+        <value name="text">
+          <block type="text" id="5">
+            <field name="TEXT">#include &lt;Wire.h&gt; </field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_head" id="6" inline="true">
+            <value name="text">
+              <block type="text" id="7">
+                <field name="TEXT">#include &lt;LiquidCrystal_I2C.h&gt;</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_head" id="8" inline="true">
+                <value name="text">
+                  <block type="text" id="9">
+                    <field name="TEXT">LiquidCrystal_I2C lcd(0x27,16,2);</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="10" collapsed="true" x="63" y="-62">
+    <mutation></mutation>
+    <field name="NAME">LCM1602_1</field>
+    <statement name="STACK">
+      <block type="customcode_comment" id="11" inline="true">
+        <value name="text">
+          <block type="text" id="12">
+            <field name="TEXT">螢幕不能顯示中文</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_code" id="13" inline="true">
+            <value name="text">
+              <block type="text" id="14">
+                <field name="TEXT">lcd.init(); </field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_code" id="15" inline="true">
+                <value name="text">
+                  <block type="text" id="16">
+                    <field name="TEXT">lcd.backlight();</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="initializes_setup" id="17" x="413" y="-62">
+    <statement name="CONTENT">
+      <block type="serial_init" id="18">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="variables_set" id="19" inline="true">
+            <field name="TYPE">String</field>
+            <field name="VAR">name</field>
+            <value name="VALUE">
+              <block type="text" id="20">
+                <field name="TEXT"></field>
+              </block>
+            </value>
+            <next>
+              <block type="procedures_callnoreturn" id="21">
+                <mutation name="LCM1602_1"></mutation>
+                <next>
+                  <block type="procedures_callnoreturn" id="22">
+                    <mutation name="hello"></mutation>
+                    <next>
+                      <block type="customcode_comment" id="23" inline="true">
+                        <value name="text">
+                          <block type="text" id="24">
+                            <field name="TEXT">pinMode(2, INPUT_PULLUP);</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="customcode_comment" id="25" inline="true">
+                            <value name="text">
+                              <block type="text" id="26">
+                                <field name="TEXT">pinMode(4, INPUT_PULLUP);</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="27">
+        <statement name="CONTENT">
+          <block type="variables_set" id="28" inline="true">
+            <field name="TYPE">String</field>
+            <field name="VAR">myId</field>
+            <value name="VALUE">
+              <block type="mfrc522_read" id="29">
+                <field name="SENSOR">DUMMY</field>
+                <field name="SIGNAL">SPI</field>
+              </block>
+            </value>
+            <next>
+              <block type="controls_if" id="30" inline="false" collapsed="true">
+                <value name="IF0">
+                  <block type="logic_compare" id="31" inline="true">
+                    <field name="OP">GT</field>
+                    <value name="A">
+                      <block type="text_length" id="32" inline="false">
+                        <value name="VALUE">
+                          <block type="variables_get" id="33">
+                            <field name="TYPE">String</field>
+                            <field name="VAR">myId</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="34">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="customcode_instruction5" id="35" inline="true">
+                    <field name="type">toUpperCase()</field>
+                    <value name="instruction">
+                      <block type="variables_get" id="36">
+                        <field name="TYPE">String</field>
+                        <field name="VAR">myId</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_println" id="37" inline="false">
+                        <value name="CONTENT">
+                          <block type="variables_get" id="38">
+                            <field name="TYPE">String</field>
+                            <field name="VAR">myId</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="controls_if" id="39" inline="false">
+                            <mutation elseif="1" else="1"></mutation>
+                            <value name="IF0">
+                              <block type="logic_compare" id="40" inline="true">
+                                <field name="OP">EQ</field>
+                                <value name="A">
+                                  <block type="variables_get" id="41">
+                                    <field name="TYPE">String</field>
+                                    <field name="VAR">myId</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="text" id="42">
+                                    <field name="TEXT">CA9BBF6F</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="DO0">
+                              <block type="variables_set" id="43" inline="true">
+                                <field name="TYPE">String</field>
+                                <field name="VAR">name</field>
+                                <value name="VALUE">
+                                  <block type="text" id="44">
+                                    <field name="TEXT">eric</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </statement>
+                            <value name="IF1">
+                              <block type="logic_compare" id="45" inline="true">
+                                <field name="OP">EQ</field>
+                                <value name="A">
+                                  <block type="variables_get" id="46">
+                                    <field name="TYPE">String</field>
+                                    <field name="VAR">myId</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="text" id="47">
+                                    <field name="TEXT">E92F52B3</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="DO1">
+                              <block type="variables_set" id="48" inline="true">
+                                <field name="TYPE">String</field>
+                                <field name="VAR">name</field>
+                                <value name="VALUE">
+                                  <block type="text" id="49">
+                                    <field name="TEXT">sam</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </statement>
+                            <statement name="ELSE">
+                              <block type="variables_set" id="50" inline="true">
+                                <field name="TYPE">String</field>
+                                <field name="VAR">name</field>
+                                <value name="VALUE">
+                                  <block type="text" id="51">
+                                    <field name="TEXT">stranger</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </statement>
+                            <next>
+                              <block type="controls_if" id="52" inline="false">
+                                <mutation else="1"></mutation>
+                                <value name="IF0">
+                                  <block type="logic_compare" id="53" inline="true">
+                                    <field name="OP">EQ</field>
+                                    <value name="A">
+                                      <block type="variables_get" id="54">
+                                        <field name="TYPE">String</field>
+                                        <field name="VAR">name</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="text" id="55">
+                                        <field name="TEXT">stranger</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <statement name="DO0">
+                                  <block type="serial_println" id="56" inline="false">
+                                    <value name="CONTENT">
+                                      <block type="text" id="57">
+                                        <field name="TEXT">你誰啊你</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="customcode_code" id="58" inline="true">
+                                        <value name="text">
+                                          <block type="text" id="59">
+                                            <field name="TEXT">lcd.clear();</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="customcode_code" id="60" inline="true">
+                                            <value name="text">
+                                              <block type="text" id="61">
+                                                <field name="TEXT">lcd.print("who are you?");</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </statement>
+                                <statement name="ELSE">
+                                  <block type="controls_if" id="62" inline="false">
+                                    <mutation else="1"></mutation>
+                                    <value name="IF0">
+                                      <block type="logic_compare" id="63" inline="true">
+                                        <field name="OP">EQ</field>
+                                        <value name="A">
+                                          <block type="variables_get" id="64">
+                                            <field name="TYPE">Number</field>
+                                            <field name="VAR">flag</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_number" id="65">
+                                            <field name="NUM">0</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <statement name="DO0">
+                                      <block type="inout_digital_write" id="66">
+                                        <field name="PIN">8</field>
+                                        <field name="STAT">HIGH</field>
+                                        <next>
+                                          <block type="serial_println" id="67" inline="false">
+                                            <value name="CONTENT">
+                                              <block type="text" id="68">
+                                                <field name="TEXT">歡迎</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="customcode_code" id="69" inline="true">
+                                                <value name="text">
+                                                  <block type="text" id="70">
+                                                    <field name="TEXT">lcd.clear();</field>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="customcode_code" id="71" inline="true">
+                                                    <value name="text">
+                                                      <block type="text" id="72">
+                                                        <field name="TEXT">lcd.setCursor(0,0);</field>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="customcode_code" id="73" inline="true">
+                                                        <value name="text">
+                                                          <block type="text" id="74">
+                                                            <field name="TEXT">lcd.print("Hello");</field>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="customcode_code" id="75" inline="true">
+                                                            <value name="text">
+                                                              <block type="text" id="76">
+                                                                <field name="TEXT">lcd.setCursor(0,1);</field>
+                                                              </block>
+                                                            </value>
+                                                            <next>
+                                                              <block type="customcode_code" id="77" inline="true">
+                                                                <value name="text">
+                                                                  <block type="text" id="78">
+                                                                    <field name="TEXT">lcd.print(name);</field>
+                                                                  </block>
+                                                                </value>
+                                                                <next>
+                                                                  <block type="variables_set" id="79" inline="true">
+                                                                    <field name="TYPE">Number</field>
+                                                                    <field name="VAR">flag</field>
+                                                                    <value name="VALUE">
+                                                                      <block type="math_number" id="80">
+                                                                        <field name="NUM">1</field>
+                                                                      </block>
+                                                                    </value>
+                                                                  </block>
+                                                                </next>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </statement>
+                                    <statement name="ELSE">
+                                      <block type="inout_digital_write" id="81">
+                                        <field name="PIN">8</field>
+                                        <field name="STAT">LOW</field>
+                                        <next>
+                                          <block type="serial_println" id="82" inline="false">
+                                            <value name="CONTENT">
+                                              <block type="text" id="83">
+                                                <field name="TEXT">再見</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="customcode_code" id="84" inline="true">
+                                                <value name="text">
+                                                  <block type="text" id="85">
+                                                    <field name="TEXT">lcd.clear();</field>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="customcode_code" id="86" inline="true">
+                                                    <value name="text">
+                                                      <block type="text" id="87">
+                                                        <field name="TEXT">lcd.setCursor(0,0);</field>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="customcode_code" id="88" inline="true">
+                                                        <value name="text">
+                                                          <block type="text" id="89">
+                                                            <field name="TEXT">lcd.print("see you again");</field>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="customcode_code" id="90" inline="true">
+                                                            <value name="text">
+                                                              <block type="text" id="91">
+                                                                <field name="TEXT">lcd.setCursor(0,1);</field>
+                                                              </block>
+                                                            </value>
+                                                            <next>
+                                                              <block type="customcode_code" id="92" inline="true">
+                                                                <value name="text">
+                                                                  <block type="text" id="93">
+                                                                    <field name="TEXT">lcd.print(name);</field>
+                                                                  </block>
+                                                                </value>
+                                                                <next>
+                                                                  <block type="variables_set" id="94" inline="true">
+                                                                    <field name="TYPE">Number</field>
+                                                                    <field name="VAR">flag</field>
+                                                                    <value name="VALUE">
+                                                                      <block type="math_number" id="95">
+                                                                        <field name="NUM">0</field>
+                                                                      </block>
+                                                                    </value>
+                                                                  </block>
+                                                                </next>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </statement>
+                                  </block>
+                                </statement>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <next>
+                  <block type="customcode_comment_block" id="96" inline="true">
+                    <value name="text">
+                      <block type="text" id="97">
+                        <field name="TEXT">臉部辨識</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_set" id="98" inline="true">
+                        <field name="TYPE">Boolean</field>
+                        <field name="VAR">faceYes</field>
+                        <value name="VALUE">
+                          <block type="inout_custom_digital_read" id="99" inline="true">
+                            <value name="PIN_READ">
+                              <block type="math_number" id="100">
+                                <field name="NUM">2</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="variables_set" id="101" inline="true">
+                            <field name="TYPE">Boolean</field>
+                            <field name="VAR">faceNo</field>
+                            <value name="VALUE">
+                              <block type="inout_custom_digital_read" id="102" inline="true">
+                                <value name="PIN_READ">
+                                  <block type="math_number" id="103">
+                                    <field name="NUM">4</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="controls_if" id="104" inline="false">
+                                <value name="IF0">
+                                  <block type="logic_operation" id="105" inline="true">
+                                    <field name="OP">AND</field>
+                                    <value name="A">
+                                      <block type="logic_compare" id="106" inline="true">
+                                        <field name="OP">EQ</field>
+                                        <value name="A">
+                                          <block type="variables_get" id="107">
+                                            <field name="TYPE">Boolean</field>
+                                            <field name="VAR">faceYes</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="logic_boolean" id="108">
+                                            <field name="BOOL">TRUE</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="logic_compare" id="109" inline="true">
+                                        <field name="OP">EQ</field>
+                                        <value name="A">
+                                          <block type="variables_get" id="110">
+                                            <field name="TYPE">Boolean</field>
+                                            <field name="VAR">faceNo</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="logic_boolean" id="111">
+                                            <field name="BOOL">FALSE</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <statement name="DO0">
+                                  <block type="serial_println" id="112" inline="false">
+                                    <value name="CONTENT">
+                                      <block type="text" id="113">
+                                        <field name="TEXT">人臉辨識系統！主人回來了</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="inout_digital_write" id="114">
+                                        <field name="PIN">8</field>
+                                        <field name="STAT">HIGH</field>
+                                        <next>
+                                          <block type="customcode_code" id="115" inline="true">
+                                            <value name="text">
+                                              <block type="text" id="116">
+                                                <field name="TEXT">lcd.clear();</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="customcode_code" id="117" inline="true">
+                                                <value name="text">
+                                                  <block type="text" id="118">
+                                                    <field name="TEXT">lcd.setCursor(0,0);</field>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="customcode_code" id="119" inline="true">
+                                                    <value name="text">
+                                                      <block type="text" id="120">
+                                                        <field name="TEXT">lcd.print("Face AI");</field>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="customcode_code" id="121" inline="true">
+                                                        <value name="text">
+                                                          <block type="text" id="122">
+                                                            <field name="TEXT">lcd.setCursor(0,1);</field>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="customcode_code" id="123" inline="true">
+                                                            <value name="text">
+                                                              <block type="text" id="124">
+                                                                <field name="TEXT">lcd.print("BOSS come home");</field>
+                                                              </block>
+                                                            </value>
+                                                            <next>
+                                                              <block type="delay_custom" id="125" inline="false">
+                                                                <value name="DELAY_TIME">
+                                                                  <block type="math_number" id="126">
+                                                                    <field name="NUM">15000</field>
+                                                                  </block>
+                                                                </value>
+                                                                <next>
+                                                                  <block type="procedures_callnoreturn" id="127">
+                                                                    <mutation name="hello"></mutation>
+                                                                  </block>
+                                                                </next>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </statement>
+                                <next>
+                                  <block type="delay_custom" id="128" inline="false">
+                                    <value name="DELAY_TIME">
+                                      <block type="math_number" id="129">
+                                        <field name="NUM">500</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+  <block type="procedures_defnoreturn" id="130" collapsed="true" x="1013" y="-12">
+    <mutation></mutation>
+    <field name="NAME">hello</field>
+    <statement name="STACK">
+      <block type="inout_digital_write" id="131">
+        <field name="PIN">8</field>
+        <field name="STAT">LOW</field>
+        <next>
+          <block type="customcode_code" id="132" inline="true">
+            <value name="text">
+              <block type="text" id="133">
+                <field name="TEXT">lcd.clear();</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_code" id="134" inline="true">
+                <value name="text">
+                  <block type="text" id="135">
+                    <field name="TEXT">lcd.setCursor(0,0);</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_code" id="136" inline="true">
+                    <value name="text">
+                      <block type="text" id="137">
+                        <field name="TEXT">lcd.print("Hello~ Please");</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_code" id="138" inline="true">
+                        <value name="text">
+                          <block type="text" id="139">
+                            <field name="TEXT">lcd.setCursor(0,1);</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="customcode_code" id="140" inline="true">
+                            <value name="text">
+                              <block type="text" id="141">
+                                <field name="TEXT">lcd.print("Sense Your Card");</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

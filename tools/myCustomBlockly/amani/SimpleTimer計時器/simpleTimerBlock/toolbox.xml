@@ -1,0 +1,36 @@
+  <category name="計時器" colour="#9fa55b">
+    <block type="_01amani_simpletimer_setinteval">
+      <value name="ms">
+        <block type="math_number">
+          <field name="NUM">1000</field>
+        </block>
+      </value>
+    </block>
+	<block type="_02amani_simpletimer_setinteval_id">
+      <value name="ms">
+        <block type="math_number">
+          <field name="NUM">1000</field>
+        </block>
+      </value>
+    </block>
+	<block type="_03amani_simpletimer_setinteval_enable" ></block>
+	<block type="_04amani_simpletimer_settimeout" >
+		<value name="ms">
+        <block type="math_number">
+          <field name="NUM">1000</field>
+        </block>
+      </value>
+	</block>
+	<block type="_05amani_simpletimer_settimer" >
+		<value name="ms">
+        <block type="math_number">
+          <field name="NUM">1000</field>
+        </block>
+      </value>
+	  <value name="times">
+        <block type="math_number">
+          <field name="NUM">10</field>
+        </block>
+      </value>
+	</block>
+  </category>

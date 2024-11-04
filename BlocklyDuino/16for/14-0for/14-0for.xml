@@ -1,0 +1,104 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="D7vHFLgW=E=_ZZm}AaP_">i</variable>
+    <variable id="S~91(_fQ]a`r7VLf[%D9">j</variable>
+  </variables>
+  <block type="board_initializes_setup" id="0" x="100" y="50">
+    <field name="BOARD_TYPE">Arduino</field>
+    <statement name="CONTENT">
+      <block type="serial_init" id=";QaN#PRufmaV(KNMIaA0">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="controls_for" id="*QNEV3zRzBSFW2i2.xUA">
+            <field name="VAR" id="D7vHFLgW=E=_ZZm}AaP_">i</field>
+            <value name="FROM">
+              <block type="math_number" id="xx@_/gHoO]s4-d#CA8OD">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <value name="TO">
+              <block type="math_number" id="!Q]%{x2XBjwVK2OV9oAc">
+                <field name="NUM">9</field>
+              </block>
+            </value>
+            <value name="BY">
+              <block type="math_number" id="mM=ybUn9WQT(2qxUl^LV">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="controls_for" id="q#wRRNQMn=,ZBy|4@hR^">
+                <field name="VAR" id="S~91(_fQ]a`r7VLf[%D9">j</field>
+                <value name="FROM">
+                  <block type="math_number" id="~wXRaw[f$(:jCMvyF1*U">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <value name="TO">
+                  <block type="math_number" id="yrU$.{Q:WJpCw}[nH4QD">
+                    <field name="NUM">9</field>
+                  </block>
+                </value>
+                <value name="BY">
+                  <block type="math_number" id="/fMc-;CkIO-vLcgW+i..">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="controls_if" id="WpUaQ)YCW;$:Qv;V.RLh">
+                    <mutation else="1"></mutation>
+                    <value name="IF0">
+                      <block type="logic_compare" id="j@a@ZT/t4sdK5oH9KJ7e">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="variables_get" id="m9?Z%k+@bYIvJ]00Xlgy">
+                            <field name="VAR" id="D7vHFLgW=E=_ZZm}AaP_">i</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="variables_get" id="oGim*zz7Y^hQkqR6tjES">
+                            <field name="VAR" id="S~91(_fQ]a`r7VLf[%D9">j</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="serial_print" id="-g)WJFO3nX?:2XDgS16^">
+                        <value name="CONTENT">
+                          <block type="text" id="mM6;3TG@)GSGXuJ{+m5_">
+                            <field name="TEXT">★</field>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                    <statement name="ELSE">
+                      <block type="serial_print" id="8{})Z;[3_Cq|R5l7dO^M">
+                        <value name="CONTENT">
+                          <block type="text" id="ZUg+f_lhr!Z1uD+A1Ba_">
+                            <field name="TEXT">○</field>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                  </block>
+                </statement>
+                <next>
+                  <block type="serial_println" id="%C}+Hy}HdX-EE?O1|~UF">
+                    <value name="CONTENT">
+                      <block type="text" id="y:i=:-t7x*}Z/wW;CC2x">
+                        <field name="TEXT"></field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1"></block>
+    </next>
+  </block>
+</xml>

@@ -1,0 +1,134 @@
+<xml version="F2" board="Arduino Uno" xmlns="https://developers.google.com/blockly/xml">
+  <block type="board_initializes_setup" id="0" x="100" y="50">
+    <field name="BOARD_TYPE">ESP32</field>
+    <statement name="CONTENT">
+      <block type="_01amani_esp32joystick_init" id="fe,q8(wf?fxh[rZG.7C*">
+        <field name="angle">0</field>
+        <field name="order">1</field>
+        <value name="xpin">
+          <block type="math_number" id="#92T.@0}mSKl55xT3fzp">
+            <field name="NUM">4</field>
+          </block>
+        </value>
+        <value name="ypin">
+          <block type="math_number" id="fmwYUHu!#5G@M{!MZWTK">
+            <field name="NUM">15</field>
+          </block>
+        </value>
+        <value name="swpin">
+          <block type="math_number" id="fBHs6$3)idVcP9=4#3kQ">
+            <field name="NUM">5</field>
+          </block>
+        </value>
+        <next>
+          <block type="_01amani_esp32joystick_init" id="Tl[+ZV*A)J^,|Zwii#^B">
+            <field name="angle">0</field>
+            <field name="order">2</field>
+            <value name="xpin">
+              <block type="math_number" id="a3JLsqX[qa@Ws`|9GQvU">
+                <field name="NUM">12</field>
+              </block>
+            </value>
+            <value name="ypin">
+              <block type="math_number" id="dbA#Gqpd?I_vE}E.6L9-">
+                <field name="NUM">13</field>
+              </block>
+            </value>
+            <value name="swpin">
+              <block type="math_number" id="oQdX=vYANO,6O(7`AhEo">
+                <field name="NUM">14</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="serial_println" id="y]~SKcW9J;V{X_.y`Zn`">
+            <value name="CONTENT">
+              <block type="_02amani_esp32joystick_dir" id="n)fZi:.~7x-G/{E|m.RM">
+                <field name="order">1</field>
+              </block>
+            </value>
+            <next>
+              <block type="serial_println" id="D`d,q*L7jxo1!~y[O}7K">
+                <value name="CONTENT">
+                  <block type="_03amani_esp32joystick_isdir" id="N`QCIbhntpbQ~4TOKs(t">
+                    <field name="direct">u</field>
+                    <field name="order">1</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="serial_println" id="r[%F*`6(mU7-Tce;LHaP">
+                    <value name="CONTENT">
+                      <block type="_04amani_esp32joystick_sw" id="CT#xmsZXeIZ/YtXtJ[Ee">
+                        <field name="order">1</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_println" id="+A?}=s!b#^Q|?U]DbZ):">
+                        <value name="CONTENT">
+                          <block type="text" id="Q)D{r}rWaIRwyXh7im2B">
+                            <field name="TEXT">------------------</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="serial_println" id="Guq@$d7X/3}dODy/#sSY">
+                            <value name="CONTENT">
+                              <block type="_02amani_esp32joystick_dir" id="9ZwL^.Lq/3`)k]KO!9Q=">
+                                <field name="order">2</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="serial_println" id="C$}+Dl4eD%N5rb~Q6[!7">
+                                <value name="CONTENT">
+                                  <block type="_03amani_esp32joystick_isdir" id="|654ar)l(N$3Y}X+p@}n">
+                                    <field name="direct">u</field>
+                                    <field name="order">2</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="serial_println" id="rEXHVKs}ikuzKvQJirvx">
+                                    <value name="CONTENT">
+                                      <block type="_04amani_esp32joystick_sw" id="KG~w/H|*N!#ko1FQ$sO:">
+                                        <field name="order">2</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="serial_println" id="H|kP/9_|mhLDnq81;a.[">
+                                        <value name="CONTENT">
+                                          <block type="text" id=":AE$=8V^,,:GQuAz%$@r">
+                                            <field name="TEXT">------------------</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="delay_custom" id="i;C3tUk))^[w;dR83^4R">
+                                            <value name="DELAY_TIME">
+                                              <block type="math_number" id="eyb+(lm#_^})mo!B+vxB">
+                                                <field name="NUM">500</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

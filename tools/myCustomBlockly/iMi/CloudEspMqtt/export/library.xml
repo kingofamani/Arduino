@@ -1,0 +1,432 @@
+<xml xmlns="https://developers.google.com/blockly/xml"><block type="factory_base" id="Tt3{uFey^Qn*|0cug9lw" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_01imi_mqttcloud_init</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="-sM`.$s[_B4s:9rB|-6U">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id=".6kB_IMO4GH?FX`)?7zg">
+            <field name="TEXT">iMi雲端平台ESP32 MQTT板初始化</field>
+          </block>
+        </statement>
+        <next>
+          <block type="input_statement" id="Xr=qtC}{aB92L57g]:5,">
+            <field name="INPUTNAME">uart</field>
+            <field name="ALIGN">LEFT</field>
+            <statement name="FIELDS">
+              <block type="field_static" id="+.jMpf*02d4,;+Pd=*(q">
+                <field name="TEXT">UART通訊</field>
+              </block>
+            </statement>
+            <value name="TYPE">
+              <shadow type="type_null" id="4Y$Tmt.b9PzpixFnyQ)^"></shadow>
+            </value>
+            <next>
+              <block type="input_statement" id="_wmt3S#;9GW[BXwD#FUV">
+                <field name="INPUTNAME">wifi</field>
+                <field name="ALIGN">LEFT</field>
+                <statement name="FIELDS">
+                  <block type="field_static" id="U@0O#szB%!Snq^(`:4rI">
+                    <field name="TEXT">WiFi設定</field>
+                  </block>
+                </statement>
+                <value name="TYPE">
+                  <shadow type="type_null" id="9jwEGv_#W:5-qH$GN!0w"></shadow>
+                </value>
+                <next>
+                  <block type="input_statement" id="fqmRGsd1jLZ#kU@_UkI|">
+                    <field name="INPUTNAME">mqtt</field>
+                    <field name="ALIGN">LEFT</field>
+                    <statement name="FIELDS">
+                      <block type="field_static" id="37RL,Bm}H9i|Q@-#WWJU">
+                        <field name="TEXT">MQTT設定</field>
+                      </block>
+                    </statement>
+                    <value name="TYPE">
+                      <shadow type="type_null" id="LxBvzKZK8by!hL36t[Oa"></shadow>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="LP[iwzex.]HVFBSabZs?" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="~=a]!(=XnA:iqo1Y[XNK" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="Q0}2-j*Tgb0~*OY]+A@2"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="#mZI!h2$eTLdKM^fY/lq"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="REv(H97)T,+.X@_xbk^-">
+        <mutation colour="#8ca55b"></mutation>
+        <field name="HUE">80</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="TyQC]r_?EthZfJK,@=`a" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_02imi_mqttcloud_uart</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_value" id="{9L*uBFQ.!-~.@r4RfyO">
+        <field name="INPUTNAME">rx</field>
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="{Z:V8ccYkj/6}0Z+E=k-">
+            <field name="TEXT">RX</field>
+          </block>
+        </statement>
+        <value name="TYPE">
+          <shadow type="type_null" id="f|;=m}(cMI=Sw@Y7EhYM"></shadow>
+        </value>
+        <next>
+          <block type="input_value" id="#XJZ0HhBe0duR`U,Naob">
+            <field name="INPUTNAME">tx</field>
+            <field name="ALIGN">LEFT</field>
+            <statement name="FIELDS">
+              <block type="field_static" id="c)jgXA+aOc~$b?G^5UgT">
+                <field name="TEXT">TX</field>
+              </block>
+            </statement>
+            <value name="TYPE">
+              <shadow type="type_null" id="9[@5E{NY:`$bF7L/|$zX"></shadow>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="3QP|2uI2xgk]wST/jSoe" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="f;c#=yCODR8v|#ABm*EM" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="^g(s7^qW?v[;k!DdzAKb"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id=".FZL|Ye?7sfyy~m?s#dB"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="an$hm8}E6Krqnj!I-RNO">
+        <mutation colour="#8ca55b"></mutation>
+        <field name="HUE">80</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="oG3J!!i5$VPV9Z8nAE16" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_03imi_mqttcloud_wifi</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_value" id="WxGo:*bmB(RCxpOS5IQ]">
+        <field name="INPUTNAME">ssid</field>
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="%$aup9(b#/u6reV~V?3y">
+            <field name="TEXT">ssid</field>
+          </block>
+        </statement>
+        <value name="TYPE">
+          <shadow type="type_null" id="sEa}[}OatuL_-4LkGjbn"></shadow>
+        </value>
+        <next>
+          <block type="input_value" id="jSz+7BKWnbW9MI.^]_([">
+            <field name="INPUTNAME">wifipwd</field>
+            <field name="ALIGN">LEFT</field>
+            <statement name="FIELDS">
+              <block type="field_static" id="2]Nlu^gYSmQuL#=~M_GG">
+                <field name="TEXT">密碼</field>
+              </block>
+            </statement>
+            <value name="TYPE">
+              <shadow type="type_null" id="fl,[A?@??M6?~%Uve8#{"></shadow>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="Lm[~Q($[i=#}yq1)ecXw" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="F.!_5+zdBY,eJF5F?j^^" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="A63(zUFi-7*_jX2dg./W"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="x}TOt,N:Efw2RH:wlS]`"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="-Zi~bX~RI/l810a8wNRw">
+        <mutation colour="#8ca55b"></mutation>
+        <field name="HUE">80</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="Kik(p5_+kZZVjg5ngFG?" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_04imi_mqttcloud_mqtt</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_value" id="k62XE~?^i{`!1~%2h_e]">
+        <field name="INPUTNAME">mqtt_user</field>
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="]hhB|!YX%z[3RkI#Alo;">
+            <field name="TEXT">帳號</field>
+          </block>
+        </statement>
+        <value name="TYPE">
+          <shadow type="type_null" id="G!87rh:ji#RD7NJg,3WA"></shadow>
+        </value>
+        <next>
+          <block type="input_value" id="xJ_`Ul:27;yd(K?i3-Fg">
+            <field name="INPUTNAME">mqtt_pwd</field>
+            <field name="ALIGN">LEFT</field>
+            <statement name="FIELDS">
+              <block type="field_static" id="GxUP=Q1g^IGh}-zIgsF[">
+                <field name="TEXT">密碼</field>
+              </block>
+            </statement>
+            <value name="TYPE">
+              <shadow type="type_null" id="icXQR13?Md%gLUkw@+Um"></shadow>
+            </value>
+            <next>
+              <block type="input_value" id="ob_+s:IWyw5KBlhl]xs,">
+                <field name="INPUTNAME">port</field>
+                <field name="ALIGN">LEFT</field>
+                <statement name="FIELDS">
+                  <block type="field_static" id="x!]}`E+b(#hP~XSNK=1p">
+                    <field name="TEXT">port</field>
+                  </block>
+                </statement>
+                <value name="TYPE">
+                  <shadow type="type_null" id="%qC=NeuM.qJY+c~uP6_m"></shadow>
+                </value>
+                <next>
+                  <block type="input_value" id="Yi7UE+p(,wTx8jK1V$R6">
+                    <field name="INPUTNAME">mqtt_server</field>
+                    <field name="ALIGN">LEFT</field>
+                    <statement name="FIELDS">
+                      <block type="field_static" id="Pwwm)zfiP$_^cCo}A{+3">
+                        <field name="TEXT">服務器</field>
+                      </block>
+                    </statement>
+                    <value name="TYPE">
+                      <shadow type="type_null" id="ip:WNyq{S%`73e+Ly2Bo"></shadow>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="9wKg2MkM~1)iACx^.[.{" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id=".hcad~EN#axmVvH_v%tX" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="FE6]D__`v(D;so3Hj^CI"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="GeCXqv3{rOTL{@(U#Mw6"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="z2Ru$fp#vsrT9R(F{?#/">
+        <mutation colour="#8ca55b"></mutation>
+        <field name="HUE">80</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="bJ0!26N}bP0mQT,u?D$i" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_05imi_mqttcloud_loop</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="?KH##9lezGMwWaY}#Z`h">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="qA,|AbUGIsL$(kB=k3?s">
+            <field name="TEXT">Arduino Cloud雲端平台 loop區設定</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="cRO,@,Z7b2|~739VNGY_" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="i-3gH`qu*g8wi2of/LGx" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="YZGVg,^3RAUFX1hYwoee"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="zO:lx3PiO,F,+Z]9A7(B"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="aP(kkGmpHVQw|creqL35">
+        <mutation colour="#8ca55b"></mutation>
+        <field name="HUE">80</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="Ct=@XUIX|=wd9%(+XQWp" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_06imi_mqttcloud_submqtt</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="A6NMH=E]AwG=|XN00-3J">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="}~m;^93dBIY`sfPf(9HG">
+            <field name="TEXT">[訂閱]MQTT主題</field>
+            <next>
+              <block type="field_dropdown" id="#HW%$qpOjNF3z}J0Pm?a">
+                <mutation options="[&quot;text&quot;]"></mutation>
+                <field name="FIELDNAME">NAME</field>
+                <field name="USER0">CAR_GPS</field>
+                <field name="CPU0">TOPIC_CAR_GPS</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="[Uniy%JQwsmR*~bgFkkn" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="$}#hLEj:m3J8dZVZwsUT" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="d_,q!!OMO:+aDUn`mBh@"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="zx/|QKLFhA57Rq*dXq)9"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="(I7_b6ofwKwprX7G}7R^">
+        <mutation colour="#8ca55b"></mutation>
+        <field name="HUE">80</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="X~[x9L$dzX.}DV[`teG:" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="NONE"></mutation>
+    <field name="NAME">_07imi_mqttcloud_mqttcallback_func</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">NONE</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="A%u-?oc}-w~,0jjDtXD_">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="t{xKH/*wzHEFPPPVbhyB">
+            <field name="TEXT">MQTT回覆函式</field>
+          </block>
+        </statement>
+        <next>
+          <block type="input_statement" id="lAj7Sf#fT5b0XAur1/j`">
+            <field name="INPUTNAME">msg</field>
+            <field name="ALIGN">LEFT</field>
+            <value name="TYPE">
+              <shadow type="type_null" id="}XysFKZ-,g{1)ZWE/NKu"></shadow>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="JN%K1GqRGDI3vHRyVe0=" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="gK/Gxo8E|{wlw(UX*EZ." deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="Uw)!4|f,CGLJ7EcOm*i6">
+        <mutation colour="#8ca55b"></mutation>
+        <field name="HUE">80</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="BZ{JXAuJd2oo8I7LG0_d" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">_08imi_mqttcloud_sendarduino_gps</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="%_@sL|b.IoJ7JXHyJq^:">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="A3BRZTHavZRP#6{NRobE">
+            <field name="TEXT">[傳送]訊息至ESP32 GPS板:地圖xy座標</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="Y?U.jX4.moJt+(%B#L=n" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="ki;2pb*#@1PP{.qz=5Lc" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="yMlFjOQZ_E4_Kafp}Gv,"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="l{5pz_iUUqg080WZ`/Y@"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="`}jVWQyD?AWqo9w1Eae;">
+        <mutation colour="#8ca55b"></mutation>
+        <field name="HUE">80</field>
+      </block>
+    </value>
+  </block></xml>

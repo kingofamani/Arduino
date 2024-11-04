@@ -1,0 +1,13 @@
+範例01：可用16路
+程式庫：
+https://github.com/blemasle/arduino-mcp23017
+
+YwRobot适用于Arduino开发I2C电子积木16位数字IO扩展板MCP23017
+IIC位址：
+	0x20~0x27
+	預設0x27
+IO腳位：
+	PA0~PA7、PB0~PB7
+	IO驅動電流：20mA
+	(16路全使用,電源供應器總輸入要16*20=320mA)
+	INPUT,OUTPUT：輸入、輸出、上拉輸入、中斷

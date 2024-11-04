@@ -1,0 +1,7 @@
+01SeedsToArray：
+	16路I2C擴展板，讀取磁簧開關，儲存至陣列
+	★★★只有16路，所以只做地圖中間4*4格，無法做24格
+	程式庫：https://github.com/blemasle/arduino-mcp23017
+
+02ArrayToGoogleSheet：
+	將陣列值上傳至google sheet

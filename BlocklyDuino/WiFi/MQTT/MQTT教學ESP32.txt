@@ -1,0 +1,43 @@
+使用ESP32，不能用ESP8266
+
+範例：
+00：
+	使用自架的MQTT Server(在學校筆電)
+	使用吉哥積木
+01~04：
+	使用HiveMQ Cloud
+	不使用積木
+
+--------HiveMQ註冊----------
+一、platform/HiveMQ Cloud/sign up free，用google登入
+
+二、在Access Management輸入username,password
+然後按「CREATE CREDENTIAL」新增
+	username：
+		kingofamani
+	password：
+		網路硬碟/創客/金鑰/hivemqMQTT.txt
+	id：
+		網路硬碟/創客/金鑰/hivemqMQTT.txt
+	連接埠：
+		8883
+
+三、安裝pubsubclient by Nick O'Leary程式庫
+	
+--------HiveMQ測試網頁----------
+https://console.hivemq.cloud/
+點右上角「WEB CLIENT」
+輸入帳密按「CONNECT CLIENT」
+新增2個主題(Topic)：
+	car/map
+	car/goods
+
+--------HiveMQ測試APP----------
+IoT MQTT Panel
+
+
+
+
+
+
+

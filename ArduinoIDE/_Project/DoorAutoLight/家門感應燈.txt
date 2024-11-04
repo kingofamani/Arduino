@@ -1,0 +1,5 @@
+WiFi：
+使用ESP-NOW連線
+
+Offline：
+離線版

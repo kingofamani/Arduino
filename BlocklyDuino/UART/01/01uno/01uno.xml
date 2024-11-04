@@ -1,0 +1,73 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="board_initializes_setup" id="0" x="190" y="90">
+    <field name="BOARD_TYPE">Arduino</field>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="customcode_comment" id="WWFy.zXbk1o(srWr1$4H">
+            <value name="text">
+              <block type="text" id=".TlRx^_1t)#+3n.;IWO(">
+                <field name="TEXT">傳送OUT</field>
+              </block>
+            </value>
+            <next>
+              <block type="_03amani_uart_send" id="UDuJag6iq$B9gKkToZth">
+                <field name="serial">softSerial</field>
+                <field name="send">print</field>
+                <value name="msg">
+                  <shadow type="text">
+                    <field name="TEXT"></field>
+                  </shadow>
+                  <block type="text" id="=9^Xaqn}@NECOTe}t=FO">
+                    <field name="TEXT">test......(從UNO傳來)</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="delay_custom" id="#(!Wiel-}lwExKp1kDU+">
+                    <value name="DELAY_TIME">
+                      <block type="math_number" id="0(l9b!;)}jul?c0v`:[a">
+                        <field name="NUM">3000</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_comment" id="Jc=O:qTQV#Fcw(-8(P#*">
+                        <value name="text">
+                          <block type="text" id="=F-oM]4t9_wY851qM4:]">
+                            <field name="TEXT">讀取IN</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="_01amani_uart_init" id="IulW27l/G(~rAF*[{F[L">
+                            <field name="serial">softSerial</field>
+                            <field name="baudrate">9600</field>
+                            <value name="rx">
+                              <block type="math_number" id="R[-j4Y3:s.Awzj6m29YF">
+                                <field name="NUM">2</field>
+                              </block>
+                            </value>
+                            <value name="tx">
+                              <block type="math_number" id="izc7|eY7dkCEE`+FjOtx">
+                                <field name="NUM">3</field>
+                              </block>
+                            </value>
+                            <statement name="statement">
+                              <block type="serial_println" id="%Iah%b/X96W#6gR(n+AC">
+                                <value name="CONTENT">
+                                  <block type="_02amani_uart_get" id="ob|6WL$TV6.FU`mLgVjw"></block>
+                                </value>
+                              </block>
+                            </statement>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

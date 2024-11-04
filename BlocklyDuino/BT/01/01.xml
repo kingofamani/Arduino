@@ -1,0 +1,252 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="+,TA:g|=T{O6MpkVKEyl">myMsg</variable>
+    <variable id="%n5P}I.PoBW?ZR{].Mhg">btMsg</variable>
+  </variables>
+  <block type="board_initializes_setup" id="0" x="130" y="110">
+    <field name="BOARD_TYPE">Arduino</field>
+    <statement name="CONTENT">
+      <block type="customcode_head" id=";b-90Ej4xmh~(5VZY0;t">
+        <value name="text">
+          <block type="text" id="he5yPa}/:(^F8A)fKwY1">
+            <field name="TEXT">#include &lt;SoftwareSerial.h&gt;</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_head" id="6U!)A4XPX+1`y%5{c|j1">
+            <value name="text">
+              <block type="text" id="*fe.ySqk`Ny@2C$$By{I">
+                <field name="TEXT">SoftwareSerial BtDevice(4, 5);</field>
+              </block>
+            </value>
+            <next>
+              <block type="serial_init" id="dv{Z1kcMJ#Jx|Zq(=9s|">
+                <field name="SPEED">9600</field>
+                <next>
+                  <block type="customcode_code" id="-kN4P66%?hMz8iM9^!bi">
+                    <value name="text">
+                      <block type="text" id="?xBG=sAXKWcME:GHYVCP">
+                        <field name="TEXT">BtDevice.begin(9600);</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_println" id="a,QcMUY7IJ(pNaWgz[~q">
+                        <value name="CONTENT">
+                          <block type="text" id="^+uKfJsH*lX`k2Z1vzyc">
+                            <field name="TEXT">HELLO</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="procedures_callnoreturn" id="2My+L!GjIHgxr[ws*ESJ">
+                            <mutation xmlns="http://www.w3.org/1999/xhtml" name="sendToBtDevice"></mutation>
+                            <value name="VAR">
+                              <block type="lists_create_with" id="|AJ_H/$pU%CMACJD]a1.">
+                                <mutation items="1"></mutation>
+                                <value name="ADD0">
+                                  <block type="text" id="^89eZsNO1E:8#.n_qiQu">
+                                    <field name="TEXT">hello</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="customcode_comment" id="%3Uqhce+zEHOT=Y;Rx!b">
+            <value name="text">
+              <block type="text" id="KuHA}d~Z_eqd1fSvnZ,E">
+                <field name="TEXT">arduino輸入時</field>
+              </block>
+            </value>
+            <next>
+              <block type="controls_if" id="D|:N*f5Q+5a=TFmTZr5t">
+                <value name="IF0">
+                  <block type="logic_compare" id="$yOqrv(_IwV)^!*z}#?v">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="serial_available" id="kC4ht^Gsb.80%rrTe5!:"></block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="JlD?NA82IPL9Kz}6[iq{">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="variables_set" id="/dOm:qHW4yC}eR2*n^)F">
+                    <field name="POSITION">local</field>
+                    <field name="TYPE">String</field>
+                    <field name="VAR" id="+,TA:g|=T{O6MpkVKEyl">myMsg</field>
+                    <value name="VALUE">
+                      <shadow type="math_number" id="s.zG#T$?)9kEW!z^cee[">
+                        <field name="NUM">0</field>
+                      </shadow>
+                      <block type="customcode_code_input" id="Z:7F;zm_9bgsC$/(`16j">
+                        <value name="text">
+                          <block type="text" id="b[:`v;ECnFcSH4/_Jy])">
+                            <field name="TEXT">Serial.readString()</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_println" id="Fbu3~dzlpKZD`CZ(:up@">
+                        <value name="CONTENT">
+                          <block type="text_join" id=",~I9U1Pi17Gici8y]%iP">
+                            <mutation items="2"></mutation>
+                            <value name="ADD0">
+                              <block type="text" id="EQg5y4Wx[h6r;.M9tM{i">
+                                <field name="TEXT">傳至藍牙裝置(手機)←</field>
+                              </block>
+                            </value>
+                            <value name="ADD1">
+                              <block type="variables_get" id="psD_zi7te3f,j58C9q[1">
+                                <field name="VAR" id="+,TA:g|=T{O6MpkVKEyl">myMsg</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="customcode_comment" id="+.`awt;|N)~+C5X(F,)]">
+                            <value name="text">
+                              <block type="text" id="D[G#B@0aj8Uz[1e~A4.,">
+                                <field name="TEXT">arduino→藍牙裝置(手機)</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="procedures_callnoreturn" id="[02oB(mG%9};qk7?/QID">
+                                <mutation xmlns="http://www.w3.org/1999/xhtml" name="sendToBtDevice"></mutation>
+                                <value name="VAR">
+                                  <block type="lists_create_with" id="99@,m2sRizIsT1A(lBf)">
+                                    <mutation items="1"></mutation>
+                                    <value name="ADD0">
+                                      <block type="variables_get" id="NL-[y=S][Y)VE7PQi0,c">
+                                        <field name="VAR" id="+,TA:g|=T{O6MpkVKEyl">myMsg</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <next>
+                  <block type="customcode_comment" id="1+NnCcS}@^I|0~RRPq@!">
+                    <value name="text">
+                      <block type="text" id=".Q9UPHK9O;j(H/X[--!h">
+                        <field name="TEXT">藍牙裝置(手機)輸入時</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="controls_if" id="j:.7z43|8WpsxyVKHzH;">
+                        <value name="IF0">
+                          <block type="customcode_code_input" id="3P]G}UT_nS0@exrJq^eJ">
+                            <value name="text">
+                              <block type="text" id="bFX|MEvK,l:7=7+a,0%=">
+                                <field name="TEXT">BtDevice.available()</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO0">
+                          <block type="customcode_comment" id="F-f^|bQ@^Dfx[Af$j}]*">
+                            <value name="text">
+                              <block type="text" id="b}y_b7g}QSx;z5*oWM^3">
+                                <field name="TEXT">藍牙裝置(手機)→arduino</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="variables_set" id="5btI]3?i5K142!W;F=Z2">
+                                <field name="POSITION">local</field>
+                                <field name="TYPE">String</field>
+                                <field name="VAR" id="%n5P}I.PoBW?ZR{].Mhg">btMsg</field>
+                                <value name="VALUE">
+                                  <shadow type="math_number">
+                                    <field name="NUM">0</field>
+                                  </shadow>
+                                  <block type="customcode_code_input" id="jhY#I*k.?9+;+?jdpWVV">
+                                    <value name="text">
+                                      <block type="text" id="E0#zFkpfBguFRR}/#UX@">
+                                        <field name="TEXT">BtDevice.readString()</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="serial_println" id="r#/mG_[n?/7-@5O]!fcc">
+                                    <value name="CONTENT">
+                                      <block type="text_join" id="YE{a$6OGz%w-YP2.!a~%">
+                                        <mutation items="2"></mutation>
+                                        <value name="ADD0">
+                                          <block type="text" id="P7EJCc6wwmnPBn*K;C##">
+                                            <field name="TEXT">從藍牙裝置(手機)傳來→</field>
+                                          </block>
+                                        </value>
+                                        <value name="ADD1">
+                                          <block type="variables_get" id="n1gcI(+Ds#@Urwf~,K([">
+                                            <field name="VAR" id="%n5P}I.PoBW?ZR{].Mhg">btMsg</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+  <block type="procedures_defnoreturn" id="4iy%!@a((OKSO;01rp,X" x="810" y="530">
+    <field name="NAME">sendToBtDevice</field>
+    <value name="VAR">
+      <shadow type="lists_create_with" inline="true">
+        <mutation items="0"></mutation>
+      </shadow>
+      <block type="lists_create_with" id="SK=rOJ@eUPA=Qq{HZf_o" inline="true">
+        <mutation items="1"></mutation>
+        <value name="ADD0">
+          <block type="variables_set2" id=".0dZ?$XjET~$V5jQ1B8y">
+            <field name="TYPE">String</field>
+            <field name="VAR" id="+,TA:g|=T{O6MpkVKEyl">myMsg</field>
+          </block>
+        </value>
+      </block>
+    </value>
+    <statement name="STACK">
+      <block type="customcode_code" id="?!=-cpL5U#G,^{D#[%j*">
+        <value name="text">
+          <block type="text" id="NQ{:cfRUp?a:EjkH/^AO">
+            <field name="TEXT">BtDevice.println(myMsg);</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+</xml>

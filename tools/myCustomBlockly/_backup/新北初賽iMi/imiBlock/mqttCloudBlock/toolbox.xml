@@ -1,0 +1,62 @@
+  <category name="雲端Mqtt" colour="#745ba5">
+    <block type="_01imi_mqttcloud_init">
+      <statement name="uart">
+        <block type="_02imi_mqttcloud_uart">
+          <value name="rx">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <value name="tx">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+        </block>
+      </statement>
+      <statement name="wifi">
+        <block type="_03imi_mqttcloud_wifi">
+          <value name="ssid">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+          <value name="wifipwd">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+        </block>
+      </statement>
+      <statement name="mqtt">
+        <block type="_04imi_mqttcloud_mqtt">
+          <value name="mqtt_user">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+          <value name="mqtt_pwd">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+          <value name="port">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <value name="mqtt_server">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+        </block>
+      </statement>
+    </block>
+    <block type="_05imi_mqttcloud_loop"></block>
+    <block type="_06imi_mqttcloud_submqtt">
+      <field name="NAME">TOPIC_CAR_GPS</field>
+    </block>
+    <block type="_07imi_mqttcloud_mqttcallback_func"></block>
+    <block type="_08imi_mqttcloud_sendarduino_gps"></block>
+  </category>

@@ -1,0 +1,210 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="customcode_head" id="3" inline="true" x="88" y="-12">
+    <value name="text">
+      <block type="text" id="4">
+        <field name="TEXT">#include &lt;ESP8266WiFi.h&gt;</field>
+      </block>
+    </value>
+    <next>
+      <block type="customcode_head" id="5" inline="true">
+        <value name="text">
+          <block type="text" id="6">
+            <field name="TEXT">#include &lt;ESP8266HTTPClient.h&gt;</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_head" id="47" inline="true">
+            <value name="text">
+              <block type="text" id="48">
+                <field name="TEXT">const char* ssid = "HTCAMANI";</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_head" id="49" inline="true">
+                <value name="text">
+                  <block type="text" id="50">
+                    <field name="TEXT">const char* password = "12345678";</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="initializes_setup" id="7" x="88" y="138">
+    <statement name="CONTENT">
+      <block type="serial_init" id="8">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="serial_print" id="58" inline="false">
+            <value name="CONTENT">
+              <block type="text" id="10">
+                <field name="TEXT">連線中</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_code" id="11" inline="true">
+                <value name="text">
+                  <block type="text" id="12">
+                    <field name="TEXT">WiFi.begin(ssid, password);</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_code" id="13" inline="true">
+                    <value name="text">
+                      <block type="text" id="14">
+                        <field name="TEXT">while (WiFi.status() != WL_CONNECTED) {delay(500);Serial.print("."); }</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_println" id="15" inline="false">
+                        <value name="CONTENT">
+                          <block type="text" id="16">
+                            <field name="TEXT">OK成功</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="17">
+        <statement name="CONTENT">
+          <block type="customcode_code" id="18" inline="true">
+            <value name="text">
+              <block type="text" id="19">
+                <field name="TEXT">if(WiFi.status()== WL_CONNECTED){</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_code" id="20" inline="true">
+                <value name="text">
+                  <block type="text" id="21">
+                    <field name="TEXT">HTTPClient http;</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_code" id="22" inline="true">
+                    <value name="text">
+                      <block type="text" id="23">
+                        <field name="TEXT">http.begin("http://jsonplaceholder.typicode.com/users/1");</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_code" id="24" inline="true">
+                        <value name="text">
+                          <block type="text" id="25">
+                            <field name="TEXT">int httpCode = http.GET();</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="customcode_code" id="26" inline="true">
+                            <value name="text">
+                              <block type="text" id="27">
+                                <field name="TEXT">if (httpCode &gt; 0) {</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="variables_set" id="28" inline="true">
+                                <field name="TYPE">String</field>
+                                <field name="VAR">payload</field>
+                                <comment pinned="true" h="117" w="182">刪除程式碼：
+payload=0;
+                                </comment>
+                                <next>
+                                  <block type="customcode_code" id="29" inline="true">
+                                    <value name="text">
+                                      <block type="text" id="30">
+                                        <field name="TEXT">payload = http.getString();</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="serial_println" id="31" inline="false">
+                                        <value name="CONTENT">
+                                          <block type="variables_get" id="32">
+                                            <field name="TYPE">String</field>
+                                            <field name="VAR">payload</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="customcode_code" id="33" inline="true">
+                                            <value name="text">
+                                              <block type="text" id="34">
+                                                <field name="TEXT">}</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="customcode_code" id="35" inline="true">
+                                                <value name="text">
+                                                  <block type="text" id="36">
+                                                    <field name="TEXT">http.end();</field>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="customcode_code" id="37" inline="true">
+                                                    <value name="text">
+                                                      <block type="text" id="38">
+                                                        <field name="TEXT">} else {</field>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="serial_println" id="39" inline="false">
+                                                        <value name="CONTENT">
+                                                          <block type="text" id="40">
+                                                            <field name="TEXT">WiFi取得資料失敗</field>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="customcode_code" id="41" inline="true">
+                                                            <value name="text">
+                                                              <block type="text" id="42">
+                                                                <field name="TEXT">}</field>
+                                                              </block>
+                                                            </value>
+                                                            <next>
+                                                              <block type="delay_custom" id="43" inline="false">
+                                                                <value name="DELAY_TIME">
+                                                                  <block type="math_number" id="44">
+                                                                    <field name="NUM">30000</field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

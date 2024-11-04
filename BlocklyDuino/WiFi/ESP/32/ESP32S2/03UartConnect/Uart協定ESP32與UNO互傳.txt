@@ -1,0 +1,14 @@
+★ESP32無法使用SoftwareSerial，要安裝 EspSoftwareSerial by Dirk kaar
+
+UNO		ESP32S2
+D3 	↔	GPIO3
+D2 	↔	GPIO2
+5V 	↔	5V
+GND	↔	GND
+
+Arduino UNO：
+	上傳03UartConnectArduinoUNO
+ESP32 S2：
+	上傳03UartConnectESP32S2
+	
+//要用print，用write比較麻煩

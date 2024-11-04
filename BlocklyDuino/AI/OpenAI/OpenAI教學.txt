@@ -1,0 +1,42 @@
+OpenAI key：
+網路硬碟\home\創客\金鑰
+
+積木：
+法蘭斯積木/openAI聊天
+
+00範例(有字數限制)：
+	基本發送訊息，請求openAI回應的測試
+	
+
+
+
+-----------------------------------
+申請openai api key：
+https://platform.openai.com/api-keys
+
+付費：
+https://platform.openai.com/settings/organization/billing/overview
+
+流量費用查詢：
+https://platform.openai.com/settings/organization/usage
+
+超出費用上限設定：
+https://platform.openai.com/settings/organization/limits
+
+測試(以postman為例)：
+	開啟新的HTTP連線。
+	POST https://api.openai.com/v1/chat/completions
+	Auth頁面：選Bearer Token，輸入自己的openai key
+	Headers頁面：Content-Type 和application/json
+	Body頁面：
+	{
+	  "model": "gpt-3.5-turbo",
+	  "messages": [
+		{"role": "user", "content": "給我一個50個字的寓言故事"}
+	  ],
+	  "max_tokens": 50,
+	  "temperature": 0.7
+	}
+
+
+

@@ -1,0 +1,74 @@
+<xml version="F2" board="Arduino Uno" xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id=",kRXVUkjzKUuSd;.4C7y">i</variable>
+  </variables>
+  <block type="board_initializes_setup" id="0" x="250" y="230">
+    <field name="BOARD_TYPE">Arduino</field>
+    <statement name="CONTENT">
+      <block type="serial_init" id="8RMCp%i+AAQ|j%PyJWvH">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="variables_set" id="2D?5H5v}F`]hmpm%?T8D">
+            <field name="POSITION">global</field>
+            <field name="TYPE">int</field>
+            <field name="VAR" id=",kRXVUkjzKUuSd;.4C7y">i</field>
+            <value name="VALUE">
+              <shadow type="math_number" id="N:*ITOK/ZR}v*}%w5/F9">
+                <field name="NUM">0</field>
+              </shadow>
+              <block type="math_number" id="SP[zVa=4euVEZ]=]5$u[">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <next>
+              <block type="controls_whileUntil" id="W*bFNM`^RbcFM7?c7ngg">
+                <field name="MODE">WHILE</field>
+                <value name="BOOL">
+                  <block type="logic_compare" id="6v2#!irF@^;j=8Qwy`#3">
+                    <field name="OP">LTE</field>
+                    <value name="A">
+                      <block type="variables_get" id="4ZjD=2ts#`T:Y1{vkFuu">
+                        <field name="VAR" id=",kRXVUkjzKUuSd;.4C7y">i</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="Uf|Y2jJbrYzm`Pf|l`Q1">
+                        <field name="NUM">10</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="serial_println" id="DsAEj{Qy=Y,$9zv[E**O">
+                    <value name="CONTENT">
+                      <block type="text" id="$STs}Yf8.g_kC,Bvl0)`">
+                        <field name="TEXT">德音</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="math_change" id="(V%P$GFW#zS4h49kfi1i">
+                        <value name="VAR">
+                          <block type="variables_get" id="8{Oc[u{G1ybpqS%j92[y">
+                            <field name="VAR" id=",kRXVUkjzKUuSd;.4C7y">i</field>
+                          </block>
+                        </value>
+                        <value name="DELTA">
+                          <block type="math_number" id="USdV?w:jL[.2+na`aPY:">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1"></block>
+    </next>
+  </block>
+</xml>

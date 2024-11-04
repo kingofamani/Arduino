@@ -1,0 +1,43 @@
+桌機server：
+	★★★PowerShell以管理員身份開啟
+	啟動server(開啟PowerShell)：
+	& "C:\Program Files\mosquitto\mosquitto.exe" -c "C:\Program Files\mosquitto\mosquitto.conf" -v
+
+	製作PowerShell自動執行檔：
+	●參考MqttServerStart.ps1內容
+	●MqttServerStart.ps1/右鍵/用PowerShell執行
+
+★筆電：
+	在安裝mosquitto時，已勾選「Services」，所以開機時就會自動啟動
+
+server端教學：
+https://jimirobot.tw/esp32-mosquitto-windows-mqtt-tutorial/
+Mosquitto server下載：
+https://mosquitto.org/download/
+
+client端教學：
+https://jimirobot.tw/esp32-mosquitto-conf-mqtt-tutorial/
+連線測試軟體：MQTT Explorer
+https://mqtt-explorer.com/
+
+esp32範例：MqttClientSample.ino
+mqtt_broker：要查詢架Server的電腦區網IP
+
+如何查詢Server區網IP？
+cmd下輸入ipconfig -all，找到「無線區域網路介面卡 Wi-Fi/IP4位址」
+
+將localhost wifi IP4固定：
+	1. 開啟「網路與共用中心」
+	右鍵點擊桌面右下角的網路圖示，選擇「開啟網路與網際網路設定」。
+	在新的視窗中，點擊「變更介面卡選項」。
+	找到你的無線網路介面卡（在你的情況下應該是 Wi-Fi），右鍵點擊並選擇「內容」。
+	2. 設定 IPv4 靜態 IP
+	在「Wi-Fi 屬性」視窗中，找到「此連線使用下列項目」列表，選擇 Internet Protocol Version 4 (TCP/IPv4)，然後點擊「屬性」。
+	在「Internet Protocol Version 4 (TCP/IPv4) 屬性」中，選擇「使用下列 IP 位址」。
+	3. 輸入靜態 IP 設定
+	輸入你想要的 IP 位址。根據你的查詢結果，你可以將 IPv4 位址 設為 192.168.2.105，但要確認這個 IP 沒有被其他設備使用。
+	子網路遮罩 保持 255.255.255.0。
+	預設閘道 設為 192.168.2.1（這是你的路由器的 IP 位址）。
+	DNS 伺服器 使用 203.72.153.153 和 203.72.153.154，這是你的目前 DNS 設定。
+
+

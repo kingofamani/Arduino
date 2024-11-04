@@ -1,0 +1,37 @@
+匯入lcd_chinese.zip
+https://blog.jmaker.com.tw/st7920-lcd-chinese/
+
+腳位：
+VSS=>GND
+VDD=>5V
+RS=>D8
+R/W=>D9
+E=>D3
+PSB=>GND
+BLA=>3.3V
+BLK=>GND
+
+英文數字：
+直接放陣列即可
+unsigned char show1[] = "tyes.ntpc.edu.tw";
+
+中文：
+參考「中文.xls」
+1、將https://www.haomeili.net/HanZi/ZiFuBianMaZhuanHuan 輸入中文
+2、轉換選「簡體中文GB2312」
+3、按「字符轉換編碼」
+4、將編碼複製，貼在此excel黃色格子
+5、複製藍色格子，貼在程式碼中
+
+圖形：
+下載安裝Image2Lcd.exe
+下載安裝paint.net
+開啟paint.net：
+	開新檔案128x64，自行設計圖片
+	調整/黑白效果
+	另存新檔/bmp檔/位元深度8位元
+開啟Image2Lcd：
+	按開啟，選剛才做好的圖片
+	輸出灰度：單色
+	左下角5個選項全部不要勾
+	按保存，將陣列裡的值複製到程式碼

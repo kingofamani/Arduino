@@ -1,0 +1,33 @@
+測電流電壓 詳細教學：
+https://www.gushiciku.cn/dl/0zvxR/zh-tw
+
+太陽能充放電板 14500鋰電池(3.7V)
+	沒電：3.16V
+	充滿：4.14V
+	
+
+
+升降壓模組：
+XY-SK35L
+https://detail.tmall.com/item.htm?abbucket=9&id=708575798340&ns=1&spm=a21n57.1.0.0.31be523cL2RiEX
+
+7.4鋰電池
+	支援同時充、放電
+	負载电流要控制到2A内
+	沒電：6.32V
+	充滿：8.28V
+
+
+TT減速馬達
+3V～12V DC(建議工作電壓在6到8V左右)
+
+
+
+
+
+
+
+
+
+
+

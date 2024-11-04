@@ -1,0 +1,3 @@
+從「_Tools\SerialParseInt.xml」匯入
+或
+先用BlocklyDuino開啟_Tools\SerialParseInt.xml，再存入暫存積木

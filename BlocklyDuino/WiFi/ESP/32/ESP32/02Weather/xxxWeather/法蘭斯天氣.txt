@@ -1,0 +1,9 @@
+
+XXXXX無法連線，請改用02CwaWeather
+積木：
+法蘭斯/台灣天氣預報
+天氣預報
+https://opendata.cwa.gov.tw/user/authkey
+點選「取得授權碼」
+\home\創客\金鑰\天氣.txt
+

@@ -1,0 +1,40 @@
+★ESP32無法使用SoftwareSerial，要安裝 EspSoftwareSerial by Dirk kaar
+
+上傳程式時錯誤：
+	●另一個開發板最好拔掉，例如上傳ESP32程式時，先將UNO拔掉。
+	●在「上傳中…」時，按reset鍵。
+
+ESP32的RX、TX一定要參考esp32.txt「目前統計可用腳位」
+
+積木：
+	阿曼尼積木/基本
+
+01範例：
+	ESP32與UNO互傳：每隔3秒
+	ESP32	UNO
+	D4		D2
+	D5		D3
+
+02範例：
+	ESP32與UNO互傳：可直接在序列埠視窗輸入要傳的訊息
+	ESP32	UNO
+	D4		D2
+	D5		D3
+
+03Mega範例：
+	Uart協定ESP32與MEGA互傳：Mega版用Serial1通訊
+	Mega	ESP32
+	D18 	GPIO16
+	D19 	GPIO17
+
+
+
+
+Arduino UNO、Nano官方並不建議這樣作，因為在一塊開發板上同時使用 Hardware+Software serial 或者執行多組的Software serial，很容易產生傳輸瓶頸或亂碼。
+因此，建議使用支援四組 hardware serial 的 Arduino Mega 開發板。
+http://www.sunplusit.com/Documents/%E4%BD%BF%E7%94%A8Arduino%20MEGA%E5%AF%A6%E7%8F%BE1%E5%B0%8D%E5%A4%9A%E7%9A%84Uart%E4%B8%B2%E5%8F%A3.pdf
+
+	
+範例：
+ArduinoMaster\BlocklyDuino\WiFi\ESP\32\ESP32S2
+ArduinoMaster\BlocklyDuino\WiFi\ESP\32\ESP32\UartESP32

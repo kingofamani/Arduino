@@ -1,0 +1,11 @@
+arduino可以用
+
+積木：阿曼尼/基本/joystick搖桿(綠色)
+
+SW(或B)	D12
+Y		A0
+X		A5
+5V		5V
+GND		GND
+
+先測試按鈕按下是0還是1

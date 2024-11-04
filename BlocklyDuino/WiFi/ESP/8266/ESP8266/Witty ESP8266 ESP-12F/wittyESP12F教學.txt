@@ -1,0 +1,37 @@
+機智雲開發板 機智云 WiFi Witty Arduino + WiFi ESP8266 ESP-12F
+
+http://arduino.esp8266.com/stable/package_esp8266com_index.json
+
+★上下板要合在一起，上下且usb口在同一邊才能用
+
+內建了RGB LED，光敏電阻，按鈕
+
+板子請選擇"WeMos D1 R2 & Mini"，就把它當作D1 mini來用吧！
+
+內建LED：
+	LED_BUILTIN
+內建RGB燈：
+	R：15
+	G：12
+	B：13
+內建光阻電阻：
+	A0
+內建按鈕(左上角)：
+	4
+	
+所有腳位：
+REST         |       TXD
+ADC    LDR   |       RXD
+CH_PD        |       GPIO05
+GPIO16       | BTN   GPIO04
+GPIO14       |       GPIO00
+GPIO12 RGB-G |       GPIO02
+GPIO13 RGB-B | RGB-R GPIO15
+VCC          |       GND
+            USB
+
+
+
+
+
+

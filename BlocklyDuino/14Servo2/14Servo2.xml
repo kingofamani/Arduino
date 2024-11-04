@@ -1,0 +1,92 @@
+<xml version="F1" board="Arduino Uno" xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="B[0RO*VstKE9nxSsNAoD">A</variable>
+  </variables>
+  <block type="initializes_setup" id="sK%l;,_]4CQ]y2E11Ytb" x="110" y="30">
+    <statement name="CONTENT">
+      <block type="variables_set" id="#bx0;7gLMJFn|P7]Y~e_">
+        <field name="POSITION">global</field>
+        <field name="TYPE">int</field>
+        <field name="VAR" id="B[0RO*VstKE9nxSsNAoD">A</field>
+        <value name="VALUE">
+          <shadow type="math_number" id="IX*%EP2Y5Ux-R)B~V.pK">
+            <field name="NUM">3</field>
+          </shadow>
+        </value>
+        <next>
+          <block type="servo_write_pin" id="9IbkqN@[b+]tZPWyZo0`">
+            <value name="PIN">
+              <block type="variables_get" id="#)PN7KN9V(Cec`s)m^?_">
+                <field name="VAR" id="B[0RO*VstKE9nxSsNAoD">A</field>
+              </block>
+            </value>
+            <value name="ANGLE">
+              <block type="math_number" id="[F.WL]KZ-SYz;:%Y7G^v">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <next>
+              <block type="delay_custom" id="RBH/mDJcA{0s:)b/I#^t">
+                <value name="DELAY_TIME">
+                  <block type="math_number" id="6AQr$8d`1/RITu+_4_B:">
+                    <field name="NUM">1000</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="r{-hKrxq4pGD{4eCWl_C">
+        <statement name="CONTENT">
+          <block type="servo_write_pin" id="0P:qkb#@7J^rlkR#J*Da">
+            <value name="PIN">
+              <block type="variables_get" id="x?SSB9_f)eOA}0h{=rXI">
+                <field name="VAR" id="B[0RO*VstKE9nxSsNAoD">A</field>
+              </block>
+            </value>
+            <value name="ANGLE">
+              <block type="math_number" id="qnU[fF|EvnoNqbMR=c{G">
+                <field name="NUM">45</field>
+              </block>
+            </value>
+            <next>
+              <block type="delay_custom" id="Sv`4x`d#bDdeN6}vEG`R">
+                <value name="DELAY_TIME">
+                  <block type="math_number" id="zo-?AC!Q0_oUcc_Y=CUS">
+                    <field name="NUM">1000</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="servo_write_pin" id="`c}saoSkiaYmk$ZeEuO+">
+                    <value name="PIN">
+                      <block type="variables_get" id="}:#xpI$F,ddnt?Aq(^Y?">
+                        <field name="VAR" id="B[0RO*VstKE9nxSsNAoD">A</field>
+                      </block>
+                    </value>
+                    <value name="ANGLE">
+                      <block type="math_number" id="F6uKS#(!)_y7#JBr$4W/">
+                        <field name="NUM">90</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="delay_custom" id="YBHysM^L.?.sO1MYZV*7">
+                        <value name="DELAY_TIME">
+                          <block type="math_number" id="RuF|uV@7qMK09H=zI%+$">
+                            <field name="NUM">1000</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>
