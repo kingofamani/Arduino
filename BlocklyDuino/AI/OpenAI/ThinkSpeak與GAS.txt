@@ -1,3 +1,9 @@
+教學：
+https://www.youtube.com/watch?v=ocr1qBBZBzk&list=PLxVtiYga8ehvi3lY9QYlEOL0tDLQFNfdM
+教學檔案：
+https://drive.google.com/drive/folders/1ffJYCAUT1VQ7BLs8mNCjOQ8QVlJCGTAE
+
+ThingSpeak：
 https://thingspeak.mathworks.com/channels/2726035/api_keys
 
 上述API key頁面右下方，有API Requests範例：
@@ -13,5 +19,16 @@ https://docs.google.com/spreadsheets/d/1DWWis2eKT7yPQGRt3AVWaLet4908Te9TSgsqWpFB
 
 1DWWis2eKT7yPQGRt3AVWaLet4908Te9TSgsqWpFBwLc
 
-GAS網址：
+連接google硬碟網址(資料夾openAI_image)：
+https://drive.google.com/drive/folders/1nycApNE-LMvelPxcZkKEZ0V4OzQOLPYe
+
+GAS：
+參考程式碼：
+https://github.com/fustyles/webduino/blob/gs/Linebot_ChatGPT_ThingspeakMQTT.gs
+
+GAS編輯：
+https://script.google.com/home/projects/11mtsRGDEOxVXHBHnjG7DuVzPIWU0itguvW_pD1JjBmqgiGfVjU2L22oQ/edit
+
+GAS的服務網址(貼在Line Bot的webhook)：
 https://script.google.com/macros/s/AKfycbxjKkz0TPec5Z2bizmUMaUtDqx_aeksl-MI3b0RHrYZtdAjkQfpIHfUck3a4AXcacht/exec
+若程式碼有修改，要按「佈署/管理佈署作業/右上編輯(筆形)鈕/建立新版本」
