@@ -1,0 +1,76 @@
+以下用2種方式來規劃專案：
+	方法一、使用Google Apps script
+	方法二、使用Make.com
+
+====方法一========================================================================
+法蘭斯Line bot建置ChatGPT，Apps script作為Webhook
+教學：
+https://www.youtube.com/watch?v=79HhcJfHajE
+
+教學檔案：
+https://drive.google.com/drive/folders/1ffJYCAUT1VQ7BLs8mNCjOQ8QVlJCGTAE
+
+ThingSpeak：
+https://thingspeak.mathworks.com/channels/2726035/api_keys
+上述API key頁面右下方，有API Requests範例：
+例如 GET https://api.thingspeak.com/channels/2726035/feeds.json?api_key=[your唯讀key]&results=2
+觸發MQTT：
+https://thingspeak.mathworks.com/devices/mqtt
+
+
+連接google sheet：
+https://docs.google.com/spreadsheets/d/1DWWis2eKT7yPQGRt3AVWaLet4908Te9TSgsqWpFBwLc/edit?gid=0#gid=0
+1DWWis2eKT7yPQGRt3AVWaLet4908Te9TSgsqWpFBwLc
+連接google硬碟網址(資料夾openAI_image)：
+https://drive.google.com/drive/folders/1nycApNE-LMvelPxcZkKEZ0V4OzQOLPYe
+
+GAS：
+參考程式碼：
+https://github.com/fustyles/webduino/blob/gs/Linebot_ChatGPT_ThingspeakMQTT.gs
+
+GAS編輯：
+https://script.google.com/home/projects/11mtsRGDEOxVXHBHnjG7DuVzPIWU0itguvW_pD1JjBmqgiGfVjU2L22oQ/edit
+
+GAS的服務網址(貼在Line Bot的webhook)：
+https://script.google.com/macros/s/AKfycbxjKkz0TPec5Z2bizmUMaUtDqx_aeksl-MI3b0RHrYZtdAjkQfpIHfUck3a4AXcacht/exec
+若程式碼有修改，要按「佈署/管理佈署作業/右上編輯(筆形)鈕/建立新版本」
+
+
+====方法二========================================================================
+先用make AI給提示詞直接建立範本：
+Make AI prompt：
+請以繁體中文回答。
+先從工具新增multiple變數，變數名稱 varIntention 和 varCommand 。
+接收line message使用者的對話。
+讓chatGPT判斷使用者的對話語意的意圖：
+-1、如果意圖和電器設備(設備有冷氣airctrl、風扇fan、電燈led)控制(開=1、關=0)相關，則設定varIntention="control_device"。varCommand變數則依據電器的開或關來設定，例如語意的意圖是開燈的話varCommand="led=1"。
+-2、如果語意包含查詢教室電器使用時數、耗電量或碳排放，則設定varIntention="query_data"。
+-3、如果無法判斷意圖，則設定varIntention="unknow"。
+
+LINE：
+(先到LINE建立官方帳號 https://www.youtube.com/watch?v=veeBbb4P56I)
+Make產生的webhook https://hook.us2... 要貼回line網站的webhook裡。
+
+ChatGPT：
+(先到openAI新增assistant https://platform.openai.com/playground/assistants)
+第一個：判斷命令的GPT
+assistant prompt：
+使用者的對話：「{{8.events[].message.text}}」。請你判斷語意的意圖：
+-1、如果意圖和電器控制開關相關，回答格式只能是「control_device,電器英文,開關代碼」。例如"control_device,airctrl,1"(設備只有冷氣airctrl、風扇fan、電燈led)控制(開=1、關=0)。
+-2、如果意圖包含查詢教室電器使用時數、耗電量或碳排放，回答格式只能"query_data"即可。
+
+-3、如果無法判斷意圖，則沒有回答格式，請你依狀況自行判斷如何回答即可。
+
+第二個：回答使用者的GPT
+assistant prompt：
+使用者訊息：「,」。使用者想控制電器設備，設備只有冷氣airctrl、風扇fan、電燈led)控制(開=1、關=0)。請你依使用者的意圖，回答使用者要以活潑快樂的回答語氣，回應字數在30字以內，內容是：
+完成哪項的教室電器控制、給予節能環保話語。
+
+發送line：
+Line模組/Send push message
+
+Google試算表(google sheet需安裝GPT for Sheets and Docs外掛)：
+https://docs.google.com/spreadsheets/d/1HJXiuubfE-B5BDcYbafIpWQZklJnijVfdYzurXO4LDc/edit?gid=1887339641#gid=1887339641
+
+
+

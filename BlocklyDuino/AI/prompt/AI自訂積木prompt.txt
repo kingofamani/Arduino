@@ -1,38 +1,26 @@
 你是專業的BlocklyDuino自訂積木設計師 請協助我製作自訂積木。請以繁體中文回答。
-# 你只要幫我產生程式碼即可，不需要任何其他說明。
-# 程式碼產生順序：先產生所有的blocks.js、再產生javascript.js、最後是toolbox.xml
-# 每一次使用者修改需求後，要說明是blocks.js、再產生javascript.js、最後是toolbox.xml中哪一個檔案被修改的。
-# toolbox.xml中不需要<xml xmlns="https://developers.google.com/blockly/xml"></xml>
-# toolbox.xml需要<category></category>
-# 若有要讓使用者填寫的數字積木或字串積木，請從toolbox.xml加入
-# javascript.js產出的c++程式碼：
-- 請以#include引入程式庫，不要用require()
-- c++程式碼需依產生的位置，明確分成Blockly.Arduino.definitions、Blockly.Arduino.setups、Blockly.Arduino.functions、Blockly.Arduino.loop不同位置
--全域變數宣告在Blockly.Arduino.definitions區
-# 將這三個程式碼儲存成檔案供我下載
-
 
 # 任務目標與內容
 
-我要製作MQTT的積木，包含5個積木：
+幫我將上面程式碼包含[ESP-NOW]的功能函數轉成自訂積木即可，
+1、程式要修改如下：
 -自訂積木顏色為100
--初始設定：包含伺服器位址、port、使用者id、帳號、密碼
--訂閱主題
--發佈消息
--當接收到消息時
--接收到的消息字串
 -每個Blocks['']名稱加上前綴詞amani_ 
--c++中的函數名稱加上前綴詞mqtt_ 
--c++中的全域變數名稱加上前綴詞mqtt_ 
+-c++中的函數名稱加上前綴詞openai_ 
+-c++中的全域變數名稱加上前綴詞espnow_ 
+2、總共要製作6塊esp-now積木：
+廣播初始化積木
+取得自己MAC位址積木
+發送訊息積木
+當收到訊息時積木
+取得接收到的MAC位址積木
+取得接收到的訊息積木
+3、請參考圖片的積木設計
 
 # Output Format
 
 輸出應詳細呈現如何建構每一個積木和實現其功能的步驟。可以按以下格式輸出每個積木開發的步驟：
-
-- **積木名稱**: 對此部分內容進行簡要描述。
-- **實現功能**: 簡述積木要達成的目標。
-- **程式碼產生**: 描述積木產生的程式碼片段，包含blocks.js、javascript.js和toolbox.xml。
-- **預計輸出**: 積木完成的動作和產生程式碼的預期效果。
+- **程式碼產生**: 積木產生的程式碼片段，包含blocks.js、javascript.js和toolbox.xml。
 
 # Notes
 
@@ -40,19 +28,59 @@
 - 使用額外的程式庫library時，要提醒安裝。
 - 請確保版本相容性，並且不要暴露敏感資訊如帳戶和密碼。
 - 確保程式碼安全，避免潛在的網路攻擊風險，例如防止意圖的主題注入攻擊等。
+- 將這三個程式碼儲存成檔案供我下載
+- 你只要幫我產生程式碼即可，不需要任何其他說明。
+- 程式碼產生順序：先產生所有的blocks.js、再產生javascript.js、最後是toolbox.xml
+- 每一次使用者修改需求後，要說明是blocks.js、再產生javascript.js、最後是toolbox.xml中哪一個檔案被修改的。
+- toolbox.xml中不需要<xml xmlns="https://developers.google.com/blockly/xml"></xml>
+- toolbox.xml需要<category></category>
+- 若有要讓使用者填寫的數字積木或字串積木，請從toolbox.xml加入
+- javascript.js產出的c++程式碼：
+	1.請以#include引入程式庫，不要用require()
+	2、當要連接的字串太長，包含換行符號時，請以以模板字串（Template Literals）反引號（`）來表示
+	3.c++程式碼需依產生的位置，明確分成不同區：
+	3-1.Blockly.Arduino.definitions區：#include、全域變數宣告
+	3-2.Blockly.Arduino.setups區：在void setup(){}裡的程式碼
+	3-3.Blockly.Arduino.functions區：function函數宣告
+	3-4.Blockly.Arduino.loop區：在void loop(){}裡的程式碼
+	
 
 
 ============================================================
-修改時的promt：
 
-請修正如圖：
-修改需求後，要說明是blocks.js、javascript.js、toolbox.xml中哪一個檔案被修改的。
-數字積木或字串積木，請從toolbox.xml加入
--初始設定積木：
--訂閱主題積木：
--發佈消息積木：
--當接收到消息時積木：
--接收到的消息字串積木：
+AI產生高質量的自訂積木做法：
+使用GPT-o1-preview model
+
+沒有c++範例時：
+1、先請chatGPT產生c++：
+	你是一個專業的esp32程式設計師。
+	請產生esp32連接joystick搖桿的程式，並且包含可以測試的程式碼
+	程式碼的功能儘量寫成function函數化
+2、一次指定一個積木，並使用BlocklyDuino/AI/prompt/AI自訂積木prompt.txt提示語來修改：
+	# 任務目標與內容 幫我將上面程式碼包含[joystick搖桿]函數轉成自訂積木即可。
+	
+有c++範例(.ino)時：
+1、將[ESP-NOW]的sample code貼給chatGPT，請它解釋code的意義
+2、# 任務目標與內容 請將上面程式碼包含[ESP-NOW]的功能函數轉成自訂積木即可(其餘複製AI自訂積木prompt.txt)
+
+有c++範例(.ino)、有積木圖片(Blockly Developer Tools網站產生)、且有明確的知道每塊積木的程式碼片段
+1、將[ESP-NOW]的sample code貼給chatGPT，請它解釋code的意義
+2、# 任務目標與內容 (其餘複製AI自訂積木prompt.txt)
+	-幫我將上面程式碼包含[ESP-NOW]函數相關程式轉成自訂積木即可。
+	-請參考圖片的積木設計(要貼上積木圖片給chatGPT)
+	-總共要製作6塊esp-now積木：
+	廣播初始化積木：
+		definitions區：
+		setups區：
+		functions區：
+		loop區：
+		code區：
+	取得自己MAC位址積木
+	發送訊息積木
+	當收到訊息時積木
+	取得接收到的MAC位址積木
+	取得接收到的訊息積木
+
 
 
 
