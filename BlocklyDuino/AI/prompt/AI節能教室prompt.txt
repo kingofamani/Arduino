@@ -1,3 +1,5 @@
+【在ChatGPT發問】
+
 你是一個專業的make工程師，請幫我設計一個AI智能教室專案，並教導我如何實踐此專案的步驟。
 
 專案名稱：AI教室智慧節能系統。
@@ -13,7 +15,7 @@
 ### 2-2、我要在教室庭院種植植物，來達到淨零排放的目的。我會使用ESP32-CAM鏡頭，其功能如下4點：
 	#### (1)每天早上8點，ESP32-CAM會自動為植物截圖。
 	#### (2)將此圖片上傳到google drive。
-	#### (3)將圖片傳送至openai來判斷植物是否健康，並返回健康評分（1-5之間）。
+	#### (3)將圖片傳送至openai來判斷植物是否健康，並返回健康評分（star1-star5之間）。
 	#### (4)當植物不健康時，會傳送line訊息通知。
 ### 2-3、現在教室有「廚餘」、「一般垃圾」、以及回收類的「紙類」、「寶特瓶」，共4個垃圾桶，每個垃圾桶下面放著一個秤重器，並在秤重器旁邊貼上「廚餘」、「一般垃圾」、「紙類」、「寶特瓶」的標籤。
 	#### (1)每天平日中午12:30，esp-cam會自動截圖「廚餘」，圖片會包含秤重器上的公克讀數、標籤名稱。
@@ -48,7 +50,7 @@ make (Integromat)、openai、thingspeak、line Messaging API、google sheet、fa
 2、總用電量換算成碳排放量(碳足跡)。
 ### ●esp32-CAM呼叫make (Integromat)，請make (Integromat)做以下3點事情：
 1、將此圖片上傳到google drive
-2、將圖片傳送至openai來判斷植物是否健康，並返回健康評分（1-5之間）(使用api.openai.com/v1/chat/completions，模型gpt-4o)。
+2、將圖片傳送至openai來判斷植物是否健康，並返回健康評分（star1-star5之間）(使用api.openai.com/v1/chat/completions，模型gpt-4o)。
 3、當植物不健康時，會傳送line訊息通知
 ### ●esp32-CAM截圖垃圾桶的秤重器上的公克讀數、標籤名稱後呼叫make (Integromat)，請make (Integromat)做以下事情：
 1、利用openai分析照片上的公克讀數以及標籤名稱，轉成文字。

@@ -1,3 +1,6 @@
+★不要用GPT-3.5真的是笨蛋
+【用到的prompt要在Make的openAI元件設定】
+
 以下用2種方式來規劃專案：
 	方法一、使用Google Apps script
 	方法二、使用Make.com
@@ -40,37 +43,44 @@ https://script.google.com/macros/s/AKfycbxjKkz0TPec5Z2bizmUMaUtDqx_aeksl-MI3b0RH
 先用make AI給提示詞直接建立範本：
 Make AI prompt：
 請以繁體中文回答。
-先從工具新增multiple變數，變數名稱 varIntention 和 varCommand 。
-接收line message使用者的對話。
-讓chatGPT判斷使用者的對話語意的意圖：
--1、如果意圖和電器設備(設備有冷氣airctrl、風扇fan、電燈led)控制(開=1、關=0)相關，則設定varIntention="control_device"。varCommand變數則依據電器的開或關來設定，例如語意的意圖是開燈的話varCommand="led=1"。
--2、如果語意包含查詢教室電器使用時數、耗電量或碳排放，則設定varIntention="query_data"。
--3、如果無法判斷意圖，則設定varIntention="unknow"。
 
-LINE：
+●LINE：
 (先到LINE建立官方帳號 https://www.youtube.com/watch?v=veeBbb4P56I)
 Make產生的webhook https://hook.us2... 要貼回line網站的webhook裡。
 
-ChatGPT：
+●ChatGPT：
 (先到openAI新增assistant https://platform.openai.com/playground/assistants)
-第一個：判斷命令的GPT
-assistant prompt：
+第一個：判斷LINE使用者對話的GPT
+Assistant prompt：
 使用者的對話：「{{8.events[].message.text}}」。請你判斷語意的意圖：
--1、如果意圖和電器控制開關相關，回答格式只能是「control_device,電器英文,開關代碼」。例如"control_device,airctrl,1"(設備只有冷氣airctrl、風扇fan、電燈led)控制(開=1、關=0)。
--2、如果意圖包含查詢教室電器使用時數、耗電量或碳排放，回答格式只能"query_data"即可。
-
+-1、如果意圖和電器控制開關相關，回答格式只能是「control_device,電器英文,開關代碼」。例如:control_device,airctrl,1。
+說明：電器只有冷氣airctrl、風扇fan、電燈led這3種而已。控制代碼(開=1、關=0)。
+-2、如果意圖包含查詢教室電器使用時數、耗電量或碳排放，回答格式只能是「query_data,查詢代碼」。例如:query_data,sensor。
+查詢代碼說明：與電器相關sensor、與食物營養午餐相關food、與廚餘,一般垃圾,回收相關trash
 -3、如果無法判斷意圖，則沒有回答格式，請你依狀況自行判斷如何回答即可。
 
-第二個：回答使用者的GPT
-assistant prompt：
+第二個：電器控制-回答使用者的GPT
+Assistant prompt：
 使用者訊息：「,」。使用者想控制電器設備，設備只有冷氣airctrl、風扇fan、電燈led)控制(開=1、關=0)。請你依使用者的意圖，回答使用者要以活潑快樂的回答語氣，回應字數在30字以內，內容是：
 完成哪項的教室電器控制、給予節能環保話語。
 
-發送line：
+第三個：查詢數據-回答使用者的GPT
+User prompt：
+我有一組數據{{42.text}}。
+{{8.events[].message.text}}。
+-回應字數在100字以內。
+-相關的欄位單位，請參考標題列名稱，例如:時數(min)表示單位是min分鐘。
+-若是電器設備相關的查詢，在數據中沒有碳排放或碳足跡。請一定要參考具體台灣發電方式的碳排放為資料來源，來換算耗電瓦數成為碳足跡(單位g)，以確保數據的準確性。
+
+
+●發送line：
 Line模組/Send push message
 
-Google試算表(google sheet需安裝GPT for Sheets and Docs外掛)：
+●Google試算表：
 https://docs.google.com/spreadsheets/d/1HJXiuubfE-B5BDcYbafIpWQZklJnijVfdYzurXO4LDc/edit?gid=1887339641#gid=1887339641
 
+要取得標題列名稱：
+	Google sheets/Get Range values元件
+	search methon:要選select from all，否則sheet name無法使用map功能
 
 
