@@ -83,4 +83,16 @@ https://docs.google.com/spreadsheets/d/1HJXiuubfE-B5BDcYbafIpWQZklJnijVfdYzurXO4
 	Google sheets/Get Range values元件
 	search methon:要選select from all，否則sheet name無法使用map功能
 
+●Facebook：
+建立粉絲專頁：facebook.com/pages/create
+User prompt：
+幫我查詢以下資料，整理出當月份各校總耗電功率，並依耗電功率轉換成碳排放量，計算出碳排放最低的前3名。
+將結果產生成facebook粉專貼文。
+你回應我的內容就只有貼文內容即可。
+{{3.varTest}}
+
+
+
+
+
 
