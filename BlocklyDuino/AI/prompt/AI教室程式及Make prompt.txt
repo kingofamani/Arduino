@@ -91,8 +91,19 @@ User prompt：
 你回應我的內容就只有貼文內容即可。
 {{3.varTest}}
 
+●種植植物截圖：
+google drive OAuth教學：
+https://www.youtube.com/watch?v=KwBvjY9vtQY
+google drive連接Make設定參數：
+https://www.make.com/en/help/connections/connecting-to-google-services-using-a-custom-oauth-client
+
+ESP-CAM：
+	每天8:00自動截圖，上傳至google drive
+Make：
+	每天8:10，自動至google drive抓取圖片分析
 
 
-
+●營養午餐碳足跡爬蟲：
+https://www.youtube.com/watch?v=hya7iSPmHC4
 
 
