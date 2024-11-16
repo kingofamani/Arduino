@@ -58,7 +58,8 @@ make (Integromat)、openai、thingspeak、line Messaging API、google sheet、fa
 3、將標籤名稱、重量公克讀數和碳排量，儲存在google sheet。
 
 ## 功能三、
-make (Integromat)每日下午2點，自動呼叫apify爬蟲，至校園食材履歷網站 https://fatrace.ntpc.edu.tw/014792
+make (Integromat)每日下午2點，自動呼叫apify爬蟲，至校園食材履歷網站 
+https://fatraceschool.k12ea.gov.tw/frontend/search.html?school=14792&period=2024-11-14https://fatrace.ntpc.edu.tw/014792
 抓取網站上每日的食材照片。然後由openai分析食物熱量、營養成份、卡路里及碳足跡後，將數據儲存在google sheet(名稱:AI教室,工作表:trash)。
 
 ## 功能四、
@@ -93,8 +94,8 @@ google assistant、ifttt、
 
 功能六、用水量
 
-★埔墘國小校園環境監測站
-https://ecloud.ntpc.edu.tw/ec259801.do#
+★德音國小校園環境監測站
+https://ecloud.ntpc.edu.tw/ec259801.do
 
 https://dashboard.ntpc.edu.tw/
 https://ecloud.ntpc.edu.tw/ec0202.do

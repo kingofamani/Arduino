@@ -97,6 +97,14 @@ https://www.youtube.com/watch?v=KwBvjY9vtQY
 google drive連接Make設定參數：
 https://www.make.com/en/help/connections/connecting-to-google-services-using-a-custom-oauth-client
 
+如何用google drive搜檔案：
+	●先找到資料夾id：用Search for files/folders模組，選select from list，choose a file選AiClassroom/images。接著將select from list改選Enter manually，此時就會產生資料夾id了。
+	●其餘參考Make/AI教室-(三)植物辨識
+	/15U7N175iYYVHJ3ANIkobF2rrQ3tJvj6R/1XYcNdhRKQG1txB-oTSKEaclmaVHn_YWB
+	/15U7N175iYYVHJ3ANIkobF2rrQ3tJvj6R/{{11.parents[]}}/{{11.id}}
+	再download a file模組
+	到的圖片2張以上，則不需使用loop，可以直接傳複數次指令給openAI
+
 ESP-CAM：
 	每天8:00自動截圖，上傳至google drive
 Make：
@@ -104,6 +112,7 @@ Make：
 
 
 ●營養午餐碳足跡爬蟲：
+https://fatraceschool.k12ea.gov.tw/frontend/search.html?school=14792&period=2024-11-14
 https://www.youtube.com/watch?v=hya7iSPmHC4
 
 
