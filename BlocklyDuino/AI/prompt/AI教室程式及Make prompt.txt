@@ -35,7 +35,8 @@ GAS編輯：
 https://script.google.com/home/projects/11mtsRGDEOxVXHBHnjG7DuVzPIWU0itguvW_pD1JjBmqgiGfVjU2L22oQ/edit
 
 GAS的服務網址(貼在Line Bot的webhook)：
-https://script.google.com/macros/s/AKfycbxjKkz0TPec5Z2bizmUMaUtDqx_aeksl-MI3b0RHrYZtdAjkQfpIHfUck3a4AXcacht/exec
+https://script.google.com/macros/s/【金鑰/Apps Script ID】/exec
+將s/至/exec之間的id貼至積木的Apps Script ID
 若程式碼有修改，要按「佈署/管理佈署作業/右上編輯(筆形)鈕/建立新版本」
 
 

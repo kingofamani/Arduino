@@ -12,9 +12,8 @@ https://github.com/fustyles/webduino/blob/gs/SendCapturedImageToGoogleDriveAndLi
 我的GAS：
 https://script.google.com/home/projects/1zO4DbjMxW3Y3l9-3OZei8i1xVydiP6W-HjJUE1Iz_j-k4dJyfkJg9SJS/edit
 網頁應用程式
-https://script.google.com/macros/s/AKfycbzd8ksv4i714K7EXfIo-BFOJ8V7yYwnVqt73oShlIhFNiQD5s22jGqg-19rqLsMnv5Zug/exec
+https://script.google.com/macros/s/ 【金鑰/Apps Script ID】/exec
 將s/至/exec之間的id貼至積木的Apps Script ID
-
 
 積木：法蘭斯/Server模組/ESP-32 CAM
 
