@@ -1,0 +1,4880 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.282555,
+          22.628268
+        ]
+      },
+      "properties": {
+        "id": 686,
+        "name": "食溫酵研 TCS SCIFERLAB",
+        "description": "「時間」和「溫度」的發酵魔法"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.687036,
+          24.148752
+        ]
+      },
+      "properties": {
+        "id": 685,
+        "name": "不老食光 / 不老夢想125號",
+        "description": "宮原眼科主人宅邸中的不老夢想"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.966683,
+          22.53159
+        ]
+      },
+      "properties": {
+        "id": 684,
+        "name": "穀臼那哪手工麵包",
+        "description": "部落食材與歐式麵包的完美融合"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.700165,
+          23.941895
+        ]
+      },
+      "properties": {
+        "id": 683,
+        "name": "丘山茶",
+        "description": "感受分享茶的溫馨"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.932246,
+          24.010521
+        ]
+      },
+      "properties": {
+        "id": 682,
+        "name": "一新社區/吟詩企業有限公司/吟詩綠曲休閒農場/好茭情",
+        "description": "與社區共榮的埔里農場"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.993813,
+          23.97834
+        ]
+      },
+      "properties": {
+        "id": 681,
+        "name": "小川埔里環保酵素園區",
+        "description": "自然農耕理念的綠色餐廳"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.9657,
+          23.967368
+        ]
+      },
+      "properties": {
+        "id": 680,
+        "name": "山中小廚房",
+        "description": "埔里在地風味餐桌"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.683738,
+          23.962755
+        ]
+      },
+      "properties": {
+        "id": 679,
+        "name": "蘿藍烘焙",
+        "description": "傳遞幸福的草屯麵包烘焙坊"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.814038,
+          23.825177
+        ]
+      },
+      "properties": {
+        "id": 678,
+        "name": "集元果",
+        "description": "結合食農教育的集集山蕉綠色餐廳"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.090689,
+          22.77602
+        ]
+      },
+      "properties": {
+        "id": 675,
+        "name": "京蘭茶事",
+        "description": "台東在地小農的家庭小料理"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.994404,
+          24.792888
+        ]
+      },
+      "properties": {
+        "id": 674,
+        "name": "土鍋飯糰 火炎山",
+        "description": "新竹友善在地食材的土鍋飯糰"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.71758,
+          24.721911
+        ]
+      },
+      "properties": {
+        "id": 672,
+        "name": "小間書菜",
+        "description": "深溝村的複合式書屋"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.214182,
+          23.124188
+        ]
+      },
+      "properties": {
+        "id": 670,
+        "name": "榷谷",
+        "description": "台東家鄉味的私廚料理"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.468422,
+          22.669279
+        ]
+      },
+      "properties": {
+        "id": 669,
+        "name": "閎美小舖/綠島花生豆花",
+        "description": "綠島自耕食材的豆花店"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.198323,
+          22.996436
+        ]
+      },
+      "properties": {
+        "id": 666,
+        "name": "種素Zone Su",
+        "description": "用蔬食種下綠色種子"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.150269,
+          22.764141
+        ]
+      },
+      "properties": {
+        "id": 665,
+        "name": "艾蘭哥爾藝文咖啡",
+        "description": "大武山下自然農法咖啡"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.884104,
+          23.598598
+        ]
+      },
+      "properties": {
+        "id": 664,
+        "name": "慢午廚房X野食",
+        "description": "受玉山看顧的綠色餐廳"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.530009,
+          22.550925
+        ]
+      },
+      "properties": {
+        "id": 663,
+        "name": "玫來晏趣製麵小農農莊",
+        "description": "藏身幽靜農莊的日曬製麵廠"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.539056,
+          22.550724
+        ]
+      },
+      "properties": {
+        "id": 662,
+        "name": "蘇珊喝茶",
+        "description": "照顧老屋的藝文茶藝空間"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.541372,
+          22.903093
+        ]
+      },
+      "properties": {
+        "id": 661,
+        "name": "幸福甜舖",
+        "description": "駐點在農會的麵包舖"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.218768,
+          23.124017
+        ]
+      },
+      "properties": {
+        "id": 660,
+        "name": "巧本味蔬食人文料理",
+        "description": "巧妙運用食材本來的味道"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.663281,
+          24.461174
+        ]
+      },
+      "properties": {
+        "id": 659,
+        "name": "通霄一心素食",
+        "description": "媽祖婆指定的素食餐廳"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.608346,
+          23.980808
+        ]
+      },
+      "properties": {
+        "id": 658,
+        "name": "甜聿家米甜品",
+        "description": "一起把土地吃回來"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.65617,
+          24.156541
+        ]
+      },
+      "properties": {
+        "id": 657,
+        "name": "FIRNS",
+        "description": "Inspired by FERN"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.551536,
+          25.043967
+        ]
+      },
+      "properties": {
+        "id": 656,
+        "name": "Vast Cali Eatery / VCE 南加州風格有機餐飲",
+        "description": "VAST旗下餐飲品牌"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.508945,
+          25.118683
+        ]
+      },
+      "properties": {
+        "id": 655,
+        "name": "挑食的茄子",
+        "description": "將在地果實的味道，好好保存下來"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.533998,
+          23.661426
+        ]
+      },
+      "properties": {
+        "id": 653,
+        "name": "復興Dipit部落",
+        "description": "不菸不酒不檳榔的阿美部落"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.817685,
+          24.552862
+        ]
+      },
+      "properties": {
+        "id": 652,
+        "name": "Bonbons法式甜食工作室",
+        "description": "透過「品嚐」來認識苗栗"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.79629660833,
+          24.47382189728
+        ]
+      },
+      "properties": {
+        "id": 651,
+        "name": "雙峰草堂銅鑼燒專賣店",
+        "description": "在銅鑼賣銅鑼燒"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.46311365342,
+          23.485254101596
+        ]
+      },
+      "properties": {
+        "id": 647,
+        "name": "拾間文化",
+        "description": "在山海之間，拾起生活，也拾起自己"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.54166,
+          22.542466
+        ]
+      },
+      "properties": {
+        "id": 648,
+        "name": "The Kinfolk 餐桌",
+        "description": "潮州最潮義式綠餐"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.56890691437,
+          24.243909947259
+        ]
+      },
+      "properties": {
+        "id": 644,
+        "name": "Jun's kombucha 究室康普茶",
+        "description": "一喝就停不下來的發酵茶"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.54083165585,
+          25.042145404812
+        ]
+      },
+      "properties": {
+        "id": 643,
+        "name": "食夢 Snoreatery",
+        "description": "以全植物性飲食為健康與快樂加分"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.76184252177,
+          25.132768475472
+        ]
+      },
+      "properties": {
+        "id": 642,
+        "name": "河沏",
+        "description": "在河畔用食物連結人心與自然"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.26503039806,
+          24.895981345879
+        ]
+      },
+      "properties": {
+        "id": 641,
+        "name": "雙口呂文化廚房",
+        "description": "三合院米食體驗：從製粿到節慶故事"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.536694,
+          25.102841
+        ]
+      },
+      "properties": {
+        "id": 640,
+        "name": "山禾苑｜Yard Sunrise",
+        "description": "百年三合院裡由四季食材編織成的美味"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.29641441534,
+          23.752148108814
+        ]
+      },
+      "properties": {
+        "id": 305,
+        "name": "【雲林．麥寮】晁陽綠能休閒農場",
+        "description": "從綠能帶動食農的幸福體驗"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.53977338466,
+          23.697388680112
+        ]
+      },
+      "properties": {
+        "id": 639,
+        "name": "花囍烘焙坊",
+        "description": "一個身心可以安頓落腳的家"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.49783,
+          22.64656
+        ]
+      },
+      "properties": {
+        "id": 638,
+        "name": "夏卡爾",
+        "description": "以生態之名代表對島嶼的心願"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.49602974888,
+          23.270487990691
+        ]
+      },
+      "properties": {
+        "id": 490,
+        "name": "仙湖休閒農場",
+        "description": "找一隅，享一刻山間。"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.681044,
+          23.979812
+        ]
+      },
+      "properties": {
+        "id": 489,
+        "name": "仕合廖家 手作御食",
+        "description": "人與人之間交流所延伸出的幸福感"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.70914936931,
+          24.393267467518
+        ]
+      },
+      "properties": {
+        "id": 488,
+        "name": "淺山綠",
+        "description": "多以植物與自然為主題選書的合院小書店"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.56320966137,
+          25.035724665921
+        ]
+      },
+      "properties": {
+        "id": 487,
+        "name": "台北君悅酒店-茶苑",
+        "description": "多種茶飲、咖啡、各式飲品與自助式美饌"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.55021613069,
+          25.036778167467
+        ]
+      },
+      "properties": {
+        "id": 484,
+        "name": "EMBERS",
+        "description": "品嚐融合台灣地域、人文、風土、食材之精緻料理與體驗。"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.02638091534,
+          24.822594170837
+        ]
+      },
+      "properties": {
+        "id": 483,
+        "name": "D-GI Rose Kitchen",
+        "description": "健康低醣飲食理念分享"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.65823675397,
+          24.148825434804
+        ]
+      },
+      "properties": {
+        "id": 482,
+        "name": "香荷手工鹽鹵豆腐",
+        "description": "多一點的豆腐人生"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.01893711535,
+          24.816548037025
+        ]
+      },
+      "properties": {
+        "id": 422,
+        "name": "Fifteen 拾吾純植西餐廳",
+        "description": "以純植料理時刻收拾整理自己的內心"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.51246174603,
+          25.032615012706
+        ]
+      },
+      "properties": {
+        "id": 481,
+        "name": "蕃薯藤自然食堂－台北植物園店",
+        "description": "擁有自家農場新鮮直送的有機Buffet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.36765356931,
+          25.075333821388
+        ]
+      },
+      "properties": {
+        "id": 480,
+        "name": "TINA麵包咖啡 - 新北林口店",
+        "description": "擁有自家農場新鮮直送的有機美食"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.32783088466,
+          22.617960799717
+        ]
+      },
+      "properties": {
+        "id": 479,
+        "name": "野狼媽媽無毒無塑商店",
+        "description": "支持無塑、綠餐、在地農友"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.30721474444,
+          23.218700634158
+        ]
+      },
+      "properties": {
+        "id": 478,
+        "name": "德森有機農莊",
+        "description": "欣賞六十石山美麗的風光 ，也能品嘗到最自然、健康的有機蔬菜。"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.71628256138,
+          21.93792024637
+        ]
+      },
+      "properties": {
+        "id": 477,
+        "name": "白沙35民宿",
+        "description": "料理中有著主人從土地到餐桌的鮮甜活力香草植物、生菜與水果，隨時間醱酵醞釀的料理。"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.62374851534,
+          22.70699363114
+        ]
+      },
+      "properties": {
+        "id": 476,
+        "name": "小農餐桌",
+        "description": "盼用料理守護山村保種人，用食農互相串連城鄉照顧"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.21350202751,
+          22.987854479109
+        ]
+      },
+      "properties": {
+        "id": 475,
+        "name": "小轉角Artdecorner",
+        "description": "延續簡單樸實的價值， 創造身心自在的空間"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.571908,
+          23.96007
+        ]
+      },
+      "properties": {
+        "id": 470,
+        "name": "釀善三津制麵-愛聚所概念店",
+        "description": "看見更多人笑容的願景"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.54416643862,
+          25.018549764171
+        ]
+      },
+      "properties": {
+        "id": 469,
+        "name": "MD創作料理",
+        "description": "推動臺灣在地物產的永續理念"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.67636843069,
+          24.138748660877
+        ]
+      },
+      "properties": {
+        "id": 468,
+        "name": "BAA - Veg Indian Cuisine",
+        "description": "以謙卑謙虛的態度呈現印度家鄉的手作料理味道與溫度"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.45505767301,
+          23.662538931035
+        ]
+      },
+      "properties": {
+        "id": 459,
+        "name": "阿樂樂代Aredetay",
+        "description": "跟著季節變換的歲時節令一起呼吸，跟著土地給予的豐饒韻律起舞。"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.76521786931,
+          25.163103250415
+        ]
+      },
+      "properties": {
+        "id": 457,
+        "name": "禾口丘",
+        "description": "將海岸淺山丘陵裡的咖啡廳，變成里山的守護者。"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.11382273069,
+          22.93412269251
+        ]
+      },
+      "properties": {
+        "id": 456,
+        "name": "烏尼囊多元文化工作坊",
+        "description": "把滿滿的布農滋味收攏在此。"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.45415393809,
+          23.31697708397
+        ]
+      },
+      "properties": {
+        "id": 455,
+        "name": "Luma Café",
+        "description": "Luma café，讓溫暖如家的美味，點亮長濱。"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.42481332116,
+          23.278067207831
+        ]
+      },
+      "properties": {
+        "id": 454,
+        "name": "Sinasera 24",
+        "description": "讓食客在一年 24 個節氣裡感受台東這片土地的風情。"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.76363455397,
+          25.162524395894
+        ]
+      },
+      "properties": {
+        "id": 453,
+        "name": " 樂品喜塘咖啡",
+        "description": "期許樂品喜塘能讓遊客在旅程的回憶中多一份回味"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.62877631409,
+          25.067927742404
+        ]
+      },
+      "properties": {
+        "id": 452,
+        "name": "盒盒 BOX BOX",
+        "description": "綠色地球「盒」您一起"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.09002141481,
+          24.014219805347
+        ]
+      },
+      "properties": {
+        "id": 450,
+        "name": "原夢觀光農園民宿",
+        "description": "秉持著料理可以改變、但最初的味道不能改變，將屬於自己的夢想及傳統味道傳承下去。"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.90974325344,
+          23.868135447186
+        ]
+      },
+      "properties": {
+        "id": 449,
+        "name": "日月潭山慕藝旅 Sun Moon Inn",
+        "description": "山水依傍，慕名八方；藝蘊於禪，旅賓如歸"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.95510581322,
+          23.969034056367
+        ]
+      },
+      "properties": {
+        "id": 448,
+        "name": "無所從來蔬食文創館",
+        "description": "『無所從來』顛覆你對素食料理的想像"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.53672218466,
+          25.034481748483
+        ]
+      },
+      "properties": {
+        "id": 447,
+        "name": "優鮮主意",
+        "description": "Freshness is Priority"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.57483087725,
+          25.142311362234
+        ]
+      },
+      "properties": {
+        "id": 446,
+        "name": "梅居休閒農場",
+        "description": "在大自然中享受友善天然的愉悅時光"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.45993083069,
+          25.00422703901
+        ]
+      },
+      "properties": {
+        "id": 443,
+        "name": "ManaR慢慢來",
+        "description": "無須刻意，事物慢慢地融入生活之中"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.45952703117,
+          25.014248253953
+        ]
+      },
+      "properties": {
+        "id": 442,
+        "name": "Ponpie 水果塔專門店",
+        "description": "澎派是台語「豐盛」的意思，我們提供份量十足的美味塔派"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.52820666138,
+          25.044274113998
+        ]
+      },
+      "properties": {
+        "id": 441,
+        "name": "北棲邸家",
+        "description": "給努力在異鄉打拼的北漂們，有一個北棲的地方能用美食來充電自己"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.54435243272,
+          25.052075668158
+        ]
+      },
+      "properties": {
+        "id": 439,
+        "name": "200%純植甜點",
+        "description": "100% Vegan + 100% Love"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.206365,
+          25.000537
+        ]
+      },
+      "properties": {
+        "id": 438,
+        "name": "微酵好食",
+        "description": "微生物發酵的好食物"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          119.91966680741,
+          26.168599826247
+        ]
+      },
+      "properties": {
+        "id": 436,
+        "name": "西尾半島物產店",
+        "description": "成為旅人的座標"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.61761867519,
+          25.071916270333
+        ]
+      },
+      "properties": {
+        "id": 435,
+        "name": "雜食社 Segovia's Kitchen",
+        "description": "想用自己的力量去影響世界的人"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.4624115074,
+          23.324655040791
+        ]
+      },
+      "properties": {
+        "id": 434,
+        "name": "海邊小巫",
+        "description": "我們販賣的是一種生活方式"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.13435683015,
+          22.955180422934
+        ]
+      },
+      "properties": {
+        "id": 433,
+        "name": "山谷裡的一家人",
+        "description": "一起好好生活，好好吃飯"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.1821041,
+          23.548143224719
+        ]
+      },
+      "properties": {
+        "id": 432,
+        "name": "雲林縣口湖遊客中心（甘苦人魅力農店）",
+        "description": "以「循環、生活、永續」為經營理念"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          119.9128741,
+          26.14643948317
+        ]
+      },
+      "properties": {
+        "id": 430,
+        "name": "津寮 • 創生基地",
+        "description": "津津樂道創生茶寮　"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.2869701,
+          22.674808062193
+        ]
+      },
+      "properties": {
+        "id": 474,
+        "name": "食不二蔬食",
+        "description": "安心著食的食材，健康蔬食的不二選擇"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.30203740795,
+          22.670528692636
+        ]
+      },
+      "properties": {
+        "id": 473,
+        "name": "漢來蔬食 巨蛋店",
+        "description": "多元的飲食新樂趣、令人驚豔的健康美味"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.303525,
+          22.612178871371
+        ]
+      },
+      "properties": {
+        "id": 472,
+        "name": "高雄洲際酒店 - SEEDS 大地全日餐廳",
+        "description": "藉由料理與台灣土地建立緊密的正向循環"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.23333225767,
+          22.990269713498
+        ]
+      },
+      "properties": {
+        "id": 471,
+        "name": "台南老爺行旅",
+        "description": "飯店與在地意象文化的深度連結"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.31863463863,
+          22.667487209917
+        ]
+      },
+      "properties": {
+        "id": 467,
+        "name": "蔬果良食",
+        "description": "親自拜訪產地、分享產地實況及農友理念"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.62680831534,
+          24.102595339434
+        ]
+      },
+      "properties": {
+        "id": 466,
+        "name": "美森食研館",
+        "description": "健康與美味並存的所在"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.6528755,
+          24.160568601459
+        ]
+      },
+      "properties": {
+        "id": 465,
+        "name": "Dew-chefs wine and gourmet",
+        "description": "通過敘事餐餚，緩緩描繪著旅途中的輪廓"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.16247571534,
+          23.064113344802
+        ]
+      },
+      "properties": {
+        "id": 464,
+        "name": "GraceKitchen",
+        "description": "歡迎喜愛大自然的你來一起用餐"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.04336713069,
+          24.805310911152
+        ]
+      },
+      "properties": {
+        "id": 463,
+        "name": "不二農產直販所",
+        "description": "一群愛護土地的農民共同打造的一家店舖"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.22405263069,
+          22.974530671219
+        ]
+      },
+      "properties": {
+        "id": 462,
+        "name": "漫步維根",
+        "description": "從現在開始思考「吃」這件事吧！"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.06294091534,
+          23.083460448831
+        ]
+      },
+      "properties": {
+        "id": 461,
+        "name": "黑琵食堂",
+        "description": "行有「漁」力一起「餐」與環境永續！"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.20065951534,
+          22.987993832191
+        ]
+      },
+      "properties": {
+        "id": 460,
+        "name": "趴利趴利台灣冰淇淋",
+        "description": "守護生物多樣性，從吃冰開始！"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.66477913069,
+          24.132595071806
+        ]
+      },
+      "properties": {
+        "id": 445,
+        "name": "茁食小攤子",
+        "description": "「來茁食／呷著時」"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.63341453069,
+          24.141898132766
+        ]
+      },
+      "properties": {
+        "id": 444,
+        "name": "有火鍋",
+        "description": "離土地最近的人，是最富裕的人"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          118.32040354603,
+          24.43557357125
+        ]
+      },
+      "properties": {
+        "id": 428,
+        "name": "樸食 à table",
+        "description": "到金門「樸食」體驗一場單純的藝術饗宴"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.9676904953,
+          23.965006763224
+        ]
+      },
+      "properties": {
+        "id": 426,
+        "name": "一口涼水植物飲",
+        "description": "生態系日常的無限可能"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.55241876931,
+          23.936462912226
+        ]
+      },
+      "properties": {
+        "id": 406,
+        "name": "無思農莊",
+        "description": "小農莊園手釀，採用友善人與土地的真食材"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.31401462574,
+          22.632048987823
+        ]
+      },
+      "properties": {
+        "id": 405,
+        "name": "美蔬齋麵館",
+        "description": "友善環境的飲食新食尚"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.28432341534,
+          22.663466043346
+        ]
+      },
+      "properties": {
+        "id": 425,
+        "name": "LA ONE Pizza",
+        "description": "400度高溫下的美味印記"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.74926895397,
+          22.007071136825
+        ]
+      },
+      "properties": {
+        "id": 424,
+        "name": "紅氣球書屋 Le BallonRouge",
+        "description": "土地與閱聽者之間的橋樑"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.2002814,
+          22.991900631738
+        ]
+      },
+      "properties": {
+        "id": 423,
+        "name": "透南風咖啡聚場",
+        "description": "老屋選物咖啡廳，實踐你的美好生活"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.01957767673,
+          24.819021166078
+        ]
+      },
+      "properties": {
+        "id": 421,
+        "name": "裸拾商行",
+        "description": "自備容器，需要多少買多少！"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.28675827582,
+          22.747249840765
+        ]
+      },
+      "properties": {
+        "id": 420,
+        "name": "鈺善閣．素．養生懷石 - 高雄店",
+        "description": "一念動天・天從善願"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.52450408465,
+          25.04693935484
+        ]
+      },
+      "properties": {
+        "id": 419,
+        "name": "鈺善閣．素．養生懷石 - 台北店",
+        "description": "用喜悅的心靈，做出幸福感動的餐點"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.75094986138,
+          24.745416034147
+        ]
+      },
+      "properties": {
+        "id": 418,
+        "name": "安孫好食",
+        "description": "堅持只賣「在地」、「著時」的好食材"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.67581483069,
+          24.67255344743
+        ]
+      },
+      "properties": {
+        "id": 417,
+        "name": "行健有機農產生產合作社",
+        "description": "把家鄉變成有機村的夢想"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.85223431535,
+          24.594458684819
+        ]
+      },
+      "properties": {
+        "id": 416,
+        "name": "嘗九 TasteTo9",
+        "description": "讓更多有趣的事發生在蘇澳"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.74608866138,
+          24.751380838325
+        ]
+      },
+      "properties": {
+        "id": 415,
+        "name": "芭樂狗 Mr.Balagov Ukrainian Cafe",
+        "description": "隱藏在三合院內的烏克蘭料理"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.63895354604,
+          25.03401657118
+        ]
+      },
+      "properties": {
+        "id": 414,
+        "name": "天然茶莊",
+        "description": "有機栽種茶葉，尊重愛護地球"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.66130816138,
+          25.074559797818
+        ]
+      },
+      "properties": {
+        "id": 413,
+        "name": "日々生 日日生",
+        "description": "都市一隅心靈放鬆之處"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.52814753069,
+          25.037791243064
+        ]
+      },
+      "properties": {
+        "id": 412,
+        "name": "土生土長 On the Ground",
+        "description": "與所根所長的土地共生"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.6833873,
+          24.136205037259
+        ]
+      },
+      "properties": {
+        "id": 411,
+        "name": "豬肉榮小料理",
+        "description": "值得細細品嘗的深夜食堂"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.52324741549,
+          25.108033140209
+        ]
+      },
+      "properties": {
+        "id": 410,
+        "name": "大人山養 · Darling SameYoung",
+        "description": "我們養著一座山，也被山養育著"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.49901357281,
+          25.136975454193
+        ]
+      },
+      "properties": {
+        "id": 409,
+        "name": "拾米屋",
+        "description": "希望甜點成為大家認識產地的媒介"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.11051535397,
+          23.239654435388
+        ]
+      },
+      "properties": {
+        "id": 408,
+        "name": "田媽媽 長盈海味屋",
+        "description": "產銷履歷達人的海味"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.5501002,
+          25.044672349913
+        ]
+      },
+      "properties": {
+        "id": 407,
+        "name": "好嶼 HoSu",
+        "description": "以餐點訴說島嶼風土能量"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.69280147116,
+          24.165959917104
+        ]
+      },
+      "properties": {
+        "id": 403,
+        "name": "馨苑小料理 - 北屯店",
+        "description": "在百年古蹟中感受經典台菜的傳承"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.364947,
+          22.617435763009
+        ]
+      },
+      "properties": {
+        "id": 401,
+        "name": "驢子實驗室",
+        "description": "眷村老宅咖啡廳的美味風情"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.31942497116,
+          22.624600906103
+        ]
+      },
+      "properties": {
+        "id": 396,
+        "name": "御書房生活藝術空間",
+        "description": "漫漫繽紛世界走過／而今這片天地停留"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.3456,
+          22.7752
+        ]
+      },
+      "properties": {
+        "id": 395,
+        "name": "大地行者 Land Walker",
+        "description": "純植物友善農食"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.2273,
+          22.97658
+        ]
+      },
+      "properties": {
+        "id": 394,
+        "name": "村家味",
+        "description": "有機農場產地直送"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.28349435532,
+          22.631197396061
+        ]
+      },
+      "properties": {
+        "id": 400,
+        "name": "元啡驢派",
+        "description": "堅持呈現美好的鹹派與咖啡"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.63204,
+          24.15388
+        ]
+      },
+      "properties": {
+        "id": 393,
+        "name": "豆腐工房 日作",
+        "description": "無添加的新鮮豆之味"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.58547,
+          23.86333
+        ]
+      },
+      "properties": {
+        "id": 392,
+        "name": "FaFa食舖",
+        "description": "有溫度的好食"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.62091,
+          24.18528
+        ]
+      },
+      "properties": {
+        "id": 391,
+        "name": "慕時 食飲空間",
+        "description": "中西融合的創意料理"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.92345,
+          23.87173
+        ]
+      },
+      "properties": {
+        "id": 390,
+        "name": "雲品溫泉飯店-Sky Lounge 雲月舫",
+        "description": "獨一無二的悠閒時光"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.57645954724,
+          25.07173696217
+        ]
+      },
+      "properties": {
+        "id": 404,
+        "name": "【企業員餐】Gamania 遊戲橘子集團 - 普橘島 Gama Island",
+        "description": "如果橘人不在座位上，那一定是在去普橘島的路上！"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.56193,
+          25.08332
+        ]
+      },
+      "properties": {
+        "id": 388,
+        "name": "【企業員餐】安永生活事業股份有限公司  安永食堂總部門市",
+        "description": "用科技思維建構Health Care大健康產業"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.33099582884,
+          22.728511856454
+        ]
+      },
+      "properties": {
+        "id": 397,
+        "name": "多野樂旅館 DOGETHER HOTEL | 異國蔬食餐廳",
+        "description": "實踐永續的寵物友善複合式空間"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.75117,
+          24.35324
+        ]
+      },
+      "properties": {
+        "id": 384,
+        "name": "笠園有機農園",
+        "description": "農事體驗 蔬果採摘"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.96267,
+          24.86181
+        ]
+      },
+      "properties": {
+        "id": 383,
+        "name": "牧人享魚 私廚",
+        "description": "天然野生季節性食材"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.79856,
+          25.14012
+        ]
+      },
+      "properties": {
+        "id": 382,
+        "name": "國立海洋科技博物館 生態廚房",
+        "description": "食魚教育的體驗教室"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.60267961283,
+          23.977479808381
+        ]
+      },
+      "properties": {
+        "id": 360,
+        "name": "食驛",
+        "description": "支持花蓮在地有機農產複合式"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.74201,
+          25.12788
+        ]
+      },
+      "properties": {
+        "id": 381,
+        "name": "食考房",
+        "description": "支持在地食材，選用當季漁獲，不過度調味"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.46608,
+          25.01691
+        ]
+      },
+      "properties": {
+        "id": 380,
+        "name": "VGest 低碳披薩 - 板橋店",
+        "description": "低碳飲食 疼惜咱ㄟ土地"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.54807,
+          25.03651
+        ]
+      },
+      "properties": {
+        "id": 378,
+        "name": "MUME",
+        "description": "永續 ‧ 環保 ‧ 在地"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.174855,
+          23.076737
+        ]
+      },
+      "properties": {
+        "id": 377,
+        "name": "後山咖啡室",
+        "description": "住在森林裡的療癒咖啡"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.44809226865,
+          23.74701316407
+        ]
+      },
+      "properties": {
+        "id": 359,
+        "name": "拾豆屋",
+        "description": "老屋裡的有機豆花店"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.16838,
+          23.04399
+        ]
+      },
+      "properties": {
+        "id": 376,
+        "name": "惣在生活",
+        "description": "用心對待生命中的所有"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.72190515517,
+          24.72292922037
+        ]
+      },
+      "properties": {
+        "id": 358,
+        "name": "深溝共同店",
+        "description": "匯集在地友善農作的農夫商店"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.27469,
+          23.00984
+        ]
+      },
+      "properties": {
+        "id": 375,
+        "name": "電光寶媽食堂",
+        "description": "在地食材 ‧ 無菜單料理 ‧ 寵物友善"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.21573774689,
+          23.121823732152
+        ]
+      },
+      "properties": {
+        "id": 357,
+        "name": "Wu Lou Pie Pie 巫露派派",
+        "description": "蔬食、藝術、音樂與好玩的創作空間"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.1742,
+          23.00964
+        ]
+      },
+      "properties": {
+        "id": 374,
+        "name": "日出禾作",
+        "description": "青年返鄉友善耕作安心好米"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.54261,
+          25.05569
+        ]
+      },
+      "properties": {
+        "id": 356,
+        "name": "那事的味 Nuts The Way",
+        "description": "以烘焙紀錄季節的運行"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.27469,
+          23.20213
+        ]
+      },
+      "properties": {
+        "id": 373,
+        "name": "豆奏會",
+        "description": "羅山大自然工作坊"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.84974911164,
+          24.595892410732
+        ]
+      },
+      "properties": {
+        "id": 355,
+        "name": "蘇嘻餐飲",
+        "description": "咖哩與咖啡交織的蘇嘻/舒適空間"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.56875499749,
+          23.984104194368
+        ]
+      },
+      "properties": {
+        "id": 361,
+        "name": "大山小農",
+        "description": "自助式誠實無人商店"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.75229,
+          24.76113
+        ]
+      },
+      "properties": {
+        "id": 371,
+        "name": "邂逅街 純天然義式冰淇淋",
+        "description": "大家一起吃冰淇淋就會出太陽"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.79679,
+          24.77194
+        ]
+      },
+      "properties": {
+        "id": 370,
+        "name": "木予田商行",
+        "description": "展售有機農產品與在地藝術家作品"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.76457,
+          24.68107
+        ]
+      },
+      "properties": {
+        "id": 369,
+        "name": "勝美市集",
+        "description": "提供天然、安心及友善環境的商品"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.26369,
+          23.1235
+        ]
+      },
+      "properties": {
+        "id": 368,
+        "name": "【企業員餐】啓碁科技股份有限公司 WNC S2南科廠員工餐廳",
+        "description": "南科第一間大型企業的綠色員工餐廳"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.54451316885,
+          25.059550678523
+        ]
+      },
+      "properties": {
+        "id": 351,
+        "name": "一禾堂 - 復北店",
+        "description": "一禾初心，展開種子植物的繁盛可能"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.01403,
+          24.77183
+        ]
+      },
+      "properties": {
+        "id": 367,
+        "name": "【企業員餐】啓碁科技股份有限公司 WNC S1力行廠員工餐廳",
+        "description": "竹科第一間大型企業的綠色員工餐廳"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.99986,
+          24.7781
+        ]
+      },
+      "properties": {
+        "id": 366,
+        "name": "【企業員餐】啓碁科技股份有限公司 WNC 總部員工餐廳",
+        "description": "竹科第一間大型企業的綠色員工餐廳"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.54455305535,
+          25.059455278561
+        ]
+      },
+      "properties": {
+        "id": 349,
+        "name": "穗科手打烏龍麵 - 復北店",
+        "description": "職人的日日素直手作"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.56157,
+          25.04967
+        ]
+      },
+      "properties": {
+        "id": 365,
+        "name": "Hi-Q鱻食．集 ",
+        "description": "無添加守護全家人的健康"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.36121108466,
+          25.071429720172
+        ]
+      },
+      "properties": {
+        "id": 363,
+        "name": "零浪費雜貨店",
+        "description": "支持減塑永續資源再利用的好所在"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.46798560675,
+          25.019797903743
+        ]
+      },
+      "properties": {
+        "id": 364,
+        "name": "零居 Zero Living",
+        "description": "減少不必要的包裝， 對環境友善、動物友好"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.53250533069,
+          25.047120154174
+        ]
+      },
+      "properties": {
+        "id": 362,
+        "name": "Sousan 曾全穀物酸種烘焙所",
+        "description": "自磨台灣小麥的全野生酵母酸種麵包"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.63661299767,
+          24.146086354767
+        ]
+      },
+      "properties": {
+        "id": 345,
+        "name": "旬蜜法式甜點 La Saison Patisserie Formosa",
+        "description": "探究在地風味食材的法式甜點"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.50833,
+          25.05468
+        ]
+      },
+      "properties": {
+        "id": 28,
+        "name": "Le coin de Sophie 在她家",
+        "description": "小農食材演繹出在地風情"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.6227150265,
+          23.986049391507
+        ]
+      },
+      "properties": {
+        "id": 344,
+        "name": "慢 野生酵母麵包坊 Kiss the Land Sourdough Bakery",
+        "description": "堅持使用野生酵母和友善食材的麵包店"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.300911,
+          22.604578
+        ]
+      },
+      "properties": {
+        "id": 137,
+        "name": "THOMAS CHIEN Restaurant",
+        "description": "以客為尊，貼心款待的美食家樂園"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.303875,
+          22.651335
+        ]
+      },
+      "properties": {
+        "id": 138,
+        "name": "LA ONE Kitchen",
+        "description": "尋找合適的食材是我們的天職，也是不懈怠的旅程"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.13842508466,
+          22.760656733746
+        ]
+      },
+      "properties": {
+        "id": 342,
+        "name": "森森咖啡 sunsuncoffee",
+        "description": "森，以大地元氣的純植物和土地連結"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.261653,
+          24.879439
+        ]
+      },
+      "properties": {
+        "id": 140,
+        "name": "丁廚房 藍帶X私廚",
+        "description": "為你量身打造舒服自在的精緻家宴"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.66226356105,
+          24.151160602281
+        ]
+      },
+      "properties": {
+        "id": 341,
+        "name": "山東餃子牛肉麵館",
+        "description": "精益求精的職人風範"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.965897,
+          24.799173
+        ]
+      },
+      "properties": {
+        "id": 141,
+        "name": "江山藝改所 Jiang Shan Yi Gai Suo",
+        "description": "跨領域的媒合賦予老宅新風貌"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.29311198175,
+          22.670467384403
+        ]
+      },
+      "properties": {
+        "id": 340,
+        "name": "夏夫小農 蔬食餐廳 Shafarm vegetarian restaurants",
+        "description": "「實齋食在」呈現蔬食的美好"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.29859201534,
+          22.63022809166
+        ]
+      },
+      "properties": {
+        "id": 334,
+        "name": "而今餐酒館",
+        "description": "品嚐一口季節，豪飲一杯風土"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.53274968466,
+          25.053446820549
+        ]
+      },
+      "properties": {
+        "id": 329,
+        "name": "養心茶樓",
+        "description": "蔬食港式飲茶的新風貌"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.227681,
+          22.986604
+        ]
+      },
+      "properties": {
+        "id": 210,
+        "name": "小温蔬菜坊",
+        "description": "老城區中的蔬果直賣店"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.5264987,
+          25.089224926846
+        ]
+      },
+      "properties": {
+        "id": 328,
+        "name": "Monsoon",
+        "description": "無國際的客家風土饗宴"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.796138,
+          24.626222
+        ]
+      },
+      "properties": {
+        "id": 212,
+        "name": "莢麵包",
+        "description": "一起陪伴生活的麵包"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.546166,
+          24.077131
+        ]
+      },
+      "properties": {
+        "id": 332,
+        "name": "三時之聚",
+        "description": "一頓飯的時間，品嘗生活的滋味"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.63157177003,
+          24.153210789672
+        ]
+      },
+      "properties": {
+        "id": 214,
+        "name": "花毛 かき氷喫茶",
+        "description": "滿滿時間風味的漬物刨冰"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.43533212239,
+          23.707880362105
+        ]
+      },
+      "properties": {
+        "id": 227,
+        "name": "老宅咖啡",
+        "description": "鐵漢的溫柔手作料理"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.78382211081,
+          24.662085388725
+        ]
+      },
+      "properties": {
+        "id": 338,
+        "name": "花愛現小酒館",
+        "description": "邀請你一起愛上生活的味道"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.49932163861,
+          22.675673670533
+        ]
+      },
+      "properties": {
+        "id": 326,
+        "name": "Eske Place Coffee House",
+        "description": "硬底子功力的典雅咖啡廳"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.73208393069,
+          24.150976259848
+        ]
+      },
+      "properties": {
+        "id": 273,
+        "name": "施雜貨",
+        "description": "一家三代，老屋之下的共同創作"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.56211022616,
+          25.057102404431
+        ]
+      },
+      "properties": {
+        "id": 337,
+        "name": "GREEN BAKERY 綠帶純植物烘焙",
+        "description": "輕盈美味的全植物性甜點"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.30597059208,
+          22.629391907374
+        ]
+      },
+      "properties": {
+        "id": 324,
+        "name": "小麥家",
+        "description": "鄕村風的溫馨小店"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.4120253,
+          23.683931018583
+        ]
+      },
+      "properties": {
+        "id": 248,
+        "name": "勝利不廢商號",
+        "description": "兒時雲南記憶的復刻空間"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.72215491318,
+          24.722866047709
+        ]
+      },
+      "properties": {
+        "id": 220,
+        "name": "一簞食-蔬食x生活",
+        "description": "朝著「簡單、健康、樸實」的理念不斷前進"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.29890246931,
+          22.631550262392
+        ]
+      },
+      "properties": {
+        "id": 323,
+        "name": "Gien Jia 挑食",
+        "description": "老宅與異國風情的完美結合"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.68104708233,
+          24.158777191684
+        ]
+      },
+      "properties": {
+        "id": 259,
+        "name": "寧菠小館",
+        "description": "美味健康・寧菠給你"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.83393542629,
+          24.620382353431
+        ]
+      },
+      "properties": {
+        "id": 333,
+        "name": "夏屋．舒食",
+        "description": "讓您餐餐都吃進均衡的營養！"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.6143888,
+          24.191280341193
+        ]
+      },
+      "properties": {
+        "id": 331,
+        "name": "繆特咖啡 Artmunicate Space+Cafe'",
+        "description": "與環境相處的人文餐桌風景"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.27448606931,
+          22.621702974955
+        ]
+      },
+      "properties": {
+        "id": 322,
+        "name": "好市集 Le Bon Marche",
+        "description": "老洋樓裡的手作歐式料理"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.72213,
+          24.721767
+        ]
+      },
+      "properties": {
+        "id": 244,
+        "name": "穗穗念",
+        "description": "想要把「吃米」變得流行"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.66840334604,
+          24.148860495084
+        ]
+      },
+      "properties": {
+        "id": 321,
+        "name": "馨苑小料理 - 西區店",
+        "description": "一個人也能輕鬆享 受的精緻台菜空間"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.54425,
+          25.03672
+        ]
+      },
+      "properties": {
+        "id": 9,
+        "name": "Plants",
+        "description": "全食物無麩質的植物性生機飲食"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.51057,
+          25.06202
+        ]
+      },
+      "properties": {
+        "id": 4,
+        "name": "Man Mano慢慢弄‧乳酪坊",
+        "description": "職人手作的在地新鮮乳酪"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.6606189,
+          24.14184587605
+        ]
+      },
+      "properties": {
+        "id": 320,
+        "name": "膳馨民間創作料理",
+        "description": "創新健康的家常「馨」台菜"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.55160655767,
+          25.032438200257
+        ]
+      },
+      "properties": {
+        "id": 245,
+        "name": "原味廚房",
+        "description": "有身分證的便當"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.54195721534,
+          25.059786437783
+        ]
+      },
+      "properties": {
+        "id": 219,
+        "name": "狐狸野餐",
+        "description": "對於飲食及生活的心念永保初心"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.13858833863,
+          22.931299148416
+        ]
+      },
+      "properties": {
+        "id": 249,
+        "name": "恰比兔子",
+        "description": "思念家鄉味的歐式快樂私廚"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.67759106745,
+          24.134408269336
+        ]
+      },
+      "properties": {
+        "id": 246,
+        "name": "許愿",
+        "description": "眷村風格與自然風味料理烘焙餐廳"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.5336,
+          25.04024
+        ]
+      },
+      "properties": {
+        "id": 6,
+        "name": "東雅小廚",
+        "description": "最高比例使用有機食材的手路菜"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.54312131913,
+          25.109072536273
+        ]
+      },
+      "properties": {
+        "id": 276,
+        "name": "美滿蔬房",
+        "description": "豐潤身心靈的家庭式用餐空間"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.55643,
+          24.97999
+        ]
+      },
+      "properties": {
+        "id": 7,
+        "name": "Ile島嶼法式海鮮",
+        "description": "以法式料理法呈現台灣當季的食材風情"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.62875975582,
+          25.05978154042
+        ]
+      },
+      "properties": {
+        "id": 317,
+        "name": "Vegan Taipei",
+        "description": "堅持純淨食材的漫長旅程"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.14726751535,
+          22.761583460472
+        ]
+      },
+      "properties": {
+        "id": 283,
+        "name": "Ameya 飴屋",
+        "description": "健康新鮮的每日堅持"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.54155,
+          25.02558
+        ]
+      },
+      "properties": {
+        "id": 8,
+        "name": "泔 米食堂",
+        "description": "每天特選一款菜單的溫暖台味定食"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.84946789648,
+          24.907147183961
+        ]
+      },
+      "properties": {
+        "id": 316,
+        "name": "頭城農場",
+        "description": "有機農場的佳餚美饌"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.76280012328,
+          24.760751330384
+        ]
+      },
+      "properties": {
+        "id": 287,
+        "name": "安步良食.誠食料理製作所",
+        "description": "在速食社會中安步靜心，透過擇食對生命表態"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.40920262328,
+          23.659107493471
+        ]
+      },
+      "properties": {
+        "id": 279,
+        "name": "馬太鞍 欣綠農園",
+        "description": "溼地裡的幸福農園"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.38226957672,
+          25.07583358872
+        ]
+      },
+      "properties": {
+        "id": 247,
+        "name": "弎弎蔬食 plant-based living",
+        "description": "和您分享蔬食無差別的美好"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.97575047301,
+          24.821858323258
+        ]
+      },
+      "properties": {
+        "id": 315,
+        "name": "善食居",
+        "description": "做給家人吃的安心美味料理"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.66767940631,
+          24.149425208624
+        ]
+      },
+      "properties": {
+        "id": 217,
+        "name": "禾豐田食",
+        "description": "隨著四季食材變化的手作無菜單料理"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.55939296883,
+          25.037428590644
+        ]
+      },
+      "properties": {
+        "id": 215,
+        "name": "One Ten 食分之一",
+        "description": "在都會中品嘗到原住民食材的好風味"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.33611100329,
+          24.842715412738
+        ]
+      },
+      "properties": {
+        "id": 314,
+        "name": "碧蘿村農場-豐田素食",
+        "description": "極靜+極真+極淨的有機蔬食料理"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.47486846138,
+          25.031195049737
+        ]
+      },
+      "properties": {
+        "id": 289,
+        "name": "甜素 Sweet Vegan",
+        "description": "做給孩子吃的最安心甜點"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.20746523863,
+          22.993726585565
+        ]
+      },
+      "properties": {
+        "id": 272,
+        "name": "小巷裡的拾壹號-自家烘焙咖啡店",
+        "description": "隱身於巷弄間的咖啡廳"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.149401,
+          22.758998
+        ]
+      },
+      "properties": {
+        "id": 240,
+        "name": "橋Chiao",
+        "description": "農青對文化及土地的結合與想像"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.57748,
+          25.07554
+        ]
+      },
+      "properties": {
+        "id": 11,
+        "name": "TiMAMA Deli & Cafe",
+        "description": "因為愛而開啟了和社區分享好手藝的緣分"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.34792402631,
+          22.64131298508
+        ]
+      },
+      "properties": {
+        "id": 313,
+        "name": "LA ONE Bakery-文衡店",
+        "description": "品牌價值下的真實麵包"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.513216,
+          25.044784
+        ]
+      },
+      "properties": {
+        "id": 12,
+        "name": "呷米蔬食/素食餐廳",
+        "description": "吃的到也買的到全台新鮮優質的小農食材"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.30386866863,
+          22.651330086349
+        ]
+      },
+      "properties": {
+        "id": 312,
+        "name": "LA ONE Bakery-博愛店",
+        "description": "品牌價值下的真實麵包"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.56614742274,
+          25.05038093708
+        ]
+      },
+      "properties": {
+        "id": 274,
+        "name": "植日生手作蔬食",
+        "description": "讓身體行一場光合作用"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.50921,
+          25.02949
+        ]
+      },
+      "properties": {
+        "id": 13,
+        "name": "大樹下健康餐飲",
+        "description": "用整顆南瓜製成的手工元氣蛋餅"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.44870708466,
+          23.802665171972
+        ]
+      },
+      "properties": {
+        "id": 275,
+        "name": "飛雀餐桌行動 Future Dining Table",
+        "description": "用職人精神引領探索的交流空間"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.50392,
+          25.04645
+        ]
+      },
+      "properties": {
+        "id": 14,
+        "name": "小小蔬房",
+        "description": "在繁忙生活中找到回家吃飯的避風港"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.54613801534,
+          25.035463852957
+        ]
+      },
+      "properties": {
+        "id": 336,
+        "name": "陽明春天- 讀蔬會（大安店）",
+        "description": "以蔬食養身，以文明養心"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.55951784603,
+          25.145283059935
+        ]
+      },
+      "properties": {
+        "id": 335,
+        "name": "陽明春天- 心五藝文創園區（陽明店）",
+        "description": "以餐飲改變對生命及世界的態度"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.50562391534,
+          25.042316099246
+        ]
+      },
+      "properties": {
+        "id": 330,
+        "name": "日常野草 Daily Green",
+        "description": "將臺灣美好的野草文化傳播到全世界"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.74127956137,
+          22.00728732406
+        ]
+      },
+      "properties": {
+        "id": 271,
+        "name": "夭夭藝文廚房",
+        "description": "對土地眷戀而誕生的中式餐廳"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.09178333069,
+          22.761749185883
+        ]
+      },
+      "properties": {
+        "id": 250,
+        "name": "南島咖啡部落廚房",
+        "description": "南島文化與台灣原住民的特色料理"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.804448,
+          24.463744
+        ]
+      },
+      "properties": {
+        "id": 239,
+        "name": "南澳好糧食堂 Good Eats Cafe",
+        "description": "一起坐下來吃飯，聊土地、話時令"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.65274,
+          24.15934
+        ]
+      },
+      "properties": {
+        "id": 300,
+        "name": "Enrich restaurant & café",
+        "description": "既新鮮又在地的食尚蔬食餐廳"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.2959022,
+          22.643260681136
+        ]
+      },
+      "properties": {
+        "id": 213,
+        "name": "貳叁捌食坊",
+        "description": "最新鮮的產地直送佳餚"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.53116,
+          25.12288
+        ]
+      },
+      "properties": {
+        "id": 16,
+        "name": "藝食知選",
+        "description": "身心靈被大地和農人的心血滋養了"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.287869,
+          24.885066
+        ]
+      },
+      "properties": {
+        "id": 124,
+        "name": "品香食塾",
+        "description": "隱身百年老厝的家鄉好味道"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.79656,
+          25.14126
+        ]
+      },
+      "properties": {
+        "id": 21,
+        "name": "八斗邀友善餐廳",
+        "description": "就是要「地酒」配「地食」"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.49724,
+          25.13087
+        ]
+      },
+      "properties": {
+        "id": 17,
+        "name": "普羅旺斯bakery & café",
+        "description": "北投濃厚土地及人文風烘焙伴手禮"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.95665933963,
+          23.981237836057
+        ]
+      },
+      "properties": {
+        "id": 285,
+        "name": "一碗食舖 Vegan Bowl",
+        "description": "野菜蔬食x小鎮四季料理"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.56487,
+          25.04063
+        ]
+      },
+      "properties": {
+        "id": 18,
+        "name": "禾乃川國產豆製所",
+        "description": "提供本土最天然純粹的優質豆製品"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.12346862699,
+          22.934153530664
+        ]
+      },
+      "properties": {
+        "id": 222,
+        "name": "共農共食",
+        "description": "產地餐桌的最佳代言"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.3724,
+          24.93447
+        ]
+      },
+      "properties": {
+        "id": 19,
+        "name": "甘樂食堂",
+        "description": "手工豆腐與釀酵物的大地料理"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.30732225397,
+          22.619292216206
+        ]
+      },
+      "properties": {
+        "id": 290,
+        "name": "迪立印度健康蔬食坊",
+        "description": "健康道地的正宗印度家鄉料理"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.57149911534,
+          25.050911174401
+        ]
+      },
+      "properties": {
+        "id": 221,
+        "name": "聯安健康廚房",
+        "description": "改變就從這一餐開始"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.71198,
+          24.93614
+        ]
+      },
+      "properties": {
+        "id": 20,
+        "name": "坪感覺 JustPinglin",
+        "description": "傳遞生態及人文氣息的療癒茶餐飲"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.30054305358,
+          25.032808441591
+        ]
+      },
+      "properties": {
+        "id": 303,
+        "name": "YU FERMENTORY 腴釀康普茶",
+        "description": "以友善飲食為核心的天然手工釀製品"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.99841363436,
+          24.802336105546
+        ]
+      },
+      "properties": {
+        "id": 216,
+        "name": "腰果花砧板原食料理",
+        "description": "感受原型食物的滿滿能量"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.02758,
+          24.8122
+        ]
+      },
+      "properties": {
+        "id": 24,
+        "name": "或者蔬食",
+        "description": "到獨立書店吃一頓營養均衡的蔬食"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.540285,
+          24.071954
+        ]
+      },
+      "properties": {
+        "id": 298,
+        "name": "農食憶",
+        "description": "古法新傳承 回憶舊時光"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.605326,
+          23.985771
+        ]
+      },
+      "properties": {
+        "id": 238,
+        "name": "禾亮家 香草創意坊。Pura Vida Herbs",
+        "description": "以香草為日常帶來不平凡的驚喜"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.53858,
+          25.02867
+        ]
+      },
+      "properties": {
+        "id": 25,
+        "name": "仁里居",
+        "description": "愛護生態支持小農的活力蔬食料理"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.23264393863,
+          22.882415917748
+        ]
+      },
+      "properties": {
+        "id": 292,
+        "name": "原味廚神",
+        "description": "保留食材來源的原味風貌"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.32893591534,
+          22.661017644461
+        ]
+      },
+      "properties": {
+        "id": 291,
+        "name": "帕狄尼諾 Padrino 義大利廚房",
+        "description": "這裡將給您一個無法拒絕來用餐的理由"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.68053113323,
+          24.137609338261
+        ]
+      },
+      "properties": {
+        "id": 224,
+        "name": "友膳廚房 Whole Food Days",
+        "description": "讓飲食和大地永續循環"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.542109,
+          22.904441
+        ]
+      },
+      "properties": {
+        "id": 211,
+        "name": "慢熟咖啡 - Encore Café",
+        "description": "回到家鄉實踐理想生活的咖啡館"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.337356,
+          22.592229
+        ]
+      },
+      "properties": {
+        "id": 209,
+        "name": "Yuuki Bakery 勇気パン屋",
+        "description": "令人充滿勇氣的烘焙坊"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.868182,
+          24.581433
+        ]
+      },
+      "properties": {
+        "id": 190,
+        "name": "叄三 SanSan",
+        "description": "來到南方澳咀嚼在地文化食光"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.364789,
+          22.647086
+        ]
+      },
+      "properties": {
+        "id": 142,
+        "name": "馨窩良行 Homelanie",
+        "description": "安心無負擔的溫馨料理"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.136586,
+          23.060803
+        ]
+      },
+      "properties": {
+        "id": 136,
+        "name": "東香台菜海味料理",
+        "description": "愛心總舖師的有情有義料理"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.537318,
+          25.008447
+        ]
+      },
+      "properties": {
+        "id": 125,
+        "name": "諦・Veganism 共響空間",
+        "description": "尊重生命、愛惜地球的Vegan推廣空間"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.42614819751,
+          25.177465902907
+        ]
+      },
+      "properties": {
+        "id": 288,
+        "name": "淡水果然工坊",
+        "description": "天然無添加的烘焙初心"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.147004,
+          22.757407
+        ]
+      },
+      "properties": {
+        "id": 243,
+        "name": "聖母健康會館",
+        "description": "善生善活善終，散播生命的光與熱"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.31632712631,
+          22.673258384755
+        ]
+      },
+      "properties": {
+        "id": 286,
+        "name": "思想•起 文化廚苑",
+        "description": "難得一見的台菜Fine Dining"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.53749,
+          25.04076
+        ]
+      },
+      "properties": {
+        "id": 34,
+        "name": "育成蕃薯藤 - 忠孝庇護工場",
+        "description": "結合天然有機與弱勢關懷的吃飯好場所"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.67683756868,
+          24.155431805506
+        ]
+      },
+      "properties": {
+        "id": 284,
+        "name": "樹合苑&nbsp;",
+        "description": "一個生產者與消費者相遇的場域"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.52342,
+          25.02507
+        ]
+      },
+      "properties": {
+        "id": 35,
+        "name": "Ooh Cha Cha 自然食",
+        "description": "簡單真實的全食新美式餐飲"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.64495396866,
+          24.454972350494
+        ]
+      },
+      "properties": {
+        "id": 282,
+        "name": "心雕居",
+        "description": "沉浸於古厝的藝文風情"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.68354753069,
+          24.135473346441
+        ]
+      },
+      "properties": {
+        "id": 281,
+        "name": "TU PANG 地坊餐廳",
+        "description": "以食為中心，構築出美好生活氛圍"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.13898,
+          24.68544
+        ]
+      },
+      "properties": {
+        "id": 82,
+        "name": "大山北月",
+        "description": "山林裡的慢食套餐"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.01656032699,
+          24.786630342686
+        ]
+      },
+      "properties": {
+        "id": 278,
+        "name": "醞釀生活",
+        "description": "呈現食材的真實美味、傳遞友善環境的善念"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.77195335767,
+          24.678665802194
+        ]
+      },
+      "properties": {
+        "id": 277,
+        "name": "菊丹料理亭",
+        "description": "職人認證的精湛手藝"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.51728,
+          25.01569
+        ]
+      },
+      "properties": {
+        "id": 38,
+        "name": "Pick Food Up   扌合",
+        "description": "完美使用剩食、格外品的魔法師"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.96399884072,
+          23.969778080834
+        ]
+      },
+      "properties": {
+        "id": 270,
+        "name": "貓居蔬食",
+        "description": "以在地紅茶料理的小食堂"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.56826766772,
+          25.050712246639
+        ]
+      },
+      "properties": {
+        "id": 269,
+        "name": "嶼人Café",
+        "description": "友愛萬物的純植滋味"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.76914,
+          25.15235
+        ]
+      },
+      "properties": {
+        "id": 40,
+        "name": "找到幸福咖啡店",
+        "description": "海景第一排的健康餐飲"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.28670799651,
+          22.651306386353
+        ]
+      },
+      "properties": {
+        "id": 268,
+        "name": "all'Onda 浪。義大利慢食廚房",
+        "description": "浪慢之食、義猶未盡"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.200596,
+          22.987036
+        ]
+      },
+      "properties": {
+        "id": 134,
+        "name": "1982 de glacée 法式冰淇淋",
+        "description": "用冰淇淋推廣環境永續教育的第一人"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.514902,
+          25.015274
+        ]
+      },
+      "properties": {
+        "id": 133,
+        "name": "粮心聚落永和店",
+        "description": "宜蘭好米的風土故事繼續在台北發芽"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.02926532102,
+          24.823700458891
+        ]
+      },
+      "properties": {
+        "id": 129,
+        "name": "攪攪實蔬 la-la-e veggie",
+        "description": "好好吃飯、好好生活的好空間"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.745518,
+          24.744953
+        ]
+      },
+      "properties": {
+        "id": 128,
+        "name": "鹿野苑蔬食料理廚房",
+        "description": "暖心平價的在地廚房"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.994653,
+          24.792346
+        ]
+      },
+      "properties": {
+        "id": 127,
+        "name": "節氣私廚 seasonal kitchen",
+        "description": "校園裡的友善小農飯盒"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.22298,
+          22.978923
+        ]
+      },
+      "properties": {
+        "id": 126,
+        "name": "糖果廚房。食農生活家",
+        "description": "廚房賣的是對食物應有的態度"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.530291,
+          25.118129
+        ]
+      },
+      "properties": {
+        "id": 120,
+        "name": "三玉號 野草茶",
+        "description": "野草走入日常生活的多種可能"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.28617,
+          25.03628
+        ]
+      },
+      "properties": {
+        "id": 41,
+        "name": "蕃薯藤自然食堂-南崁店",
+        "description": "擁有自家農場新鮮直送的有機Buffet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.30095333883,
+          22.604373771136
+        ]
+      },
+      "properties": {
+        "id": 267,
+        "name": "LA ONE Cafe",
+        "description": "輕軌站旁的巴黎悠閒空間"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.35141,
+          24.95025
+        ]
+      },
+      "properties": {
+        "id": 42,
+        "name": "蕃薯藤有機專賣 / TINA廚房複合店 - 鶯歌複合店",
+        "description": "擁有自家農場新鮮直送的有機美食"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.60224592698,
+          22.375477642105
+        ]
+      },
+      "properties": {
+        "id": 266,
+        "name": "田媽媽天之椒子景觀餐廳",
+        "description": "自產自銷自用的安心餐廳"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.2695837,
+          24.8705853
+        ]
+      },
+      "properties": {
+        "id": 43,
+        "name": "TINA廚房 - 大溪店",
+        "description": "擁有自家農場新鮮直送的有機美食"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.49138274233,
+          22.681639205497
+        ]
+      },
+      "properties": {
+        "id": 265,
+        "name": "微光‧幸福感 鄉村手作料理",
+        "description": "推崇真實的食材的真誠心念"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.3185766235,
+          23.307015131403
+        ]
+      },
+      "properties": {
+        "id": 264,
+        "name": "均食堂-自然有機節氣廚房 ",
+        "description": "吃真正好的食材，與大自然共同美好"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.44821847302,
+          23.472620853832
+        ]
+      },
+      "properties": {
+        "id": 263,
+        "name": "阿賢廚房",
+        "description": "秉持「賣自己也敢吃的產品」理念的餐廳"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.222101,
+          24.953825
+        ]
+      },
+      "properties": {
+        "id": 46,
+        "name": "蕃薯藤Café & Eats —中壢店 ",
+        "description": "在日式歷史建物裡享用有機美食"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.15444003563,
+          22.754774859302
+        ]
+      },
+      "properties": {
+        "id": 262,
+        "name": "七里坡紅藜養生料理",
+        "description": "樸實的小而美特色養生料理"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.3513,
+          24.8229
+        ]
+      },
+      "properties": {
+        "id": 47,
+        "name": "TINA廚房  - 復興店",
+        "description": "位處深山裡的有機好味道"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.52438042053,
+          22.636107552184
+        ]
+      },
+      "properties": {
+        "id": 261,
+        "name": "灣村麵包工作室 Locavore Bakery",
+        "description": "天然無添加的永續生活實踐者"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.31149,
+          24.94284
+        ]
+      },
+      "properties": {
+        "id": 48,
+        "name": "TINA廚房 - 八德店",
+        "description": "生態公園內新鮮直送的有機美食"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.30036581114,
+          22.630656721142
+        ]
+      },
+      "properties": {
+        "id": 260,
+        "name": "龜時間 goöod time",
+        "description": "洋食、早午茶 咖啡、大地風味的料理"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.30161,
+          24.99476
+        ]
+      },
+      "properties": {
+        "id": 49,
+        "name": "蕃薯藤有機專賣店-桃園店",
+        "description": "方便、新鮮、直送的有機美食"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.28028,
+          24.88779
+        ]
+      },
+      "properties": {
+        "id": 50,
+        "name": "蕃薯藤有機專賣 - 大溪店",
+        "description": "擁有自家農場新鮮直送的有機美食"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.236588,
+          22.793951
+        ]
+      },
+      "properties": {
+        "id": 256,
+        "name": "Squirre l&Fish- 松鼠與魚 自然甜點",
+        "description": "給你一份無負擔的新鮮甜蜜"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.30181,
+          24.99451
+        ]
+      },
+      "properties": {
+        "id": 51,
+        "name": "TINA咖啡 - 桃園縣府店",
+        "description": "匆忙生活中來點有機健康的點心吧"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.75136,
+          24.75233
+        ]
+      },
+      "properties": {
+        "id": 66,
+        "name": "粮心有點菜",
+        "description": "以美好的食物闡述宜蘭好米的風土故事"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.96465,
+          23.9643
+        ]
+      },
+      "properties": {
+        "id": 254,
+        "name": "沒有豆花",
+        "description": "舊翻新的品質堅持"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.28018,
+          24.88752
+        ]
+      },
+      "properties": {
+        "id": 52,
+        "name": "TINA咖啡 - 大溪店",
+        "description": "花園綠地中的健康美食好所在"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.644465,
+          24.13195
+        ]
+      },
+      "properties": {
+        "id": 252,
+        "name": "V Di JA",
+        "description": "專業、用心且溫暖的料理團隊"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.75251151589,
+          24.686474222947
+        ]
+      },
+      "properties": {
+        "id": 251,
+        "name": "芭蕉小喜 蔬房·點心·茶",
+        "description": "創意不斷的蔬食實驗室"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.29878,
+          25.01515
+        ]
+      },
+      "properties": {
+        "id": 53,
+        "name": "TINA麵包茶屋-中正店",
+        "description": "滿滿的有機、健康麵包茶飲都在這"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.23468697592,
+          22.980087426476
+        ]
+      },
+      "properties": {
+        "id": 218,
+        "name": "窩聚生活 • 衣食空間",
+        "description": "提供一個衣食無缺、舒服自在的「窩」"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.50064,
+          25.12631
+        ]
+      },
+      "properties": {
+        "id": 81,
+        "name": "跑跑雞蛋糕",
+        "description": "愛地球。愛動物。一起跑跑"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.83037,
+          24.47265
+        ]
+      },
+      "properties": {
+        "id": 56,
+        "name": "穿龍老屋豆腐坊",
+        "description": "契作本土無毒黃豆的鹽鹵豆花"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.51419,
+          25.06205
+        ]
+      },
+      "properties": {
+        "id": 62,
+        "name": "Café Chat Leopard 豹紋喵喵",
+        "description": "以健康甜點來照顧自己與流浪動物吧"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.707201,
+          24.745407
+        ]
+      },
+      "properties": {
+        "id": 130,
+        "name": "岑食米烘焙 ",
+        "description": "用自己的米來玩烘焙吧！"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.294203,
+          25.019618
+        ]
+      },
+      "properties": {
+        "id": 123,
+        "name": "人中小姐很有事",
+        "description": "誰說餐酒館不能有機又健康"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.521915,
+          25.109621
+        ]
+      },
+      "properties": {
+        "id": 121,
+        "name": "愛你喔手作坊",
+        "description": "愛土地如同愛家人的烘焙坊"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.33716,
+          24.99891
+        ]
+      },
+      "properties": {
+        "id": 61,
+        "name": "春天農場",
+        "description": "以山間淨土、自然食物來療癒身心"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.83052,
+          24.47266
+        ]
+      },
+      "properties": {
+        "id": 57,
+        "name": "94友善小鋪",
+        "description": "無包裝、有機、友善農產品的在地小舖"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.235462,
+          22.989271
+        ]
+      },
+      "properties": {
+        "id": 135,
+        "name": "蝸篆居 - 梅窩來這窩",
+        "description": "帶著想念香港一切的初心，在台灣繼續努力"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.96676453069,
+          22.53176015251
+        ]
+      },
+      "properties": {
+        "id": 637,
+        "name": "力卡珈琲",
+        "description": "我們用在城市累積的經驗重新詮釋傳統作物"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.14047519949,
+          22.742341783128
+        ]
+      },
+      "properties": {
+        "id": 635,
+        "name": "晃晃46図書適民宿Libroom46",
+        "description": "透過飲食帶領大眾重新發現這片土地上豐富多元的晨食面貌"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.39641847116,
+          22.638276755579
+        ]
+      },
+      "properties": {
+        "id": 634,
+        "name": "楊媽媽素食麵包本舖",
+        "description": "天然用料平價素食麵包 用自然滿足你的味蕾"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.72613797116,
+          24.265419876412
+        ]
+      },
+      "properties": {
+        "id": 633,
+        "name": "山心餓意",
+        "description": "旬嶼，料理著生態的平衡"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.67940436931,
+          23.979704939879
+        ]
+      },
+      "properties": {
+        "id": 632,
+        "name": "SMOK製甜所",
+        "description": "期許將我們的正能量與對食材的堅持與一家人勇敢故事分享給更多人。"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.40915601534,
+          23.216924523382
+        ]
+      },
+      "properties": {
+        "id": 631,
+        "name": "沐森海岸",
+        "description": "看山看海 品味生活"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.54088216084,
+          25.045721743823
+        ]
+      },
+      "properties": {
+        "id": 629,
+        "name": "Ad Lib Kitchen",
+        "description": "以餐點的方式來敘述台灣有趣食材背後的故事"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.44327285343,
+          23.484238454547
+        ]
+      },
+      "properties": {
+        "id": 628,
+        "name": "島呼冊店",
+        "description": "透過精選新書將我們關心的議題和讀者交流"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.220432,
+          24.952978
+        ]
+      },
+      "properties": {
+        "id": 649,
+        "name": "蕃薯藤食寓—平鎮店 ",
+        "description": "在日式歷史建物裡享用有機美食"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.28677143001,
+          22.652709765277
+        ]
+      },
+      "properties": {
+        "id": 627,
+        "name": "帕莎蒂娜國際餐飲集團Pasadena",
+        "description": "對於美好生活的主張"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.32200905397,
+          23.324789155894
+        ]
+      },
+      "properties": {
+        "id": 625,
+        "name": "九日良田工作坊",
+        "description": "日式技法的玉里甜點"
+      }
+    }
+  ]
+}
