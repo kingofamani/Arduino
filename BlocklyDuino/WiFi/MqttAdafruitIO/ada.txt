@@ -37,6 +37,22 @@ MQTT out(前面接Inject，按下後傳送mqtt的消息)：
 	Topic：	kingofamani/feeds/led-status
 			kingofamani/feeds/temperature
 
+===========Make ===========
+沒有MQTT元件，只能用HTTP 元件
+
+Adafruit IO
+	點選feed名稱進入後，右邊點選webhook新增：
+	https://io.adafruit.com/api/v2/webhooks/feed/QenNwdYeRz1CiS5qACGRMdnCLKuD
+	
+Make
+	HTTP make a request
+	URL：https://io.adafruit.com/api/v2/webhooks/feed/QenNwdYeRz1CiS5qACGRMdnCLKuD
+	Method：POST
+	Headers：Content-Type:application/json
+	Body Type：RAW
+	Content Type：JSON
+	Request content：{"value":"{{5.varItem}}"}
+	
 
 
 
