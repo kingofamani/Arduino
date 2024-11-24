@@ -1,0 +1,51 @@
+Adafruit IO
+https://io.adafruit.com/kingofamani/feeds/temperature
+
+安裝：Adafruit IO Arduino
+
+
+#define IO_USERNAME  "kingofamani"
+#define IO_KEY       "xxxxxxxxxxxxxxx"
+
+
+kingofamani/feeds/led-status
+kingofamani/feeds/temperature
+
+
+===========MQTT Explorer===========
+只能發佈，不能訂閱
+io.adafruit.com
+kingofamani
+IO_KEY
+使用者id：自動產生
+
+
+===========Node RED===========
+MQTT in(後面接debug)：
+	mqtt://io.adafruit.com
+	kingofamani
+	IO_KEY
+	使用者id：(空)
+	Topic：	kingofamani/feeds/led-status
+			kingofamani/feeds/temperature
+			
+MQTT out(前面接Inject，按下後傳送mqtt的消息)：
+	mqtt://io.adafruit.com
+	kingofamani
+	IO_KEY
+	使用者id：(空)
+	Topic：	kingofamani/feeds/led-status
+			kingofamani/feeds/temperature
+
+
+
+
+
+
+
+
+
+
+
+
+
