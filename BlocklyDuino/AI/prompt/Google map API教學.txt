@@ -1,0 +1,41 @@
+GOOGLE MAP
+
+Google Cloud：
+啟用Google map api：
+	https://console.cloud.google.com/google/maps-apis/home;onboard=true
+	免費開始使用，並享受每月 200 美元的使用積分
+啟用place api(新)：
+	https://console.developers.google.com/apis/api/places.googleapis.com/overview?project=89734234893
+
+place api(新)範例：	
+https://places.googleapis.com/v1/places/PLACE_ID?fields=id,displayName&key=API_KEY
+
+德音國小 place id(用make google map模組找)：
+ChIJtX07yiSmQjQRQsJuO__T2wA
+
+GET https://places.googleapis.com/v1/places/ChIJtX07yiSmQjQRQsJuO__T2wA?fields=id,displayName&key=xxxxxxxx
+Response：
+{
+  "id": "ChIJtX07yiSmQjQRQsJuO__T2wA",
+  "displayName": {
+    "text": "明德路2號"
+  }
+}
+
+map-resultbtn
+initMap()
+
+<script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=xxxxxxxxxxx" type="text/javascript"></script>
+
+
+我的地圖
+https://www.google.com/intl/zh-TW/maps/about/mymaps/
+至 https://geojson.io/#map=6.41/24.071/120.094 轉成csv，再貼入my map圖層
+
+
+https://developers.google.com/maps/documentation/datasets?hl=zh_TW
+https://developers.google.com/maps/documentation/datasets/support?hl=zh-tw
+
+自動取得瀏覽器座標：
+	在node-red目錄C:\Users\user\.node-red安裝：npm install selenium-webdriver
+	Node-RED 的工作目錄中創建 selenium-script.js

@@ -1,0 +1,30 @@
+AI待辦及分類
+
+Agent(代理)：
+Magentic-One：寫code、下command、爬crawler、讀本機file
+
+建立知識庫：
+AnythingLLM
+RAG
+
+LLM大語言模型(大腦)：
+OpenAI
+
+TTS文字轉語音(嘴巴)：
+OpenAI text to Speed
+cartesia.ai
+
+STT語音轉文字(耳朵)：
+OpenAI whisper
+
+與使用者溝通介面：
+ChatGPT
+livekit.io
+
+
+Code編程：
+比cursor強，會自動執行cmd
+https://codeium.com/windsurf
+
+對話式寫程式
+https://bolt.new/

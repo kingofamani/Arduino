@@ -25,7 +25,7 @@ MQTT in(後面接debug)：
 	mqtt://io.adafruit.com
 	kingofamani
 	IO_KEY
-	使用者id：(空)
+	使用者id：(空)(自動產生)
 	Topic：	kingofamani/feeds/led-status
 			kingofamani/feeds/temperature
 			
@@ -33,7 +33,7 @@ MQTT out(前面接Inject，按下後傳送mqtt的消息)：
 	mqtt://io.adafruit.com
 	kingofamani
 	IO_KEY
-	使用者id：(空)
+	使用者id：(空)(自動產生)
 	Topic：	kingofamani/feeds/led-status
 			kingofamani/feeds/temperature
 
@@ -42,7 +42,10 @@ MQTT out(前面接Inject，按下後傳送mqtt的消息)：
 
 Adafruit IO
 	點選feed名稱進入後，右邊點選webhook新增：
+	feed/find_map：
 	https://io.adafruit.com/api/v2/webhooks/feed/QenNwdYeRz1CiS5qACGRMdnCLKuD
+	feed/mp3_url：
+	https://io.adafruit.com/api/v2/webhooks/feed/crsioCzFqdBV2jFrhyrbiHeKERMf
 	
 Make
 	HTTP make a request
@@ -53,9 +56,6 @@ Make
 	Content Type：JSON
 	Request content：{"value":"{{5.varItem}}"}
 	
-
-
-
 
 
 

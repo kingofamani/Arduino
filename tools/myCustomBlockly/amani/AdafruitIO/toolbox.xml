@@ -1,0 +1,29 @@
+<category name="MQTT">
+  <block type="amani_adafruitio_init">
+    <value name="ssid">
+      <block type="text">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="wifipwd">
+      <block type="text">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="port">
+      <block type="math_number">
+        <field name="NUM">1883</field>
+      </block>
+    </value>
+    <value name="username">
+      <block type="text">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="iokey">
+      <block type="text">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+  </block>
+</category>
