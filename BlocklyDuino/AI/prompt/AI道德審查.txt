@@ -1,0 +1,37 @@
+AI道德審查
+●HTTP make a request：
+https://api.openai.com/v1/moderations
+POST
+Authorization
+Bearer xxxxxxxx
+
+Content-Type
+application/json
+
+{"input": "{{8.events[].message.text}}"}
+
+●Parse JSON：
+{{64.data}}
+
+●Route：
+通過AI道德審查
+{{65.results[1].flagged}}
+{{false}}
+
+不通過
+{{65.results[1].flagged}}
+{{true}}
+
+●LINE：
+U9bb19dcd1d27cb1aadcc6067f10605b9
+🚫🚫違反OpenAI道德審核🚫🚫
+禁止暴力,色情或血腥語詞。
+🙅同時也會將你的言語報告給老師！
+🙅請老師輔導管教。
+
+🚫🚫違反OpenAI道德審核🚫🚫
+請檢查AI自動生成🅕🅑貼文模組
+
+
+
+

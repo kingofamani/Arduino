@@ -1,7 +1,24 @@
 AI待辦及分類
 
+架站：
+cloudflare：支援固IP
+
+使用者操作介面(像chatGPT)：
+TEN-Agent：可多模態操作(圖片、文字、數據、語音、影像)
+線上： https://agent.theten.ai/
+https://github.com/TEN-framework/TEN-Agent
+https://youtu.be/KNJWLB3N3Lg?si=hMjYfj8rs_Zqtbwh&t=120
+
 Agent(代理)：
 Magentic-One：寫code、下command、爬crawler、讀本機file
+
+寫程式：
+copilot Workspace
+https://www.youtube.com/watch?v=Vx6A7D-P3qg
+https://github.com/githubnext/copilot-workspace-user-manual
+在線測試：
+https://copilot-workspace.githubnext.com
+https://copilot-workspace.githubnext.com/githubnext/workspace-blank
 
 建立知識庫：
 AnythingLLM
@@ -13,6 +30,7 @@ OpenAI
 TTS文字轉語音(嘴巴)：
 OpenAI text to Speed
 cartesia.ai
+fish.audio
 
 STT語音轉文字(耳朵)：
 OpenAI whisper
@@ -28,3 +46,6 @@ https://codeium.com/windsurf
 
 對話式寫程式
 https://bolt.new/
+
+EDGE邊緣運算：
+https://edgeimpulse.com/

@@ -1,0 +1,5 @@
+imgbb免費上傳圖檔
+
+https://api.imgbb.com/
+
+在Make用imgbb模組即可
