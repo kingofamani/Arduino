@@ -22,6 +22,7 @@ const int moveSteps = 200;    //运行步数
 AccelStepper stepper1(1,xstepPin,xdirPin);//建立步进电机对象
 
 void setup() {
+  Serial.begin(9600);
   
   pinMode(xstepPin,OUTPUT);     // Arduino控制A4988步进引脚为输出模式
   pinMode(xdirPin,OUTPUT);      // Arduino控制A4988方向引脚为输出模式
@@ -31,6 +32,8 @@ void setup() {
 
   stepper1.setMaxSpeed(300.0);     // 设置电机最大速度300 
   stepper1.setAcceleration(20.0);  // 设置电机加速度20.0  
+
+  Serial.print("start");
 }
 
 void loop() {
