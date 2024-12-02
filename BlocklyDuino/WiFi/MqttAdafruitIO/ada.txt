@@ -48,6 +48,7 @@ Adafruit IO
 	https://io.adafruit.com/api/v2/webhooks/feed/crsioCzFqdBV2jFrhyrbiHeKERMf
 	
 Make
+	發佈：
 	HTTP make a request
 	URL：https://io.adafruit.com/api/v2/webhooks/feed/QenNwdYeRz1CiS5qACGRMdnCLKuD
 	Method：POST
@@ -56,6 +57,11 @@ Make
 	Content Type：JSON
 	Request content：{"value":"{{5.varItem}}"}
 	
+	接收資料(不是即時，有請求才有)：
+	HTTP make a request
+	URL：https://io.adafruit.com/api/v2/kingofamani/feeds/find-map/data?limit=1
+	Method：GET
+	Headers：X-AIO-Key:{aio_key}
 
 
 

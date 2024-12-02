@@ -1,5 +1,11 @@
 AI待辦及分類
 
+github找，例如找ai-agent：
+https://github.com/topics/ai-agents
+
+萬能工具：
+https://galaxy.ai/tools
+
 架站：
 cloudflare：支援固IP
 
