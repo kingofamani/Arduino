@@ -1,24 +1,27 @@
 AI待辦及分類
 
-github找，例如找ai-agent：
+●github找，例如找ai-agent：
 https://github.com/topics/ai-agents
 
-萬能工具：
-https://galaxy.ai/tools
 
-架站：
+●架站：
 cloudflare：支援固IP
 
-使用者操作介面(像chatGPT)：
+
+●使用者操作介面(像chatGPT)：
 TEN-Agent：可多模態操作(圖片、文字、數據、語音、影像)
 線上： https://agent.theten.ai/
 https://github.com/TEN-framework/TEN-Agent
 https://youtu.be/KNJWLB3N3Lg?si=hMjYfj8rs_Zqtbwh&t=120
 
-Agent(代理)：
+https://galaxy.ai/tools 免登入、免費(使用chatGPT)
+
+●Agent(代理)：
 Magentic-One：寫code、下command、爬crawler、讀本機file
 
-寫程式：
+https://poe.com/ 自建Chat Bot，可分享
+
+●寫程式：
 copilot Workspace
 https://www.youtube.com/watch?v=Vx6A7D-P3qg
 https://github.com/githubnext/copilot-workspace-user-manual
@@ -26,32 +29,39 @@ https://github.com/githubnext/copilot-workspace-user-manual
 https://copilot-workspace.githubnext.com
 https://copilot-workspace.githubnext.com/githubnext/workspace-blank
 
-建立知識庫：
+https://www.phind.com/code 會自動連接至https://replit.com/ 線上執行code
+
+
+●建立知識庫：
 AnythingLLM
 RAG
 
-LLM大語言模型(大腦)：
+●LLM大語言模型(大腦)：
 OpenAI
 
-TTS文字轉語音(嘴巴)：
+●TTS文字轉語音(嘴巴)：
 OpenAI text to Speed
 cartesia.ai
 fish.audio
+ElevenLabs 可自定義聲音類型
 
-STT語音轉文字(耳朵)：
+●STT語音轉文字(耳朵)：
 OpenAI whisper
 
-與使用者溝通介面：
+●與使用者溝通介面：
 ChatGPT
 livekit.io
 
 
-Code編程：
+●Code編程：
 比cursor強，會自動執行cmd
 https://codeium.com/windsurf
 
-對話式寫程式
+●對話式寫程式
 https://bolt.new/
 
-EDGE邊緣運算：
+●EDGE邊緣運算：
 https://edgeimpulse.com/
+
+●無封鎖：
+https://chromox.alkaidvision.com/

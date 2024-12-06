@@ -1,0 +1,1 @@
+SG90 Servo 2-axis Gimbal with ESP32-CAM holder by stonez56 on Thingiverse: https://www.thingiverse.com/thing:5388271
