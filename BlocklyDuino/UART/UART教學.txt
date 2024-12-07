@@ -14,18 +14,21 @@ ESP32的RX、TX一定要參考esp32.txt「目前統計可用腳位」
 	ESP32	UNO
 	D4		D2
 	D5		D3
+	GND		GND(共地)
 
 02範例：
 	ESP32與UNO互傳：可直接在序列埠視窗輸入要傳的訊息
 	ESP32	UNO
 	D4		D2
 	D5		D3
+	GND		GND(共地)
 
 03Mega範例：
 	Uart協定ESP32與MEGA互傳：Mega版用Serial1通訊
 	Mega	ESP32
 	D18 	GPIO16
 	D19 	GPIO17
+	GND		GND(共地)
 
 
 

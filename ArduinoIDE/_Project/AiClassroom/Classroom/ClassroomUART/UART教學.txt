@@ -1,0 +1,8 @@
+★ESP32無法使用SoftwareSerial，要安裝 EspSoftwareSerial by Dirk kaar
+
+Uart協定ESP32與MEGA互傳：Mega版用Serial1通訊
+Mega	ESP32
+D18 	GPIO16
+D19 	GPIO17
+GND		GND(共地)
+

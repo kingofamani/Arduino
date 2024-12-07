@@ -1,0 +1,603 @@
+<xml version="F2" board="Arduino Mega or Mega 2560" xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="7V7-,}ZZjHtIKehADxq$">LED1</variable>
+    <variable id="sCB1928jeG9Pz!+ewVEf">LED2</variable>
+    <variable id="bXe_+K5{vpa=O=pv3JZw">LED3</variable>
+  </variables>
+  <block type="board_initializes_setup" id="0" x="250" y="230">
+    <field name="BOARD_TYPE">Arduino</field>
+    <statement name="CONTENT">
+      <block type="ljj_ws2812_neopixel_begin" id="rqEP8rT0QAPE9M(wb$j5">
+        <field name="varName" id="7V7-,}ZZjHtIKehADxq$">LED1</field>
+        <field name="PIXEL_FORMAT">GRB</field>
+        <value name="PIN">
+          <block type="math_number" id="Be4Ryj.:Vkv-!bp0Xa25">
+            <field name="NUM">26</field>
+          </block>
+        </value>
+        <value name="TOTAL">
+          <block type="math_number" id="=Di.jQcsz*3Cq!ZrU,yE">
+            <field name="NUM">12</field>
+          </block>
+        </value>
+        <value name="BRIGHTNESS">
+          <block type="math_number" id="U]~tOj7a2z[HSqe@=UrG">
+            <field name="NUM">5</field>
+          </block>
+        </value>
+        <next>
+          <block type="ljj_ws2812_neopixel_begin" id="?;r]R;JA?7yF{gh(~rb}">
+            <field name="varName" id="sCB1928jeG9Pz!+ewVEf">LED2</field>
+            <field name="PIXEL_FORMAT">GRB</field>
+            <value name="PIN">
+              <block type="math_number" id="Z/hVo;vtTHG7k$,eg#bQ">
+                <field name="NUM">27</field>
+              </block>
+            </value>
+            <value name="TOTAL">
+              <block type="math_number" id="@ScR?|-a)[Z1fsXEh.fW">
+                <field name="NUM">12</field>
+              </block>
+            </value>
+            <value name="BRIGHTNESS">
+              <block type="math_number" id="l1974TIMRTc2w@Bdp(00">
+                <field name="NUM">5</field>
+              </block>
+            </value>
+            <next>
+              <block type="ljj_ws2812_neopixel_begin" id="Ae-VVxG$KlEkKUZCh^}3">
+                <field name="varName" id="bXe_+K5{vpa=O=pv3JZw">LED3</field>
+                <field name="PIXEL_FORMAT">GRB</field>
+                <value name="PIN">
+                  <block type="math_number" id="|*1Dg,XCd21FH%9ARR*Z">
+                    <field name="NUM">28</field>
+                  </block>
+                </value>
+                <value name="TOTAL">
+                  <block type="math_number" id="OwmeiQ3VkUQ+,J9P}Hh#">
+                    <field name="NUM">12</field>
+                  </block>
+                </value>
+                <value name="BRIGHTNESS">
+                  <block type="math_number" id="X$D?WErx$HN;F#rmDgf[">
+                    <field name="NUM">5</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="servo_write_pin" id="9L90/h`n*BViVJnZ0Rs$">
+                    <value name="PIN">
+                      <block type="math_number" id="V{d]|vyp:3QJe%lR{0r~">
+                        <field name="NUM">9</field>
+                      </block>
+                    </value>
+                    <value name="ANGLE">
+                      <block type="math_number" id=")jWs2IN%v-C=`0}MGYK?">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="procedures_callnoreturn" id="[3AQGs_:}!ssIk9`@d3Y">
+            <mutation xmlns="http://www.w3.org/1999/xhtml" name="funcFan"></mutation>
+            <value name="VAR">
+              <shadow type="lists_create_with" id="q.$;{$J=Ov46|g^zwY4`">
+                <mutation items="0"></mutation>
+              </shadow>
+            </value>
+            <next>
+              <block type="procedures_callnoreturn" id="V#gKt4lley(l]C*S-Txk">
+                <mutation xmlns="http://www.w3.org/1999/xhtml" name="funcLed"></mutation>
+                <value name="VAR">
+                  <shadow type="lists_create_with" id=",E*E~9l];]Xk)?V}!5B[">
+                    <mutation items="0"></mutation>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="procedures_callnoreturn" id="PkYS^2RVzf!$X7jfGBZH">
+                    <mutation xmlns="http://www.w3.org/1999/xhtml" name="funcServo"></mutation>
+                    <value name="VAR">
+                      <shadow type="lists_create_with" id="N@O6]%LElzo46#KhJGa5">
+                        <mutation items="0"></mutation>
+                      </shadow>
+                    </value>
+                    <next>
+                      <block type="procedures_callnoreturn" id="eFbdSFcY77qk04=]nT2_">
+                        <mutation xmlns="http://www.w3.org/1999/xhtml" name="funcAirLight"></mutation>
+                        <value name="VAR">
+                          <shadow type="lists_create_with" id="Iz|LhI4[lzVx[nNjOd%L">
+                            <mutation items="0"></mutation>
+                          </shadow>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+  <block type="procedures_defnoreturn" id="5!Txt]W95@v^0LiV]{$x" collapsed="true" x="1030" y="290">
+    <field name="NAME">funcFan</field>
+    <value name="VAR">
+      <shadow type="lists_create_with" id="+B7TU^G)]+*5#4OIQq,)" inline="true">
+        <mutation items="0"></mutation>
+      </shadow>
+    </value>
+    <statement name="STACK">
+      <block type="serial_println" id="uy1TTig1;=?LP+4U4,/p">
+        <value name="CONTENT">
+          <block type="text" id=")Y]ykP*Qp6Kj3R2p(:q-">
+            <field name="TEXT">風扇</field>
+          </block>
+        </value>
+        <next>
+          <block type="inout_custom_digital_write" id="aWn+/_kz%P1=BG=HN,AY">
+            <value name="PIN">
+              <block type="math_number" id=")nyr$+tG!H9?`HG2LZcu">
+                <field name="NUM">22</field>
+              </block>
+            </value>
+            <value name="STAT">
+              <block type="inout_highlow" id="c+oQ(`-Ddj!k+jH*aaYj">
+                <field name="BOOL">HIGH</field>
+              </block>
+            </value>
+            <next>
+              <block type="delay_custom" id="_E8XUhg/0S|X2i}Gq~^]">
+                <value name="DELAY_TIME">
+                  <block type="math_number" id="*`go(4:7x8`CfiyFw6wB">
+                    <field name="NUM">1000</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="inout_custom_digital_write" id=";,Je*cg@Bl%XSbF*FRg0">
+                    <value name="PIN">
+                      <block type="math_number" id="O^-DXxEH`yV-v6^r7T|G">
+                        <field name="NUM">22</field>
+                      </block>
+                    </value>
+                    <value name="STAT">
+                      <block type="inout_highlow" id="d1om[4kj=iC)vZT!0/qK">
+                        <field name="BOOL">LOW</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="delay_custom" id="}0#TiB]IvB$SN:4}$kFw">
+                        <value name="DELAY_TIME">
+                          <block type="math_number" id=".q%4EiM7/UNo|9ocHcd=">
+                            <field name="NUM">1000</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="inout_custom_digital_write" id="6HC,,x}:o07z!Y*Q{#JL">
+                            <value name="PIN">
+                              <block type="math_number" id="KwN|[-mZ;Fd6I;v/@Dc#">
+                                <field name="NUM">23</field>
+                              </block>
+                            </value>
+                            <value name="STAT">
+                              <block type="inout_highlow" id="!FOlTck93ou[VT0(-VhX">
+                                <field name="BOOL">HIGH</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="delay_custom" id="8_1quv*H~zyWQ#l/e(L_">
+                                <value name="DELAY_TIME">
+                                  <block type="math_number" id="K@BbD*]Fa-*g+(Konn61">
+                                    <field name="NUM">1000</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="inout_custom_digital_write" id="-nKrihmaXjPY8ft~(=R:">
+                                    <value name="PIN">
+                                      <block type="math_number" id="B5f(CC5ATybxC!~6DbiX">
+                                        <field name="NUM">23</field>
+                                      </block>
+                                    </value>
+                                    <value name="STAT">
+                                      <block type="inout_highlow" id="hiJ^1^ve:pV4P)xJr8KZ">
+                                        <field name="BOOL">LOW</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="delay_custom" id="iX$GmGx(DFDo[hM-`qqm">
+                                        <value name="DELAY_TIME">
+                                          <block type="math_number" id="MvEL@(iN87k1aG;$HDl1">
+                                            <field name="NUM">1000</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="inout_custom_digital_write" id="B0rCs+?lwg)a)N3y,ph8">
+                                            <value name="PIN">
+                                              <block type="math_number" id="[EgrV%ZpQ/;T)Q/gH##y">
+                                                <field name="NUM">24</field>
+                                              </block>
+                                            </value>
+                                            <value name="STAT">
+                                              <block type="inout_highlow" id="ewCw)uggV#U}na`kH1J0">
+                                                <field name="BOOL">HIGH</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="delay_custom" id="5e!nVhm7G_rT]xPHO36a">
+                                                <value name="DELAY_TIME">
+                                                  <block type="math_number" id="{tRH@oV,M@{l]68qI9$7">
+                                                    <field name="NUM">1000</field>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="inout_custom_digital_write" id="@w)mW$hRsCUXG94`J5X}">
+                                                    <value name="PIN">
+                                                      <block type="math_number" id="3YxIU56Wf/[4@~h$(8IR">
+                                                        <field name="NUM">24</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="STAT">
+                                                      <block type="inout_highlow" id="0Y#NW;|#?kma#g5@suk;">
+                                                        <field name="BOOL">LOW</field>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="delay_custom" id="92s_J)Eh_]*Dh6A#DL8)">
+                                                        <value name="DELAY_TIME">
+                                                          <block type="math_number" id="TZF#`/$0SJ@L.sZDOkx6">
+                                                            <field name="NUM">1000</field>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="inout_custom_digital_write" id="I]lUz:zwVWwv`EN+=05b">
+                                                            <value name="PIN">
+                                                              <block type="math_number" id="pzzT+*r/w03b=1%Ezu1%">
+                                                                <field name="NUM">25</field>
+                                                              </block>
+                                                            </value>
+                                                            <value name="STAT">
+                                                              <block type="inout_highlow" id="+P^tCO{%k9e6=gIBJ%~(">
+                                                                <field name="BOOL">HIGH</field>
+                                                              </block>
+                                                            </value>
+                                                            <next>
+                                                              <block type="delay_custom" id="C0)9Mo@bt/]c5t^?%7Cl">
+                                                                <value name="DELAY_TIME">
+                                                                  <block type="math_number" id="_yD)@!Af?dkG`NC4~uJu">
+                                                                    <field name="NUM">1000</field>
+                                                                  </block>
+                                                                </value>
+                                                                <next>
+                                                                  <block type="inout_custom_digital_write" id="S4daRU}_Ig]^tWx%KTd/">
+                                                                    <value name="PIN">
+                                                                      <block type="math_number" id="`2$|+owt)kUF%FEjC:,n">
+                                                                        <field name="NUM">25</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <value name="STAT">
+                                                                      <block type="inout_highlow" id="LE_259mi7o:(d]U$,gG1">
+                                                                        <field name="BOOL">LOW</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <next>
+                                                                      <block type="delay_custom" id="Pv|xYVFFKOg.3owi)ODH">
+                                                                        <value name="DELAY_TIME">
+                                                                          <block type="math_number" id="t|?@xnqBGW;^?~Oqld1n">
+                                                                            <field name="NUM">3000</field>
+                                                                          </block>
+                                                                        </value>
+                                                                      </block>
+                                                                    </next>
+                                                                  </block>
+                                                                </next>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="i{qQ;qAk|iI{QLMQW{P," collapsed="true" x="1030" y="330">
+    <field name="NAME">funcLed</field>
+    <value name="VAR">
+      <shadow type="lists_create_with" id="f+m7LaU|xDf=k.h|m=eU" inline="true">
+        <mutation items="0"></mutation>
+      </shadow>
+    </value>
+    <statement name="STACK">
+      <block type="serial_println" id="|76{:q]Y(LhcPeKxMWg3">
+        <value name="CONTENT">
+          <block type="text" id="oLzDqVg/kI_s`c_%BpK~">
+            <field name="TEXT">LED燈</field>
+          </block>
+        </value>
+        <next>
+          <block type="ljj_ws2812_breathe" id="A}-]%|`UZ*KE8t7{KnX-">
+            <field name="varName" id="7V7-,}ZZjHtIKehADxq$">LED1</field>
+            <value name="COLOR">
+              <block type="ttgo_getFromColorPicker" id="is|L1..KPQ%JTm2K,r_M">
+                <field name="RGB">#33ff33</field>
+              </block>
+            </value>
+            <value name="INTERVAL">
+              <block type="math_number" id="8c{QdwF2O:,sSkB$wdy-">
+                <field name="NUM">10</field>
+              </block>
+            </value>
+            <next>
+              <block type="delay_custom" id="=Msu0-9Q.J8RqUE8Y8n|">
+                <value name="DELAY_TIME">
+                  <block type="math_number" id="(ez=EGbfg7j9~FPuH6p@">
+                    <field name="NUM">1000</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="ljj_ws2812_breathe" id="ty72r|PY3cPs8/N|AB_:">
+                    <field name="varName" id="sCB1928jeG9Pz!+ewVEf">LED2</field>
+                    <value name="COLOR">
+                      <block type="ttgo_getFromColorPicker" id="Y=)4y(UO}u`LU+;K::v[">
+                        <field name="RGB">#ffcc66</field>
+                      </block>
+                    </value>
+                    <value name="INTERVAL">
+                      <block type="math_number" id="Msy3SI]5Ir;vF*FYwO!W">
+                        <field name="NUM">10</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="delay_custom" id="yz32hP-O_[./h1wgd7mp">
+                        <value name="DELAY_TIME">
+                          <block type="math_number" id="g+i%P0tJD5|^7P0)Uw5.">
+                            <field name="NUM">1000</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="ljj_ws2812_breathe" id="+[eA7uo*NfGK~YTLa=RT">
+                            <field name="varName" id="bXe_+K5{vpa=O=pv3JZw">LED3</field>
+                            <value name="COLOR">
+                              <block type="ttgo_getFromColorPicker" id="x(#bL|!%]#6;?j9p5GWv">
+                                <field name="RGB">#33ccff</field>
+                              </block>
+                            </value>
+                            <value name="INTERVAL">
+                              <block type="math_number" id="#Hwnyjj~J^N*5e+?J(gF">
+                                <field name="NUM">10</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="delay_custom" id="^Rzt=]%XElRYuA/%7*0Z">
+                                <value name="DELAY_TIME">
+                                  <block type="math_number" id="eoU)]#_ZJ7RGkaloR(),">
+                                    <field name="NUM">1000</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="F8ix|K=EUM+$%+L$Wt1J" collapsed="true" x="1010" y="390">
+    <field name="NAME">funcServo</field>
+    <value name="VAR">
+      <shadow type="lists_create_with" id="Uc/@[C)XQwg/M3M9B]BZ" inline="true">
+        <mutation items="0"></mutation>
+      </shadow>
+    </value>
+    <statement name="STACK">
+      <block type="serial_println" id="YDt*E[2a8k*}Q~Q~=d84">
+        <value name="CONTENT">
+          <block type="text" id="=H[EM)Ew.SlrSt00nKj#">
+            <field name="TEXT">馬達</field>
+          </block>
+        </value>
+        <next>
+          <block type="servo_write_pin" id="MQr:}Gn8R(z[Z4Iw|G%4">
+            <value name="PIN">
+              <block type="math_number" id=".RLd8DllK`{Yfn{U,H@9">
+                <field name="NUM">9</field>
+              </block>
+            </value>
+            <value name="ANGLE">
+              <block type="math_number" id="/r]JOeDvgoII${ngSAjm">
+                <field name="NUM">90</field>
+              </block>
+            </value>
+            <next>
+              <block type="delay_custom" id="D?J?:!g_Zm@X=GQk1~WJ">
+                <value name="DELAY_TIME">
+                  <block type="math_number" id="jfBUhpZ%[{wQLCma.n0N">
+                    <field name="NUM">1000</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="servo_write_pin" id="`_B$?n?L*-C@SBx+9;}m">
+                    <value name="PIN">
+                      <block type="math_number" id="Q(B0!0{Lhm7BjOKjfe+Q">
+                        <field name="NUM">9</field>
+                      </block>
+                    </value>
+                    <value name="ANGLE">
+                      <block type="math_number" id="^4xn|^nmLsID+%y*/=Bg">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="delay_custom" id="5Not`.dOfEG]-aj$EQ(n">
+                        <value name="DELAY_TIME">
+                          <block type="math_number" id="{l9==RM~4Gp_2r7LqeP{">
+                            <field name="NUM">1000</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="v)}`yCXRS|:#-Y(uh;aC" collapsed="true" x="1010" y="450">
+    <field name="NAME">funcAirLight</field>
+    <value name="VAR">
+      <shadow type="lists_create_with" id="o_Q0hgYbt;Y0dD8sn2cR" inline="true">
+        <mutation items="0"></mutation>
+      </shadow>
+    </value>
+    <statement name="STACK">
+      <block type="serial_println" id="{j{{bSLCvVqZ^VtTr.0C">
+        <value name="CONTENT">
+          <block type="text" id="ETdToEp68/nop(vf}+wF">
+            <field name="TEXT">冷氣狀態燈</field>
+          </block>
+        </value>
+        <next>
+          <block type="inout_custom_digital_write" id="wRmu)*EI`LqN=r#TA}:^">
+            <value name="PIN">
+              <block type="math_number" id=",=`}R_QeM3Ook7u{2rue">
+                <field name="NUM">30</field>
+              </block>
+            </value>
+            <value name="STAT">
+              <block type="inout_highlow" id="op%*Uh=n2*~im/pxmTmu">
+                <field name="BOOL">HIGH</field>
+              </block>
+            </value>
+            <next>
+              <block type="inout_custom_digital_write" id="`v8j`eNdcF1/Q}db@?gU">
+                <value name="PIN">
+                  <block type="math_number" id="A7Sd#-=#f+9]vx.D8g_a">
+                    <field name="NUM">31</field>
+                  </block>
+                </value>
+                <value name="STAT">
+                  <block type="inout_highlow" id="R;~,5$8m;2%^)ZeI)xjN">
+                    <field name="BOOL">HIGH</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="inout_custom_digital_write" id="itw.4@)mGt-~7gtcoQF+">
+                    <value name="PIN">
+                      <block type="math_number" id="U^SU}g|s56FLy5|,t%[{">
+                        <field name="NUM">32</field>
+                      </block>
+                    </value>
+                    <value name="STAT">
+                      <block type="inout_highlow" id="pGgIaX`_`UFga;j{nxsr">
+                        <field name="BOOL">HIGH</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="delay_custom" id="MpxW~bsk-wU{U{UTc2Ix">
+                        <value name="DELAY_TIME">
+                          <block type="math_number" id="R1e4F(9~;gR+uW.u-jn!">
+                            <field name="NUM">1000</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="inout_custom_digital_write" id="(yMcW?F=_Ky`b-(d`6Dt">
+                            <value name="PIN">
+                              <block type="math_number" id="r8FXP(:WNl*bHE)}k-iK">
+                                <field name="NUM">30</field>
+                              </block>
+                            </value>
+                            <value name="STAT">
+                              <block type="inout_highlow" id="u+8[Mwj7V=?Kw8%lKgTt">
+                                <field name="BOOL">LOW</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="inout_custom_digital_write" id=".pW9d2j:Y=*8^@m_^9/7">
+                                <value name="PIN">
+                                  <block type="math_number" id="PczjW/{4yJF;q8W-e9o@">
+                                    <field name="NUM">31</field>
+                                  </block>
+                                </value>
+                                <value name="STAT">
+                                  <block type="inout_highlow" id="a(`bdW4!P-D!VO6DP/m]">
+                                    <field name="BOOL">LOW</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="inout_custom_digital_write" id="F/LEyi=bPsy0o(X6ZYQp">
+                                    <value name="PIN">
+                                      <block type="math_number" id="4)(eaepO4WO]H`0Eeph7">
+                                        <field name="NUM">32</field>
+                                      </block>
+                                    </value>
+                                    <value name="STAT">
+                                      <block type="inout_highlow" id="$g;|67%YwY)n~$GrG6l/">
+                                        <field name="BOOL">LOW</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="delay_custom" id="!P$I!~}g:oT*ba([leAA">
+                                        <value name="DELAY_TIME">
+                                          <block type="math_number" id="$?!R,O$pk.SzW@jZ`e?w">
+                                            <field name="NUM">1000</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>
