@@ -46,6 +46,8 @@ Adafruit IO
 	https://io.adafruit.com/api/v2/webhooks/feed/QenNwdYeRz1CiS5qACGRMdnCLKuD
 	feed/mp3_url：
 	https://io.adafruit.com/api/v2/webhooks/feed/crsioCzFqdBV2jFrhyrbiHeKERMf
+	feed/control_device：
+	https://io.adafruit.com/api/v2/webhooks/feed/UFcZbC7j4TpTVpSvZ5nqwFBRsono
 	
 Make
 	發佈：
