@@ -1,10 +1,39 @@
-//Generated Date: Thu, 14 Sep 2023 23:28:02 GMT
+//Generated Date: Tue, 10 Dec 2024 09:46:23 GMT
 
 #include <WiFi.h>
 #include <WiFiClientSecure.h>
+WiFiClientSecure client;
+#include <WiFiClientSecure.h>
 
-char _lwifi_ssid[] = "AMANI-4G-Home";
-char _lwifi_pass[] = "c41585c41585";
+char _lwifi_ssid[] = "tyes-itc2";
+char _lwifi_pass[] = "xxxxxxxxxx";
+void initWiFi() {
+
+  for (int i=0;i<2;i++) {
+    WiFi.begin(_lwifi_ssid, _lwifi_pass);
+
+    delay(1000);
+    Serial.println("");
+    Serial.print("Connecting to ");
+    Serial.println(_lwifi_ssid);
+
+    long int StartTime=millis();
+    while (WiFi.status() != WL_CONNECTED) {
+        delay(500);
+        if ((StartTime+5000) < millis()) break;
+    }
+
+    if (WiFi.status() == WL_CONNECTED) {
+      Serial.println("");
+      Serial.println("STAIP address: ");
+      Serial.println(WiFi.localIP());
+      Serial.println("");
+
+      break;
+    }
+  }
+}
+
 const char* asId="AKfycbyR-Yp-uu4nIvnjvnkILaQ5AX8yFxp-UpBO-Sqs0su3ai1N_BvQsz_Q";
 String sheetId="";
 String sheetTag="";
@@ -47,15 +76,10 @@ void  sendToGoogleSheets(const String& dateInclude,const String& data)
 
 void setup()
 {
+  initWiFi();
   Serial.begin(9600);
 
-  WiFi.disconnect();
-  WiFi.softAPdisconnect(true);
-  WiFi.mode(WIFI_STA);
-  WiFi.begin(_lwifi_ssid, _lwifi_pass);
-  while (WiFi.status() != WL_CONNECTED) { delay(500); }
-  delay(300);
-  sheetId="1EhpZyQILsXqWKgGFPZdoaBGQzfcb2x20n4-tTqJc-uI";
+  sheetId="xxxxxxxxxxxxx";
   sheetTag=URLEncode("count");
   delay(1000);
   for (int i = 1; i <= 10; i++) {

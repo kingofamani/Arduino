@@ -8,12 +8,12 @@
       <block type="linkit_wifi_wait_until_ready" id="[!r+J0pZoZ88}D0GxDOn">
         <value name="SSID">
           <block type="text" id="{{L]D^%TGJT+`$P]5.bQ">
-            <field name="TEXT">AMANI-4G-Home</field>
+            <field name="TEXT">tyes-itc2</field>
           </block>
         </value>
         <value name="PASSWORD">
           <block type="text" id="y7Bt/}h8|eonDXQAkIyI">
-            <field name="TEXT">c41585c41585</field>
+            <field name="TEXT">xxxxxxxxxx</field>
           </block>
         </value>
         <next>
@@ -23,7 +23,7 @@
               <block type="setupSheets" id="VG*|0]BY$Y0MqJJBJc8C">
                 <value name="sheetId">
                   <block type="text" id="wo$cT`X,t+:hau1G3/EP">
-                    <field name="TEXT">1EhpZyQILsXqWKgGFPZdoaBGQzfcb2x20n4-tTqJc-uI</field>
+                    <field name="TEXT">xxxxxxxxxxxxx</field>
                   </block>
                 </value>
                 <next>
