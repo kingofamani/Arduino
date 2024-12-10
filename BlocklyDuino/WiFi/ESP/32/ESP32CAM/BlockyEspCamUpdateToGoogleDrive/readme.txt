@@ -17,3 +17,8 @@ https://script.google.com/macros/s/ 【金鑰/Apps Script ID】/exec
 
 積木：法蘭斯/Server模組/ESP-32 CAM
 
+STAIP address:
+http://192.168.2.xxx:81
+記得桌機也要連接到相同WiFi，例如tyes-itc2
+
+

@@ -15,12 +15,12 @@
 
 #include "camera_pins.h"
 
-#define STATIC_IP IPAddress(192, 168, 8, 227)
-#define GATEWAY IPAddress(192, 168, 8, 1)
+#define STATIC_IP IPAddress(192, 168, 242, 227)
+#define GATEWAY IPAddress(192, 168, 242, 1)
 #define SUBNET IPAddress(255, 255, 255, 0)
 
-const char* ssid = "AMANI-4G-Home";
-const char* password = "xxxxxxxxxxxx";
+const char* ssid = "tyes-itc2";
+const char* password = "xxxxxxxxxx";
 
 void startCameraServer();
 
