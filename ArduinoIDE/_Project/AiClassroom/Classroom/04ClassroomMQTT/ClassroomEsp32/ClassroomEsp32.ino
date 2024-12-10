@@ -6,11 +6,11 @@ SoftwareSerial MegaSerial(16,17);
 
 // Adafruit IO 帳號資訊
 #define IO_USERNAME "kingofamani"
-#define IO_KEY "xxxxxxxxx"
+#define IO_KEY "xxxxxxxx"
 
 // WiFi 設定
-#define WIFI_SSID "AMANI-4G-Home"
-#define WIFI_PASS "xxxxxxxxxxxx"
+#define WIFI_SSID "tyes-itc2"
+#define WIFI_PASS "xxxxxxxx"
 
 // 建立 Adafruit IO 物件
 AdafruitIO_WiFi io(IO_USERNAME, IO_KEY, WIFI_SSID, WIFI_PASS);
@@ -43,10 +43,14 @@ void loop() {
   io.run();  
   
   //接收訊息：Mega→ESP32
-//  while(MegaSerial.available()){
-//    String val=MegaSerial.readString();
-//    Serial.println(val);    
-//  }
+  while(MegaSerial.available()){
+	//收到fan,led,airctrl耗電量mWh
+	//例如"0.03,0.01,10.78"
+    String mWhs=MegaSerial.readString();
+    Serial.println(mWhs);
+	//將數據上傳至Google試算表
+	
+  }
 }
 
 // 處理訂閱訊息的回調函式

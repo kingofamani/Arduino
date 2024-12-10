@@ -93,10 +93,18 @@ https://www.cloudbooklet.com/
 www.tripo3d.ai
 
 ●音樂：
-https://suno.com
+	https://suno.com
 
 ●數字人
-heygen
+	heygen
+
+●室內設計
+	https://www.youtube.com/watch?v=mHmxQ8wB59k
+	https://www.planfinder.xyz/
+
+●圈錢
+	花一天时间不写一行代码打造一款商业级产品
+	https://www.youtube.com/watch?v=6U2viOmLSb4
 
 ●無封鎖：
 	https://chromox.alkaidvision.com/

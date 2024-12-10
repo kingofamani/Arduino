@@ -22,11 +22,12 @@ Servo __myservo9;
 
 //計時器
 SimpleTimer timer;
+int inteval_ID0 = 0;
 
 //消耗能量
 float fan_mWh = 0;
 float led_mWh = 0;
-float lair_mWh = 0;
+float airctrl_mWh = 0;
 
 void setup() {
   Serial.begin(9600);
@@ -70,10 +71,10 @@ void setup() {
   __myservo9.attach(9);  //出風口轉向
   __myservo9.write(0);
 
-  pinMode(30, OUTPUT);  //R冷氣狀態燈
-  pinMode(31, OUTPUT);  //G
-  pinMode(32, OUTPUT);  //B
-  digitalWrite(30, HIGH);
+  pinMode(30, OUTPUT);  //G冷氣狀態燈
+  pinMode(31, OUTPUT);  //O
+  pinMode(32, OUTPUT);  //R
+  digitalWrite(32, HIGH);
 
   //WS2812燈
   LED1.begin();
@@ -90,14 +91,13 @@ void setup() {
   LED3ShowAllLedsColor();
 
   //計時器
-  timer.setInterval(1000, timerFunc0);
+  inteval_ID0 = timer.setInterval(10000, intevalFunc0);
+  timer.disable(inteval_ID0);
 }
 
 void loop() {
+  //啟動計時器
   timer.run();
-
-  //傳送訊息：Mega→ESP32
-  //Serial1.print("test");
 
   //接收訊息：ESP32→Mega
   while (Serial1.available()) {
@@ -109,17 +109,29 @@ void loop() {
     String myDevice = "";
     String mySwitch = "";
     String tmpArray[2];
-    char* token = strtok((char*)str.c_str(), ",");
+    char* token = strtok((char*)deviceControl.c_str(), ",");
     int tokenLen = 0;
     while (token != NULL && tokenLen < 2) {
       tmpArray[tokenLen] = token;
       token = strtok(NULL, ",");
       tokenLen++;
     }
-    String myDevice = tmpArray[0];
-    String mySwitch = tmpArray[1];
+    myDevice = tmpArray[0];
+    mySwitch = tmpArray[1];
+    Serial.println(myDevice);
+    Serial.println(mySwitch);
 
-    if (myDevice = "fan") {
+    //上傳Google試算表耗電量
+    if(mySwitch == "1"){
+      //開始計算耗電量
+      timer.enable(inteval_ID0);
+    }else{
+      //停止計算耗電量
+      timer.disable(inteval_ID0);
+    }
+
+    //控制家電開or關
+    if (myDevice == "fan") {
       if (mySwitch == "1") {
         digitalWrite(22, HIGH);
         digitalWrite(23, HIGH);
@@ -129,7 +141,7 @@ void loop() {
         digitalWrite(23, LOW);
         digitalWrite(24, LOW);
       }
-    } else if (myDevice = "led") {
+    } else if (myDevice == "led") {
       if (mySwitch == "1") {
         LED1SetAllLedsColor(LED1.Color(255, 0, 0));
         LED1ShowAllLedsColor();
@@ -145,37 +157,41 @@ void loop() {
         LED3.clear();
         LED3.show();
       }
-    } else if (myDevice = "airctrl") {
+    } else if (myDevice == "airctrl") {
       if (mySwitch == "1") {
         digitalWrite(25, HIGH);//冷氣風
         __myservo9.write(90);//出風口轉向
-        digitalWrite(30, LOW);//冷氣狀態燈
-        digitalWrite(31, HIGH);
+        digitalWrite(30, HIGH);//冷氣狀態燈
+        digitalWrite(31, LOW);
         digitalWrite(32, LOW);
       } else {
         digitalWrite(25, LOW);//冷氣風
         __myservo9.write(0);//出風口轉向
-        digitalWrite(30, HIGH);//冷氣狀態燈
+        digitalWrite(30, LOW);//冷氣狀態燈
         digitalWrite(31, LOW);
-        digitalWrite(32, LOW);
+        digitalWrite(32, HIGH);
       }
     }
 
   }  //end while
 }
 
-void timerFunc0() {
+void intevalFunc0() {
+  //計算耗電量
   fan_mWh = 4 * (ina226.getShuntVoltage_mV() * ina226.getCurrent_mA()) / 1000 / 60;
-  led_mWh = 28 * (ina226_2.getShuntV oltage_mV() * ina226_2.getCurrent_mA() / 1000 / 60);
-  lair_mWh = 1000 * (ina226_3.getShuntVoltage_mV() * ina226_3.getCurrent_mA() / 1000 / 60);
+  led_mWh = 28 * (ina226_2.getShuntVoltage_mV() * ina226_2.getCurrent_mA()) / 1000 / 60;
+  airctrl_mWh = 1000 * (ina226_3.getShuntVoltage_mV() * ina226_3.getCurrent_mA()) / 1000 / 60;
   Serial.println("累加能量(mWh):");
   Serial.print("風扇:");
   Serial.println(fan_mWh);
   Serial.print("LED燈:");
   Serial.println(led_mWh);
   Serial.print("冷氣:");
-  Serial.println(lair_mWh);
+  Serial.println(airctrl_mWh);
   Serial.println("---------");
+
+  //上傳Google試算表    
+  Serial1.print(String(fan_mWh,3)+","+String(led_mWh,3)+","+String(airctrl_mWh,3));//傳送訊息：Mega→ESP32
 }
 
 void LED1SetAllLedsColor(uint32_t myLedColor) {
