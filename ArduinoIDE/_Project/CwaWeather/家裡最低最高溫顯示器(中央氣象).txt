@@ -1,5 +1,7 @@
 中央氣象開放資料平台
 
+安裝 TimeLib、TM1637 library
+
 錯誤bug：
 HTTP Response Code: -1
 	原因：ESP32記憶體不足，要拔掉電源重啟

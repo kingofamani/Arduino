@@ -13,7 +13,7 @@ float minT;
 float maxT;
 String startTime = "";
 
-String key = "xxxxxxxxxxxxxxxxxxxx";
+String key = "xxxxxxxxxxxxxxxxxxxxxxxx";
 
 unsigned long preMillis;
 
@@ -28,7 +28,7 @@ void setup() {
   preMillis = millis();
 
   // 連接WiFi
-  WiFi.begin("AMANI-4G-Home", "xxxxxxxxx", 6);
+  WiFi.begin("AMANI-4G-Home", "xxxxxxxxxx", 6);
 
   Serial.print("Connecting to WiFi");
   while (WiFi.status() != WL_CONNECTED) {
@@ -45,7 +45,7 @@ void setup() {
 }
 
 void loop() {
-  if (millis() - preMillis > 3600000) {//1 * 60 * 60 * 1000 一小時
+  if (millis() - preMillis > 1740000) {//29分鐘 * 60 * 1000 
     fetchData();
     //vectorclear();
     preMillis = millis();
@@ -71,7 +71,7 @@ void vectorclear() {
 void fetchData() {
   HTTPClient http;
   // 五股區天氣
-  String url = "https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-D0047-071?Authorization="+key+"&format=JSON&locationName=%E4%BA%94%E8%82%A1%E5%8D%80&elementName=MinT,MaxT";
+  String url = "https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-D0047-071?Authorization="+key+"&limit=1&format=JSON&locationName=%E4%BA%94%E8%82%A1%E5%8D%80&elementName=MinT,MaxT";
   
   // 開始 HTTP 連線
   http.begin(url);
@@ -81,8 +81,10 @@ void fetchData() {
   int httpCode = http.GET();
 
   if (httpCode == HTTP_CODE_OK) {
+    String payload = http.getString();
+
     DynamicJsonDocument doc(5024);
-    DeserializationError error = deserializeJson(doc, http.getString(), DeserializationOption::NestingLimit(20));
+    DeserializationError error = deserializeJson(doc, payload, DeserializationOption::NestingLimit(20));
 
     if (error) {
       Serial.print(F("deserializeJson() failed: "));
@@ -90,35 +92,20 @@ void fetchData() {
       return;
     }
 
-    //serializeJsonPretty(doc, Serial);
-
-    // for (int i = 0; i < 14; i += 2) {
-    //   MinTs.push_back(doc["records"]["locations"][0]["location"][0]["weatherElement"][0]["time"][i]["elementValue"][0]["value"]);
-    //   MaxTs.push_back(doc["records"]["locations"][0]["location"][0]["weatherElement"][1]["time"][i]["elementValue"][0]["value"]);
-    //   StartTimes.push_back(doc["records"]["locations"][0]["location"][0]["weatherElement"][0]["time"][i]["startTime"]);
-    // }
-
-    // for (int i = 0; i < 7; i++) {
-    //   String month = StartTimes[i].substring(5, 7);
-    //   String day = StartTimes[i].substring(8, 10);
-    //   // String d = convertStartTimes(StartTimes[i]);
-    //   Serial.print(month+"/"+day);
-    //   //Serial.print(StartTimes[i]);
-    //   Serial.print(F(" MinT: "));
-    //   Serial.print(MinTs[i]);
-    //   Serial.print(F("、MaxT: "));
-    //   Serial.println(MaxTs[i]);
-    // }
-
-    minT = (doc["records"]["locations"][0]["location"][0]["weatherElement"][0]["time"][0]["elementValue"][0]["value"]);
-    maxT = (doc["records"]["locations"][0]["location"][0]["weatherElement"][1]["time"][0]["elementValue"][0]["value"]);
-    String s = (doc["records"]["locations"][0]["location"][0]["weatherElement"][0]["time"][0]["startTime"]);
+    //2024/12官網JSON格式更新
+    minT =     doc["records"]["Locations"][0]["Location"][0]["WeatherElement"][2]["Time"][0]["ElementValue"][0]["MinTemperature"];
+    maxT =     doc["records"]["Locations"][0]["Location"][0]["WeatherElement"][1]["Time"][0]["ElementValue"][0]["MaxTemperature"];
+    String s = doc["records"]["Locations"][0]["Location"][0]["WeatherElement"][0]["Time"][0]["StartTime"];
     startTime = s;
+
+    //minT =     (doc["records"]["locations"][0]["location"][0]["weatherElement"][0]["time"][0]["elementValue"][0]["value"]);
+    //maxT =     (doc["records"]["locations"][0]["location"][0]["weatherElement"][1]["time"][0]["elementValue"][0]["value"]);
+    //String s = (doc["records"]["locations"][0]["location"][0]["weatherElement"][0]["time"][0]["startTime"]);
+    //startTime = s;
 
     String month = startTime.substring(5, 7);
     String day = startTime.substring(8, 10);
     Serial.print(month + "/" + day);
-    //Serial.print(StartTimes[i]);
     Serial.print(F(" MinT: "));
     Serial.print(minT);
     Serial.print(F(",MaxT: "));
@@ -126,11 +113,6 @@ void fetchData() {
 
     tm_display23.showNumberDecEx(minT, 0x40, true, 2, 0);
     tm_display23.showNumberDecEx(maxT, 0, true, 2, 2);
-
-    //Serial.println(http.getString());
-
-    //delay(1000);
-    //doc.clear();
 
     Serial.println("HTTP_CODE_OK");
 
