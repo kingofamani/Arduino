@@ -49,7 +49,7 @@ code區：
 	3-1.Blockly.Arduino.definitions區：#include、全域變數宣告
 	3-2.Blockly.Arduino.setups區：在void setup(){}裡的程式碼
 	3-3.Blockly.Arduino.functions區：function函數宣告
-	3-4.Blockly.Arduino.loop區：在void loop(){}裡的程式碼
+	3-4.Blockly.Arduino.loops區：在void loop(){}裡的程式碼
 	
 
 

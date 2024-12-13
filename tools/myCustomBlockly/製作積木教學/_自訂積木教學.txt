@@ -22,8 +22,22 @@
 		Blockly.Arduino.valueToCode
 		
 		generator.statementToCode
-		Blockly.Arduino.statementToCode				
+		Blockly.Arduino.statementToCode
 		==========修改javascript.js==========
+		chatGPT產生的程式碼修改：
+		Blockly.Blocks['
+		Blockly.Arduino['
+		
+		Blockly.JavaScript.ORDER_ATOMIC
+		Blockly.Arduino.ORDER_ATOMIC
+		
+		Blockly.JavaScript.valueToCode
+		Blockly.Arduino.valueToCode
+		
+		Blockly.JavaScript.statementToCode
+		Blockly.Arduino.statementToCode
+		
+		
 		
 	Workspace Factory標籤頁p12：自製工具箱，將自訂積木拉進來後★可以再編輯，例如加入數字積木，匯出toolbox.xml。	
 		==========修改toolbox.xml==========

@@ -1,8 +1,17 @@
 AI待辦及分類
 
-●AI api
+CAM鏡頭 影像input：
+https://aistudio.google.com/live
+
+●podcast：
+
+
+●AI api(已申請到的LLM API KEY)
+	https://dash.cloudflare.com/326a3c0b967ece228e055fea80987a35/ai/workers-ai (Workers AI 支援許多知名LLM)
 	https://platform.openai.com/
 	https://console.x.ai (免費$25)
+	https://aistudio.google.com (Google Gemini)
+	https://aimlapi.com/app/ 
 
 ●Free
 	https://www.cloudbooklet.com/ 生圖
@@ -32,6 +41,12 @@ https://www.cloudbooklet.com/
 	https://galaxy.ai/tools 免登入、免費(使用chatGPT)
 
 	https://cherry-ai.com/ (本地,可填入oepnai xai key)
+	
+	https://aistudio.google.com (Google Gemini)
+	
+	https://x.com/i/grok?focus=1
+	
+	https://aimlapi.com/app/
 
 ●Agent(代理)：
 	Magentic-One：寫code、下command、爬crawler、讀本機file

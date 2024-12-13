@@ -42,12 +42,15 @@ MQTT out(前面接Inject，按下後傳送mqtt的消息)：
 
 Adafruit IO
 	點選feed名稱進入後，右邊點選webhook新增：
-	feed/find_map：
+	feed/find-map：
 	https://io.adafruit.com/api/v2/webhooks/feed/QenNwdYeRz1CiS5qACGRMdnCLKuD
-	feed/mp3_url：
+	feed/mp3-url：
 	https://io.adafruit.com/api/v2/webhooks/feed/crsioCzFqdBV2jFrhyrbiHeKERMf
-	feed/control_device：
+	feed/control-device：
 	https://io.adafruit.com/api/v2/webhooks/feed/UFcZbC7j4TpTVpSvZ5nqwFBRsono
+	feed/study-hard：
+	https://io.adafruit.com/api/v2/webhooks/feed/FknnEtWFCQrKxRumt1BWQ3ztzbXE
+
 	
 Make
 	發佈：
