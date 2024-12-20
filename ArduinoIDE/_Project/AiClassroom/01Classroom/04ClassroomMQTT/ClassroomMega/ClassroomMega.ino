@@ -69,7 +69,7 @@ void setup() {
   //digitalWrite(25, HIGH);
 
   __myservo9.attach(9);  //出風口轉向
-  __myservo9.write(0);
+  __myservo9.write(180);
 
   pinMode(30, OUTPUT);  //G冷氣狀態燈
   pinMode(31, OUTPUT);  //O
@@ -166,7 +166,7 @@ void loop() {
         digitalWrite(32, LOW);
       } else {
         digitalWrite(25, LOW);//冷氣風
-        __myservo9.write(0);//出風口轉向
+        __myservo9.write(180);//出風口轉向
         digitalWrite(30, LOW);//冷氣狀態燈
         digitalWrite(31, LOW);
         digitalWrite(32, HIGH);

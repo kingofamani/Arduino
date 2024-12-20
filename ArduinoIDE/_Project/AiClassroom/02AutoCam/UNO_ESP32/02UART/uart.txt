@@ -1,0 +1,8 @@
+積木：
+	阿曼尼積木/基本
+	
+ESP32與UNO互傳：可直接在序列埠視窗輸入要傳的訊息
+ESP32	UNO
+D16		D4 (Z.STEP)
+D17		D7 (Z.DIR)
+GND		GND(共地)

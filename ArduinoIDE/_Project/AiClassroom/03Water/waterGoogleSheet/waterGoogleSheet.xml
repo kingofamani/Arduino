@@ -1,0 +1,133 @@
+<xml version="F2" board="Arduino Uno" xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="z[94L7XKq**TvKj3ZL@=">water</variable>
+  </variables>
+  <block type="board_initializes_setup" id="0" x="70" y="50">
+    <field name="BOARD_TYPE">ESP32</field>
+    <statement name="CONTENT">
+      <block type="serial_init" id="G[,[dH_{Q|`)81bOjn;O">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="linkit_wifi_wait_until_ready" id="[!r+J0pZoZ88}D0GxDOn">
+            <value name="SSID">
+              <block type="text" id="{{L]D^%TGJT+`$P]5.bQ">
+                <field name="TEXT">tyes-itc2</field>
+              </block>
+            </value>
+            <value name="PASSWORD">
+              <block type="text" id="y7Bt/}h8|eonDXQAkIyI">
+                <field name="TEXT">xxxxxxxxxx</field>
+              </block>
+            </value>
+            <next>
+              <block type="setupSheets" id="VG*|0]BY$Y0MqJJBJc8C">
+                <value name="sheetId">
+                  <block type="text" id="wo$cT`X,t+:hau1G3/EP">
+                    <field name="TEXT">xxxxxxxxxxxxx</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="setupForm" id="|[GnJX*mvMz9~~9*)$=x">
+                    <value name="sheetTag">
+                      <block type="text" id=":oG+=NK-=+E=,zXELL2F">
+                        <field name="TEXT">water</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="delay_custom" id="/~wep]=Zj2z;gh-Rn99,">
+                        <value name="DELAY_TIME">
+                          <block type="math_number" id="hG9|WDQ?28cX=J@;^:~q">
+                            <field name="NUM">1000</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="variables_set" id="Cp7OB23!DP[NjrD,Lx~{">
+                            <field name="POSITION">global</field>
+                            <field name="TYPE">float</field>
+                            <field name="VAR" id="z[94L7XKq**TvKj3ZL@=">water</field>
+                            <value name="VALUE">
+                              <shadow type="math_number" id="XQHk{?Q*%hAtU9QQ]nZ8">
+                                <field name="NUM">0</field>
+                              </shadow>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="_01amani_simpletimer_setinteval" id="zm1er{oK_lHZL44.QpYx">
+            <field name="order">0</field>
+            <value name="ms">
+              <block type="math_number" id="FeREoCI-;9`5*JK;#7iE">
+                <field name="NUM">3600000</field>
+              </block>
+            </value>
+            <statement name="msg">
+              <block type="controls_if" id="=V.TC}-d$eELhuIP4Cso">
+                <value name="IF0">
+                  <block type="logic_compare" id="Y=trW0hG-8`AVg367,LO">
+                    <field name="OP">NEQ</field>
+                    <value name="A">
+                      <block type="variables_get" id="MH4;n4e8WgCR1v6.QydD">
+                        <field name="VAR" id="z[94L7XKq**TvKj3ZL@=">water</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="!ATn96@T,{M;V?f.]XgV">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="sendToGoogle" id="XgL!`V,ZNsnIp6]Ac,59">
+                    <field name="dateInclude">1</field>
+                    <value name="data">
+                      <block type="data_join" id="gL+i|8k`IRr;vn?JXt@B" inline="false">
+                        <mutation items="3"></mutation>
+                        <value name="ADD0">
+                          <block type="text" id="+h/sH7Ks*Tu#F$}oaz_W">
+                            <field name="TEXT">國小A</field>
+                          </block>
+                        </value>
+                        <value name="ADD1">
+                          <block type="text" id=".7ihM29rln3i,[fa7Qps">
+                            <field name="TEXT">601</field>
+                          </block>
+                        </value>
+                        <value name="ADD2">
+                          <block type="math_number" id="ya{7HWNKnPzD+V=2S1rP">
+                            <field name="NUM">123</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_println" id="a8lG@?rfC,Tco345xBm@">
+                        <value name="CONTENT">
+                          <block type="text" id="csnw_k4ioN-%u7*Gq2N(">
+                            <field name="TEXT">上傳google試算表完成</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

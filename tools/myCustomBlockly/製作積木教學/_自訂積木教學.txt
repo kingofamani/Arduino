@@ -25,7 +25,7 @@
 		Blockly.Arduino.statementToCode
 		==========修改javascript.js==========
 		chatGPT產生的程式碼修改：
-		Blockly.Blocks['
+		Blockly.JavaScript['
 		Blockly.Arduino['
 		
 		Blockly.JavaScript.ORDER_ATOMIC

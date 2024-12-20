@@ -22,7 +22,7 @@ AdafruitIO_Feed* controlDevice = io.feed("control-device");
 
 //Google試算表
 const char* asId = "AKfycbyR-Yp-uu4nIvnjvnkILaQ5AX8yFxp-UpBO-Sqs0su3ai1N_BvQsz_Q";
-String sheetId = "1HJXiuubfE-B5BDcYbafIpWQZklJnijVfdYzurXO4LDc";
+String sheetId = "xxxxxxxxxxxxxxxxxxxxx";
 String sheetTag = "sensor";
 
 void setup() {

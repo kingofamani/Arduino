@@ -1,0 +1,103 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="board_initializes_setup" id="0" x="100" y="50">
+    <field name="BOARD_TYPE">ESP32</field>
+    <statement name="CONTENT">
+      <block type="esp32_cam_stream_only_myfirmata" id="=Ay{bhf!fNJ(nv?qmAH|">
+        <field name="baudrate">115200</field>
+        <field name="framesize">VGA</field>
+        <field name="flash">Y</field>
+        <field name="port">81</field>
+        <value name="ssid">
+          <block type="text" id="0~G0u_Zy?p4xmtWxr4mD">
+            <field name="TEXT">tyes-itc2</field>
+          </block>
+        </value>
+        <value name="password">
+          <block type="text" id=")?OVB|KPzux|t}+Hd1Y!">
+            <field name="TEXT">xxxxxxxxxxxxxx</field>
+          </block>
+        </value>
+        <value name="ssid_ap">
+          <block type="text" id="~#]*s`0]bi|*Y+%@:nyU">
+            <field name="TEXT">esp32-cam</field>
+          </block>
+        </value>
+        <value name="password_ap">
+          <block type="text" id="y!:cC*;8#!_T!cd^VXdy">
+            <field name="TEXT">12345678</field>
+          </block>
+        </value>
+        <next>
+          <block type="customcode_code" id="hikxYYPsl1EI*,|1$Ug]">
+            <value name="text">
+              <block type="text" id="9$+~[Psuar/rR`xfrBqf">
+                <field name="TEXT">s-&gt;set_vflip(s, 1);//鏡頭垂直翻轉</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_code" id="yE857al%JP.XnX3;n]Fs">
+                <value name="text">
+                  <block type="text" id="{-uI:):+q]U)qKE9e1Z-">
+                    <field name="TEXT">s-&gt;set_hmirror(s, 1);//鏡頭水平翻轉</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_code" id="$4~+$`zMJEup]%V^OsfQ">
+                    <value name="text">
+                      <block type="text" id="T:YiR80B2zB!Zan^J{om">
+                        <field name="TEXT">s-&gt;set_framesize(s, FRAMESIZE_SVGA);</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="esp32_cam_googledrive" id="L*ffdR6`m[gqfSm/kr*-">
+            <field name="linetype"></field>
+            <value name="scriptid">
+              <block type="text" id="pe#7@Hz(n^if7+87[/O}">
+                <field name="TEXT">xxxxxxxxxxxxxxx</field>
+              </block>
+            </value>
+            <value name="foldername">
+              <block type="text" id="_)TnEPM_WI[iw8?sj0a(">
+                <field name="TEXT">AiClassroom/images</field>
+              </block>
+            </value>
+            <value name="filename">
+              <block type="text" id="~n*GAaX^vN5QtxSC_[~.">
+                <field name="TEXT">plant</field>
+              </block>
+            </value>
+            <value name="linetoken">
+              <block type="text" id="[[6g;mY)=Zrn/6kWy`Uw">
+                <field name="TEXT"></field>
+              </block>
+            </value>
+            <value name="lineuserid">
+              <block type="text" id="L89fjd8bN]@NG#r-!J}W">
+                <field name="TEXT"></field>
+              </block>
+            </value>
+            <next>
+              <block type="delay_custom" id="l/U,Wp_bebcjK@Ium;Qi">
+                <value name="DELAY_TIME">
+                  <block type="math_number" id="=XYd!~.cHi[M+^nBiLAW">
+                    <field name="NUM">60000</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

@@ -1,0 +1,8 @@
+YF-S401水流量感測器/ 流量計
+4分管，G1/2外牙
+
+紅：5V
+黃：D2
+黑：GND
+
+https://www.instructables.com/How-to-Use-Water-Flow-Sensor-Arduino-Tutorial/

@@ -32,13 +32,17 @@ void setup() {
   stepperX.setAcceleration(20.0);  // 設置電機加速度20.0
   delay(2000);
 
+  
+
 }
 
 void loop() {
   //歸零(先手動將X軸推至最右邊)
 
   //測試
-  testStepper();
+  //testStepper();
+  //goToCamPosition(600);
+  goToCamPosition(1320);
 
   //接收訊息：ESP32→Arduino
   // while (ESP32Serial.available()) {
@@ -62,18 +66,14 @@ void loop() {
 
 }
 
-void findGoods(int x, int y) {
-  //分成3*3格倉庫的xy步數
-  int xSteps = xMoveSteps / 2;
-  //電機移動至該貨物格子
-  int goodsX = xSteps * x + xInit;
-  stepperX.moveTo(goodsX);
+void goToCamPosition(int x) {
+  stepperX.moveTo(x);
+  Serial.println(stepperX.currentPosition());
   stepperX.run();
 }
 void resetStepper() {
-  if (stepperX.currentPosition() == 0) {
-    stepperX.moveTo(280);  //第9格最右邊界
-  }
+  stepperX.moveTo(0);
+  Serial.println(stepperX.currentPosition());
   stepperX.run();
 }
 void testStepper() {

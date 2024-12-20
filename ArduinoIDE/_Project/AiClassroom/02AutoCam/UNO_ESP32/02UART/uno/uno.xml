@@ -1,0 +1,51 @@
+<xml version="F2" board="Arduino Uno" xmlns="https://developers.google.com/blockly/xml">
+  <block type="board_initializes_setup" id="0" x="100" y="50">
+    <field name="BOARD_TYPE">Arduino</field>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="_01amani_serial_avail" id="vfMpAEpei2,lI?kuR~,f">
+            <field name="serial">Serial</field>
+            <statement name="msg">
+              <block type="_03amani_uart_send" id="oX+u=ujw~F.sjjhu$B/0">
+                <field name="serial">softSerial</field>
+                <field name="send">print</field>
+                <value name="msg">
+                  <shadow type="text" id="-dcY*fVidKj=T8G+Cn[A">
+                    <field name="TEXT"></field>
+                  </shadow>
+                  <block type="_02amani_serial_readstring" id="kr/RDq_NUZZj.y_qgR#/">
+                    <field name="serial">Serial</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <next>
+              <block type="_01amani_uart_init" id="98xB8u$,F-o1m%h3uI(W">
+                <field name="serial">softSerial</field>
+                <field name="baudrate">9600</field>
+                <value name="rx">
+                  <block type="math_number" id="xl}bvnlc|SBIcT~jY]!3">
+                    <field name="NUM">7</field>
+                  </block>
+                </value>
+                <value name="tx">
+                  <block type="math_number" id="ZI~:U[!=3No)q!Y6-w.d">
+                    <field name="NUM">4</field>
+                  </block>
+                </value>
+                <statement name="statement">
+                  <block type="serial_println" id="?]b@T38/RBCG1U}CE,h$">
+                    <value name="CONTENT">
+                      <block type="_02amani_uart_get" id="V8CGm{pO6o^MFKTK{^l*"></block>
+                    </value>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

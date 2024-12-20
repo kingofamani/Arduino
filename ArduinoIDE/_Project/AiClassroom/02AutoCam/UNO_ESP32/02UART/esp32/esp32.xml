@@ -1,0 +1,51 @@
+<xml version="F2" board="ESP32 Dev Module" xmlns="https://developers.google.com/blockly/xml">
+  <block type="board_initializes_setup" id="0" x="100" y="50">
+    <field name="BOARD_TYPE">ESP32</field>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="_01amani_serial_avail" id="BjnXYOPDr2p3AQ3vlu^w">
+            <field name="serial">Serial</field>
+            <statement name="msg">
+              <block type="_03amani_uart_send" id="o$dyfs)r+Z4;!K9[AU^;">
+                <field name="serial">softSerial</field>
+                <field name="send">print</field>
+                <value name="msg">
+                  <shadow type="text">
+                    <field name="TEXT"></field>
+                  </shadow>
+                  <block type="_02amani_serial_readstring" id="-:#F1IC|kR3w@$2hGK[@">
+                    <field name="serial">Serial</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <next>
+              <block type="_01amani_uart_init" id="ym_Dn!e=pd(k:L=36]ls">
+                <field name="serial">softSerial</field>
+                <field name="baudrate">9600</field>
+                <value name="rx">
+                  <block type="math_number" id="H!t~c2-:i4P?La]OPD-_">
+                    <field name="NUM">16</field>
+                  </block>
+                </value>
+                <value name="tx">
+                  <block type="math_number" id="wSQoB|P7v7IAkoHT?4[2">
+                    <field name="NUM">17</field>
+                  </block>
+                </value>
+                <statement name="statement">
+                  <block type="serial_println" id="[kd,YhJ$[%0(g]AoUJ$:">
+                    <value name="CONTENT">
+                      <block type="_02amani_uart_get" id="/y{GSmJNkQX6`-o~q{D+"></block>
+                    </value>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>
