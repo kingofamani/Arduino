@@ -1,0 +1,1016 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="+FxVgqzl=R7bE[n1JvQA">myDevice</variable>
+    <variable id="H=syp;W9kDP7N=ukIIbh">mySwitch</variable>
+    <variable id="JM{GXEt1Wg2~kW.6ye3G">fan_mWh</variable>
+    <variable id="H1Cfr.bIn`w+(g*Ww%H{">led_mWh</variable>
+    <variable id="8Ze.`?VSM()9/;vobACW">LED1</variable>
+    <variable id="l0`AT/me+Es_l~g:#7Z8">airctrl_mWh</variable>
+    <variable id="1,fb[yUct5K*4X7Eh-#!">controls</variable>
+    <variable id="_t6v`t7dK~$NSmJOwI~s">LED2</variable>
+    <variable id="r(-T-.?AZ=:J2j3th:U#">LED3</variable>
+    <variable id="Nt1$j}DF`BM{:H?Tb4t;">strip</variable>
+  </variables>
+  <block type="board_initializes_setup" id="0" x="100" y="50">
+    <field name="BOARD_TYPE">Arduino</field>
+    <statement name="CONTENT">
+      <block type="ggINA226Begin" id="oX?v,)8O1gF8zE/t|PV`">
+        <next>
+          <block type="ggINA226powerUp" id=".0r+V30[t}-|`TV,]SiC">
+            <next>
+              <block type="variables_set" id=",t7CN4pAm5B~gzQRAQf7">
+                <field name="POSITION">global</field>
+                <field name="TYPE">float</field>
+                <field name="VAR" id="JM{GXEt1Wg2~kW.6ye3G">fan_mWh</field>
+                <value name="VALUE">
+                  <shadow type="math_number" id="p7?if`sK?ET8U,4IEamv">
+                    <field name="NUM">0</field>
+                  </shadow>
+                  <block type="amani_fake_ina226_init" id="%1BNkvytw^D9@QIcmA`r">
+                    <field name="inachannel">0</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set" id="|$yue(z%q4/CQPjq4j9B">
+                    <field name="POSITION">global</field>
+                    <field name="TYPE">float</field>
+                    <field name="VAR" id="H1Cfr.bIn`w+(g*Ww%H{">led_mWh</field>
+                    <value name="VALUE">
+                      <shadow type="math_number" id="]Wn/4T]_:]Jns|rpY@--">
+                        <field name="NUM">0</field>
+                      </shadow>
+                      <block type="amani_fake_ina226_init" id="@(Q(o$OV%RMu.YAf:zlc">
+                        <field name="inachannel">1</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_set" id="*C_g}#JDn}^G73]~~o(2">
+                        <field name="POSITION">global</field>
+                        <field name="TYPE">float</field>
+                        <field name="VAR" id="l0`AT/me+Es_l~g:#7Z8">airctrl_mWh</field>
+                        <value name="VALUE">
+                          <shadow type="math_number" id="w/(,BSL7vXMP:`H97/r0">
+                            <field name="NUM">0</field>
+                          </shadow>
+                          <block type="amani_fake_ina226_init" id="io#G=R!XR3D|?u.x4S:t">
+                            <field name="inachannel">2</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="customcode_comment" id="pJdT9Ya0Q91ZZ:=I,+$p">
+                            <value name="text">
+                              <block type="text" id="F^G[R`i?UB/~R=.R..mg">
+                                <field name="TEXT">LED燈</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="ljj_ws2812_neopixel_begin" id="S]C6^W#jt+,G{Oz{Qdi,">
+                                <field name="varName" id="8Ze.`?VSM()9/;vobACW">LED1</field>
+                                <field name="PIXEL_FORMAT">GRB</field>
+                                <value name="PIN">
+                                  <block type="math_number" id="@Ez{|Xv2KCHB%/jL,82U">
+                                    <field name="NUM">26</field>
+                                  </block>
+                                </value>
+                                <value name="TOTAL">
+                                  <block type="math_number" id="ia0rbQ`dB`]Oh}4v4op?">
+                                    <field name="NUM">12</field>
+                                  </block>
+                                </value>
+                                <value name="BRIGHTNESS">
+                                  <block type="math_number" id="@3mYJ4a0).!u*Z,N.pX[">
+                                    <field name="NUM">5</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="ljj_ws2812_neopixel_begin" id="t@scG33YS?6_*Nnj)z1o">
+                                    <field name="varName" id="_t6v`t7dK~$NSmJOwI~s">LED2</field>
+                                    <field name="PIXEL_FORMAT">GRB</field>
+                                    <value name="PIN">
+                                      <block type="math_number" id="/Ou2CXKo+Pjr2|S)-NS`">
+                                        <field name="NUM">27</field>
+                                      </block>
+                                    </value>
+                                    <value name="TOTAL">
+                                      <block type="math_number" id="bUC}nTFY9Mj+GN)3Im^o">
+                                        <field name="NUM">12</field>
+                                      </block>
+                                    </value>
+                                    <value name="BRIGHTNESS">
+                                      <block type="math_number" id="7|Y6?.VYXyGK94mT^uBT">
+                                        <field name="NUM">5</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="ljj_ws2812_neopixel_begin" id="^c|zQ,6l$C5ZUG=xszu1">
+                                        <field name="varName" id="Nt1$j}DF`BM{:H?Tb4t;">strip</field>
+                                        <field name="PIXEL_FORMAT">GRB</field>
+                                        <value name="PIN">
+                                          <block type="math_number" id="0?q/;!h,e@o1s%,h3WA+">
+                                            <field name="NUM">28</field>
+                                          </block>
+                                        </value>
+                                        <value name="TOTAL">
+                                          <block type="math_number" id=".Gk!=GX^`x_n*}q/xiHS">
+                                            <field name="NUM">12</field>
+                                          </block>
+                                        </value>
+                                        <value name="BRIGHTNESS">
+                                          <block type="math_number" id="5,j.%TSVhc:`Ijt+{kF.">
+                                            <field name="NUM">5</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="servo_write_pin" id="T/+lPVW,uf{.kN-|]EOB">
+                                            <value name="PIN">
+                                              <block type="math_number" id="~cHGC8XqXY6AGexp^;Ws">
+                                                <field name="NUM">9</field>
+                                              </block>
+                                            </value>
+                                            <value name="ANGLE">
+                                              <block type="math_number" id="8gk:jS!%jKV^J:T1uDfX">
+                                                <field name="NUM">180</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="customcode_comment" id="MUMZHX-,]n)ZLCxS/05t">
+                                                <value name="text">
+                                                  <block type="text" id="$@g`8TZ4l_/LE?a]gSv|">
+                                                    <field name="TEXT">冷氣狀態燈</field>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="inout_custom_digital_write" id="l91lK$0(Zj}Z^(|D5xz|">
+                                                    <value name="PIN">
+                                                      <block type="math_number" id="~l^oK#zrwkoAodwtcYf;">
+                                                        <field name="NUM">30</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="STAT">
+                                                      <block type="inout_highlow" id="lb!$ga:H/K^F9q309P!N">
+                                                        <field name="BOOL">LOW</field>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="inout_custom_digital_write" id="r+NDcsGeDRRcBO((J?]K">
+                                                        <value name="PIN">
+                                                          <block type="math_number" id="Aq1Y:;FS|Tf3PK$`Fs2-">
+                                                            <field name="NUM">31</field>
+                                                          </block>
+                                                        </value>
+                                                        <value name="STAT">
+                                                          <block type="inout_highlow" id="jaRLvSW;_5w0/oOmR,Ig">
+                                                            <field name="BOOL">LOW</field>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="inout_custom_digital_write" id="0/T~WY]1aXG4=V4QjJ|u">
+                                                            <value name="PIN">
+                                                              <block type="math_number" id="k1LX6nb!ZLDM8bIPUQ0^">
+                                                                <field name="NUM">32</field>
+                                                              </block>
+                                                            </value>
+                                                            <value name="STAT">
+                                                              <block type="inout_highlow" id="KpQ`^|bNft6[VL{:0B64">
+                                                                <field name="BOOL">HIGH</field>
+                                                              </block>
+                                                            </value>
+                                                            <next>
+                                                              <block type="_03amani_simpletimer_setinteval_enable" id="#Rr:F=;msKtg{c](7WM:">
+                                                                <field name="switch">disable</field>
+                                                                <field name="order">0</field>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="customcode_comment" id="B)a9hHP{Ri=T|?*00J[_">
+            <value name="text">
+              <block type="text" id="3[Fk1S~D{9{jISm64pLJ">
+                <field name="TEXT">接收訊息：ESP32→Mega</field>
+              </block>
+            </value>
+            <next>
+              <block type="_01amani_uart_init" id="nKaowbe%g*u}m,US@)|:">
+                <field name="serial">Serial1</field>
+                <field name="baudrate">9600</field>
+                <value name="rx">
+                  <block type="math_number" id="X1TuO6vYg@7Qu`Ba1{3x">
+                    <field name="NUM">19</field>
+                  </block>
+                </value>
+                <value name="tx">
+                  <block type="math_number" id="NDXKH!sI`8W%NWj(^l3_">
+                    <field name="NUM">18</field>
+                  </block>
+                </value>
+                <statement name="statement">
+                  <block type="customcode_comment" id="NJ%1U8y9Z(F2ssMK}~bY">
+                    <value name="text">
+                      <block type="text" id="Wg;WyauzE/U2Q7U]Q]nl">
+                        <field name="TEXT">收到電器控制指令（例如fan,1），開始開關電器</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_set1" id="?cfV}OYxkG#cw6I-xtP#">
+                        <field name="POSITION">global</field>
+                        <field name="TYPE">String</field>
+                        <field name="VAR" id="1,fb[yUct5K*4X7Eh-#!">controls</field>
+                        <value name="LEN">
+                          <block type="math_number" id="@IZ_g3uy2?=N-Gq%8-l-">
+                            <field name="NUM">2</field>
+                          </block>
+                        </value>
+                        <value name="VALUE">
+                          <shadow type="text" id="+*!T${#vm9v4(.xqx9Z-">
+                            <field name="TEXT"></field>
+                          </shadow>
+                          <block type="create_custom_array" id="m3O#b}cYNF?~vvjV+Z1d">
+                            <value name="MY_VAR">
+                              <block type="_02amani_uart_get" id="[:_9vg$g;D#[F,gcnW-8"></block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="procedures_callnoreturn" id="o(M5}Z^U0zN}nX^Lzg,V">
+                            <mutation xmlns="http://www.w3.org/1999/xhtml" name="startDeviceControl"></mutation>
+                            <value name="VAR">
+                              <block type="lists_create_with" id="ESix^3B4!Q]{NPAC/,Fq">
+                                <mutation items="2"></mutation>
+                                <value name="ADD0">
+                                  <block type="variables_set5" id="*#{7ZjQ_T@0[e6f,LXHA">
+                                    <field name="VAR" id="1,fb[yUct5K*4X7Eh-#!">controls</field>
+                                    <value name="INDEX">
+                                      <block type="math_number" id="ENYZ%9*oRr8JB.JY+rf)">
+                                        <field name="NUM">0</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="ADD1">
+                                  <block type="variables_set5" id="{mag|}shuRlNz,uAx)y+">
+                                    <field name="VAR" id="1,fb[yUct5K*4X7Eh-#!">controls</field>
+                                    <value name="INDEX">
+                                      <block type="math_number" id="5qLo1ee=s]SI!T?XGF#s">
+                                        <field name="NUM">1</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="customcode_comment" id="J4K`MUxAIUkCeymJth9%">
+                                <value name="text">
+                                  <block type="text" id=")K^D$;p|215O!~sZ?}0{">
+                                    <field name="TEXT">開始計算耗電量，每分鐘上傳Google試算表</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="controls_if" id=".e4g:3DVa4D%T#vDTtt~">
+                                    <mutation elseif="1"></mutation>
+                                    <value name="IF0">
+                                      <block type="logic_compare" id="M}X-5#~SIJ4SMT4?UGte">
+                                        <field name="OP">EQ</field>
+                                        <value name="A">
+                                          <block type="variables_set5" id="}]#/8{Urn1IKbJy#renM">
+                                            <field name="VAR" id="1,fb[yUct5K*4X7Eh-#!">controls</field>
+                                            <value name="INDEX">
+                                              <block type="math_number" id="dJ6X`o__gI$14r5IA[02">
+                                                <field name="NUM">1</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="text" id="fd;_RCkG;Y9@1c12gc6I">
+                                            <field name="TEXT">1</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <statement name="DO0">
+                                      <block type="_03amani_simpletimer_setinteval_enable" id="rCNY+[-(RNdm4pqz)_wu">
+                                        <field name="switch">enable</field>
+                                        <field name="order">0</field>
+                                      </block>
+                                    </statement>
+                                    <value name="IF1">
+                                      <block type="logic_compare" id="Z}_//~#3)PK5Ci*QC7mc">
+                                        <field name="OP">EQ</field>
+                                        <value name="A">
+                                          <block type="variables_set5" id="|%7PEo4DA7L9A#oij)!J">
+                                            <field name="VAR" id="1,fb[yUct5K*4X7Eh-#!">controls</field>
+                                            <value name="INDEX">
+                                              <block type="math_number" id="v2Hwg{R,c[^-Ec8D{6l*">
+                                                <field name="NUM">1</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="text" id="jp{+}tbg-.#~)X|*zt_:">
+                                            <field name="TEXT">0</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <statement name="DO1">
+                                      <block type="_03amani_simpletimer_setinteval_enable" id="G]eX|-3e;_%U^/EWg*6~">
+                                        <field name="switch">disable</field>
+                                        <field name="order">0</field>
+                                      </block>
+                                    </statement>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+  <block type="procedures_defnoreturn" id="g]@}#1cYrq@2s1slItv@" x="990" y="790">
+    <field name="NAME">startDeviceControl</field>
+    <value name="VAR">
+      <shadow type="lists_create_with" inline="true">
+        <mutation items="0"></mutation>
+      </shadow>
+      <block type="lists_create_with" id="0Ie0$D1ohO?*q#^ZadTH" inline="true">
+        <mutation items="2"></mutation>
+        <value name="ADD0">
+          <block type="variables_set2" id="Czv;_1w7}[B~Z)dj?A3x">
+            <field name="TYPE">String</field>
+            <field name="VAR" id="+FxVgqzl=R7bE[n1JvQA">myDevice</field>
+          </block>
+        </value>
+        <value name="ADD1">
+          <block type="variables_set2" id="ZqHa4B0.xh5T%7vPfoG@">
+            <field name="TYPE">String</field>
+            <field name="VAR" id="H=syp;W9kDP7N=ukIIbh">mySwitch</field>
+          </block>
+        </value>
+      </block>
+    </value>
+    <statement name="STACK">
+      <block type="controls_if" id="+[{#=:C.U!Ny:^-[~eaG">
+        <mutation elseif="2"></mutation>
+        <value name="IF0">
+          <block type="logic_compare" id="@,z$uH1adhbZ7C_)D:j)">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="variables_get" id="[ycCj%]W9*S*%9/I]=Uf">
+                <field name="VAR" id="+FxVgqzl=R7bE[n1JvQA">myDevice</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="text" id="LMDIAJ,~OW.F_=O9W|l?">
+                <field name="TEXT">fan</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="customcode_comment" id="$TWcZ:l9`1,@$FE6]Gxw">
+            <value name="text">
+              <block type="text" id="@(I0:!K;uaZ2vjOTSEsR">
+                <field name="TEXT">風扇</field>
+              </block>
+            </value>
+            <next>
+              <block type="controls_if" id="yt0p2O,GaaX4S#S]tx:|">
+                <mutation elseif="1"></mutation>
+                <value name="IF0">
+                  <block type="logic_compare" id=")nm/WPk8stv*_CG7@)0K">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="variables_get" id="@zPN9`Cp;9!Q};vgE?%H">
+                        <field name="VAR" id="H=syp;W9kDP7N=ukIIbh">mySwitch</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="text" id="Zi[576byL]6G`p|}u0sC">
+                        <field name="TEXT">1</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="inout_custom_digital_write" id="P]9.+cLmE@ptcs}gQ}ld">
+                    <value name="PIN">
+                      <block type="math_number" id="_n1Pk]gX8qd[|kw!%mz/">
+                        <field name="NUM">22</field>
+                      </block>
+                    </value>
+                    <value name="STAT">
+                      <block type="inout_highlow" id="*C!p}EaAr;]*|{xNgTF9">
+                        <field name="BOOL">HIGH</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="inout_custom_digital_write" id="xJFqghvNaHY(~Emhxj(.">
+                        <value name="PIN">
+                          <block type="math_number" id="~|n[W,MHQLd3$AHoND*2">
+                            <field name="NUM">23</field>
+                          </block>
+                        </value>
+                        <value name="STAT">
+                          <block type="inout_highlow" id="lmJFfUUuwnZOUO?G1h]v">
+                            <field name="BOOL">HIGH</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="inout_custom_digital_write" id="+^I/AFMVdf:,,@f[?nK4">
+                            <value name="PIN">
+                              <block type="math_number" id="Jx!k-+|*Se0p|f);SR%}">
+                                <field name="NUM">24</field>
+                              </block>
+                            </value>
+                            <value name="STAT">
+                              <block type="inout_highlow" id="x[aesMEdH!aR$)Y?u[Q_">
+                                <field name="BOOL">HIGH</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <value name="IF1">
+                  <block type="logic_compare" id="5/$8Do0/[30FFqCtgHf=">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="variables_get" id="q,o,s77NYq7_dNAE3TMk">
+                        <field name="VAR" id="H=syp;W9kDP7N=ukIIbh">mySwitch</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="text" id="QHbFnEbv3E?{,wj$hOpa">
+                        <field name="TEXT">0</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO1">
+                  <block type="inout_custom_digital_write" id="UtFTM3+.l{IAA.L9d`+,">
+                    <value name="PIN">
+                      <block type="math_number" id="4o)@e;}zs$V(ta=f_nqT">
+                        <field name="NUM">22</field>
+                      </block>
+                    </value>
+                    <value name="STAT">
+                      <block type="inout_highlow" id="g+P`a^PL{kMos*V]iz~r">
+                        <field name="BOOL">LOW</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="inout_custom_digital_write" id="%_ryKKH}f}L6;|Qx$v9D">
+                        <value name="PIN">
+                          <block type="math_number" id="#ueR+J:?rlIlpH=5,+[@">
+                            <field name="NUM">23</field>
+                          </block>
+                        </value>
+                        <value name="STAT">
+                          <block type="inout_highlow" id="(u-?tH%h#Ty;}(s{,SgS">
+                            <field name="BOOL">LOW</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="inout_custom_digital_write" id="|6Vkg@l%x^j1.pHyxPJr">
+                            <value name="PIN">
+                              <block type="math_number" id="HLsbC_`@~jsWMjG2l68h">
+                                <field name="NUM">24</field>
+                              </block>
+                            </value>
+                            <value name="STAT">
+                              <block type="inout_highlow" id="|4?dp+8gE?30!T|!:p_a">
+                                <field name="BOOL">LOW</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <value name="IF1">
+          <block type="logic_compare" id="~uz6:,?xjNO5:ga[O}j}">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="variables_get" id="Xw*@*rK;f4P+DI.ps]0/">
+                <field name="VAR" id="+FxVgqzl=R7bE[n1JvQA">myDevice</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="text" id="%gJ2%{R{2U?TlS.73jP)">
+                <field name="TEXT">led</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO1">
+          <block type="customcode_comment" id="HZb%fbfE;FMWtz:xAACS">
+            <value name="text">
+              <block type="text" id="aP}bpRw{CdV.:c:(5(`i">
+                <field name="TEXT">電燈</field>
+              </block>
+            </value>
+            <next>
+              <block type="controls_if" id="]:Qz)k_lL7J{;M]I*P_V">
+                <mutation elseif="1"></mutation>
+                <value name="IF0">
+                  <block type="logic_compare" id="}ZX/IK^Bzv@m;i0s^k[,">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="variables_get" id="I3*BTDZ1zq_/Pu[@*56x">
+                        <field name="VAR" id="H=syp;W9kDP7N=ukIIbh">mySwitch</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="text" id="a7/GG=X{Q($NOrZQ[Er*">
+                        <field name="TEXT">1</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="ljj_ws2812_neopixel_set_colors" id="OoJk=No/Akm|BQ*;|(P4">
+                    <field name="varName" id="8Ze.`?VSM()9/;vobACW">LED1</field>
+                    <value name="COLOR">
+                      <block type="ttgo_getFromColorPicker" id="LuXOUlUyOecqqqe0IU!$">
+                        <field name="RGB">#ff6600</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="ljj_ws2812_neopixel_set_colors" id="?2v5qk(pKsn;kJ1dX:;(">
+                        <field name="varName" id="_t6v`t7dK~$NSmJOwI~s">LED2</field>
+                        <value name="COLOR">
+                          <block type="ttgo_getFromColorPicker" id="g.F$IDv?L(CYoq=%fL(O">
+                            <field name="RGB">#33cc00</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="ljj_ws2812_neopixel_set_colors" id=":Q`SEIbsd`wx1Kp3pmro">
+                            <field name="varName" id="r(-T-.?AZ=:J2j3th:U#">LED3</field>
+                            <value name="COLOR">
+                              <block type="ttgo_getFromColorPicker" id="7@Est$e?~gczfkkp~FTT">
+                                <field name="RGB">#00cccc</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <value name="IF1">
+                  <block type="logic_compare" id="YuTFqIK1j)CSIf(n1EF.">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="variables_get" id="9C_[_s!28S0E:r7qvSxC">
+                        <field name="VAR" id="H=syp;W9kDP7N=ukIIbh">mySwitch</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="text" id="+[}|{*?e#`iWTT%C(BF}">
+                        <field name="TEXT">0</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO1">
+                  <block type="ljj_ws2812_neopixel_clear" id="$|c-X)g+oXu2SYPPFUi4">
+                    <field name="varName" id="8Ze.`?VSM()9/;vobACW">LED1</field>
+                    <next>
+                      <block type="ljj_ws2812_neopixel_clear" id="e$s3bYQ8Gur%m`4!c=!t">
+                        <field name="varName" id="_t6v`t7dK~$NSmJOwI~s">LED2</field>
+                        <next>
+                          <block type="ljj_ws2812_neopixel_clear" id="{a;[SxlNUWZNI2X_*?yz">
+                            <field name="varName" id="r(-T-.?AZ=:J2j3th:U#">LED3</field>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <value name="IF2">
+          <block type="logic_compare" id="Sn?^_M]qWKHoW{vpUZ`p">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="variables_get" id="dQ?Op6e3.yhiaqHE(.Gf">
+                <field name="VAR" id="+FxVgqzl=R7bE[n1JvQA">myDevice</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="text" id="Md|N;Gh1Dwa6,nBSg]Bv">
+                <field name="TEXT">airctrl</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO2">
+          <block type="customcode_comment" id="dY3rQ:3ih7w5GTkIm@H.">
+            <value name="text">
+              <block type="text" id="C9L)Q[WCNCg=JHKA2ZGA">
+                <field name="TEXT">冷氣</field>
+              </block>
+            </value>
+            <next>
+              <block type="controls_if" id="Xq(9}Se:6POSs9.+-:N%">
+                <mutation elseif="1"></mutation>
+                <value name="IF0">
+                  <block type="logic_compare" id="xa*^j{ceT!2azccY!,V*">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="variables_get" id="rM~/IHxIh`tP+nh{v#j?">
+                        <field name="VAR" id="H=syp;W9kDP7N=ukIIbh">mySwitch</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="text" id="phP[S#K)Ux)KI)chQo=m">
+                        <field name="TEXT">1</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="customcode_comment" id="~C`UNyzH/QY|{YCwd$Va">
+                    <value name="text">
+                      <block type="text" id="5do2X=!}UyL~AYyrk}oh">
+                        <field name="TEXT">冷氣風、出風口轉向、狀態燈</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="inout_custom_digital_write" id="X=TPo3-Ua/mn/7Tt]PD1">
+                        <value name="PIN">
+                          <block type="math_number" id="|=VbOp#Rqf@`1%`H:sM:">
+                            <field name="NUM">24</field>
+                          </block>
+                        </value>
+                        <value name="STAT">
+                          <block type="inout_highlow" id=":e(p3g!,ZeMvFQJt#t;t">
+                            <field name="BOOL">HIGH</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="servo_write_pin" id="}G|U{E-$eGv2F-b@(?Zk">
+                            <value name="PIN">
+                              <block type="math_number" id="f#sSa^05=~SHyQO!snED">
+                                <field name="NUM">9</field>
+                              </block>
+                            </value>
+                            <value name="ANGLE">
+                              <block type="math_number" id="P;]J*PL!!F4qzz:!o)VI">
+                                <field name="NUM">90</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="inout_custom_digital_write" id="f,/X=0TQe@wuv*AC6QIl">
+                                <value name="PIN">
+                                  <block type="math_number" id="r/m_!YAUcRw18,.[gvKC">
+                                    <field name="NUM">24</field>
+                                  </block>
+                                </value>
+                                <value name="STAT">
+                                  <block type="inout_highlow" id="aK6JnJx!;8_H1P@J=$AK">
+                                    <field name="BOOL">HIGH</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="inout_custom_digital_write" id="7gOx3*NfIQ:oAg6lrp^]">
+                                    <value name="PIN">
+                                      <block type="math_number" id="~D/-%csrd}(k~Xb`3mK`">
+                                        <field name="NUM">24</field>
+                                      </block>
+                                    </value>
+                                    <value name="STAT">
+                                      <block type="inout_highlow" id="ad!jV`g6h%,Ds9zK!m@)">
+                                        <field name="BOOL">LOW</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="inout_custom_digital_write" id="rg4[[#P9^(!HU/[1(j_,">
+                                        <value name="PIN">
+                                          <block type="math_number" id="Yl}CYp7Fud]2kl)@[av}">
+                                            <field name="NUM">24</field>
+                                          </block>
+                                        </value>
+                                        <value name="STAT">
+                                          <block type="inout_highlow" id="S!Dm5e)u8G@M=#=1ATxM">
+                                            <field name="BOOL">LOW</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <value name="IF1">
+                  <block type="logic_compare" id="NENHI|2ym:I5O%#`EykK">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="variables_get" id=":T=A3Pb+?S:a3|p+~y2`">
+                        <field name="VAR" id="H=syp;W9kDP7N=ukIIbh">mySwitch</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="text" id="b2C@gln}d5K/:pp+h=^,">
+                        <field name="TEXT">0</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO1">
+                  <block type="inout_custom_digital_write" id="wL3kga=na@~n9l-=5BU|">
+                    <value name="PIN">
+                      <block type="math_number" id="!A}^A60~3~2jcMQu(qmL">
+                        <field name="NUM">24</field>
+                      </block>
+                    </value>
+                    <value name="STAT">
+                      <block type="inout_highlow" id="hwPHmLd:be`ktUEsM+/-">
+                        <field name="BOOL">LOW</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="servo_write_pin" id="L(c0qbCk[~~.]u9DBm~R">
+                        <value name="PIN">
+                          <block type="math_number" id="Pqr7{czbDKot{f#(glY*">
+                            <field name="NUM">9</field>
+                          </block>
+                        </value>
+                        <value name="ANGLE">
+                          <block type="math_number" id="Og;sNQGTeTH_z:WvqP%j">
+                            <field name="NUM">180</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="inout_custom_digital_write" id=".ME]H`6#X8%T!3!)wDqd">
+                            <value name="PIN">
+                              <block type="math_number" id="hqzd{W_3_pAmRKmF;=y`">
+                                <field name="NUM">24</field>
+                              </block>
+                            </value>
+                            <value name="STAT">
+                              <block type="inout_highlow" id="WvWVE`O+`I)DSJS3$?sx">
+                                <field name="BOOL">LOW</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="inout_custom_digital_write" id="{[/Yc9GlahTJuajAQzG8">
+                                <value name="PIN">
+                                  <block type="math_number" id="ikcr^U2uE)d1Ibd0=1:e">
+                                    <field name="NUM">24</field>
+                                  </block>
+                                </value>
+                                <value name="STAT">
+                                  <block type="inout_highlow" id="Ge%,T+Sj%)WhZuI1AX[K">
+                                    <field name="BOOL">LOW</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="inout_custom_digital_write" id="3},n)G1e0/)-*o0#~[e`">
+                                    <value name="PIN">
+                                      <block type="math_number" id="|I~NcUd9IDe404iZD_db">
+                                        <field name="NUM">24</field>
+                                      </block>
+                                    </value>
+                                    <value name="STAT">
+                                      <block type="inout_highlow" id="4YINPA24h;)(tSb=@{e-">
+                                        <field name="BOOL">HIGH</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="_02amani_simpletimer_setinteval_id" id="DGFFIEy+l%KCJuMkO]J[" x="110" y="1170">
+    <field name="order">0</field>
+    <value name="ms">
+      <block type="math_number" id="?=ftexH1T:TSJi8e;!$#">
+        <field name="NUM">60000</field>
+      </block>
+    </value>
+    <statement name="msg">
+      <block type="customcode_comment" id="k{2[VHSe9~YA)Ow;0.#}">
+        <value name="text">
+          <block type="text" id="(bOcA-u.K:*-Q1C4DKu%">
+            <field name="TEXT">計算耗電量</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set3" id="]H;0q`L*f](2Xt2Y]yM[">
+            <field name="VAR" id="JM{GXEt1Wg2~kW.6ye3G">fan_mWh</field>
+            <value name="DELTA">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+              <block type="math_arithmetic" id=".(DP$bAh2m=/r73{`Hlv">
+                <field name="OP">DIVIDE</field>
+                <value name="A">
+                  <block type="math_arithmetic" id="kA86{zpd+PAz.0ubZU_q">
+                    <field name="OP">MULTIPLY</field>
+                    <value name="A">
+                      <block type="amani_fake_ina226_mv" id="Rw~v8OB7?TdIy-(GluNl">
+                        <field name="mvchannel">0</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="amani_fake_ina226_ma" id="}+8RL%+y~6~]rr(ggQ+S">
+                        <field name="machannel">0</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="vOTjI$(i[E5T;Gyw/y[[">
+                    <field name="NUM">1000</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set3" id="9Z@SCceED+XQQrr5/O-Y">
+                <field name="VAR" id="H1Cfr.bIn`w+(g*Ww%H{">led_mWh</field>
+                <value name="DELTA">
+                  <shadow type="math_number">
+                    <field name="NUM">0</field>
+                  </shadow>
+                  <block type="math_arithmetic" id="2|b:?6}Rp(1.(MZd[d-d">
+                    <field name="OP">DIVIDE</field>
+                    <value name="A">
+                      <block type="math_arithmetic" id="HAosSZlp5;|{[H(0[wnL">
+                        <field name="OP">MULTIPLY</field>
+                        <value name="A">
+                          <block type="amani_fake_ina226_mv" id="dbJr,A)SeGj!x_vf~tCa">
+                            <field name="mvchannel">0</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="amani_fake_ina226_ma" id="WQ$OtUz;baxvP]IMJkjL">
+                            <field name="machannel">0</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="(~]d?})q9Fm#1isF?vpA">
+                        <field name="NUM">1000</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set3" id="ep|dQoM#G!f;qXsk#GY%">
+                    <field name="VAR" id="l0`AT/me+Es_l~g:#7Z8">airctrl_mWh</field>
+                    <value name="DELTA">
+                      <shadow type="math_number">
+                        <field name="NUM">0</field>
+                      </shadow>
+                      <block type="math_arithmetic" id="v{~uEylbl~;PVAXH=6.a">
+                        <field name="OP">DIVIDE</field>
+                        <value name="A">
+                          <block type="math_arithmetic" id="5Avjy0J~_O=Ax}D+T}|E">
+                            <field name="OP">MULTIPLY</field>
+                            <value name="A">
+                              <block type="amani_fake_ina226_mv" id="hU){V9Y|fZE!j(;p$DUO">
+                                <field name="mvchannel">0</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="amani_fake_ina226_ma" id="HXCAI|#HXrU)@iBIsP*!">
+                                <field name="machannel">0</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="N^wS]sdAd8gmDO7WFvj(">
+                            <field name="NUM">1000</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="customcode_comment" id="Mw(J?8dC:VVer!u13eD]">
+                        <value name="text">
+                          <block type="text" id=",7kcj}8gPGm;..7Uy:7S">
+                            <field name="TEXT">通知ESP32，上傳Google試算表</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="_03amani_uart_send" id="`2z4)e^ZXUfEtlryFspP">
+                            <field name="serial">Serial1</field>
+                            <field name="send">print</field>
+                            <value name="msg">
+                              <shadow type="text" id="c$)=5fz1oZyDm@sDvI?u">
+                                <field name="TEXT"></field>
+                              </shadow>
+                              <block type="text_join" id=");TaJY^^;8dza/TJtASC">
+                                <mutation items="5"></mutation>
+                                <value name="ADD0">
+                                  <block type="variables_get" id="]6Y^D!vY[GdM]:ossvz;">
+                                    <field name="VAR" id="JM{GXEt1Wg2~kW.6ye3G">fan_mWh</field>
+                                  </block>
+                                </value>
+                                <value name="ADD1">
+                                  <block type="text" id="CDskcg%$Dhen5n8lk7Zy">
+                                    <field name="TEXT">,</field>
+                                  </block>
+                                </value>
+                                <value name="ADD2">
+                                  <block type="variables_get" id="iQ)5mmFj?0}}[X*lRSv=">
+                                    <field name="VAR" id="H1Cfr.bIn`w+(g*Ww%H{">led_mWh</field>
+                                  </block>
+                                </value>
+                                <value name="ADD3">
+                                  <block type="text" id="E2gYjT,~;Tf$Awa^iSm2">
+                                    <field name="TEXT">,</field>
+                                  </block>
+                                </value>
+                                <value name="ADD4">
+                                  <block type="variables_get" id="h~;]D6L$5%47IpDGq01Q">
+                                    <field name="VAR" id="l0`AT/me+Es_l~g:#7Z8">airctrl_mWh</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

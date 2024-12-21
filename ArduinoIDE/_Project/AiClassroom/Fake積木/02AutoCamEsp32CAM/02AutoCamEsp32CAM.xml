@@ -1,0 +1,184 @@
+<xml version="F2" board="ESP32 Wrover Module" xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="H%z)e!qfN(W]8MP-*u:g">message</variable>
+  </variables>
+  <block type="board_initializes_setup" id="0" x="100" y="50">
+    <field name="BOARD_TYPE">ESP32</field>
+    <statement name="CONTENT">
+      <block type="serial_init" id="3Dwg{$3R*uA!1NN`X3xS">
+        <field name="SPEED">115200</field>
+        <next>
+          <block type="esp32_cam_stream_only_myfirmata" id="ElQO~;!OZDNsENW69)Za">
+            <field name="baudrate">115200</field>
+            <field name="framesize">QVGA</field>
+            <field name="flash">Y</field>
+            <field name="port">81</field>
+            <value name="ssid">
+              <block type="text" id="9OF4YAslY7~w=G1GoNva">
+                <field name="TEXT">tyes-itc</field>
+              </block>
+            </value>
+            <value name="password">
+              <block type="text" id="Wmb8WpE[?{/rH,K$GUQT">
+                <field name="TEXT">xxxxxxxx</field>
+              </block>
+            </value>
+            <value name="ssid_ap">
+              <block type="text" id="1NA^AHXiP:yKe7)Yg=8G">
+                <field name="TEXT">esp32-cam</field>
+              </block>
+            </value>
+            <value name="password_ap">
+              <block type="text" id="hVAB5:5@cf_LE31V#D/|">
+                <field name="TEXT">xxxxxxxx</field>
+              </block>
+            </value>
+            <next>
+              <block type="adafruitio_connect" id="H-76NU37lLVk)[@E17EF">
+                <value name="USERNAME">
+                  <block type="text" id="gHaQ*;]l,/4MUh2ni`Ys">
+                    <field name="TEXT">user</field>
+                  </block>
+                </value>
+                <value name="AIOKEY">
+                  <block type="text" id="[^YVBh%R]m9Tj@fqG5a/">
+                    <field name="TEXT">xxxxxxxx</field>
+                  </block>
+                </value>
+                <value name="DEVICEID">
+                  <block type="text" id="nOp-M(5Rwyx9Ajk.-U#L">
+                    <field name="TEXT">esp32-cam</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1"></block>
+    </next>
+  </block>
+  <block type="amani_mqtt_subscribe" id="LfD$2KJ4jP5{7kLz^}f^" x="510" y="50">
+    <value name="feedname">
+      <shadow type="text" id="BUuQ.qz:xOQLZC[gc3!i">
+        <field name="TEXT"></field>
+      </shadow>
+      <block type="text" id="9NT%@(W`w}H:x2qPVC+;">
+        <field name="TEXT">control-cam</field>
+      </block>
+    </value>
+    <statement name="statement">
+      <block type="customcode_comment" id="#p@IIh,wPiQv,6p/Aqt]">
+        <value name="text">
+          <block type="text" id="Q.wJ}ZAKS:eXUbpp|5_?">
+            <field name="TEXT">收到MQTT訊息後，拍照上傳Google雲端硬碟</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id="g_5m]=?@/]TM#svOT?2P">
+            <field name="POSITION">global</field>
+            <field name="TYPE">String</field>
+            <field name="VAR" id="H%z)e!qfN(W]8MP-*u:g">message</field>
+            <value name="VALUE">
+              <shadow type="math_number" id="/bma?0`iP?P7o:BunWL6">
+                <field name="NUM">0</field>
+              </shadow>
+              <block type="text" id="y`;w+L,V^_~VKT]WYYK-">
+                <field name="TEXT"></field>
+              </block>
+            </value>
+            <next>
+              <block type="controls_if" id="WKD8K)$GEysoe-)R*y]/">
+                <mutation elseif="1"></mutation>
+                <value name="IF0">
+                  <block type="logic_compare" id="n]a,?~@o%DrQu$8f~sJ/">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="amani_mqtt_received_string" id="lpf:*$V-#Pl4hGy5_(Sg"></block>
+                    </value>
+                    <value name="B">
+                      <block type="text" id="O+X!t;@jbSt5NZ1^?SgX">
+                        <field name="TEXT">START_PLANT_CAM</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="variables_set3" id="TM|3xly=yb::VcO_~kYO">
+                    <field name="VAR" id="H%z)e!qfN(W]8MP-*u:g">message</field>
+                    <value name="DELTA">
+                      <shadow type="math_number" id="^TQzJ.NqF+;X#ZcP2OCx">
+                        <field name="NUM">0</field>
+                      </shadow>
+                      <block type="text" id="-j@}7[r!*y#YDwytX#UQ">
+                        <field name="TEXT">plant</field>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+                <value name="IF1">
+                  <block type="logic_compare" id=",?4^HH=[JKA8,?{1^kP3">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="amani_mqtt_received_string" id="tAd:kT@ES_uk/@LLlUz`"></block>
+                    </value>
+                    <value name="B">
+                      <block type="text" id="..eKopx#(8o-==TIdNZ,">
+                        <field name="TEXT">START_TRASH_CAM</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO1">
+                  <block type="variables_set3" id="fzE6(dp.[O1zptRC@v|R">
+                    <field name="VAR" id="H%z)e!qfN(W]8MP-*u:g">message</field>
+                    <value name="DELTA">
+                      <shadow type="math_number">
+                        <field name="NUM">0</field>
+                      </shadow>
+                      <block type="text" id="(UK0dj]Zf7o(}8{t!/U:">
+                        <field name="TEXT">trash</field>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+                <next>
+                  <block type="esp32_cam_googledrive" id="+eF+bZCh)sN3u4J)pdm$">
+                    <field name="linetype"></field>
+                    <value name="scriptid">
+                      <block type="text" id="7~|)qyH.UH;G=e9K?ou2">
+                        <field name="TEXT">xxxxxxxxxxxxxxxxxxxxxxxx</field>
+                      </block>
+                    </value>
+                    <value name="foldername">
+                      <block type="text" id="1^AM4?q3op9P81o1/Ka/">
+                        <field name="TEXT">AiClassroom/images</field>
+                      </block>
+                    </value>
+                    <value name="filename">
+                      <block type="variables_get" id="4ITFm45%%9Blx?s#1zi[">
+                        <field name="VAR" id="H%z)e!qfN(W]8MP-*u:g">message</field>
+                      </block>
+                    </value>
+                    <value name="linetoken">
+                      <block type="text" id="W=ub($]NaP%BG$6.dENV">
+                        <field name="TEXT"></field>
+                      </block>
+                    </value>
+                    <value name="lineuserid">
+                      <block type="text" id="@y7q}T:3jL+XI@~xZ1X.">
+                        <field name="TEXT"></field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

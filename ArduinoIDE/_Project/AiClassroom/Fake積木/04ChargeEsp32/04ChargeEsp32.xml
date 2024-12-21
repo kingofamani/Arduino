@@ -1,0 +1,177 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id=".Y81`RuxVj3vJV=h=cIm">sun_mWh</variable>
+  </variables>
+  <block type="board_initializes_setup" id="0" x="190" y="150">
+    <field name="BOARD_TYPE">ESP32</field>
+    <statement name="CONTENT">
+      <block type="linkit_wifi_wait_until_ready" id="XY?-BVgP^+Rmxlj?$gy4">
+        <value name="SSID">
+          <block type="text" id="y0j]QTo}E+Nm)Zk]~K,Z">
+            <field name="TEXT">tyes-itc</field>
+          </block>
+        </value>
+        <value name="PASSWORD">
+          <block type="text" id="dsryC@9ghrZ7UX=#v3m|">
+            <field name="TEXT">xxxxxxx</field>
+          </block>
+        </value>
+        <next>
+          <block type="setupSheets" id="9I0}nEkoU0O#A`Y@o532">
+            <value name="sheetId">
+              <block type="text" id="(hy6S@]Bt9E}TVDSrEG@">
+                <field name="TEXT">xxxxxxxxxxxxxx</field>
+              </block>
+            </value>
+            <next>
+              <block type="setupForm" id="rltb|GEJic]ns6AUwXM)">
+                <value name="sheetTag">
+                  <block type="text" id="~@BVo]HvjA`HF.o|h(@0">
+                    <field name="TEXT">sun</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="ggINA226Begin" id=":)-5ec/B?*ZT7KH+aYz0">
+                    <next>
+                      <block type="ggINA226powerUp" id="^{mmD(l`ReBw5EREi`{w">
+                        <next>
+                          <block type="variables_set" id="bLsTcTfu/_{`qjVQSMZ0">
+                            <field name="POSITION">global</field>
+                            <field name="TYPE">float</field>
+                            <field name="VAR" id=".Y81`RuxVj3vJV=h=cIm">sun_mWh</field>
+                            <value name="VALUE">
+                              <shadow type="math_number" id="@/bQ8G_@MQG5UO~(ii#r">
+                                <field name="NUM">0</field>
+                              </shadow>
+                              <block type="amani_fake_ina226_init" id=",;T+~2{y7l_.dN5%`BF#">
+                                <field name="inachannel">0</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="customcode_comment" id="K7#gxDsjxfUIwipuV?)C">
+            <value name="text">
+              <block type="text" id="-stVb_$=L^kt{*W}Iq_7">
+                <field name="TEXT">每秒偵測太陽能發電量</field>
+              </block>
+            </value>
+            <next>
+              <block type="_01amani_simpletimer_setinteval" id=":UC7qLEVXt+.ERW=)25,">
+                <field name="order">0</field>
+                <value name="ms">
+                  <block type="math_number" id="GOpqo?Hw2v_92ssUL4mX">
+                    <field name="NUM">1000</field>
+                  </block>
+                </value>
+                <statement name="msg">
+                  <block type="math_change" id="^sGiX[,xM@OxUE`fPMsA">
+                    <value name="VAR">
+                      <block type="variables_get" id="#Oj10S)u8OL.]9:[b#D2">
+                        <field name="VAR" id=".Y81`RuxVj3vJV=h=cIm">sun_mWh</field>
+                      </block>
+                    </value>
+                    <value name="DELTA">
+                      <block type="math_arithmetic" id="$[skWrUTkj.!/R3?K:9i">
+                        <field name="OP">DIVIDE</field>
+                        <value name="A">
+                          <block type="math_arithmetic" id="n/k#5Tq,s*F6Hj@e_jgx">
+                            <field name="OP">MULTIPLY</field>
+                            <value name="A">
+                              <block type="amani_fake_ina226_mv" id="x!!T;XdNndy/?Kn/{x^Y">
+                                <field name="mvchannel">0</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="amani_fake_ina226_ma" id="%SZhq-Z|*:*uc#:*OW0N">
+                                <field name="machannel">0</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="_45Y!bMsN!vJ$4yT:bpA">
+                            <field name="NUM">1000</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+                <next>
+                  <block type="customcode_comment" id="E(NDun5C@6l315A]ISI2">
+                    <value name="text">
+                      <block type="text" id="m_VdUfIZC6V.drFXs5SV">
+                        <field name="TEXT">每小時上傳Google試算表:太陽能發電量</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="_01amani_simpletimer_setinteval" id=":DLU8-|KAR/H5*g[bvR!">
+                        <field name="order">1</field>
+                        <value name="ms">
+                          <block type="math_number" id="i5~Oj;X9*kn~R%y#8pM%">
+                            <field name="NUM">3600000</field>
+                          </block>
+                        </value>
+                        <statement name="msg">
+                          <block type="sendToGoogle" id="ff$zdBgM`mh+D$G/pxxZ">
+                            <field name="dateInclude">1</field>
+                            <value name="data">
+                              <block type="data_join" id="zY*v2Sht83^0h/=oLC}X" inline="false">
+                                <mutation items="3"></mutation>
+                                <value name="ADD0">
+                                  <block type="text" id="r/,SeODvV={fg|S+#,u2">
+                                    <field name="TEXT">國小A</field>
+                                  </block>
+                                </value>
+                                <value name="ADD1">
+                                  <block type="text" id="*ru.!;~.)rb@T6#fRN,5">
+                                    <field name="TEXT">601</field>
+                                  </block>
+                                </value>
+                                <value name="ADD2">
+                                  <block type="variables_get" id="?zX-kL2R%r!N*o6-G{o=">
+                                    <field name="VAR" id=".Y81`RuxVj3vJV=h=cIm">sun_mWh</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="variables_set3" id="K/d__HV3b]6C5h]u|ZJo">
+                                <field name="VAR" id=".Y81`RuxVj3vJV=h=cIm">sun_mWh</field>
+                                <value name="DELTA">
+                                  <shadow type="math_number" id="TXZ(J95+T{!QM0bt~yzN">
+                                    <field name="NUM">0</field>
+                                  </shadow>
+                                  <block type="math_number" id="L4fQ8oZ-79Wijq3tg8ci">
+                                    <field name="NUM">0</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

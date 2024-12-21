@@ -1,0 +1,422 @@
+<xml version="F2" board="Arduino Uno" xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="N4Ps(rC.L@opP(mA.=v[">isMoveTrashCam</variable>
+    <variable id="R_|SijV~7V4df`Q~+!/L">isMovePlantCam</variable>
+    <variable id="7W10pZzN!U,~2gQ^Q4)X">TRASH_POSITION</variable>
+    <variable id="XlEIe+d%OgVl]+GB~#7/">PLANT_POSITION</variable>
+  </variables>
+  <block type="board_initializes_setup" id="0" x="330" y="170">
+    <field name="BOARD_TYPE">Arduino</field>
+    <statement name="CONTENT">
+      <block type="serial_init" id="Jck8Z4zUT$:J-?s[.sU(">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="amani_fake_cnc_init" id="n*Lv@@.yEE=2/Kz?Wzch">
+            <value name="cncenable">
+              <block type="math_number" id="|Sj[x2oo!K$s%Ay2/K-X">
+                <field name="NUM">8</field>
+              </block>
+            </value>
+            <value name="xdir">
+              <block type="math_number" id="/Hu$1weSSlq{_?tb86T^">
+                <field name="NUM">5</field>
+              </block>
+            </value>
+            <value name="xstep">
+              <block type="math_number" id="aB13L?#,/Iy%b2CKDVUW">
+                <field name="NUM">2</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_comment" id="eWe;L`P@GcBg7WmKSV.T">
+                <value name="text">
+                  <block type="text" id="yh}_`xEsuuefM5+dm`22">
+                    <field name="TEXT">設定垃圾桶、馬達移動位置</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set" id="x8MmDKt!1dbMY4NlJ0iQ">
+                    <field name="POSITION">global</field>
+                    <field name="TYPE">int</field>
+                    <field name="VAR" id="7W10pZzN!U,~2gQ^Q4)X">TRASH_POSITION</field>
+                    <value name="VALUE">
+                      <shadow type="math_number" id="!2+rski@dRsrNZlc|d3M">
+                        <field name="NUM">0</field>
+                      </shadow>
+                      <block type="math_number" id="[K#5gH+e`nhAW;;U)1tl">
+                        <field name="NUM">600</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_set" id="0Uwtl$I0)[N77a;T7@vk">
+                        <field name="POSITION">global</field>
+                        <field name="TYPE">int</field>
+                        <field name="VAR" id="XlEIe+d%OgVl]+GB~#7/">PLANT_POSITION</field>
+                        <value name="VALUE">
+                          <shadow type="math_number">
+                            <field name="NUM">0</field>
+                          </shadow>
+                          <block type="math_number" id="CGlV96yco6K!MX:KXE.@">
+                            <field name="NUM">1320</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="customcode_comment" id="qd0%3K.A83/v_74G5)b`">
+                            <value name="text">
+                              <block type="text" id="-^eV6oumK2~pRV*W5^$?">
+                                <field name="TEXT">是否開始垃圾桶、植物拍照</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="variables_set" id="r?xr=A]|l|OD`L~.ulM!">
+                                <field name="POSITION">global</field>
+                                <field name="TYPE">boolean</field>
+                                <field name="VAR" id="N4Ps(rC.L@opP(mA.=v[">isMoveTrashCam</field>
+                                <value name="VALUE">
+                                  <shadow type="math_number" id="2tK8?sfSpryG8;R8k#-q">
+                                    <field name="NUM">0</field>
+                                  </shadow>
+                                  <block type="logic_boolean" id="4rX7e/^mzqsPWM=;,wF*">
+                                    <field name="BOOL">FALSE</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="variables_set" id="PYqG%XNkL|g0p2~C;T.F">
+                                    <field name="POSITION">global</field>
+                                    <field name="TYPE">boolean</field>
+                                    <field name="VAR" id="R_|SijV~7V4df`Q~+!/L">isMovePlantCam</field>
+                                    <value name="VALUE">
+                                      <shadow type="math_number">
+                                        <field name="NUM">0</field>
+                                      </shadow>
+                                      <block type="logic_boolean" id="4xf@5I-(rP^MI?qHyw.G">
+                                        <field name="BOOL">FALSE</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="customcode_comment" id="^gT]K}]P=a(YI$BOu,-J">
+            <value name="text">
+              <block type="text" id="lyO3-|,BP}G9q4%Rzzp:">
+                <field name="TEXT">2、開始移動鏡頭</field>
+              </block>
+            </value>
+            <next>
+              <block type="customcode_comment" id="tir92,?Xn?Du2xkc:mo,">
+                <value name="text">
+                  <block type="text" id="zIhTh6}FR$tqYD|dv)60">
+                    <field name="TEXT">鏡頭移動至垃圾桶</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="controls_if" id="r?@Z!Y,p;+LpFshxPlKo">
+                    <value name="IF0">
+                      <block type="logic_compare" id="`KD:.w5()W),pwz|oYuv">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="variables_get" id="K6JM3QK0c-!f_J9{!$~j">
+                            <field name="VAR" id="N4Ps(rC.L@opP(mA.=v[">isMoveTrashCam</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="logic_boolean" id="]x$0G;so:rUM6fwE]E]l">
+                            <field name="BOOL">TRUE</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="amani_fake_cnc_xmove" id="fU$~7IToX8MP3dF=%~pl">
+                        <value name="xmove">
+                          <block type="variables_get" id="_7dI4Ih|[})I{r;;ZN$}">
+                            <field name="VAR" id="7W10pZzN!U,~2gQ^Q4)X">TRASH_POSITION</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="controls_if" id="HN-Gtit--p{.#52CNT6O">
+                            <value name="IF0">
+                              <block type="logic_compare" id="[vN-^-m6zD!Z|-qsUm/0">
+                                <field name="OP">EQ</field>
+                                <value name="A">
+                                  <block type="amani_fake_cnc_xcurrent" id="#iy0Y6s%e~Lkw/ng5who"></block>
+                                </value>
+                                <value name="B">
+                                  <block type="variables_get" id="nY]+BMnv+RMBw!q!_d-y">
+                                    <field name="VAR" id="7W10pZzN!U,~2gQ^Q4)X">TRASH_POSITION</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="DO0">
+                              <block type="delay_custom" id="nC.o!ijapkbD;Jsrx=~:">
+                                <value name="DELAY_TIME">
+                                  <block type="math_number" id="?PA6O$9z)AIHq-[#A)]|">
+                                    <field name="NUM">5000</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="customcode_comment" id="UOusID@X]qmO!,75f@qk">
+                                    <value name="text">
+                                      <block type="text" id="ri@5%-;p19vMu~PL?yAj">
+                                        <field name="TEXT">3、通知UNO,開始拍照</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="_03amani_uart_send" id="n~[T1GLn.0*B%lL].;6|">
+                                        <field name="serial">softSerial</field>
+                                        <field name="send">print</field>
+                                        <value name="msg">
+                                          <shadow type="text" id="@@ypujkEB{aRJhP=~wML">
+                                            <field name="TEXT"></field>
+                                          </shadow>
+                                          <block type="text" id="G?thgX;O7%F~_I1xL]|L">
+                                            <field name="TEXT">START_TRASH_CAM</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="variables_set3" id="s]`;b+?N$Iu)ruQ6m4cx">
+                                            <field name="VAR" id="N4Ps(rC.L@opP(mA.=v[">isMoveTrashCam</field>
+                                            <value name="DELTA">
+                                              <shadow type="math_number" id="1B0T(7+h2R$qL:/jAIuN">
+                                                <field name="NUM">0</field>
+                                              </shadow>
+                                              <block type="logic_boolean" id="gN6fd-YLhl`cd~fy4~zX">
+                                                <field name="BOOL">FALSE</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="delay_custom" id="Kl~P7zYQb?y(N;.MPgV?">
+                                                <value name="DELAY_TIME">
+                                                  <block type="math_number" id="tN?BAECvmy!m{2E!V[{[">
+                                                    <field name="NUM">3000</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </statement>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="customcode_comment" id="R3DGlc|W)CoJ0[Un0[Ev">
+                        <value name="text">
+                          <block type="text" id="(Z2yVs:4Cz6X450nq+9]">
+                            <field name="TEXT">鏡頭移動至植物</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="controls_if" id="%XJb`+f;DE/J8:rxf0yc">
+                            <value name="IF0">
+                              <block type="logic_compare" id="1vvDgy?7W|kt}R?Bso!0">
+                                <field name="OP">EQ</field>
+                                <value name="A">
+                                  <block type="variables_get" id="~oRt,=xNe]!{+n02)q45">
+                                    <field name="VAR" id="R_|SijV~7V4df`Q~+!/L">isMovePlantCam</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="logic_boolean" id="0uC0^p_Y!hMW[[{`bmG:">
+                                    <field name="BOOL">TRUE</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="DO0">
+                              <block type="amani_fake_cnc_xmove" id="WE|esGegaR3uX;/Q/?qg">
+                                <value name="xmove">
+                                  <block type="variables_get" id="O4_~ROhOW?Wc:Wlq1+sK">
+                                    <field name="VAR" id="XlEIe+d%OgVl]+GB~#7/">PLANT_POSITION</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="controls_if" id="dcs*#xPu83gc4/.4[a#u">
+                                    <value name="IF0">
+                                      <block type="logic_compare" id="?;V7%nnIL[]A4jrb?+*B">
+                                        <field name="OP">EQ</field>
+                                        <value name="A">
+                                          <block type="amani_fake_cnc_xcurrent" id="1G=.s:+4{m0x;V)qbpv9"></block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="variables_get" id=",Hr~J$+cI1,R1_-c+FQ1">
+                                            <field name="VAR" id="XlEIe+d%OgVl]+GB~#7/">PLANT_POSITION</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <statement name="DO0">
+                                      <block type="delay_custom" id=":^e!k}VAya6p.g[G:zN0">
+                                        <value name="DELAY_TIME">
+                                          <block type="math_number" id="#1A).QJuY8R+Vjx[0YTX">
+                                            <field name="NUM">5000</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="customcode_comment" id="ix{!?A|N@HiWesXVOjd+">
+                                            <value name="text">
+                                              <block type="text" id="BrPvzoicJ`cfrehz}/g(">
+                                                <field name="TEXT">3、通知UNO,開始拍照</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="_03amani_uart_send" id="ZYVOwJuZp}ak!Gdp?Fq]">
+                                                <field name="serial">softSerial</field>
+                                                <field name="send">print</field>
+                                                <value name="msg">
+                                                  <shadow type="text">
+                                                    <field name="TEXT"></field>
+                                                  </shadow>
+                                                  <block type="text" id=".71G}VBuQtm2E`mVE|ZG">
+                                                    <field name="TEXT">START_PLANT_CAM</field>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="variables_set3" id="2-DK%qF~:JU{GB]zus+P">
+                                                    <field name="VAR" id="N4Ps(rC.L@opP(mA.=v[">isMoveTrashCam</field>
+                                                    <value name="DELTA">
+                                                      <shadow type="math_number">
+                                                        <field name="NUM">0</field>
+                                                      </shadow>
+                                                      <block type="logic_boolean" id="tl:gwwEHn07.QSmuRB_;">
+                                                        <field name="BOOL">FALSE</field>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="delay_custom" id=";-G+;@}w^zaCM^lU}VI)">
+                                                        <value name="DELAY_TIME">
+                                                          <block type="math_number" id="40,L{nYZENq4NEwD#HT~">
+                                                            <field name="NUM">3000</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </statement>
+                                  </block>
+                                </next>
+                              </block>
+                            </statement>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+  <block type="customcode_comment" id="#(KhpEKsc?0bx~~Q.LlR" x="990" y="410">
+    <value name="text">
+      <block type="text" id="+NK8{;dR[=nm5mv^p.I^">
+        <field name="TEXT">1、接收來自ESP32訊息：準備拍照</field>
+      </block>
+    </value>
+    <next>
+      <block type="_01amani_uart_init" id="ttF8{Ek=CPs;`QMScog-">
+        <field name="serial">softSerial</field>
+        <field name="baudrate">9600</field>
+        <value name="rx">
+          <block type="math_number" id="x3(lK3NiwN:5!|Ok;piX">
+            <field name="NUM">7</field>
+          </block>
+        </value>
+        <value name="tx">
+          <block type="math_number" id="+:P*9Akx3?WT.H-O!`~H">
+            <field name="NUM">4</field>
+          </block>
+        </value>
+        <statement name="statement">
+          <block type="controls_if" id="heb91~r#VMy0l~-rY2]_">
+            <mutation elseif="1"></mutation>
+            <value name="IF0">
+              <block type="logic_compare" id="HgYH6pk+ZfdH2vCz%}#[">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="_02amani_uart_get" id="6.qv{5hLC-J~~n2i)Gb#"></block>
+                </value>
+                <value name="B">
+                  <block type="text" id="Z^,UE{4u(PVg`9!a3E^-">
+                    <field name="TEXT">STANDBY_TRASH_CAM</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="variables_set3" id="EJ%^EM}:_9y@N^}X8|,p">
+                <field name="VAR" id="N4Ps(rC.L@opP(mA.=v[">isMoveTrashCam</field>
+                <value name="DELTA">
+                  <shadow type="math_number" id=")`W*`#Cfxa69esSQb*J;">
+                    <field name="NUM">0</field>
+                  </shadow>
+                  <block type="logic_boolean" id="2S;vkj6g2=whYSy;nj^9">
+                    <field name="BOOL">TRUE</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <value name="IF1">
+              <block type="logic_compare" id="{!a3#L_p]X1L{G=ed:aK">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="_02amani_uart_get" id="|MrjR$2)-U=Yjcnw^w7y"></block>
+                </value>
+                <value name="B">
+                  <block type="text" id="a6.X4]atyOk@ZMdG[^^4">
+                    <field name="TEXT">STANDBY_PLANT_CAM</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO1">
+              <block type="variables_set3" id="|5pza6XN]x?S9#3-l9@}">
+                <field name="VAR" id="R_|SijV~7V4df`Q~+!/L">isMovePlantCam</field>
+                <value name="DELTA">
+                  <shadow type="math_number">
+                    <field name="NUM">0</field>
+                  </shadow>
+                  <block type="logic_boolean" id="lEYcriQ1USechaFOYyf:">
+                    <field name="BOOL">FALSE</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

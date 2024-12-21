@@ -1,0 +1,324 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="lsR={Ggm8cLMw]Xng:1r">targetHour</variable>
+    <variable id="z,k3t6Y7ZS(mi^7SP1g%">targetMinute</variable>
+    <variable id="xL``+m=g(uvLl9$:-?le">message</variable>
+  </variables>
+  <block type="board_initializes_setup" id="0" x="70" y="50">
+    <field name="BOARD_TYPE">ESP32</field>
+    <statement name="CONTENT">
+      <block type="serial_init" id="h:Qz(Ois{ec3FK`#Ku)]">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="amani_adafruit_io_mqtt_init" id="Rpn4]RSYogLL^TN=j?L3">
+            <value name="WIFI_SSID">
+              <shadow type="text" id=",wdnQT{*?@XEz]m]K188">
+                <field name="TEXT">Your_SSID</field>
+              </shadow>
+              <block type="text" id="Try1iCDU1%}EfkPv6B[x">
+                <field name="TEXT">tyes-itc2</field>
+              </block>
+            </value>
+            <value name="WIFI_PASS">
+              <shadow type="text" id="7b#f*n8[~:M.;#eQ.j]3">
+                <field name="TEXT">Your_PASSWORD</field>
+              </shadow>
+              <block type="text" id="6E:^a}x)[s)o_69K7O6~">
+                <field name="TEXT">xxxxxxxxxx</field>
+              </block>
+            </value>
+            <value name="IO_USERNAME">
+              <shadow type="text" id=";jS1@[$K`!+1l|#GPQ)f">
+                <field name="TEXT">Your_Username</field>
+              </shadow>
+              <block type="text" id="k5q3jo;N.6WkgD#G0iUh">
+                <field name="TEXT">user</field>
+              </block>
+            </value>
+            <value name="IO_KEY">
+              <shadow type="text" id="g*E]*ulkkG=7GEO/Bl?5">
+                <field name="TEXT">Your_IO_Key</field>
+              </shadow>
+              <block type="text" id="zu)[O^Z[v7or@SBNahne">
+                <field name="TEXT">xxxxxxxxxx</field>
+              </block>
+            </value>
+            <next>
+              <block type="fu_ntpserver_initial" id="dI@/ts2tLIq9+e![+)^}">
+                <value name="gmtOffset">
+                  <block type="math_number" id="Bii^7J:LH2U$B54^`,Q[">
+                    <field name="NUM">8</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="customcode_comment" id="|5m+9QknVT$zC`9hjmHm">
+            <value name="text">
+              <block type="text" id="6B5~B`Ak,W$#`?.-4e(;">
+                <field name="TEXT">每日定時拍照:植物(08:00:00)</field>
+              </block>
+            </value>
+            <next>
+              <block type="procedures_callnoreturn" id="AF$euUn;V[b7V$Tj1A3P">
+                <mutation xmlns="http://www.w3.org/1999/xhtml" name="handleTrigger"></mutation>
+                <value name="VAR">
+                  <block type="lists_create_with" id="lZaKF~ltdd|ZMtfN+b+S">
+                    <mutation items="3"></mutation>
+                    <value name="ADD0">
+                      <block type="math_number" id="7`4Cp@PA+6Ui~z9k5d(0">
+                        <field name="NUM">8</field>
+                      </block>
+                    </value>
+                    <value name="ADD1">
+                      <block type="math_number" id="ZxiXouV-!X,Zm2V[-$lj">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                    <value name="ADD2">
+                      <block type="text" id="6`GcWL9.LgP2!B,@p=ZC">
+                        <field name="TEXT">plant</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="customcode_comment" id="L:fYSYo?ODb;ZP[CO!AM">
+                    <value name="text">
+                      <block type="text" id="G}3{T@n+@R{/zr5D~T;i">
+                        <field name="TEXT">每日定時拍照:垃圾桶(15:00:00)</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="procedures_callnoreturn" id="@6?edAl/.a9Cj`Je)U*c">
+                        <mutation xmlns="http://www.w3.org/1999/xhtml" name="handleTrigger"></mutation>
+                        <value name="VAR">
+                          <block type="lists_create_with" id="/-N*y`i4nRtULJ}/[OMM">
+                            <mutation items="3"></mutation>
+                            <value name="ADD0">
+                              <block type="math_number" id="Ram@CGV]ckM1rmNp;RaQ">
+                                <field name="NUM">15</field>
+                              </block>
+                            </value>
+                            <value name="ADD1">
+                              <block type="math_number" id="PBMKgxKF/rMf~0gJmUug">
+                                <field name="NUM">0</field>
+                              </block>
+                            </value>
+                            <value name="ADD2">
+                              <block type="text" id="[wT_1eLiUiK^$wPf34Oq">
+                                <field name="TEXT">trash</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="customcode_comment" id="FQ%k3cI#QHQ2WS]2zU]_">
+                            <value name="text">
+                              <block type="text" id="q|.Z|6lN-bYa+%WKXMjD">
+                                <field name="TEXT">2、UNO回傳通知:已完成軌道移動</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="_01amani_uart_init" id="mSG+KjzErs%u,^R^hYnD">
+                                <field name="serial">softSerial</field>
+                                <field name="baudrate">9600</field>
+                                <value name="rx">
+                                  <block type="math_number" id="]w;l!i(r6U#9*vqGK#{i">
+                                    <field name="NUM">16</field>
+                                  </block>
+                                </value>
+                                <value name="tx">
+                                  <block type="math_number" id="PV-pZal3fsrIV[rM@=yQ">
+                                    <field name="NUM">17</field>
+                                  </block>
+                                </value>
+                                <statement name="statement">
+                                  <block type="customcode_comment" id="T1e5Lx:b+_}:/I*y58UM">
+                                    <value name="text">
+                                      <block type="text" id="FXKD=A:wEeM.w,N_zf.L">
+                                        <field name="TEXT">3、透過MQTT通知ESP32-CAM拍照(訊息內容:START_TRASH_CAM,START_PLANT_CAM)</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="amani_adafruit_io_publish" id="VG~LfSQq-SF1Bf`d]Hya">
+                                        <value name="FEED_NAME">
+                                          <shadow type="text" id="kfupxD:ri;kShdC6Kv6E">
+                                            <field name="TEXT"></field>
+                                          </shadow>
+                                          <block type="text" id=":lt5#@5(XTPQ#6W3lbaS">
+                                            <field name="TEXT">control-cam</field>
+                                          </block>
+                                        </value>
+                                        <value name="MESSAGE">
+                                          <shadow type="text" id="V%{7YV{tGS[E9A#wNEM|">
+                                            <field name="TEXT"></field>
+                                          </shadow>
+                                          <block type="_02amani_uart_get" id="Lz(7%1x=-w.n4-~IV0[a"></block>
+                                        </value>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </statement>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+  <block type="procedures_defnoreturn" id="f_-{C*W#!!%.QMx3A:vw" x="810" y="430">
+    <field name="NAME">handleTrigger</field>
+    <value name="VAR">
+      <shadow type="lists_create_with" inline="true">
+        <mutation items="0"></mutation>
+      </shadow>
+      <block type="lists_create_with" id=")z.Y5UWl1{A0(|8Xtn{2" inline="true">
+        <mutation items="3"></mutation>
+        <value name="ADD0">
+          <block type="variables_set2" id=",TY,ID7g4af/oknpz#1J">
+            <field name="TYPE">int</field>
+            <field name="VAR" id="lsR={Ggm8cLMw]Xng:1r">targetHour</field>
+          </block>
+        </value>
+        <value name="ADD1">
+          <block type="variables_set2" id="1j~U1RB18vz(98^4D_A`">
+            <field name="TYPE">boolean</field>
+            <field name="VAR" id="z,k3t6Y7ZS(mi^7SP1g%">targetMinute</field>
+          </block>
+        </value>
+        <value name="ADD2">
+          <block type="variables_set2" id="45gaBDI^`wSXy]X2Osx8">
+            <field name="TYPE">const char*</field>
+            <field name="VAR" id="xL``+m=g(uvLl9$:-?le">message</field>
+          </block>
+        </value>
+      </block>
+    </value>
+    <statement name="STACK">
+      <block type="controls_if" id="|@tCE/uYV5qSX.%l_JR_">
+        <value name="IF0">
+          <block type="logic_operation" id=")LvJ9pU8iLDi7N~igvsm">
+            <field name="OP">AND</field>
+            <value name="A">
+              <block type="logic_compare" id="UV2tW/:zU.4RLzHU#.eG">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="variables_get" id="pwXLhS/dZ^+zr8]9*nlp">
+                    <field name="VAR" id="lsR={Ggm8cLMw]Xng:1r">targetHour</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="fu_ntpserver_get" id="4lL;DGq]$AHs,{Y7lTpi">
+                    <field name="option">hour</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="B">
+              <block type="logic_compare" id="P#M8,6:6$#/N{h3e(9w3">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="variables_get" id="JtD4{j;2cj!:_nUy2Kx=">
+                    <field name="VAR" id="z,k3t6Y7ZS(mi^7SP1g%">targetMinute</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="fu_ntpserver_get" id="eiRt7w4P.UK{?,+%eCNe">
+                    <field name="option">minute</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="customcode_comment" id="vLVKyneWF7:bbKYxy7{$">
+            <value name="text">
+              <block type="text" id="FuRo{K98#8_#JcKwf6GA">
+                <field name="TEXT">1、通知UNO，移動軌道，準備拍照</field>
+              </block>
+            </value>
+            <next>
+              <block type="controls_if" id="%tmPT]),NxE7o?C-[Tm1">
+                <mutation elseif="1"></mutation>
+                <value name="IF0">
+                  <block type="logic_compare" id="[D]6~upYrS:#.Ko~K:aL">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="variables_get" id="|VwC(W@?ve;!b;5Vb,8z">
+                        <field name="VAR" id="xL``+m=g(uvLl9$:-?le">message</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="text" id="Y3vB,f9_PyL$Q/J//V12">
+                        <field name="TEXT">plant</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="_03amani_uart_send" id="K?tn@D`O~4/r[E(5c2;H">
+                    <field name="serial">softSerial</field>
+                    <field name="send">print</field>
+                    <value name="msg">
+                      <shadow type="text" id="Zf07daSB`cn?,$QlR8Hi">
+                        <field name="TEXT"></field>
+                      </shadow>
+                      <block type="text" id="uC$.D4u)W7ov,[nou.YM">
+                        <field name="TEXT">STANDBY_PLANT_CAM</field>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+                <value name="IF1">
+                  <block type="logic_compare" id="GN{+VmE1x#pY4s45Fg@A">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="variables_get" id="?:gj[Dp4(jKWyR:izTxe">
+                        <field name="VAR" id="xL``+m=g(uvLl9$:-?le">message</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="text" id="!?qc}M`Bze^h2h[b28ar">
+                        <field name="TEXT">trash</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO1">
+                  <block type="_03amani_uart_send" id="vXGl{L]cr,zn/0iQQFZ^">
+                    <field name="serial">softSerial</field>
+                    <field name="send">print</field>
+                    <value name="msg">
+                      <shadow type="text">
+                        <field name="TEXT"></field>
+                      </shadow>
+                      <block type="text" id="X-3Ewlp(vZReNPG`5dXw">
+                        <field name="TEXT">STANDBY_TRASH_CAM</field>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>

@@ -1,0 +1,172 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="board_initializes_setup" id="0" x="100" y="50">
+    <field name="BOARD_TYPE">ESP32</field>
+    <statement name="CONTENT">
+      <block type="serial_init" id="cdR-:Lz,Sv7_~IdZ;9)-">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="linkit_wifi_wait_until_ready" id="Y?{eBY_Yf:oJ`,b1oJi;">
+            <value name="SSID">
+              <block type="text" id="KWmWreda?wM)npHbL[^#">
+                <field name="TEXT">tyes-itc</field>
+              </block>
+            </value>
+            <value name="PASSWORD">
+              <block type="text" id="C#7[9Sb4@9!nB[`Br~wu">
+                <field name="TEXT">xxxxxxxxxx</field>
+              </block>
+            </value>
+            <next>
+              <block type="setupSheets" id="[7Beqkvogsn}2iZ88uzg">
+                <value name="sheetId">
+                  <block type="text" id="veQ(Qc0WF*?}Ao{lJw@B">
+                    <field name="TEXT">xxxxxxxxxxxxxxxxxxxxxxxxxx</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="setupForm" id="RzQ(^xg=P4R0eG~2,5e+">
+                    <value name="sheetTag">
+                      <block type="text" id="Lzc7}s^1;nzNEYMcB,nm">
+                        <field name="TEXT">water</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="amani_fake_yfs201_init" id="}R=`2ya}Va1bN3`kC9!u">
+                        <value name="yfspin">
+                          <block type="math_number" id="aht2,:Idt7D;Pku2Zk00">
+                            <field name="NUM">4</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="customcode_comment" id="3d;[m-Ar=Ujk^BSC%vd~">
+            <value name="text">
+              <block type="text" id="a$;~#qPy^Uc[.,Y#v^~p">
+                <field name="TEXT">偵測水流量</field>
+              </block>
+            </value>
+            <next>
+              <block type="_01amani_simpletimer_setinteval" id="O~(-~V?`eroqBH$5_B7j">
+                <field name="order">0</field>
+                <value name="ms">
+                  <block type="math_number" id="F2lCg7X7:.mTnKKck8Kp">
+                    <field name="NUM">1000</field>
+                  </block>
+                </value>
+                <statement name="msg">
+                  <block type="math_change" id="XR_rEtck8n#Sea}gBU5@">
+                    <value name="VAR">
+                      <block type="amani_fake_yfs201_flow" id="EBuWGMyS}Z16pgFPM:=)"></block>
+                    </value>
+                    <value name="DELTA">
+                      <block type="amani_fake_yfs201_flow" id=";/mb!9q16LF6Vk7c3n;G"></block>
+                    </value>
+                    <next>
+                      <block type="serial_println" id="B72+T6Y6I*;Xx.YffVvV">
+                        <value name="CONTENT">
+                          <block type="text_join" id="JwMAfwxak~Z9WF+mJy~C">
+                            <mutation items="2"></mutation>
+                            <value name="ADD0">
+                              <block type="text" id="LtsZM5nfGa=.ExhKtumK">
+                                <field name="TEXT">出水量累加：</field>
+                              </block>
+                            </value>
+                            <value name="ADD1">
+                              <block type="amani_fake_yfs201_flow" id="i.mY*gys}d8Z!:hKvGH$"></block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <next>
+                  <block type="customcode_comment" id="(OrBD3y8qek:AC*UU%0n">
+                    <value name="text">
+                      <block type="text" id="r[w)J)NM:/UCZ6w`z(Kq">
+                        <field name="TEXT">每小時上傳Google試算表</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="_01amani_simpletimer_setinteval" id="jH.qvgAnjS9cTyQheo`I">
+                        <field name="order">1</field>
+                        <value name="ms">
+                          <block type="math_number" id="rJzAhlUgF6)D)oNmD+Zq">
+                            <field name="NUM">3600000</field>
+                          </block>
+                        </value>
+                        <statement name="msg">
+                          <block type="controls_if" id=":Nt6=m(VSYJhtm.am4s2">
+                            <value name="IF0">
+                              <block type="logic_compare" id="X~g}.gvJ0gd[?[7d2uV+">
+                                <field name="OP">NEQ</field>
+                                <value name="A">
+                                  <block type="amani_fake_yfs201_flow" id="f%RY3n{g%5]%,+vMeQR/"></block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="s=TG}{.bEW)Q%ZX64,ct">
+                                    <field name="NUM">0</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="DO0">
+                              <block type="sendToGoogle" id="Q39.?2}Zn^P~H05)KdoM">
+                                <field name="dateInclude">1</field>
+                                <value name="data">
+                                  <block type="data_join" id="(Ch6eMwizwB|ejz=E(hI" inline="false">
+                                    <mutation items="3"></mutation>
+                                    <value name="ADD0">
+                                      <block type="text" id=":4sAoB]aLc$Pp6]}8T)(">
+                                        <field name="TEXT">國小A</field>
+                                      </block>
+                                    </value>
+                                    <value name="ADD1">
+                                      <block type="text" id="k~mxRbvno%m+yVAnwmv:">
+                                        <field name="TEXT">601</field>
+                                      </block>
+                                    </value>
+                                    <value name="ADD2">
+                                      <block type="amani_fake_yfs201_flow" id=".?/8H-V#nJI6aFN-;Z.X"></block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="customcode_variable" id="xKZ87Sjqlf!l]fk8E?JQ">
+                                    <value name="variable">
+                                      <block type="amani_fake_yfs201_flow" id="`*_bi+jZHloZ%A80-=0x"></block>
+                                    </value>
+                                    <value name="text">
+                                      <block type="math_number" id=",K7H+y:P76oQ3Bz@7_UH">
+                                        <field name="NUM">0</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </statement>
+                          </block>
+                        </statement>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

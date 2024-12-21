@@ -1,0 +1,260 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="H4NmHVXKNT7*K(3:lez!">mWhs</variable>
+    <variable id="c0$X)Zr=%YxV7l/`ONTp">name</variable>
+    <variable id="]-;07G|5Lm~LxBkicr=@">i</variable>
+  </variables>
+  <block type="board_initializes_setup" id="0" x="410" y="110">
+    <field name="BOARD_TYPE">ESP32</field>
+    <statement name="CONTENT">
+      <block type="serial_init" id="U+,pJ~*muJp)0hscp]]#">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="amani_adafruit_io_mqtt_init" id="^zj5B3JRhxQ.RT`mlYc4">
+            <value name="WIFI_SSID">
+              <shadow type="text" id="!Z{mveF,t4KukiWNN|WF">
+                <field name="TEXT">Your_SSID</field>
+              </shadow>
+              <block type="text" id="PSc***+df^ok_nRv@I_4">
+                <field name="TEXT">tyes-itc2</field>
+              </block>
+            </value>
+            <value name="WIFI_PASS">
+              <shadow type="text" id="4i{b$F#hc[I4caNpE^l-">
+                <field name="TEXT">Your_PASSWORD</field>
+              </shadow>
+              <block type="text" id="dfX]!],nq`-s2ikM[Rzb">
+                <field name="TEXT">xxxxxxxx</field>
+              </block>
+            </value>
+            <value name="IO_USERNAME">
+              <shadow type="text" id="!Mc?6}oUoX^PX9D/r0mp">
+                <field name="TEXT">Your_Username</field>
+              </shadow>
+              <block type="text" id="z5/}jW4~l%nnHuIl^AeO">
+                <field name="TEXT">kingofamani</field>
+              </block>
+            </value>
+            <value name="IO_KEY">
+              <shadow type="text" id="n~^v6LBh.}/ah?^~6GX.">
+                <field name="TEXT">Your_IO_Key</field>
+              </shadow>
+              <block type="text" id="}9Ab3AT#_+SHUkDHhJ!j">
+                <field name="TEXT">xxxxxxxx</field>
+              </block>
+            </value>
+            <next>
+              <block type="setupSheets" id="FQa$)V3K_.Q4]2W7,TJ-">
+                <value name="sheetId">
+                  <block type="text" id=":Az7!^1;9DnY,5hgZ{N:">
+                    <field name="TEXT">1HJXiuubfE-B5BDcYbafIpWQZklJnijVfdYzurXO4LDc</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="setupForm" id="vB[qg]f412x%BUgl-m*k">
+                    <value name="sheetTag">
+                      <block type="text" id="w07CaY]BZHH5pUfGr.|L">
+                        <field name="TEXT">sensor</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1">
+        <statement name="CONTENT">
+          <block type="customcode_comment" id="|_(^?=1mohvPQ78rkvwl">
+            <value name="text">
+              <block type="text" id="WPc7ZoRh86xkesh}GO@}">
+                <field name="TEXT">收到UNO資料</field>
+              </block>
+            </value>
+            <next>
+              <block type="_01amani_uart_init" id="!];[BZ0sQ[MM[NSux0;V">
+                <field name="serial">softSerial</field>
+                <field name="baudrate">9600</field>
+                <value name="rx">
+                  <block type="math_number" id="qqJZ}/wv=Bvuqf=BJK6s">
+                    <field name="NUM">16</field>
+                  </block>
+                </value>
+                <value name="tx">
+                  <block type="math_number" id="92nt#v%stBEL0,|Z{n##">
+                    <field name="NUM">17</field>
+                  </block>
+                </value>
+                <statement name="statement">
+                  <block type="customcode_comment" id="sOy[Lra$@]J8^(#C@VNP">
+                    <value name="text">
+                      <block type="text" id="/(tW_wv8wG/?jY{VcBek">
+                        <field name="TEXT">收到風扇,電燈,冷氣的耗電量</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_set1" id="s]iUpEXt0fnX[~s@MpPW">
+                        <field name="POSITION">local</field>
+                        <field name="TYPE">String</field>
+                        <field name="VAR" id="H4NmHVXKNT7*K(3:lez!">mWhs</field>
+                        <value name="LEN">
+                          <block type="math_number" id="*Nm^{CA6kTrdT$ni3?um">
+                            <field name="NUM">3</field>
+                          </block>
+                        </value>
+                        <value name="VALUE">
+                          <shadow type="text" id="p)0]]VI[h^;UNz[*jKv=">
+                            <field name="TEXT"></field>
+                          </shadow>
+                          <block type="create_custom_array" id="]Z#,?D9oq:4-@e4mj^%0">
+                            <value name="MY_VAR">
+                              <block type="_02amani_uart_get" id="$#xh^H1rgrNtL_A$CV`C"></block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="variables_set1" id="QXjl6*tr0a/Y1_GIwdn5">
+                            <field name="POSITION">global</field>
+                            <field name="TYPE">String</field>
+                            <field name="VAR" id="c0$X)Zr=%YxV7l/`ONTp">name</field>
+                            <value name="LEN">
+                              <block type="math_number" id="UA~]$id|[t48_H7yQCc9">
+                                <field name="NUM">3</field>
+                              </block>
+                            </value>
+                            <value name="VALUE">
+                              <shadow type="text" id="cDPd8gT6PLLP7bahsp]_">
+                                <field name="TEXT"></field>
+                              </shadow>
+                              <block type="text_join" id="or@gM:%E#7(cr[JE%{IV">
+                                <mutation items="3"></mutation>
+                                <value name="ADD0">
+                                  <block type="text" id="D58XOyw[i:]x%gPydvW5">
+                                    <field name="TEXT">風扇</field>
+                                  </block>
+                                </value>
+                                <value name="ADD1">
+                                  <block type="text" id="U|tL88irN[a}Y{HboFm?">
+                                    <field name="TEXT">電燈</field>
+                                  </block>
+                                </value>
+                                <value name="ADD2">
+                                  <block type="text" id="P1@pT1nZlUeS?R(N7|qg">
+                                    <field name="TEXT">冷氣</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="controls_for" id="s:Ul(*~k#q$#26~1I4;f">
+                                <field name="VAR" id="]-;07G|5Lm~LxBkicr=@">i</field>
+                                <value name="FROM">
+                                  <block type="math_number" id="+#Egui=X6|YKZbbSMc9=">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                                <value name="TO">
+                                  <block type="math_number" id="~22;xzN(g2Dt.y5$}*L`">
+                                    <field name="NUM">3</field>
+                                  </block>
+                                </value>
+                                <value name="BY">
+                                  <block type="math_number" id="S~CQEf%f.u](2@ZI^}#f">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                                <statement name="DO">
+                                  <block type="sendToGoogle" id="N?-GE#s,6#/;ATzq|FDp">
+                                    <field name="dateInclude">1</field>
+                                    <value name="data">
+                                      <block type="data_join" id="sgjX9Sj3[PAsjEvC|O{U" inline="false">
+                                        <mutation items="5"></mutation>
+                                        <value name="ADD0">
+                                          <block type="text" id="J-b1aZQxq2o))IH{S_Kk">
+                                            <field name="TEXT">國小A</field>
+                                          </block>
+                                        </value>
+                                        <value name="ADD1">
+                                          <block type="text" id="n+gT_iJaKvl}DsKtR8xn">
+                                            <field name="TEXT">601</field>
+                                          </block>
+                                        </value>
+                                        <value name="ADD2">
+                                          <block type="variables_set5" id="*IcAM{Psl0,u_)[6`X5_">
+                                            <field name="VAR" id="c0$X)Zr=%YxV7l/`ONTp">name</field>
+                                            <value name="INDEX">
+                                              <block type="variables_get" id="Myy6jAqwpd09%fMY7EV6">
+                                                <field name="VAR" id="]-;07G|5Lm~LxBkicr=@">i</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <value name="ADD3">
+                                          <block type="math_number" id="=hR!pFLcXuy~LhLunRHD">
+                                            <field name="NUM">1</field>
+                                          </block>
+                                        </value>
+                                        <value name="ADD4">
+                                          <block type="variables_set5" id="9|nB!IltS$3TiiM^-A^A">
+                                            <field name="VAR" id="H4NmHVXKNT7*K(3:lez!">mWhs</field>
+                                            <value name="INDEX">
+                                              <block type="variables_get" id=")ScYuw]zOEtEl{%S`|v}">
+                                                <field name="VAR" id="]-;07G|5Lm~LxBkicr=@">i</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </statement>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+  <block type="amani_mqtt_subscribe" id="9)F_5U824zd@:Pys/8h*" x="410" y="1070">
+    <value name="feedname">
+      <shadow type="text" id="%fX^!-6|B}n4v*ZE|B/~">
+        <field name="TEXT"></field>
+      </shadow>
+      <block type="text" id="j,TWNV{o!Lp*=ANr|+uW">
+        <field name="TEXT">control-device</field>
+      </block>
+    </value>
+    <statement name="statement">
+      <block type="customcode_comment" id="#|#;u{5_uSpcS8mh%oq*">
+        <value name="text">
+          <block type="text" id="n==IM*6;$.Fn=CcyHkjf">
+            <field name="TEXT">收到MQTT電器控制（例如fan,1）→訊息傳至UNO版</field>
+          </block>
+        </value>
+        <next>
+          <block type="_03amani_uart_send" id="6RK8uG]ia*((3X2.`T%b">
+            <field name="serial">softSerial</field>
+            <field name="send">print</field>
+            <value name="msg">
+              <shadow type="text" id="FBT4DfRe;UC[hv#`ua-4">
+                <field name="TEXT"></field>
+              </shadow>
+              <block type="amani_mqtt_received_string" id="`@%kJ]g_X5JWOH+yRT$n"></block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>
