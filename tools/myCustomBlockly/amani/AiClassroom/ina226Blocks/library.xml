@@ -1,0 +1,47 @@
+<xml xmlns="https://developers.google.com/blockly/xml"><block type="factory_base" id="7ncwukNR-wK}9,%@Oe,w" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">amani_fake_ina226_init</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id=",*oKv.wlkvXha{maZ!aM">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="#BGOnrhQrh3#vQjzY:7(">
+            <field name="TEXT">初始化INA226數位電表 編號</field>
+            <next>
+              <block type="field_dropdown" id="C=nGP^C42O?Yh{vc(DHc">
+                <mutation options="[&quot;text&quot;,&quot;text&quot;,&quot;text&quot;]"></mutation>
+                <field name="FIELDNAME">inachannel</field>
+                <field name="USER0">0</field>
+                <field name="CPU0">0</field>
+                <field name="USER1">1</field>
+                <field name="CPU1">1</field>
+                <field name="USER2">2</field>
+                <field name="CPU2">2</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="]|Jttamr6xO1(s{c;=iN" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="[LZG|W@vgx0~`,It2qOU" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="T{`ECeK,^C(pO~G*NJE0"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id=".sEbOLzRmI$/)=G1z%E[">
+        <mutation colour="#93a55b"></mutation>
+        <field name="HUE">75</field>
+      </block>
+    </value>
+  </block></xml>

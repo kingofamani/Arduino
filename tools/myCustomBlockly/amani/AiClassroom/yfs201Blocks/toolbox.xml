@@ -1,0 +1,10 @@
+<xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
+  <block type="amani_fake_yfs201_init">
+    <value name="yfspin">
+      <block type="math_number">
+        <field name="NUM">4</field>
+      </block>
+    </value>
+  </block>
+  <block type="amani_fake_yfs201_flow"></block>
+</xml>

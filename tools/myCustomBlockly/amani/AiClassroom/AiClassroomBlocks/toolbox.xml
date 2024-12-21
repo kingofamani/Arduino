@@ -1,0 +1,48 @@
+<category name="AI教室" colour="75">
+	<block type="amani_fake_ina226_init">
+    <field name="inachannel">0</field>
+  </block>
+  
+  <block type="amani_fake_ina226_mv">
+    <field name="mvchannel">0</field>
+  </block>
+  
+  <block type="amani_fake_ina226_ma">
+    <field name="machannel">0</field>
+  </block>
+  
+  <block type="amani_fake_cnc_init" >
+    <value name="cncenable">
+      <block type="math_number">
+        <field name="NUM">8</field>
+      </block>
+    </value>
+    <value name="xdir">
+      <block type="math_number">
+        <field name="NUM">5</field>
+      </block>
+    </value>
+    <value name="xstep">
+      <block type="math_number">
+        <field name="NUM">2</field>
+      </block>
+    </value>
+  </block>
+  <block type="amani_fake_cnc_xmove" >
+    <value name="xmove">
+      <block type="math_number">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+  </block>
+  <block type="amani_fake_cnc_xcurrent"></block>
+  
+  <block type="amani_fake_yfs201_init">
+    <value name="yfspin">
+      <block type="math_number">
+        <field name="NUM">4</field>
+      </block>
+    </value>
+  </block>
+  <block type="amani_fake_yfs201_flow"></block>
+</category>
