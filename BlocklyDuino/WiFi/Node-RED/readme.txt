@@ -5,6 +5,12 @@
 
 selenium-script.js複製至C:\Users\user\.node-red
 
+安裝selenium-webdriver：
+npm install selenium-webdriver
+然後在C:\Users\amani2\.node-red資料夾下執行npm install selenium-webdriver --save
+
+chrome開啟http://127.0.0.1:1880/get-location ，按允許位置權限
+
 
 在postman發送mqtt主題消息(其實是發送http GET)：
 GET https://api.thingspeak.com/update?api_key= 【thingspeak Write API Key】&field4=https://taira-komori.jpn.org/sound_os2/anime01/blackout_piano1.mp3
