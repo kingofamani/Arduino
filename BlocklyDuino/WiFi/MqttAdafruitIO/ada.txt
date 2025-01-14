@@ -50,6 +50,8 @@ Adafruit IO
 	https://io.adafruit.com/api/v2/webhooks/feed/UFcZbC7j4TpTVpSvZ5nqwFBRsono
 	feed/study-hard：
 	https://io.adafruit.com/api/v2/webhooks/feed/FknnEtWFCQrKxRumt1BWQ3ztzbXE
+	feed/control-cam：
+	https://io.adafruit.com/api/v2/webhooks/feed/cGERG8kFe7UYihfX13bDnVCUV1Gq
 
 	
 Make
